@@ -1,2 +1,1 @@
-# Book107
-Readings for MTH107 (Northland College, Ogle)
+Repository of the readings for [the MTH107 course](https://derekogle.com/NCMTH107/) taught by [Derek Ogle](https://derekogle.com/) at [Northland College](https://www.northland.edu/). See http://derekogle.com/Book107/ for the compiled "book."

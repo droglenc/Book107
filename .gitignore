@@ -1,0 +1,9 @@
+## R History files
+.Rhistory
+.Rapp.history
+
+## R project info
+.Rproj.user
+
+## Not needed in repo
+Book207.log

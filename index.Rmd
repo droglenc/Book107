@@ -1,0 +1,74 @@
+--- 
+lang: "en"
+title: "Readings for MTH107"
+author: "Derek H. Ogle"
+date: "`r format (Sys.Date(), '%d %b %Y')`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+url: 'http\://derekogle.com/Book107/'
+github-repo: droglenc/Book207
+description: "This book contains the readings for MTH107 at Northland College."
+---
+
+```{r setup, include=FALSE}
+library(NCStats)
+library(ggplot2)
+library(emmeans)
+knitr::opts_chunk$set(comment="#R>  ",message=FALSE,warning=FALSE,
+                      fig.align='center',fig.width=3.5,fig.height=3.5,
+                      class.source="RCODE",class.output="ROUTPUT",
+                      class.warning="RWARNING",
+                      class.error="RERROR",
+                      class.message="RMESSAGE",
+                      dev.args=list(bg="transparent"))
+theme_NCStats <- function() {
+  NCStats::theme_NCStats() +
+  ggplot2::theme(panel.background=element_rect(fill="transparent",colour=NA),
+                 plot.background=element_rect(fill="transparent",colour=NA),
+                 legend.background=element_rect(fill="transparent",colour=NA),
+                 legend.key=element_rect(fill="transparent",colour=NA))
+}
+
+options(show.signif.stars=FALSE,knitr.kable.NA = '')
+clrs <- c("#1dabe6","#1c366a","#c3ced0","#e43034","#fc4e51","#af060f")
+clrs2 <- clrs[c(1,4)]
+clr_full <- clrs2[1]
+clr_simple <- clrs2[2]
+clrs3 <- clrs[c(5,2,6)]
+lbl_text_size <- 4
+lbl_clr <- "gray25"
+khfont <- "Cambria"
+ARROW <- arrow(length=unit(1.5,"mm"),type="closed")
+```
+
+# Preface {-}
+This book contains a translation and re-development of past readings from MTH107. Thus, it contains all, but only, information that I expect you to know from this course. I have made every attempt to make it easy to read, provide visuals and explanations for all concepts, and grammatically correct. However, there are likely still errors or descriptions that don't make sense. Please feel free to ask questions or post errors on the appropriate channel of the course MS Team.
+
+The book highlights definitions and tips in special boxes.
+
+::: {.defn data-latex=""}
+**Definition**: This is a definition.
+:::
+
+::: {.tip data-latex=""}
+This is a tip.
+:::
+
+R Code and results are also shown in special boxes. Code in the R box can be copied verbatim from the box with the icon that appears when you hover over the upper right corner of the code box.
+
+```{r}
+dat <- c(3,4,5,2,8)
+mean(dat)
+```
+
+The material presented in this book can be challenging to master. Please don't hesitate to ask me questions as you have them!
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'emmeans', 'ggplot2', 'patchwork'
+), 'packages.bib')
+```
