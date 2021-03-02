@@ -1,5 +1,5 @@
-# Foundational Definitions {#chap:FoundationalDefinitions}
-Statistical inference is the process of forming conclusions about a parameter of a population from statistics computed from individuals in a sample.^[Formal methods of inference are discussed beginning with Module \@ref(chap:ProbIntro).] Thus, understanding statistical inference requires understanding the difference between a population and a sample and a parameter and a statistic. And, to properly describe those items, the individual and variable(s) of interest must be identified. Understanding and identifying these six items is the focus of this module.
+# Foundational Definitions {#FoundationalDefns}
+Statistical inference is the process of forming conclusions about a parameter of a population from statistics computed from individuals in a sample.^[Formal methods of inference are discussed beginning with Module \@ref(Probability).] Thus, understanding statistical inference requires understanding the difference between a population and a sample and a parameter and a statistic. And, to properly describe those items, the individual and variable(s) of interest must be identified. Understanding and identifying these six items is the focus of this module.
 
 The following hypothetical example is used throughout this module. Assume that we are interested in the average length of 1015 fish in Square Lake. To illustrate important concepts in this module, assume that all information for all 1015 fish in this lake is known (Figure \@ref(fig:SquareLakePopn)). In "real life" this complete information would not be known.
 
@@ -75,7 +75,7 @@ SLpop1+SLhist1
 
 Summaries computed from individuals in a sample are called **statistics**. Specific names of statistics are preceded by"sample. "  The statistic of interest is always the same as the parameter of interest; i.e., the statistic describes the sample in the same way that the parameter describes the population. For example, if interest is in the population mean, then the sample mean would be computed.
 
-Some statistics computed from the sample from Square Lake are shown in Table \@ref(tab:SquareLakeSample1s) and Figure \@ref(fig:SquareLakeSample1). The sample mean of `r round(mean(SL1$tl),2)` mm is the best"guess" at the population mean. Not surprisingly from the discussion in Module \@ref(chap:WhyStatsImportant), the sample mean does not perfectly equal the population mean.
+Some statistics computed from the sample from Square Lake are shown in Table \@ref(tab:SquareLakeSample1s) and Figure \@ref(fig:SquareLakeSample1). The sample mean of `r round(mean(SL1$tl),2)` mm is the best"guess" at the population mean. Not surprisingly from the discussion in Module \@ref(WhyStats), the sample mean does not perfectly equal the population mean.
 
 &nbsp;
 
@@ -143,7 +143,7 @@ Descriptions for parameter and statistic will contain the same summary (usually 
 :::
 
 ### Sampling Variability (Revisited)
-It is instructive to once again (see Module \@ref(chap:WhyStatsImportant)) consider how statistics differ among samples. Table \@ref(tab:SquareLakeSample234s) and Figure \@ref(fig:SquareLakeSample234) show results from three more samples of n=50 fish from the Square Lake population. The means from all four samples (including the sample in Table \@ref(tab:SquareLakeSample1s) and Figure \@ref(fig:SquareLakeSample1)) were quite different from the known population mean of 98.06 mm. Similarly, all four histograms were similar in appearance but slightly different in actual values. These results illustrate that a statistic (or sample) will only approximate the parameter (or population) and that statistics vary among samples. This **sampling variability** is one of the most important concepts in statistics and is discussed in great detail beginning in Module \@ref(chap:SamplingDist).
+It is instructive to once again (see Module \@ref(WhyStats)) consider how statistics differ among samples. Table \@ref(tab:SquareLakeSample234s) and Figure \@ref(fig:SquareLakeSample234) show results from three more samples of n=50 fish from the Square Lake population. The means from all four samples (including the sample in Table \@ref(tab:SquareLakeSample1s) and Figure \@ref(fig:SquareLakeSample1)) were quite different from the known population mean of 98.06 mm. Similarly, all four histograms were similar in appearance but slightly different in actual values. These results illustrate that a statistic (or sample) will only approximate the parameter (or population) and that statistics vary among samples. This **sampling variability** is one of the most important concepts in statistics and is discussed in great detail beginning in Module \@ref(SamplingDist).
 
 &nbsp;
 
