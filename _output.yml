@@ -10,7 +10,7 @@ bookdown::gitbook:
       scroll_highlight: yes
       collapse: section
       before: |
-        <li><a href="./">Readings for MTH207</a></li>
+        <li><a href="./">Readings for MTH107</a></li>
       after: |
         <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
         <li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
@@ -20,4 +20,3 @@ bookdown::gitbook:
       facebook: no
       github: yes
       all: no
-

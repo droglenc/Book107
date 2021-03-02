@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 2 Foundational Definitions | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 2 Foundational Definitions | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book207" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 2 Foundational Definitions | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-03-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-WhyStatsImportant.html"/>
+<link rel="next" href="chap-DataProd.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="chap-WhyStatsImportant.html"><a href="chap-WhyStatsImportant.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap-WhyStatsImportant.html"><a href="chap-WhyStatsImportant.html#sect:Realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.2" data-path="chap-WhyStatsImportant.html"><a href="chap-WhyStatsImportant.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="chap-WhyStatsImportant.html"><a href="chap-WhyStatsImportant.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="chap-WhyStatsImportant.html"><a href="chap-WhyStatsImportant.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-FoundationalDefinitions.html"><a href="chap-FoundationalDefinitions.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-FoundationalDefinitions.html"><a href="chap-FoundationalDefinitions.html#sect:IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-FoundationalDefinitions.html"><a href="chap-FoundationalDefinitions.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-FoundationalDefinitions.html"><a href="chap-FoundationalDefinitions.html#sect:VarTypes"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-DataProd.html"><a href="chap-DataProd.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-DataProd.html"><a href="chap-DataProd.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-DataProd.html"><a href="chap-DataProd.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:FoundationalDefinitions" class="section level1" number="2">
+<h1><span class="header-section-number">Module 2</span> Foundational Definitions</h1>
+<p>Statistical inference is the process of forming conclusions about a parameter of a population from statistics computed from individuals in a sample.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> Thus, understanding statistical inference requires understanding the difference between a population and a sample and a parameter and a statistic. And, to properly describe those items, the individual and variable(s) of interest must be identified. Understanding and identifying these six items is the focus of this module.</p>
+<p>The following hypothetical example is used throughout this module. Assume that we are interested in the average length of 1015 fish in Square Lake. To illustrate important concepts in this module, assume that all information for all 1015 fish in this lake is known (Figure <a href="chap-FoundationalDefinitions.html#fig:SquareLakePopn">2.1</a>). In “real life” this complete information would not be known.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:SquareLakePopn"></span>
+<img src="Book207_files/figure-html/SquareLakePopn-1.png" alt="Schematic representation of individual fish (i.e., dots; **Left**) and histogram (**Right**) of the total length of the 1015 fish in Square Lake." width="672" />
+<p class="caption">
+Figure 2.1: Schematic representation of individual fish (i.e., dots; <strong>Left</strong>) and histogram (<strong>Right</strong>) of the total length of the 1015 fish in Square Lake.
+</p>
+</div>
+<div id="sect:IVPPSS" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Definitions</h2>
+<p>The <strong>individual</strong> in a statistical analysis is one of the “items” examined by the researcher. Sometimes the individual is a person, but it may be an animal, a piece of wood, a location, a particular time, or an event. It is extremely important that you don’t always visualize a person when considering an individual in a statistical sense. Synonyms for individual are unit, experimental unit (usually used in experiments), sampling unit (usually used in observational studies), case, and subject (usually used in studies involving humans). An individual in the Square Lake example is a fish, because the researcher will collect a set of fish and examine each individual fish.</p>
+<p>The <strong>variable</strong> is the characteristic recorded about each individual. The variable in the Square Lake example is the length of each fish. In most studies, the researcher will record more than one variable. For example, the researcher may also record the fish’s weight, sex, age, time of capture, and location of capture. In this module, only one variable is considered. In other modules, two variables will be considered.</p>
+<p>A <strong>population</strong> is ALL individuals of interest. In the Square Lake example, the population is all 1015 fish in the lake. The population should be defined as thoroughly as possible including qualifiers, especially those related to time and space, as necessary. This example is simple because Square Lake is so well defined; however, as you will see in the review exercises, the population is often only well-defined by your choice of descriptors.</p>
+<p>A <strong>parameter</strong> is a summary computed from ALL individuals in a population. The term for the particular summary is usually preceded by the word “population.” For example, the population average length of all 1015 fish in Square Lake is 98.06 mm and the population standard deviation is 31.49 mm (Table <a href="chap-FoundationalDefinitions.html#tab:SquareLakePopnTbl">2.1</a>).<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> Parameters are ultimately what is of interest, because interest is in all individuals in the population. However, in practice, parameters cannot be computed because the entire population cannot usually be “seen.”</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:SquareLakePopnTbl">Table 2.1: </span>Parameters for the total length of ALL 1015 fish in the Square Lake population.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;font-weight: bold;">
+n
+</th>
+<th style="text-align:right;font-weight: bold;">
+mean
+</th>
+<th style="text-align:right;font-weight: bold;">
+sd
+</th>
+<th style="text-align:right;font-weight: bold;">
+min
+</th>
+<th style="text-align:right;font-weight: bold;">
+Q1
+</th>
+<th style="text-align:right;font-weight: bold;">
+median
+</th>
+<th style="text-align:right;font-weight: bold;">
+Q3
+</th>
+<th style="text-align:right;font-weight: bold;">
+max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1015
+</td>
+<td style="text-align:right;">
+98.06
+</td>
+<td style="text-align:right;">
+31.49
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+117
+</td>
+<td style="text-align:right;">
+203
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>The entire population cannot be“seen” in real life. Thus, to learn something about the population, a subset of the population is usually examined. This subset is called a <strong>sample</strong>. The red dots in Figure <a href="chap-FoundationalDefinitions.html#fig:SquareLakeSample1">2.2</a> represent a random sample of n=50 fish from Square Lake (note that the sample size is usually denoted by n).</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:SquareLakeSample1"></span>
+<img src="Book207_files/figure-html/SquareLakeSample1-1.png" alt="Schematic representation (**Left**) of a sample of 50 fish (i.e., red dots) from Square Lake and histogram (**Right**) of the total length of the 50 fish in this sample." width="672" />
+<p class="caption">
+Figure 2.2: Schematic representation (<strong>Left</strong>) of a sample of 50 fish (i.e., red dots) from Square Lake and histogram (<strong>Right</strong>) of the total length of the 50 fish in this sample.
+</p>
+</div>
+<p> </p>
+<p>Summaries computed from individuals in a sample are called <strong>statistics</strong>. Specific names of statistics are preceded by“sample.” The statistic of interest is always the same as the parameter of interest; i.e., the statistic describes the sample in the same way that the parameter describes the population. For example, if interest is in the population mean, then the sample mean would be computed.</p>
+<p>Some statistics computed from the sample from Square Lake are shown in Table <a href="chap-FoundationalDefinitions.html#tab:SquareLakeSample1s">2.2</a> and Figure <a href="chap-FoundationalDefinitions.html#fig:SquareLakeSample1">2.2</a>. The sample mean of 107.5 mm is the best“guess” at the population mean. Not surprisingly from the discussion in Module <a href="chap-WhyStatsImportant.html#chap:WhyStatsImportant">1</a>, the sample mean does not perfectly equal the population mean.</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:SquareLakeSample1s">Table 2.2: </span>Summary statistics for the total length of a sample of 50 fish from the Square Lake population.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;font-weight: bold;">
+n
+</th>
+<th style="text-align:right;font-weight: bold;">
+mean
+</th>
+<th style="text-align:right;font-weight: bold;">
+sd
+</th>
+<th style="text-align:right;font-weight: bold;">
+min
+</th>
+<th style="text-align:right;font-weight: bold;">
+Q1
+</th>
+<th style="text-align:right;font-weight: bold;">
+median
+</th>
+<th style="text-align:right;font-weight: bold;">
+Q3
+</th>
+<th style="text-align:right;font-weight: bold;">
+max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+107.5
+</td>
+<td style="text-align:right;">
+34.26
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+77.25
+</td>
+<td style="text-align:right;">
+107.5
+</td>
+<td style="text-align:right;">
+134.75
+</td>
+<td style="text-align:right;">
+171
+</td>
+</tr>
+</tbody>
+</table>
+<div class="tip">
+<p>An individual is not necessarily a person.</p>
+</div>
+<div class="tip">
+<p>Populations and parameters can generally not be“seen.”</p>
+</div>
+</div>
+<div id="performing-an-ivppss" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Performing an IVPPSS</h2>
+<p>In each statistical analysis it is important that you determine the Individual, Variable, Population, Parameter, Sample, and Statistic (<strong>IVPPSS</strong>). First, determine what items you are actually going to look at; those are the individuals. Second, determine what is recorded about each individual; that is the variable. Third, ALL individuals is the population. Fourth, the summary (e.g., mean or proportion) of the variable recorded from ALL individuals in the population is the parameter.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> Fifth, the population usually cannot be seen, so only a few individuals are examined; those few individuals are the sample. Finally, the summary of the individuals in the sample is the statistic.</p>
+<p>When performing an IVPPSS, keep in mind that parameters describe populations (note that they both start with“p”) and statistics describe samples (note that they both start with“s”). This can also be looked at from another perspective. A sample is an estimate of the population and a statistic is an estimate of a parameter. Thus, the statistic has to be the same summary (mean or proportion) of the sample as the parameter is of the population.</p>
+<p>The IVPPSS process is illustrated for the following situation:</p>
+<blockquote>
+<p><em>A University of New Hampshire graduate student (and Northland College alum) investigated habitat utilization by New England (Sylvilagus transitionalis) and Eastern (Sylvilagus floridanus) cottontail rabbits in eastern Maine in 2007. In a preliminary portion of his research he determined the proportion of “rabbit patches” that were inhabited by New England cottontails. He examined 70 “patches” and found that 53 showed evidence of inhabitance by New England cottontails.</em></p>
+</blockquote>
+<ul>
+<li>An individual is a rabbit patch in eastern Maine in 2007 (i.e., a rabbit patch is the “item” being sampled and examined).</li>
+<li>The variable is “evidence for New England cottontails or not (yes or no)” (i.e., the characteristic of each rabbit patch that was recorded).</li>
+<li>The population is ALL rabbit patches in eastern Maine in 2007.</li>
+<li>The parameter is the proportion of ALL rabbit patches in eastern Maine in 2007 that showed evidence for New England cottontails.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></li>
+<li>The sample is the 70 rabbit patches from eastern Maine in 2007 that were actually examined by the researcher.</li>
+<li>The statistic is the proportion of the 70 rabbit patches from eastern Maine in 2007 actually examined that showed evidence for New England cottontails. [In this case, the statistic would be 53/70 or 0.757.]</li>
+</ul>
+<p>In the descriptions above, take note that the individual is very carefully defined (including stating a specific time (2007) and place (eastern Maine)), the population and parameter both use the word “ALL,” the sample and statistic both use the specific sample size (70 rabbits), and that the parameter and statistics both use the same summary (i.e., proportion of patches that showed evidence of New England cottontails).</p>
+<p>In some situations it may be easier to identify the sample first. From this, and realizing that a sample is always “of the individuals,” it may be easier to identify the individual. This process is illustrated in the following example, with the items listed in the order identified rather than in the traditional IVPPSS order.</p>
+<blockquote>
+<p><em>The Duluth, MN Touristry Board is interested in the average number of raptors seen per year at Hawk Ridge.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> To determine this value, they collected the total number of raptors seen in a sample of years from 1971-2003.</em></p>
+</blockquote>
+<ul>
+<li>The sample is the 32 years between 1971 and 2003 at Hawk Ridge.</li>
+<li>An individual is a year (because a “sample of <em>years</em>” was taken) at Hawk Ridge.</li>
+<li>The variable recorded was the number of raptors seen in one year at Hawk Ridge.</li>
+<li>The population is ALL years at Hawk Ridge (this is a bit ambiguous but may be thought of as all years that Hawk Ridge has existed).</li>
+<li>The parameter is the average number of raptors seen per year in ALL years at Hawk Ridge.</li>
+<li>The statistic is the average number of raptors seen in the 1971-2003 sample of years at Hawk Ridge.</li>
+</ul>
+<p>Again, note that the individual is very carefully defined (including stating a specific time and place), the population and parameter both use the word “ALL,” the sample and statistic both use the specific sample size (32 years), and that the parameter and statistics both use the same summary (i.e., average number of raptors).</p>
+<div class="tip">
+<p>An individual is usually defined by a specific time and place.</p>
+</div>
+<div class="tip">
+<p>Descriptions for population and parameter will always include the word “All.”</p>
+</div>
+<div class="tip">
+<p>Descriptions for sample and statistic will contain the specific sample size.</p>
+</div>
+<div class="tip">
+<p>Descriptions for parameter and statistic will contain the same summary (usually average/mean or proportion/percentage). Howeve the summary is for a different set of individuals – the population for the parameter and the sample for the statistic.</p>
+</div>
+<div id="sampling-variability-revisited" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Sampling Variability (Revisited)</h3>
+<p>It is instructive to once again (see Module <a href="chap-WhyStatsImportant.html#chap:WhyStatsImportant">1</a>) consider how statistics differ among samples. Table <a href="chap-FoundationalDefinitions.html#tab:SquareLakeSample234s">2.3</a> and Figure <a href="chap-FoundationalDefinitions.html#fig:SquareLakeSample234">2.3</a> show results from three more samples of n=50 fish from the Square Lake population. The means from all four samples (including the sample in Table <a href="chap-FoundationalDefinitions.html#tab:SquareLakeSample1s">2.2</a> and Figure <a href="chap-FoundationalDefinitions.html#fig:SquareLakeSample1">2.2</a>) were quite different from the known population mean of 98.06 mm. Similarly, all four histograms were similar in appearance but slightly different in actual values. These results illustrate that a statistic (or sample) will only approximate the parameter (or population) and that statistics vary among samples. This <strong>sampling variability</strong> is one of the most important concepts in statistics and is discussed in great detail beginning in Module <a href="#chap:SamplingDist"><strong>??</strong></a>.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:SquareLakeSample234"></span>
+<img src="Book207_files/figure-html/SquareLakeSample234-1.png" alt="Schematic representation (**Left**) of three samples of 50 fish (i.e., red dots) from Square Lake and histograms (**Right**) of the total length of the 50 fish in each sample." width="672" />
+<p class="caption">
+Figure 2.3: Schematic representation (<strong>Left</strong>) of three samples of 50 fish (i.e., red dots) from Square Lake and histograms (<strong>Right</strong>) of the total length of the 50 fish in each sample.
+</p>
+</div>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:SquareLakeSample234s">Table 2.3: </span>Summary statistics for the total length in three samples of 50 fish from the Square Lake population.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+n
+</th>
+<th style="text-align:right;font-weight: bold;">
+mean
+</th>
+<th style="text-align:right;font-weight: bold;">
+sd
+</th>
+<th style="text-align:right;font-weight: bold;">
+min
+</th>
+<th style="text-align:right;font-weight: bold;">
+Q1
+</th>
+<th style="text-align:right;font-weight: bold;">
+median
+</th>
+<th style="text-align:right;font-weight: bold;">
+Q3
+</th>
+<th style="text-align:right;font-weight: bold;">
+max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+100.48
+</td>
+<td style="text-align:right;">
+31.87
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+78.25
+</td>
+<td style="text-align:right;">
+99.5
+</td>
+<td style="text-align:right;">
+120.00
+</td>
+<td style="text-align:right;">
+180
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+99.40
+</td>
+<td style="text-align:right;">
+38.28
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+69.00
+</td>
+<td style="text-align:right;">
+90.5
+</td>
+<td style="text-align:right;">
+113.75
+</td>
+<td style="text-align:right;">
+203
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+98.14
+</td>
+<td style="text-align:right;">
+32.26
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+71.25
+</td>
+<td style="text-align:right;">
+87.0
+</td>
+<td style="text-align:right;">
+121.50
+</td>
+<td style="text-align:right;">
+174
+</td>
+</tr>
+</tbody>
+</table>
+<div class="defn">
+<p><strong>Sampling Variability</strong>: The realization that no two samples are exactly alike. Thus, statistics computed from different samples will likely vary.</p>
+</div>
+<p>This example also illustrates that parameters are fixed values because populations don’t change. If a population does change, then it is considered a different population. In the Square Lake example, if a fish is removed from the lake, then the fish in the lake would be considered a different population. Statistics, on the other hand, vary depending on the sample because each sample consists of different individuals that vary (i.e., sampling variability exists because natural variability exists).</p>
+<div class="tip">
+<p>Parameters are fixed in value, while statistics vary in value.</p>
+</div>
+</div>
+</div>
+<div id="sect:VarTypes" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Variable Types</h2>
+<p>The type of statistic that can be calculated is dictated by the type of variable recorded. For example, an average can only be calculated for quantitative variables (defined below). Thus, the type of variable should be identified immediately after performing an IVPPSS.</p>
+<div id="variable-definitions" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Variable Definitions</h3>
+<p>There are two main groups of variable types – quantitative and categorical (Figure <a href="chap-FoundationalDefinitions.html#fig:VarTypes">2.4</a>). <strong>Quantitative</strong> variables are variables with numerical values for which it makes sense to do arithmetic operations (like adding or averaging). Synonyms for quantitative are measurement or numerical. <strong>Categorical</strong> variables are variables that record which group or category an individual belongs. Synonyms for categorical are qualitative or attribute. Within each main type of variable are two subgroups (Figure <a href="chap-FoundationalDefinitions.html#fig:VarTypes">2.4</a>).</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:VarTypes"></span>
+<img src="Book207_files/figure-html/VarTypes-1.png" alt="Schematic representation of the four types of variables." width="480" />
+<p class="caption">
+Figure 2.4: Schematic representation of the four types of variables.
+</p>
+</div>
+<p> </p>
+<p>The two types of quantitative variables are continuous and discrete variables. <strong>Continuous</strong> variables are quantitative variables that have an uncountable number of values. In other words, a potential value <em>does</em> exist between every pair of values of a continuous variable. <strong>Discrete</strong> variables are quantitative variables that have a countable number of values. Stated differently, a potential value <em>does not</em> exist between every pair of values for a discrete variable. Typically, but not always, discrete variables are counts of items.</p>
+<p>Continuous and discrete variables are easily distinguished by determining if it is possible for a value to exist between every two values of the variable. For example, can there be between 2 and 3 ducks on a pond? No! Thus, the number of ducks is a discrete variable. Alternatively, can a duck weigh between 2 and 3 kg? Yes! Can it weigh between 2 and 2.1 kg? Yes! Can it weigh between 2 and 2.01 kg? Yes! You can see that this line of questions could continue forever; thus, duck weight is a continuous variable.</p>
+<div class="tip">
+<p>A quantitative variable is continuous if a possible value exists between every two values of the variable; otherwise, it is discrete.</p>
+</div>
+<p>The two types of categorical variables are ordinal and nominal. <strong>Ordinal</strong> variables are categorical variables where a natural order or ranking exists among the categories. <strong>Nominal</strong> variables are categorical variables where no order or ranking exists among the categories.</p>
+<p>Ordinal and nominal variables are easily distinguished by determining if the order of the categories matters. For example, suppose that a researcher recorded a subjective measure of condition (i.e., poor, average, excellent) and the species of each duck. Order matters with the condition variable – i.e., condition improves from the first (poor) to the last category (excellent) – and some reorderings of the categories would not make sense – i.e., average, poor, excellent does not make sense. Thus, condition is an ordinal variable. In contrast, species (e.g., mallard, redhead, canvasback, and wood duck) is a nominal variable because there is no inherent order among the categories (i.e., any reordering of the categories also “makes sense”).</p>
+<div class="tip">
+<p><strong>Ord</strong>inal means that an <strong>ord</strong>er among the categories exists (note “ord” in both ordinal and order).</p>
+</div>
+<p>The following are some issues to consider when identifying the type of a variable:</p>
+<ul>
+<li>The categories of a categorical variable are sometimes labeled with numbers. For example, 1=“Poor,” 3=“Fair,” and 5=“Good.” Don’t let this fool you into calling the variable quantitative.</li>
+<li>Rankings, ratings, and preferences are ordinal (categorical) variables.</li>
+<li>Counts of numbers are discrete (quantitative) variables.</li>
+<li>Measurements are typically continuous (quantitative) variables.</li>
+<li>It does not matter how precisely quantitative variables are recorded when deciding if the variable is continuous or discrete. For example, the weight of the duck might have been recorded to the nearest kg. However, this was just a choice that was made, the actual values can be continuously finer than kg and, thus, weight is a continuous variable.</li>
+<li>Categorical variables that consist of only two levels or categories will be labeled as a nominal variable (because any order of the groups makes sense). This type of variable is also often called “binomial.”</li>
+<li>Do not confuse “what type of variable” (answer is one of “continuous,” “discrete,” “nominal,” or “ordinal”) with “what type of variability” (answer is “natural” or “sampling”) questions.</li>
+</ul>
+<div class="tip">
+<p>“What type of variable is …?” is a different question than “what type of variability is …?” Be careful to note the word difference (i.e., “variable” versus “variability”) when answering these questions.</p>
+</div>
+<div class="tip">
+<p>The precision to which a quantitative variable was recorded does not determine whether it is continuous or discrete. How precisely the variable COULD have been recorded is the important consideration.</p>
+</div>
+<p> </p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>Formal methods of inference are discussed beginning with Module <a href="#chap:ProbIntro"><strong>??</strong></a>.<a href="chap-FoundationalDefinitions.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>We will discuss how to compute and interpret each of these values in later modules.<a href="chap-FoundationalDefinitions.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Again, parameters generally cannot be computed because all of the individuals in the population can not be seen. Thus, the parameter is largely conceptual.<a href="chap-FoundationalDefinitions.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Note that this population and parameter cannot actually be calculated but it is what the researcher wants to know.<a href="chap-FoundationalDefinitions.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Information about Hawk Ridge is found <a href="http://www.hawkridge.org/">here</a>.<a href="chap-FoundationalDefinitions.html#fnref8" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-WhyStatsImportant.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-DataProd.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 3 Data Production | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 3 Data Production | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book207" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 3 Data Production | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-03-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-FoundationalDefinitions.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="chap-WhyStatsImportant.html"><a href="chap-WhyStatsImportant.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap-WhyStatsImportant.html"><a href="chap-WhyStatsImportant.html#sect:Realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.2" data-path="chap-WhyStatsImportant.html"><a href="chap-WhyStatsImportant.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="chap-WhyStatsImportant.html"><a href="chap-WhyStatsImportant.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="chap-WhyStatsImportant.html"><a href="chap-WhyStatsImportant.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap-FoundationalDefinitions.html"><a href="chap-FoundationalDefinitions.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap-FoundationalDefinitions.html"><a href="chap-FoundationalDefinitions.html#sect:IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="chap-FoundationalDefinitions.html"><a href="chap-FoundationalDefinitions.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="chap-FoundationalDefinitions.html"><a href="chap-FoundationalDefinitions.html#sect:VarTypes"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap-DataProd.html"><a href="chap-DataProd.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap-DataProd.html"><a href="chap-DataProd.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="chap-DataProd.html"><a href="chap-DataProd.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:DataProd" class="section level1" number="3">
+<h1><span class="header-section-number">Module 3</span> Data Production</h1>
+<p>Statistical inference is the process} of making conclusions about a population from the results of a single sample. To make conclusions about the larger population, the sample must fairly represent the larger population. Thus, the proper collection (or production) of data is critical to statistics (and science in general). In this module, two ways of producing data – (1) Experiments and (2) Observational Studies – are described.</p>
+<div class="tip">
+<p>Inferences cannot be made if data are not properly collected.</p>
+</div>
+<div id="experiments" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Experiments</h2>
+<p>An experiment deliberately imposes a <em>condition</em> on individuals to observe the effect on the <strong>response variable</strong>. In a properly designed experiment, all variables that are not of interest are held constant, whereas the variable(s) that is (are) of interest are changed among treatments. As long as the experiment is designed properly (see below), differences among treatments are either due to the variable(s) that were deliberately changed or randomness (chance). Methods to determine if differences were likely due to randomness are developed in later modules. Because we can determine if differences most likely occurred o randomness or changes in the variales, strong <em>cause-and-effect conclusions</em> can be made from data collected from carefully designed experiments.</p>
+<div id="single-factor-experiments" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Single-factor Experiments</h3>
+<p>A <strong>factor</strong> is a variable that is deliberately manipulated to determine its effect on the response variable. A factor is sometimes called an <strong>explanatory variable</strong> because we are attempting to determine how it affects (or “explains”) the response variable. The simplest experiment is a single-factor experiment where the individuals are split into groups defined by the categories of a single factor.</p>
+<p>For example, suppose that a researcher wants to examine the effect of temperature on the total number of bacterial cells after two weeks. They have inoculated 120 agars<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> with the bacteria and placed them in a chamber where all environmental conditions (e.g., temperature, humidity, light) are controlled exactly. The researchers will use only two temperatures in this simple experiment – 10<sup>o</sup>C and 15<sup>o</sup>C. All other variables are maintained at constant levels. Thus, temperature is the only factor in this simple experiement because it is the only variable manipulated to different values to determine its impact on the number of bacterial cells.</p>
+<div class="tip">
+<p>In a single-factor experiment only one explanatory variable (i.e., factor) is allowed to vary; all other explanatory variables are held constant.</p>
+</div>
+<p><strong>Levels</strong> are the number of categories of the factor variable. In this example, there are two levels – 10<sup>o</sup>C and 15<sup>o</sup>C. <strong>Treatments</strong> are the number of unique conditions that individuals in the experiment are exposed to. In a single-factor experiment, the number of treatments is the same as the number of levels of the single factor. Thus, in this simple experiment, there are two treatments – 10<sup>o</sup>C and 15<sup>o</sup>C. Treatments are discussed more thoroughly in the next section.</p>
+<p>The <strong>number of replicates</strong> in an experiment is the number of individuals that will receive each treatment. In this example, a replicate is an inoculated agar. The number of replicates is the number of inoculated agars that will receive each of the two temperature treatments. The number of replicates is determined by dividing the total number of available individuals (120) by the number of treatments (2). Thus, in this example, the number of replicates is 60 inoculated agars.</p>
+<p>The agars used in this experiment will be randomly allocated to the two temperature treatments. All other variables – humidity, light, etc. – are kept the same for each treatment. At the end of two weeks, the total number of bacterial cells on each agar (i.e., the response variable) will be recorded and compared between the agars kept at both temperatures.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> Any difference in mean number of bacterial cells will be due to either different temperature treatments or randomness, because all other variables were the same between the two treatments.</p>
+<div class="tip">
+<p>Differences among treatments are either caused by randomness (chance) or the factor.</p>
+</div>
+<p>The single factor is not restricted to just two levels. For example, more than two temperatures, say 10<sup>o</sup>C, 12.5<sup>o</sup>C, 15<sup>o</sup>C, and 17.5<sup>o</sup>C, could have been tested. With this modification, there is still only one factor – temperature – but there are now four levels (and only four treatments).</p>
+</div>
+<div id="multi-factor-experiments-design-and-definitions" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Multi-factor Experiments – Design and Definitions</h3>
+<p>More than one factor can be tested in an experiment. In fact, it is more efficient to have a properly designed experiment where more than one factor is varied at a time than it is to use separate experiments in which only one factor is varied in each. However, before showing this benefit, let’s examine the definitions from the previous section in a multi-factor experiment.</p>
+<p>Suppose that the previous experiment was modified to also examine the effect of relative humidity on the number of bacteria cells. This modified experiment has two factors – temperature (with two levels of 10<sup>o</sup>C or 15<sup>o</sup>C) and relative humidity (with four levels of 20%, 40%, 60%, and 80%). The number of treatments, or combinations of all factors, in this experiment is found by multiplying the levels of all factors (i.e., 2×4=8 in this case). The number of replicates in this experiment is now 15 (i.e., total number of available agars divided by the number of treatments; 120/8).</p>
+<div class="tip">
+<p>The number of treatments is determined for the overall experiment, whereas the number of levels is determined for each factor.</p>
+</div>
+<p>A drawing of the experimental design can be instructive (Table <a href="chap-DataProd.html#tab:TempRH2">3.1</a>). The drawing is a table where the levels of one factor are shown in the rows of the first column and the levels of the other factor are shown in the rows of the second column such that each level of the first facor is matched with one of the levels of the second factor. With this, the number of rows in the table is the number of treatments in the experiment. I also like to include a column that lists the number of replicates in each treatment and the individual randomly allocated to each treatment (how to randomly allocate individuals to treatments is shown in the <a href="chap-DataProd.html#allocating-individuals">Allocating Individuals section below</a>).</p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:TempRH2">Table 3.1: </span>Diagram of a two-factor experiment with temperature and relative humidity.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;font-weight: bold;">
+Temp.
+</th>
+<th style="text-align:center;font-weight: bold;">
+Rel. Hum.
+</th>
+<th style="text-align:center;font-weight: bold;">
+# Reps
+</th>
+<th style="text-align:left;font-weight: bold;">
+Agars
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+10<sup>o</sup>C
+</td>
+<td style="text-align:center;font-weight: bold;">
+20%
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+79, 78, 14, 63, 41, 115, 107, 59, 35, 110, 8, 46, 64, 99, 37
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+10<sup>o</sup>C
+</td>
+<td style="text-align:center;font-weight: bold;">
+40%
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+38, 81, 48, 74, 36, 77, 95, 65, 91, 26, 98, 1, 97, 108, 62
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+10<sup>o</sup>C
+</td>
+<td style="text-align:center;font-weight: bold;">
+60%
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+39, 42, 82, 47, 101, 106, 29, 113, 2, 53, 18, 32, 52, 34, 117
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+10<sup>o</sup>C
+</td>
+<td style="text-align:center;font-weight: bold;">
+80%
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+100, 43, 75, 116, 67, 54, 10, 102, 16, 92, 88, 40, 17, 96, 33
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+15<sup>o</sup>C
+</td>
+<td style="text-align:center;font-weight: bold;">
+20%
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+87, 70, 13, 111, 89, 85, 80, 83, 112, 86, 6, 19, 21, 84, 93
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+15<sup>o</sup>C
+</td>
+<td style="text-align:center;font-weight: bold;">
+40%
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+12, 45, 66, 31, 30, 22, 90, 72, 7, 120, 27, 50, 23, 71, 69
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+15<sup>o</sup>C
+</td>
+<td style="text-align:center;font-weight: bold;">
+60%
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+25, 103, 109, 94, 15, 55, 58, 61, 60, 56, 11, 57, 73, 44, 119
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+15<sup>o</sup>C
+</td>
+<td style="text-align:center;font-weight: bold;">
+80%
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+104, 68, 20, 51, 24, 5, 114, 4, 28, 118, 105, 76, 9, 3, 49
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="multi-factor-experiments-benefits" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Multi-factor Experiments – Benefits</h3>
+<p>The analysis of a multi-factor experimental design is more involved than what will be shown in this course. However, multi-factor experiments have many benefits, which can be illustrated by comparing a multi-factor experiment to separate single-factor experiments. For example, in addition to the two factor experiment in the previous section, consider separate single-factor experiments to determine the effect of each factor separately (further assume that individuals (i.e., agars) can be used in only one of these separate experiments).</p>
+<p>To conduct the two separate experiments, randomly split the 120 available agars into two equally-sized groups of 60. The first 60 will be split into two groups of 30 for the first experiment with two temperatures. The second 60 will be split into four groups of 15 for the second experiment with four relative humidities. These separate single-factor experiments are summarized in Table <a href="chap-DataProd.html#tab:TempRH11">3.2</a>.</p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:TempRH11">Table 3.2: </span>Diagram of two one-factor-at-a-time experiments with temperature (<strong>Top</strong>) and relative humidity (<strong>Bottom</strong>).
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;font-weight: bold;">
+Temp.
+</th>
+<th style="text-align:center;font-weight: bold;">
+# Reps
+</th>
+<th style="text-align:left;font-weight: bold;">
+Agars
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+10<sup>o</sup>C
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:left;">
+79, 78, 14, 63, 41, 115, 107, 59, 35, 110 , …
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+15<sup>o</sup>C
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:left;">
+39, 42, 82, 47, 101, 106, 29, 113, 2, 53 , …
+</td>
+</tr>
+</tbody>
+</table>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:center;font-weight: bold;">
+Rel. Hum.
+</th>
+<th style="text-align:center;font-weight: bold;">
+# Reps
+</th>
+<th style="text-align:left;font-weight: bold;">
+Agars
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+20%
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+87, 70, 13, 111, 89, 85, 80, 83, 112, 86, 6, 19, 21, 84, 93
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+40%
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+12, 45, 66, 31, 30, 22, 90, 72, 7, 120, 27, 50, 23, 71, 69
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+60%
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+25, 103, 109, 94, 15, 55, 58, 61, 60, 56, 11, 57, 73, 44, 119
+</td>
+</tr>
+<tr>
+<td style="text-align:center;font-weight: bold;">
+80%
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:left;">
+104, 68, 20, 51, 24, 5, 114, 4, 28, 118, 105, 76, 9, 3, 49
+</td>
+</tr>
+</tbody>
+</table>
+<p>The key to examining the benefits of the multi-factor experiment is to determine the number of individuals that give “information” about (i.e., are exposed to) each factor.
+In the two-factor experiment all 120 individuals were exposed to one of the temperature levels with 60 individuals exposed to each level (Table <a href="chap-DataProd.html#tab:TempRH2">3.1</a>). In contrast, only 30 individuals were exposed to these levels in the single-factor experiment (Table <a href="chap-DataProd.html#tab:TempRH11">3.2</a>-Top). In addition, in the two-factor experiment all 120 individuals were exposed to one of the relative humidity levels with 30 individuals exposed to each level (Table <a href="chap-DataProd.html#tab:TempRH2">3.1</a>). Again, this is in contrast to the single-factor experiment where only 15 individuals were exposed to these levels (Table <a href="chap-DataProd.html#tab:TempRH11">3.2</a>-Bottom). Thus, the first advantage of multi-factor experiments is that the available individuals are used more efficiently. In other words, more “information” (i.e., the responses of more individuals) is obtained from a multi-factor experiment than from combinations of single-factor experiments.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
+<p>A properly designed multi-factor experiment also allows researchers to determine if multiple factors interact to impact an individual’s response. For example, consider the hypothetical results from this experiment in Figure <a href="chap-DataProd.html#fig:ExpDInt">3.1</a>-Left.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> The effect of relative humidity is to increase the growth rate for those individuals at 10<sup>o</sup>C (black line) but to decrease the growth rate for those individuals at 15<sup>o</sup>C (blue line). That is, the effect of relative humidity differs depending on the level of temperature. When the effect of one factor differs depending on the level of the other factor, then the two factors are said to <em>interact</em>. Interactions cannot be determined from the two single-factor experiments because the same individuals are not exposed to levels of the two factors at the same time.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:ExpDInt"></span>
+<img src="Book207_files/figure-html/ExpDInt-1.png" alt="Mean growth rates in a two-factor experiment that depict an interaction effect (left) and no interaction effect (right)." width="672" />
+<p class="caption">
+Figure 3.1: Mean growth rates in a two-factor experiment that depict an interaction effect (left) and no interaction effect (right).
+</p>
+</div>
+<p> </p>
+<p>Multi-factor experiments are used to detect the presence or absence of interaction, not just the presence of it. The hypothetical results in Figure <a href="chap-DataProd.html#fig:ExpDInt">3.1</a>-Right show that the growth rate increases with increasing relative humidity at about the same rate for both temperatures. Thus, because the effect of relative humidity is the same for each temperature (and vice versa), there does not appear to be an interaction between the two factors. Again, this could not be determined from the separate single-factor experiments.</p>
+</div>
+<div id="allocating-individuals" class="section level3" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Allocating Individuals</h3>
+<p>Individuals<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> should be randomly allocated (i.e., placed into) to treatments. Randomization will tend to even out differences among groups for variables not considered in the experiment. In other words, randomization should help assure that all groups are similar before the treatments are imposed. Thus, randomly allocating individuals to treatments removes any bias (foreseen or unforeseen) from entering the experiment.</p>
+<p>In the single-factor experiment above – two treatments of temperature – there were 120 agars. To randomly allocate these individuals to the treatments, 60 pieces of paper marked with “10” and 60 marked with “15” could be placed into a hat. One piece of paper would be drawn for each agar and the agar would receive the temperature found on the piece of paper. Alternatively, each agar could be assigned a unique number between 1 and 120 and pieces of paper with these numbers could be placed into the hat. Agars corresponding to the first 60 numbers drawn from the hat could then be placed into the first treatment. Agars for the next (or remaining) 60 numbers would be placed in the second treatment. This process is essentially the same as randomly ordering 120 numbers.</p>
+<p>A random order of numbers is obtained with R by including the count of numbers as the only argument to <code>sample()</code>. For example, randomly ordering 1 through 120 is accomplished with</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb3-1"><a href="chap-DataProd.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">120</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;     [1]  79  78  14  63  41 115 107  59  35 110   8  46  64  99  37  38  81  48
+#R&gt;    [19]  74  36  77  95  65  91  26  98   1  97 108  62  39  42  82  47 101 106
+#R&gt;    [37]  29 113   2  53  18  32  52  34 117 100  43  75 116  67  54  10 102  16
+#R&gt;    [55]  92  88  40  17  96  33  87  70  13 111  89  85  80  83 112  86   6  19
+#R&gt;    [73]  21  84  93  12  45  66  31  30  22  90  72   7 120  27  50  23  71  69
+#R&gt;    [91]  25 103 109  94  15  55  58  61  60  56  11  57  73  44 119 104  68  20
+#R&gt;   [109]  51  24   5 114   4  28 118 105  76   9   3  49</code></pre>
+<p>Thus, the first five (of 60) agars in the 10<sup>o</sup>C treatment are 79, 78, 14, 63, and 41 (Table <a href="chap-DataProd.html#tab:TempRH11">3.2</a>-Top). The first five (of 60) agars in the 15<sup>o</sup>C treatment are 87, 70, 13, 111, and 89 (Table <a href="chap-DataProd.html#tab:TempRH11">3.2</a>-Top). In the modified experiment with two factors – temperature and relative humidity – with eight treatments containing 15 agars each, the random numbers would be divided into 8 groups each with 15 numbers. The allocation of individuals was shown in Table <a href="chap-DataProd.html#tab:TempRH2">3.1</a>.</p>
+<div class="tip">
+<p>Individuals should be randomly allocated to treatments to remove bias.</p>
+</div>
+</div>
+<div id="design-principles" class="section level3" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> Design Principles</h3>
+<p>There are many other methods of designing experiments and allocating individuals that are beyond the scope of this book.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> However, all experimental designs contain the following three basic principles.</p>
+<ul>
+<li><strong>Control</strong> the effect of variables on the response variable by deliberately manipulating factors to certain levels and maintaining constancy among other variables.</li>
+<li><strong>Randomize</strong> the allocation of individuals to treatments to eliminate bias.</li>
+<li><strong>Replicate individuals</strong> (use many individuals) in the experiment to reduce chance variation in the results.</li>
+</ul>
+<p>Proper control in an experiment allows for strong cause-and-effect conclusions to be made (i.e., to state that an observed difference in the response variable was due to the levels of the factor or chance variation rather than some other foreseen or unforeseen variable). Randomly allocating individuals to treatments removes any bias that may be included in the experiment. For example, if we do not randomly allocate the agars to the treatments, then it is possible that a set of all “poor” agars may end up in one treatment. In this case, any observed differences in the response may not be due to the levels of the factor but to the prior quality of the agars. Replication means that there should be more than one or a few individuals in each treatment. This reduces the effect of each individual on the overall results. For example, if there was one agar in each treatment, then, even with random allocation, the effect of that treatment may be due to some inherent properties of that agar rather than the levels of the factors. Replication, along with randomization, helps assure that the groups of individuals in each treatment are as alike as possible at the start of the experiment.</p>
+</div>
+</div>
+<div id="observational-studies-sampling" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Observational Studies – Sampling</h2>
+<p>In observational studies the researcher has no control over any of the variables observed for an individual. The researcher simply observes individuals, disturbing them as little as possible, trying to get a “picture” of the population. Observational studies cannot be used to make cause-and-effect statements because all variables that may impact the outcome may not have been measured or specifically controlled. Thus, any observed difference among groups may be caused by the variables measured, some other unmeasured variables, or chance (randomness).</p>
+<p>Consider the following as an example of the problems that can occur when all variables are not measured. For many years scientists thought that the brains of females weighed less than the brains of males. They used this finding to support all kinds of ideas about sex-based differences in learning ability. However, these earlier researchers failed to measure body weight, which is strongly related to brain weight in both males and females. After controlling for the effect of differences in body weights, there was no difference in brain weights between the sexes. Thus, many sexist ideas persisted for years because cause-and-effect statements were inferred from data where all variables were not considered.</p>
+<div class="tip">
+<p>Strong cause-and-effect statements CANNOT be made from observational studies.</p>
+</div>
+<p>In observational studies, it is important to understand to which population inferences will refer.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> To make useful inferences from a sample, the sample must be an unbiased representation of the population. In other words, it must not systematically favor certain individuals or outcomes.</p>
+<p>For example, consider that you want to determine the mean length of all fish in a particular lake (e.g., Square Lake from Module <a href="chap-FoundationalDefinitions.html#chap:FoundationalDefinitions">2</a>). Using a net with large mesh, such that only large fish are caught, would produce a biased sample because interest is in all fish not just the large fish. Setting the nets near spawning beds (i.e., only adult fish) would also produce a biased sample. In both instances, a sample would be collected from a population other than the population of interest. Thus it is important to select a sample from the specified population.</p>
+<div class="tip">
+<p>It is important to understand the population before considering how to take a sample.</p>
+</div>
+<div id="types-of-sampling-designs" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Types of Sampling Designs</h3>
+<p>Three common types of sampling designs – voluntary response, convenience, and probability-based samples – are considered in this section. Voluntary response and convenience samples tend to produce biased samples, whereas proper probability-based samples will produce an unbiased sample.</p>
+<p>A <strong>voluntary response</strong> sample consists of individuals that have chosen themselves for the sample by responding to a general appeal. An example of a voluntary response sample would be the group of people that respond to a general appeal placed in the school newspaper. If the population of interest in this sample was all students at the school, then this type of general appeal would likely produce a biased sample of students that (i) read the school newspaper, (ii) feel strongly about the topic, or (iii) both.</p>
+<p>A <strong>convenience</strong> sample consists of individuals who are easiest to reach for the researcher. An example of a convenience sample is when a researcher queries only those students in a particular class. This sample is “convenient” because the individuals are easy to gather. However, if the population of interest was all students at the school, then this type of sample would likely produce a biased sample of students that is likely of (i) one major or another, (ii) one or a few “years-in-school” (e.g., Freshman or Sophomores), or (iii) both.</p>
+<p>In probability-based sampling, each individual of the population has a known chance of being selected for the sample. The simplest probability-based sample is the <strong>Simple Random Sample</strong> (SRS) where each individual has the same chance of being selected. Proper selection of an SRS requires each individual to be assigned a unique number. The SRS is then formed by choosing random numbers and collecting the individuals that correspond to those numbers.</p>
+<p>For example, an auditor may need to select a sample of 30 financial transactions from all transactions of a particular bank during the previous month. Because each transaction is numbered, the auditor may know that there were 1112 transactions during the previous month (i.e., the population). The auditor would then number each transaction from 1 to 1112, randomly select 30 numbers (with no repeats) from between 1 and 1112, and then physically locate the 30 transactions that correspond to the 30 selected numbers. Those 30 transactions are the SRS.</p>
+<p>Random numbers are selected in R by including the population size as the first and sample size as the second argument to <code>sample()</code>. For example, 30 numbers from between 1 and 1112 is selected with</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb5-1"><a href="chap-DataProd.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1112</span>,<span class="dv">30</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;    [1]  684  986  155  638   10  390  381  265  474  707  699   97  752  681  565
+#R&gt;   [16]  739   59  324  861  637  490  911  446  406  846  516  269 1052  384 1105</code></pre>
+<p>Thus, accounts 684, 986, 155, 638, and 10 would be the first five (of 30) selected.</p>
+<p>There are other more complex types of probability-based samples that are beyond the scope of this course.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> However, the goal of these more complex types of samples is generally to impart more control into the sampling design.</p>
+<div class="tip">
+<p>A proper SRS requires each individual i the population to be assigned a unique number.</p>
+</div>
+<p>If the population is such that a number cannot be assigned to each individual, then the researcher must try to use a method for which they feel each individual has an equal chance of being selected. Usually this means randomizing the technique rather than the individuals. In the fish example discussed on the previous page, the researcher may consider choosing random mesh sizes, random locations for placing the net, or random times for placing the net. Thus, in many real-life instances, the researcher simply tries to use a method that is likely to produce an SRS or something very close to it.</p>
+<div class="tip">
+<p>If a number cannot be assigned to each individual in the population, then the researcher should randomize the “technique” to assure as close to a random sample as possible.</p>
+</div>
+<p>Polls, campaign or otherwise, are examples of observational studies that you are probably familiar with. The following are links where various aspects of polling are discussed.</p>
+<ul>
+<li><a href="http://media.gallup.com/PDF/FAQ/HowArePolls.pdf">How Polls are Conducted by Frank Newport, Lydia Saad, and David Moore, The Gallup Organization</a>.</li>
+<li><a href="http://www2.psych.purdue.edu/~codelab/Invalid.Polls.html">Why Do Campaign Polls Zigzag So Much? by G.S. Wasserman, Purdue U</a>.</li>
+</ul>
+</div>
+<div id="of-what-value-are-observational-studies" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Of What Value are Observational Studies?</h3>
+<p>Properly designed experiments can lead to “cause-and-effect” statements, whereas observational studies (even properly designed) are unlikely to lead to such statements. Furthermore, in the last section, it was suggested that it is very difficult to take a proper probability-based sample because it is hard to assign a number to each individual in the population (precisely because entire populations are very difficult to “see”). So, do observational studies have any value? There are at least three reasons why observational studies are useful.</p>
+<p>The scientific method begins with making an observation about a natural phenomenon. Observational studies may serve to provide such an observation. Alternatively, observational studies may be deployed after an observation has been made to see if that observation is “prevalent” and worthy of further investigation. Thus, observational studies may lead directly to hypotheses that form the basis of experiments.</p>
+<p>Experiments are often conducted under very confined and controlled conditions so that the effect of one or more factors on the response variable can be identified. However, at the conclusion of an experiment it is often questioned whether a similar response would be observed “in nature” under much less controlled conditions. For example, one might determine that a certain fertilizer increases growth of a certain plant in the greenhouse, with consistent soil characteristics, temperatures, lighting, etc. However, it is a much different, and, perhaps, more interesting, question to determine if that fertilizer elicits the same response when applied to an actual field.</p>
+<p>Finally, there are situations where conducting an experiment simply cannot be done, either for ethical, financial, size, or other constraints. For example, it is generally accepted that smoking causes cancer in humans even though an experiment where one group of people was forced to smoke while another was not allowed to smoke has not been conducted. Similarly, it is also very difficult to perform valid experiments on “ecosystems.” In these situations, an observational study is simply the best study allowable. Cause-and-effect statements are arrived at in these situations because observational studies can be conducted with some, though not absolute, control and control can be imparted mathematically into some analyses.<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> In addition, a “preponderance of evidence” may be arrived at if enough observational studies point to the same conclusion.</p>
+<p> </p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="9">
+<li id="fn9"><p>An agar, in this case, is a petri dish with a growth medium for the bacteria.<a href="chap-DataProd.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>Methods for making this comparison are in Module <a href="#chap:tTest2"><strong>??</strong></a>.<a href="chap-DataProd.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>The real importance of this advantage will become apparent when statistical power is introduced in Module <a href="#chap:HypothesisTests"><strong>??</strong></a>.<a href="chap-DataProd.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>The means of each treatment are plotted and connected with lines in this plot.<a href="chap-DataProd.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>When discussing experiments, an “individual” is often referred to as a “replicate” or an “experimental unit.”<a href="chap-DataProd.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>Other common designs include blocked, Latin square, and nested designs.<a href="chap-DataProd.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Thus, it is very important to first perform an IVPPS as discussed in Module <a href="chap-FoundationalDefinitions.html#chap:FoundationalDefinitions">2</a>.<a href="chap-DataProd.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>For example, stratified samples, nested, and multistage samples.<a href="chap-DataProd.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>These analyses are beyond the scope of this book, though.<a href="chap-DataProd.html#fnref17" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-FoundationalDefinitions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
