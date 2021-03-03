@@ -106,13 +106,13 @@ categorical-variable-1
 example-interpretations
 mixture-seed-count
 gss-recycling
-NormDist1
+NormDalist1
 characteristics-of-a-normal-distribution
 area-under-the-curve
 or-empirical-rule
 example-calculations
 distinguish-calculation-types
-NormDist2
+NormalDist2
 forward-calculations
 reverse-calculations
 standardization-and-z-scores
