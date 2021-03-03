@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 4 Univariate Summaries | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 4 Univariate Summaries | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book107" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 4 Univariate Summaries | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-03-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="DataProduction.html"/>
+<link rel="next" href="UnivEDA.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#sect:Realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#variable-types"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="DataProduction.html"><a href="DataProduction.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="DataProduction.html"><a href="DataProduction.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="DataProduction.html"><a href="DataProduction.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="UnivSum.html"><a href="UnivSum.html"><i class="fa fa-check"></i><b>4</b> Univariate Summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="UnivSum.html"><a href="UnivSum.html#quantitative-variable"><i class="fa fa-check"></i><b>4.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="4.2" data-path="UnivSum.html"><a href="UnivSum.html#categorical-variable"><i class="fa fa-check"></i><b>4.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="UnivEDA.html"><a href="UnivEDA.html"><i class="fa fa-check"></i><b>5</b> Univariate EDA</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="UnivEDA.html"><a href="UnivEDA.html#quantitative-variable-1"><i class="fa fa-check"></i><b>5.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="5.2" data-path="UnivEDA.html"><a href="UnivEDA.html#categorical-variable-1"><i class="fa fa-check"></i><b>5.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="NormDist1.html"><a href="NormDist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="NormDist1.html"><a href="NormDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="NormDist1.html"><a href="NormDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
+<li class="chapter" data-level="6.3" data-path="NormDist1.html"><a href="NormDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
+<li class="chapter" data-level="6.4" data-path="NormDist1.html"><a href="NormDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.5" data-path="NormDist1.html"><a href="NormDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NormDist2.html"><a href="NormDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="NormDist2.html"><a href="NormDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
+<li class="chapter" data-level="7.2" data-path="NormDist2.html"><a href="NormDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
+<li class="chapter" data-level="7.3" data-path="NormDist2.html"><a href="NormDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="UnivSum" class="section level1" number="4">
+<h1><span class="header-section-number">Module 4</span> Univariate Summaries</h1>
+<p>Summarizing large quantities of data with few graphical or numerical summaries makes it is easier to identify meaning from data (discussed in Module <a href="WhyStats.html#WhyStats">1</a>). Numeric and graphical summaries specific to a single variable are described in this module. Interpretations from these numeric and graphical summaries are described in the next module.</p>
+<div id="quantitative-variable" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Quantitative Variable</h2>
+<p>Two data sets will be considered in this section about summarizing quantitative variables. The first data set consists of the number of open pit mines in countries with open pit mines (Table <a href="UnivSum.html#tab:MineData">4.1</a>).<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> The second data set is Richter scale recordings for 15 major earthquakes (Table <a href="UnivSum.html#tab:EQData">4.2</a>).</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:MineData">Table 4.1: </span>Number of open pit mines in countries that have open pit mines.
+</caption>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:EQData">Table 4.2: </span>Richter scale recordings for 15 major earthquakes.
+</caption>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5.5
+</td>
+<td style="text-align:right;">
+6.3
+</td>
+<td style="text-align:right;">
+6.5
+</td>
+<td style="text-align:right;">
+6.5
+</td>
+<td style="text-align:right;">
+6.8
+</td>
+<td style="text-align:right;">
+6.8
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+<td style="text-align:right;">
+7.1
+</td>
+<td style="text-align:right;">
+7.3
+</td>
+<td style="text-align:right;">
+7.3
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+7.8
+</td>
+<td style="text-align:right;">
+8.1
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<div id="numerical-summaries" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Numerical Summaries</h3>
+<p>A “typical” value and the “variability” of a quantitative variable are often described from numerical summaries. Calculation of these summaries is described in this module, whereas their interpretation is described in Module <a href="UnivEDA.html#UnivEDA">5</a>. As you will see in Module <a href="UnivEDA.html#UnivEDA">5</a>, “typical” values are measures of <strong>center</strong> and “variability” is often described as <strong>dispersion</strong> (or spread). Three measures of center are the median, mean, and mode. Three measures of dispersion are the inter-quartile range, standard deviation, and range.</p>
+<p>All measures computed in this module are summary <em>statistics</em> – i.e., they are computed from individuals in a sample. Thus, the name of each measure should be preceded by “sample” – e.g., sample median, sample mean, and sample standard deviation. These measures could be computed from every individual, if the population was known. The values would then be <em>parameters</em> and would be preceded by “population” – e.g., population median, population mean, and population standard deviation.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a></p>
+<div id="median" class="section level4" number="4.1.1.1">
+<h4><span class="header-section-number">4.1.1.1</span> Median</h4>
+<p>The median is the value of the individual in the position that splits the <strong>ordered</strong> list of individuals into two equal-<strong>sized</strong> halves. In other words, if the data are ordered, half the values will be smaller than the median and half will be larger.</p>
+<p>The process for finding the median consists of three steps,<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a></p>
+<ul>
+<li>Order the data from smallest to largest.</li>
+<li>Find the “middle <strong>position</strong>” (<span class="math inline">\(mp\)</span>) with <span class="math inline">\(mp=\frac{n+1}{2}\)</span>.</li>
+<li>If <span class="math inline">\(mp\)</span> is an integer (i.e., no decimal), then the median is the value of the individual in that position. If <span class="math inline">\(mp\)</span> is not an integer, then the median is the average of the value immediately below and the value immediately above the <span class="math inline">\(mp\)</span>.</li>
+</ul>
+<p>As an example, the open pit data from Table <a href="UnivSum.html#tab:MineData">4.1</a> are shown below.</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>Because <span class="math inline">\(n=26\)</span>, the <span class="math inline">\(mp=\frac{26+1}{2}=13.5\)</span>. The <span class="math inline">\(mp\)</span> is not an integer so the median is the average of the values in the 13th and 14th ordered positions (i.e., the two positions closest to <span class="math inline">\(mp\)</span>). Thus, the median number of open pit mines in this sample of countries is <span class="math inline">\(\frac{2+2}{2}=2\)</span>.</p>
+<p>Consider finding the median of the Richter Scale magnitude recorded for fifteen major earthquakes as another example (ordered data are in Table <a href="UnivSum.html#tab:EQData">4.2</a>). Because <span class="math inline">\(n=15\)</span>, the <span class="math inline">\(mp=\frac{15+1}{2}=8\)</span>. The <span class="math inline">\(mp\)</span> is an integer so the median is the value of the individual in the 8th ordered position, which is 7.1.</p>
+<div class="tip">
+<p>Don’t forget to order the data when computing the median.</p>
+</div>
+</div>
+<div id="inter-quartile-range" class="section level4" number="4.1.1.2">
+<h4><span class="header-section-number">4.1.1.2</span> Inter-Quartile Range</h4>
+<p>Quartiles are the values for the three individuals that divide ordered data into four (approximately) equal parts. Finding the three quartiles consists of finding the median, splitting the data into two equal parts at the median, and then finding the medians of the two halves.<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a> A concern in this process is that the median is NOT part of either half if there is an odd number of individuals. These steps are summarized as,</p>
+<ul>
+<li>Order the data from smallest to largest.</li>
+<li>Find the median – this is the second quartile (Q2).</li>
+<li>Split the data into two halves at the median. If <span class="math inline">\(n\)</span> is odd (so that the median is one of the observed values), then the median is not part of either half.<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a></li>
+<li>Find the median of the lower half of data – this is the 1st quartile (Q1).</li>
+<li>Find the median of the upper half of data – this is the third quartile (Q3).</li>
+</ul>
+<p>These calculations are illustrated with the open pit mine data (the median was computed in Section <a href="UnivSum.html#median">4.1.1.1</a>). Because <span class="math inline">\(n=26\)</span> is even, the halves of the data split naturally into two halves each with 13 individuals. Therefore, the <span class="math inline">\(mp=\frac{13+1}{2}=7\)</span> and the median of each half is the value of the individual in the seventh position. Thus, <span class="math inline">\(Q1=1\)</span> and <span class="math inline">\(Q3=4\)</span>.</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>In summary, the first, second, and third quartiles for the open pit mine data are 1, 2, and 4, respectively. These three values separate the ordered individuals into approximately four equally-sized groups – those with values less than (or equal to) 1, with values between (inclusive) 1 and 2, with values between (inclusive) 2 and 4, and with values greater (or equal to) than 4.</p>
+<p>As another example, consider finding the quartiles for the earthquake data (Table <a href="UnivSum.html#tab:EQData">4.2</a>). Recall from Section <a href="UnivSum.html#median">4.1.1.1</a> that the median (=7.1) is in the eighth position of the ordered data. The value in the eighth position will NOT be included in either half. Thus, the two halves of the data are 5.5, 6.3, 6.5, 6.5, 6.8, 6.8, 6.9 and 7.3, 7.3, 7.7, 7.7, 7.7, 7.8, 8.1. The middle position for each half is then <span class="math inline">\(mp=\frac{7+1}{2}=4\)</span>. Thus, the median for each half is the individual in the fourth position. Therefore, the median of the first half is <span class="math inline">\(Q1=6.5\)</span> and the median of the second half is <span class="math inline">\(Q3=7.7\)</span>.</p>
+<p>The interquartile range (IQR) is the difference between <span class="math inline">\(Q3\)</span> and <span class="math inline">\(Q1\)</span>, namely <span class="math inline">\(Q3-Q1\)</span>. However, the IQR (as strictly defined) suffers from a lack of information. For example, what does an IQR of 9 mean? It can have a completely different interpretation if the IQR is from values of 1 to 10 or if it is from values of 1000 to 1009. Thus, the IQR is more useful if presented as both <span class="math inline">\(Q3\)</span> and <span class="math inline">\(Q1\)</span>, rather than as the difference. Thus, for example, the IQR for the open pit mine data is from a <span class="math inline">\(Q1\)</span> of 1 to a <span class="math inline">\(Q3\)</span> of 4 and the IQR for the earthquake data is from a <span class="math inline">\(Q1\)</span> of 6.5 to a <span class="math inline">\(Q3\)</span> of 7.</p>
+<div class="tip">
+<p>The IQR can be thought of as the “range of the middle half of the data.”</p>
+</div>
+<div class="tip">
+<p>When reporting the IQR, explicitly state both <span class="math inline">\(Q1\)</span> and <span class="math inline">\(Q3\)</span> (i.e., do not subtract them).</p>
+</div>
+</div>
+<div id="mean" class="section level4" number="4.1.1.3">
+<h4><span class="header-section-number">4.1.1.3</span> Mean</h4>
+<p>The mean is the arithmetic average of the data. The sample mean is denoted by <span class="math inline">\(\bar{x}\)</span> and the population mean by <span class="math inline">\(\mu\)</span>. The mean is simply computed by adding up all of the values and dividing by the number of individuals. If the measurement of the generic variable <span class="math inline">\(x\)</span> on the <span class="math inline">\(i\)</span>th individual is denoted as <span class="math inline">\(x_{i}\)</span>, then the sample mean is computed with these two steps,</p>
+<ul>
+<li>Sum (i.e., add together) all of the values – <span class="math inline">\(\sum_{i=1}^{n}x_{i}\)</span>.</li>
+<li>Divide by the number of individuals in the sample – <span class="math inline">\(n\)</span>.</li>
+</ul>
+<p>or more succinctly summarized with this equation,</p>
+<p><span class="math display">\[ \bar{x} = \frac{\sum_{i=1}^{n}x_{i}}{n} \]</span></p>
+<p>For example, the sample mean of the open pit mine data is computed as follows:</p>
+<p><span class="math display">\[ \bar{x} = \frac{2+11+4+1+15+ ... +2+1+4+11+1}{26} = \frac{94}{26} = 3.6 \]</span></p>
+<p>Note in this example with a discrete variable that it is possible (and reasonable) to present the mean with a decimal. For example, it is not possible for a country to have 3.6 open pit mines, but it IS possible for the mean of a sample of countries to be 3.6 open pit mines.</p>
+<div class="tip">
+<p>As a general rule-of-thumb, present the mean with one more decimal than the number of decimals it was recorded in.</p>
+</div>
+</div>
+<div id="standard-deviation" class="section level4" number="4.1.1.4">
+<h4><span class="header-section-number">4.1.1.4</span> Standard Deviation</h4>
+<p>The sample standard deviation, denoted by <span class="math inline">\(s\)</span>, is computed with these six steps:</p>
+<ul>
+<li>Compute the sample mean (i.e., <span class="math inline">\(\bar{x}\)</span>).</li>
+<li>For each value (<span class="math inline">\(x_{i}\)</span>), find the difference between the value and the mean (i.e., <span class="math inline">\(x_{i}-\bar{x}\)</span>).</li>
+<li>Square each difference (i.e., <span class="math inline">\((x_{i}-\bar{x})^{2}\)</span>).</li>
+<li>Add together all the squared differences.</li>
+<li>Divide this sum by <span class="math inline">\(n-1\)</span>. [*Stopping here gives the sample variance, <span class="math inline">\(s^{2}\)</span>.}]</li>
+<li>Square root the result from the previous step to get <span class="math inline">\(s\)</span>.</li>
+</ul>
+<p>These steps are neatly summarized with</p>
+<p><span class="math display">\[ s = \sqrt{\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}{n-1}} \]</span></p>
+<p>The calculation of the standard deviation of the earthquake data is facilitated with the calculations shown in Table <a href="UnivSum.html#tab:SDCalc">4.3</a>. In Table <a href="UnivSum.html#tab:SDCalc">4.3</a>, note that</p>
+<ul>
+<li><span class="math inline">\(\bar{x}\)</span> is the sum of the “Value” column divided by <span class="math inline">\(n=15\)</span> (i.e., <span class="math inline">\(\bar{x}=7.07\)</span>).</li>
+<li>The “Diff” column is each observed value minus <span class="math inline">\(\bar{x}\)</span> (i.e., Step 2).</li>
+<li>The “Diff<span class="math inline">\(^2\)</span>” column is the square of the differences (i.e., Step 3).</li>
+<li>The sum of the “Diff<span class="math inline">\(^2\)</span>” column is Step 4.</li>
+<li>The sample variance (i.e., Step 5) is equal to this sum divided by <span class="math inline">\(n-1=14\)</span> or <span class="math inline">\(\frac{6.773}{14}=0.484\)</span>.</li>
+<li>The sample standard deviation is the square root of the sample variance or <span class="math inline">\(s=\sqrt{0.484}=0.696\)</span>.</li>
+</ul>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:SDCalc">Table 4.3: </span>Table showing an efficient calculation of the standard deviation of the earthquake data.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;font-weight: bold;">
+Indiv
+</th>
+<th style="text-align:right;font-weight: bold;">
+Value
+</th>
+<th style="text-align:right;font-weight: bold;">
+Diff
+</th>
+<th style="text-align:right;font-weight: bold;">
+Diff<sup>2</sup>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;width: 1in; ">
+1
+</td>
+<td style="text-align:right;width: 1in; ">
+5.5
+</td>
+<td style="text-align:right;width: 1in; ">
+-1.57
+</td>
+<td style="text-align:right;width: 1in; ">
+2.454
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+2
+</td>
+<td style="text-align:right;width: 1in; ">
+6.3
+</td>
+<td style="text-align:right;width: 1in; ">
+-0.77
+</td>
+<td style="text-align:right;width: 1in; ">
+0.588
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+3
+</td>
+<td style="text-align:right;width: 1in; ">
+6.5
+</td>
+<td style="text-align:right;width: 1in; ">
+-0.57
+</td>
+<td style="text-align:right;width: 1in; ">
+0.321
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+4
+</td>
+<td style="text-align:right;width: 1in; ">
+6.5
+</td>
+<td style="text-align:right;width: 1in; ">
+-0.57
+</td>
+<td style="text-align:right;width: 1in; ">
+0.321
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+5
+</td>
+<td style="text-align:right;width: 1in; ">
+6.8
+</td>
+<td style="text-align:right;width: 1in; ">
+-0.27
+</td>
+<td style="text-align:right;width: 1in; ">
+0.071
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+6
+</td>
+<td style="text-align:right;width: 1in; ">
+6.8
+</td>
+<td style="text-align:right;width: 1in; ">
+-0.27
+</td>
+<td style="text-align:right;width: 1in; ">
+0.071
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+7
+</td>
+<td style="text-align:right;width: 1in; ">
+6.9
+</td>
+<td style="text-align:right;width: 1in; ">
+-0.17
+</td>
+<td style="text-align:right;width: 1in; ">
+0.028
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+8
+</td>
+<td style="text-align:right;width: 1in; ">
+7.1
+</td>
+<td style="text-align:right;width: 1in; ">
+0.03
+</td>
+<td style="text-align:right;width: 1in; ">
+0.001
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+9
+</td>
+<td style="text-align:right;width: 1in; ">
+7.3
+</td>
+<td style="text-align:right;width: 1in; ">
+0.23
+</td>
+<td style="text-align:right;width: 1in; ">
+0.054
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+10
+</td>
+<td style="text-align:right;width: 1in; ">
+7.3
+</td>
+<td style="text-align:right;width: 1in; ">
+0.23
+</td>
+<td style="text-align:right;width: 1in; ">
+0.054
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+11
+</td>
+<td style="text-align:right;width: 1in; ">
+7.7
+</td>
+<td style="text-align:right;width: 1in; ">
+0.63
+</td>
+<td style="text-align:right;width: 1in; ">
+0.401
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+12
+</td>
+<td style="text-align:right;width: 1in; ">
+7.7
+</td>
+<td style="text-align:right;width: 1in; ">
+0.63
+</td>
+<td style="text-align:right;width: 1in; ">
+0.401
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+13
+</td>
+<td style="text-align:right;width: 1in; ">
+7.7
+</td>
+<td style="text-align:right;width: 1in; ">
+0.63
+</td>
+<td style="text-align:right;width: 1in; ">
+0.401
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+14
+</td>
+<td style="text-align:right;width: 1in; ">
+7.8
+</td>
+<td style="text-align:right;width: 1in; ">
+0.73
+</td>
+<td style="text-align:right;width: 1in; ">
+0.538
+</td>
+</tr>
+<tr>
+<td style="text-align:right;width: 1in; ">
+15
+</td>
+<td style="text-align:right;width: 1in; ">
+8.1
+</td>
+<td style="text-align:right;width: 1in; ">
+1.03
+</td>
+<td style="text-align:right;width: 1in; ">
+1.068
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>From this, on average, each earthquake is approximately 0.70 Richter Scale units different than the average earthquake in these data.</p>
+<div class="tip">
+<p>In the standard deviation calculations don’t forget to take the square root of the variance.</p>
+</div>
+<div class="tip">
+<p>The standard deviation is greater than or equal to zero.</p>
+</div>
+<p>The standard deviation can be thought of as “the average difference between the values and the mean.” This is, however, not a strict definition because the formula for the standard deviation does not simply add the differences and divide by <span class="math inline">\(n\)</span> as this definition would imply. Notice in Table <a href="UnivSum.html#tab:SDCalc">4.3</a> that the sum of the differences from the mean is 0. This will be the case for all standard deviation calculations using the correct mean, because the mean balances the distance to individuals below the mean with the distance of individuals above the mean (see Section <a href="UnivEDA.html#comparing-the-median-and-mean">5.1.3</a>). Thus, the mean difference will always be zero. This “problem” is corrected by squaring the differences before summing them. To get back to the original units, the squaring is later “reversed” by the square root. So, more accurately, the standard deviation is the square root of the average squared differences between the values and the mean. Therefore, “the average difference between the values and the mean” works as a practical definition of the meaning of the standard deviation, but it is not strictly correct.</p>
+<div class="tip">
+<p>Use the fact that the sum of all differences from the mean equals zero as a check of your standard deviation calculation.</p>
+</div>
+<p>Further note that the mean is the value that minimizes the value of the standard deviation calculation – i.e., putting any other value besides the mean into the standard deviation equation will result in a larger value.</p>
+<p>Finally, you may be wondering why the sum of the squared differences in the standard deviation calculation is divided by <span class="math inline">\(n-1\)</span>, rather than <span class="math inline">\(n\)</span>. Recall (from Section <a href="FoundationalDefns.html#IVPPSS">2.1</a>) that statistics are meant to estimate parameters. The sample standard deviation is supposed to estimate the population standard deviation (<span class="math inline">\(\sigma\)</span>). Theorists have shown that if we divide by <span class="math inline">\(n\)</span>, <span class="math inline">\(s\)</span> will consistently underestimate <span class="math inline">\(\sigma\)</span>. Thus, <span class="math inline">\(s\)</span> calculated in this way would be a biased estimator of <span class="math inline">\(\sigma\)</span>. Theorists have found, though, that dividing by <span class="math inline">\(n-1\)</span> will cause <span class="math inline">\(s\)</span> to be an unbiased estimator of <span class="math inline">\(\sigma\)</span>. Being unbiased is generally good – it means that on average our statistic estimates our parameter (this concept is discussed in more detail in Module <a href="#SamplingDist"><strong>??</strong></a>).</p>
+</div>
+<div id="mode" class="section level4" number="4.1.1.5">
+<h4><span class="header-section-number">4.1.1.5</span> Mode</h4>
+<p>The mode is the value that occurs most often in a data set. For example, one open pit mine is the mode in the open pit mine data (Table <a href="UnivSum.html#tab:MCmode">4.4</a>).</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:MCmode">Table 4.4: </span>Frequency of countries by each number of open pit mines.
+</caption>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Number of Mines
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Freq of Countries
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>The mode for a continuous variable is the class or bin with the highest frequency of individuals. For example, if 0.5-unit class widths are used in the Richter scale data, then the modal class is 6.5-6.9 (Table <a href="UnivSum.html#tab:EQmode">4.5</a>).</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:EQmode">Table 4.5: </span>Frequency of earthquakes by Richter Scale class.
+</caption>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Richter Scale Class
+</td>
+<td style="text-align:center;">
+5.5-5.9
+</td>
+<td style="text-align:center;">
+6-6.4
+</td>
+<td style="text-align:center;">
+6.5-6.9
+</td>
+<td style="text-align:center;">
+7-7.4
+</td>
+<td style="text-align:center;">
+7.5-7.9
+</td>
+<td style="text-align:center;">
+8-8.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Freq of Earthquakes
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+4
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>Some data sets may have two values or classes with the maximum frequency. In these situations the variable is said to be <strong>bimodal</strong>.</p>
+</div>
+<div id="range" class="section level4" number="4.1.1.6">
+<h4><span class="header-section-number">4.1.1.6</span> Range</h4>
+<p>The range is the difference between the maximum and minimum values in the data and measures the ultimate dispersion or spread of the data. The range in the open pit mine data is 15-1 = 14.</p>
+<p>The range should <strong>never be used by itself</strong> as a measure of dispersion. The range is extremely sensitive to outliers and is best used only to show all possible values present in the data. The range (as strictly defined) also suffers from a lack of information. For example, what does a range of 9 mean? It can have a completely different interpretation if it came from values of 1 to 10 or if it came from values of 1000 to 1009. Thus, the range is more instructive if presented as both the maximum and minimum value rather than the difference.</p>
+</div>
+</div>
+<div id="graphical-summaries" class="section level3" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Graphical Summaries</h3>
+<div id="histogram" class="section level4" number="4.1.2.1">
+<h4><span class="header-section-number">4.1.2.1</span> Histogram</h4>
+<p>A histogram plots the frequency of individuals (y-axis) in classes of values of the quantitative variable (x-axis). Construction of a histogram begins by creating classes of values for the variable of interest. The easiest way to create a list of classes is to divide the range (i.e., maximum minus minimum value) by a “nice” number near eight to ten, and then round up to make classes that are easy to work with. The “nice” number between eight and ten is chosen to make the division easy and will be the number of classes. For example, the range of values in the open pit mine example is 15-1 = 14. A “nice” value near eight and ten to divide this range by is seven. Thus, the classes should be two units wide (=14/7) and, for ease, will begin at 0 (Table <a href="UnivSum.html#tab:MineFreqTable">4.6</a>).</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:MineFreqTable">Table 4.6: </span>Frequency table of number of countries in two-mine-wide classes.
+</caption>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Class
+</td>
+<td style="text-align:center;">
+0-1
+</td>
+<td style="text-align:center;">
+2-3
+</td>
+<td style="text-align:center;">
+4-5
+</td>
+<td style="text-align:center;">
+6-7
+</td>
+<td style="text-align:center;">
+8-9
+</td>
+<td style="text-align:center;">
+10-11
+</td>
+<td style="text-align:center;">
+12-13
+</td>
+<td style="text-align:center;">
+14-15
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Frequency
+</td>
+<td style="text-align:center;">
+10
+</td>
+<td style="text-align:center;">
+7
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>The frequency of individuals in each class is then counted (shown in the second row of Table <a href="UnivSum.html#tab:MineFreqTable">4.6</a>). The plot is prepared with values of the classes forming the x-axis and frequencies forming the y-axis (Figure <a href="UnivSum.html#fig:MineHist1">4.1</a>-A). The first bar added to this skeleton plot has the bottom-left corner at 0 and the bottom-right corner at 2 on the x-axis, and a height equal to the frequency of individuals in the 0-1 class (Figure <a href="UnivSum.html#fig:MineHist1">4.1</a>-B). A second bar is then added with the bottom-left corner at 2 and the bottom-right corner at 4 on the x-axis, and a height equal to the frequency of individuals in the 2-3 class (Figure <a href="UnivSum.html#fig:MineHist1">4.1</a>-C). This process is continued with the remaining classes until the full histogram is constructed (Figure <a href="UnivSum.html#fig:MineHist1">4.1</a>D).</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:MineHist1"></span>
+<img src="Book107_files/figure-html/MineHist1-1.png" alt="Steps (described in text) illustrating the construction of a histogram." width="576" />
+<p class="caption">
+Figure 4.1: Steps (described in text) illustrating the construction of a histogram.
+</p>
+</div>
+<p> </p>
+<p>Ideally eight to ten classes are used in a histogram. Too many or too few bars make it difficult to identify the shape and may lead to different interpretations. A dramatic example of the effect of changing the number of classes is seen in histograms of the length of eruptions for the Old Faithful geyser (Figure <a href="UnivSum.html#fig:histOF">4.2</a>).</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:histOF"></span>
+<img src="Book107_files/figure-html/histOF-1.png" alt="Histogram of length of eruptions for Old Faithful geyser with varying number of bins/classes." width="1008" />
+<p class="caption">
+Figure 4.2: Histogram of length of eruptions for Old Faithful geyser with varying number of bins/classes.
+</p>
+</div>
+</div>
+<div id="boxplot" class="section level4" number="4.1.2.2">
+<h4><span class="header-section-number">4.1.2.2</span> Boxplot</h4>
+<p>The <strong>five-number summary</strong> consists of the minimum, Q1, median, Q3, and maximum values (effectively contains the range, IQR, and median). For example, the five-number summary for the open pit mine data is 1, 1, 2, 4, and 15 (all values computed in the previous sections). The five-number summary may be displayed as a <strong>boxplot</strong>. A traditional boxplot (Figure <a href="UnivSum.html#fig:MineBoxplot">4.3</a>-Left) consists of a horizontal line at the median, horizontal lines at Q1 and Q3 that are connected with vertical lines to form a box, and vertical lines from Q1 to the minimum and from Q3 to the maximum. In modern boxplots (Figure <a href="UnivSum.html#fig:MineBoxplot">4.3</a>-Right) the upper line extends from Q3 to the last observed value that is within 1.5 IQRs of Q3 and the lower line extends from Q1 to the last observed value that is within 1.5 IQRs of Q1. Observed values outside of the whiskers are termed “outliers” by this algorithm and are typically plotted with circles or asterisks. If no individuals are deemed “outliers” by this algorithm, then the traditional and modern boxplots will be the same.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:MineBoxplot"></span>
+<img src="Book107_files/figure-html/MineBoxplot-1.png" alt="Traditional (Left) and modern (Right) boxplots of the open pit mine data." width="672" />
+<p class="caption">
+Figure 4.3: Traditional (Left) and modern (Right) boxplots of the open pit mine data.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="categorical-variable" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Categorical Variable</h2>
+<p>In this section, methods to construct tables and graphs for categorical data are described. Interpretation of the results is demonstrated in the next module. The concepts are illustrated with data about MTH107 students from the Winter 2020 semester. Specifically, whether or not a student was required to take the courses and the student’s year-in-school will be summarized. Whether or not a student was required to take the course for a subset of individuals is shown in Table <a href="UnivSum.html#tab:MTH107Subset">4.7</a>.</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:MTH107Subset">Table 4.7: </span>Whether (Y) or not (N) MTH107 was required for eight individuals in MTH107 in Winter 2020.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+</th>
+<th style="text-align:center;">
+Individual
+</th>
+<th style="text-align:center;">
+Required
+</th>
+<th style="text-align:center;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 2in; ">
+</td>
+<td style="text-align:center;width: 1in; ">
+1
+</td>
+<td style="text-align:center;width: 1in; ">
+Y
+</td>
+<td style="text-align:center;width: 2in; ">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 2in; ">
+</td>
+<td style="text-align:center;width: 1in; ">
+2
+</td>
+<td style="text-align:center;width: 1in; ">
+N
+</td>
+<td style="text-align:center;width: 2in; ">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 2in; ">
+</td>
+<td style="text-align:center;width: 1in; ">
+3
+</td>
+<td style="text-align:center;width: 1in; ">
+N
+</td>
+<td style="text-align:center;width: 2in; ">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 2in; ">
+</td>
+<td style="text-align:center;width: 1in; ">
+4
+</td>
+<td style="text-align:center;width: 1in; ">
+Y
+</td>
+<td style="text-align:center;width: 2in; ">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 2in; ">
+</td>
+<td style="text-align:center;width: 1in; ">
+5
+</td>
+<td style="text-align:center;width: 1in; ">
+Y
+</td>
+<td style="text-align:center;width: 2in; ">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 2in; ">
+</td>
+<td style="text-align:center;width: 1in; ">
+6
+</td>
+<td style="text-align:center;width: 1in; ">
+Y
+</td>
+<td style="text-align:center;width: 2in; ">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 2in; ">
+</td>
+<td style="text-align:center;width: 1in; ">
+7
+</td>
+<td style="text-align:center;width: 1in; ">
+N
+</td>
+<td style="text-align:center;width: 2in; ">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 2in; ">
+</td>
+<td style="text-align:center;width: 1in; ">
+8
+</td>
+<td style="text-align:center;width: 1in; ">
+Y
+</td>
+<td style="text-align:center;width: 2in; ">
+</td>
+</tr>
+</tbody>
+</table>
+<div id="numerical-summaries-1" class="section level3" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Numerical Summaries</h3>
+<div id="frequency-and-percentage-tables" class="section level4" number="4.2.1.1">
+<h4><span class="header-section-number">4.2.1.1</span> Frequency and Percentage Tables</h4>
+<p>A simple method to summarize categorical data is to count the number of individuals in each level of the categorical variable. These counts are called frequencies and the resulting table (Table <a href="UnivSum.html#tab:MTH107SubsetFreq">4.8</a>) is called a frequency table. From this table, it is seen that there were five students that were required and three that were not required to take MTH107.</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:MTH107SubsetFreq">Table 4.8: </span>Frequency table for whether MTH107 was required (Y) or not (N) for eight individuals in MTH107 in Winter 2020.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+</th>
+<th style="text-align:center;">
+Required
+</th>
+<th style="text-align:center;">
+Frequency
+</th>
+<th style="text-align:center;">
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 2in; ">
+</td>
+<td style="text-align:center;width: 1in; ">
+N
+</td>
+<td style="text-align:center;width: 1in; ">
+3
+</td>
+<td style="text-align:center;width: 2in; ">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 2in; ">
+</td>
+<td style="text-align:center;width: 1in; ">
+Y
+</td>
+<td style="text-align:center;width: 1in; ">
+5
+</td>
+<td style="text-align:center;width: 2in; ">
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>The remainder of this module will use results from the entire class rather than the subset used above. For example, frequency tables of individuals by sex and year-in-school for the entire class are in Table <a href="UnivSum.html#tab:Mth107Freq">4.9</a>.</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:Mth107Freq">Table 4.9: </span>Frequency tables for whether (Y) or not (N) MTH107 was required (Left) and year-in-school (Right) for all individuals in MTH107 in Winter 2020.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Required
+</th>
+<th style="text-align:center;">
+Frequency
+</th>
+<th style="text-align:center;">
+</th>
+<th style="text-align:center;">
+Year
+</th>
+<th style="text-align:center;">
+Frequency
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+N
+</td>
+<td style="text-align:center;">
+30
+</td>
+<td style="text-align:center;width: 1in; ">
+</td>
+<td style="text-align:center;">
+Fr
+</td>
+<td style="text-align:center;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Y
+</td>
+<td style="text-align:center;">
+38
+</td>
+<td style="text-align:center;width: 1in; ">
+</td>
+<td style="text-align:center;">
+So
+</td>
+<td style="text-align:center;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;width: 1in; ">
+</td>
+<td style="text-align:center;">
+Jr
+</td>
+<td style="text-align:center;">
+29
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;width: 1in; ">
+</td>
+<td style="text-align:center;">
+Sr
+</td>
+<td style="text-align:center;">
+9
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>Frequency tables are often modified to show the percentage of individuals in each level. <strong>Percentage tables</strong> are constructed from frequency tables by dividing the number of individuals in each level by the total number of individuals examined (<span class="math inline">\(n\)</span>) and then multiplying by 100. For example, the percentage tables for both whether or not MTH107 was required and year-in-school (Table <a href="UnivSum.html#tab:Mth107Perc">4.10</a>) for students in MTH107 is constructed from Table <a href="UnivSum.html#tab:Mth107Freq">4.9</a> by dividing the value in each cell by 68, the total number of students in the class, and then multiplying by 100. From this it is seen that 55.9% of students were required to take the course and 13.0% were seniors (Table <a href="UnivSum.html#tab:Mth107Perc">4.10</a>).</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:Mth107Perc">Table 4.10: </span>Percentage tables for whether (Y) or not (N) MTH107 was required (Left) and year-in-school (Right) for all individuals in MTH107 in Winter 2020.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;">
+Required
+</th>
+<th style="text-align:center;">
+Percentage
+</th>
+<th style="text-align:center;">
+</th>
+<th style="text-align:center;">
+Year
+</th>
+<th style="text-align:center;">
+Percentage
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+N
+</td>
+<td style="text-align:center;">
+44.1
+</td>
+<td style="text-align:center;width: 1in; ">
+</td>
+<td style="text-align:center;">
+Fr
+</td>
+<td style="text-align:center;">
+27.5
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Y
+</td>
+<td style="text-align:center;">
+55.9
+</td>
+<td style="text-align:center;width: 1in; ">
+</td>
+<td style="text-align:center;">
+So
+</td>
+<td style="text-align:center;">
+17.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;width: 1in; ">
+</td>
+<td style="text-align:center;">
+Jr
+</td>
+<td style="text-align:center;">
+42.0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;width: 1in; ">
+</td>
+<td style="text-align:center;">
+Sr
+</td>
+<td style="text-align:center;">
+13.0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="graphical-summaries-1" class="section level3" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Graphical Summaries</h3>
+<div id="bar-charts" class="section level4" number="4.2.2.1">
+<h4><span class="header-section-number">4.2.2.1</span> Bar Charts</h4>
+<p>Bar charts are used to display the frequency or percentage of individuals in each level of a categorical variable. Bar charts look similar to histograms in that they have the frequency of individuals on the y-axis. However, category labels rather than quantitative values are plotted on the x-axis. In addition, to highlight the categorical nature of the data, bars on a bar chart do not touch. A bar chart for whether or not individuals were required to take MTH107 is in Figure <a href="UnivSum.html#fig:MTH107BarChart">4.4</a>-Left. This bar chart does not add much to the frequency table because there were only two categories. However, bar charts make it easier to compare the number of individuals in each of several categories as in Figure <a href="UnivSum.html#fig:MTH107BarChart">4.4</a>-Right.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:MTH107BarChart"></span>
+<img src="Book107_files/figure-html/MTH107BarChart-1.png" alt="Bar charts of the frequency of individuals in MTH107 during Winter 2010 by whether or not they were required to take MTH107 (**Left**) and year-in-school (**Right**)." width="672" />
+<p class="caption">
+Figure 4.4: Bar charts of the frequency of individuals in MTH107 during Winter 2010 by whether or not they were required to take MTH107 (<strong>Left</strong>) and year-in-school (<strong>Right</strong>).
+</p>
+</div>
+<div class="tip">
+<p>Bar charts are used to display the frequency of individuals in the categories of a categorical variable. Histograms are used to display the frequency of individuals in classes created from quantitative variables.</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="18">
+<li id="fn18"><p>These data were collected from <a href="https://en.wikipedia.org/wiki/List_of_open-pit_mines">this page</a>.<a href="UnivSum.html#fnref18" class="footnote-back">↩︎</a></p></li>
+<li id="fn19"><p>See Section <a href="FoundationalDefns.html#IVPPSS">2.1</a> for clarification on the differences between populations and samples and parameters and statistics.<a href="UnivSum.html#fnref19" class="footnote-back">↩︎</a></p></li>
+<li id="fn20"><p>Most computer programs use a more sophisticated algorithm for computing the median and, thus, will produce different results than what will result from applying these steps.<a href="UnivSum.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>You should review how a median is computed before proceeding with this section.<a href="UnivSum.html#fnref21" class="footnote-back">↩︎</a></p></li>
+<li id="fn22"><p>Some authors put the median into both halves when <span class="math inline">\(n\)</span> is odd. The difference between the two methods is minimal for large <span class="math inline">\(n\)</span>.<a href="UnivSum.html#fnref22" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="DataProduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="UnivEDA.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

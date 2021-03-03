@@ -9,7 +9,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 url: 'http\://derekogle.com/Book107/'
-github-repo: droglenc/Book207
+github-repo: droglenc/Book107
 description: "This book contains the readings for MTH107 at Northland College."
 ---
 
@@ -24,7 +24,8 @@ knitr::opts_chunk$set(comment="#R>  ",message=FALSE,warning=FALSE,
                       class.warning="RWARNING",
                       class.error="RERROR",
                       class.message="RMESSAGE",
-                      dev.args=list(bg="transparent"))
+                      dev.args=list(bg="transparent"),
+                      cache=TRUE)
 theme_NCStats <- function() {
   NCStats::theme_NCStats() +
   ggplot2::theme(panel.background=element_rect(fill="transparent",colour=NA),
@@ -43,6 +44,21 @@ lbl_text_size <- 4
 lbl_clr <- "gray25"
 khfont <- "Cambria"
 ARROW <- arrow(length=unit(1.5,"mm"),type="closed")
+
+knitr::knit_hooks$set(
+  par1a = function(before, options, envir) {
+    if (before && options$fig.show != "none") {
+      par(mar=c(3.05,3.05,3.05,2),
+          mgp=c(1.9,0.3,0),
+          tcl=-0.2,
+          las=1,
+          cex.lab=0.95,
+          cex.axis=0.9)
+      if (is.list(options$par))
+        do.call(par, options$par)
+    }
+  }
+)
 ```
 
 # Preface {-}

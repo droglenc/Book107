@@ -47,6 +47,7 @@ RNW2RMD <- function(path, new_path = NULL) {
   x <- gsub("(\\\\tabref\\{)([^\\}]+)(\\})", "Table \\\\@ref(\\2)", x)
   x <- gsub("(\\\\tabrefp\\{)([^\\}]+)(\\})", "(Table \\\\@ref(\\2))", x)
   x <- gsub("(\\\\modref\\{)([^\\}]+)(\\})", "Module \\\\@ref(\\2)", x)
+  x <- gsub("(\\\\sectref\\{)([^\\}]+)(\\})", "Section \\\\@ref(\\2)", x)
   x <- gsub("(\\\\R\\{)([^\\}]+)(\\})", "`\\2`", x)
   x <- gsub("(\\\\warn\\{)([^\\}]+)(\\})", "::: \\{.tip data-latex=''\\}\n\\2\n:::", x)
   x <- gsub("(\\\\defn\\{)([^\\}]+)(\\})", "::: \\{.defn data-latex=''\\}\n\\2\n:::", x)
@@ -59,6 +60,7 @@ RNW2RMD <- function(path, new_path = NULL) {
   x <- gsub("\\\\begin\\{Itemize\\}", "\n1. ", x)
   x <- gsub("\\\\end\\{Itemize\\}", "", x)
   x <- gsub("\\\\minitoc", "", x)
+  x <- gsub("chap:", "", x)
 
   x <- gsub("{\\\\tt ([a-zA-Z0-9. _()=]*)} ", "`\\1` ", x, perl = TRUE)  # need to clean up {`
 

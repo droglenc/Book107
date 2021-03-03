@@ -1,0 +1,463 @@
+# Univariate EDA {#UnivEDA}
+
+## Quantitative Variable
+A univariate EDA for a quantitative variable is concerned with describing the distribution of values for that variable; i.e., describing what values occurred and how often those values occurred. Specifically, the distribution is described with these four attributes:
+
+* **shape** of the distribution,
+* presence of **outliers**,
+* **center** of the distribution, and
+* **dispersion** or spread of the distribution.
+
+Graphs are used to identify shape and the presence of outliers and to get a general feel for center and dispersion. Numerical summaries, however, are used to specifically describe center and dispersion of the variable. Computing and constructing the required numerical and graphical summaries was described in Module \@ref(UnivSum). Those summaries are interpreted here to provide an overall description of the distribution of the quantitative variable.
+
+The same three data sets used in Module \@ref(UnivSum) are used here.
+
+* Number of open pit mines in countries with open pit mines (Table \@ref(tab:MineData)).
+* Richter scale recordings for 15 major earthquakes (Table \@ref(tab:EQData)).
+* The number of days of ice cover at ice gauge station 9004 in Lake Superior.
+
+### Interpreting Shape
+A distribution has two tails -- a left-tail of smaller or more negative values and a right-tail of larger or more positive values (Figure \@ref(fig:ShapeExamples1)). The relative appearance of the tails is used to identify the shape of a distribution. If the left- and right-tail are approximately equal in length and height, then the distribution is **symmetric** (or more specifically **approximately symmetric**). If the left-tail is stretched out or is longer and flatter than the right-tail, then the distribution is negatively- or **left-skewed**. If the right-tail is stretched out or is longer and flatter than the left-tail, then the distribution is positively- or **right-skewed**.
+
+&nbsp;
+
+```{r ShapeExamples1, echo=FALSE, fig.width=7, fig.height=7, fig.cap="Examples of left-skewed, approximately symmetric, and right-skewed histograms. The skewed distributions are more skewed in the top row and less skewed in the bottom row."}
+clrs <- c("Left-Skewed"="lightblue1","Symmetric"="lightsalmon",
+          "Right-Skewed"="lightgreen")
+lbls <- data.frame(x=c(-Inf,0.5,Inf),y=c(Inf,Inf,Inf),
+                   vj=c(1.3,1.3,1.3),hj=c(-0.1,0.5,1.1),
+                   type=factor(c("Left-Skewed","Symmetric","Right-Skewed"),
+                               levels=c("Left-Skewed","Symmetric","Right-Skewed")),
+                   ex=factor(c("Ex 1","Ex 1","Ex 1"),
+                             levels=c("Ex 1","Ex 2","Ex 3")),
+                   lbls=c("Left-tail is flatter,\nmore spread out",
+                          "Left- and Right tail\nare approx. the same",
+                          "Right-tail is flatter,\nmore spread out"))
+
+set.seed(1256)
+n <- 1000
+df <- data.frame(type=rep(c("Symmetric","Left-Skewed","Right-Skewed"),each=3*n),
+                 ex=rep(rep(c("Ex 1","Ex 2","Ex 3"),each=n),3),
+x=c(rbeta(n,1,1),rbeta(n,3,3),rbeta(n,9,9),
+    rbeta(n,3,1),rbeta(n,4,2),rbeta(n,9,3),
+    rbeta(n,1,3),rbeta(n,2,4),rbeta(n,3,9))) %>%
+  mutate(type=factor(type,levels=c("Left-Skewed","Symmetric","Right-Skewed")))
+
+ggplot(data=df,mapping=aes(x=x,fill=type)) +
+  geom_histogram(boundary=0,binwidth=0.1,closed="left",color="black") +
+  geom_text(data=lbls,mapping=aes(x=x,y=y,label=lbls),
+            vjust=lbls$vj,hjust=lbls$hj,color="darkblue") +
+  scale_x_continuous(name="Quantitative Variable",expand=expansion(mult=0.02)) +
+  scale_y_continuous(name="Frequency",expand=expansion(mult=c(0,0.02))) +
+  scale_fill_manual(values=clrs) +
+  facet_grid(rows=vars(ex),cols=vars(type),scale="free_y") +
+  theme_NCStats() +
+  theme(axis.text=element_blank(),
+        axis.ticks=element_blank(),
+        strip.text.x=element_text(face="bold"),
+        strip.text.y=element_blank(),
+        legend.position="none")
+```
+
+::: {.tip data-latex=''}
+The longer tail defines the type of skew; a longer right-tail means the distribution is right-skewed and a longer left-tail means it is left-skewed.
+:::
+
+In practice, these labels form a continuum (Figure \@ref(fig:ShapeExamples1)). For example, it may be difficult to discern whether the shape is approximately symmetric or skew. To partially address this issue, "slightly" or "strongly" may be used with "skewed" to distinguish whether the distribution is obviously skewed (i.e., "strongly skewed") or nearly symmetric (i.e., "slightly skewed").
+
+::: {.tip data-latex=''}
+Shape terms may be modified with "approximately", "slightly", or "strongly."
+:::
+
+A distribution is **bimodal** if there are two distinct peaks (Figure \@ref(fig:ShapeBimodal)). The shape may be "bimodal left-skewed" if the left peak is shorter, "bimodal symmetric" if the two peaks are the same height, or "bimodal right-skewed" if the right peak is shorter.
+
+&nbsp;
+
+```{r ShapeBimodal, echo=FALSE, fig.cap="Example of a bimodal left-skewed histograms."}
+tmp <- data.frame(x=c(rbeta(1000,6,2),rbeta(500,2,9)))
+ggplot(data=tmp,mapping=aes(x=x)) +
+  geom_histogram(boundary=0,binwidth=0.1,closed="left",color="black",fill="gray80") +
+  scale_x_continuous(name="Quantitative Variable",expand=expansion(mult=0.02)) +
+  scale_y_continuous(name="Frequency",expand=expansion(mult=c(0,0.02))) +
+  theme_NCStats() +
+  theme(axis.text=element_blank(),
+        axis.ticks=element_blank(),
+        strip.text.x=element_text(face="bold"),
+        strip.text.y=element_blank(),
+        legend.position="none")
+```
+
+&nbsp;
+
+Shape may be identified from a histogram or a boxplot (Figure \@ref(fig:ShapeExamples2)). Shape is most easily determined from a histogram, as you can focus simply on the "longest" tail. With boxplots, one must examine the relative length from the median to Q1 and the median to Q3 (i.e., the position of the median line in the box). If the distribution is left-skewed (i.e., lesser-valued individuals are "spread out"), then the median-Q1 will be greater than Q3-median. In contrast, if the distribution is right-skewed (i.e., larger-valued individuals are spread out), then the Q3-median will be greater than median-Q1. Thus, the median is nearer the top of the box for a left-skewed distribution, nearer the bottom of the box for a right-skewed distribution, and nearer the center of the box for a symmetric distribution (Figure \@ref(fig:ShapeExamples2)).
+
+&nbsp;
+
+```{r ShapeExamples2, echo=FALSE, fig.width=7, fig.height=5, fig.cap="Histograms and boxplots for several different shapes of distributions."}
+df2 <- filter(df,ex=="Ex 1")
+lbls <- data.frame(x=c(-Inf,Inf),y=c(Inf,Inf),vj=c(1.3,1.3),hj=c(-0.1,1.1),
+                   type=factor(c("Left-Skewed","Right-Skewed"),
+                               levels=c("Left-Skewed","Symmetric","Right-Skewed")),
+                   lbls=c("Left-tail is flatter,\n more spread out",
+                          "Right-tail is flatter,\n more spread out"))
+lbls2 <- data.frame(x=c(-Inf,Inf),y=c(-Inf,Inf),vj=c(-0.5,1.5),hj=c(-0.1,1.1),
+                    type=factor(c("Left-Skewed","Right-Skewed"),
+                                levels=c("Left-Skewed","Symmetric","Right-Skewed")),
+                    lbls=c("Median-Q1\n greater than\n Q3-Median",
+                           "Q3-Median\n greater than\n Median-Q1"))
+
+h <- ggplot() +
+  geom_histogram(data=df2,mapping=aes(x=x,fill=type),
+                 boundary=0,binwidth=0.1,closed="left",color="black") +
+  geom_text(data=lbls,mapping=aes(x=x,y=y,label=lbls),
+            vjust=lbls$vj,hjust=lbls$hj,color="darkblue") +
+  scale_x_continuous(name="Quantitative Variable",expand=expansion(mult=0.02)) +
+  scale_y_continuous(name="Frequency",expand=expansion(mult=c(0,0.02))) +
+  scale_fill_manual(values=clrs) +
+  facet_wrap(vars(type),scale="free") +
+  theme_NCStats() +
+  theme(axis.text=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.ticks=element_blank(),
+        strip.text.x=element_text(face="bold"),
+        strip.text.y=element_blank(),
+        legend.position="none")
+
+b <- ggplot(data=df2,mapping=aes(x=type,y=x,fill=type)) +
+  geom_boxplot(color="black",width=0.4) +
+  geom_text(data=lbls2,mapping=aes(x=x,y=y,label=lbls),
+            vjust=lbls2$vj,hjust=lbls2$hj,color="darkblue") +
+  scale_y_continuous(name="Quantitative Variable",expand=expansion(mult=0.02)) +
+  scale_fill_manual(values=clrs) +
+  facet_wrap(vars(type),scale="free") +
+  theme_NCStats() +
+  theme(axis.text=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.ticks=element_blank(),
+        strip.text=element_blank(),
+        legend.position="none")
+
+h / b
+```
+
+&nbsp;
+
+::: {.tip data-latex=''}
+Shape is easier to describe from a histogram than a boxplot.
+:::
+
+### Interpreting Outliers
+An outlier is an individual whose value is widely separated from the main cluster of values in the sample. On histograms, outliers appear as bars that are separated from the main cluster of bars by "white space" or areas with no bars (Figure \@ref(fig:OutlierExHist)). In general, outliers must be **on the margins of the histogram, should be separated by one or two missing bars, and should only be one or two individuals.**
+
+&nbsp;
+
+```{r OutlierExHist, echo=FALSE, fig.cap="Example histogram with an outlier to the right (dark gray)."}
+set.seed(343432)
+tmp <- data.frame(x=c(rbeta(100,9,9),1.2),
+                  out=c(rep("NO",100),"YES"))
+ggplot(data=tmp,mapping=aes(x=x,fill=out)) +
+  geom_histogram(boundary=0,binwidth=0.1,closed="left",color="black") +
+  scale_fill_manual(values=c("NO"="gray80","YES"="gray30")) +
+  scale_x_continuous(name="Quantitative Variable",expand=expansion(mult=0.02)) +
+  scale_y_continuous(name="Frequency",expand=expansion(mult=c(0,0.02))) +
+  theme_NCStats() +
+  theme(legend.position="none")
+```
+
+&nbsp;
+
+An outlier may be a result of human error in the sampling process and, thus, it should be corrected or removed. Other times an outlier may be an individual that was not part of the population of interest -- e.g., an adult animal that was sampled when only immature animals were being considered -- and, thus, it should be removed from the sample. Still other times, an outlier is part of the population and should generally not be removed from the sample. In fact you may wish to highlight an outlier as an interesting observation! Regardless, it is important to construct a histogram to determine if outliers are present or not.
+
+Don't let outliers completely influence how you define the shape of a distribution. For example, if the main cluster of values is approximately symmetric and there is one outlier to the right of the main cluster (as illustrated in Figure \@ref(fig:OutlierExHist)), **DON'T** call the distribution right-skewed. You should describe this distribution as approximately symmetric with an outlier to the right.
+
+::: {.tip data-latex=''}
+Not all outliers warrant removal from your sample.
+:::
+
+::: {.tip data-latex=''}
+Don't let outliers completely influence how you define the shape of a distribution.
+:::
+
+### Comparing the Median and Mean
+As mentioned previously, numerical measures will be used to describe the center and dispersion of a distribution. However, which values should be used? Should one use the mean or the median as a measure of center? Should one use the IQR or the standard deviation as a measure of dispersion? Which measures are used depends on how the measures respond to skew and the presence of outliers. Thus, before stating a rule for which measures should be used, a fundamental difference among the measures discussed in Module \@ref(UnivSum) is explored here.
+
+The following discussion is focused on comparing the mean and the median. However, note that the IQR is fundamentally linked to the median (i.e., to find the IQR, the median must first be found) and the standard deviation is fundamentally linked to the mean (i.e., to find the standard deviation, the mean must first be found). Thus, **the median and IQR will always be used together to measure center and dispersion, as will the mean and standard deviation.**
+
+The mean and median measure center differently. The median balances the number of individuals smaller and larger than it. The mean, on the other hand, balances the sum of the distances to all points smaller than it and the sum of the distances to all points greater than it. Thus, the median is primarily concerned with the **position** of the value rather than the value itself, whereas the mean is concerned with the **values** for each individual (i.e., the values are used to find the "distance" from the mean).
+
+::: {.tip data-latex=''}
+The actual values of the data (beyond ordering data) **are not** considered when calculating the median; whereas the actual values **are** considered when calculating the mean.
+:::
+
+A plot of the Richter scale data against the corresponding ordered individual numbers is shown in Figure \@ref(fig:MeanMedianComp1)-Top. The median (blue line) is the Richter scale value that corresponds to the middle individual number (i.e., move right from the individual number until the point is intercepted and then move down to the x-axis). Thus, the median (blue line) has the same **number** of individuals (i.e., points) above and below it. In contrast, the mean finds the Richter scale value that has the same total distance to values below it as total distance to values above it. In other words, the mean (vertical red line) is placed such that the total **length** of the horizontal dashed red lines (distances from mean to point) is the same to the left as to the right.
+
+&nbsp;
+
+```{r MeanMedianComp1, echo=FALSE, fig.width=5, fig.height=5, fig.cap="Plot of the individual number versus Richter scale values for the original earthquake data (**Top**) and the earthquake data with an extreme outlier (**Bottom**). The median value is shown as a blue vertical line and the mean value is shown as a red vertical line. Differences between each individual value and the mean value are shown with horizontal red lines.", fig.pos="h"}
+EQ1 <- c(5.5,6.3,6.5,6.5,6.8,6.8,6.9,7.1,7.3,7.3,7.7,7.7,7.7,7.8,8.1)
+avg1 <- mean(EQ1)
+mp1 <- (length(EQ1)+1)/2
+mdn1 <- EQ1[mp1]
+EQ2 <- c(EQ1,19)
+avg2 <- mean(EQ2)
+mp2 <- (length(EQ2)+1)/2
+mdn2 <- mean(EQ2[floor(mp2):(floor(mp2)+1)])
+mp1lbl <- paste0("MP=",mp1)
+mp2lbl <- paste0("MP=",mp2)
+avg1lbl <- paste0("Mean=",formatC(avg1,format="f",digits=1))
+avg2lbl <- paste0("Mean=",formatC(avg2,format="f",digits=1))
+mdn1lbl <- paste0("Median=",formatC(mdn1,format="f",digits=1))
+mdn2lbl <- paste0("Median=",formatC(mdn2,format="f",digits=1))
+
+mnmdn <- ggplot(data=data.frame(i=1:length(EQ1),EQ=EQ1),mapping=aes(x=EQ,y=i)) +
+  geom_point() +
+  scale_y_continuous(name="Individual Number",limits=c(0,16),
+                     breaks=seq(5,15,5),minor_breaks=seq(1,16,1)) +
+  scale_x_continuous(name="Richter Scale Value",limits=c(2.8,19),breaks=seq(2,20,2)) +
+  theme_NCStats()
+
+mnmdn1 <- mnmdn +
+  geom_segment(mapping=aes(xend=avg1,yend=i),col="red",linetype="dotted") +
+  geom_vline(xintercept=avg1,color="red",linetype="dashed") +
+  annotate(geom="segment",x=-Inf,y=mp1,xend=mdn1,yend=mp1,
+           color="blue",linetype="dashed") +
+  annotate(geom="segment",x=mdn1,y=mp1,xend=mdn1,yend=-Inf,
+           color="blue",linetype="dashed") +
+  annotate(geom="text",x=-Inf,y=mp1,label=mp1lbl,vjust=-0.2,hjust=-0.2,
+           color="blue") +
+  annotate(geom="text",x=5.5,y=0,label=mdn1lbl,hjust=1,color="blue") +
+  annotate(geom="segment",x=5.52,y=0,xend=mdn1-0.001,yend=0,color="blue",
+           arrow=arrow(angle=15,length=unit(5,"mm"),type="closed")) +
+  annotate(geom="text",x=9.5,y=0,label=avg1lbl,hjust=0,color="red") +
+  annotate(geom="segment",x=9.48,y=0,xend=avg1+0.001,yend=0,color="red",
+           arrow=arrow(angle=15,length=unit(5,"mm"),type="closed")) +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank())
+
+mnmdn2 <- mnmdn %+%
+  data.frame(i=1:length(EQ2),EQ=EQ2) +
+  geom_segment(mapping=aes(xend=avg2,yend=i),col="red",linetype="dotted") +
+  geom_vline(xintercept=avg2,color="red",linetype="dashed") +
+  annotate(geom="segment",x=-Inf,y=mp2,xend=mdn2,yend=mp2,
+           color="blue",linetype="dashed") +
+  annotate(geom="segment",x=mdn2,y=mp2,xend=mdn2,yend=-Inf,
+           color="blue",linetype="dashed") +
+  annotate(geom="text",x=-Inf,y=mp2,label=mp2lbl,vjust=-0.2,hjust=-0.2,
+           color="blue") +
+  annotate(geom="text",x=5.5,y=0,label=mdn2lbl,hjust=1,color="blue") +
+  annotate(geom="segment",x=5.52,y=0,xend=mdn2-0.001,yend=0,color="blue",
+           arrow=arrow(angle=15,length=unit(5,"mm"),type="closed")) +
+  annotate(geom="text",x=9.5,y=0,label=avg2lbl,hjust=0,color="red") +
+  annotate(geom="segment",x=9.48,y=0,xend=avg2+0.001,yend=0,color="red",
+           arrow=arrow(angle=15,length=unit(5,"mm"),type="closed"))
+mnmdn1 / mnmdn2
+```
+
+&nbsp;
+
+::: {.tip data-latex=''}
+The mean balances the distance to individuals above and below the mean. The median balances the number of individuals above and below the median.
+:::
+
+::: {.tip data-latex=''}
+The sum of all differences between individual values and the mean equals zero.
+:::
+
+The mean and median differ in their sensitivity to outliers (Figure \@ref(fig:MeanMedianComp1)). For example, suppose that an incredible earthquake with a Richter Scale value of 19.0 was added to the earthquake data set. With this additional individual, the median increases from 7.1 to 7.2, but the mean increases from 7.1 to 7.8. The outlier impacts the value of the mean more than the value of the median because of the way that each statistic measures center. The mean will be pulled towards an outlier because it must "put" many values on the "side" of the mean away from the outlier so that the sum of the differences to the larger values and the sum of the differences to the smaller values will be equal. In this example, the outlier creates a large difference to the right of the mean such that the mean has to "move" to the right to make this difference smaller, move more individuals to the left side of the mean, and increase the differences of individuals to the left of the mean to balance this one large individual. The median on the other hand will simply "put" one more individual on the side opposite of the outlier because it balances the number of individuals on each side of it. Thus, the median has to move very little to the right to accomplish this balance.
+
+::: {.tip data-latex=''}
+The mean is more sensitive (i.e., changes more) to outliers than the median; it will be "pulled" towards the outlier more than the median.
+:::
+
+The shape of the distribution, even if outliers are not present, also has an impact on the mean and median (Figure \@ref(fig:MeanMedianShape)). If a distribution is approximately symmetric, then the median and mean (along with the mode) will be nearly identical. If the distribution is left-skewed, then the mean will be less than the median. Finally, if the distribution is right-skewed, then the mean will be greater than the median.
+
+&nbsp;
+
+```{r MeanMedianShape, echo=FALSE, fig.width=7, fig.height=3, fig.cap="Three histograms with vertical dashed lines marking the median (blue) and the mean (red)."}
+df2sum <- df2 %>%
+  group_by(type) %>%
+  summarize(mn=mean(x),
+            mdn=median(x))
+lbls3 <- data.frame(x=c(-Inf,Inf),y=c(Inf,Inf),vj=c(1.1,1.1),hj=c(-0.2,1.2),
+                    type=factor(c("Left-Skewed","Right-Skewed"),
+                                levels=c("Left-Skewed","Symmetric","Right-Skewed")),
+                    lbls=c("Mean less\nthan Median",
+                           "Mean greater\nthan Median"))
+ggplot() +
+  geom_histogram(data=df2,mapping=aes(x=x,fill=type),
+                 boundary=0,binwidth=0.1,closed="left",color="black",alpha=0.25) +
+  geom_vline(data=df2sum,mapping=aes(xintercept=mn),color="red",linetype="dashed",size=1) +
+  geom_vline(data=df2sum,mapping=aes(xintercept=mdn),color="blue",linetype="dashed",size=1) +
+  geom_text(data=lbls3,mapping=aes(x=x,y=y,label=lbls),
+            vjust=lbls3$vj,hjust=lbls3$hj,color="darkblue") +
+  scale_x_continuous(name="Quantitative Variable",expand=expansion(mult=0.02)) +
+  scale_y_continuous(name="Frequency",expand=expansion(mult=c(0,0.02))) +
+  scale_fill_manual(values=clrs) +
+  facet_wrap(vars(type),scale="free") +
+  theme_NCStats() +
+  theme(axis.text=element_blank(),
+        axis.title.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.ticks=element_blank(),
+        strip.text.x=element_text(face="bold"),
+        strip.text.y=element_blank(),
+        legend.position="none")
+```
+
+&nbsp;
+
+::: {.tip data-latex=''}
+The mean is pulled towards the long tail of a skewed distribution. Thus, the mean is greater than the median for right-skewed distributions and the mean is less than the median for left-skewed distributions.
+:::
+
+As shown above, the mean and median measure center differently. The question now becomes "which measure of center is better?"  The median is a "better" measure of center when outliers are present. In addition, the median gives a better measure of a typical individual when the data are skewed. Thus, in this course, the median is used when outliers are present or the distribution of the data is skewed. If the distribution is symmetric, then the purpose of the analysis will dictate which measure of center is "better."  However, in this course, use the mean when the data are symmetric or, at least, not strongly skewed.
+
+As noted above, the IQR and standard deviation behave similarly to the median and mean, respectively, in the face of outliers and skews. Specifically, the IQR is less sensitive to outliers than the standard deviation.
+
+::: {.tip data-latex=''}
+In this course, center and dispersion will be measured by the median and IQR if outliers are present or the distribution is more than slightly skewed, and the mean and standar deviation will be used if no outliers are present and the distribution is symmetric or only slightly skewed.
+:::
+
+### Synthetic Interpretations
+The graphical and numerical summaries from Module \@ref(UnivSum) and the rationale described above can be used to construct a synthetic description of the shape, outliers, center, and dispersion of the distribution of a quantitative variable. In the examples below specifically note that 1) shape and outliers are described from the histogram, 2) center and dispersion are described ONLY from the mean and standard deviation OR the median and IQR are discussed, 3) the specific position of outliers (if present) is explained, 4) an explanation is given for why either the median and IQR or the mean and standard deviation were used, and 5) the range was not used alone as a measure of dispersion.
+
+#### Number of Open Pit Mines
+
+> *Construct a proper EDA for the number of open pit mines in countries that have open pit mines as summarized in Table \@ref(tab:MineData) and Figure \@ref(fig:MineHist2).*
+
+```{r MineHist2, echo=FALSE, fig.cap="Histogram of number of open pit mines in countries with open pit mines."}
+mc <- c(2,11,4,1,15,12,1,1,3,2,2,1,1,1,1,2,4,1,4,2,4,2,1,4,11,1)
+
+ggplot(data=data.frame(mc),mapping=aes(x=mc)) +
+  geom_histogram(boundary=0,binwidth=2,closed="left",color="black",fill="gray80") +
+  scale_x_continuous(name="Number of Open Pit Mines",expand=expansion(mult=0.02)) +
+  scale_y_continuous(name="Frequency",expand=expansion(mult=c(0,0.02))) +
+  theme_NCStats()
+```
+
+```{r MineStats, echo=FALSE}
+mstat <- Summarize(mc,digits=2)
+knitr::kable(t(mstat),booktabs=TRUE,
+             caption="Descriptive statistics of number of open pit mines in countries with open pit mines.") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(0,bold=TRUE)
+```
+
+&nbsp;
+
+The number of open pit mines in countries with open pit mines is strongly right-skewed with no outliers present (Figure \@ref(fig:MineHist2)). [*I did not call the group of four countries with 10 or more open pit mines outliers because there were more than one or two countries there.*] The center of the distribution is best measured by the median, which is `r formatC(mstat["median"],format="f",digits=0)` (Table \@ref(tab:MineStats)). The range of open pit mines in the sample is from `r formatC(mstat["min"],format="f",digits=0)` to `r formatC(mstat["max"],format="f",digits=0)` while the dispersion as measured by the inter-quartile range (IQR) from a Q1 of `r formatC(mstat["Q1"],format="f",digits=1)` to a Q3 of  `r formatC(mstat["Q3"],format="f",digits=1)` (Table \@ref(tab:MineStats)). I chose to use the median and IQR because the distribution was strongly skewed.
+
+#### Lake Superior Ice Cover
+
+> *Thoroughly describe the distribution of number of days of ice cover at ice gauge station 9004 in Lake Superior from Figure \@ref(fig:LSIHist) and Table \@ref(tab:LSIStats).*
+
+```{r LSIHist, echo=FALSE, fig.cap="Histogram of number of days of ice cover at ice gauge 9004 in Lake Superior.", warning=FALSE}
+LSI <- read.csv("https://raw.githubusercontent.com/droglenc/NCData/master/LakeSuperiorIce.csv")
+ggplot(LSI,mapping=aes(x=days)) +
+  geom_histogram(boundary=0,binwidth=20,closed="left",color="black",fill="gray80") +
+  scale_x_continuous(name="Days of Ice Cover",expand=expansion(mult=0.02)) +
+  scale_y_continuous(name="Frequency of Years",expand=expansion(mult=c(0,0.02))) +
+  theme_NCStats()
+```
+
+```{r LSIStats, echo=FALSE}
+sumLSI <- Summarize(~days,data=LSI,digits=1)
+knitr::kable(t(sumLSI),booktabs=TRUE,
+             caption="Descriptive statistics of number of days of ice cover at ice gauge 9004 in Lake Superior.") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(0,bold=TRUE)
+```
+
+&nbsp;
+
+The shape of number of days of ice cover at gauge 9004 in Lake Superior is approximately symmetric with no obvious outliers (Figure \@ref(fig:LSIHist)). The center is at a mean of `r formatC(sumLSI["mean"],format="f",digits=1)` days and the dispersion is a standard deviation of `r formatC(sumLSI["sd"],format="f",digits=1)` days (Table \@ref(tab:LSIStats)). The mean and standard deviation were used because the distribution was not strongly skewed and no outlier was present.
+
+#### Crayfish Temperature Selection
+
+> *Peck (1985) examined the temperature selection of dominant and subdominant crayfish (Orconectes virilis) together in an artificial stream. The temperature (^o^C) selection by the dominant crayfish in the presence of subdominant crayfish in these experiments was recorded below. Thoroughly describe all aspects of the distribution of selected temperatures from Figure \@ref(fig:CrayfishTempHist) and Table \@ref(tab:CrayfishTempStats).*
+
+```{r CrayfishTempHist, echo=FALSE, fig.cap="Histogram of crayfish temperature preferences."}
+CT <- c(30,26,26,26,25,25,25,25,25,24,24,24,24,24,24,23,23,23,23,22,22,22,22,21,21,21,20,20,19,19,18,16)
+
+ggplot(data.frame(CT),mapping=aes(x=CT)) +
+  geom_histogram(boundary=0,binwidth=1,closed="left",color="black",fill="gray80") +
+  scale_x_continuous(name="Preferred Temperature",expand=expansion(mult=0.02)) +
+  scale_y_continuous(name="Frequency of Crayfish",expand=expansion(mult=c(0,0.02))) +
+  theme_NCStats()
+```
+
+```{r CrayfishTempStats, echo=FALSE}
+cstat <- Summarize(~CT,digits=2)
+knitr::kable(t(cstat),booktabs=TRUE,
+             caption="Descriptive statistics of crayfish temperature preferences.") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(0,bold=TRUE)
+```
+
+&nbsp;
+
+The shape of temperatures selected by the dominant crayfish is slightly left-skewed (Figure \@ref(fig:CrayfishTempHist)) with a possible weak outlier at the maximum value of `r formatC(cstat["max"],format="f",digits=0)`^o^C (Table \@ref(tab:CrayfishTempStats)). The center is best measured by the median, which is `r formatC(cstat["median"],format="f",digits=0)`^o^C (Table \@ref(tab:CrayfishTempStats)) and the dispersion is best measured by the IQR, which is from `r formatC(cstat["Q1"],format="f",digits=0)` to `r formatC(cstat["Q3"],format="f",digits=0)`^o^C (Table \@ref(tab:CrayfishTempStats)). I used the median and IQR because of the (combined) skewed shape and outlier present.
+
+
+## Categorical Variable
+An appropriate EDA for a categorical variable consists of identifying the major characteristics among the categories. Shape, center, dispersion, and outliers are NOT described for categorical data because the data is not numerical and, if nominal, no order exists. In general, the major characteristics of the table or graph are described from an intuitive basis; the numerical values in the graph or table are not simply repeated.
+
+::: {.tip data-latex=''}
+Do NOT describe shape, center, dispersion, and outliers for a categorical variable.
+:::
+
+### Example Interpretations
+#### Mixture Seed Count
+
+> *A bag of seeds was purchased for seeding a recently constructed wetland. The purchaser wanted to determine if the percentage of seeds in four broad categories -- "grasses", "sedges", "wildflowers", and "legumes" -- was similar to what the seed manufacturer advertised. The purchaser examined a 0.25-lb sample of seeds from the bag and displayed the results in Figure \@ref(fig:SeedBarplot). Use these results to describe the distribution of seed counts into the four broad categories.*
+
+```{r SeedBarplot, echo=FALSE, fig.cap="Bar chart of the percentage of wetland seeds by type."}
+ws <- read.csv("https://raw.githubusercontent.com/droglenc/NCData/master/WetlandSeeds.csv")
+wssum <- ws %>%
+  group_by(type) %>%
+  summarize(n=n()) %>%
+  mutate(perc=n/sum(n)*100)
+ggplot(data=wssum,mapping=aes(x=type,y=perc)) +
+  geom_col(fill="gray80",color="black") +
+  geom_text(aes(label=paste0(formatC(perc,format="f",digits=1),"%")),
+            vjust="bottom",nudge_y=1) +
+  scale_y_continuous(expand=expansion(mult=c(0,0.05)),
+                     labels=scales::label_percent(scale=1)) +
+  labs(y="Percentage of Total Seeds",x="Seed Type") +
+  theme_NCStats()
+```
+
+&nbsp;
+
+The majority of seeds were either sedge or grass, with sedge being more than twice as abundant as grass (Figure \@ref(fig:SeedBarplot)). Very few legumes or wildflowers were found in the sample.
+
+#### GSS Recycling
+
+> *The General Sociological Survey (GSS) is a very large survey that has been administered 25 times since 1972. The purpose of the GSS is to gather data on contemporary American society in order to monitor and explain trends in attitudes, behaviors, and attributes. One question that was asked in a recent GSS was "How often do you make a special effort to sort glass or cans or plastic or papers and so on for recycling?" The results are displayed in Figure \@ref(fig:GSSBarplot) and Table \@ref(tab:GSSTable). Use these results to describe the distribution of answers to the question.*
+
+```{r GSSBarplot, echo=FALSE, fig.cap="Barplot of the percentage of wetland seeds by type."}
+gss <- read.csv("https://raw.githubusercontent.com/droglenc/NCData/master/GSSEnviroQues.csv") %>%
+  mutate(recycle=factor(recycle,levels=c("Always","Often","Sometimes","Never","Not Avail")))
+ggplot(data=gss,mapping=aes(x=recycle)) +
+  geom_bar(fill="gray80",color="black") +
+  scale_y_continuous(expand=expansion(mult=c(0,0.05)),breaks=seq(0,1500,250)) +
+  labs(y="Frequency of Respondents",x="Responses") +
+  theme_NCStats()
+```
+
+```{r GSSTable, echo=FALSE}
+gsstbl <- xtabs(~recycle,data=gss)
+gsstbl2 <- matrix(gsstbl,ncol=length(gsstbl))
+colnames(gsstbl2) <- names(gsstbl)
+
+knitr::kable(gsstbl2,booktabs=TRUE,
+             caption="Frequency of respondents by response to the question about recycling.") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(0,bold=TRUE)
+```
+
+&nbsp;
+
+More than twice as many respondents always recycled compared to never recycled, with approximately equal numbers in between that often or sometimes recycled.

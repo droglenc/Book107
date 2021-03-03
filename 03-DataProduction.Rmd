@@ -174,9 +174,9 @@ Consider the following as an example of the problems that can occur when all var
 Strong cause-and-effect statements CANNOT be made from observational studies.
 :::
 
-In observational studies, it is important to understand to which population inferences will refer.^[Thus, it is very important to first perform an IVPPS as discussed in Module \@ref(FoundationalDefinitions).] To make useful inferences from a sample, the sample must be an unbiased representation of the population. In other words, it must not systematically favor certain individuals or outcomes.
+In observational studies, it is important to understand to which population inferences will refer.^[Thus, it is very important to first perform an IVPPS as discussed in Module \@ref(FoundationalDefns).] To make useful inferences from a sample, the sample must be an unbiased representation of the population. In other words, it must not systematically favor certain individuals or outcomes.
 
-For example, consider that you want to determine the mean length of all fish in a particular lake (e.g., Square Lake from Module \@ref(FoundationalDefinitions)). Using a net with large mesh, such that only large fish are caught, would produce a biased sample because interest is in all fish not just the large fish. Setting the nets near spawning beds (i.e., only adult fish) would also produce a biased sample. In both instances, a sample would be collected from a population other than the population of interest. Thus it is important to select a sample from the specified population.
+For example, consider that you want to determine the mean length of all fish in a particular lake (e.g., Square Lake from Module \@ref(FoundationalDefns)). Using a net with large mesh, such that only large fish are caught, would produce a biased sample because interest is in all fish not just the large fish. Setting the nets near spawning beds (i.e., only adult fish) would also produce a biased sample. In both instances, a sample would be collected from a population other than the population of interest. Thus it is important to select a sample from the specified population.
 
 ::: {.tip data-latex=''}
 It is important to understand the population before considering how to take a sample.

@@ -34,7 +34,7 @@ SLhist <- ggplot(data=data.frame(SL),mapping=aes(x=tl)) +
 SLpop+SLhist
 ```
 
-## Definitions {#sect:IVPPSS}
+## Definitions {#IVPPSS}
 The **individual** in a statistical analysis is one of the "items" examined by the researcher. Sometimes the individual is a person, but it may be an animal, a piece of wood, a location, a particular time, or an event. It is extremely important that you don't always visualize a person when considering an individual in a statistical sense. Synonyms for individual are unit, experimental unit (usually used in experiments), sampling unit (usually used in observational studies), case, and subject (usually used in studies involving humans). An individual in the Square Lake example is a fish, because the researcher will collect a set of fish and examine each individual fish.
 
 The **variable** is the characteristic recorded about each individual. The variable in the Square Lake example is the length of each fish. In most studies, the researcher will record more than one variable. For example, the researcher may also record the fish's weight, sex, age, time of capture, and location of capture. In this module, only one variable is considered. In other modules, two variables will be considered.
@@ -45,7 +45,7 @@ A **parameter** is a summary computed from ALL individuals in a population. The 
 
 &nbsp;
 
-```{r SquareLakePopnTbl, results="asis", echo=FALSE }
+```{r SquareLakePopnTbl, echo=FALSE }
 slstat <- Summarize(~tl,data=SL,digits=2)
 knitr::kable(t(slstat),booktabs=TRUE,
              caption="Parameters for the total length of ALL 1015 fish in the Square Lake population.") %>%
@@ -79,7 +79,7 @@ Some statistics computed from the sample from Square Lake are shown in Table \@r
 
 &nbsp;
 
-```{r SquareLakeSample1s, results="asis", echo=FALSE }
+```{r SquareLakeSample1s, echo=FALSE }
 slstat <- Summarize(~tl,data=SL1,digits=2)
 knitr::kable(t(slstat),booktabs=TRUE,
              caption="Summary statistics for the total length of a sample of 50 fish from the Square Lake population.") %>%
@@ -164,7 +164,7 @@ SLhist4 <- SLhist1 %+% SL4
 
 &nbsp;
 
-```{r SquareLakeSample234s, results="asis", echo=FALSE }
+```{r SquareLakeSample234s, echo=FALSE }
 SL2.sum <- Summarize(SL2$tl,digits=2)
 SL3.sum <- Summarize(SL3$tl,digits=2)
 SL4.sum <- Summarize(SL4$tl,digits=2)
@@ -187,7 +187,7 @@ This example also illustrates that parameters are fixed values because populatio
 Parameters are fixed in value, while statistics vary in value.
 :::
 
-## Variable Types{#sect:VarTypes}
+## Variable Types
 The type of statistic that can be calculated is dictated by the type of variable recorded. For example, an average can only be calculated for quantitative variables (defined below). Thus, the type of variable should be identified immediately after performing an IVPPSS.
 
 ### Variable Definitions

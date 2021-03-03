@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 8 Forward Calculations | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 8 Forward Calculations | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book107" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 8 Forward Calculations | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-03-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="NormDist2.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#sect:Realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#variable-types"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="DataProduction.html"><a href="DataProduction.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="DataProduction.html"><a href="DataProduction.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="DataProduction.html"><a href="DataProduction.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="UnivSum.html"><a href="UnivSum.html"><i class="fa fa-check"></i><b>4</b> Univariate Summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="UnivSum.html"><a href="UnivSum.html#quantitative-variable"><i class="fa fa-check"></i><b>4.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="4.2" data-path="UnivSum.html"><a href="UnivSum.html#categorical-variable"><i class="fa fa-check"></i><b>4.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="UnivEDA.html"><a href="UnivEDA.html"><i class="fa fa-check"></i><b>5</b> Univariate EDA</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="UnivEDA.html"><a href="UnivEDA.html#quantitative-variable-1"><i class="fa fa-check"></i><b>5.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="5.2" data-path="UnivEDA.html"><a href="UnivEDA.html#categorical-variable-1"><i class="fa fa-check"></i><b>5.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="NormDist1.html"><a href="NormDist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="NormDist1.html"><a href="NormDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="NormDist1.html"><a href="NormDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
+<li class="chapter" data-level="6.3" data-path="NormDist1.html"><a href="NormDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
+<li class="chapter" data-level="6.4" data-path="NormDist1.html"><a href="NormDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.5" data-path="NormDist1.html"><a href="NormDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NormDist2.html"><a href="NormDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a></li>
+<li class="chapter" data-level="8" data-path="forward-calculations.html"><a href="forward-calculations.html"><i class="fa fa-check"></i><b>8</b> Forward Calculations</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="forward-calculations.html"><a href="forward-calculations.html#reverse-calculations"><i class="fa fa-check"></i><b>8.1</b> Reverse Calculations</a></li>
+<li class="chapter" data-level="8.2" data-path="forward-calculations.html"><a href="forward-calculations.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>8.2</b> Standardization and Z-Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="forward-calculations" class="section level1" number="8">
+<h1><span class="header-section-number">Module 8</span> Forward Calculations</h1>
+<p>The area under a normal curve relative to a particular value is computed in R with <code>distrib()</code>. This function requires the <em>particular value</em> as the first argument and the mean and standard deviation of the normal distribution in the <code>mean=</code> and <code>sd=</code> arguments, respectively. The <code>distrib()</code> function defaults to finding the area under the curve to the <strong>left of</strong> the particular value, but it can find the area under the curve to the right of the particular value by including <code>lower.tail=FALSE</code>.</p>
+<p>For example, suppose that the heights of a population of students is known to be <span class="math inline">\(H\sim N(66,3)\)</span>. The proportion of students in this population that have a height less than 71 inches is computed below. Thus, approximately 95.2% of students in this population have a height less than 71 inches (Figure <a href="forward-calculations.html#fig:NormZCalc1">8.1</a>).</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb7-1"><a href="forward-calculations.html#cb7-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">71</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>) )</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:NormZCalc1"></span>
+<img src="Book107_files/figure-html/NormZCalc1-1.png" alt="Calculation of the proportion of individuals on a $N(66,3)$ with a value less than 71." width="336" />
+<p class="caption">
+Figure 8.1: Calculation of the proportion of individuals on a <span class="math inline">\(N(66,3)\)</span> with a value less than 71.
+</p>
+</div>
+<p> </p>
+<p>The proportion of students in this population that have a height <em>greater</em> than 68 inches is computed below (note use of <code>lower.tail=FALSE</code>). Thus, approximately 25.2% of students in this population have a height greater than 68 inches (Figure <a href="forward-calculations.html#fig:NormZCalc2">8.2</a>).</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb8-1"><a href="forward-calculations.html#cb8-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">68</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:NormZCalc2"></span>
+<img src="Book107_files/figure-html/NormZCalc2-1.png" alt="Calculation of the proportion of individuals on a $N(66,3)$ with a value greater than 68." width="336" />
+<p class="caption">
+Figure 8.2: Calculation of the proportion of individuals on a <span class="math inline">\(N(66,3)\)</span> with a value greater than 68.
+</p>
+</div>
+<p>Finding the area between two particular values is a bit more work. To answer “between”-type questions, the area less than the smaller of the two values is subtracted from the area less than the larger of the two values. This is illustrated by noting that two values split the area under the normal curve into three parts – A, B, and C in Figure <a href="forward-calculations.html#fig:NormDistBetween">8.3</a>. The area between the two values is B. The area to the left of the larger value corresponds to the area A+B. The area to the left of the smaller value corresponds to the area A. Thus, subtracting the latter from the former leaves the “in-between” area B (i.e., (A+B)-A = B).</p>
+<div class="figure" style="text-align: center"><span id="fig:NormDistBetween"></span>
+<img src="Book107_files/figure-html/NormDistBetween-1.png" alt="Schematic representation of how to find the area between two $Z$ values." width="336" />
+<p class="caption">
+Figure 8.3: Schematic representation of how to find the area between two <span class="math inline">\(Z\)</span> values.
+</p>
+</div>
+<p> </p>
+<p>For example, the area between 62 and 70 inches of height is found below. Thus, 81.8% of students in this population have a height between 62 and 70 inches.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb9-1"><a href="forward-calculations.html#cb9-1" aria-hidden="true" tabindex="-1"></a>( AB <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="dv">70</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>) )  <span class="co"># left-of 70</span></span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] 0.9087888</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb11-1"><a href="forward-calculations.html#cb11-1" aria-hidden="true" tabindex="-1"></a>( A <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="dv">62</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>) )   <span class="co"># left-of 62</span></span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] 0.09121122</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb13-1"><a href="forward-calculations.html#cb13-1" aria-hidden="true" tabindex="-1"></a>AB<span class="sc">-</span>A                                <span class="co"># between 62 and 70</span></span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] 0.8175776</code></pre>
+<div class="tip">
+<p>The area between two values is found by subtracting the area less than the smaller value from the area less than the larger value.</p>
+</div>
+<div id="reverse-calculations" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Reverse Calculations</h2>
+<p>Reverse questions are also answered with <code>distrib()</code>, though the first argument is now the given proportion (or area) of interest. The calculation is treated as a “reverse” question when <code>type="q"</code> is given to <code>distrib()</code>.<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> For example, the height that has 20% of all students shorter is 63.5 inches, as computed below (Figure <a href="forward-calculations.html#fig:NormZCalc4">8.4</a>).</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb15-1"><a href="forward-calculations.html#cb15-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.20</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:NormZCalc4"></span>
+<img src="Book107_files/figure-html/NormZCalc4-1.png" alt="Calculation of the height with 20% of all students shorter." width="336" />
+<p class="caption">
+Figure 8.4: Calculation of the height with 20% of all students shorter.
+</p>
+</div>
+<p> </p>
+<p>“Greater than” reverse questions are computed by including <code>lower.tail=FALSE</code>. For example, 10% of the population of students is taller than 69.8 inches, as computed below (Figure <a href="forward-calculations.html#fig:NormZCalc5">8.5</a>).</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb16-1"><a href="forward-calculations.html#cb16-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.10</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:NormZCalc5"></span>
+<img src="Book107_files/figure-html/NormZCalc5-1.png" alt="Calculation of the height with 10% of all students taller." width="336" />
+<p class="caption">
+Figure 8.5: Calculation of the height with 10% of all students taller.
+</p>
+</div>
+<p> </p>
+<p>“Between” questions can only be easily handled if the question is looking for endpoint values that are symmetric about <span class="math inline">\(\mu\)</span>. In other words, the question must ask for the two values that contain the “most common” proportion of individuals. For example, suppose that you were asked to find the most common 80% of heights. This type of question is handled by converting this “symmetric between” question into two “less than” questions. For example, in Figure <a href="forward-calculations.html#fig:NormRevBetween">8.6</a> the area D is the symmetric area of interest. If D is 0.80, then C+E must be 0.20.<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a> Because D is symmetric about <span class="math inline">\(mu\)</span>, C and E must both equal 0.10. Thus, the lower bound on D is the value that has 10% of all values smaller. Similarly, because the combined area of C and D is 0.90, the upper bound on D is the value that has 90% of all values smaller. This question has now been converted from a “symmetric between” to two “less than” questions that can be answered exactly as shown above. For example, the two heights that have a symmetric 80% of individuals between them are 62.2 and 69.8 as computed below.</p>
+<p> </p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb17-1"><a href="forward-calculations.html#cb17-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.10</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] 62.15535</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb19-1"><a href="forward-calculations.html#cb19-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] 69.84465</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:NormRevBetween"></span>
+<img src="Book107_files/figure-html/NormRevBetween-1.png" alt="Depiction of areas in a reverse between type normal distribution question." width="336" />
+<p class="caption">
+Figure 8.6: Depiction of areas in a reverse between type normal distribution question.
+</p>
+</div>
+<p> </p>
+</div>
+<div id="standardization-and-z-scores" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Standardization and Z-Scores</h2>
+<p>An individual that is 59 inches tall is 7 inches shorter than average if heights are <span class="math inline">\(N(66,3)\)</span>. Is this a large or a small difference? Alternatively, this same individual is <span class="math inline">\(\frac{-7}{3}\)</span> = <span class="math inline">\(-2.33\)</span> standard deviations below the mean. Thus, a height of 59 inches is relatively rare in this population because few individuals are more than two standard deviations away from the mean.<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a> As seen here, the relative magnitude that an individual differs from the mean is better expressed as the number of standard deviations that the individual is away from the mean.</p>
+<p>Values are “standardized” by changing the original scale (inches in this example) to one that counts the number of standard deviations (i.e., <span class="math inline">\(\sigma\)</span>) that the value is away from the mean (i.e., <span class="math inline">\(\mu\)</span>). For example, with the height variable above, 69 inches is one standard deviation above the mean, which corresponds to +1 on the standardized scale. Similarly, 60 inches is two standard deviations below the mean, which corresponds to -2 on the standardized scale. Finally, 67.5 inches on the original scale is one half standard deviation above the mean or +0.5 on the standardized scale.</p>
+<p>The process of computing the number of standard deviations that an individual is away from the mean is called <strong>standardizing</strong>. Standardizing is accomplished with</p>
+<p><span class="math display">\[Z = \frac{``\text{value&quot;}-``\text{center&quot;}}{``\text{dispersion&quot;}} \]</span></p>
+<p>or, more specifically,</p>
+<p><span class="math display">\[ Z = \frac{x-\mu}{\sigma} \]</span></p>
+<p>For example, the standardized value of an individual with a height of 59 inches is <span class="math inline">\(z=\frac{59-66}{3}=-2.33\)</span>. Thus, this individual’s height is 2.33 standard deviations below the average height in the population.</p>
+<p>Standardized values (<span class="math inline">\(Z\)</span>) follow a <span class="math inline">\(N(0,1)\)</span>. Thus, <span class="math inline">\(N(0,1)\)</span> is called the “standard normal distribution.” The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> is one-to-one meaning that each value of <span class="math inline">\(X\)</span> converts to one and only one value of <span class="math inline">\(Z\)</span>. This means that the area to the left of <span class="math inline">\(X\)</span> on a <span class="math inline">\(N(\mu,\sigma)\)</span> is the same as the area to the left of <span class="math inline">\(Z\)</span> on a <span class="math inline">\(N(0,1)\)</span>. This one-to-one relationship is illustrated in Figure <a href="forward-calculations.html#fig:NormStandardizingEx">8.7</a> using the individual with a height of 59 inches and <span class="math inline">\(Z=-2.33\)</span>.</p>
+<div class="tip">
+<p>The standardized scale (i.e., z-scores) represents the number of standard deviations that a value is from the mean.</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:NormStandardizingEx"></span>
+<img src="Book107_files/figure-html/NormStandardizingEx-1.png" alt="Plots depicting the area to the left of 59 on a $N(66,3)$ (**Left**) and the area to the right of the corresponding Z-score of $Z=-2.33$ on a $N(0,1)$ (**Right**). Note that the x-axis scales are different." width="336" /><img src="Book107_files/figure-html/NormStandardizingEx-2.png" alt="Plots depicting the area to the left of 59 on a $N(66,3)$ (**Left**) and the area to the right of the corresponding Z-score of $Z=-2.33$ on a $N(0,1)$ (**Right**). Note that the x-axis scales are different." width="336" />
+<p class="caption">
+Figure 8.7: Plots depicting the area to the left of 59 on a <span class="math inline">\(N(66,3)\)</span> (<strong>Left</strong>) and the area to the right of the corresponding Z-score of <span class="math inline">\(Z=-2.33\)</span> on a <span class="math inline">\(N(0,1)\)</span> (<strong>Right</strong>). Note that the x-axis scales are different.
+</p>
+</div>
+<p> </p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="24">
+<li id="fn24"><p>“q” stands for quantile.<a href="forward-calculations.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<li id="fn25"><p>Because all three areas must sum to 1.<a href="forward-calculations.html#fnref25" class="footnote-back">↩︎</a></p></li>
+<li id="fn26"><p>From the 68-95-99.7% Rule.<a href="forward-calculations.html#fnref26" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="NormDist2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

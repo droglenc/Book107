@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 5 Univariate EDA | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 5 Univariate EDA | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book107" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 5 Univariate EDA | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-03-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="UnivSum.html"/>
+<link rel="next" href="NormDist1.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#sect:Realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#variable-types"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="DataProduction.html"><a href="DataProduction.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="DataProduction.html"><a href="DataProduction.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="DataProduction.html"><a href="DataProduction.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="UnivSum.html"><a href="UnivSum.html"><i class="fa fa-check"></i><b>4</b> Univariate Summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="UnivSum.html"><a href="UnivSum.html#quantitative-variable"><i class="fa fa-check"></i><b>4.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="4.2" data-path="UnivSum.html"><a href="UnivSum.html#categorical-variable"><i class="fa fa-check"></i><b>4.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="UnivEDA.html"><a href="UnivEDA.html"><i class="fa fa-check"></i><b>5</b> Univariate EDA</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="UnivEDA.html"><a href="UnivEDA.html#quantitative-variable-1"><i class="fa fa-check"></i><b>5.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="5.2" data-path="UnivEDA.html"><a href="UnivEDA.html#categorical-variable-1"><i class="fa fa-check"></i><b>5.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="NormDist1.html"><a href="NormDist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="NormDist1.html"><a href="NormDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="NormDist1.html"><a href="NormDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
+<li class="chapter" data-level="6.3" data-path="NormDist1.html"><a href="NormDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
+<li class="chapter" data-level="6.4" data-path="NormDist1.html"><a href="NormDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.5" data-path="NormDist1.html"><a href="NormDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NormDist2.html"><a href="NormDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="NormDist2.html"><a href="NormDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
+<li class="chapter" data-level="7.2" data-path="NormDist2.html"><a href="NormDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
+<li class="chapter" data-level="7.3" data-path="NormDist2.html"><a href="NormDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="UnivEDA" class="section level1" number="5">
+<h1><span class="header-section-number">Module 5</span> Univariate EDA</h1>
+<div id="quantitative-variable-1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Quantitative Variable</h2>
+<p>A univariate EDA for a quantitative variable is concerned with describing the distribution of values for that variable; i.e., describing what values occurred and how often those values occurred. Specifically, the distribution is described with these four attributes:</p>
+<ul>
+<li><strong>shape</strong> of the distribution,</li>
+<li>presence of <strong>outliers</strong>,</li>
+<li><strong>center</strong> of the distribution, and</li>
+<li><strong>dispersion</strong> or spread of the distribution.</li>
+</ul>
+<p>Graphs are used to identify shape and the presence of outliers and to get a general feel for center and dispersion. Numerical summaries, however, are used to specifically describe center and dispersion of the variable. Computing and constructing the required numerical and graphical summaries was described in Module <a href="UnivSum.html#UnivSum">4</a>. Those summaries are interpreted here to provide an overall description of the distribution of the quantitative variable.</p>
+<p>The same three data sets used in Module <a href="UnivSum.html#UnivSum">4</a> are used here.</p>
+<ul>
+<li>Number of open pit mines in countries with open pit mines (Table <a href="UnivSum.html#tab:MineData">4.1</a>).</li>
+<li>Richter scale recordings for 15 major earthquakes (Table <a href="UnivSum.html#tab:EQData">4.2</a>).</li>
+<li>The number of days of ice cover at ice gauge station 9004 in Lake Superior.</li>
+</ul>
+<div id="interpreting-shape" class="section level3" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Interpreting Shape</h3>
+<p>A distribution has two tails – a left-tail of smaller or more negative values and a right-tail of larger or more positive values (Figure <a href="UnivEDA.html#fig:ShapeExamples1">5.1</a>). The relative appearance of the tails is used to identify the shape of a distribution. If the left- and right-tail are approximately equal in length and height, then the distribution is <strong>symmetric</strong> (or more specifically <strong>approximately symmetric</strong>). If the left-tail is stretched out or is longer and flatter than the right-tail, then the distribution is negatively- or <strong>left-skewed</strong>. If the right-tail is stretched out or is longer and flatter than the left-tail, then the distribution is positively- or <strong>right-skewed</strong>.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:ShapeExamples1"></span>
+<img src="Book107_files/figure-html/ShapeExamples1-1.png" alt="Examples of left-skewed, approximately symmetric, and right-skewed histograms. The skewed distributions are more skewed in the top row and less skewed in the bottom row." width="672" />
+<p class="caption">
+Figure 5.1: Examples of left-skewed, approximately symmetric, and right-skewed histograms. The skewed distributions are more skewed in the top row and less skewed in the bottom row.
+</p>
+</div>
+<div class="tip">
+<p>The longer tail defines the type of skew; a longer right-tail means the distribution is right-skewed and a longer left-tail means it is left-skewed.</p>
+</div>
+<p>In practice, these labels form a continuum (Figure <a href="UnivEDA.html#fig:ShapeExamples1">5.1</a>). For example, it may be difficult to discern whether the shape is approximately symmetric or skew. To partially address this issue, “slightly” or “strongly” may be used with “skewed” to distinguish whether the distribution is obviously skewed (i.e., “strongly skewed”) or nearly symmetric (i.e., “slightly skewed”).</p>
+<div class="tip">
+<p>Shape terms may be modified with “approximately,” “slightly,” or “strongly.”</p>
+</div>
+<p>A distribution is <strong>bimodal</strong> if there are two distinct peaks (Figure <a href="UnivEDA.html#fig:ShapeBimodal">5.2</a>). The shape may be “bimodal left-skewed” if the left peak is shorter, “bimodal symmetric” if the two peaks are the same height, or “bimodal right-skewed” if the right peak is shorter.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:ShapeBimodal"></span>
+<img src="Book107_files/figure-html/ShapeBimodal-1.png" alt="Example of a bimodal left-skewed histograms." width="336" />
+<p class="caption">
+Figure 5.2: Example of a bimodal left-skewed histograms.
+</p>
+</div>
+<p> </p>
+<p>Shape may be identified from a histogram or a boxplot (Figure <a href="UnivEDA.html#fig:ShapeExamples2">5.3</a>). Shape is most easily determined from a histogram, as you can focus simply on the “longest” tail. With boxplots, one must examine the relative length from the median to Q1 and the median to Q3 (i.e., the position of the median line in the box). If the distribution is left-skewed (i.e., lesser-valued individuals are “spread out”), then the median-Q1 will be greater than Q3-median. In contrast, if the distribution is right-skewed (i.e., larger-valued individuals are spread out), then the Q3-median will be greater than median-Q1. Thus, the median is nearer the top of the box for a left-skewed distribution, nearer the bottom of the box for a right-skewed distribution, and nearer the center of the box for a symmetric distribution (Figure <a href="UnivEDA.html#fig:ShapeExamples2">5.3</a>).</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:ShapeExamples2"></span>
+<img src="Book107_files/figure-html/ShapeExamples2-1.png" alt="Histograms and boxplots for several different shapes of distributions." width="672" />
+<p class="caption">
+Figure 5.3: Histograms and boxplots for several different shapes of distributions.
+</p>
+</div>
+<p> </p>
+<div class="tip">
+<p>Shape is easier to describe from a histogram than a boxplot.</p>
+</div>
+</div>
+<div id="interpreting-outliers" class="section level3" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Interpreting Outliers</h3>
+<p>An outlier is an individual whose value is widely separated from the main cluster of values in the sample. On histograms, outliers appear as bars that are separated from the main cluster of bars by “white space” or areas with no bars (Figure <a href="UnivEDA.html#fig:OutlierExHist">5.4</a>). In general, outliers must be <strong>on the margins of the histogram, should be separated by one or two missing bars, and should only be one or two individuals.</strong></p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:OutlierExHist"></span>
+<img src="Book107_files/figure-html/OutlierExHist-1.png" alt="Example histogram with an outlier to the right (dark gray)." width="336" />
+<p class="caption">
+Figure 5.4: Example histogram with an outlier to the right (dark gray).
+</p>
+</div>
+<p> </p>
+<p>An outlier may be a result of human error in the sampling process and, thus, it should be corrected or removed. Other times an outlier may be an individual that was not part of the population of interest – e.g., an adult animal that was sampled when only immature animals were being considered – and, thus, it should be removed from the sample. Still other times, an outlier is part of the population and should generally not be removed from the sample. In fact you may wish to highlight an outlier as an interesting observation! Regardless, it is important to construct a histogram to determine if outliers are present or not.</p>
+<p>Don’t let outliers completely influence how you define the shape of a distribution. For example, if the main cluster of values is approximately symmetric and there is one outlier to the right of the main cluster (as illustrated in Figure <a href="UnivEDA.html#fig:OutlierExHist">5.4</a>), <strong>DON’T</strong> call the distribution right-skewed. You should describe this distribution as approximately symmetric with an outlier to the right.</p>
+<div class="tip">
+<p>Not all outliers warrant removal from your sample.</p>
+</div>
+<div class="tip">
+<p>Don’t let outliers completely influence how you define the shape of a distribution.</p>
+</div>
+</div>
+<div id="comparing-the-median-and-mean" class="section level3" number="5.1.3">
+<h3><span class="header-section-number">5.1.3</span> Comparing the Median and Mean</h3>
+<p>As mentioned previously, numerical measures will be used to describe the center and dispersion of a distribution. However, which values should be used? Should one use the mean or the median as a measure of center? Should one use the IQR or the standard deviation as a measure of dispersion? Which measures are used depends on how the measures respond to skew and the presence of outliers. Thus, before stating a rule for which measures should be used, a fundamental difference among the measures discussed in Module <a href="UnivSum.html#UnivSum">4</a> is explored here.</p>
+<p>The following discussion is focused on comparing the mean and the median. However, note that the IQR is fundamentally linked to the median (i.e., to find the IQR, the median must first be found) and the standard deviation is fundamentally linked to the mean (i.e., to find the standard deviation, the mean must first be found). Thus, <strong>the median and IQR will always be used together to measure center and dispersion, as will the mean and standard deviation.</strong></p>
+<p>The mean and median measure center differently. The median balances the number of individuals smaller and larger than it. The mean, on the other hand, balances the sum of the distances to all points smaller than it and the sum of the distances to all points greater than it. Thus, the median is primarily concerned with the <strong>position</strong> of the value rather than the value itself, whereas the mean is concerned with the <strong>values</strong> for each individual (i.e., the values are used to find the “distance” from the mean).</p>
+<div class="tip">
+<p>The actual values of the data (beyond ordering data) <strong>are not</strong> considered when calculating the median; whereas the actual values <strong>are</strong> considered when calculating the mean.</p>
+</div>
+<p>A plot of the Richter scale data against the corresponding ordered individual numbers is shown in Figure <a href="UnivEDA.html#fig:MeanMedianComp1">5.5</a>-Top. The median (blue line) is the Richter scale value that corresponds to the middle individual number (i.e., move right from the individual number until the point is intercepted and then move down to the x-axis). Thus, the median (blue line) has the same <strong>number</strong> of individuals (i.e., points) above and below it. In contrast, the mean finds the Richter scale value that has the same total distance to values below it as total distance to values above it. In other words, the mean (vertical red line) is placed such that the total <strong>length</strong> of the horizontal dashed red lines (distances from mean to point) is the same to the left as to the right.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:MeanMedianComp1"></span>
+<img src="Book107_files/figure-html/MeanMedianComp1-1.png" alt="Plot of the individual number versus Richter scale values for the original earthquake data (**Top**) and the earthquake data with an extreme outlier (**Bottom**). The median value is shown as a blue vertical line and the mean value is shown as a red vertical line. Differences between each individual value and the mean value are shown with horizontal red lines." width="480" />
+<p class="caption">
+Figure 5.5: Plot of the individual number versus Richter scale values for the original earthquake data (<strong>Top</strong>) and the earthquake data with an extreme outlier (<strong>Bottom</strong>). The median value is shown as a blue vertical line and the mean value is shown as a red vertical line. Differences between each individual value and the mean value are shown with horizontal red lines.
+</p>
+</div>
+<p> </p>
+<div class="tip">
+<p>The mean balances the distance to individuals above and below the mean. The median balances the number of individuals above and below the median.</p>
+</div>
+<div class="tip">
+<p>The sum of all differences between individual values and the mean equals zero.</p>
+</div>
+<p>The mean and median differ in their sensitivity to outliers (Figure <a href="UnivEDA.html#fig:MeanMedianComp1">5.5</a>). For example, suppose that an incredible earthquake with a Richter Scale value of 19.0 was added to the earthquake data set. With this additional individual, the median increases from 7.1 to 7.2, but the mean increases from 7.1 to 7.8. The outlier impacts the value of the mean more than the value of the median because of the way that each statistic measures center. The mean will be pulled towards an outlier because it must “put” many values on the “side” of the mean away from the outlier so that the sum of the differences to the larger values and the sum of the differences to the smaller values will be equal. In this example, the outlier creates a large difference to the right of the mean such that the mean has to “move” to the right to make this difference smaller, move more individuals to the left side of the mean, and increase the differences of individuals to the left of the mean to balance this one large individual. The median on the other hand will simply “put” one more individual on the side opposite of the outlier because it balances the number of individuals on each side of it. Thus, the median has to move very little to the right to accomplish this balance.</p>
+<div class="tip">
+<p>The mean is more sensitive (i.e., changes more) to outliers than the median; it will be “pulled” towards the outlier more than the median.</p>
+</div>
+<p>The shape of the distribution, even if outliers are not present, also has an impact on the mean and median (Figure <a href="UnivEDA.html#fig:MeanMedianShape">5.6</a>). If a distribution is approximately symmetric, then the median and mean (along with the mode) will be nearly identical. If the distribution is left-skewed, then the mean will be less than the median. Finally, if the distribution is right-skewed, then the mean will be greater than the median.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:MeanMedianShape"></span>
+<img src="Book107_files/figure-html/MeanMedianShape-1.png" alt="Three histograms with vertical dashed lines marking the median (blue) and the mean (red)." width="672" />
+<p class="caption">
+Figure 5.6: Three histograms with vertical dashed lines marking the median (blue) and the mean (red).
+</p>
+</div>
+<p> </p>
+<div class="tip">
+<p>The mean is pulled towards the long tail of a skewed distribution. Thus, the mean is greater than the median for right-skewed distributions and the mean is less than the median for left-skewed distributions.</p>
+</div>
+<p>As shown above, the mean and median measure center differently. The question now becomes “which measure of center is better?” The median is a “better” measure of center when outliers are present. In addition, the median gives a better measure of a typical individual when the data are skewed. Thus, in this course, the median is used when outliers are present or the distribution of the data is skewed. If the distribution is symmetric, then the purpose of the analysis will dictate which measure of center is “better.” However, in this course, use the mean when the data are symmetric or, at least, not strongly skewed.</p>
+<p>As noted above, the IQR and standard deviation behave similarly to the median and mean, respectively, in the face of outliers and skews. Specifically, the IQR is less sensitive to outliers than the standard deviation.</p>
+<div class="tip">
+<p>In this course, center and dispersion will be measured by the median and IQR if outliers are present or the distribution is more than slightly skewed, and the mean and standar deviation will be used if no outliers are present and the distribution is symmetric or only slightly skewed.</p>
+</div>
+</div>
+<div id="synthetic-interpretations" class="section level3" number="5.1.4">
+<h3><span class="header-section-number">5.1.4</span> Synthetic Interpretations</h3>
+<p>The graphical and numerical summaries from Module <a href="UnivSum.html#UnivSum">4</a> and the rationale described above can be used to construct a synthetic description of the shape, outliers, center, and dispersion of the distribution of a quantitative variable. In the examples below specifically note that 1) shape and outliers are described from the histogram, 2) center and dispersion are described ONLY from the mean and standard deviation OR the median and IQR are discussed, 3) the specific position of outliers (if present) is explained, 4) an explanation is given for why either the median and IQR or the mean and standard deviation were used, and 5) the range was not used alone as a measure of dispersion.</p>
+<div id="number-of-open-pit-mines" class="section level4" number="5.1.4.1">
+<h4><span class="header-section-number">5.1.4.1</span> Number of Open Pit Mines</h4>
+<blockquote>
+<p><em>Construct a proper EDA for the number of open pit mines in countries that have open pit mines as summarized in Table <a href="UnivSum.html#tab:MineData">4.1</a> and Figure <a href="UnivEDA.html#fig:MineHist2">5.7</a>.</em></p>
+</blockquote>
+<div class="figure" style="text-align: center"><span id="fig:MineHist2"></span>
+<img src="Book107_files/figure-html/MineHist2-1.png" alt="Histogram of number of open pit mines in countries with open pit mines." width="336" />
+<p class="caption">
+Figure 5.7: Histogram of number of open pit mines in countries with open pit mines.
+</p>
+</div>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:MineStats">Table 5.1: </span>Descriptive statistics of number of open pit mines in countries with open pit mines.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;font-weight: bold;">
+n
+</th>
+<th style="text-align:right;font-weight: bold;">
+mean
+</th>
+<th style="text-align:right;font-weight: bold;">
+sd
+</th>
+<th style="text-align:right;font-weight: bold;">
+min
+</th>
+<th style="text-align:right;font-weight: bold;">
+Q1
+</th>
+<th style="text-align:right;font-weight: bold;">
+median
+</th>
+<th style="text-align:right;font-weight: bold;">
+Q3
+</th>
+<th style="text-align:right;font-weight: bold;">
+max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+3.62
+</td>
+<td style="text-align:right;">
+3.97
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>The number of open pit mines in countries with open pit mines is strongly right-skewed with no outliers present (Figure <a href="UnivEDA.html#fig:MineHist2">5.7</a>). [<em>I did not call the group of four countries with 10 or more open pit mines outliers because there were more than one or two countries there.</em>] The center of the distribution is best measured by the median, which is 2 (Table <a href="UnivEDA.html#tab:MineStats">5.1</a>). The range of open pit mines in the sample is from 1 to 15 while the dispersion as measured by the inter-quartile range (IQR) from a Q1 of 1.0 to a Q3 of 4.0 (Table <a href="UnivEDA.html#tab:MineStats">5.1</a>). I chose to use the median and IQR because the distribution was strongly skewed.</p>
+</div>
+<div id="lake-superior-ice-cover" class="section level4" number="5.1.4.2">
+<h4><span class="header-section-number">5.1.4.2</span> Lake Superior Ice Cover</h4>
+<blockquote>
+<p><em>Thoroughly describe the distribution of number of days of ice cover at ice gauge station 9004 in Lake Superior from Figure <a href="UnivEDA.html#fig:LSIHist">5.8</a> and Table <a href="UnivEDA.html#tab:LSIStats">5.2</a>.</em></p>
+</blockquote>
+<div class="figure" style="text-align: center"><span id="fig:LSIHist"></span>
+<img src="Book107_files/figure-html/LSIHist-1.png" alt="Histogram of number of days of ice cover at ice gauge 9004 in Lake Superior." width="336" />
+<p class="caption">
+Figure 5.8: Histogram of number of days of ice cover at ice gauge 9004 in Lake Superior.
+</p>
+</div>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:LSIStats">Table 5.2: </span>Descriptive statistics of number of days of ice cover at ice gauge 9004 in Lake Superior.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;font-weight: bold;">
+n
+</th>
+<th style="text-align:right;font-weight: bold;">
+nvalid
+</th>
+<th style="text-align:right;font-weight: bold;">
+mean
+</th>
+<th style="text-align:right;font-weight: bold;">
+sd
+</th>
+<th style="text-align:right;font-weight: bold;">
+min
+</th>
+<th style="text-align:right;font-weight: bold;">
+Q1
+</th>
+<th style="text-align:right;font-weight: bold;">
+median
+</th>
+<th style="text-align:right;font-weight: bold;">
+Q3
+</th>
+<th style="text-align:right;font-weight: bold;">
+max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+107.8
+</td>
+<td style="text-align:right;">
+21.6
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+97
+</td>
+<td style="text-align:right;">
+114
+</td>
+<td style="text-align:right;">
+118
+</td>
+<td style="text-align:right;">
+146
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>The shape of number of days of ice cover at gauge 9004 in Lake Superior is approximately symmetric with no obvious outliers (Figure <a href="UnivEDA.html#fig:LSIHist">5.8</a>). The center is at a mean of 107.8 days and the dispersion is a standard deviation of 21.6 days (Table <a href="UnivEDA.html#tab:LSIStats">5.2</a>). The mean and standard deviation were used because the distribution was not strongly skewed and no outlier was present.</p>
+</div>
+<div id="crayfish-temperature-selection" class="section level4" number="5.1.4.3">
+<h4><span class="header-section-number">5.1.4.3</span> Crayfish Temperature Selection</h4>
+<blockquote>
+<p><em>Peck (1985) examined the temperature selection of dominant and subdominant crayfish (Orconectes virilis) together in an artificial stream. The temperature (<sup>o</sup>C) selection by the dominant crayfish in the presence of subdominant crayfish in these experiments was recorded below. Thoroughly describe all aspects of the distribution of selected temperatures from Figure <a href="UnivEDA.html#fig:CrayfishTempHist">5.9</a> and Table <a href="UnivEDA.html#tab:CrayfishTempStats">5.3</a>.</em></p>
+</blockquote>
+<div class="figure" style="text-align: center"><span id="fig:CrayfishTempHist"></span>
+<img src="Book107_files/figure-html/CrayfishTempHist-1.png" alt="Histogram of crayfish temperature preferences." width="336" />
+<p class="caption">
+Figure 5.9: Histogram of crayfish temperature preferences.
+</p>
+</div>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:CrayfishTempStats">Table 5.3: </span>Descriptive statistics of crayfish temperature preferences.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;font-weight: bold;">
+n
+</th>
+<th style="text-align:right;font-weight: bold;">
+mean
+</th>
+<th style="text-align:right;font-weight: bold;">
+sd
+</th>
+<th style="text-align:right;font-weight: bold;">
+min
+</th>
+<th style="text-align:right;font-weight: bold;">
+Q1
+</th>
+<th style="text-align:right;font-weight: bold;">
+median
+</th>
+<th style="text-align:right;font-weight: bold;">
+Q3
+</th>
+<th style="text-align:right;font-weight: bold;">
+max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+22.88
+</td>
+<td style="text-align:right;">
+2.79
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+30
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>The shape of temperatures selected by the dominant crayfish is slightly left-skewed (Figure <a href="UnivEDA.html#fig:CrayfishTempHist">5.9</a>) with a possible weak outlier at the maximum value of 30<sup>o</sup>C (Table <a href="UnivEDA.html#tab:CrayfishTempStats">5.3</a>). The center is best measured by the median, which is 23<sup>o</sup>C (Table <a href="UnivEDA.html#tab:CrayfishTempStats">5.3</a>) and the dispersion is best measured by the IQR, which is from 21 to 25<sup>o</sup>C (Table <a href="UnivEDA.html#tab:CrayfishTempStats">5.3</a>). I used the median and IQR because of the (combined) skewed shape and outlier present.</p>
+</div>
+</div>
+</div>
+<div id="categorical-variable-1" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Categorical Variable</h2>
+<p>An appropriate EDA for a categorical variable consists of identifying the major characteristics among the categories. Shape, center, dispersion, and outliers are NOT described for categorical data because the data is not numerical and, if nominal, no order exists. In general, the major characteristics of the table or graph are described from an intuitive basis; the numerical values in the graph or table are not simply repeated.</p>
+<div class="tip">
+<p>Do NOT describe shape, center, dispersion, and outliers for a categorical variable.</p>
+</div>
+<div id="example-interpretations" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Example Interpretations</h3>
+<div id="mixture-seed-count" class="section level4" number="5.2.1.1">
+<h4><span class="header-section-number">5.2.1.1</span> Mixture Seed Count</h4>
+<blockquote>
+<p><em>A bag of seeds was purchased for seeding a recently constructed wetland. The purchaser wanted to determine if the percentage of seeds in four broad categories – “grasses,” “sedges,” “wildflowers,” and “legumes” – was similar to what the seed manufacturer advertised. The purchaser examined a 0.25-lb sample of seeds from the bag and displayed the results in Figure <a href="UnivEDA.html#fig:SeedBarplot">5.10</a>. Use these results to describe the distribution of seed counts into the four broad categories.</em></p>
+</blockquote>
+<div class="figure" style="text-align: center"><span id="fig:SeedBarplot"></span>
+<img src="Book107_files/figure-html/SeedBarplot-1.png" alt="Bar chart of the percentage of wetland seeds by type." width="336" />
+<p class="caption">
+Figure 5.10: Bar chart of the percentage of wetland seeds by type.
+</p>
+</div>
+<p> </p>
+<p>The majority of seeds were either sedge or grass, with sedge being more than twice as abundant as grass (Figure <a href="UnivEDA.html#fig:SeedBarplot">5.10</a>). Very few legumes or wildflowers were found in the sample.</p>
+</div>
+<div id="gss-recycling" class="section level4" number="5.2.1.2">
+<h4><span class="header-section-number">5.2.1.2</span> GSS Recycling</h4>
+<blockquote>
+<p><em>The General Sociological Survey (GSS) is a very large survey that has been administered 25 times since 1972. The purpose of the GSS is to gather data on contemporary American society in order to monitor and explain trends in attitudes, behaviors, and attributes. One question that was asked in a recent GSS was “How often do you make a special effort to sort glass or cans or plastic or papers and so on for recycling?” The results are displayed in Figure <a href="UnivEDA.html#fig:GSSBarplot">5.11</a> and Table <a href="UnivEDA.html#tab:GSSTable">5.4</a>. Use these results to describe the distribution of answers to the question.</em></p>
+</blockquote>
+<div class="figure" style="text-align: center"><span id="fig:GSSBarplot"></span>
+<img src="Book107_files/figure-html/GSSBarplot-1.png" alt="Barplot of the percentage of wetland seeds by type." width="336" />
+<p class="caption">
+Figure 5.11: Barplot of the percentage of wetland seeds by type.
+</p>
+</div>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:GSSTable">Table 5.4: </span>Frequency of respondents by response to the question about recycling.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;font-weight: bold;">
+Always
+</th>
+<th style="text-align:right;font-weight: bold;">
+Often
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sometimes
+</th>
+<th style="text-align:right;font-weight: bold;">
+Never
+</th>
+<th style="text-align:right;font-weight: bold;">
+Not Avail
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1289
+</td>
+<td style="text-align:right;">
+850
+</td>
+<td style="text-align:right;">
+823
+</td>
+<td style="text-align:right;">
+448
+</td>
+<td style="text-align:right;">
+129
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>More than twice as many respondents always recycled compared to never recycled, with approximately equal numbers in between that often or sometimes recycled.</p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="UnivSum.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="NormDist1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
