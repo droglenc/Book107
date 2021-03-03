@@ -1,4 +1,4 @@
-# Normal Distribution Introduction {#NormDalist1}
+# Normal Distribution Introduction {#NormalDist1}
 A model for the distribution of a single quantitative variable can be visualized by "fitting" a smooth curve to a histogram (Figure \@ref(fig:NormDensityEx)-Left), removing the histogram (Figure \@ref(fig:NormDensityEx)-Center), and using the remaining curve (Figure \@ref(fig:NormDensityEx)-Right) as a model for the distribution of the entire population of individuals. The smooth red curve drawn over the histogram serves as a model for the distribution of the **entire population**. If the smooth curve follows a known distribution, then certain calculations are greatly simplified.
 
 &nbsp;

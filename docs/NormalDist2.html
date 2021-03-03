@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="NormDalist1.html"/>
+<link rel="prev" href="NormalDist1.html"/>
 <link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -164,13 +164,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.1" data-path="UnivEDA.html"><a href="UnivEDA.html#quantitative-variable-1"><i class="fa fa-check"></i><b>5.1</b> Quantitative Variable</a></li>
 <li class="chapter" data-level="5.2" data-path="UnivEDA.html"><a href="UnivEDA.html#categorical-variable-1"><i class="fa fa-check"></i><b>5.2</b> Categorical Variable</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="NormDalist1.html"><a href="NormDalist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
+<li class="chapter" data-level="6" data-path="NormalDist1.html"><a href="NormalDist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="NormDalist1.html"><a href="NormDalist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
-<li class="chapter" data-level="6.2" data-path="NormDalist1.html"><a href="NormDalist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
-<li class="chapter" data-level="6.3" data-path="NormDalist1.html"><a href="NormDalist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
-<li class="chapter" data-level="6.4" data-path="NormDalist1.html"><a href="NormDalist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
-<li class="chapter" data-level="6.5" data-path="NormDalist1.html"><a href="NormDalist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
+<li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
+<li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
 <ul>
@@ -202,8 +202,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="NormalDist2" class="section level1" number="7">
 <h1><span class="header-section-number">Module 7</span> Normal Distribution Calculations</h1>
-<p>The normal distribution was introduced in Module <a href="#NormalDist1"><strong>??</strong></a> and the 68-95-99.7% Rule was used to find the percentage of individuals with particular values of the variable (i.e., a forward calculation) or to find the value or values of the variable with a certain percentage of individuals (i.e., a reverse calculation). Unfortunately, the 68-95-99.7% Rule can only be use if the questions fall exactly 1, 2, or 3 standard deviations away from the mean. In other words, questions relative to non-integer numbers of standard deviations away from the mean can not be found with the 68-95-99.7% Rule and will require special tables or computer software.</p>
-<p>In this course, we will use a function from the <code>NCStats</code> package in R to perform these calculations. How you use this function depends on whether you will need to make a forward or a reverse calculation (see Section <a href="NormDalist1.html#distinguish-calculation-types">6.5</a>).</p>
+<p>The normal distribution was introduced in Module <a href="NormalDist1.html#NormalDist1">6</a> and the 68-95-99.7% Rule was used to find the percentage of individuals with particular values of the variable (i.e., a forward calculation) or to find the value or values of the variable with a certain percentage of individuals (i.e., a reverse calculation). Unfortunately, the 68-95-99.7% Rule can only be use if the questions fall exactly 1, 2, or 3 standard deviations away from the mean. In other words, questions relative to non-integer numbers of standard deviations away from the mean can not be found with the 68-95-99.7% Rule and will require special tables or computer software.</p>
+<p>In this course, we will use a function from the <code>NCStats</code> package in R to perform these calculations. How you use this function depends on whether you will need to make a forward or a reverse calculation (see Section <a href="NormalDist1.html#distinguish-calculation-types">6.5</a>).</p>
 <div id="forward-calculations" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Forward Calculations</h2>
 <p>The area under a normal curve relative to a particular value is computed in R with <code>distrib()</code>. This function requires the <em>particular value</em> as the first argument and the mean and standard deviation of the normal distribution in the <code>mean=</code> and <code>sd=</code> arguments, respectively. The <code>distrib()</code> function defaults to finding the area under the curve to the <strong>left of</strong> the particular value, but it can find the area under the curve to the right of the particular value by including <code>lower.tail=FALSE</code>.</p>
@@ -322,7 +322,7 @@ Figure 7.9: Plots depicting the area to the left of 59 on a <span class="math in
           </div>
         </div>
       </div>
-<a href="NormDalist1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="NormalDist1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

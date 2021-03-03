@@ -106,7 +106,7 @@ categorical-variable-1
 example-interpretations
 mixture-seed-count
 gss-recycling
-NormDalist1
+NormalDist1
 characteristics-of-a-normal-distribution
 area-under-the-curve
 or-empirical-rule
