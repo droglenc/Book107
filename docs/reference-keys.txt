@@ -150,7 +150,7 @@ association-or-direction
 strength-and-association-again
 example-interpretations-1
 cautions-about-correlation
-Regression
+LinearRegression
 response-and-explanatory-variables-1
 slope-and-intercept
 predictions
@@ -159,7 +159,7 @@ best-fit-criteria
 assumptions
 coefficient-of-determination
 examples
-bivariate-eda---categorical
+BEDACat
 frequency-tables
 percentage-tables
 total-percentage-table
