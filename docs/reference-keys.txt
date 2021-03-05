@@ -89,6 +89,10 @@ fig:SampDistSLMean50
 fig:SampDistSLOther50
 fig:SampDistCLT
 fig:AccPrec
+fig:ProbBox
+fig:ProbNorm
+fig:NormTL95A
+fig:NormTL95B
 WhyStats
 sect:Realities
 major-goals-of-statistics
@@ -185,3 +189,7 @@ dependencies
 simulating-a-sampling-distribution
 central-limit-theorem
 accuracy-and-precision
+Probability
+probability-of-individuals
+probability-of-statistics
+a-process-for-handling-probability-questions
