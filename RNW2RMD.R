@@ -47,6 +47,7 @@ RNW2RMD <- function(path, new_path = NULL) {
   x <- gsub("(\\\\tabref\\{)([^\\}]+)(\\})", "Table \\\\@ref(\\2)", x)
   x <- gsub("(\\\\tabrefp\\{)([^\\}]+)(\\})", "(Table \\\\@ref(\\2))", x)
   x <- gsub("(\\\\modref\\{)([^\\}]+)(\\})", "Module \\\\@ref(\\2)", x)
+  x <- gsub("(\\\\modrefp\\{)([^\\}]+)(\\})", "(Module \\\\@ref(\\2))", x)
   x <- gsub("(\\\\sectref\\{)([^\\}]+)(\\})", "Section \\\\@ref(\\2)", x)
   x <- gsub("(\\\\sectrefp\\{)([^\\}]+)(\\})", "(Section \\\\@ref(\\2))", x)
   x <- gsub("(\\\\R\\{)([^\\}]+)(\\})", "`\\2`", x)

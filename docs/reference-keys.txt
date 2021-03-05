@@ -93,6 +93,13 @@ fig:ProbBox
 fig:ProbNorm
 fig:NormTL95A
 fig:NormTL95B
+tab:HAwords
+fig:HOSLExample
+fig:HOtails
+fig:SLpvalue1
+tab:DMerrs
+fig:SLBetaRelations
+fig:EffectSizeSE
 WhyStats
 sect:Realities
 major-goals-of-statistics
@@ -193,3 +200,11 @@ Probability
 probability-of-individuals
 probability-of-statistics
 a-process-for-handling-probability-questions
+HypTesting1
+hypothesis-testing-the-scientific-method
+statistical-hypotheses
+hypothesis-testing-concept
+hypothesis-testing-concept-summary
+HypTesting2
+errors
+test-statistics-and-effect-sizes
