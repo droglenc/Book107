@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 15 Confidence Regions - Introduction | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 15 Confidence Regions - Introduction | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book107" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 15 Confidence Regions - Introduction | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-03-05" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="HypTesting2.html"/>
+<link rel="next" href="ConfRegions2.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#sect:Realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#variable-types"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="DataProduction.html"><a href="DataProduction.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="DataProduction.html"><a href="DataProduction.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="DataProduction.html"><a href="DataProduction.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="UnivSum.html"><a href="UnivSum.html"><i class="fa fa-check"></i><b>4</b> Univariate Summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="UnivSum.html"><a href="UnivSum.html#quantitative-variable"><i class="fa fa-check"></i><b>4.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="4.2" data-path="UnivSum.html"><a href="UnivSum.html#categorical-variable"><i class="fa fa-check"></i><b>4.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="UnivEDA.html"><a href="UnivEDA.html"><i class="fa fa-check"></i><b>5</b> Univariate EDA</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="UnivEDA.html"><a href="UnivEDA.html#quantitative-variable-1"><i class="fa fa-check"></i><b>5.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="5.2" data-path="UnivEDA.html"><a href="UnivEDA.html#categorical-variable-1"><i class="fa fa-check"></i><b>5.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="NormalDist1.html"><a href="NormalDist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
+<li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="NormalDist2.html"><a href="NormalDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
+<li class="chapter" data-level="7.2" data-path="NormalDist2.html"><a href="NormalDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
+<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="BEDAQuant.html"><a href="BEDAQuant.html"><i class="fa fa-check"></i><b>8</b> Bivariate EDA - Quantitative</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="BEDAQuant.html"><a href="BEDAQuant.html#response-and-explanatory-variables"><i class="fa fa-check"></i><b>8.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="8.2" data-path="BEDAQuant.html"><a href="BEDAQuant.html#summaries"><i class="fa fa-check"></i><b>8.2</b> Summaries</a></li>
+<li class="chapter" data-level="8.3" data-path="BEDAQuant.html"><a href="BEDAQuant.html#bivariate-items-to-describe"><i class="fa fa-check"></i><b>8.3</b> Bivariate Items to Describe</a></li>
+<li class="chapter" data-level="8.4" data-path="BEDAQuant.html"><a href="BEDAQuant.html#example-interpretations-1"><i class="fa fa-check"></i><b>8.4</b> Example Interpretations</a></li>
+<li class="chapter" data-level="8.5" data-path="BEDAQuant.html"><a href="BEDAQuant.html#cautions-about-correlation"><i class="fa fa-check"></i><b>8.5</b> Cautions About Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="LinearRegression.html"><a href="LinearRegression.html"><i class="fa fa-check"></i><b>9</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="LinearRegression.html"><a href="LinearRegression.html#response-and-explanatory-variables-1"><i class="fa fa-check"></i><b>9.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="9.2" data-path="LinearRegression.html"><a href="LinearRegression.html#slope-and-intercept"><i class="fa fa-check"></i><b>9.2</b> Slope and Intercept</a></li>
+<li class="chapter" data-level="9.3" data-path="LinearRegression.html"><a href="LinearRegression.html#predictions"><i class="fa fa-check"></i><b>9.3</b> Predictions</a></li>
+<li class="chapter" data-level="9.4" data-path="LinearRegression.html"><a href="LinearRegression.html#residuals"><i class="fa fa-check"></i><b>9.4</b> Residuals</a></li>
+<li class="chapter" data-level="9.5" data-path="LinearRegression.html"><a href="LinearRegression.html#best-fit-criteria"><i class="fa fa-check"></i><b>9.5</b> Best-fit Criteria</a></li>
+<li class="chapter" data-level="9.6" data-path="LinearRegression.html"><a href="LinearRegression.html#assumptions"><i class="fa fa-check"></i><b>9.6</b> Assumptions</a></li>
+<li class="chapter" data-level="9.7" data-path="LinearRegression.html"><a href="LinearRegression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>9.7</b> Coefficient of Determination</a></li>
+<li class="chapter" data-level="9.8" data-path="LinearRegression.html"><a href="LinearRegression.html#examples"><i class="fa fa-check"></i><b>9.8</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="BEDACat.html"><a href="BEDACat.html"><i class="fa fa-check"></i><b>10</b> Bivariate EDA - Categorical</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="BEDACat.html"><a href="BEDACat.html#frequency-tables"><i class="fa fa-check"></i><b>10.1</b> Frequency Tables</a></li>
+<li class="chapter" data-level="10.2" data-path="BEDACat.html"><a href="BEDACat.html#percentage-tables"><i class="fa fa-check"></i><b>10.2</b> Percentage Tables</a></li>
+<li class="chapter" data-level="10.3" data-path="BEDACat.html"><a href="BEDACat.html#which-table-to-use"><i class="fa fa-check"></i><b>10.3</b> Which Table to Use?</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="SamplingDist.html"><a href="SamplingDist.html"><i class="fa fa-check"></i><b>11</b> Sampling Distributions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="SamplingDist.html"><a href="SamplingDist.html#what-is-a-sampling-distribution"><i class="fa fa-check"></i><b>11.1</b> What is a Sampling Distribution?</a></li>
+<li class="chapter" data-level="11.2" data-path="SamplingDist.html"><a href="SamplingDist.html#central-limit-theorem"><i class="fa fa-check"></i><b>11.2</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="11.3" data-path="SamplingDist.html"><a href="SamplingDist.html#accuracy-and-precision"><i class="fa fa-check"></i><b>11.3</b> Accuracy and Precision</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="Probability.html"><a href="Probability.html"><i class="fa fa-check"></i><b>12</b> Probability Introduction</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="Probability.html"><a href="Probability.html#probability-of-individuals"><i class="fa fa-check"></i><b>12.1</b> Probability of Individuals</a></li>
+<li class="chapter" data-level="12.2" data-path="Probability.html"><a href="Probability.html#probability-of-statistics"><i class="fa fa-check"></i><b>12.2</b> Probability of Statistics</a></li>
+<li class="chapter" data-level="12.3" data-path="Probability.html"><a href="Probability.html#a-process-for-handling-probability-questions"><i class="fa fa-check"></i><b>12.3</b> A Process for Handling Probability Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="HypTesting1.html"><a href="HypTesting1.html"><i class="fa fa-check"></i><b>13</b> Hypothesis Testing - Introduction</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-the-scientific-method"><i class="fa fa-check"></i><b>13.1</b> Hypothesis Testing &amp; The Scientific Method</a></li>
+<li class="chapter" data-level="13.2" data-path="HypTesting1.html"><a href="HypTesting1.html#statistical-hypotheses"><i class="fa fa-check"></i><b>13.2</b> Statistical Hypotheses</a></li>
+<li class="chapter" data-level="13.3" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-concept-summary"><i class="fa fa-check"></i><b>13.3</b> Hypothesis Testing Concept Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="HypTesting2.html"><a href="HypTesting2.html"><i class="fa fa-check"></i><b>14</b> Hypothesis Testing - Errors</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#errors"><i class="fa fa-check"></i><b>14.1</b> Errors</a></li>
+<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.2</b> Test Statistics and Effect Sizes</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ConfRegions1.html"><a href="ConfRegions1.html"><i class="fa fa-check"></i><b>15</b> Confidence Regions - Introduction</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="ConfRegions1.html"><a href="ConfRegions1.html#confidence-concept"><i class="fa fa-check"></i><b>15.1</b> Confidence Concept</a></li>
+<li class="chapter" data-level="15.2" data-path="ConfRegions1.html"><a href="ConfRegions1.html#constructing-confidence-regions"><i class="fa fa-check"></i><b>15.2</b> Constructing Confidence Regions</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#precision-and-sample-size"><i class="fa fa-check"></i><b>16.1</b> Precision and Sample Size</a></li>
+<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.2</b> Inference Type Relationship</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ConfRegions1" class="section level1" number="15">
+<h1><span class="header-section-number">Module 15</span> Confidence Regions - Introduction</h1>
+<p>The final result from a hypothesis test (Module <a href="HypTesting1.html#HypTesting1">13</a>) can feel uneventful – i.e., either conclude that the parameter may be equal to or different from the hypothesized value.<a href="#fn50" class="footnote-ref" id="fnref50"><sup>50</sup></a> If the parameter is thought to be different from the hypothesized value we might then say that our best guess at the parameter is the observed statistic. However, as shown in Module <a href="SamplingDist.html#SamplingDist">11</a>, a statistic is an imperfect estimate of the unknown parameter because of sampling variability. This imperfectness can be recognized by computing a range of values that is likely to contain the parameter. For example, we may make a statement such as this – “Our best guess for the true population mean length of fish in Square Lake is the sample mean of 98.5 mm; however, we are 95% confident that the mean of ALL fish in the lake is between 95.9 and 101.1 mm.” The range in the last phrase acknowledges sampling variability and is called a confidence region. In this module, the concept, calculation, and interpretation of confidence regions is explored.</p>
+<div id="confidence-concept" class="section level2" number="15.1">
+<h2><span class="header-section-number">15.1</span> Confidence Concept</h2>
+<p>An understanding of what it means to be “95% confident” requires examination of multiple samples from a population, as was done in Module <a href="SamplingDist.html#SamplingDist">11</a> when considering sampling variability. In this initial discussion, only 95% confidence intervals (CI), where a range (i.e., bounded on both ends) is computed, are considered. These simplifying restrictions and unrealistically knowing population values are used here only so that the <strong>concept</strong> of confidence intervals can be more easily explained. General methods for constructing other types of confidence regions with other levels of confidence are in Section <a href="ConfRegions1.html#constructing-confidence-regions">15.2</a>.</p>
+<p>In the Square Lake example (introduced in Module <a href="WhyStats.html#WhyStats">1</a>), it was known that <span class="math inline">\(\mu\)</span>=98.06 and <span class="math inline">\(\sigma\)</span>=31.49 (Table <a href="FoundationalDefns.html#tab:SquareLakePopnTbl">2.1</a>). Additionally, <span class="math inline">\(\bar{x}\)</span>=100.04 was obtained from the first sample of n=50 (Table <a href="FoundationalDefns.html#tab:SquareLakeSample1s">2.2</a>). A 95% CI for <span class="math inline">\(\mu\)</span> is defined as <span class="math inline">\(\bar{x}\)</span>±2<span class="math inline">\(SE_{\bar{x}}\)</span>. The 95% CI for the mean total length for the Square Lake population, computed from this one sample, is 100.04±2<span class="math inline">\(\frac{31.49}{\sqrt{50}}\)</span>, 100.04±8.91, or (91.13,108.95). This interval contains <span class="math inline">\(\mu\)</span> (i.e., 98.06 is between 91.13 and 108.95). In other words, this particular CI accomplished what it was intended to do; i.e., provide a range that contains <span class="math inline">\(\mu\)</span>.</p>
+<p>Despite the success observed in this first sample, not all confidence intervals will contain <span class="math inline">\(\mu\)</span>. For example, four of 100 95% confidence intervals shown in Figure <a href="ConfRegions1.html#fig:CIex100">15.1</a> did not contain <span class="math inline">\(\mu\)</span>. Thus, the researcher would have concluded that <span class="math inline">\(\mu\)</span> was in an incorrect interval four times in these 100 samples. The concept of “confidence” in confidence regions is related to determining how often the intervals correctly contain the parameter.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:CIex100"></span>
+<img src="Book107_files/figure-html/CIex100-1.png" alt="Sampling distribution of the sample mean (top) and 100 95% confidence intervals (horizontal lines) from samples of $n$=50 from the Square Lake population. Confidence intervals that do NOT contain $\mu$=98.06 are shown in red and with an open circle. The green shaded area represents 95% of the sample means. See text for more explanation." width="480" />
+<p class="caption">
+Figure 15.1: Sampling distribution of the sample mean (top) and 100 95% confidence intervals (horizontal lines) from samples of <span class="math inline">\(n\)</span>=50 from the Square Lake population. Confidence intervals that do NOT contain <span class="math inline">\(\mu\)</span>=98.06 are shown in red and with an open circle. The green shaded area represents 95% of the sample means. See text for more explanation.
+</p>
+</div>
+<p> </p>
+<p>From the Central Limit Theorem, the sampling distribution of <span class="math inline">\(\bar{x}\)</span> for samples of n=50 is <span class="math inline">\(N(98.06,\frac{31.49}{\sqrt{50}})\)</span> or <span class="math inline">\(N(98.06,4.45)\)</span> for this known population. According to the 68-95-99.7% Rule, it is known that 95% of the sample means in this sampling distribution will be between <span class="math inline">\(\mu\)</span>±2×SE or, in this specific case, between 98.06±2×4.45. The sampling distribution and this range of expected sample means is shown at the top of Figure <a href="ConfRegions1.html#fig:CIex100">15.1</a>. Note that any sample that produced a mean (dot on the CI line) inside the expected range of sample means (light green area) also produced a 95% CI that contained <span class="math inline">\(\mu\)</span> (i.e., black CI line with a solid circle). Because 95% of the sample means will be within the expected range of sample means, 95% of the 95% CIs will contain <span class="math inline">\(\mu\)</span>. So, “95% confident” means that 95% of all 95% CIs will contain the parameter and 5% will not. In other words, the mistake identified above will be made with 5% of all 95% CIs.</p>
+<p>The specifics for constructing confidence regions with different levels of confidence is described below. However, at this point, it should be noted that the number of CIs expected to contain the parameter of interest is set by the level of confidence used to construct the CI. For example, 80% of 80% CIs and 90% of 90% CIs will contain the parameter of interest. In either case, a particular CI either does or does not contain the interval and, in real-life, we will never know whether it does or does not (i.e., we won’t know the value of the parameter). However, we do know that the technique (i.e., the construction of the CI) will “work” (i.e., contain the parameter) a set percentage of the time. To reiterate this point, examine the 100 90% CIs (Figure <a href="ConfRegions1.html#fig:CI9080Ex">15.2</a>-Left) and 100 80% CIs (Figure <a href="ConfRegions1.html#fig:CI9080Ex">15.2</a>-Right) for the Square Lake fish length data.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:CI9080Ex"></span>
+<img src="Book107_files/figure-html/CI9080Ex-1.png" alt="Sampling distribution of the sample mean (**tops**) and 100 random 90% (**Left**) and 80% (**Right**) confidence intervals (horizontal lines) from samples of n=50 from the Square Lake population. Confidence intervals that do NOT contain $\mu$ are shown in red." width="672" />
+<p class="caption">
+Figure 15.2: Sampling distribution of the sample mean (<strong>tops</strong>) and 100 random 90% (<strong>Left</strong>) and 80% (<strong>Right</strong>) confidence intervals (horizontal lines) from samples of n=50 from the Square Lake population. Confidence intervals that do NOT contain <span class="math inline">\(\mu\)</span> are shown in red.
+</p>
+</div>
+<p> </p>
+<p>The concept of confidence regions can be difficult to grasp at first. Thus, one should consider the following subtleties about the concept of a confidence region:</p>
+<ul>
+<li>A CI is a random variable like any other statistic. That is, each sample results in a different 95% CI (see CI lines in Figures <a href="ConfRegions1.html#fig:CIex100">15.1</a> and <a href="ConfRegions1.html#fig:CI9080Ex">15.2</a>) just like it results in a different <span class="math inline">\(\bar{x}\)</span> (see dots on CI lines in Figures <a href="ConfRegions1.html#fig:CIex100">15.1</a> and <a href="ConfRegions1.html#fig:CI9080Ex">15.2</a>).</li>
+<li>Any CI either contains the parameter (e.g., <span class="math inline">\(\mu\)</span>) or not. However, on average, 95% of 95% CIs will contain the parameter and 5% will not. That is, 95% of all possible 95% CIs wil contain the parameter.</li>
+<li>A 95% CI is a technique that “works correctly” 95% of the time. In other words, 95% of all 95% CI “capture” the unknown parameter.</li>
+</ul>
+<p>Because of these subtleties, confidence regions are often misinterpreted. Common misinterpretations are listed below with an explanation for the misinterpretation in parentheses. These misinterpretations should be studied, compared to the interpretations discussed above, and avoided.</p>
+<ul>
+<li>“There is a 95% probability that the population mean is contained in the confidence interval.”
+<ul>
+<li><em>This is incorrect because the population mean is constant (not random), it either is or is not in a particular CI, and it will never change whether it is or is not in that CI. The CI, not the parameter, is random.</em></li>
+</ul></li>
+<li>“There is a 95% probability that the sample mean is contained in the confidence interval.”
+<ul>
+<li><em>This is incorrect for the simple fact that CI are not used to estimate sample means (or, generally, statistics); they are used to estimate population means (or parameters). Furthermore, the sample mean has to be exactly in the middle of the CI (see next section).</em></li>
+</ul></li>
+<li>“95% of all 95% confidence intervals are contained in the confidence interval.”
+<ul>
+<li><em>First, this is physically impossible because each CI is the same width (if <span class="math inline">\(n\)</span> and the level of confidence stay constant). Second, it is not important how many CI are contained in a CI; interest is in whether the parameter is in the interval or not.</em></li>
+</ul></li>
+</ul>
+<div class="tip">
+<p>Confidence intervals are constructed for parameters, not statistics.</p>
+</div>
+<div class="tip">
+<p>Care and specificity must be used when interpreting and describing confidence intervals.</p>
+</div>
+</div>
+<div id="constructing-confidence-regions" class="section level2" number="15.2">
+<h2><span class="header-section-number">15.2</span> Constructing Confidence Regions</h2>
+<p>Not all confidence regions are designed to contain the parameter 95% “of the time,” are intervals, or are computed to contain <span class="math inline">\(\mu\)</span>. Confidence regions can be constructed for any level of confidence, as intervals or bounds, and for nearly all <strong>parameters</strong>.</p>
+<p>The level of confidence (C) used will be determined by the <span class="math inline">\(\alpha\)</span> chosen for the hypothesis test; specifically, C=100(1-<span class="math inline">\(\alpha\)</span>)%. For example, if <span class="math inline">\(\alpha\)</span> is set at 0.05, then the level of confidence will be 100(1-0.05)% (Table <a href="ConfRegions1.html#tab:Calpha">15.1</a>). Thus, if <span class="math inline">\(\alpha\)</span> is decreased such that fewer Type I errors are made, then the confidence level will increase and more of the confidence regions will contain the parameter of interest (i.e., fewer errors). In this manner the proportion of Type I errors in hypothesis testing is linked to the proportion of errors made with confidence regions.</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:Calpha">Table 15.1: </span>Several common confidence levels (C) and the corresponding probability of a Type I error (<span class="math inline">\(\alpha\)</span>).
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;font-weight: bold;">
+<span class="math inline">\(\alpha\)</span>
+</th>
+<th style="text-align:center;font-weight: bold;">
+C
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 1in; ">
+0.01
+</td>
+<td style="text-align:center;width: 1in; ">
+99%
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 1in; ">
+0.05
+</td>
+<td style="text-align:center;width: 1in; ">
+95%
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 1in; ">
+0.10
+</td>
+<td style="text-align:center;width: 1in; ">
+90%
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>The type of confidence region depends on the type of alternative hypothesis (Table <a href="ConfRegions1.html#tab:HAsCI">15.2</a>). If the alternative hypothesis is two-tailed (i.e., <span class="math inline">\(\neq\)</span>), then the confidence region will be an interval (i.e., a range will be computed, as in Section <a href="ConfRegions1.html#confidence-concept">15.1</a>). However, if the alternative hypothesis is one-tailed, then a confidence bound is used. For example, if the alternative hypothesis is a “less than,” then interest lies in determining what is the “largest possible value” for the parameter (rather than a range of possible values). In other words, if the alternative hypothesis is a “less than,” then an upper confidence bound for the parameter is constructed. In contrast, if the alternative hypothesis is a “greater than,” then a lower confidence bound is constructed to estimate the “smallest possible value” for the parameter.</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:HAsCI">Table 15.2: </span>Confidence regions and their interpretation in relation to alternative hypotheses (<span class="math inline">\(H_{A}\)</span>) types.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;font-weight: bold;">
+<span class="math inline">\(H_{A}\)</span>
+</th>
+<th style="text-align:center;font-weight: bold;">
+Confidence Region
+</th>
+<th style="text-align:center;font-weight: bold;">
+Interpretation
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 0.6in; ">
+<span class="math inline">\(\neq\)</span>
+</td>
+<td style="text-align:center;width: 2.7in; ">
+Interval (CI)
+</td>
+<td style="text-align:center;width: 2.7in; ">
+Parameter between CI values
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 0.6in; ">
+<span class="math inline">\(\lt\)</span>
+</td>
+<td style="text-align:center;width: 2.7in; ">
+Upper Bound (UCB)
+</td>
+<td style="text-align:center;width: 2.7in; ">
+Parameter less than UCB value
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 0.6in; ">
+<span class="math inline">\(\gt\)</span>
+</td>
+<td style="text-align:center;width: 2.7in; ">
+Lower Bound (LCB)
+</td>
+<td style="text-align:center;width: 2.7in; ">
+Parameter greater than UCB value
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>Fortunately, most confidence regions follow the same basic form of</p>
+<p><span class="math display">\[ &quot;\text{Statistic&quot;} + &quot;\text{scaling factor&quot;} \times SE_{statistic} \]</span></p>
+<p>where “Statistic” represents the statistic used to estimate the parameter, <span class="math inline">\(SE_{statistic}\)</span> is the standard error of that statistic, and <span class="math inline">\(&quot;\text{scaling factor&quot;}\)</span>×<span class="math inline">\(SE_{statistic}\)</span> is called the margin-of-error. The scaling factor is computed from a known distribution. When <span class="math inline">\(\sigma\)</span> is known, the scaling factor is computed from a N(0,1) and is called <span class="math inline">\(Z^{*}\)</span>. Thus, in the case when a confidence interval is being constructed for <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span> is known, the specific formula for the confidence region is</p>
+<p><span class="math display">\[ \bar{x} + z^{*}\frac{\sigma}{\sqrt{n}} \]</span></p>
+<p>The “scaling factor” serves to control the width and type of confidence region. The magnitude of the scaling factor controls the relative width of the region such that the parameter is contained in the region at a rate according to the level of confidence. For example, the scaling factor for a 99% confidence region will be set such that 99% of the confidence regions will contain the parameter.</p>
+<p>The sign of the scaling factor controls whether an interval, upper bound, or lower bound is computed. For example, if the alternative hypothesis is two-tailed, then <span class="math inline">\(Z^{*}\)</span> is the two values such that an area equal to the level of confidence is contained between them (Figure <a href="ConfRegions1.html#fig:CIboundsZ">15.3</a>-Left). The two values that delineate these boundaries will be the same value but with different signs because the N(0,1) is symmetric about zero. Thus, a confidence interval is computed with a scaling factor of ±<span class="math inline">\(Z^{*}\)</span>.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:CIboundsZ"></span>
+<img src="Book107_files/figure-html/CIboundsZ-1.png" alt="Areas (yellow) that define $Z^{*}$ for confidence regions of a parameter in a hypothesis test." width="672" />
+<p class="caption">
+Figure 15.3: Areas (yellow) that define <span class="math inline">\(Z^{*}\)</span> for confidence regions of a parameter in a hypothesis test.
+</p>
+</div>
+<p> </p>
+<p>In contrast, if the alternative hypothesis is a “less than,” then an upper confidence bound is desired and <span class="math inline">\(Z^{*}\)</span> has an area equal to the level of confidence LESS THAN it (Figure <a href="ConfRegions1.html#fig:CIboundsZ">15.3</a>-Middle). As the level of confidence will always be greater than 50%, this definition will produce a positive <span class="math inline">\(Z^{*}\)</span> so that the scaling factor will be <span class="math inline">\(+Z^{*}\)</span>. Similarly, if the alternative hypothesis is a “greater than,” then a lower confidence bound is desired and <span class="math inline">\(Z^{*}\)</span> has an area equal to the level of confidence GREATER THAN it (Figure <a href="ConfRegions1.html#fig:CIboundsZ">15.3</a>-Right). This definition produces a negative <span class="math inline">\(Z^{*}\)</span> so that the scaling factor will be <span class="math inline">\(-Z^{*}\)</span>.</p>
+<div class="tip">
+<p>When finding <span class="math inline">\(Z^{*}\)</span> for a confidence bound, the level of confidence always represents an area shaded in the same direction as the sign in H<sub>A</sub>.</p>
+</div>
+<p>Constructing a proper confidence region should follow the five steps below. These steps are illustrated in three examples further below.</p>
+<ul>
+<li>Identify the level of confidence (i.e., C=100(1-<span class="math inline">\(\alpha\)</span>)%; Table <a href="ConfRegions1.html#tab:Calpha">15.1</a>).</li>
+<li>Identify the type of confidence regions – interval, lower bound, or upper bound (Table <a href="ConfRegions1.html#tab:HAsCI">15.2</a>).</li>
+<li>Determine the scaling factor.</li>
+<li>Compute the actual confidence region.</li>
+<li>Interpret the confidence region.</li>
+</ul>
+<p>Consider the Square Lake example where H<sub>A</sub>:<span class="math inline">\(\mu\)</span>&lt;105, <span class="math inline">\(\alpha\)</span>=0.05, and <span class="math inline">\(\bar{x}\)</span>=100.04 from n=50 (Table <a href="FoundationalDefns.html#tab:SquareLakeSample1s">2.2</a>).</p>
+<ul>
+<li>C=95% (=100(1-0.05)).</li>
+<li>Upper confidence bound because H<sub>A</sub> is a “less than.”</li>
+<li><span class="math inline">\(Z^{*}\)</span>=+1.645 as found with [Note that <code>mean=0</code> and <code>sd=1</code> are the default settings for <code>distrib()</code> and can, thus, be omitted when finding a <span class="math inline">\(Z^{*}\)</span>.]</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb20-1"><a href="ConfRegions1.html#cb20-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] 1.644854</code></pre>
+<ul>
+<li>100.04+1.645<span class="math inline">\(\frac{31.49}{\sqrt{50}}\)</span>, 100.04+7.33, or 107.37.</li>
+<li>One is 95% confident that the mean total length of ALL fish in Square Lake is less than 107.4 mm. By confident, it is meant that 95% of all 95% confidence regions will contain <span class="math inline">\(\mu\)</span>.</li>
+</ul>
+<p>Second, suppose that the Lake Superior ice cover data from Table <a href="UnivEDA.html#tab:LSIStats">5.2</a> (note that <span class="math inline">\(\bar{x}\)</span>=107.8 and n=42) was tested with H<sub>A</sub>: <span class="math inline">\(\mu \neq\)</span> 100, <span class="math inline">\(\sigma\)</span>=22, and <span class="math inline">\(\alpha\)</span>=0.01.</p>
+<ul>
+<li>C=99% (=100(1-0.01)).</li>
+<li>Confidence interval because H<sub>A</sub> is a “not equals.”</li>
+<li><span class="math inline">\(Z^{*}\)</span>=±2.576 as found with</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb22-1"><a href="ConfRegions1.html#cb22-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.995</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] 2.575829</code></pre>
+<ul>
+<li>107.8±2.576<span class="math inline">\(\frac{22}{\sqrt{42}}\)</span>, 107.8±8.74, or (99.06,116.54).</li>
+<li>One is 95% confident that the mean annual number of days of ice cover on Lake Superior is between 99.1 and 116.5 days. By confident, it is meant that 95% of all 95% confidence regions will contain <span class="math inline">\(\mu\)</span>.</li>
+</ul>
+<p>Finally, suppose that the second example hypothesis test in Module <a href="HypTesting1.html#HypTesting1">13</a> about battery life (i.e., H<sub>A</sub>:<span class="math inline">\(\mu\)</span>&gt;36 vs H<sub>0</sub>:<span class="math inline">\(\mu\)</span>=36) is being tested with <span class="math inline">\(\alpha\)</span>=0.10. Further suppose that <span class="math inline">\(\sigma\)</span>=7 and that <span class="math inline">\(\bar{x}\)</span>=45 from n=40.</p>
+<ul>
+<li>C=90% (=100(1-0.10)).</li>
+<li>Lower confidence bound because H<sub>A</sub> is a “greater than.”</li>
+<li><span class="math inline">\(Z^{*}\)</span>=-1.282 as found with</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb24-1"><a href="ConfRegions1.html#cb24-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] -1.281552</code></pre>
+<ul>
+<li>45-1.282<span class="math inline">\(\frac{7}{\sqrt{40}}\)</span>, 45-1.42, or 43.58.</li>
+<li>One is 90% confident that the mean life for ALL batteries with the additive is more than 43.58 months. By confident, it is meant that 95% of all 95% confidence regions will contain <span class="math inline">\(\mu\)</span>.</li>
+</ul>
+<p> </p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="50">
+<li id="fn50"><p>Depending on the H<sub>A</sub> it may be known if the parameter is more or less than the hypothesized value.<a href="ConfRegions1.html#fnref50" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="HypTesting2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ConfRegions2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -100,6 +100,12 @@ fig:SLpvalue1
 tab:DMerrs
 fig:SLBetaRelations
 fig:EffectSizeSE
+fig:CIex100
+fig:CI9080Ex
+tab:Calpha
+tab:HAsCI
+fig:CIboundsZ
+fig:CIAlt1
 WhyStats
 sect:Realities
 major-goals-of-statistics
@@ -208,3 +214,9 @@ hypothesis-testing-concept-summary
 HypTesting2
 errors
 test-statistics-and-effect-sizes
+ConfRegions1
+confidence-concept
+constructing-confidence-regions
+ConfRegions2
+precision-and-sample-size
+inference-type-relationship
