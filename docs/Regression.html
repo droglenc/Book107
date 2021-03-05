@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 9 Linear Regression | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 9 Linear Regression | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book107" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 9 Linear Regression | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-03-04" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="BEDAQuant.html"/>
+<link rel="next" href="bivariate-eda-categorical.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#sect:Realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#variable-types"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="DataProduction.html"><a href="DataProduction.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="DataProduction.html"><a href="DataProduction.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="DataProduction.html"><a href="DataProduction.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="UnivSum.html"><a href="UnivSum.html"><i class="fa fa-check"></i><b>4</b> Univariate Summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="UnivSum.html"><a href="UnivSum.html#quantitative-variable"><i class="fa fa-check"></i><b>4.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="4.2" data-path="UnivSum.html"><a href="UnivSum.html#categorical-variable"><i class="fa fa-check"></i><b>4.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="UnivEDA.html"><a href="UnivEDA.html"><i class="fa fa-check"></i><b>5</b> Univariate EDA</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="UnivEDA.html"><a href="UnivEDA.html#quantitative-variable-1"><i class="fa fa-check"></i><b>5.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="5.2" data-path="UnivEDA.html"><a href="UnivEDA.html#categorical-variable-1"><i class="fa fa-check"></i><b>5.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="NormalDist1.html"><a href="NormalDist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
+<li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="NormalDist2.html"><a href="NormalDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
+<li class="chapter" data-level="7.2" data-path="NormalDist2.html"><a href="NormalDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
+<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="BEDAQuant.html"><a href="BEDAQuant.html"><i class="fa fa-check"></i><b>8</b> Bivariate EDA - Quantitative</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="BEDAQuant.html"><a href="BEDAQuant.html#response-and-explanatory-variables"><i class="fa fa-check"></i><b>8.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="8.2" data-path="BEDAQuant.html"><a href="BEDAQuant.html#summaries"><i class="fa fa-check"></i><b>8.2</b> Summaries</a></li>
+<li class="chapter" data-level="8.3" data-path="BEDAQuant.html"><a href="BEDAQuant.html#bivariate-items-to-describe"><i class="fa fa-check"></i><b>8.3</b> Bivariate Items to Describe</a></li>
+<li class="chapter" data-level="8.4" data-path="BEDAQuant.html"><a href="BEDAQuant.html#example-interpretations-1"><i class="fa fa-check"></i><b>8.4</b> Example Interpretations</a></li>
+<li class="chapter" data-level="8.5" data-path="BEDAQuant.html"><a href="BEDAQuant.html#cautions-about-correlation"><i class="fa fa-check"></i><b>8.5</b> Cautions About Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="Regression.html"><a href="Regression.html"><i class="fa fa-check"></i><b>9</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="Regression.html"><a href="Regression.html#response-and-explanatory-variables-1"><i class="fa fa-check"></i><b>9.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="9.2" data-path="Regression.html"><a href="Regression.html#slope-and-intercept"><i class="fa fa-check"></i><b>9.2</b> Slope and Intercept</a></li>
+<li class="chapter" data-level="9.3" data-path="Regression.html"><a href="Regression.html#predictions"><i class="fa fa-check"></i><b>9.3</b> Predictions</a></li>
+<li class="chapter" data-level="9.4" data-path="Regression.html"><a href="Regression.html#residuals"><i class="fa fa-check"></i><b>9.4</b> Residuals</a></li>
+<li class="chapter" data-level="9.5" data-path="Regression.html"><a href="Regression.html#best-fit-criteria"><i class="fa fa-check"></i><b>9.5</b> Best-fit Criteria</a></li>
+<li class="chapter" data-level="9.6" data-path="Regression.html"><a href="Regression.html#assumptions"><i class="fa fa-check"></i><b>9.6</b> Assumptions</a></li>
+<li class="chapter" data-level="9.7" data-path="Regression.html"><a href="Regression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>9.7</b> Coefficient of Determination</a></li>
+<li class="chapter" data-level="9.8" data-path="Regression.html"><a href="Regression.html#examples"><i class="fa fa-check"></i><b>9.8</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="bivariate-eda-categorical.html"><a href="bivariate-eda-categorical.html"><i class="fa fa-check"></i><b>10</b> Bivariate EDA - Categorical</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="bivariate-eda-categorical.html"><a href="bivariate-eda-categorical.html#frequency-tables"><i class="fa fa-check"></i><b>10.1</b> Frequency Tables</a></li>
+<li class="chapter" data-level="10.2" data-path="bivariate-eda-categorical.html"><a href="bivariate-eda-categorical.html#percentage-tables"><i class="fa fa-check"></i><b>10.2</b> Percentage Tables</a></li>
+<li class="chapter" data-level="10.3" data-path="bivariate-eda-categorical.html"><a href="bivariate-eda-categorical.html#which-table-to-use"><i class="fa fa-check"></i><b>10.3</b> Which Table to Use?</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="Regression" class="section level1" number="9">
+<h1><span class="header-section-number">Module 9</span> Linear Regression</h1>
+<p>Linear regression analysis is used to model the relationship between two quantitative variables for two related purposes – (i) explaining variability in the response variable and (ii) predicting future values of the response variable. Examples include predicting future sales of a product from its price, family expenditures on recreation from family income, an animal’s food consumption in relation to ambient temperature, and a person’s score on a German assessment test based on how many years the person studied German.</p>
+<p>Exact predictions cannot be made because of natural variability. For example, two people with the same intake of mercury (from consumption of fish) will likely not have the same level of mercury in their blood stream. Thus, the best that can be accomplished is to predict the average or expected value for a person with a particular intake value. This is accomplished by finding the line that best “fits” the points on a scatterplot of the data and using that line to make predictions. Finding and using the “best-fit” line is the topic of this module.</p>
+<div id="response-and-explanatory-variables-1" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Response and Explanatory Variables</h2>
+<p>Recall from Section <a href="BEDAQuant.html#response-and-explanatory-variables">8.1</a> that the response (or dependent) variable is the variable to be predicted or explained and the explanatory (or independent) variable is the variable that will help do the predicting or explaining. In the examples mentioned above, future sales, family expenditures on recreation, the animal’s food consumption, and score on the assessment test are response variables and product price, family income, temperature, and years studying German are explanatory variables, respectively. The response variable is on the y-axis and the explanatory variable is on the x-axis of scatterplots.</p>
+</div>
+<div id="slope-and-intercept" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Slope and Intercept</h2>
+<p>The equation of a line is commonly expressed as,</p>
+<p><span class="math display">\[ y = mx + b \]</span></p>
+<p>where both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are variables, <span class="math inline">\(m\)</span> represents the slope of the line, and <span class="math inline">\(b\)</span> represents the y-intercept.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a> It is important that you can look at the equation of a line and identify the response variable, explanatory variable, slope, and intercept. The response variable will always appear on the left side of the equation by itself. The explanatory variable (e.g., <span class="math inline">\(x\)</span>) will be on the right side of the equation and will be multiplied by the slope. The value or symbol by itself on the right side of the equation is the intercept. For example, in</p>
+<p><span class="math display">\[ \text{blood} = 3.501 + 0.579\text{intake} \]</span></p>
+<p>blood is the response variable, intake is the explanatory variable, <span class="math inline">\(0.579\)</span> is the slope (it is multiplied by the explanatory variable), and <span class="math inline">\(3.501\)</span> is the intercept (it is on the right side and not multiplied by anything). The same conclusions would be made if the equation had been written as</p>
+<p><span class="math display">\[ \text{blood} = 0.579\text{intake}+3.501 \]</span></p>
+<div class="tip">
+<p>In the equation of a line, the slope is always multiplied by the explanatory variable and the intercept is always by itself.</p>
+</div>
+<p>In addition to being able to identify the slope and intercept of a line you also need to be able to interpret these values. Most students define the slope as “rise over run” and the intercept as “where the line crosses the y-axis.” These “definitions” are loose geometric representations. For our purposes, the slope and intercept must be more strictly defined.</p>
+<p>To define the slope, first think of “plugging” two values of intake into the equation discussed above. For example, if intake=100, then blood=3.501+0.579×100=61.40 and if intake is one unit larger at 101, then blood=3.501+0.579×101=61.98.<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a> The difference between these two values is 61.98-61.40=0.579, which is the same as the slope. Thus, the slope is the change in value of the response variable FOR A SINGLE UNIT CHANGE in the value of the explanatory variable (Figure <a href="Regression.html#fig:SlopeInt">9.1</a>). That is, mercury in the blood changes 0.579 units FOR A SINGLE UNIT CHANGE in mercury intake. So, if an individual increases mercury intake by one unit, then mercury in the blood will increase by 0.579 units, ON AVERAGE. Alternatively, if one individual has one more unit of mercury intake than another individual, then the first individual will have 0.579 more units of mercury in their blood, ON AVERAGE.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:SlopeInt"></span>
+<img src="Book107_files/figure-html/SlopeInt-1.png" alt="Schematic representation of the meaning of the intercept and slope in a linear equation." width="384" />
+<p class="caption">
+Figure 9.1: Schematic representation of the meaning of the intercept and slope in a linear equation.
+</p>
+</div>
+<p> </p>
+<p>To define the intercept, first “plug” intake=0 into the equation discussed above; i.e., blood=3.501+0.579×0 = 3.501. Thus, the intercept is the value of the response variable when the explanatory variable is equal to zero (Figure <a href="Regression.html#fig:SlopeInt">9.1</a>). In this example, the AVERAGE mercury in the blood for an individual with no mercury intake is 3.501. Many times, as is true with this example, the interpretation of the intercept will be nonsensical. This is because x=0 will likely be outside the range of the data collected and, perhaps, outside the range of possible data that could be collected.</p>
+<p>The equation of the line is a model for the relationship depicted in a scatterplot. Thus, the interpretations for the slope and intercept represent the <em>average</em> change or the <em>average</em> response variable. Thus, whenever a slope or intercept is being interpreted it must be noted that the result is an <em>average</em> or <em>on average</em>.</p>
+</div>
+<div id="predictions" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Predictions</h2>
+<p>Once a best-fit line has been identified (criteria for doing so is discussed in Section <a href="Regression.html#best-fit-criteria">9.5</a>), the equation of the line can be used to predict the average value of the response variable for individuals with a particular value of the explanatory variable. For example, the best-fit line for the mercury data shown in Figure <a href="Regression.html#fig:HGpredict">9.2</a> is</p>
+<p><span class="math display">\[ \text{blood} = 3.501 + 0.579*\text{intake} \]</span></p>
+<p>Thus, the predicated average level of mercury in the blood for an individual that consumed 240 ug HG/day is found with</p>
+<p><span class="math display">\[ \text{blood} = 3.501 + 0.579*240 = 142.461 \]</span></p>
+<p>Similarly, the predicted average level of mercury in the blood for an individual that consumed 575 ug HG/day is found with</p>
+<p><span class="math display">\[ \text{blood} = 3.501 + 0.579*575 = 336.426 \]</span></p>
+<p>A prediction may be visualized by finding the value of the explanatory variable on the x-axis, drawing a vertical line until the best-fit line is reached, and then drawing a horizontal line over to the y-axis where the value of the response variable is read (Figure <a href="Regression.html#fig:HGpredict">9.2</a>).</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:HGpredict"></span>
+<img src="Book107_files/figure-html/HGpredict-1.png" alt="Scatterplot between the intake of mercury in fish and the mercury in the blood stream of individuals with superimposed best-fit regression line illustrating predictions for two values of mercury intake." width="336" />
+<p class="caption">
+Figure 9.2: Scatterplot between the intake of mercury in fish and the mercury in the blood stream of individuals with superimposed best-fit regression line illustrating predictions for two values of mercury intake.
+</p>
+</div>
+<p> </p>
+<p>When predicting values of the response variable, it is important to not extrapolate beyond the range of the data. In other words, predictions with values outside the range of observed values of the explanatory variable should be made cautiously (if at all). An excellent example would be to consider height “data” collected during the early parts of a human’s life (say the first ten years). During these early years there is likely a good fit between height (the response variable) and age. However, using this relationship to predict an individual’s height at age 40 would likely result in a ridiculous answer (e.g., over ten feet). The problem here is that the linear relationship only holds for the observed data (i.e., the first ten years of life); it is not known if the same linear relationship exists outside that range of years. In fact, with human heights, it is generally known that growth first slows, eventually quits, and may, at very old ages, actually decline. Thus, the linear relationship found early in life does not hold for later years. Critical mistakes can be made when using a linear relationship to extrapolate outside the range of the data.</p>
+</div>
+<div id="residuals" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Residuals</h2>
+<p>The predicted value is a “best-guess” for an individual based on the best-fit line. The actual value for any individual is likely to be different from this predicted value. The <strong>residual</strong> is a measure of how “far off” the prediction is from what is actually observed. Specifically, the residual for an individual is found by subtracting the predicted value (given the individual’s observed value of the explanatory variable) from the individual’s observed value of the response variable, or</p>
+<p><span class="math display">\[ \text{residual}=\text{observed response}-\text{predicted response}\]</span></p>
+<p>For example, consider an individual that has an observed intake of 650 and an observed level of mercury in the blood of 480. As shown in the previous section, the predicted level of mercury in the blood for this individual is</p>
+<p><span class="math display">\[ \text{blood} = 3.501 + 0.579*650 = 379.851\]</span></p>
+<p>The residual for this individual is then 480-379.851 = 100.149. This positive residual indicates that the observed value is approximately 100 units GREATER than the average for individuals with an intake of 650.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a> As a second example, consider an individual with an observed intake of 250 and an observed level of mercury in the blood of 105. The predicted value for this individual is</p>
+<p><span class="math display">\[ \text{blood} = 3.501 + 0.579*250 = 148.251\]</span></p>
+<p>and the residual is 105-148.251 = -43.251. This negative residual indicates that the observed value is approximately 43 units LESS than the average for individuals with an intake of 250.</p>
+<p>Visually, a residual is the vertical distance between an individual’s point and the best-fit line (Figure <a href="Regression.html#fig:HGresidual">9.3</a>).</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:HGresidual"></span>
+<img src="Book107_files/figure-html/HGresidual-1.png" alt="Scatterplot between the intake of mercury in fish and the mercury in the blood stream of individuals with superimposed best-fit regression line illustrating the residuals for the two individuals discussed in the main text." width="336" />
+<p class="caption">
+Figure 9.3: Scatterplot between the intake of mercury in fish and the mercury in the blood stream of individuals with superimposed best-fit regression line illustrating the residuals for the two individuals discussed in the main text.
+</p>
+</div>
+</div>
+<div id="best-fit-criteria" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> Best-fit Criteria</h2>
+<p>An infinite number of lines can be placed on a graph, but many of those lines do not adequately describe the data. In contrast, many of the lines will appear, to our eye, to adequately describe the data. So, how does one find THE best-fit line from all possible lines. The <strong>least-squares</strong> method described below provides a quantifiable and objective measure of which line best “fits” the data.</p>
+<p>Residuals are a measure of how far an individual is from a candidate best-fit line. Residuals computed from all individuals in a data set measure how far all individuals are from the candidate best-fit line. Thus, the residuals for all individuals can be used to identify the best-fit line.</p>
+<p>The residual sum-of-squares (RSS) is the sum of all squared residuals. The least-squares criterion says that the “best-fit” line is the one line out of all possible lines that has the minimum RSS (Figure <a href="Regression.html#fig:RSSanim">9.4</a>).</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:RSSanim"></span>
+<img src="Book107_files/figure-html/RSSanim-.gif" alt="Scatterplot with the best-fit line (light gray) and candidate best-fit lines (blue line) and residuals (vertical red dashed lines) in the left pane and the residual sum-of-squares for all candidate lines (gray) with the current line highlighted with a red dot. Note how the candidate line is on the best-fit line when the RSS is smallest." width="672" />
+<p class="caption">
+Figure 9.4: Scatterplot with the best-fit line (light gray) and candidate best-fit lines (blue line) and residuals (vertical red dashed lines) in the left pane and the residual sum-of-squares for all candidate lines (gray) with the current line highlighted with a red dot. Note how the candidate line is on the best-fit line when the RSS is smallest.
+</p>
+</div>
+<p> </p>
+<p>The discussion thusfar implies that all possible lines must be “fit” to the data and the one with the minimum RSS is chosen as the “best-fit” line. As there are an infinite number of possible lines, this would be impossible to do. Theoretical statisticians have shown that the application of the least-squares criterion always produces a best-fit line with a slope given by</p>
+<p><span class="math display">\[ slope = r\frac{s_{y}}{s_{x}} \]</span></p>
+<p>and an intercept given by</p>
+<p><span class="math display">\[ intercept = \bar{y}-slope*\bar{x} \]</span></p>
+<p>where <span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(s_{x}\)</span> are the sample mean and standard deviation of the explanatory variable, <span class="math inline">\(\bar{y}\)</span> and <span class="math inline">\(s_{y}\)</span> are the sample mean and standard deviation of the response variable, and <span class="math inline">\(r\)</span> is the sample correlation coefficient between the two variables. Thus, using these formulas finds the slope and intercept for the line, out of all possible lines, that minimizes the RSS.</p>
+</div>
+<div id="assumptions" class="section level2" number="9.6">
+<h2><span class="header-section-number">9.6</span> Assumptions</h2>
+<p>The least-squares method for finding the best-fit line only works appropriately if each of the following five assumptions about the data has been met.</p>
+<ul>
+<li>A line describes the data (i.e., a linear form).</li>
+<li>Homoscedasticity.</li>
+<li>Normally distributed residuals at a given x.</li>
+<li>Independent residuals at a given x.</li>
+<li>The explanatory variable is measured without error.</li>
+</ul>
+<p>While all five assumptions of linear regression are important, only the first two are vital when the best-fit line is being used primarily as a descriptive model for data.<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a> Description is the primary goal of linear regression used in this course and, thus, only the first two assumptions are considered further.</p>
+<p>The linearity assumption appears obvious – if a line does not represent the data, then don’t try to fit a line to it! Violations of this assumption are evident by a non-linear or curving form in the scatterplot.</p>
+<p>The homoscedasticity assumption states that the variability about the line is the same for all values of the explanatory variable. In other words, the dispersion of the data around the line must be the same along the entire line. Violations of this assumption generally present as a “funnel-shaped” dispersion of points from left-to-right on a scatterplot.</p>
+<p>Violations of these assumptions are often evident on a “fitted-line plot,” which is a scatterplot with the best-fit line superimposed (Figure <a href="Regression.html#fig:ResidPlotEx">9.5</a>).<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a> If the points look more-or-less like random scatter around the best-fit line, then neither the linearity nor the homoscedasticity assumption has been violated. A violation of one of these assumptions should be obvious on the scatterplot. In other words, there should be a clear curvature or funneling on the plot.</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:ResidPlotEx"></span>
+<img src="Book107_files/figure-html/ResidPlotEx-1.png" alt="Fitted-line plots illustrating when the regression assumptions are met (upper-left) and three common assumption violations." width="672" />
+<p class="caption">
+Figure 9.5: Fitted-line plots illustrating when the regression assumptions are met (upper-left) and three common assumption violations.
+</p>
+</div>
+<p> </p>
+<p>In this course, if an assumption has been violated, then one should not continue to interpret the linear regression. However, in many instances, an assumption violation can be “corrected” by transforming one or both variables to a different scale. Transformations are not discussed in this course.</p>
+<div class="tip">
+<p>If the regression assumptions are not met, then the regression results should not be interpreted.</p>
+</div>
+</div>
+<div id="coefficient-of-determination" class="section level2" number="9.7">
+<h2><span class="header-section-number">9.7</span> Coefficient of Determination</h2>
+<p>The coefficient of determination (<span class="math inline">\(r^{2}\)</span>) is the proportion of the total variability in the response variable that is explained away by knowing the value of the explanatory variable and the best-fit model. In simple linear regression, <span class="math inline">\(r^{2}\)</span> is literally the square of <span class="math inline">\(r\)</span>, the correlation coefficient.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a> Values of <span class="math inline">\(r^{2}\)</span> are between 0 and 1.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a></p>
+<p>The meaning of <span class="math inline">\(r^{2}\)</span> can be examined by making predictions of the response variable with and without knowing the value of the explanatory variable. First, consider predicting the value of the response variable without any information about the explanatory variable. In this case, the best prediction is the sample mean of the response variable (represented by the dashed blue horizontal line in Figure <a href="Regression.html#fig:CoeffDeterm">9.6</a>). However, because of natural variability, not all individuals will have this value. Thus, the prediction might be “bracketed” by predicting that the individual will be between the observed minimum and maximum values (solid blue horizontal lines). Loosely speaking, this range is the “total variability in the response variable” (blue box).</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:CoeffDeterm"></span>
+<img src="Book107_files/figure-html/CoeffDeterm-1.png" alt="Fitted line plot with visual representations of variabilities explained and unexplained. A full explanation is in the text." width=".8\linewidth" />
+<p class="caption">
+Figure 9.6: Fitted line plot with visual representations of variabilities explained and unexplained. A full explanation is in the text.
+</p>
+</div>
+<p> </p>
+<p>Suppose now that the response variable is predicted for an individual with a known value of the explanatory variable (e.g., at the dashed vertical red line in Figure <a href="Regression.html#fig:CoeffDeterm">9.6</a>). The predicted value for this individual is the value of the response variable at the corresponding point on the best-fit line (dashed horizontal red line). Again, because of natural variability, not all individuals with this value of the explanatory variable will have this exact value of the response variable. However, the prediction is now “bracketed” by the minimum and maximum value of the response variable <strong>ONLY</strong> for those individuals with the same value of the explanatory variable (solid red horizontal lines). Loosely speaking, this range is the “variability in the response variable remaining after knowing the value of the explanatory variable” (red box). This is the variability in the response variable that remains even after knowing the value of the explanatory variable or the variability in the response variable that cannot be explained away (by the explanatory variable).</p>
+<p>The portion of the total variability in the response variable that was explained away consists of all the values of the response variable that would no longer be entertained as possible predictions once the value of the explanatory variable is known (green box in Figure <a href="Regression.html#fig:CoeffDeterm">9.6</a>).</p>
+<p>Now, by the definition of <span class="math inline">\(r^{2}\)</span>, <span class="math inline">\(r^{2}\)</span> can be visualized as the area of the green box divided by the area of the blue box. This calculation does not depend on which value of the explanatory variable is chosen as long as the data are evenly distributed around the line (i.e., homoscedasticity – see Section <a href="Regression.html#assumptions">9.6</a>).</p>
+<p>If the variability explained away (green box) approaches the total variability in the response variable (blue box), then <span class="math inline">\(r^{2}\)</span> approaches 1. This will happen only if the variability around the line approaches zero. In contrast, the variability explained (green box) will approach zero if the slope is zero (i.e., no relationship between the response and explanatory variables). Thus, values of <span class="math inline">\(r^{2}\)</span> also indicate the strength of the relationship; values near 1 are stronger than values near 0. Values near 1 also mean that predictions will be fairly accurate – i.e., there is little variability remaining after knowing the explanatory variable.</p>
+<div class="tip">
+<p>A value of <span class="math inline">\(r^{2}\)</span> near 1 represents a strong relationship between the response and explanatory variables that will lead to accurate predictions.</p>
+</div>
+</div>
+<div id="examples" class="section level2" number="9.8">
+<h2><span class="header-section-number">9.8</span> Examples</h2>
+<p>There are twelve questions that are commonly asked about linear regression results. These twelve questions are listed below with some hints about things to remember when answering some of the questions. An example of these questions in context is then provided.</p>
+<ol style="list-style-type: decimal">
+<li>What is the response variable?
+<ul>
+<li><em>Identify which variable is to be predicted or explained, which variable is dependent on another variable, which would be hardest to measure, or which is on the y-axis.</em></li>
+</ul></li>
+<li>What is the explanatory variable?
+<ul>
+<li><em>The remaining variable after identifying the response variable.</em></li>
+</ul></li>
+<li>Comment on linearity and homoscedasticity.
+<ul>
+<li><em>Examine fitted-line plot for curvature (i.e., non-linearity) or a funnel-shape (i.e., heteroscedasticity).</em></li>
+</ul></li>
+<li>What is the equation of the best-fit line?
+<ul>
+<li><em>In the generic equation of the line (<span class="math inline">\(y=mx+b\)</span>) replace <span class="math inline">\(y\)</span> with the name of the response variable, <span class="math inline">\(x\)</span> with the name of the explanatory variable, <span class="math inline">\(m\)</span> with the value of the slope, and <span class="math inline">\(b\)</span> with the value of the intercept.</em></li>
+</ul></li>
+<li>Interpret the value of the slope.
+<ul>
+<li><em>Comment on how the response variable changes by slope amount for each one unit change of the explanatory variable, on average.</em></li>
+</ul></li>
+<li>Interpret the value of the intercept.
+<ul>
+<li><em>Comment on how the response variable equals the intercept, on average, if the explanatory variable is zero.</em></li>
+</ul></li>
+<li>Make a prediction given a value of the explanatory variable.
+<ul>
+<li><em>Plug the given value of the explanatory variable into the equation of the best-fit line. Make sure that this is not an extrapolation.</em></li>
+</ul></li>
+<li>Compute a residual given values of both the explanatory and response variables.
+<ul>
+<li><em>Make a prediction (see previous question) and then subtract this value from the observed value of the response. Make sure that the prediction is not an extrapolation.</em></li>
+</ul></li>
+<li>Identify an extrapolation in the context of a prediction problem.
+<ul>
+<li><em>Examine the x-axis scale on the fitted-line plot and do not make predictions outside of the plotted range.</em></li>
+</ul></li>
+<li>What is the proportion of variability in the response variable explained by knowing the value of the explanatory variable?
+<ul>
+<li><em>This is <span class="math inline">\(r^{2}\)</span>.</em></li>
+</ul></li>
+<li>What is the correlation coefficient?
+<ul>
+<li><em>This is the square root of <span class="math inline">\(r^{2}\)</span>. Make sure to put a negative sign on the result if the slope is negative.</em></li>
+</ul></li>
+<li>How much does the response variable change if the explanatory variable changes by X units?
+<ul>
+<li><em>This is an alternative to asking for an interpretation of the slope. If the explanatory variable changes by X units, then the response variable will change by X×slope units, on average.</em></li>
+</ul></li>
+</ol>
+<p>All answers should refer to the variables of the problem – thus, “y,” “x,” “response,” or “explanatory” should not be in any part of any answer. The questions about the slope, intercept, and predictions need to explicitly identify that the answer is an “average” or “on average.”</p>
+<div class="tip">
+<p>All interpretations should be “in terms of the variables of the problem” rather than the generic terms of x, y, response variable, and explanatory variable.</p>
+</div>
+<div id="chimp-hunting-parties" class="section level3 unnumbered">
+<h3>Chimp Hunting Parties</h3>
+<blockquote>
+<p><em>Stanford (1996) gathered data to determine if the size of the hunting party (number of individuals hunting together) affected the hunting success of the party (percent of hunts that resulted in a kill) for wild chimpanzees (Pan troglodytes) at Gombe. The results of their analysis for 17 hunting parties is shown in the figure below.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a> Use these results to answer the questions below.</em></p>
+</blockquote>
+<p><img src="Book107_files/figure-html/ChimpFLP-1.png" width="336" style="display: block; margin: auto;" /></p>
+<ol style="list-style-type: decimal">
+<li>What is the response variable?
+<ul>
+<li>The response variable is the percent of successful hunts because the authors are attempting to see if success depends on hunting party size. Additionally, the percent of successful hunts is shown on the y-axis.</li>
+</ul></li>
+<li>What is the explanatory variable?
+<ul>
+<li>The explanatory variable is the size of the hunting party.</li>
+</ul></li>
+<li>Does any aspect of this regression concern you (i.e., consider the regression assumptions)?
+<ul>
+<li>The data appear to be very slightly curved but there is no evidence of a funnel-shape. Thus, the data may be slightly non-linear but they appear homoscedastic.</li>
+</ul></li>
+<li>In terms of the variables of the problem, what is the equation of the best-fit line?
+<ul>
+<li>The equation of the best-fit line is % Success of Hunt = 24.21 + 3.71×Number of Hunting Party Members.</li>
+</ul></li>
+<li>Interpret the value of the slope in terms of the variables of the problem.
+<ul>
+<li>The slope indicates that the percent of successful hunts increases by 3.71, on average, for every increase of one member to the hunting party.</li>
+</ul></li>
+<li>Interpret the value of the intercept in terms of the variables of the problem.
+<ul>
+<li>The intercept indicates that the percent of successful hunts is 24.21, on average, for hunting parties with no members. This is nonsensical because 0 hunting members is an extrapolation.</li>
+</ul></li>
+<li>What is the predicted hunt success if the hunting party consists of 20 chimpanzees?
+<ul>
+<li>The predicted hunt success for parties with 20 individuals is an extrapolation, because 20 is outside the range of number of members observed on the x-axis of the fitted-line plot.</li>
+</ul></li>
+<li>What is the predicted hunt success if the hunting party consists of 12 chimpanzees?
+<ul>
+<li>The predicted hunt success for parties with 12 individuals is 24.21 + 3.71×12 = 68.7%.</li>
+</ul></li>
+<li>What is the residual if the hunt success for 10 individuals is 50%?
+<ul>
+<li>The residual in this case is 50-(24.21 + 3.71×10) = 50-61.3 = -11.3. Therefore, it appears that the success of this hunting party is 11.3% lower than average for this size of hunting party.</li>
+</ul></li>
+<li>What proportion of the variability in hunting success is explained by knowing the size of the hunting party?
+<ul>
+<li>The proportion of the variability in hunting success that is explained by knowing the size of the hunting party is <span class="math inline">\(r^{2}\)</span>=0.88.</li>
+</ul></li>
+<li>What is the correlation between hunting success and size of hunting party?
+<ul>
+<li>The correlation between hunting success and size of hunting party is r=0.94. [*Note that this is the square root of <span class="math inline">\(r^{2}\)</span>.}]</li>
+</ul></li>
+<li>How much does hunt success decrease, on average, if there are two fewer individuals in the party?
+<ul>
+<li>If the hunting party has two fewer members, then the hunting success would decrease by 7.4% (i.e., -2×3.71), on average. [<em>Note that this is two times the slope, with a negative as it asks about “fewer” members.</em>]</li>
+</ul></li>
+</ol>
+</div>
+<div id="car-weight-and-mpg" class="section level3 unnumbered">
+<h3>Car Weight and MPG</h3>
+<p>In Module <a href="BEDAQuant.html#BEDAQuant">8</a>, an EDA for the relationship between HMPG (the highway miles per gallon) and Weight (lbs) of 93 cars from the 1993 model year was performed. This relationship will be explored further here as an example of a complete regression analysis. In this analysis, the regression output will be examined within the context of answering the twelve typical questions. The results are shown in Figure <a href="Regression.html#fig:CarFit">9.7</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:CarFit"></span>
+<img src="Book107_files/figure-html/CarFit-1.png" alt="Fitted line plot of the regression of highway MPG on weight of 93 cars from 1993." width="336" />
+<p class="caption">
+Figure 9.7: Fitted line plot of the regression of highway MPG on weight of 93 cars from 1993.
+</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>What is the response variable?
+<ul>
+<li>The response variable in this analysis is the highway MPG, because that is the variable that we are trying to learn about or explain the variability of.</li>
+</ul></li>
+<li>What is the explanatory variable?
+<ul>
+<li>The explanatory variable in this analysis is the weight of the car (by process of elimination).</li>
+</ul></li>
+<li>Do any aspects of this regression fit concern you?
+<ul>
+<li>The simple linear regression model appears to fit the data moderately well as the fitted-line plot (Figure <a href="Regression.html#fig:CarFit">9.7</a>) shows only a very slight curvature and only very slight heteroscedasticity.<a href="#fn38" class="footnote-ref" id="fnref38"><sup>38</sup></a>.</li>
+</ul></li>
+<li>In terms of the variables of the problem, what is the equation of the best-fit line?
+<ul>
+<li>The equation of the best-fit line for this problem is HMPG = 51.6 - 0.0073×Weight.</li>
+</ul></li>
+<li>Interpret the value of the slope in terms of the variables of the problem.
+<ul>
+<li>The slope indicates that for every increase of one pound of car weight the highway MPG decreases by 0.0073, on average.</li>
+</ul></li>
+<li>Interpret the value of the intercept in terms of the variables of the problem.
+<ul>
+<li>The intercept indicates that a car with 0 weight will have a highway MPG value of 51.6, on average. [<em>Note that this is the correct interpretation of the intercept. However, it is nonsensical because it is an extrapolation; i.e., no car will weigh 0 pounds.</em>]</li>
+</ul></li>
+<li>What is the predicted highway MPG for a car that weighs 3100 lbs?
+<ul>
+<li>The predicted highway MPG for a car that weighs 3100 lbs is 51.6 - 0.0073×3100 = 29.0 MPG.</li>
+</ul></li>
+<li>What is the predicted highway MPG for a car that weighs 5100 lbs?
+<ul>
+<li>The predicted highway MPG for a car that weighs 5100 lbs should not be computed with the results of this regression, because 5100 lbs is outside the domain of the data (Figure <a href="Regression.html#fig:CarFit">9.7</a>).</li>
+</ul></li>
+<li>What is the residual for a car that weights 3500 lbs and has a highway MPG of 24?
+<ul>
+<li>The predicted highway MPG for a car that weighs 3500 lbs is 51.6 - 0.0073×3500 = 26.1. Thus, the residual for this car is 24 - 26.1 = -2.1. Therefore, it appears that this car gets 2.5 MPG LESS than an average car with the same weight.</li>
+</ul></li>
+<li>What proportion of the variability in highway MPG is explained by knowing the weight of the car?
+<ul>
+<li>The proportion of the variability in highway MPG that is explained by knowing the weight of the car is <span class="math inline">\(r^{2}\)</span>=0.66.</li>
+</ul></li>
+<li>What is the correlation between highway MPG and car weight?
+<ul>
+<li>The correlation between highway MPG and car weight is <span class="math inline">\(r=\)</span>-0.81. [*Not that this is the square root of <span class="math inline">\(r^{2}\)</span>, but as a negative because form of the relationship between highway MPG and weight is negative.}</li>
+</ul></li>
+<li>How much is the highway MPG expected to change if a car is 1000 lbs heavier?
+<ul>
+<li>If the car was 1000 lbs heavier, you would expect the car’s highway MPG to decrease by 7.33. [<em>Note that this is 1000 slopes.</em>]</li>
+</ul></li>
+</ol>
+<p> </p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="30">
+<li id="fn30"><p>Hereafter, simply called the “intercept.”<a href="Regression.html#fnref30" class="footnote-back">↩︎</a></p></li>
+<li id="fn31"><p>For simplicity of exposition, the actual units are not used in this discussion. However, “units” would usually be replaced with the actual units used for the measurements.<a href="Regression.html#fnref31" class="footnote-back">↩︎</a></p></li>
+<li id="fn32"><p>In other words, the observed value is “above” the line.<a href="Regression.html#fnref32" class="footnote-back">↩︎</a></p></li>
+<li id="fn33"><p>In contrast to using the model to make inferences about a population model.<a href="Regression.html#fnref33" class="footnote-back">↩︎</a></p></li>
+<li id="fn34"><p>Residual plots, not discussed in this text, are another plot that often times is used to better assess assumption violations.<a href="Regression.html#fnref34" class="footnote-back">↩︎</a></p></li>
+<li id="fn35"><p>Simple linear regression is the fitting of a model with a single explanatory variable and is the only model considered in this module and this course. See Section <a href="BEDAQuant.html#correlation-coefficient">8.2.2</a> for a review of the correlation coefficient.<a href="Regression.html#fnref35" class="footnote-back">↩︎</a></p></li>
+<li id="fn36"><p>It is common for <span class="math inline">\(r^{2}\)</span> to be presented as a percentage.<a href="Regression.html#fnref36" class="footnote-back">↩︎</a></p></li>
+<li id="fn37"><p>These data are in <a href="https://raw.githubusercontent.com/droglenc/NCData/master/Chimp.csv">Chimp.csv</a>.<a href="Regression.html#fnref37" class="footnote-back">↩︎</a></p></li>
+<li id="fn38"><p>In advanced statistics books, objective measures for determining whether there is significant curvature or heteroscedasticity in the data are used. In this book, we will only be concerned with whether there is strong evidence of curvature or heteroscedasticity. There does not seem to be either here.<a href="Regression.html#fnref38" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="BEDAQuant.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bivariate-eda-categorical.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

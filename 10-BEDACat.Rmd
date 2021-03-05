@@ -1,0 +1,132 @@
+# Bivariate EDA - Categorical
+Two-way frequency tables summarize two categorical variables recorded on the same individual by displaying levels of the first variable as rows and levels of the second variable as columns. Each cell in this table contains the frequency of individuals that were in the corresponding levels of each variable. These frequency tables are often converted to percentage tables for ease of summarization and comparison among populations. This module explores the construction and interpretation of frequency and percentage tables.
+
+The General Sociological Survey (GSS) is a very large survey that has been administered 25 times since 1972. The purpose of the GSS is to gather data on contemporary American society in order to monitor and explain trends in attitudes, behaviors, and attributes. Data from the following two questions on the GSS are used throughout this module.
+
+1. What is your highest degree earned? [choices -- "less than high school diploma", "high school diploma", "junior college", "bachelors", or "graduate"; labeled as degree]
+1. How willing would you be to accept cuts in your standard of living in order to protect the environment? [choices -- "very willing", "fairly willing", "neither willing nor unwilling", "not very willing", or "not at all willing"; labeled as grnsol]
+
+An example of these data are shown below below.
+
+&nbsp;
+
+```{r echo=FALSE}
+gss <- read.csv("https://raw.githubusercontent.com/droglenc/NCData/master/GSSWill2Pay.csv") %>%
+  mutate(degree=factor(degree,levels=c("ltHS","HS","JC","BS","grad")),
+         grnsol=factor(grnsol,levels=c("vwill","will","neither","un","vun")))
+headtail(gss) %>%
+  knitr::kable(booktab=TRUE,row.names=FALSE,align="c") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(0,bold=TRUE) %>%
+  kableExtra::column_spec(1:2,width="1in")
+```
+
+## Frequency Tables
+
+```{r echo=FALSE, results='hide'}
+tbl1 <- xtabs(~degree+grnsol,data=gss)
+tbl2 <- addMargins(tbl1)
+```
+A common method of summarizing bivariate categorical data is to count individuals that have each combination of levels of the two categorical variables. For example, how many respondents had less than a HS degree and were very willing, how many had a high school degree and were willing, and so on. The count of the number of individuals of each combination is called a frequency. A two-way frequency table offers an efficient way to display these frequencies (Table \@ref(tab:EnvFreq)). For example, `r tbl2["ltHS","vwill"]` of the respondents had less than a high school degree and were very willing to take a cut in their standard of living to protect the environment. Similarly, `r tbl2["HS","will"]` respondents had a high school degree and were willing to cut their standard of living.
+
+&nbsp;
+
+```{r EnvFreq, echo=FALSE}
+tbl2 %>%
+  knitr::kable(booktab=TRUE,align="r",caption="Frequency table of respondent's highest completed degree (rows) and willingness to cut their standard of living to protect the environment (columns).") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(c(0,6),bold=TRUE) %>%
+  kableExtra::column_spec(c(1,7),bold=TRUE) %>%
+  kableExtra::column_spec(1:7,width="0.7in")
+```
+
+&nbsp;
+
+The margins of a two-way frequency table may be augmented with row and column totals (as in Table \@ref(tab:EnvFreq)). Each marginal total represents the distribution of one of the categorical variables, while ignoring the other. The total column represents the distribution of the row variable; in this case, the highest degree completed. The total row represents the distribution of the column variable; in this case, willingness to cut their standard of living to protect the environment. Thus, for example there were `r tbl2["JC","Sum"]` respondents whose highest completed degree was junior college and there were `r tbl2["Sum","vun"]` respondents who were very unwilling to cut their standard of living to protect the environment.
+
+If one variables can be considered as the response, then this variable should form the columns of the frequency table. For example, "willingness to cut" could be considered the response variable and it was, appropriately, placed as the column variable in Table \@ref(tab:EnvFreq).
+
+
+## Percentage Tables
+Two-way frequency tables may be converted to percentage tables for ease of comparison between levels of the variables and also between populations. For example, it is difficult to determine from Table \@ref(tab:EnvFreq) if respondents with a high school degree are more likely to be very willing to cut their standard of living than respondents with a graduate degree, because there are approximately seven times as many respondents with a high school degree. However, if the frequencies are converted to percentages, then this comparison is easily made. Three types of percentage tables may be constructed from a frequency table.
+
+### Total-Percentage Table
+Each value in a **total-percentage table** is computed by dividing each cell of the frequency table by the total number of ALL individuals in the frequency table and multiplying by 100. For example, the value in the "vwill" column and "ltHS" row of the table-percentage table (Table \@ref(tab:EnvTblP)) is computed by dividing the value in the "vwill" column and "ltHS" row of the frequency table (i.e., `r tbl2["ltHS","vwill"]`; Table \@ref(tab:EnvFreq)) by the "Sum" of the entire frequency table (i.e., `r tbl2["Sum","Sum"]`) and multiplying by 100.
+
+&nbsp;
+
+```{r EnvTblP, echo=FALSE}
+tbl1.t <- percTable(tbl1)
+tbl1.t %>%
+  knitr::kable(booktab=TRUE,align="r",caption="Table-percentage table of respondent's highest completed degree (rows) and willingness to cut their standard of living to protect the environment (columns).") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(c(0,6),bold=TRUE) %>%
+  kableExtra::column_spec(c(1,7),bold=TRUE) %>%
+  kableExtra::column_spec(1:7,width="0.7in")
+```
+
+&nbsp;
+
+The value in each cell of a total-percentage table is the percentage OF ALL individuals that have the characteristic of that column AND that row. For example, `r formatC(tbl1.t["ltHS","vwill"],format="f",digits=1)`% of ALL respondents had less than a high school degree AND were very willing to cut their standard of living to protect the environment. In contrast to the interpretations of the row and column-percentage tables below, interpretations from the table-percentages table DOES refer to ALL respondents.
+
+### Row-Percentage Table
+A **row-percentage table** is computed by dividing each cell of the frequency table by the total in the same row of the frequency table and multiplying by 100 (Table \@ref(tab:EnvRowP)). For example, the value in the "vwill" column and "ltHS" row of the row-percentage table is computed by dividing the value in the "vwill" column and "ltHS" row of the frequency table (i.e., `r tbl2["ltHS","vwill"]`; Table \@ref(tab:EnvFreq)) by the "Sum" of the "ltHS" row of the frequency table (i.e., `r tbl2["ltHS","Sum"]`) and multiplying by 100.
+
+&nbsp;
+
+```{r EnvRowP, echo=FALSE}
+tbl1.r <- percTable(tbl1,margin=1)
+tbl1.r %>%
+  knitr::kable(booktab=TRUE,align="r",caption="Row-percentage table of respondent's highest completed degree (rows) and willingness to cut their standard of living to protect the environment (columns).") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(0,bold=TRUE) %>%
+  kableExtra::column_spec(c(1,7),bold=TRUE) %>%
+  kableExtra::column_spec(1:7,width="0.7in")
+```
+
+&nbsp;
+
+The value in each cell of a row-percentage table is the percentage of individuals in that ROW that have the characteristic of that column. For example, `r formatC(tbl1.r["ltHS","vwill"],format="f",digits=1)`% of the respondents with less than a high school degree are very willing to cut their standard of living to protect the environment. This statement must be read carefully. OF THE RESPONDENTS WITH LESS THAN A HIGH SCHOOL DEGREE, not of all respondents, `r formatC(tbl1.r["ltHS","vwill"],format="f",digits=1)`% were very willing to cut their standard of living.
+
+If the response variable formed the columns, then the row-percentage table allows one to compare percentages in levels of the response (i.e., columns) across groups (i.e., rows). For example, one can see that there is a general decrease in the percentage of respondents that were "very unwilling" to cut their standard of living to protect the environment as the level of education increased (Table \@ref(tab:EnvRowP)).
+
+### Column-Percentage Table
+A **column-percentage table** is computed by dividing each cell of the frequency table by the total in the same column of the frequency table and multiplying by 100 (Table \@ref(tab:EnvColP)). For example, the value in the "vwill" column and "ltHS" row on the column-percentage table is computed by dividing the value in the "vwill" column and "ltHS" row of the frequency table (i.e., `r tbl2["ltHS","vwill"]`; Table \@ref(tab:EnvFreq)) by the "Sum" of the "vwill" column of the frequency table (i.e., `r tbl2["Sum","vwill"]`) and multiplying by 100.
+
+&nbsp;
+
+```{r EnvColP, echo=FALSE}
+tbl1.c <- percTable(tbl1,margin=2)
+tbl1.c %>%
+  knitr::kable(booktab=TRUE,align="r",caption="Column-percentage table of respondent's highest completed degree (rows) and willingness to cut their standard of living to protect the environment (columns).") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(c(0,6),bold=TRUE) %>%
+  kableExtra::column_spec(1,bold=TRUE) %>%
+  kableExtra::column_spec(1:6,width="0.7in")
+```
+
+&nbsp;
+
+The value in each cell of a column-percentage table is the percentage of all individuals in that COLUMN that have the characteristic of that row. For example, `r formatC(tbl1.c["ltHS","vwill"],format="f",digits=1)`% of respondents who were very willing to cut their standard of living had less than a high school degree. Again, this is a very literal statement. OF THE RESPONDENTS WHO WERE VERY WILLING TO CUT THEIR STANDARD OF LIVING, not of all respondents, `r formatC(tbl1.c["ltHS","vwill"],format="f",digits=1)`% had less than a high school degree.
+
+
+## Which Table to Use?
+Determining which table to use comes from applying one simple rule and practicing with several tables. The rule comes from determining if the question restricts the frame of reference to a particular level or category of one of the variables. If the question does restrict to a particular level, then either the row or column-percentage table that similarly restricts the frame of reference must be used. If a restriction to a particular level is not made, then the total-percentage table is used.
+
+For example, consider the question -- "What percentage of respondents with a bachelor's degree were very unwilling to cut their standard of living to protect the environment?"  This question refers to only respondents with bachelor's degrees (i.e., "... of respondents with a bachelor's degree ..."). Thus, the answer is restricted to the "BS" row of the frequency table. The ROW-percentage table restricts the original table to the row levels and would be used to answer this question. Therefore, `r formatC(tbl1.r["BS","vun"],format="f",digits=1)`% of respondents with bachelor's degrees were very unwilling to cut their standard of living to protect the environment (Table \@ref(tab:EnvRowP)).
+
+Now consider the question -- "What percentage of all respondents had a high school degree and were very willing to cut their standard of living?"  This question does not restrict the frame of reference because it refers to "... of all respondents ...". Therefore, from the TOTAL-percentage table (Table \@ref(tab:EnvTblP)), `r formatC(tbl1.t["HS","vwill"],format="f",digits=1)`% of respondents had a high school degree and were very willing to cut their standard of living.
+
+Also consider this question -- "What percentage of respondents who were neither willing nor unwilling to cut their standard of living had graduate degrees?"  This question refers only to respondents who were neither willing nor unwilling to cut their standard of living and, thus, restricts the question to the "neither" column of the frequency table. Thus, the answer will come from the COLUMN-percentage table. Therefore, `r formatC(tbl1.c["grad","neither"],format="f",digits=1)`% of respondents who were neither willing nor unwilling to cut their standard of living had graduate degrees (Table \@ref(tab:EnvColP)).
+
+Finally, consider this question -- "What percentage of all respondents were very willing to cut their standard of living to help the environment?"  This question has no restrictions, so the total-percentage table would be used. In addition, this question is only concerned with one of the two variables; thus, the answer will come from a marginal distribution. Therefore, `r tbl2["Sum","vwill"]` out of all `r tbl2["Sum","Sum"]` respondents, or `r formatC(100*tbl2["Sum","vwill"]/tbl2["Sum","Sum"],format="f",digits=1)`%, were very willing to cut their standard of living to help the environment.
+
+::: {.tip data-latex=''}
+To determine which percentage table to use determine what type of restriction, if any, has been placed on the frame of reference for the question.
+:::
+
+::: {.tip data-latex=''}
+If a question does not refer to one of the two variables, then the answer will generally come from the marginal distribution of the other variable.
+:::
+
+&nbsp;
