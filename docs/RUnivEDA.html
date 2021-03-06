@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 24 Univariate EDA in R | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 24 Univariate EDA in R | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book107" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 24 Univariate EDA in R | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-03-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="RFilter.html"/>
+<link rel="next" href="RBivEDA.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#variable-types"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="DataProduction.html"><a href="DataProduction.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="DataProduction.html"><a href="DataProduction.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="DataProduction.html"><a href="DataProduction.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="UnivSum.html"><a href="UnivSum.html"><i class="fa fa-check"></i><b>4</b> Univariate Summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="UnivSum.html"><a href="UnivSum.html#quantitative-variable"><i class="fa fa-check"></i><b>4.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="4.2" data-path="UnivSum.html"><a href="UnivSum.html#categorical-variable"><i class="fa fa-check"></i><b>4.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="UnivEDA.html"><a href="UnivEDA.html"><i class="fa fa-check"></i><b>5</b> Univariate EDA</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="UnivEDA.html"><a href="UnivEDA.html#quantitative-variable-1"><i class="fa fa-check"></i><b>5.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="5.2" data-path="UnivEDA.html"><a href="UnivEDA.html#categorical-variable-1"><i class="fa fa-check"></i><b>5.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="NormalDist1.html"><a href="NormalDist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
+<li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="NormalDist2.html"><a href="NormalDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
+<li class="chapter" data-level="7.2" data-path="NormalDist2.html"><a href="NormalDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
+<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="BEDAQuant.html"><a href="BEDAQuant.html"><i class="fa fa-check"></i><b>8</b> Bivariate EDA - Quantitative</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="BEDAQuant.html"><a href="BEDAQuant.html#response-and-explanatory-variables"><i class="fa fa-check"></i><b>8.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="8.2" data-path="BEDAQuant.html"><a href="BEDAQuant.html#summaries"><i class="fa fa-check"></i><b>8.2</b> Summaries</a></li>
+<li class="chapter" data-level="8.3" data-path="BEDAQuant.html"><a href="BEDAQuant.html#bivariate-items-to-describe"><i class="fa fa-check"></i><b>8.3</b> Bivariate Items to Describe</a></li>
+<li class="chapter" data-level="8.4" data-path="BEDAQuant.html"><a href="BEDAQuant.html#example-interpretations-1"><i class="fa fa-check"></i><b>8.4</b> Example Interpretations</a></li>
+<li class="chapter" data-level="8.5" data-path="BEDAQuant.html"><a href="BEDAQuant.html#cautions-about-correlation"><i class="fa fa-check"></i><b>8.5</b> Cautions About Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="LinearRegression.html"><a href="LinearRegression.html"><i class="fa fa-check"></i><b>9</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="LinearRegression.html"><a href="LinearRegression.html#response-and-explanatory-variables-1"><i class="fa fa-check"></i><b>9.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="9.2" data-path="LinearRegression.html"><a href="LinearRegression.html#slope-and-intercept"><i class="fa fa-check"></i><b>9.2</b> Slope and Intercept</a></li>
+<li class="chapter" data-level="9.3" data-path="LinearRegression.html"><a href="LinearRegression.html#predictions"><i class="fa fa-check"></i><b>9.3</b> Predictions</a></li>
+<li class="chapter" data-level="9.4" data-path="LinearRegression.html"><a href="LinearRegression.html#residuals"><i class="fa fa-check"></i><b>9.4</b> Residuals</a></li>
+<li class="chapter" data-level="9.5" data-path="LinearRegression.html"><a href="LinearRegression.html#best-fit-criteria"><i class="fa fa-check"></i><b>9.5</b> Best-fit Criteria</a></li>
+<li class="chapter" data-level="9.6" data-path="LinearRegression.html"><a href="LinearRegression.html#assumptions"><i class="fa fa-check"></i><b>9.6</b> Assumptions</a></li>
+<li class="chapter" data-level="9.7" data-path="LinearRegression.html"><a href="LinearRegression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>9.7</b> Coefficient of Determination</a></li>
+<li class="chapter" data-level="9.8" data-path="LinearRegression.html"><a href="LinearRegression.html#examples"><i class="fa fa-check"></i><b>9.8</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="BEDACat.html"><a href="BEDACat.html"><i class="fa fa-check"></i><b>10</b> Bivariate EDA - Categorical</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="BEDACat.html"><a href="BEDACat.html#frequency-tables"><i class="fa fa-check"></i><b>10.1</b> Frequency Tables</a></li>
+<li class="chapter" data-level="10.2" data-path="BEDACat.html"><a href="BEDACat.html#percentage-tables"><i class="fa fa-check"></i><b>10.2</b> Percentage Tables</a></li>
+<li class="chapter" data-level="10.3" data-path="BEDACat.html"><a href="BEDACat.html#which-table-to-use"><i class="fa fa-check"></i><b>10.3</b> Which Table to Use?</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="SamplingDist.html"><a href="SamplingDist.html"><i class="fa fa-check"></i><b>11</b> Sampling Distributions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="SamplingDist.html"><a href="SamplingDist.html#what-is-a-sampling-distribution"><i class="fa fa-check"></i><b>11.1</b> What is a Sampling Distribution?</a></li>
+<li class="chapter" data-level="11.2" data-path="SamplingDist.html"><a href="SamplingDist.html#central-limit-theorem"><i class="fa fa-check"></i><b>11.2</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="11.3" data-path="SamplingDist.html"><a href="SamplingDist.html#accuracy-and-precision"><i class="fa fa-check"></i><b>11.3</b> Accuracy and Precision</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="Probability.html"><a href="Probability.html"><i class="fa fa-check"></i><b>12</b> Probability Introduction</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="Probability.html"><a href="Probability.html#probability-of-individuals"><i class="fa fa-check"></i><b>12.1</b> Probability of Individuals</a></li>
+<li class="chapter" data-level="12.2" data-path="Probability.html"><a href="Probability.html#probability-of-statistics"><i class="fa fa-check"></i><b>12.2</b> Probability of Statistics</a></li>
+<li class="chapter" data-level="12.3" data-path="Probability.html"><a href="Probability.html#a-process-for-handling-probability-questions"><i class="fa fa-check"></i><b>12.3</b> A Process for Handling Probability Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="HypTesting1.html"><a href="HypTesting1.html"><i class="fa fa-check"></i><b>13</b> Hypothesis Testing - Introduction</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-the-scientific-method"><i class="fa fa-check"></i><b>13.1</b> Hypothesis Testing &amp; The Scientific Method</a></li>
+<li class="chapter" data-level="13.2" data-path="HypTesting1.html"><a href="HypTesting1.html#statistical-hypotheses"><i class="fa fa-check"></i><b>13.2</b> Statistical Hypotheses</a></li>
+<li class="chapter" data-level="13.3" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-concept-summary"><i class="fa fa-check"></i><b>13.3</b> Hypothesis Testing Concept Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="HypTesting2.html"><a href="HypTesting2.html"><i class="fa fa-check"></i><b>14</b> Hypothesis Testing - Errors</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#errors"><i class="fa fa-check"></i><b>14.1</b> Errors</a></li>
+<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.2</b> Test Statistics and Effect Sizes</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ConfRegions1.html"><a href="ConfRegions1.html"><i class="fa fa-check"></i><b>15</b> Confidence Regions - Introduction</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="ConfRegions1.html"><a href="ConfRegions1.html#confidence-concept"><i class="fa fa-check"></i><b>15.1</b> Confidence Concept</a></li>
+<li class="chapter" data-level="15.2" data-path="ConfRegions1.html"><a href="ConfRegions1.html#constructing-confidence-regions"><i class="fa fa-check"></i><b>15.2</b> Constructing Confidence Regions</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#precision-and-sample-size"><i class="fa fa-check"></i><b>16.1</b> Precision and Sample Size</a></li>
+<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.2</b> Inference Type Relationship</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="Ztest.html"><a href="Ztest.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="Ztest.html"><a href="Ztest.html#Hyp11Steps"><i class="fa fa-check"></i><b>17.1</b> 11-Steps of Hypothesis Testing</a></li>
+<li class="chapter" data-level="17.2" data-path="Ztest.html"><a href="Ztest.html#Specifics1Z"><i class="fa fa-check"></i><b>17.2</b> 1-Sample Z-Test Specifics</a></li>
+<li class="chapter" data-level="17.3" data-path="Ztest.html"><a href="Ztest.html#examples-1"><i class="fa fa-check"></i><b>17.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="t1test.html"><a href="t1test.html"><i class="fa fa-check"></i><b>18</b> 1-Sample t-Test</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="t1test.html"><a href="t1test.html#t-distribution"><i class="fa fa-check"></i><b>18.1</b> t-distribution</a></li>
+<li class="chapter" data-level="18.2" data-path="t1test.html"><a href="t1test.html#Specifics1t"><i class="fa fa-check"></i><b>18.2</b> 1-Sample t-Test Specifics</a></li>
+<li class="chapter" data-level="18.3" data-path="t1test.html"><a href="t1test.html#examples-2"><i class="fa fa-check"></i><b>18.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="t2test.html"><a href="t2test.html"><i class="fa fa-check"></i><b>19</b> 2-Sample t-Test</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="t2test.html"><a href="t2test.html#sample-t-test-specifics"><i class="fa fa-check"></i><b>19.1</b> 2-Sample t-Test Specifics</a></li>
+<li class="chapter" data-level="19.2" data-path="t2test.html"><a href="t2test.html#LevenesTest"><i class="fa fa-check"></i><b>19.2</b> Testing for Equal Variances</a></li>
+<li class="chapter" data-level="19.3" data-path="t2test.html"><a href="t2test.html#examples-3"><i class="fa fa-check"></i><b>19.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="ChiSquare.html"><a href="ChiSquare.html"><i class="fa fa-check"></i><b>20</b> Chi-Square Test</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="ChiSquare.html"><a href="ChiSquare.html#chi-square-distribution"><i class="fa fa-check"></i><b>20.1</b> Chi-Square Distribution</a></li>
+<li class="chapter" data-level="20.2" data-path="ChiSquare.html"><a href="ChiSquare.html#chi-square-test-specifics"><i class="fa fa-check"></i><b>20.2</b> Chi-Square Test Specifics</a></li>
+<li class="chapter" data-level="20.3" data-path="ChiSquare.html"><a href="ChiSquare.html#examples-4"><i class="fa fa-check"></i><b>20.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="GOFTest.html"><a href="GOFTest.html"><i class="fa fa-check"></i><b>21</b> Goodness-of-Fit Test</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="GOFTest.html"><a href="GOFTest.html#goodness-of-fit-test-specifics"><i class="fa fa-check"></i><b>21.1</b> Goodness-of-Fit Test Specifics</a></li>
+<li class="chapter" data-level="21.2" data-path="GOFTest.html"><a href="GOFTest.html#examples-5"><i class="fa fa-check"></i><b>21.2</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="RData.html"><a href="RData.html"><i class="fa fa-check"></i><b>22</b> Getting Data into R</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="RData.html"><a href="RData.html#ncstats-package"><i class="fa fa-check"></i><b>22.1</b> NCStats Package</a></li>
+<li class="chapter" data-level="22.2" data-path="RData.html"><a href="RData.html#data-types"><i class="fa fa-check"></i><b>22.2</b> Data Types</a></li>
+<li class="chapter" data-level="22.3" data-path="RData.html"><a href="RData.html#entering-data"><i class="fa fa-check"></i><b>22.3</b> Entering Data</a></li>
+<li class="chapter" data-level="22.4" data-path="RData.html"><a href="RData.html#viewing-a-data-frame"><i class="fa fa-check"></i><b>22.4</b> Viewing a Data Frame</a></li>
+<li class="chapter" data-level="22.5" data-path="RData.html"><a href="RData.html#vectors"><i class="fa fa-check"></i><b>22.5</b> Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="RFilter.html"><a href="RFilter.html"><i class="fa fa-check"></i><b>23</b> Filtering Data in R</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="RFilter.html"><a href="RFilter.html#filtering-a-data-frame"><i class="fa fa-check"></i><b>23.1</b> Filtering a data frame</a></li>
+<li class="chapter" data-level="23.2" data-path="RFilter.html"><a href="RFilter.html#selecting-individuals"><i class="fa fa-check"></i><b>23.2</b> Selecting Individuals</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="RUnivEDA.html"><a href="RUnivEDA.html"><i class="fa fa-check"></i><b>24</b> Univariate EDA in R</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="RUnivEDA.html"><a href="RUnivEDA.html#quantitative"><i class="fa fa-check"></i><b>24.1</b> Quantitative</a></li>
+<li class="chapter" data-level="24.2" data-path="RUnivEDA.html"><a href="RUnivEDA.html#quantitative-for-multiple-groups"><i class="fa fa-check"></i><b>24.2</b> Quantitative for Multiple Groups</a></li>
+<li class="chapter" data-level="24.3" data-path="RUnivEDA.html"><a href="RUnivEDA.html#categorical-data"><i class="fa fa-check"></i><b>24.3</b> Categorical Data</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="RBivEDA.html"><a href="RBivEDA.html"><i class="fa fa-check"></i><b>25</b> Bivariate EDA in R</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="RBivEDA.html"><a href="RBivEDA.html#quantitative-1"><i class="fa fa-check"></i><b>25.1</b> Quantitative</a></li>
+<li class="chapter" data-level="25.2" data-path="RBivEDA.html"><a href="RBivEDA.html#categorical"><i class="fa fa-check"></i><b>25.2</b> Categorical</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="RRegression.html"><a href="RRegression.html"><i class="fa fa-check"></i><b>26</b> Linear Regression in R</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="RRegression.html"><a href="RRegression.html#fitted-line-plot"><i class="fa fa-check"></i><b>26.1</b> Fitted Line Plot</a></li>
+<li class="chapter" data-level="26.2" data-path="RRegression.html"><a href="RRegression.html#fitting-the-regression-model-in-r"><i class="fa fa-check"></i><b>26.2</b> Fitting the Regression Model in R</a></li>
+<li class="chapter" data-level="26.3" data-path="RRegression.html"><a href="RRegression.html#coefficient-of-determination-1"><i class="fa fa-check"></i><b>26.3</b> Coefficient of Determination</a></li>
+<li class="chapter" data-level="26.4" data-path="RRegression.html"><a href="RRegression.html#predicted-values"><i class="fa fa-check"></i><b>26.4</b> Predicted Values</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="Rttests.html"><a href="Rttests.html"><i class="fa fa-check"></i><b>27</b> t-Tests in R</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="Rttests.html"><a href="Rttests.html#sample-t-test"><i class="fa fa-check"></i><b>27.1</b> 1-Sample t-Test</a></li>
+<li class="chapter" data-level="27.2" data-path="Rttests.html"><a href="Rttests.html#sample-t-test-1"><i class="fa fa-check"></i><b>27.2</b> 2-Sample t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="RChi.html"><a href="RChi.html"><i class="fa fa-check"></i><b>28</b> Chi-Square in R</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
+<li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="RUnivEDA" class="section level1" number="24">
+<h1><span class="header-section-number">Module 24</span> Univariate EDA in R</h1>
+<p>In Module <a href="UnivEDA.html#UnivEDA">5</a> you practiced performing an EDA for quantitative or categorical data using summary statistics and graphics that you practiced calculating by hand in Module <a href="UnivSum.html#UnivSum">4</a>. In this module, you will learn how to construct those summary statistics and graphics from data using R. You will also be asked to perform the EDA from these results.</p>
+<p>Methods in this module require the <code>NCStats</code> package (as always) and the <code>ggplot2</code> package (for making graphs).</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb91-1"><a href="RUnivEDA.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NCStats)</span>
+<span id="cb91-2"><a href="RUnivEDA.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div id="data-sets" class="section level4 unnumbered">
+<h4>Data Sets</h4>
+<p>Summaries for quantitative data will be demonstrated with a dataset of the number of days of ice cover at ice gauge station 9004 in Lake Superior. These data are in <a href="https://raw.githubusercontent.com/droglenc/NCData/master/LakeSuperiorIce.csv">LakeSuperiorIce.csv</a> and are loaded into <code>LSI</code> below with the methods described in Section <a href="RData.html#alternative-forms-of-getting-data">22.3.1</a>.<a href="#fn73" class="footnote-ref" id="fnref73"><sup>73</sup></a></p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb92-1"><a href="RUnivEDA.html#cb92-1" aria-hidden="true" tabindex="-1"></a>LSI <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;LakeSuperiorIce.csv&quot;</span>)</span>
+<span id="cb92-2"><a href="RUnivEDA.html#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(LSI)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;     season decade   period  temp days
+#R&gt;   1   1955   1950 pre-1975 22.94   87
+#R&gt;   2   1956   1950 pre-1975 23.02  137
+#R&gt;   3   1957   1950 pre-1975 25.68  106
+#R&gt;   4   1958   1950 pre-1975 19.96   97
+#R&gt;   5   1959   1950 pre-1975 24.80  105
+#R&gt;   6   1960   1960 pre-1975 23.98  118</code></pre>
+<p>Methods for categorical data will use data collected as part of the General Sociological Survey (GSS), which was described in the reading for Module <a href="UnivEDA.html#UnivEDA">5</a>. One question that was asked in a recent GSS was “How often do you make a special effort to sort glass or cans or plastic or papers and so on for recycling?” Respondents answered either with “Always,” “Often,” “Sometimes,” “Never,” or “Not Avail.” These data are in <a href="https://raw.githubusercontent.com/droglenc/NCData/master/GSSEnviroQue.csv">GSSEnviroQues.csv</a> and are loaded into <code>GSS</code> below.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb94-1"><a href="RUnivEDA.html#cb94-1" aria-hidden="true" tabindex="-1"></a>GSS <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;GSSEnviroQues.csv&quot;</span>)</span>
+<span id="cb94-2"><a href="RUnivEDA.html#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(GSS)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;     recycle   tempgen
+#R&gt;   1  Always Extremely
+#R&gt;   2  Always Extremely
+#R&gt;   3  Always Extremely
+#R&gt;   4  Always Extremely
+#R&gt;   5  Always Extremely
+#R&gt;   6  Always Extremely</code></pre>
+</div>
+<div id="quantitative" class="section level2" number="24.1">
+<h2><span class="header-section-number">24.1</span> Quantitative</h2>
+<div id="summary-statistics" class="section level3" number="24.1.1">
+<h3><span class="header-section-number">24.1.1</span> Summary Statistics</h3>
+<p>The main summary statistics for quantitative data are the mean, median, standard deviation, IQR, and range, as described in Module <a href="UnivEDA.html#UnivEDA">5</a>. These statistics can be computed in R with <code>Summarize()</code>,<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a> using a one-sided formula of the form <code>~qvar</code>, where <code>qvar</code> generically represents the quantitative variable. The data frame that contains <code>qvar</code> is included in <code>data=</code>. The number of digits after the decimal place may be controlled with <code>digits=</code>.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb96-1"><a href="RUnivEDA.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Summarize</span>(<span class="sc">~</span>days,<span class="at">data=</span>LSI,<span class="at">digits=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;        n nvalid   mean     sd    min     Q1 median     Q3    max 
+#R&gt;     42.0   39.0  107.8   21.6   48.0   97.0  114.0  118.0  146.0</code></pre>
+<p>From this it is seen that the sample median is 114 days, sample mean is 107.8 days, sample IQR is from 97 to 118 days, the sample standard deviation is 21.6 days, and the range is from 48 to 146 days. Also note that the overall sample size is 42, though three individuals must have been missing as the “valid n” is only 39.</p>
+<div class="tip">
+<p>Use <code>Summarize()</code> to compute summary statistics for a quantitative variable.</p>
+<p>Remember the “tilde” (<code>~</code>) when using <code>Summarize()</code>.</p>
+</div>
+</div>
+<div id="histograms" class="section level3" number="24.1.2">
+<h3><span class="header-section-number">24.1.2</span> Histograms</h3>
+<p>All graphs made with <code>ggplot2</code> begin with <code>ggplot()</code> using a <code>data=</code> argument that defines the data frame to be used for the graphic. Variables for the x- and y-axes are then declared within <code>aes()</code> as the second argument. A histogram requires only the variable for the x-axis. To this base information, <code>geom_histogram()</code> is “added” to produce a simple default histogram.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb98-1"><a href="RUnivEDA.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
+<span id="cb98-2"><a href="RUnivEDA.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-68-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="tip">
+<p>Only define the x variable for a histogram.</p>
+</div>
+<p>This base histogram is rather ugly. Fortunately it can be improved fairly easily. Most importantly, set <code>bins=</code> to the desired number of bins.<a href="#fn75" class="footnote-ref" id="fnref75"><sup>75</sup></a> Additionally, the bin bars can be made more readable by outlining them in black with <code>color="black"</code> and filling then with a light gray with <code>fill="lightgray"</code>.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb99-1"><a href="RUnivEDA.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
+<span id="cb99-2"><a href="RUnivEDA.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">10</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>)</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-69-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p>While this histogram is great improved it will look better if the bars are set on the x-axis with <code>scale_y_continuous()</code> shown below,<a href="#fn76" class="footnote-ref" id="fnref76"><sup>76</sup></a> the x- and y-axes are labeled more appropriately using <code>x=</code> and <code>y=</code> in <code>labs()</code> as shown below, and we use <code>theme_NCStats()</code>,<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a> which was created especially for this class.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb100-1"><a href="RUnivEDA.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
+<span id="cb100-2"><a href="RUnivEDA.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">10</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb100-3"><a href="RUnivEDA.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
+<span id="cb100-4"><a href="RUnivEDA.html#cb100-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Number of Days of Ice Cover&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Years&quot;</span>) <span class="sc">+</span></span>
+<span id="cb100-5"><a href="RUnivEDA.html#cb100-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-70-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="tip">
+<p>When making your own histogram, copy the code above and change <code>data=</code>, <code>x=</code>, <code>bins=</code>, <code>x=</code>, and <code>y=</code>.</p>
+</div>
+</div>
+</div>
+<div id="quantitative-for-multiple-groups" class="section level2" number="24.2">
+<h2><span class="header-section-number">24.2</span> Quantitative for Multiple Groups</h2>
+<p>It is common to need to compute numerical or construct graphical summaries of a quantitative variable separately for groups of individuals. In these cases it is beneficial to have a function that will efficiently compute summary statistics and construct a histogram for the quantitative variable separated by the levels of a factor variable.</p>
+<p>As an example, the LSI data.frame contains a <code>period</code> variable that indicates whether the ice season was <code>pre-1975</code> or <code>post-1975</code> (which included 1975). Thus, one may be interested in examining the distribution of annual days of ice for each of these periods. As <code>period</code> is a categorical variable it is first converted to a <code>factor</code> data type, with the levels controlled to their proper order.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb101-1"><a href="RUnivEDA.html#cb101-1" aria-hidden="true" tabindex="-1"></a>LSI<span class="sc">$</span>period <span class="ot">&lt;-</span> <span class="fu">factor</span>(LSI<span class="sc">$</span>period,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;pre-1975&quot;</span>,<span class="st">&quot;post-1975&quot;</span>))</span>
+<span id="cb101-2"><a href="RUnivEDA.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(LSI)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   &#39;data.frame&#39;: 42 obs. of  5 variables:
+#R&gt;    $ season: int  1955 1956 1957 1958 1959 1960 1961 1962 1963 1964 ...
+#R&gt;    $ decade: int  1950 1950 1950 1950 1950 1960 1960 1960 1960 1960 ...
+#R&gt;    $ period: Factor w/ 2 levels &quot;pre-1975&quot;,&quot;post-1975&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+#R&gt;    $ temp  : num  22.9 23 25.7 20 24.8 ...
+#R&gt;    $ days  : int  87 137 106 97 105 118 118 136 91 NA ...</code></pre>
+<div id="summary-statistics-1" class="section level3" number="24.2.1">
+<h3><span class="header-section-number">24.2.1</span> Summary Statistics</h3>
+<p>Summary statistics are separated by group by giving <code>Summarize()</code> a “formula” of the form <code>qvar~cvar</code>, where <code>cvar</code> generically represents the factor variable that indicates to which group the individuals belong.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb103-1"><a href="RUnivEDA.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Summarize</span>(days<span class="sc">~</span>period,<span class="at">data=</span>LSI,<span class="at">digits=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;        period  n nvalid  mean   sd min Q1 median  Q3 max
+#R&gt;   1  pre-1975 20     18 109.1 15.6  82 97  110.5 118 137
+#R&gt;   2 post-1975 22     21 106.8 26.0  48 99  116.0 123 146</code></pre>
+</div>
+<div id="histograms-1" class="section level3" number="24.2.2">
+<h3><span class="header-section-number">24.2.2</span> Histograms</h3>
+<p>A histogram can be separated by levels in the <code>cvar</code> variable by “adding” <code>facet_wrap()</code> with <code>~cvar</code> as its only argument to the general histogram code (as shown above).</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb105-1"><a href="RUnivEDA.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
+<span id="cb105-2"><a href="RUnivEDA.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">15</span>,<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb105-3"><a href="RUnivEDA.html#cb105-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
+<span id="cb105-4"><a href="RUnivEDA.html#cb105-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Number of Days of Ice Cover&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Years&quot;</span>) <span class="sc">+</span></span>
+<span id="cb105-5"><a href="RUnivEDA.html#cb105-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
+<span id="cb105-6"><a href="RUnivEDA.html#cb105-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>period)</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-73-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="boxplots" class="section level3" number="24.2.3">
+<h3><span class="header-section-number">24.2.3</span> Boxplots</h3>
+<p>Side-by-side modern boxplots can be constructed by first declaring the quantitative variable as <code>y=</code> and the grouping variable as <code>x=</code> in <code>aes()</code> in <code>ggplot()</code> and then adding <code>geom_boxplot()</code>. As shown below, the boxplots may be outlined and filled, proper labels should be added, and course them should be added.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb106-1"><a href="RUnivEDA.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="fu">aes</span>(<span class="at">x=</span>period,<span class="at">y=</span>days)) <span class="sc">+</span></span>
+<span id="cb106-2"><a href="RUnivEDA.html#cb106-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb106-3"><a href="RUnivEDA.html#cb106-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Period&quot;</span>,<span class="at">y=</span><span class="st">&quot;Number of Days of Ice Cover&quot;</span>) <span class="sc">+</span></span>
+<span id="cb106-4"><a href="RUnivEDA.html#cb106-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-74-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="tip">
+<p>Must declare both <code>x=</code> and <code>y=</code> for a boxplot.</p>
+</div>
+<p> </p>
+</div>
+</div>
+<div id="categorical-data" class="section level2" number="24.3">
+<h2><span class="header-section-number">24.3</span> Categorical Data</h2>
+<div id="data-manipulation" class="section level3" number="24.3.1">
+<h3><span class="header-section-number">24.3.1</span> Data Manipulation</h3>
+<p>Methods for summarizing categorical data work best if the categorical variable is recorded as a “factor” variable in R (data types discussed in Section <a href="RData.html#data-types">22.2</a>. Most often the variable will need to be coerced into being a factor variable. For example, the <code>recycle</code> variable in <code>GSS</code> is a character variable by default.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb107-1"><a href="RUnivEDA.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(GSS)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   &#39;data.frame&#39;: 3539 obs. of  2 variables:
+#R&gt;    $ recycle: chr  &quot;Always&quot; &quot;Always&quot; &quot;Always&quot; &quot;Always&quot; ...
+#R&gt;    $ tempgen: chr  &quot;Extremely&quot; &quot;Extremely&quot; &quot;Extremely&quot; &quot;Extremely&quot; ...</code></pre>
+<p>Categorical data can be forced to be a factor data type with <code>factor()</code>. The order of the levels, most importantly for ordinal data, can be controlled by including the ordered level names within a vector given to <code>levels=</code> in <code>factor()</code>. For example, the <code>recycle</code> variable in <code>GSS</code> is forced to be a factor below and its levels are controlled to follow their natural order.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb109-1"><a href="RUnivEDA.html#cb109-1" aria-hidden="true" tabindex="-1"></a>GSS<span class="sc">$</span>recycle <span class="ot">&lt;-</span> <span class="fu">factor</span>(GSS<span class="sc">$</span>recycle,</span>
+<span id="cb109-2"><a href="RUnivEDA.html#cb109-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Always&quot;</span>,<span class="st">&quot;Often&quot;</span>,<span class="st">&quot;Sometimes&quot;</span>,<span class="st">&quot;Never&quot;</span>,<span class="st">&quot;Not Avail&quot;</span>))</span>
+<span id="cb109-3"><a href="RUnivEDA.html#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(GSS)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   &#39;data.frame&#39;: 3539 obs. of  2 variables:
+#R&gt;    $ recycle: Factor w/ 5 levels &quot;Always&quot;,&quot;Often&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+#R&gt;    $ tempgen: chr  &quot;Extremely&quot; &quot;Extremely&quot; &quot;Extremely&quot; &quot;Extremely&quot; ...</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb111-1"><a href="RUnivEDA.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(GSS<span class="sc">$</span>recycle)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] &quot;Always&quot;    &quot;Often&quot;     &quot;Sometimes&quot; &quot;Never&quot;     &quot;Not Avail&quot;</code></pre>
+<p>The names of the levels in the vector given to <code>levels=</code> must be <strong>exactly</strong> as they appear in the original variable and they must be contained within quotes. Prior to using <code>factor()</code>, include the variable in <code>unique()</code> to see what the names of the levels are.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb113-1"><a href="RUnivEDA.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(GSS<span class="sc">$</span>recycle)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] &quot;Always&quot;    &quot;Often&quot;     &quot;Sometimes&quot; &quot;Never&quot;     &quot;Not Avail&quot;</code></pre>
+<div class="tip">
+<p>Convert categorical data to a factor variable before summarizing.</p>
+</div>
+<div class="tip">
+<p>Use <code>factor()</code> to convert categorical data to a factor variable.</p>
+</div>
+<div class="tip">
+<p>Check the spelling of levels when changing their order.</p>
+</div>
+</div>
+<div id="frequency-and-percentage-tables-1" class="section level3" number="24.3.2">
+<h3><span class="header-section-number">24.3.2</span> Frequency and Percentage Tables</h3>
+<p>A frequency table of a single categorical variable is computed with <code>xtabs()</code>, where the first argument is a one-sided formula of the form <code>~cvar</code> and the corresponding data frame is in <code>data=</code>. The result from <code>xtabs()</code> should be assigned to an object for further use. For example, the frequency table is produced, stored in <code>tabRecycle</code>, and displayed below.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb115-1"><a href="RUnivEDA.html#cb115-1" aria-hidden="true" tabindex="-1"></a>( tabRecycle <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>recycle,<span class="at">data=</span>GSS) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   recycle
+#R&gt;      Always     Often Sometimes     Never Not Avail 
+#R&gt;        1289       850       823       448       129</code></pre>
+<p>A percentage table is computed by including the saved frequency table as the first argument to <code>percTable()</code>.<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a> The number of digits of output is controlled with <code>digits=</code>, though this defaults to 1 which is adequate for most percentages.</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb117-1"><a href="RUnivEDA.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(tabRecycle)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   recycle
+#R&gt;      Always     Often Sometimes     Never Not Avail 
+#R&gt;        36.4      24.0      23.3      12.7       3.6</code></pre>
+<p> </p>
+</div>
+<div id="bar-charts-1" class="section level3" number="24.3.3">
+<h3><span class="header-section-number">24.3.3</span> Bar Charts</h3>
+<p>A bar chart is constructed by declaring only the categorical variable as <code>x=</code> within <code>aes()</code> of <code>ggplot()</code> and then adding <code>geom_bar()</code>. As shown below, the outline and fill colors of the bars may be set, the bars should be set on the x-axis as with the histograms, the axes should be properly labeled, and the course theme should be used.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb119-1"><a href="RUnivEDA.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>GSS,<span class="fu">aes</span>(<span class="at">x=</span>recycle)) <span class="sc">+</span></span>
+<span id="cb119-2"><a href="RUnivEDA.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb119-3"><a href="RUnivEDA.html#cb119-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
+<span id="cb119-4"><a href="RUnivEDA.html#cb119-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Respondent&#39;s Response&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Respondents&quot;</span>) <span class="sc">+</span></span>
+<span id="cb119-5"><a href="RUnivEDA.html#cb119-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-81-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="tip">
+<p>When making your own bar chart, copy the code above and change <code>data=</code>, <code>x=</code>, and <code>y=</code>.</p>
+</div>
+<p> </p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="73">
+<li id="fn73"><p>Data originally from the <a href="http://www.nsidc.org/">National Snow and Ice Data Center</a>.<a href="RUnivEDA.html#fnref73" class="footnote-back">↩︎</a></p></li>
+<li id="fn74"><p><code>Summarize()</code> is from <code>NCStats</code>.<a href="RUnivEDA.html#fnref74" class="footnote-back">↩︎</a></p></li>
+<li id="fn75"><p>Generally near 8-10 bins, depending on n.<a href="RUnivEDA.html#fnref75" class="footnote-back">↩︎</a></p></li>
+<li id="fn76"><p>A full description of this code is beyond this class, but this exact code should be used for all histograms constructed for this class.<a href="RUnivEDA.html#fnref76" class="footnote-back">↩︎</a></p></li>
+<li id="fn77"><p>This theme mostly removes the background grid and color.<a href="RUnivEDA.html#fnref77" class="footnote-back">↩︎</a></p></li>
+<li id="fn78"><p>Thus, <code>xtabs()</code> must be completed and saved to an object before <code>percTable()</code>.<a href="RUnivEDA.html#fnref78" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="RFilter.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="RBivEDA.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

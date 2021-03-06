@@ -42,11 +42,14 @@ Below are the 11-steps (Section \@ref(Hyp11Steps)) for completing a full hypothe
 
 1. $\alpha$=0.10.
 1. H~0~:$\mu$=10 mins vs. H~A~:$\mu$>10 mins, where $\mu$ is the mean time for ALL intra-class travel events.
-1. A 1-Sample Z-Test is required because (i) a quantitative variable (intra-class travel time) was measured, (ii) individuals from one group (or population) is considered (students at the Dean's school), and (iii) $\sigma$ is thought to be known (=1.60 mins).
+1. A 1-Sample Z-Test is required because ...
+    i. a quantitative variable (intra-class travel time) was measured,
+    i. individuals from one group (or population) is considered (students at the Dean's school), and
+    i. $\sigma$ is thought to be known (=1.60 mins).
 1. The data appear to be part of an observational study (the dean did not impart any conditions on the students) with a random selection of individuals.
 1. The assumptions are met because ...
-    1. n=100&geq;30, and
-    1. $\sigma$ is thought to be known (=1.60 mins).
+    i. n=100&geq;30, and
+    i. $\sigma$ is thought to be known (=1.60 mins).
 1. $\bar{x}$=10.12.
 1. Z=$\frac{10.12-10}{\frac{1.60}{\sqrt{100}}}$=$\frac{0.12}{0.16}$=0.75.
 1. p-value=`r kPvalue(pnorm(10.12,mean=10,sd=0.16,lower.tail=FALSE),include.p=FALSE,latex=FALSE)`.
@@ -55,7 +58,7 @@ Below are the 11-steps (Section \@ref(Hyp11Steps)) for completing a full hypothe
 1. A 90% lower confidence bound will use $Z^{*}$=`r formatC(qnorm(0.90,lower.tail=FALSE),format="f",digits=3)`. The lower confidence bound is thus 10.12-1.282&times;$\frac{1.60}{\sqrt{100}}$=`r formatC(10.12-1.282*1.60/sqrt(100),format="f",digits=2)`. Thus, I am 90% confident that the mean intra-class travel time is more than `r formatC(10.12-1.282*1.60/sqrt(100),format="f",digits=2)` minutes; further evidence that the mean intra-class travel time is not greater than 10 minutes.
 
 #### R Appendix: {-}
-```{r echo=-1}
+```{r echo=-1, results="hide"}
 par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
     cex.lab=0.95,cex.axis=0.9)
 ( z <- distrib(10.12,mean=10,sd=1.60/sqrt(100),lower.tail=FALSE) ) #p-value

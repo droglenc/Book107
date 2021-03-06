@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 26 Linear Regression in R | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 26 Linear Regression in R | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book107" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 26 Linear Regression in R | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-03-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="RBivEDA.html"/>
+<link rel="next" href="Rttests.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#variable-types"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="DataProduction.html"><a href="DataProduction.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="DataProduction.html"><a href="DataProduction.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="DataProduction.html"><a href="DataProduction.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="UnivSum.html"><a href="UnivSum.html"><i class="fa fa-check"></i><b>4</b> Univariate Summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="UnivSum.html"><a href="UnivSum.html#quantitative-variable"><i class="fa fa-check"></i><b>4.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="4.2" data-path="UnivSum.html"><a href="UnivSum.html#categorical-variable"><i class="fa fa-check"></i><b>4.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="UnivEDA.html"><a href="UnivEDA.html"><i class="fa fa-check"></i><b>5</b> Univariate EDA</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="UnivEDA.html"><a href="UnivEDA.html#quantitative-variable-1"><i class="fa fa-check"></i><b>5.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="5.2" data-path="UnivEDA.html"><a href="UnivEDA.html#categorical-variable-1"><i class="fa fa-check"></i><b>5.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="NormalDist1.html"><a href="NormalDist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
+<li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="NormalDist2.html"><a href="NormalDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
+<li class="chapter" data-level="7.2" data-path="NormalDist2.html"><a href="NormalDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
+<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="BEDAQuant.html"><a href="BEDAQuant.html"><i class="fa fa-check"></i><b>8</b> Bivariate EDA - Quantitative</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="BEDAQuant.html"><a href="BEDAQuant.html#response-and-explanatory-variables"><i class="fa fa-check"></i><b>8.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="8.2" data-path="BEDAQuant.html"><a href="BEDAQuant.html#summaries"><i class="fa fa-check"></i><b>8.2</b> Summaries</a></li>
+<li class="chapter" data-level="8.3" data-path="BEDAQuant.html"><a href="BEDAQuant.html#bivariate-items-to-describe"><i class="fa fa-check"></i><b>8.3</b> Bivariate Items to Describe</a></li>
+<li class="chapter" data-level="8.4" data-path="BEDAQuant.html"><a href="BEDAQuant.html#example-interpretations-1"><i class="fa fa-check"></i><b>8.4</b> Example Interpretations</a></li>
+<li class="chapter" data-level="8.5" data-path="BEDAQuant.html"><a href="BEDAQuant.html#cautions-about-correlation"><i class="fa fa-check"></i><b>8.5</b> Cautions About Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="LinearRegression.html"><a href="LinearRegression.html"><i class="fa fa-check"></i><b>9</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="LinearRegression.html"><a href="LinearRegression.html#response-and-explanatory-variables-1"><i class="fa fa-check"></i><b>9.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="9.2" data-path="LinearRegression.html"><a href="LinearRegression.html#slope-and-intercept"><i class="fa fa-check"></i><b>9.2</b> Slope and Intercept</a></li>
+<li class="chapter" data-level="9.3" data-path="LinearRegression.html"><a href="LinearRegression.html#predictions"><i class="fa fa-check"></i><b>9.3</b> Predictions</a></li>
+<li class="chapter" data-level="9.4" data-path="LinearRegression.html"><a href="LinearRegression.html#residuals"><i class="fa fa-check"></i><b>9.4</b> Residuals</a></li>
+<li class="chapter" data-level="9.5" data-path="LinearRegression.html"><a href="LinearRegression.html#best-fit-criteria"><i class="fa fa-check"></i><b>9.5</b> Best-fit Criteria</a></li>
+<li class="chapter" data-level="9.6" data-path="LinearRegression.html"><a href="LinearRegression.html#assumptions"><i class="fa fa-check"></i><b>9.6</b> Assumptions</a></li>
+<li class="chapter" data-level="9.7" data-path="LinearRegression.html"><a href="LinearRegression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>9.7</b> Coefficient of Determination</a></li>
+<li class="chapter" data-level="9.8" data-path="LinearRegression.html"><a href="LinearRegression.html#examples"><i class="fa fa-check"></i><b>9.8</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="BEDACat.html"><a href="BEDACat.html"><i class="fa fa-check"></i><b>10</b> Bivariate EDA - Categorical</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="BEDACat.html"><a href="BEDACat.html#frequency-tables"><i class="fa fa-check"></i><b>10.1</b> Frequency Tables</a></li>
+<li class="chapter" data-level="10.2" data-path="BEDACat.html"><a href="BEDACat.html#percentage-tables"><i class="fa fa-check"></i><b>10.2</b> Percentage Tables</a></li>
+<li class="chapter" data-level="10.3" data-path="BEDACat.html"><a href="BEDACat.html#which-table-to-use"><i class="fa fa-check"></i><b>10.3</b> Which Table to Use?</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="SamplingDist.html"><a href="SamplingDist.html"><i class="fa fa-check"></i><b>11</b> Sampling Distributions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="SamplingDist.html"><a href="SamplingDist.html#what-is-a-sampling-distribution"><i class="fa fa-check"></i><b>11.1</b> What is a Sampling Distribution?</a></li>
+<li class="chapter" data-level="11.2" data-path="SamplingDist.html"><a href="SamplingDist.html#central-limit-theorem"><i class="fa fa-check"></i><b>11.2</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="11.3" data-path="SamplingDist.html"><a href="SamplingDist.html#accuracy-and-precision"><i class="fa fa-check"></i><b>11.3</b> Accuracy and Precision</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="Probability.html"><a href="Probability.html"><i class="fa fa-check"></i><b>12</b> Probability Introduction</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="Probability.html"><a href="Probability.html#probability-of-individuals"><i class="fa fa-check"></i><b>12.1</b> Probability of Individuals</a></li>
+<li class="chapter" data-level="12.2" data-path="Probability.html"><a href="Probability.html#probability-of-statistics"><i class="fa fa-check"></i><b>12.2</b> Probability of Statistics</a></li>
+<li class="chapter" data-level="12.3" data-path="Probability.html"><a href="Probability.html#a-process-for-handling-probability-questions"><i class="fa fa-check"></i><b>12.3</b> A Process for Handling Probability Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="HypTesting1.html"><a href="HypTesting1.html"><i class="fa fa-check"></i><b>13</b> Hypothesis Testing - Introduction</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-the-scientific-method"><i class="fa fa-check"></i><b>13.1</b> Hypothesis Testing &amp; The Scientific Method</a></li>
+<li class="chapter" data-level="13.2" data-path="HypTesting1.html"><a href="HypTesting1.html#statistical-hypotheses"><i class="fa fa-check"></i><b>13.2</b> Statistical Hypotheses</a></li>
+<li class="chapter" data-level="13.3" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-concept-summary"><i class="fa fa-check"></i><b>13.3</b> Hypothesis Testing Concept Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="HypTesting2.html"><a href="HypTesting2.html"><i class="fa fa-check"></i><b>14</b> Hypothesis Testing - Errors</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#errors"><i class="fa fa-check"></i><b>14.1</b> Errors</a></li>
+<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.2</b> Test Statistics and Effect Sizes</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ConfRegions1.html"><a href="ConfRegions1.html"><i class="fa fa-check"></i><b>15</b> Confidence Regions - Introduction</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="ConfRegions1.html"><a href="ConfRegions1.html#confidence-concept"><i class="fa fa-check"></i><b>15.1</b> Confidence Concept</a></li>
+<li class="chapter" data-level="15.2" data-path="ConfRegions1.html"><a href="ConfRegions1.html#constructing-confidence-regions"><i class="fa fa-check"></i><b>15.2</b> Constructing Confidence Regions</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#precision-and-sample-size"><i class="fa fa-check"></i><b>16.1</b> Precision and Sample Size</a></li>
+<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.2</b> Inference Type Relationship</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="Ztest.html"><a href="Ztest.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="Ztest.html"><a href="Ztest.html#Hyp11Steps"><i class="fa fa-check"></i><b>17.1</b> 11-Steps of Hypothesis Testing</a></li>
+<li class="chapter" data-level="17.2" data-path="Ztest.html"><a href="Ztest.html#Specifics1Z"><i class="fa fa-check"></i><b>17.2</b> 1-Sample Z-Test Specifics</a></li>
+<li class="chapter" data-level="17.3" data-path="Ztest.html"><a href="Ztest.html#examples-1"><i class="fa fa-check"></i><b>17.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="t1test.html"><a href="t1test.html"><i class="fa fa-check"></i><b>18</b> 1-Sample t-Test</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="t1test.html"><a href="t1test.html#t-distribution"><i class="fa fa-check"></i><b>18.1</b> t-distribution</a></li>
+<li class="chapter" data-level="18.2" data-path="t1test.html"><a href="t1test.html#Specifics1t"><i class="fa fa-check"></i><b>18.2</b> 1-Sample t-Test Specifics</a></li>
+<li class="chapter" data-level="18.3" data-path="t1test.html"><a href="t1test.html#examples-2"><i class="fa fa-check"></i><b>18.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="t2test.html"><a href="t2test.html"><i class="fa fa-check"></i><b>19</b> 2-Sample t-Test</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="t2test.html"><a href="t2test.html#sample-t-test-specifics"><i class="fa fa-check"></i><b>19.1</b> 2-Sample t-Test Specifics</a></li>
+<li class="chapter" data-level="19.2" data-path="t2test.html"><a href="t2test.html#LevenesTest"><i class="fa fa-check"></i><b>19.2</b> Testing for Equal Variances</a></li>
+<li class="chapter" data-level="19.3" data-path="t2test.html"><a href="t2test.html#examples-3"><i class="fa fa-check"></i><b>19.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="ChiSquare.html"><a href="ChiSquare.html"><i class="fa fa-check"></i><b>20</b> Chi-Square Test</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="ChiSquare.html"><a href="ChiSquare.html#chi-square-distribution"><i class="fa fa-check"></i><b>20.1</b> Chi-Square Distribution</a></li>
+<li class="chapter" data-level="20.2" data-path="ChiSquare.html"><a href="ChiSquare.html#chi-square-test-specifics"><i class="fa fa-check"></i><b>20.2</b> Chi-Square Test Specifics</a></li>
+<li class="chapter" data-level="20.3" data-path="ChiSquare.html"><a href="ChiSquare.html#examples-4"><i class="fa fa-check"></i><b>20.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="GOFTest.html"><a href="GOFTest.html"><i class="fa fa-check"></i><b>21</b> Goodness-of-Fit Test</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="GOFTest.html"><a href="GOFTest.html#goodness-of-fit-test-specifics"><i class="fa fa-check"></i><b>21.1</b> Goodness-of-Fit Test Specifics</a></li>
+<li class="chapter" data-level="21.2" data-path="GOFTest.html"><a href="GOFTest.html#examples-5"><i class="fa fa-check"></i><b>21.2</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="RData.html"><a href="RData.html"><i class="fa fa-check"></i><b>22</b> Getting Data into R</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="RData.html"><a href="RData.html#ncstats-package"><i class="fa fa-check"></i><b>22.1</b> NCStats Package</a></li>
+<li class="chapter" data-level="22.2" data-path="RData.html"><a href="RData.html#data-types"><i class="fa fa-check"></i><b>22.2</b> Data Types</a></li>
+<li class="chapter" data-level="22.3" data-path="RData.html"><a href="RData.html#entering-data"><i class="fa fa-check"></i><b>22.3</b> Entering Data</a></li>
+<li class="chapter" data-level="22.4" data-path="RData.html"><a href="RData.html#viewing-a-data-frame"><i class="fa fa-check"></i><b>22.4</b> Viewing a Data Frame</a></li>
+<li class="chapter" data-level="22.5" data-path="RData.html"><a href="RData.html#vectors"><i class="fa fa-check"></i><b>22.5</b> Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="RFilter.html"><a href="RFilter.html"><i class="fa fa-check"></i><b>23</b> Filtering Data in R</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="RFilter.html"><a href="RFilter.html#filtering-a-data-frame"><i class="fa fa-check"></i><b>23.1</b> Filtering a data frame</a></li>
+<li class="chapter" data-level="23.2" data-path="RFilter.html"><a href="RFilter.html#selecting-individuals"><i class="fa fa-check"></i><b>23.2</b> Selecting Individuals</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="RUnivEDA.html"><a href="RUnivEDA.html"><i class="fa fa-check"></i><b>24</b> Univariate EDA in R</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="RUnivEDA.html"><a href="RUnivEDA.html#quantitative"><i class="fa fa-check"></i><b>24.1</b> Quantitative</a></li>
+<li class="chapter" data-level="24.2" data-path="RUnivEDA.html"><a href="RUnivEDA.html#quantitative-for-multiple-groups"><i class="fa fa-check"></i><b>24.2</b> Quantitative for Multiple Groups</a></li>
+<li class="chapter" data-level="24.3" data-path="RUnivEDA.html"><a href="RUnivEDA.html#categorical-data"><i class="fa fa-check"></i><b>24.3</b> Categorical Data</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="RBivEDA.html"><a href="RBivEDA.html"><i class="fa fa-check"></i><b>25</b> Bivariate EDA in R</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="RBivEDA.html"><a href="RBivEDA.html#quantitative-1"><i class="fa fa-check"></i><b>25.1</b> Quantitative</a></li>
+<li class="chapter" data-level="25.2" data-path="RBivEDA.html"><a href="RBivEDA.html#categorical"><i class="fa fa-check"></i><b>25.2</b> Categorical</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="RRegression.html"><a href="RRegression.html"><i class="fa fa-check"></i><b>26</b> Linear Regression in R</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="RRegression.html"><a href="RRegression.html#fitted-line-plot"><i class="fa fa-check"></i><b>26.1</b> Fitted Line Plot</a></li>
+<li class="chapter" data-level="26.2" data-path="RRegression.html"><a href="RRegression.html#fitting-the-regression-model-in-r"><i class="fa fa-check"></i><b>26.2</b> Fitting the Regression Model in R</a></li>
+<li class="chapter" data-level="26.3" data-path="RRegression.html"><a href="RRegression.html#coefficient-of-determination-1"><i class="fa fa-check"></i><b>26.3</b> Coefficient of Determination</a></li>
+<li class="chapter" data-level="26.4" data-path="RRegression.html"><a href="RRegression.html#predicted-values"><i class="fa fa-check"></i><b>26.4</b> Predicted Values</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="Rttests.html"><a href="Rttests.html"><i class="fa fa-check"></i><b>27</b> t-Tests in R</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="Rttests.html"><a href="Rttests.html#sample-t-test"><i class="fa fa-check"></i><b>27.1</b> 1-Sample t-Test</a></li>
+<li class="chapter" data-level="27.2" data-path="Rttests.html"><a href="Rttests.html#sample-t-test-1"><i class="fa fa-check"></i><b>27.2</b> 2-Sample t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="RChi.html"><a href="RChi.html"><i class="fa fa-check"></i><b>28</b> Chi-Square in R</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
+<li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="RRegression" class="section level1" number="26">
+<h1><span class="header-section-number">Module 26</span> Linear Regression in R</h1>
+<p>In the Module <a href="LinearRegression.html#LinearRegression">9</a> you learned about the theory underlying linear regression and answered application questions related to the results of a linear regression. In this module, you will learn how to perform a linear regression, visualize the results, and make predictions from a linear regression. You will also be asked to answer the same series of questions you answered in Module <a href="LinearRegression.html#LinearRegression">9</a>.</p>
+<p>Methods in this module require the <code>NCStats</code> package (as always) and the <code>ggplot2</code> package (for making graphs).</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb153-1"><a href="RRegression.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NCStats)</span>
+<span id="cb153-2"><a href="RRegression.html#cb153-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div id="data-sets-2" class="section level4 unnumbered">
+<h4>Data Sets</h4>
+<p>The descriptions below will use the same <code>weight</code> (lbs) and highway miles per gallon (<code>HMPG</code>) data for 93 cars from the 1993 model year that were used in the second example in the Modules <a href="LinearRegression.html#LinearRegression">9</a>. These data are in 93cars.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars.csv">data</a>, <a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars_meta.txt">meta</a>) and are loaded into R below with the methods described in Section <a href="RData.html#alternative-forms-of-getting-data">22.3.1</a>.<a href="#fn86" class="footnote-ref" id="fnref86"><sup>86</sup></a></p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb154-1"><a href="RRegression.html#cb154-1" aria-hidden="true" tabindex="-1"></a>cars93 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;93cars.csv&quot;</span>)</span>
+<span id="cb154-2"><a href="RRegression.html#cb154-2" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(cars93,<span class="at">which=</span><span class="fu">c</span>(<span class="st">&quot;MFG&quot;</span>,<span class="st">&quot;Model&quot;</span>,<span class="st">&quot;Type&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;HMPG&quot;</span>))</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;             MFG   Model    Type Weight HMPG
+#R&gt;   1       Acura Integra   Small   2705   31
+#R&gt;   2       Acura  Legend Midsize   3560   25
+#R&gt;   3        Audi      90 Compact   3375   26
+#R&gt;   91 Volkswagen Corrado  Sporty   2810   25
+#R&gt;   92      Volvo     240 Compact   2985   28
+#R&gt;   93      Volvo     850 Midsize   3245   28</code></pre>
+<p> </p>
+</div>
+<div id="fitted-line-plot" class="section level2" number="26.1">
+<h2><span class="header-section-number">26.1</span> Fitted Line Plot</h2>
+<p>The linear fitted line can be added to a scatterplot (see Section <a href="BEDAQuant.html#scatterplots">8.2.1</a>) with <code>geom_smooth()</code>. The <code>geom_smooth()</code> function requires <code>method="lm"</code> to show the linear regression line and <code>se=FALSE</code> to remove the underlying confidence band.<a href="#fn87" class="footnote-ref" id="fnref87"><sup>87</sup></a></p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb156-1"><a href="RRegression.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
+<span id="cb156-2"><a href="RRegression.html#cb156-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">pch=</span><span class="dv">21</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;darkgray&quot;</span>,<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb156-3"><a href="RRegression.html#cb156-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Weight (lbs)&quot;</span>,<span class="at">y=</span><span class="st">&quot;Highway MPG&quot;</span>) <span class="sc">+</span></span>
+<span id="cb156-4"><a href="RRegression.html#cb156-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
+<span id="cb156-5"><a href="RRegression.html#cb156-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">se=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-103-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="tip">
+<p>Use <code>method="lm"</code> in <code>geom_smooth()</code> to add the regression line to an existing scatterplot.</p>
+</div>
+</div>
+<div id="fitting-the-regression-model-in-r" class="section level2" number="26.2">
+<h2><span class="header-section-number">26.2</span> Fitting the Regression Model in R</h2>
+<p>The linear regression model is fit to two quantitative variables with <code>lm()</code>. The first argument is a formula of the form <code>response~explanatory</code>, where <code>response</code> contains the quantitative response variable and <code>explanatory</code> contains the quantitative explanatory variable. The corresponding data frame is given in <code>data=</code>. The results of <code>lm()</code> may be assigned to an object so that specific results can be extracted.</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb157-1"><a href="RRegression.html#cb157-1" aria-hidden="true" tabindex="-1"></a>( lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(HMPG<span class="sc">~</span>Weight,<span class="at">data=</span>cars93) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   Coefficients:
+#R&gt;   (Intercept)       Weight  
+#R&gt;     51.601365    -0.007327</code></pre>
+<p>The regression results above show that the intercept is 51.6 and the slope is -0.0073.</p>
+<div class="tip">
+<p>The slope is under the name of the explanatory variable and the intercept is under “(Intercept)” in the <code>lm()</code> results.</p>
+</div>
+</div>
+<div id="coefficient-of-determination-1" class="section level2" number="26.3">
+<h2><span class="header-section-number">26.3</span> Coefficient of Determination</h2>
+<p>The coefficient of determination is computed by submitting the saved <code>lm()</code> object to <code>rSquared()</code>. For example, 65.7% of the variability in highway MPG for a car is explained by knowing its weight. [<em>Note the use of <code>digits=</code> to control the number of decimals.</em>]</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb159-1"><a href="RRegression.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rSquared</span>(lm1,<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] 0.657</code></pre>
+</div>
+<div id="predicted-values" class="section level2" number="26.4">
+<h2><span class="header-section-number">26.4</span> Predicted Values</h2>
+<p>Predicted values from the linear regression are obtained with <code>predict()</code>, which requires the saved <code>lm()</code> object as its first argument. The second argument is a data frame constructed with <code>data.frame()</code> that contains the <strong>EXACT</strong> name of the explanatory variable as it appeared in <code>lm()</code> set equal to the value of the explanatory at which the prediction should be made. For example, the predicted highway MPG for a car that weights 2500 lbs is 33.3, as obtained below.</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb161-1"><a href="RRegression.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lm1,<span class="fu">data.frame</span>(<span class="at">Weight=</span><span class="dv">2500</span>))</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;          1 
+#R&gt;   33.28372</code></pre>
+<p> </p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="86">
+<li id="fn86"><p>The <code>which=</code> argument in <code>headtail()</code> is used to show only a few variables of <code>cars93</code>, just to save space.<a href="RRegression.html#fnref86" class="footnote-back">↩︎</a></p></li>
+<li id="fn87"><p>This is an advanced topic for a future course.<a href="RRegression.html#fnref87" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="RBivEDA.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Rttests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 28 Chi-Square in R | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 28 Chi-Square in R | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book107" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 28 Chi-Square in R | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-03-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Rttests.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#variable-types"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="DataProduction.html"><a href="DataProduction.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="DataProduction.html"><a href="DataProduction.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="DataProduction.html"><a href="DataProduction.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="UnivSum.html"><a href="UnivSum.html"><i class="fa fa-check"></i><b>4</b> Univariate Summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="UnivSum.html"><a href="UnivSum.html#quantitative-variable"><i class="fa fa-check"></i><b>4.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="4.2" data-path="UnivSum.html"><a href="UnivSum.html#categorical-variable"><i class="fa fa-check"></i><b>4.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="UnivEDA.html"><a href="UnivEDA.html"><i class="fa fa-check"></i><b>5</b> Univariate EDA</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="UnivEDA.html"><a href="UnivEDA.html#quantitative-variable-1"><i class="fa fa-check"></i><b>5.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="5.2" data-path="UnivEDA.html"><a href="UnivEDA.html#categorical-variable-1"><i class="fa fa-check"></i><b>5.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="NormalDist1.html"><a href="NormalDist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
+<li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="NormalDist2.html"><a href="NormalDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
+<li class="chapter" data-level="7.2" data-path="NormalDist2.html"><a href="NormalDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
+<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="BEDAQuant.html"><a href="BEDAQuant.html"><i class="fa fa-check"></i><b>8</b> Bivariate EDA - Quantitative</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="BEDAQuant.html"><a href="BEDAQuant.html#response-and-explanatory-variables"><i class="fa fa-check"></i><b>8.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="8.2" data-path="BEDAQuant.html"><a href="BEDAQuant.html#summaries"><i class="fa fa-check"></i><b>8.2</b> Summaries</a></li>
+<li class="chapter" data-level="8.3" data-path="BEDAQuant.html"><a href="BEDAQuant.html#bivariate-items-to-describe"><i class="fa fa-check"></i><b>8.3</b> Bivariate Items to Describe</a></li>
+<li class="chapter" data-level="8.4" data-path="BEDAQuant.html"><a href="BEDAQuant.html#example-interpretations-1"><i class="fa fa-check"></i><b>8.4</b> Example Interpretations</a></li>
+<li class="chapter" data-level="8.5" data-path="BEDAQuant.html"><a href="BEDAQuant.html#cautions-about-correlation"><i class="fa fa-check"></i><b>8.5</b> Cautions About Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="LinearRegression.html"><a href="LinearRegression.html"><i class="fa fa-check"></i><b>9</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="LinearRegression.html"><a href="LinearRegression.html#response-and-explanatory-variables-1"><i class="fa fa-check"></i><b>9.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="9.2" data-path="LinearRegression.html"><a href="LinearRegression.html#slope-and-intercept"><i class="fa fa-check"></i><b>9.2</b> Slope and Intercept</a></li>
+<li class="chapter" data-level="9.3" data-path="LinearRegression.html"><a href="LinearRegression.html#predictions"><i class="fa fa-check"></i><b>9.3</b> Predictions</a></li>
+<li class="chapter" data-level="9.4" data-path="LinearRegression.html"><a href="LinearRegression.html#residuals"><i class="fa fa-check"></i><b>9.4</b> Residuals</a></li>
+<li class="chapter" data-level="9.5" data-path="LinearRegression.html"><a href="LinearRegression.html#best-fit-criteria"><i class="fa fa-check"></i><b>9.5</b> Best-fit Criteria</a></li>
+<li class="chapter" data-level="9.6" data-path="LinearRegression.html"><a href="LinearRegression.html#assumptions"><i class="fa fa-check"></i><b>9.6</b> Assumptions</a></li>
+<li class="chapter" data-level="9.7" data-path="LinearRegression.html"><a href="LinearRegression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>9.7</b> Coefficient of Determination</a></li>
+<li class="chapter" data-level="9.8" data-path="LinearRegression.html"><a href="LinearRegression.html#examples"><i class="fa fa-check"></i><b>9.8</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="BEDACat.html"><a href="BEDACat.html"><i class="fa fa-check"></i><b>10</b> Bivariate EDA - Categorical</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="BEDACat.html"><a href="BEDACat.html#frequency-tables"><i class="fa fa-check"></i><b>10.1</b> Frequency Tables</a></li>
+<li class="chapter" data-level="10.2" data-path="BEDACat.html"><a href="BEDACat.html#percentage-tables"><i class="fa fa-check"></i><b>10.2</b> Percentage Tables</a></li>
+<li class="chapter" data-level="10.3" data-path="BEDACat.html"><a href="BEDACat.html#which-table-to-use"><i class="fa fa-check"></i><b>10.3</b> Which Table to Use?</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="SamplingDist.html"><a href="SamplingDist.html"><i class="fa fa-check"></i><b>11</b> Sampling Distributions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="SamplingDist.html"><a href="SamplingDist.html#what-is-a-sampling-distribution"><i class="fa fa-check"></i><b>11.1</b> What is a Sampling Distribution?</a></li>
+<li class="chapter" data-level="11.2" data-path="SamplingDist.html"><a href="SamplingDist.html#central-limit-theorem"><i class="fa fa-check"></i><b>11.2</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="11.3" data-path="SamplingDist.html"><a href="SamplingDist.html#accuracy-and-precision"><i class="fa fa-check"></i><b>11.3</b> Accuracy and Precision</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="Probability.html"><a href="Probability.html"><i class="fa fa-check"></i><b>12</b> Probability Introduction</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="Probability.html"><a href="Probability.html#probability-of-individuals"><i class="fa fa-check"></i><b>12.1</b> Probability of Individuals</a></li>
+<li class="chapter" data-level="12.2" data-path="Probability.html"><a href="Probability.html#probability-of-statistics"><i class="fa fa-check"></i><b>12.2</b> Probability of Statistics</a></li>
+<li class="chapter" data-level="12.3" data-path="Probability.html"><a href="Probability.html#a-process-for-handling-probability-questions"><i class="fa fa-check"></i><b>12.3</b> A Process for Handling Probability Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="HypTesting1.html"><a href="HypTesting1.html"><i class="fa fa-check"></i><b>13</b> Hypothesis Testing - Introduction</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-the-scientific-method"><i class="fa fa-check"></i><b>13.1</b> Hypothesis Testing &amp; The Scientific Method</a></li>
+<li class="chapter" data-level="13.2" data-path="HypTesting1.html"><a href="HypTesting1.html#statistical-hypotheses"><i class="fa fa-check"></i><b>13.2</b> Statistical Hypotheses</a></li>
+<li class="chapter" data-level="13.3" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-concept-summary"><i class="fa fa-check"></i><b>13.3</b> Hypothesis Testing Concept Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="HypTesting2.html"><a href="HypTesting2.html"><i class="fa fa-check"></i><b>14</b> Hypothesis Testing - Errors</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#errors"><i class="fa fa-check"></i><b>14.1</b> Errors</a></li>
+<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.2</b> Test Statistics and Effect Sizes</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ConfRegions1.html"><a href="ConfRegions1.html"><i class="fa fa-check"></i><b>15</b> Confidence Regions - Introduction</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="ConfRegions1.html"><a href="ConfRegions1.html#confidence-concept"><i class="fa fa-check"></i><b>15.1</b> Confidence Concept</a></li>
+<li class="chapter" data-level="15.2" data-path="ConfRegions1.html"><a href="ConfRegions1.html#constructing-confidence-regions"><i class="fa fa-check"></i><b>15.2</b> Constructing Confidence Regions</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#precision-and-sample-size"><i class="fa fa-check"></i><b>16.1</b> Precision and Sample Size</a></li>
+<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.2</b> Inference Type Relationship</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="Ztest.html"><a href="Ztest.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="Ztest.html"><a href="Ztest.html#Hyp11Steps"><i class="fa fa-check"></i><b>17.1</b> 11-Steps of Hypothesis Testing</a></li>
+<li class="chapter" data-level="17.2" data-path="Ztest.html"><a href="Ztest.html#Specifics1Z"><i class="fa fa-check"></i><b>17.2</b> 1-Sample Z-Test Specifics</a></li>
+<li class="chapter" data-level="17.3" data-path="Ztest.html"><a href="Ztest.html#examples-1"><i class="fa fa-check"></i><b>17.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="t1test.html"><a href="t1test.html"><i class="fa fa-check"></i><b>18</b> 1-Sample t-Test</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="t1test.html"><a href="t1test.html#t-distribution"><i class="fa fa-check"></i><b>18.1</b> t-distribution</a></li>
+<li class="chapter" data-level="18.2" data-path="t1test.html"><a href="t1test.html#Specifics1t"><i class="fa fa-check"></i><b>18.2</b> 1-Sample t-Test Specifics</a></li>
+<li class="chapter" data-level="18.3" data-path="t1test.html"><a href="t1test.html#examples-2"><i class="fa fa-check"></i><b>18.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="t2test.html"><a href="t2test.html"><i class="fa fa-check"></i><b>19</b> 2-Sample t-Test</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="t2test.html"><a href="t2test.html#sample-t-test-specifics"><i class="fa fa-check"></i><b>19.1</b> 2-Sample t-Test Specifics</a></li>
+<li class="chapter" data-level="19.2" data-path="t2test.html"><a href="t2test.html#LevenesTest"><i class="fa fa-check"></i><b>19.2</b> Testing for Equal Variances</a></li>
+<li class="chapter" data-level="19.3" data-path="t2test.html"><a href="t2test.html#examples-3"><i class="fa fa-check"></i><b>19.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="ChiSquare.html"><a href="ChiSquare.html"><i class="fa fa-check"></i><b>20</b> Chi-Square Test</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="ChiSquare.html"><a href="ChiSquare.html#chi-square-distribution"><i class="fa fa-check"></i><b>20.1</b> Chi-Square Distribution</a></li>
+<li class="chapter" data-level="20.2" data-path="ChiSquare.html"><a href="ChiSquare.html#chi-square-test-specifics"><i class="fa fa-check"></i><b>20.2</b> Chi-Square Test Specifics</a></li>
+<li class="chapter" data-level="20.3" data-path="ChiSquare.html"><a href="ChiSquare.html#examples-4"><i class="fa fa-check"></i><b>20.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="GOFTest.html"><a href="GOFTest.html"><i class="fa fa-check"></i><b>21</b> Goodness-of-Fit Test</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="GOFTest.html"><a href="GOFTest.html#goodness-of-fit-test-specifics"><i class="fa fa-check"></i><b>21.1</b> Goodness-of-Fit Test Specifics</a></li>
+<li class="chapter" data-level="21.2" data-path="GOFTest.html"><a href="GOFTest.html#examples-5"><i class="fa fa-check"></i><b>21.2</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="RData.html"><a href="RData.html"><i class="fa fa-check"></i><b>22</b> Getting Data into R</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="RData.html"><a href="RData.html#ncstats-package"><i class="fa fa-check"></i><b>22.1</b> NCStats Package</a></li>
+<li class="chapter" data-level="22.2" data-path="RData.html"><a href="RData.html#data-types"><i class="fa fa-check"></i><b>22.2</b> Data Types</a></li>
+<li class="chapter" data-level="22.3" data-path="RData.html"><a href="RData.html#entering-data"><i class="fa fa-check"></i><b>22.3</b> Entering Data</a></li>
+<li class="chapter" data-level="22.4" data-path="RData.html"><a href="RData.html#viewing-a-data-frame"><i class="fa fa-check"></i><b>22.4</b> Viewing a Data Frame</a></li>
+<li class="chapter" data-level="22.5" data-path="RData.html"><a href="RData.html#vectors"><i class="fa fa-check"></i><b>22.5</b> Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="RFilter.html"><a href="RFilter.html"><i class="fa fa-check"></i><b>23</b> Filtering Data in R</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="RFilter.html"><a href="RFilter.html#filtering-a-data-frame"><i class="fa fa-check"></i><b>23.1</b> Filtering a data frame</a></li>
+<li class="chapter" data-level="23.2" data-path="RFilter.html"><a href="RFilter.html#selecting-individuals"><i class="fa fa-check"></i><b>23.2</b> Selecting Individuals</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="RUnivEDA.html"><a href="RUnivEDA.html"><i class="fa fa-check"></i><b>24</b> Univariate EDA in R</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="RUnivEDA.html"><a href="RUnivEDA.html#quantitative"><i class="fa fa-check"></i><b>24.1</b> Quantitative</a></li>
+<li class="chapter" data-level="24.2" data-path="RUnivEDA.html"><a href="RUnivEDA.html#quantitative-for-multiple-groups"><i class="fa fa-check"></i><b>24.2</b> Quantitative for Multiple Groups</a></li>
+<li class="chapter" data-level="24.3" data-path="RUnivEDA.html"><a href="RUnivEDA.html#categorical-data"><i class="fa fa-check"></i><b>24.3</b> Categorical Data</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="RBivEDA.html"><a href="RBivEDA.html"><i class="fa fa-check"></i><b>25</b> Bivariate EDA in R</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="RBivEDA.html"><a href="RBivEDA.html#quantitative-1"><i class="fa fa-check"></i><b>25.1</b> Quantitative</a></li>
+<li class="chapter" data-level="25.2" data-path="RBivEDA.html"><a href="RBivEDA.html#categorical"><i class="fa fa-check"></i><b>25.2</b> Categorical</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="RRegression.html"><a href="RRegression.html"><i class="fa fa-check"></i><b>26</b> Linear Regression in R</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="RRegression.html"><a href="RRegression.html#fitted-line-plot"><i class="fa fa-check"></i><b>26.1</b> Fitted Line Plot</a></li>
+<li class="chapter" data-level="26.2" data-path="RRegression.html"><a href="RRegression.html#fitting-the-regression-model-in-r"><i class="fa fa-check"></i><b>26.2</b> Fitting the Regression Model in R</a></li>
+<li class="chapter" data-level="26.3" data-path="RRegression.html"><a href="RRegression.html#coefficient-of-determination-1"><i class="fa fa-check"></i><b>26.3</b> Coefficient of Determination</a></li>
+<li class="chapter" data-level="26.4" data-path="RRegression.html"><a href="RRegression.html#predicted-values"><i class="fa fa-check"></i><b>26.4</b> Predicted Values</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="Rttests.html"><a href="Rttests.html"><i class="fa fa-check"></i><b>27</b> t-Tests in R</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="Rttests.html"><a href="Rttests.html#sample-t-test"><i class="fa fa-check"></i><b>27.1</b> 1-Sample t-Test</a></li>
+<li class="chapter" data-level="27.2" data-path="Rttests.html"><a href="Rttests.html#sample-t-test-1"><i class="fa fa-check"></i><b>27.2</b> 2-Sample t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="RChi.html"><a href="RChi.html"><i class="fa fa-check"></i><b>28</b> Chi-Square in R</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
+<li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="RChi" class="section level1" number="28">
+<h1><span class="header-section-number">Module 28</span> Chi-Square in R</h1>
+<p>In Modules <a href="ChiSquare.html#ChiSquare">20</a> and <a href="GOFTest.html#GOFTest">21</a> you learned the theory and how to perform the calculations required to complete the 11 steps (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) of a hypothesis test for chi-square and goodness-of-fit tests. In this module, you will learn how to perform the required calculations from raw data using R.</p>
+<p>Methods in this module require the <code>NCStats</code> package (as always) and the <code>ggplot2</code> package (for making graphs).</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb173-1"><a href="RChi.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NCStats)</span>
+<span id="cb173-2"><a href="RChi.html#cb173-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div id="chi-square-tests" class="section level2" number="28.1">
+<h2><span class="header-section-number">28.1</span> Chi-Square Tests</h2>
+<div id="data-formats" class="section level3" number="28.1.1">
+<h3><span class="header-section-number">28.1.1</span> Data formats</h3>
+<p>Consider the following example for this section.</p>
+<blockquote>
+<p>Daniel Weiss (in “100% American”) reported the results of a survey of 300 first-time fathers from four different hospitals (labeled as A, B, C, and D). Each father was asked if he was present (or not) in the delivery room when his child was born. The results of the survey are in FatherPresent.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/FatherPresent.csv">data</a>,<a href="">meta</a>). Use these data to determine if there is a difference, at the 5% level, in the proportion of fathers present in the delivery room among the four hospitals.</p>
+</blockquote>
+<p>The data are loaded and examined below.</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb174-1"><a href="RChi.html#cb174-1" aria-hidden="true" tabindex="-1"></a>fp <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/droglenc/NCData/master/FatherPresent.csv&quot;</span>)</span>
+<span id="cb174-2"><a href="RChi.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(fp)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   &#39;data.frame&#39;: 300 obs. of  2 variables:
+#R&gt;    $ hospital: chr  &quot;A&quot; &quot;A&quot; &quot;A&quot; &quot;A&quot; ...
+#R&gt;    $ father  : chr  &quot;Present&quot; &quot;Present&quot; &quot;Present&quot; &quot;Present&quot; ...</code></pre>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb176-1"><a href="RChi.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(fp)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;       hospital  father
+#R&gt;   1          A Present
+#R&gt;   2          A Present
+#R&gt;   3          A Present
+#R&gt;   298        D  Absent
+#R&gt;   299        D  Absent
+#R&gt;   300        D  Absent</code></pre>
+<p>The chi-square test calculations can be made from either raw data, that are then summarized, or data that has already been summarized. Raw data, as are given here, should be in stacked format and then summarized to a two-way frequency table with <code>xtabs()</code> using a formula of the form <code>~cvarRow+cvarCol</code> as described in Section <a href="BEDACat.html#frequency-tables">10.1</a>. The result should be saved to an object for later use.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb178-1"><a href="RChi.html#cb178-1" aria-hidden="true" tabindex="-1"></a>( fp.obs <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>hospital<span class="sc">+</span>father,<span class="at">data=</span>fp) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;           father
+#R&gt;   hospital Absent Present
+#R&gt;          A      9      66
+#R&gt;          B     15      60
+#R&gt;          C     18      57
+#R&gt;          D     19      56</code></pre>
+<p><strong>IF</strong> the raw data do NOT exist, but a summary table is provided, then those summary statistics must be entered into an object using <code>matrix()</code>. The summarized frequencies must first be entered into a vector with the first <strong>COLUMN</strong> of values followed by the second COLUMN and so on. This vector is then the first argument to <code>matrix()</code>, which will also include the number of columns in the frequency table in <code>ncol=</code>. For example, the same observed table from above would be constructed as follows.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb180-1"><a href="RChi.html#cb180-1" aria-hidden="true" tabindex="-1"></a>fp.obs <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">9</span>,<span class="dv">15</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">66</span>,<span class="dv">60</span>,<span class="dv">57</span>,<span class="dv">56</span>),<span class="at">ncol=</span><span class="dv">2</span>)</span></code></pre></div>
+<p>It is useful to augment this matrix with column and row names as follows.</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb181-1"><a href="RChi.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(fp.obs) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Absent&quot;</span>,<span class="st">&quot;Present&quot;</span>)</span>
+<span id="cb181-2"><a href="RChi.html#cb181-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(fp.obs) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>)</span>
+<span id="cb181-3"><a href="RChi.html#cb181-3" aria-hidden="true" tabindex="-1"></a>fp.obs</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;     Absent Present
+#R&gt;   A      9      66
+#R&gt;   B     15      60
+#R&gt;   C     18      57
+#R&gt;   D     19      56</code></pre>
+<div class="tip">
+<p>The observed table must contain frequencies, not proportions or percentages (don’t use <code>percTable()</code>), without marginal totals (don’t use <code>addMargins()</code>).</p>
+</div>
+</div>
+<div id="chi-square-test-in-r" class="section level3" number="28.1.2">
+<h3><span class="header-section-number">28.1.2</span> Chi-Square test in R</h3>
+<p>The Chi-Square Test is performed with <code>chisq.test()</code>, which takes the observed frequency table as the first argument and <code>correct=FALSE</code> so that the continuity correction is not used.<a href="#fn89" class="footnote-ref" id="fnref89"><sup>89</sup></a> The results of <code>chisq.test()</code> should be assigned to an object. The Chi-Square test statistic and p-value are extracted by simply printing the saved object. The expected frequency table is returned by appending <code>$expected</code> to the saved object.</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb183-1"><a href="RChi.html#cb183-1" aria-hidden="true" tabindex="-1"></a>( fp.chi <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(fp.obs,<span class="at">correct=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   Pearson&#39;s Chi-squared test with fp.obs 
+#R&gt;   X-squared = 5.0003, df = 3, p-value = 0.1718</code></pre>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb185-1"><a href="RChi.html#cb185-1" aria-hidden="true" tabindex="-1"></a>fp.chi<span class="sc">$</span>expected</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;     Absent Present
+#R&gt;   A  15.25   59.75
+#R&gt;   B  15.25   59.75
+#R&gt;   C  15.25   59.75
+#R&gt;   D  15.25   59.75</code></pre>
+<p>From the results above the expected table for Step 5 is shown at the end, the observed table for Step 6 was shown further above, the χ<sup>2</sup> test statistic for Step 7 is 5.000, and the p-value for Step 8 is 0.172 (with 3 df).</p>
+<div class="tip">
+<p>The observed frequency table can be from <code>matrix()</code> or <code>xtabs()</code>.</p>
+</div>
+<p>Rejecting the null hypothesis in a Chi-Square Test indicates that there is some difference in the distribution of individuals into the levels of the response variable among some of the groups. A post-hoc method for helping determine which groups differ is obtained by observing the Pearson residuals. A Pearson residual is computed for each cell in the table as,</p>
+<p><span class="math display">\[ \frac{Observed-Expected}{\sqrt{Expected}} \]</span></p>
+<p>which is the appropriately signed square root of the parts in the χ<sup>2</sup> test statistic calculation. Therefore, cells that have Pearson residuals far from zero contributed substantially to the large χ<sup>2</sup> test statistic that resulted in a small p-value and the ultimate rejection of H<sub>0</sub>. Patterns in where the large Pearson residuals are found may allow one to qualitatively determine which groups differ and, thus, which levels of the response differ the most. This process will be illustrated more fully in the examples and review exercises. The Pearson residuals are obtained from the saved <code>chisq.test()</code> object by appending <code>$residuals</code>.</p>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb187-1"><a href="RChi.html#cb187-1" aria-hidden="true" tabindex="-1"></a>fp.chi<span class="sc">$</span>residuals</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;          Absent     Present
+#R&gt;   A -1.60046100  0.80855778
+#R&gt;   B -0.06401844  0.03234231
+#R&gt;   C  0.70420284 -0.35576543
+#R&gt;   D  0.96027660 -0.48513467</code></pre>
+<p>These residuals are all relatively small which is not surprising given that the H<sub>0</sub> was not rejected.</p>
+</div>
+<div id="example---apostle-islands-plants" class="section level3" number="28.1.3">
+<h3><span class="header-section-number">28.1.3</span> Example - Apostle Islands Plants</h3>
+<p>Below are the 11-steps for completing a full hypothesis test (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) for the following situation:</p>
+<blockquote>
+<p>In her Senior Capstone project a Northland College student recorded the dominant (i.e., most abundant) plant species in 100 randomly selected plots on both Devil’s Island and the Bayfield Peninsula (i.e., the mainland). There were a total of six “species” (one group was called “other”) recorded (labeled as A, B, C, D, E, and F). The results are shown in the table below. Determine, at the 5% level, if the frequency of dominant species differs between the two locations.</p>
+</blockquote>
+<table class=" lightable-classic lightable-hover" style="font-family: khfont; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+A
+</th>
+<th style="text-align:right;font-weight: bold;">
+B
+</th>
+<th style="text-align:right;font-weight: bold;">
+C
+</th>
+<th style="text-align:right;font-weight: bold;">
+D
+</th>
+<th style="text-align:right;font-weight: bold;">
+E
+</th>
+<th style="text-align:right;font-weight: bold;">
+F
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Devil’s Is
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;font-weight: bold;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Mainland
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;font-weight: bold;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;">
+96
+</td>
+<td style="text-align:right;font-weight: bold;">
+34
+</td>
+<td style="text-align:right;font-weight: bold;">
+22
+</td>
+<td style="text-align:right;font-weight: bold;">
+20
+</td>
+<td style="text-align:right;font-weight: bold;">
+18
+</td>
+<td style="text-align:right;font-weight: bold;">
+10
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;">
+200
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<ol style="list-style-type: decimal">
+<li>α = 0.05.</li>
+<li>H<sub>0</sub>: “the distribution of dominant plants species is the same between Devil’s Island and the Mainland” vs. H<sub>A</sub>: “the distribution of dominant plants species is NOT the same between Devil’s Island and the Mainland.”</li>
+<li>A Chi-Square Test is required because …
+<ol style="list-style-type: lower-roman">
+<li>a categorical variable with six levels (plant species) was recorded and</li>
+<li>two groups are being compared (Devil’s Island and Mainland).</li>
+</ol></li>
+<li>The data appear to be part of an observational study where the plots were randomly selected.</li>
+<li>There are more than five individuals in each cell of the expected table (Table <a href="RChi.html#tab:ChiAIexp">28.1</a>).</li>
+<li>The statistic is the observed frequency table given in the background.</li>
+<li>χ<sup>2</sup>=16.54 with 5 df (Table <a href="RChi.html#tab:ChiAIchi">28.2</a>).</li>
+<li>p-value=0.0055 (Table <a href="RChi.html#tab:ChiAIchi">28.2</a>).</li>
+<li>H<sub>0</sub> is rejected because the p-value is &lt; α.</li>
+<li>There does appear to be a significant difference in the distribution of the dominant plants between the two sites. A look at the Pearson residuals (Table <a href="RChi.html#tab:ChiAIres">28.3</a>) and the row-percentage table (Table <a href="RChi.html#tab:ChiAIrow">28.4</a>) both suggest that the biggest difference between the two locations is due to “plant A.”<a href="#fn90" class="footnote-ref" id="fnref90"><sup>90</sup></a></li>
+</ol>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:ChiAIexp">Table 28.1: </span>Expected frequency table for dominant plant species on Devil’s Island and the Bayfield Peninsula.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+A
+</th>
+<th style="text-align:right;font-weight: bold;">
+B
+</th>
+<th style="text-align:right;font-weight: bold;">
+C
+</th>
+<th style="text-align:right;font-weight: bold;">
+D
+</th>
+<th style="text-align:right;font-weight: bold;">
+E
+</th>
+<th style="text-align:right;font-weight: bold;">
+F
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Devil’s Is
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;font-weight: bold;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Mainland
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;font-weight: bold;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;">
+96
+</td>
+<td style="text-align:right;font-weight: bold;">
+34
+</td>
+<td style="text-align:right;font-weight: bold;">
+22
+</td>
+<td style="text-align:right;font-weight: bold;">
+20
+</td>
+<td style="text-align:right;font-weight: bold;">
+18
+</td>
+<td style="text-align:right;font-weight: bold;">
+10
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;">
+200
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: consolas; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:ChiAIchi">Table 28.2: </span>Results from the Chi-Square Test for differences in the distribution of dominant plant species between Devil’s Island and the Bayfield Peninsula.
+</caption>
+<tbody>
+<tr>
+<td style="text-align:left;width: 5in; ">
+X-squared = 16.5442, df = 5, p-value = 0.00545
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5in; ">
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:ChiAIres">Table 28.3: </span>Pearson residuals from the Chi-Square Test for differences in the distribution of dominant plant species between Devil’s Island and Bayfield Peninsula.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+A
+</th>
+<th style="text-align:right;font-weight: bold;">
+B
+</th>
+<th style="text-align:right;font-weight: bold;">
+C
+</th>
+<th style="text-align:right;font-weight: bold;">
+D
+</th>
+<th style="text-align:right;font-weight: bold;">
+E
+</th>
+<th style="text-align:right;font-weight: bold;">
+F
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Devil’s Is
+</td>
+<td style="text-align:right;">
+-2.021
+</td>
+<td style="text-align:right;">
+1.213
+</td>
+<td style="text-align:right;">
+0.905
+</td>
+<td style="text-align:right;">
+0.949
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Mainland
+</td>
+<td style="text-align:right;">
+2.021
+</td>
+<td style="text-align:right;">
+-1.213
+</td>
+<td style="text-align:right;">
+-0.905
+</td>
+<td style="text-align:right;">
+-0.949
+</td>
+<td style="text-align:right;">
+-1
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:ChiAIrow">Table 28.4: </span>Percentage of dominant plant species within each location (Devil’s Island and Bayfield Peninsula)
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+A
+</th>
+<th style="text-align:right;font-weight: bold;">
+B
+</th>
+<th style="text-align:right;font-weight: bold;">
+C
+</th>
+<th style="text-align:right;font-weight: bold;">
+D
+</th>
+<th style="text-align:right;font-weight: bold;">
+E
+</th>
+<th style="text-align:right;font-weight: bold;">
+F
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Devil’s Is
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Mainland
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+100
+</td>
+</tr>
+</tbody>
+</table>
+<div id="r-appendix-9" class="section level4 unnumbered">
+<h4>R Appendix:</h4>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb189-1"><a href="RChi.html#cb189-1" aria-hidden="true" tabindex="-1"></a>freq <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">34</span>,<span class="dv">22</span>,<span class="dv">14</span>,<span class="dv">13</span>,<span class="dv">12</span>,<span class="dv">5</span>,<span class="dv">62</span>,<span class="dv">12</span>,<span class="dv">8</span>,<span class="dv">7</span>,<span class="dv">6</span>,<span class="dv">5</span>)</span>
+<span id="cb189-2"><a href="RChi.html#cb189-2" aria-hidden="true" tabindex="-1"></a>ai.obs <span class="ot">&lt;-</span> <span class="fu">matrix</span>(freq,<span class="at">nrow=</span><span class="dv">2</span>,<span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb189-3"><a href="RChi.html#cb189-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(ai.obs) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Devil&#39;s Is&quot;</span>,<span class="st">&quot;Mainland&quot;</span>)</span>
+<span id="cb189-4"><a href="RChi.html#cb189-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(ai.obs) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>,<span class="st">&quot;D&quot;</span>,<span class="st">&quot;E&quot;</span>,<span class="st">&quot;F&quot;</span>)</span>
+<span id="cb189-5"><a href="RChi.html#cb189-5" aria-hidden="true" tabindex="-1"></a>( ai.chi <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ai.obs) )</span>
+<span id="cb189-6"><a href="RChi.html#cb189-6" aria-hidden="true" tabindex="-1"></a>ai.chi<span class="sc">$</span>expected</span>
+<span id="cb189-7"><a href="RChi.html#cb189-7" aria-hidden="true" tabindex="-1"></a>ai.chi<span class="sc">$</span>residuals</span>
+<span id="cb189-8"><a href="RChi.html#cb189-8" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(ai.obs,<span class="at">margin=</span><span class="dv">1</span>,<span class="at">digits=</span><span class="dv">1</span>)</span>
+<span id="cb189-9"><a href="RChi.html#cb189-9" aria-hidden="true" tabindex="-1"></a>ai.obs1 <span class="ot">&lt;-</span> ai.obs[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb189-10"><a href="RChi.html#cb189-10" aria-hidden="true" tabindex="-1"></a>( ai.chi1 <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ai.obs1) )</span></code></pre></div>
+<p> </p>
+</div>
+</div>
+</div>
+<div id="goodness-of-fit-test-in-r" class="section level2" number="28.2">
+<h2><span class="header-section-number">28.2</span> Goodness-of-Fit Test in R</h2>
+<div id="data-format-1" class="section level3" number="28.2.1">
+<h3><span class="header-section-number">28.2.1</span> Data Format</h3>
+<p>Consider the following example for this section.</p>
+<blockquote>
+<p><a href="http://www.mitpressjournals.org/doi/abs/10.1162/003465399767923827">Herriges and King (1999)</a> examined modes of fishing for a large number of recreational saltwater users in southern California. One of the questions asked in their Southern California Sportfishing Survey was what “mode” they used for fishing – “from the beach,” “from a fishing pier,” “on a private boat,” or “on a chartered boat.” The results to this question, along with other data not used here, are found in FishingModes.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/FishingModes.csv">data</a>, <a href="https://raw.githubusercontent.com/droglenc/NCData/master/FishingModes_meta.txt">meta</a>). One hypothesis of interest states that two-thirds of the users will fish from a boat, split evenly between private and charter boats, while the other one-third will fish from land, also split evenly between those fishing on the beach and those from a pier. Use the data in the <code>mode</code> variable of the data file to determine if this hypothesis is supported at the 10% level.</p>
+</blockquote>
+<p>The data are loaded and examined below (the <code>headtail()</code> only shows a few variables).</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb190-1"><a href="RChi.html#cb190-1" aria-hidden="true" tabindex="-1"></a>sf <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/droglenc/NCData/master/FishingModes.csv&quot;</span>)</span>
+<span id="cb190-2"><a href="RChi.html#cb190-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sf)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   &#39;data.frame&#39;: 1182 obs. of  12 variables:
+#R&gt;    $ mode    : chr  &quot;charter&quot; &quot;charter&quot; &quot;boat&quot; &quot;pier&quot; ...
+#R&gt;    $ price   : num  182.9 34.5 24.3 15.1 41.5 ...
+#R&gt;    $ catch   : num  0.5391 0.4671 0.2413 0.0789 0.1082 ...
+#R&gt;    $ pbeach  : num  157.9 15.1 161.9 15.1 106.9 ...
+#R&gt;    $ ppier   : num  157.9 15.1 161.9 15.1 106.9 ...
+#R&gt;    $ pboat   : num  157.9 10.5 24.3 55.9 41.5 ...
+#R&gt;    $ pcharter: num  182.9 34.5 59.3 84.9 71 ...
+#R&gt;    $ cbeach  : num  0.0678 0.1049 0.5333 0.0678 0.0678 ...
+#R&gt;    $ cpier   : num  0.0503 0.0451 0.4522 0.0789 0.0503 ...
+#R&gt;    $ cboat   : num  0.26 0.157 0.241 0.164 0.108 ...
+#R&gt;    $ ccharter: num  0.539 0.467 1.027 0.539 0.324 ...
+#R&gt;    $ income  : num  7083 1250 3750 2083 4583 ...</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb192-1"><a href="RChi.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(sf,<span class="at">which=</span><span class="fu">c</span>(<span class="st">&quot;mode&quot;</span>,<span class="st">&quot;price&quot;</span>,<span class="st">&quot;catch&quot;</span>))</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;           mode   price  catch
+#R&gt;   1    charter 182.930 0.5391
+#R&gt;   2    charter  34.534 0.4671
+#R&gt;   3       boat  24.334 0.2413
+#R&gt;   1180    pier  65.036 0.4522
+#R&gt;   1181   beach  36.636 0.5333
+#R&gt;   1182    boat 235.436 0.6817</code></pre>
+<p>As with the Chi-Square Test, the Goodness-of-Fit test can be made from either raw data, that are then summarized, or data that has already been summarized. Raw data are summarized into a one-way observed frequency table using <code>xtabs()</code> with a formula of <code>~cvarRow</code> as described in Section <a href="UnivSum.html#frequency-and-percentage-tables">4.2.1.1</a>. The results should be saved to an object for later use.</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb194-1"><a href="RChi.html#cb194-1" aria-hidden="true" tabindex="-1"></a>( sf.obs <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>mode,<span class="at">data=</span>sf) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   mode
+#R&gt;     beach    boat charter    pier 
+#R&gt;       134     418     452     178</code></pre>
+<p><strong>IF</strong> the raw data do NOT exist, but a summary table is provided, then those summary statistics must be entered into an object using <code>c()</code>. Each item can be named in c() as shown below, which will make the results easier to interpret. For example, the same observed table from above would be constructed as follows.</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb196-1"><a href="RChi.html#cb196-1" aria-hidden="true" tabindex="-1"></a>( sf.obs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beach=</span><span class="dv">134</span>,<span class="at">boat=</span><span class="dv">418</span>,<span class="at">charter=</span><span class="dv">452</span>,<span class="at">pier=</span><span class="dv">178</span>) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;     beach    boat charter    pier 
+#R&gt;       134     418     452     178</code></pre>
+</div>
+<div id="expected-table" class="section level3" number="28.2.2">
+<h3><span class="header-section-number">28.2.2</span> Expected Table</h3>
+<p>The R function to perform a Goodness-of-Fit test described in the next section requires a vector of expected proportions in each group defined by the theoretical distribution in the hypotheses. This vector does not actually have to be proportions, per se, but it must be values that are directly proportional to the expected proportions. Thus, the vector can contain the proportions, percentages, actual expected values, or any other set of values that are related to the expected proportions by a constant.</p>
+<p>In this example, the theoretical distribution suggests that “two-thirds of the users will fish from a boat, split evenly between private and charter boats, while the other one-third will fish from land, also split even between those fishing on the beach and those from a pier.” With this, the expected proportions are <span class="math inline">\(\frac{1}{3}\)</span> for a private boat, <span class="math inline">\(\frac{1}{3}\)</span> for a charter boat, <span class="math inline">\(\frac{1}{6}\)</span> for beach, and <span class="math inline">\(\frac{1}{6}\)</span> for a pier. These expected proportions could be entered into a vector in any of the following ways, as each way differs only by a constant value.</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb198-1"><a href="RChi.html#cb198-1" aria-hidden="true" tabindex="-1"></a>exp.p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beach=</span><span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>,<span class="at">boat=</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>,<span class="at">charter=</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>,<span class="at">pier=</span><span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)          <span class="co">#proportions</span></span>
+<span id="cb198-2"><a href="RChi.html#cb198-2" aria-hidden="true" tabindex="-1"></a>exp.p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beach=</span><span class="fl">16.67</span>,<span class="at">boat=</span><span class="fl">33.33</span>,<span class="at">charter=</span><span class="fl">33.33</span>,<span class="at">pier=</span><span class="fl">16.67</span>)  <span class="co">#percentages</span></span>
+<span id="cb198-3"><a href="RChi.html#cb198-3" aria-hidden="true" tabindex="-1"></a>exp.p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beach=</span><span class="dv">1</span>,<span class="at">boat=</span><span class="dv">2</span>,<span class="at">charter=</span><span class="dv">2</span>,<span class="at">pier=</span><span class="dv">1</span>)                  <span class="co">#ratios</span></span>
+<span id="cb198-4"><a href="RChi.html#cb198-4" aria-hidden="true" tabindex="-1"></a>exp.p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beach=</span><span class="dv">197</span>,<span class="at">boat=</span><span class="dv">394</span>,<span class="at">charter=</span><span class="dv">394</span>,<span class="at">pier=</span><span class="dv">197</span>)          <span class="co">#expected values</span></span></code></pre></div>
+<div class="tip">
+<p>Enter the expected proportions in the same order as the observed frequencies.</p>
+</div>
+</div>
+<div id="goodness-of-fit-test-in-r-1" class="section level3" number="28.2.3">
+<h3><span class="header-section-number">28.2.3</span> Goodness-of-Fit Test in R</h3>
+<p>The Goodness-of-Fit Test is computed with <code>chisq.test()</code> with the observed frequency table as the first argument and the following arguments:</p>
+<ul>
+<li><code>p=</code>: a vector of expected proportions for the levels of the theoretical distribution.</li>
+<li><code>rescale.p=TRUE</code>: rescales the values in <code>p=</code> to sum to 1. Rescaling is useful if the proportions in <code>p=</code> were rounded or are expected frequencies.</li>
+<li><code>correct=FALSE</code>: indicates to not use a “continuity correction.”</li>
+</ul>
+<div class="tip">
+<p>Always use <code>rescale.p=TRUE</code> and <code>correct=FALSE</code>.</p>
+</div>
+<p>The results from <code>chisq.test()</code> should be assigned to an object so that useful information can be extracted.</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb199-1"><a href="RChi.html#cb199-1" aria-hidden="true" tabindex="-1"></a>( sf.gof <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(sf.obs,<span class="at">p=</span>exp.p,<span class="at">rescale.p=</span><span class="cn">TRUE</span>,<span class="at">correct=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   Chi-squared test for given probabilities with sf.obs 
+#R&gt;   X-squared = 31.9797, df = 3, p-value = 5.285e-07</code></pre>
+<p>From the results above the χ<sup>2</sup> test statistic for Step 7 is 31.980, and the p-value for Step 8 is 0.00000053 (with 3 df). The observed table for Step 6 was shown further above. The expected table for Step 5 is extracted from the <code>chisq.test()</code> object as follows.</p>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb201-1"><a href="RChi.html#cb201-1" aria-hidden="true" tabindex="-1"></a>sf.gof<span class="sc">$</span>expected</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;     beach    boat charter    pier 
+#R&gt;       197     394     394     197</code></pre>
+<p>Rejecting H<sub>0</sub> in a Goodness-of-Fit test simply indicates that the observed distribution differs from the theoretical distribution, but it is not clear exactly where the difference occurs. The following code can be used to neatly put the observed values, expected values, and Pearson residuals next to each other, which may be helpful for explaining any differences that were observed.</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb203-1"><a href="RChi.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">obs=</span>sf.gof<span class="sc">$</span>observed,<span class="at">exp=</span>sf.gof<span class="sc">$</span>expected,<span class="at">resids=</span>sf.gof<span class="sc">$</span>residuals)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;           obs exp    resids
+#R&gt;   beach   134 197 -4.488564
+#R&gt;   boat    418 394  1.209103
+#R&gt;   charter 452 394  2.921998
+#R&gt;   pier    178 197 -1.353694</code></pre>
+<p>In this case it is clear that those respondents that answered “beach” were much lower than expected and those that answered “charter” were greater than expected.</p>
+<p>Another way to identify where differences occurred is to examine confidence intervals for the proportions of individuals in each level. These confidence intervals are extracted from the saved <code>chisq.test()</code> object with .</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb205-1"><a href="RChi.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gofCI</span>(sf.gof,<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;           p.obs p.LCI p.UCI p.exp
+#R&gt;   beach   0.113 0.097 0.133 0.167
+#R&gt;   boat    0.354 0.327 0.381 0.333
+#R&gt;   charter 0.382 0.355 0.410 0.333
+#R&gt;   pier    0.151 0.131 0.172 0.167</code></pre>
+<p>Again, the confidence interval for the proportion that responded “beach” is less than the expected proportion and the proportion that answered “charter” is greater than expected.</p>
+<p> </p>
+</div>
+<div id="example---loggerhead-shrikes" class="section level3" number="28.2.4">
+<h3><span class="header-section-number">28.2.4</span> Example - Loggerhead Shrikes</h3>
+<p>Below are the 11-steps for completing a full hypothesis test (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) for the following situation:</p>
+<blockquote>
+<p><a href="http://www.jstor.org/stable/4162345">Bohall-Wood (1987)</a> constructed 24 random 16-km transects along roads in counties near Gainesville, FL. Two observers censused each transect once every 2 weeks from 18 October 1981 to 30 October 1982, by driving 32 km/h and scanning both sides of the road for perched and flying shrikes (<em>Lanius ludovicianus</em>). The habitat, whether the bird was on the roadside or actually in the habitat, and the perch type were recorded for each shrike observed. Habitats were grouped into five categories. The number of shrikes observed in each habitat was 1456 in open areas, 43 in midsuccessional, 112 in scattered trees, 44 in woods, and 6 in wetlands. Separate analyses were used to construct the proportion of habitat available in each of the five habitat types. These results were as follows: 0.358 open, 0.047 midsuccessional, 0.060 scattered trees, 0.531 woods, and 0.004 wetlands. Use these data to determine, at the 5% level, if shrikes are using the habitat in proportion to its availability.</p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li>α=0.05.</li>
+<li>H<sub>0</sub>: “distribution of habitat use by shrikes is the same as the proportions of available habitat” vs. H<sub>A</sub>: “distribution of habitat use by shrikes is NOT the same as the proportions of available habitat.”</li>
+<li>A Goodness-of-Fit Test is required because …
+<ol style="list-style-type: lower-roman">
+<li>a categorical variable was recorded (habitat use),</li>
+<li>a single group (or population) was considered (shrikes in this area), and</li>
+<li>the observed distribution is compared to a theoretical distribution.</li>
+</ol></li>
+<li>The data appear to be part of an observational study where the individuals were not randomly selected but the transects upon which they were observed were.</li>
+<li>There are more than five individuals expected in each habitat level (Table <a href="RChi.html#tab:GOFshrikesRes">28.5</a>).</li>
+<li>The statistic is the observed frequency table in Table <a href="RChi.html#tab:GOFshrikesRes">28.5</a>.</li>
+<li>χ<sup>2</sup>=2345.1 with 4 df (Table <a href="RChi.html#tab:GOFshrikesChi">28.6</a>).</li>
+<li>p-value&lt;0.00005 (Table <a href="RChi.html#tab:GOFshrikesChi">28.6</a>).</li>
+<li>H<sub>0</sub> is rejected because the p-value&lt;α.</li>
+<li>The shrikes do not appear to use habitats in the same proportions as the availability of the habitat.</li>
+<li>The 95% confidence intervals for the proportion of use in each habitat level are in Table <a href="RChi.html#tab:GOFshrikesCIs">28.7</a>. From these results it appears that the shrikes use the “open” habitat much more often and the “woods” habitat mush less often than would be expected if they used all habitats in proportion to their availability.</li>
+</ol>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:GOFshrikesRes">Table 28.5: </span>Observed and expected frequencies and Pearson residuals for the Goodness-of-Fit Test for shrike habitat use.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+Observed
+</th>
+<th style="text-align:right;font-weight: bold;">
+Expected
+</th>
+<th style="text-align:right;font-weight: bold;">
+Residuals
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Open
+</td>
+<td style="text-align:right;">
+1456
+</td>
+<td style="text-align:right;">
+595
+</td>
+<td style="text-align:right;">
+35.323
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+MidSucc
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+-3.969
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+ScatTree
+</td>
+<td style="text-align:right;">
+112
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+1.236
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Woods
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+882
+</td>
+<td style="text-align:right;">
+-29.496
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Wetland
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+14.493
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: consolas; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:GOFshrikesChi">Table 28.6: </span>Results from the Goodness-of-Fit Test for shrike habitat use.
+</caption>
+<tbody>
+<tr>
+<td style="text-align:left;width: 5in; ">
+X-squared = 2345.071, df = 4, p-value &lt; 2.2e-16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 5in; ">
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:GOFshrikesCIs">Table 28.7: </span>Observed proportions, 95% condidence intervals for the proprtions, and expected proportions for shrike habitat use.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+p.obs
+</th>
+<th style="text-align:right;font-weight: bold;">
+p.LCI
+</th>
+<th style="text-align:right;font-weight: bold;">
+p.UCI
+</th>
+<th style="text-align:right;font-weight: bold;">
+p.exp
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Open
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.877
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.860
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.892
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.358
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+MidSucc
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.026
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.019
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.035
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.047
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+ScatTree
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.067
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.056
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.081
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.060
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Woods
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.004
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.002
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.008
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.531
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Wetland
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.026
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.020
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.035
+</td>
+<td style="text-align:right;width: 0.7in; ">
+0.004
+</td>
+</tr>
+</tbody>
+</table>
+<div id="r-appendix-10" class="section level4 unnumbered">
+<h4>R Appendix:</h4>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb207-1"><a href="RChi.html#cb207-1" aria-hidden="true" tabindex="-1"></a>( obs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Open=</span><span class="dv">1456</span>,<span class="at">MidSucc=</span><span class="dv">43</span>,<span class="at">ScatTree=</span><span class="dv">112</span>,<span class="at">Woods=</span><span class="dv">6</span>,<span class="at">Wetland=</span><span class="dv">44</span>) )</span>
+<span id="cb207-2"><a href="RChi.html#cb207-2" aria-hidden="true" tabindex="-1"></a>( p.exp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Open=</span><span class="fl">0.358</span>,<span class="at">MidSucc=</span><span class="fl">0.047</span>,<span class="at">ScatTree=</span><span class="fl">0.060</span>,<span class="at">Woods=</span><span class="fl">0.531</span>,<span class="at">Wetland=</span><span class="fl">0.004</span>) )</span>
+<span id="cb207-3"><a href="RChi.html#cb207-3" aria-hidden="true" tabindex="-1"></a>( shrike.chi <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(obs,<span class="at">p=</span>p.exp,<span class="at">rescale.p=</span><span class="cn">TRUE</span>) )</span>
+<span id="cb207-4"><a href="RChi.html#cb207-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">obs=</span>shrike.chi<span class="sc">$</span>observed,<span class="at">exp=</span>shrike.chi<span class="sc">$</span>expected,<span class="at">resids=</span>shrike.chi<span class="sc">$</span>residuals)</span>
+<span id="cb207-5"><a href="RChi.html#cb207-5" aria-hidden="true" tabindex="-1"></a><span class="fu">gofCI</span>(shrike.chi,<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
+<p> </p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="89">
+<li id="fn89"><p>The continuity correction is not used here simply so that the results using R will match hand-calculations. The continuity correction should usually be used.<a href="RChi.html#fnref89" class="footnote-back">↩︎</a></p></li>
+<li id="fn90"><p>When “Plant A” is removed from the observed table, the Chi-Square Test performed on the remaining plant species showed no difference in the distribution of the remaining plants between the two locations (p=0.9239). Thus, most of the difference in plant distributions between Devil’s Island and the Mainland appears to be due primarily to “plant A” with more of “plant A” found on the Mainland than on Devil’s Island.<a href="RChi.html#fnref90" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Rttests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
