@@ -1,0 +1,138 @@
+# 1-Sample t-Test {#t1test}
+Prior to this module, hypothesis testing methods required knowing $\sigma$, which is a parameter that is seldom known. When $\sigma$ is replaced by its estimator, s, the test statistic follows a Student's t rather than a standard normal (Z) distribution. In this module, the t-distribution is described and a 1-Sample t-Test for testing that the mean from one population equals a specific value is discussed.
+
+## t-distribution
+A t-distribution is similar to a standard normal distribution (i.e., N(0,1)) in that it is centered on 0 and is bell shaped (Figure \@ref(fig:tvsZ)). The t-distribution differs from the standard normal distribution in that it is heavier in the tails, flatter near the center, and its exact dispersion is dictated by a quantity called the degrees-of-freedom (df). The t-distribution is "flatter and fatter" because of the uncertainty surrounding the use of s rather than $\sigma$ in the standard error calculation.^[Recall that the sample standard deviation is a statistic and is thus subject to sampling variability.] The degrees-of-freedom are related to n and generally come from the denominator in the standard deviation calculation. As the degrees-of-freedom increase, the t-distribution becomes narrower, taller, and approaches the standard normal distribution (Figure \@ref(fig:tvsZ)).
+
+&nbsp;
+
+```{r tvsZ, echo=FALSE, fig.cap="Standard normal (black) and t-distributions with varying degrees-of-freedom."}
+dfs <- c(1,2,4,10,20,40,80)
+x <- seq(-4,4,length.out=199)
+ts <- NULL
+for (i in seq_along(dfs)) ts <- c(ts,dt(x,dfs[i]))
+tmp <- data.frame(x=rep(x,length(dfs)),
+                  ts=ts,
+                  dfs=factor(rep(dfs,each=length(x))))
+tmp2 <- data.frame(x=x,z=dnorm(x))
+
+ggplot(data=tmp,mapping=aes(x=x,y=ts,color=dfs)) +
+  geom_line(data=tmp2,mapping=aes(x=x,y=z),color="black",size=2) +
+  geom_line(size=1) +
+  scale_color_brewer(direction=-1,palette="Oranges") +
+  scale_y_continuous(expand=expansion(mult=c(0.01,0.04))) +
+  theme_NCStats() +
+  labs(x="t",y=NULL) +
+  theme(axis.text.y=element_blank(),
+        legend.position=c(1,1),legend.justification=c(1.1,1.1))
+```
+
+&nbsp;
+
+Proportional areas on a t-distribution are computed using `distrib()` similar to what was described for a normal distribution in Modules \@ref(NormalDist1) and \@ref(SamplingDist). The major exceptions for using `distrib()` with a t-distribution is that `distrib="t"` must be used and the degrees-of-freedom must be given in `df=` (how to find df is discussed in subsequent sections). For example, the area right of t=-1.456 on a t-distribution with 9 df is `r formatC(pt(-1.456,df=9,lower.tail=FALSE),format="f",digits=4)` (Figure \@ref(fig:tarea1)).
+
+```{r tarea1, echo=-1, fig.cap="Depiction of the area to the right of t=-1.456 on a t-distribution with 9 df.", results="hide"}
+par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
+    cex.lab=0.95,cex.axis=0.9)
+( distrib(-1.456,distrib="t",df=9,lower.tail=FALSE) )
+```
+
+&nbsp;
+
+Similarly, the t with an upper-tail area of 0.95 on a t-distribution with 19 df is `r formatC(qt(0.95,df=19,lower.tail=FALSE),format="f",digits=3)` (Figure \@ref(fig:tstar1)).^[This "reverse" calculation would be $t^{*}$ for a 95% lower confidence bound.]
+
+```{r tstar1, echo=-1, fig.cap="Depiction of the value of t with an area to the right of 0.95 on a t-distribution with 19 df.", results="hide"}
+par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
+    cex.lab=0.95,cex.axis=0.9)
+( distrib(0.95,distrib="t",type="q",df=19,lower.tail=FALSE) )
+```
+
+## 1-Sample t-Test Specifics {#Specifics1t}
+A 1-Sample t-Test is similar to a 1-Sample Z-test in that both test the same H~0~. The difference, as discussed above, is that when $\sigma$ is replaced by s, the test statistic becomes t and the scaling factor for confidence regions becomes a $t^{*}$. Other aspects are similar between the two tests as shown below.^[Compare these specifics to those for a 1-Sample Z-test in Section \@ref(Specifics1Z).]
+
+* **Hypothesis:** H~0~:$\mu=\mu_{0}$
+* **Statistic:** $\bar{x}$
+* **Test Statistic:** $t=\frac{\bar{x}-\mu_{0}}{\frac{s}{\sqrt{n}}}$
+* **Confidence Region:** $\bar{x}+t^{*}\frac{s}{\sqrt{n}}$
+* **df**: n-1
+* **Assumptions:**
+    * $\sigma$ is UNknown
+    * n&geq;40, n&geq;15 and the **sample** (i.e., histogram) is not strongly skewed, OR the **sample** is normally distributed.
+* **Use with:** Quantitative response, one group (or population), $\sigma$ UNknown.
+
+## Examples
+### Purchase Catch of Salmon?
+Below are the 11-steps (Section \@ref(Hyp11Steps)) for completing a full hypothesis test for the following situation:
+
+> *A prospective buyer will buy a catch of several thousand salmon if the mean weight of all salmon in the catch is at least 19.9 lbs. A random selection of 50 salmon had a mean of 20.1 and a standard deviation of 0.76 lbs. Should the buyer accept the catch at the 5% level?*
+
+1. $\alpha$=0.05.
+1. H~0~:$\mu$=19.9 lbs vs. H~A~:$\mu$ >19.9 lbs where $\mu$ is the mean weight of ALL salmon in the catch.
+1. A 1-Sample t-Test is required because ...
+    i. a quantitative variable (weight) was measured,
+    i. individuals from one group (or population) were considered (this catch of salmon), and
+    i. $\sigma$ is **UN**known.^[If $\sigma$ is given, then it will appear in the background information to the question and will be in a sentence that uses the words "population", "assume that", or "suppose that."]
+1. The data appear to be part of an observational study with random selection.
+1. The assumptions are met because ...
+    i. n=50&geq;40 and
+    i. $\sigma$ is unknown.
+1. $\bar{x}$ = 20.1 lbs (and s = 0.76 lbs).
+1. t = $\frac{20.1-19.9}{\frac{0.76}{\sqrt{50}}}$ = $\frac{0.2}{0.107}$ = 1.87 with df = 50-1 = 49.
+1. p-value = `r kPvalue(pt(1.87,df=49,lower.tail=FALSE),include.p=FALSE,latex=FALSE)`.
+1. H~0~: is rejected because the p-value <$\alpha$.
+1. The average weight of ALL salmon in this catch appears to be greater than 19.9 lbs; thus, the buyer should accept this catch of salmon.
+1. I am 95% confident that the mean weight of ALL salmon in the catch is greater than 19.92 lbs (i.e., 20.1-1.677&times;$\frac{0.76}{\sqrt{50}}$ = 20.1-0.18 = 19.92).
+
+#### R Appendix: {-}
+```{r echo=-1, results="hide"}
+par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
+    cex.lab=0.95,cex.axis=0.9)
+( pval <- distrib(1.87,distrib="t",df=49,lower.tail=FALSE) )
+( tstar <- distrib(0.95,distrib="t",type="q",df=49,lower.tail=FALSE) )
+```
+
+&nbsp;
+
+### Body Temperature
+Below are the 11-steps (Section \@ref(Hyp11Steps)) for completing a full hypothesis test for the following situation:
+
+> *Machowiak et al. (1992) critically examined the belief that the mean body temperature is 98.6^o^F by measuring body temperatures in a sample of healthy humans. Use their results in Table \@ref(tab:1ttemp) to determine at the 1% level if the mean body temperature differs from 98.6^o^F.
+
+```{r 1ttemp, echo=FALSE}
+bt <- read.csv("https://raw.githubusercontent.com/droglenc/NCData/master/BodyTemp.csv")
+sum <- Summarize(~temp,data=bt,digits=2)
+knitr::kable(t(sum),booktabs=TRUE,align="c",
+             caption="Descriptive statistics from measuring the body temperature of a sample of healthy humans.") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(0,bold=TRUE) %>%
+  kableExtra::column_spec(1:8,width="0.6in")
+```
+
+&nbsp;
+
+1. $\alpha$=0.01.
+1. H~0~:$\mu$=98.6^o^F vs. H~A~:$\mu$$\neq$98.6^o^F, where $\mu$ is the mean body temperature for ALL healthy humans. [*Note that not equals was used because the researchers want to determine if the temperature is different from $98.6$^o^F.*]
+1. A 1-Sample t-Test is required because ...
+    i. a quantitative variable (i.e., body temperature) was measured,
+    i. individuals from one group (or population) is considered (i.e., healthy humans), and
+    i. $\sigma$ is unknown (i.e., not given in the background).
+1. The data appear to be part of an observational study although this is not made clear in the background information. There is also no evidence that randomization was used.
+1. The assumptions are met because ...
+    i. n=`r nrow(bt)`&geq;40 and
+    i. $\sigma$ is unknown.
+1. $\bar{x}$ = `r formatC(sum[["mean"]],format="f",digits=2)`^o^F.
+1. t = $\frac{98.25-98.6}{\frac{0.73}{\sqrt{130}}}$ = $\frac{-0.35}{0.064}$ = -5.469 with df = 130-1 = 129.
+1. p-value=`r kPvalue(2*pt(-5.469,df=129),digits=7,include.p=FALSE,latex=FALSE)`. [*Note that the result of `distrib()` is multiplied by 2 because of the not equals H~A~.*]
+1. Reject H~0~ because p-value<$\alpha$=0.01.
+1. It appears that the mean body temperature of ALL healthy humans is less than 98.6^o^F. [*Note that the test was for a difference but because $\bar{x}$<98.6 this more specific conclusion can be made.*]
+1. I am 99% confident that the mean body temperature ($\mu$) for ALL healthy humans is between 98.08^o^C (=98.25-2.614&times;0.064) and 98.42^o^C (=98.25+2.614&times;0.064). [*Note that the area in `distrib()` is $1-\frac{\alpha}{2}$ because of the not equals H~A~:.*]
+
+#### R Appendix: {-}
+```{r echo=-1, results="hide"}
+par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
+    cex.lab=0.95,cex.axis=0.9)
+( pval <- 2*distrib(-5.469,distrib="t",df=130) )
+(tstar <- distrib(0.995,distrib="t",df=130) )
+```
+
+&nbsp;

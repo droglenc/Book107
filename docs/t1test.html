@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Module 17 1-Sample Z-Test | Readings for MTH107</title>
+  <title>Module 18 1-Sample t-Test | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Module 17 1-Sample Z-Test | Readings for MTH107" />
+  <meta property="og:title" content="Module 18 1-Sample t-Test | Readings for MTH107" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://derekogle.com/Book107/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="droglenc/Book107" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Module 17 1-Sample Z-Test | Readings for MTH107" />
+  <meta name="twitter:title" content="Module 18 1-Sample t-Test | Readings for MTH107" />
   
   <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ConfRegions2.html"/>
-<link rel="next" href="t1test.html"/>
+<link rel="prev" href="Ztest.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -270,90 +270,212 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Ztest" class="section level1" number="17">
-<h1><span class="header-section-number">Module 17</span> 1-Sample Z-Test</h1>
-<p>A foundation for making statistical inferences was provided in Modules <a href="SamplingDist.html#SamplingDist">11</a>-<a href="ConfRegions2.html#ConfRegions2">16</a>. Most of the material in Modules <a href="HypTesting1.html#HypTesting1">13</a> and <a href="ConfRegions1.html#ConfRegions1">15</a> is related to a 1-Sample Z-test, which is formalized in this module. Other specific hypothesis tests are in Modules <a href="t1test.html#t1test">18</a>-<a href="#GOFTest"><strong>??</strong></a>.</p>
-<div id="Hyp11Steps" class="section level2" number="17.1">
-<h2><span class="header-section-number">17.1</span> 11-Steps of Hypothesis Testing</h2>
-<p>Hypothesis testing is a rigorous and formal procedure for making inferences about a parameter from a statistic. The 11 steps listed below will help make sure that all aspects important to hypothesis testing are completed. These steps should be used for all hypothesis tests in this and ensuing modules.</p>
-<ol style="list-style-type: decimal">
-<li>State the rejection criterion (<span class="math inline">\(\alpha\)</span>).</li>
-<li>State the null and alternative hypotheses to be tested and define the parameter(s).</li>
-<li>Identify (and explain why!) the hypothesis test to use (e.g., 1-Sample t, 2-sample t, etc.).</li>
-<li>Collect the data (address study type and if randomization occurred).</li>
-<li>Check all necessary assumptions (describe how you tested the validity).</li>
-<li>Calculate the appropriate statistic(s).</li>
-<li>Calculate the appropriate test statistic.</li>
-<li>Calculate the p-value.</li>
-<li>State your rejection decision about H<sub>0</sub>.</li>
-<li>Summarize your findings in terms of the problem.</li>
-<li>Compute and interpret an appropriate confidence region for the parameter.</li>
-</ol>
-<p>The order of some of these steps is arbitrary. However, Steps 1-3 <strong>MUST</strong> be completed before collecting data (Step 4). Further note that Step 11 is most important after H<sub>0</sub> was rejected to provide a more definitive statement about the value of the parameter (i.e., if the parameter differs from the hypothesized value, then provide a range for which the actual parameter may exist).</p>
+<div id="t1test" class="section level1" number="18">
+<h1><span class="header-section-number">Module 18</span> 1-Sample t-Test</h1>
+<p>Prior to this module, hypothesis testing methods required knowing <span class="math inline">\(\sigma\)</span>, which is a parameter that is seldom known. When <span class="math inline">\(\sigma\)</span> is replaced by its estimator, s, the test statistic follows a Student’s t rather than a standard normal (Z) distribution. In this module, the t-distribution is described and a 1-Sample t-Test for testing that the mean from one population equals a specific value is discussed.</p>
+<div id="t-distribution" class="section level2" number="18.1">
+<h2><span class="header-section-number">18.1</span> t-distribution</h2>
+<p>A t-distribution is similar to a standard normal distribution (i.e., N(0,1)) in that it is centered on 0 and is bell shaped (Figure <a href="t1test.html#fig:tvsZ">18.1</a>). The t-distribution differs from the standard normal distribution in that it is heavier in the tails, flatter near the center, and its exact dispersion is dictated by a quantity called the degrees-of-freedom (df). The t-distribution is “flatter and fatter” because of the uncertainty surrounding the use of s rather than <span class="math inline">\(\sigma\)</span> in the standard error calculation.<a href="#fn52" class="footnote-ref" id="fnref52"><sup>52</sup></a> The degrees-of-freedom are related to n and generally come from the denominator in the standard deviation calculation. As the degrees-of-freedom increase, the t-distribution becomes narrower, taller, and approaches the standard normal distribution (Figure <a href="t1test.html#fig:tvsZ">18.1</a>).</p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:tvsZ"></span>
+<img src="Book107_files/figure-html/tvsZ-1.png" alt="Standard normal (black) and t-distributions with varying degrees-of-freedom." width="336" />
+<p class="caption">
+Figure 18.1: Standard normal (black) and t-distributions with varying degrees-of-freedom.
+</p>
 </div>
-<div id="Specifics1Z" class="section level2" number="17.2">
-<h2><span class="header-section-number">17.2</span> 1-Sample Z-Test Specifics</h2>
-<p>A 1-Sample Z-Test tests H<sub>0</sub>:<span class="math inline">\(\mu=\mu_{0}\)</span>, where <span class="math inline">\(\mu_{0}\)</span> represents a specific value of <span class="math inline">\(\mu\)</span>, when <span class="math inline">\(\sigma\)</span> is known. Other specifics of this test were discussed in previous modules and are summarized below.</p>
+<p> </p>
+<p>Proportional areas on a t-distribution are computed using <code>distrib()</code> similar to what was described for a normal distribution in Modules <a href="NormalDist1.html#NormalDist1">6</a> and <a href="SamplingDist.html#SamplingDist">11</a>. The major exceptions for using <code>distrib()</code> with a t-distribution is that <code>distrib="t"</code> must be used and the degrees-of-freedom must be given in <code>df=</code> (how to find df is discussed in subsequent sections). For example, the area right of t=-1.456 on a t-distribution with 9 df is 0.9103 (Figure <a href="t1test.html#fig:tarea1">18.2</a>).</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb30-1"><a href="t1test.html#cb30-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">1.456</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">9</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:tarea1"></span>
+<img src="Book107_files/figure-html/tarea1-1.png" alt="Depiction of the area to the right of t=-1.456 on a t-distribution with 9 df." width="336" />
+<p class="caption">
+Figure 18.2: Depiction of the area to the right of t=-1.456 on a t-distribution with 9 df.
+</p>
+</div>
+<p> </p>
+<p>Similarly, the t with an upper-tail area of 0.95 on a t-distribution with 19 df is -1.729 (Figure <a href="t1test.html#fig:tstar1">18.3</a>).<a href="#fn53" class="footnote-ref" id="fnref53"><sup>53</sup></a></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb31-1"><a href="t1test.html#cb31-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">df=</span><span class="dv">19</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:tstar1"></span>
+<img src="Book107_files/figure-html/tstar1-1.png" alt="Depiction of the value of t with an area to the right of 0.95 on a t-distribution with 19 df." width="336" />
+<p class="caption">
+Figure 18.3: Depiction of the value of t with an area to the right of 0.95 on a t-distribution with 19 df.
+</p>
+</div>
+</div>
+<div id="Specifics1t" class="section level2" number="18.2">
+<h2><span class="header-section-number">18.2</span> 1-Sample t-Test Specifics</h2>
+<p>A 1-Sample t-Test is similar to a 1-Sample Z-test in that both test the same H<sub>0</sub>. The difference, as discussed above, is that when <span class="math inline">\(\sigma\)</span> is replaced by s, the test statistic becomes t and the scaling factor for confidence regions becomes a <span class="math inline">\(t^{*}\)</span>. Other aspects are similar between the two tests as shown below.<a href="#fn54" class="footnote-ref" id="fnref54"><sup>54</sup></a></p>
 <ul>
 <li><strong>Hypothesis:</strong> H<sub>0</sub>:<span class="math inline">\(\mu=\mu_{0}\)</span></li>
 <li><strong>Statistic:</strong> <span class="math inline">\(\bar{x}\)</span></li>
-<li><strong>Test Statistic:</strong> <span class="math inline">\(Z=\frac{\bar{x}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}\)</span></li>
-<li><strong>Confidence Region:</strong> <span class="math inline">\(\bar{x}+Z^{*}\frac{\sigma}{\sqrt{n}}\)</span></li>
+<li><strong>Test Statistic:</strong> <span class="math inline">\(t=\frac{\bar{x}-\mu_{0}}{\frac{s}{\sqrt{n}}}\)</span></li>
+<li><strong>Confidence Region:</strong> <span class="math inline">\(\bar{x}+t^{*}\frac{s}{\sqrt{n}}\)</span></li>
+<li><strong>df</strong>: n-1</li>
 <li><strong>Assumptions:</strong>
 <ul>
-<li><span class="math inline">\(\sigma\)</span> is known</li>
-<li>n≥30, n≥15 and the <strong>population</strong> is not strongly skewed, OR the <strong>population</strong> is normally distributed.</li>
+<li><span class="math inline">\(\sigma\)</span> is UNknown</li>
+<li>n≥40, n≥15 and the <strong>sample</strong> (i.e., histogram) is not strongly skewed, OR the <strong>sample</strong> is normally distributed.</li>
 </ul></li>
-<li><strong>Use with:</strong> Quantitative response, one group (or population), <span class="math inline">\(\sigma\)</span> known.</li>
+<li><strong>Use with:</strong> Quantitative response, one group (or population), <span class="math inline">\(\sigma\)</span> UNknown.</li>
 </ul>
-<p> </p>
-<p>The only test that can possibly be confused with a 1-Sample Z-Test is a 1-Sample t-Test (Module <a href="t1test.html#t1test">18</a>), which tests the same null hypothesis but when <span class="math inline">\(\sigma\)</span> is unknown.</p>
 </div>
-<div id="examples-1" class="section level2" number="17.3">
-<h2><span class="header-section-number">17.3</span> Examples</h2>
-<div id="intra-class-travel" class="section level3" number="17.3.1">
-<h3><span class="header-section-number">17.3.1</span> Intra-class Travel</h3>
+<div id="examples-2" class="section level2" number="18.3">
+<h2><span class="header-section-number">18.3</span> Examples</h2>
+<div id="purchase-catch-of-salmon" class="section level3" number="18.3.1">
+<h3><span class="header-section-number">18.3.1</span> Purchase Catch of Salmon?</h3>
 <p>Below are the 11-steps (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) for completing a full hypothesis test for the following situation:</p>
 <blockquote>
-<p><em>A dean wants to determine if it takes more than 10 minutes, on average, to go between classes. To test this hypothesis, she collected a random sample of 100 intra-class travel times and found a mean of 10.12 mins. Assume from previous studies that the distribution of intra-class times is symmetric with a standard deviation of 1.60 mins. Test the dean’s hypothesis with <span class="math inline">\(\alpha\)</span>=0.10.</em></p>
+<p><em>A prospective buyer will buy a catch of several thousand salmon if the mean weight of all salmon in the catch is at least 19.9 lbs. A random selection of 50 salmon had a mean of 20.1 and a standard deviation of 0.76 lbs. Should the buyer accept the catch at the 5% level?</em></p>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(\alpha\)</span>=0.10.</li>
-<li>H<sub>0</sub>:<span class="math inline">\(\mu\)</span>=10 mins vs. H<sub>A</sub>:<span class="math inline">\(\mu\)</span>&gt;10 mins, where <span class="math inline">\(\mu\)</span> is the mean time for ALL intra-class travel events.</li>
-<li>A 1-Sample Z-Test is required because (i) a quantitative variable (intra-class travel time) was measured, (ii) individuals from one group (or population) is considered (students at the Dean’s school), and (iii) <span class="math inline">\(\sigma\)</span> is thought to be known (=1.60 mins).</li>
-<li>The data appear to be part of an observational study (the dean did not impart any conditions on the students) with a random selection of individuals.</li>
-<li>The assumptions are met because …
-<ol style="list-style-type: decimal">
-<li>n=100≥30, and</li>
-<li><span class="math inline">\(\sigma\)</span> is thought to be known (=1.60 mins).</li>
+<li><span class="math inline">\(\alpha\)</span>=0.05.</li>
+<li>H<sub>0</sub>:<span class="math inline">\(\mu\)</span>=19.9 lbs vs. H<sub>A</sub>:<span class="math inline">\(\mu\)</span> &gt;19.9 lbs where <span class="math inline">\(\mu\)</span> is the mean weight of ALL salmon in the catch.</li>
+<li>A 1-Sample t-Test is required because …
+<ol style="list-style-type: lower-roman">
+<li>a quantitative variable (weight) was measured,</li>
+<li>individuals from one group (or population) were considered (this catch of salmon), and</li>
+<li><span class="math inline">\(\sigma\)</span> is <strong>UN</strong>known.<a href="#fn55" class="footnote-ref" id="fnref55"><sup>55</sup></a></li>
 </ol></li>
-<li><span class="math inline">\(\bar{x}\)</span>=10.12.</li>
-<li>Z=<span class="math inline">\(\frac{10.12-10}{\frac{1.60}{\sqrt{100}}}\)</span>=<span class="math inline">\(\frac{0.12}{0.16}\)</span>=0.75.</li>
-<li>p-value=0.2266.</li>
-<li>H<sub>0</sub> is not rejected because the p-value&gt;<span class="math inline">\(\alpha\)</span>=0.10.</li>
-<li>It appears that the mean time for <strong>all</strong> intra-class travel events is not more than 10 minutes.</li>
-<li>A 90% lower confidence bound will use <span class="math inline">\(Z^{*}\)</span>=-1.282. The lower confidence bound is thus 10.12-1.282×<span class="math inline">\(\frac{1.60}{\sqrt{100}}\)</span>=9.91. Thus, I am 90% confident that the mean intra-class travel time is more than 9.91 minutes; further evidence that the mean intra-class travel time is not greater than 10 minutes.</li>
+<li>The data appear to be part of an observational study with random selection.</li>
+<li>The assumptions are met because …
+<ol style="list-style-type: lower-roman">
+<li>n=50≥40 and</li>
+<li><span class="math inline">\(\sigma\)</span> is unknown.</li>
+</ol></li>
+<li><span class="math inline">\(\bar{x}\)</span> = 20.1 lbs (and s = 0.76 lbs).</li>
+<li>t = <span class="math inline">\(\frac{20.1-19.9}{\frac{0.76}{\sqrt{50}}}\)</span> = <span class="math inline">\(\frac{0.2}{0.107}\)</span> = 1.87 with df = 50-1 = 49.</li>
+<li>p-value = 0.0337.</li>
+<li>H<sub>0</sub>: is rejected because the p-value &lt;<span class="math inline">\(\alpha\)</span>.</li>
+<li>The average weight of ALL salmon in this catch appears to be greater than 19.9 lbs; thus, the buyer should accept this catch of salmon.</li>
+<li>I am 95% confident that the mean weight of ALL salmon in the catch is greater than 19.92 lbs (i.e., 20.1-1.677×<span class="math inline">\(\frac{0.76}{\sqrt{50}}\)</span> = 20.1-0.18 = 19.92).</li>
 </ol>
-<div id="r-appendix" class="section level4 unnumbered">
+<div id="r-appendix-1" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb26-1"><a href="Ztest.html#cb26-1" aria-hidden="true" tabindex="-1"></a>( z <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">10.12</span>,<span class="at">mean=</span><span class="dv">10</span>,<span class="at">sd=</span><span class="fl">1.60</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">100</span>),<span class="at">lower.tail=</span><span class="cn">FALSE</span>) ) <span class="co">#p-value</span></span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-28-1.png" width="336" style="display: block; margin: auto;" /></p>
-<pre class="ROUTPUT"><code>#R&gt;   [1] 0.2266274</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb28-1"><a href="Ztest.html#cb28-1" aria-hidden="true" tabindex="-1"></a>( zstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )               <span class="co">#z-star</span></span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-28-2.png" width="336" style="display: block; margin: auto;" /></p>
-<pre class="ROUTPUT"><code>#R&gt;   [1] -1.281552</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb32-1"><a href="t1test.html#cb32-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">1.87</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">49</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-29-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb33-1"><a href="t1test.html#cb33-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">df=</span><span class="dv">49</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-29-2.png" width="336" style="display: block; margin: auto;" /></p>
+<p> </p>
+</div>
+</div>
+<div id="body-temperature" class="section level3" number="18.3.2">
+<h3><span class="header-section-number">18.3.2</span> Body Temperature</h3>
+<p>Below are the 11-steps (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) for completing a full hypothesis test for the following situation:</p>
+<blockquote>
+<p>*Machowiak et al. (1992) critically examined the belief that the mean body temperature is 98.6<sup>o</sup>F by measuring body temperatures in a sample of healthy humans. Use their results in Table <a href="t1test.html#tab:1ttemp">18.1</a> to determine at the 1% level if the mean body temperature differs from 98.6<sup>o</sup>F.</p>
+</blockquote>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:1ttemp">Table 18.1: </span>Descriptive statistics from measuring the body temperature of a sample of healthy humans.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;font-weight: bold;">
+n
+</th>
+<th style="text-align:center;font-weight: bold;">
+mean
+</th>
+<th style="text-align:center;font-weight: bold;">
+sd
+</th>
+<th style="text-align:center;font-weight: bold;">
+min
+</th>
+<th style="text-align:center;font-weight: bold;">
+Q1
+</th>
+<th style="text-align:center;font-weight: bold;">
+median
+</th>
+<th style="text-align:center;font-weight: bold;">
+Q3
+</th>
+<th style="text-align:center;font-weight: bold;">
+max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 0.6in; ">
+130
+</td>
+<td style="text-align:center;width: 0.6in; ">
+98.25
+</td>
+<td style="text-align:center;width: 0.6in; ">
+0.73
+</td>
+<td style="text-align:center;width: 0.6in; ">
+96.3
+</td>
+<td style="text-align:center;width: 0.6in; ">
+97.8
+</td>
+<td style="text-align:center;width: 0.6in; ">
+98.3
+</td>
+<td style="text-align:center;width: 0.6in; ">
+98.7
+</td>
+<td style="text-align:center;width: 0.6in; ">
+100.8
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\alpha\)</span>=0.01.</li>
+<li>H<sub>0</sub>:<span class="math inline">\(\mu\)</span>=98.6<sup>o</sup>F vs. H<sub>A</sub>:<span class="math inline">\(\mu\)</span>$$98.6<sup>o</sup>F, where <span class="math inline">\(\mu\)</span> is the mean body temperature for ALL healthy humans. [<em>Note that not equals was used because the researchers want to determine if the temperature is different from <span class="math inline">\(98.6\)</span><sup>o</sup>F.</em>]</li>
+<li>A 1-Sample t-Test is required because …
+<ol style="list-style-type: lower-roman">
+<li>a quantitative variable (i.e., body temperature) was measured,</li>
+<li>individuals from one group (or population) is considered (i.e., healthy humans), and</li>
+<li><span class="math inline">\(\sigma\)</span> is unknown (i.e., not given in the background).</li>
+</ol></li>
+<li>The data appear to be part of an observational study although this is not made clear in the background information. There is also no evidence that randomization was used.</li>
+<li>The assumptions are met because …
+<ol style="list-style-type: lower-roman">
+<li>n=130≥40 and</li>
+<li><span class="math inline">\(\sigma\)</span> is unknown.</li>
+</ol></li>
+<li><span class="math inline">\(\bar{x}\)</span> = 98.25<sup>o</sup>F.</li>
+<li>t = <span class="math inline">\(\frac{98.25-98.6}{\frac{0.73}{\sqrt{130}}}\)</span> = <span class="math inline">\(\frac{-0.35}{0.064}\)</span> = -5.469 with df = 130-1 = 129.</li>
+<li>p-value=0.0000002. [<em>Note that the result of <code>distrib()</code> is multiplied by 2 because of the not equals H<sub>A</sub>.</em>]</li>
+<li>Reject H<sub>0</sub> because p-value&lt;<span class="math inline">\(\alpha\)</span>=0.01.</li>
+<li>It appears that the mean body temperature of ALL healthy humans is less than 98.6<sup>o</sup>F. [<em>Note that the test was for a difference but because <span class="math inline">\(\bar{x}\)</span>&lt;98.6 this more specific conclusion can be made.</em>]</li>
+<li>I am 99% confident that the mean body temperature (<span class="math inline">\(\mu\)</span>) for ALL healthy humans is between 98.08<sup>o</sup>C (=98.25-2.614×0.064) and 98.42<sup>o</sup>C (=98.25+2.614×0.064). [<em>Note that the area in <code>distrib()</code> is <span class="math inline">\(1-\frac{\alpha}{2}\)</span> because of the not equals H<sub>A</sub>:.</em>]</li>
+</ol>
+<div id="r-appendix-2" class="section level4 unnumbered">
+<h4>R Appendix:</h4>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb34-1"><a href="t1test.html#cb34-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">5.469</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">130</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-30-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb35-1"><a href="t1test.html#cb35-1" aria-hidden="true" tabindex="-1"></a>(tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.995</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">130</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-30-2.png" width="336" style="display: block; margin: auto;" /></p>
+<p> </p>
 
 </div>
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="52">
+<li id="fn52"><p>Recall that the sample standard deviation is a statistic and is thus subject to sampling variability.<a href="t1test.html#fnref52" class="footnote-back">↩︎</a></p></li>
+<li id="fn53"><p>This “reverse” calculation would be <span class="math inline">\(t^{*}\)</span> for a 95% lower confidence bound.<a href="t1test.html#fnref53" class="footnote-back">↩︎</a></p></li>
+<li id="fn54"><p>Compare these specifics to those for a 1-Sample Z-test in Section <a href="Ztest.html#Specifics1Z">17.2</a>.<a href="t1test.html#fnref54" class="footnote-back">↩︎</a></p></li>
+<li id="fn55"><p>If <span class="math inline">\(\sigma\)</span> is given, then it will appear in the background information to the question and will be in a sentence that uses the words “population,” “assume that,” or “suppose that.”<a href="t1test.html#fnref55" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ConfRegions2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="t1test.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="Ztest.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

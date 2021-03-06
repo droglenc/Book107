@@ -106,6 +106,10 @@ tab:Calpha
 tab:HAsCI
 fig:CIboundsZ
 fig:CIAlt1
+fig:tvsZ
+fig:tarea1
+fig:tstar1
+tab:1ttemp
 WhyStats
 sect:Realities
 major-goals-of-statistics
@@ -222,6 +226,12 @@ precision-and-sample-size
 inference-type-relationship
 Ztest
 Hyp11Steps
-sample-z-test-specifics
+Specifics1Z
 examples-1
 intra-class-travel
+t1test
+t-distribution
+Specifics1t
+examples-2
+purchase-catch-of-salmon
+body-temperature
