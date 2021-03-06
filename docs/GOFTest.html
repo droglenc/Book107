@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Module 20 Chi-Square Test | Readings for MTH107</title>
+  <title>Module 21 Goodness-of-Fit Test | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Module 20 Chi-Square Test | Readings for MTH107" />
+  <meta property="og:title" content="Module 21 Goodness-of-Fit Test | Readings for MTH107" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://derekogle.com/Book107/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="droglenc/Book107" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Module 20 Chi-Square Test | Readings for MTH107" />
+  <meta name="twitter:title" content="Module 21 Goodness-of-Fit Test | Readings for MTH107" />
   
   <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="t2test.html"/>
-<link rel="next" href="GOFTest.html"/>
+<link rel="prev" href="ChiSquare.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -287,299 +287,282 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ChiSquare" class="section level1" number="20">
-<h1><span class="header-section-number">Module 20</span> Chi-Square Test</h1>
-<p>Situations where a categorical response variable is recorded would be summarized with a frequency or percentage table (see Modules <a href="UnivSum.html#UnivSum">4</a> and <a href="BEDACat.html#BEDACat">10</a>). The appropriate test statistic in these situations is a chi-square rather than a t. The Chi-Square Test test statistic follows a chi-square distribution, which is introduced below. The rest of this module is dedicated to the general Chi-Square Test where the distribution of a categorical response variable is compared between two or more groups (or populations). The related goodness-of-fit test for a categorical response recorded for only one group (or population) is introduced in Module <a href="GOFTest.html#GOFTest">21</a>.</p>
-<div id="chi-square-distribution" class="section level2" number="20.1">
-<h2><span class="header-section-number">20.1</span> Chi-Square Distribution</h2>
-<p>A chi-square (<span class="math inline">\(\chi^2\)</span>) distribution is generally right-skewed (Figure <a href="ChiSquare.html#fig:chiDist">20.1</a>), with the exact shape dictated by the degrees-of-freedom (df); as the df increase the sharpness of the skew decreases (Figure <a href="ChiSquare.html#fig:chiDist">20.1</a>). In its simplest form, the <span class="math inline">\(\chi^2\)</span> distribution arises as a sampling distribution for the <span class="math inline">\(\chi^2\)</span> test statistic,</p>
-<p><span class="math display">\[ \chi^{2} = \sum_{cells}\frac{(Observed-Expected)^{2}}{Expected} \]</span></p>
-<p>where “Observed” and “Expected” represent the observed and expected counts in the cells of frequency tables (see Module <a href="UnivSum.html#UnivSum">4</a> and Module <a href="BEDACat.html#BEDACat">10</a>). Thus, the <span class="math inline">\(\chi^2\)</span> distribution arises from comparing frequencies in two tables.<a href="#fn57" class="footnote-ref" id="fnref57"><sup>57</sup></a></p>
-<p> </p>
-<div class="figure" style="text-align: center"><span id="fig:chiDist"></span>
-<img src="Book107_files/figure-html/chiDist-1.png" alt="$\chi^2$ distributions with varying degrees-of-freedom." width="336" />
-<p class="caption">
-Figure 20.1: <span class="math inline">\(\chi^2\)</span> distributions with varying degrees-of-freedom.
-</p>
+<div id="GOFTest" class="section level1" number="21">
+<h1><span class="header-section-number">Module 21</span> Goodness-of-Fit Test</h1>
+<p>It is common to determine if the frequency of individuals in the levels of a categorical response variable follow frequencies suggested by a particular theory or distribution. The simplest of these situations occurs when a researcher is making a hypothesis about the percentage or proportion of individuals in one of two categories. The “distribution” of individuals in two categories comes from the proportion in the hypothesis for one category and one minus the proportion in the hypothesis for the other category. In situations with more than two levels, the “distribution” of individuals into the categories likely comes from the hypothesis that a particular theoretical distribution holds true. For example, a researcher may want to determine if frequencies predicted from a certain genetic theory are upheld by the observed frequencies found in a breeding experiment, if the frequency that a certain animal uses habitats is in proportion to the availability of those habitats, or if the frequency of consumers that show a preference for a certain product (over other comparable products) is non-random.</p>
+<p>In each of these cases, the theoretical distribution articulated in the research hypothesis must be converted to statistical hypotheses that will then be used to generate expected frequencies for each level. These expected frequencies will then be statistically compared to the observed frequencies to determine if the theoretical distribution represented in the null hypothesis is supported by the data. The method used for comparing the observed to expected frequencies, where the expected frequencies come from a hypothesized theoretical distribution, is a Goodness-of-Fit Test, the subject of this module.</p>
+<div id="goodness-of-fit-test-specifics" class="section level2" number="21.1">
+<h2><span class="header-section-number">21.1</span> Goodness-of-Fit Test Specifics</h2>
+<div id="the-hypotheses" class="section level3" number="21.1.1">
+<h3><span class="header-section-number">21.1.1</span> The Hypotheses</h3>
+<p>A Goodness-of-Fit Test is used when a single categorical variable has been recorded and the frequency of individuals in the levels of this variable are to be compared to a theoretical distribution. In its most general form the statistical hypotheses for the Goodness-of-Fit Test will be “wordy,” relating whether the “distribution” of individuals into the levels of the response variable follows a specific theoretical distribution or not. The null hypothesis will generally be like H<sub>0</sub>:“the distribution of individuals into the levels follows the ‘theoretical distribution’,” where ‘theoretical distribution’ will likely be replaced with more specific language. For example, the research hypothesis that states that “50% of students at Northland are from Wisconsin, 25% are from neighboring states, and 25% are from other states” would be converted to H<sub>0</sub>:“the proportion of students from Wisconsin, neighboring states, and other states is 0.50, 0.25, and 0.25, respectively” with an H<sub>A</sub>:“the proportion of students from Wisconsin, neighboring states, and other states is NOT 0.50, 0.25, and 0.25, respectively.”</p>
+<p>The hypotheses are simpler, but you must be more careful, when there are only two levels of the response variable. For example, a research hypothesis of “less than 40% of new-born bear cubs are female” would be converted to H<sub>0</sub>:“the proportion of bear cubs that are female and male is 0.40 and 0.60, respectively” with an H<sub>A</sub>:“the proportion of bear cubs that are female and male is NOT 0.40 and 0.60, respectively.” However, these hypotheses are often simplified to focus on only one level as the other level is implied by subtraction from one. Thus, these hypotheses are more likely to be written as H<sub>0</sub>:“the proportion of bear cubs that are female is 0.40” with an H<sub>A</sub>:“the proportion of bear cubs that are female is NOT 0.40.”</p>
+<p>One may also have expected, from the wording of the research hypothesis about the sex of bear cubs, that the alternative hypothesis would have been H<sub>A</sub>:“the proportion of bear cubs that are female is LESS THAN 0.40.” Recall from Section <a href="ChiSquare.html#chi-square-distribution">20.1</a>, however, that the chi-square test statistic always represents a two-tailed situation. Thus, the H<sub>0</sub> here reflects that constraint. The researcher will ultimately be able to determine if the proportion is less than 0.40 if the p-value from the Goodness-of-Fit Test indicates a difference and the observed proportion of female bear cubs is less than 0.40.</p>
 </div>
-<p> </p>
-<p>Unlike the normal and t distributions, the <span class="math inline">\(\chi^2\)</span> distribution always represents the two-tailed situation, although the “two tails” will appear as one tail on the right side of the distribution. The simplest explanation for this characteristic is that the “squaring” in the calculation of the <span class="math inline">\(\chi^{2}\)</span> test statistic results in what would be a “negative tail” being “folded over” onto what is the “positive tail.” Thus, all probability (i.e., area) calculations on a <span class="math inline">\(\chi^{2}\)</span> distribution represent the two-tailed alternative hypotheses.</p>
-<p>Proportional areas on a <span class="math inline">\(\chi^2\)</span> distribution are computed with <code>disrib()</code>. The major differences with a <span class="math inline">\(\chi^2\)</span> distribution is that <code>distrib="chisq"</code> must be used in <code>distrib()</code> and the degrees-of-freedom must be given to <code>df=</code> (how to find the df will be discussed in subsequent sections). In addition, <code>lower.tail=FALSE</code> is always used when computing a p-value because the upper-tail probability represents the two-tailed alternative hypothesis inherent to all Chi-Square Tests. For example, the area right of <span class="math inline">\(\chi^2=6.456\)</span> on a <span class="math inline">\(\chi^2\)</span> distribution with 2 df is 0.0396 (Figure <a href="ChiSquare.html#fig:chiarea1">20.2</a>).</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb40-1"><a href="ChiSquare.html#cb40-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">6.456</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">2</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:chiarea1"></span>
-<img src="Book107_files/figure-html/chiarea1-1.png" alt="Depiction of the area to the right of $\chi^2=6.456$ on a $\chi^2$ distribution with 2 df." width="336" />
-<p class="caption">
-Figure 20.2: Depiction of the area to the right of <span class="math inline">\(\chi^2=6.456\)</span> on a <span class="math inline">\(\chi^2\)</span> distribution with 2 df.
-</p>
-</div>
-</div>
-<div id="chi-square-test-specifics" class="section level2" number="20.2">
-<h2><span class="header-section-number">20.2</span> Chi-Square Test Specifics</h2>
-<p>Researchers commonly want to compare the distribution of individuals into the levels of a categorical variable among two or more groups (or populations). For example, researchers may want to determine if the distribution of failing students differs between males and females, if the distribution of kids playing sports differs between kids from high- or low-income families, if the distribution of four major plant species differs between two locations, or if the distribution of responses to a five-choice question differs between respondents from neighboring counties. All of these questions have a categorical response variable (fail or not, play sport or not, plant species, answer to five-choice question) compared among two or more groups (gender, income category, two locations, neighboring counties). The Chi-Square Test, the subject of this module, can be used for each of these situations.<a href="#fn58" class="footnote-ref" id="fnref58"><sup>58</sup></a></p>
-<div id="hypotheses" class="section level3" number="20.2.1">
-<h3><span class="header-section-number">20.2.1</span> Hypotheses</h3>
-<p>The statistical hypotheses for a Chi-Square Test are “wordy.” To explore this, let’s first assume that a two-way frequency table (see Module <a href="BEDACat.html#BEDACat">10</a>) will summarize the data where the rows correspond to separate groups and the columns correspond to levels of the response variable. In this organization, the Chi-Square Test null hypothesis is that the row percentages are equal – i.e., “the percentage distribution of individuals into the levels of the response variable is the same for all groups.” The alternative hypothesis states that there is some difference among the row percentages – i.e., “the percentage distribution of individuals into the levels of the response variable is NOT the same for all groups.”</p>
-<p>As one example (more are shown below), consider the following:</p>
+<div id="the-tables" class="section level3" number="21.1.2">
+<h3><span class="header-section-number">21.1.2</span> The Tables</h3>
+<p>For a Goodness-of-Fit Test, the data are summarized in an observed frequency table as in Module <a href="UnivSum.html#UnivSum">4</a>. Additionally, a table of expected frequencies must be constructed from the theoretical distribution in the null hypothesis and the total number of observed individuals (n). Specifically, the expected frequencies are found by multiplying the expected proportions from the theoretical distribution in the null hypothesis by n. For example, consider this situation:</p>
 <blockquote>
-<p><em>An association of Christmas tree growers in Indiana sponsored a survey of Indiana households to help improve the marketing of Christmas trees. Of the 261 rural households, 64 had a natural tree (as compared to an artificial tree). Of the 160 urban households, 89 had a natural tree. Use these results to determine, at the 10% level, if the distribution of households with a natural tree differed between rural and urban households.</em></p>
+<p><em><a href="http://www.jstor.org/stable/3782723">Bath and Buchanan (1989)</a> surveyed residents of Wyoming by distributing a mailing to random residents and collecting voluntarily returned surveys. One question asked of the respondents was, “Do you strongly agree, agree, neither agree or disagree, disagree, or strongly disagree with this statement? – ‘Wolves would have a significant impact on big game hunting opportunities near Yellowstone National Park.’” The researchers hypothesized that more than 50% of Wyoming residents would either disagree or strongly disagree with the statement. Of the 371 residents that returned the survey, 153 disagreed and 43 strongly disagreed with the statement.</em></p>
 </blockquote>
-<p>The hypotheses for this situation are,</p>
-<ul>
-<li>H<sub>0</sub>: “the distrubution of households into the tree types is the same for urban and rural households”</li>
-<li>H<sub>A</sub>: “the distrubution of households into the tree types is NOT the same for urban and rural households”</li>
-</ul>
+<p>At first glance it may seem that this variable has five levels – i.e., the levels of agreement offered in the actual survey. However, the researcher’s hypothesis collapsed the results of the survey question into two levels: (1) strongly disagree or disagree combined and (2) all other responses. Thus, the statistical hypotheses for this situation are H<sub>0</sub>:“the proportion of respondents that disagreed or strongly disagreed is 0.50” and H<sub>A</sub>:“the proportion of respondents that disagreed or strongly disagreed is NOT 0.50.”</p>
+<p>The expected frequencies in each level are derived from the total number of individuals examined and the specific null hypothesis. For example, if the null hypothesis is true, then 50% of the 371 respondents would be expected to disagree or strongly disagree with the statement. In other words, 371×0.50=185.5 individuals would be expected to disagree or strongly disagree. Furthermore, the other 50%, or 371×(1-0.50)=185.5 would be expected to “not” disagree or strongly disagree. These expectations are summarized in Table <a href="GOFTest.html#tab:WYOtable">21.1</a>.</p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:WYOtable">Table 21.1: </span>Expected and observed frequency of respondents that disagreed or strongly disagreed (i.e., labeled as ‘Disagree’) with the given statement in the Wyoming survey example.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+Category
+</th>
+<th style="text-align:right;font-weight: bold;">
+Expected
+</th>
+<th style="text-align:right;font-weight: bold;">
+Observed
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 1.3in; font-weight: bold;">
+Disagree
+</td>
+<td style="text-align:right;width: 0.75in; ">
+185.5
+</td>
+<td style="text-align:right;width: 0.75in; ">
+196
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1.3in; font-weight: bold;">
+Not Disagree
+</td>
+<td style="text-align:right;width: 0.75in; ">
+185.5
+</td>
+<td style="text-align:right;width: 0.75in; ">
+175
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 1.3in; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+371.0
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+371
+</td>
+</tr>
+</tbody>
+</table>
+<div class="tip">
+<p>The expected table should maintain at least one decimal in each cell even though the values represent frequencies.</p>
 </div>
-<div id="tables" class="section level3" number="20.2.2">
-<h3><span class="header-section-number">20.2.2</span> Tables</h3>
-<p>As noted above, all two-way frequency tables used for a Chi-Square Test will be organized such that the response variable forms the columns and the groups to be compared form the rows. With this organization, the row-percentage table becomes the table of primary interest because it relates directly to the hypotheses described above. The question of a Chi-Square Test then becomes one of determining whether each row of the row-percentage table is equal, given sampling variability.</p>
-<p>The observed raw data must be organized into a two-way frequency table as described in Module <a href="BEDACat.html#BEDACat">10</a>. For example, the Christmas tree data is summarized as in Table <a href="ChiSquare.html#tab:ChiTreeObs">20.1</a>. The actual calculations for a Chi-Square Test are performed on this observed table. However, the hypothesis test, as described above, is best viewed as a method to determine if each row of the row-percentage table is statistically equivalent or not. Thus, the row-percentage table computed from the frequency table is useful when interpreting the results of a Chi-Square Test (Table <a href="ChiSquare.html#tab:ChiTreeObsPerc">20.2</a>).</p>
-<p> </p>
-<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:ChiTreeObs">Table 20.1: </span>Frequency of individuals in urban and rural households that have a natural or an artificial Christmas tree.
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;font-weight: bold;">
-</th>
-<th style="text-align:right;font-weight: bold;">
-Natural
-</th>
-<th style="text-align:right;font-weight: bold;">
-Artificial
-</th>
-<th style="text-align:right;font-weight: bold;">
-Sum
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;font-weight: bold;width: 0.75in; ">
-Urban
-</td>
-<td style="text-align:right;width: 0.75in; ">
-89
-</td>
-<td style="text-align:right;width: 0.75in; ">
-172
-</td>
-<td style="text-align:right;font-weight: bold;width: 0.75in; ">
-261
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;width: 0.75in; ">
-Rural
-</td>
-<td style="text-align:right;width: 0.75in; ">
-64
-</td>
-<td style="text-align:right;width: 0.75in; ">
-96
-</td>
-<td style="text-align:right;font-weight: bold;width: 0.75in; ">
-160
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;font-weight: bold;width: 0.75in; ">
-Sum
-</td>
-<td style="text-align:right;font-weight: bold;width: 0.75in; ">
-153
-</td>
-<td style="text-align:right;font-weight: bold;width: 0.75in; ">
-268
-</td>
-<td style="text-align:right;font-weight: bold;font-weight: bold;width: 0.75in; ">
-421
-</td>
-</tr>
-</tbody>
-</table>
-<p> </p>
-<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>
-<span id="tab:ChiTreeObsPerc">Table 20.2: </span>Percentage of individuals within urban and rural households that have a natural or an artificial Christmas tree.
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;font-weight: bold;">
-</th>
-<th style="text-align:right;font-weight: bold;">
-Natural
-</th>
-<th style="text-align:right;font-weight: bold;">
-Artificial
-</th>
-<th style="text-align:right;font-weight: bold;">
-Sum
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;font-weight: bold;width: 0.75in; ">
-Urban
-</td>
-<td style="text-align:right;width: 0.75in; ">
-34.1
-</td>
-<td style="text-align:right;width: 0.75in; ">
-65.9
-</td>
-<td style="text-align:right;font-weight: bold;width: 0.75in; ">
-100
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;width: 0.75in; ">
-Rural
-</td>
-<td style="text-align:right;width: 0.75in; ">
-40.0
-</td>
-<td style="text-align:right;width: 0.75in; ">
-60.0
-</td>
-<td style="text-align:right;font-weight: bold;width: 0.75in; ">
-100
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;font-weight: bold;width: 0.75in; ">
-ALL
-</td>
-<td style="text-align:right;font-weight: bold;width: 0.75in; ">
-36.3
-</td>
-<td style="text-align:right;font-weight: bold;width: 0.75in; ">
-63.7
-</td>
-<td style="text-align:right;font-weight: bold;font-weight: bold;width: 0.75in; ">
-100
-</td>
-</tr>
-</tbody>
-</table>
-<p> </p>
-<p>The Chi-Square Test requires constructing a table of expected values that are derived from the null hypothesis. Specifically, the “expected” table contains the expected frequency of individuals in each level of the response variable for each group assuming that the distribution of responses does not differ among groups. These expected tables are computed from the margins of the observed table, but are best explained with an illustrative example.</p>
-<p>In the Christmas tree example, the null hypothesis states that there is no difference in the distribution of households with a natural tree between the rural and urban areas. Thus, under this null hypothesis, one would expect the proportion (or percentage) of households with a natural tree to be the same in both groups. The proportion of households with a natural tree, regardless of location, is <span class="math inline">\(\frac{153}{421}\)</span>=<span class="math inline">\(0.363\)</span>. Thus, under the null hypothesis, the proportion of rural AND the proportion of urban households with a natural tree is 0.363. Because there is a different number of urban and rural households in the study, the actual NUMBER (rather than proportion) of households expected to have a natural tree will differ. The NUMBER of urban households expected to HAVE a natural tree is found by multiplying the number of urban households by the common proportion computed above – i.e., 261×0.363=94.743. The remaining urban households would be expected to NOT have a natural tree – i.e., 261-94.743=261×(1-0.363)=166.257. Similar calculations are made for the rural households (i.e., 160×0.363=58.080 expected to have a natural tree and 160×(1-0.363)=101.920 expected to NOT have a natural tree.</p>
-<p>These expected frequencies are computed directly and easily from the marginal totals of the observed frequency table (Table <a href="ChiSquare.html#tab:ChiTreeObs">20.1</a>). For example, substituting the fractional representation of the decimal proportions into the calculation of the expected number of urban households with a natural tree gives 261×<span class="math inline">\(\frac{153}{421}\)</span>=<span class="math inline">\(\frac{261\times153}{421}\)</span>=94.853<a href="#fn59" class="footnote-ref" id="fnref59"><sup>59</sup></a>. A close examination of this formula and the marginal totals in Table <a href="ChiSquare.html#tab:ChiTreeObs">20.1</a> shows that this value is equal to the product of the corresponding row and column marginal totals in the observed table divided by the total number of individuals. The other expected values follow a similar pattern as follows,</p>
+<p>Consider the following situation where construction of expected frequencies is bit more complex.</p>
+<blockquote>
+<p><em>Mendel’s law of independent assortment predicts that the phenotypes (i.e., how they look) of the offspring from mating the offspring of a dihybrid cross of homozygous dominant and homozygous recessive parents should follow a 9:3:3:1 ratio. In an experiment to test this, Mendel crossed a pea plant that produces round, yellow seeds (i.e., all dominant alleles, YYWW) with a pea plant that produces green, wrinkled seeds (i.e., all recessive alleles, yyww) such that only round, yellow heterozygous offspring (i.e., YyWw) were produced. Pairs of these offspring were then bred. Mendel’s theory says that <span class="math inline">\(\frac{9}{16}\)</span> of these offspring should be round, yellow; <span class="math inline">\(\frac{3}{16}\)</span> should be round, green; <span class="math inline">\(\frac{3}{16}\)</span> should be wrinkled, yellow; and <span class="math inline">\(\frac{1}{16}\)</span> should be wrinkled, green. Of 566 seeds studied in this experiment, Mendel found that 315 were round, yellow; 108 were round, green; 101 were wrinkled, yellow; and 32 were wrinkled, green. Use these results to determine, at the 5% level, if Mendel’s law of independent assortment is supported by these results.</em></p>
+</blockquote>
+<p>The statistical hypotheses are as follows,</p>
 <ul>
-<li>261×<span class="math inline">\(\frac{268}{421}=\frac{261\times268}{421}\)</span>=166.147 urban households to NOT have a natural tree.</li>
-<li>160×<span class="math inline">\(\frac{153}{421}=\frac{160\times153}{421}\)</span>=58.147 rural households to have a natural tree.</li>
-<li>160×<span class="math inline">\(\frac{268}{421}=\frac{160\times268}{421}\)</span>=101.853 rural households to NOT have a natural tree.</li>
+<li>H<sub>0</sub>:“the proportion of RY, RG, WY, and WG individuals will be <span class="math inline">\(\frac{9}{16}\)</span>, <span class="math inline">\(\frac{3}{16}\)</span>, <span class="math inline">\(\frac{3}{16}\)</span>, and <span class="math inline">\(\frac{1}{16}\)</span>, respectively”</li>
+<li>H<sub>A</sub>:“the proportion of RY, RG, WY, and WG individuals will NOT be <span class="math inline">\(\frac{9}{16}\)</span>, <span class="math inline">\(\frac{3}{16}\)</span>, <span class="math inline">\(\frac{3}{16}\)</span>, and <span class="math inline">\(\frac{1}{16}\)</span>, respectively”</li>
 </ul>
-<p>Thus, all expected values in a Chi-Square Test are calculated by multiplying the row and column totals of the frequency table and dividing by the total number of individuals. These expected values are summarized in a two-way table, called the expected frequencies table (Table <a href="ChiSquare.html#tab:ChiTreeExp">20.3</a>)</p>
-<p> </p>
+<p>where RY=“round, yellow,” RG=“round, green,” WY=“wrinkled, yellow,” and WG=“wrinkled, green.” If these proportions are applied to the n=566 observed offspring, then the following frequencies for each phenotype would be expected:</p>
+<ul>
+<li><span class="math inline">\(\frac{9}{16}\)</span>×566 = 318.375 would be expected to be round, yellow.</li>
+<li><span class="math inline">\(\frac{3}{16}\)</span>×566 = 106.125 would be expected to be round, green.</li>
+<li><span class="math inline">\(\frac{3}{16}\)</span>×566 = 106.125 would be expected to be wrinkled, yellow.</li>
+<li><span class="math inline">\(\frac{1}{16}\)</span>×566 = 35.375 would be expected to be wrinkled, green.</li>
+</ul>
+<p>These expected frequencies are summarized in Table <a href="GOFTest.html#tab:PEAtable">21.2</a>.</p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:ChiTreeExp">Table 20.3: </span>Expected frequency of individuals in urban and rural households that have a natural or an artificial Christmas tree.
+<span id="tab:PEAtable">Table 21.2: </span>Expected and observed frequency of 566 pea seeds in four types.
 </caption>
 <thead>
 <tr>
 <th style="text-align:left;font-weight: bold;">
+Category
 </th>
 <th style="text-align:right;font-weight: bold;">
-Natural
+Expected
 </th>
 <th style="text-align:right;font-weight: bold;">
-Artificial
-</th>
-<th style="text-align:right;font-weight: bold;">
-Sum
+Observed
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;font-weight: bold;width: 0.8in; ">
-Urban
+<td style="text-align:left;width: 1.5in; font-weight: bold;">
+round, yellow
 </td>
-<td style="text-align:right;width: 0.8in; ">
-94.853
+<td style="text-align:right;width: 0.75in; ">
+318.375
 </td>
-<td style="text-align:right;width: 0.8in; ">
-166.147
-</td>
-<td style="text-align:right;font-weight: bold;width: 0.8in; ">
-261
+<td style="text-align:right;width: 0.75in; ">
+314
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;width: 0.8in; ">
-Rural
+<td style="text-align:left;width: 1.5in; font-weight: bold;">
+round, green
 </td>
-<td style="text-align:right;width: 0.8in; ">
-58.147
+<td style="text-align:right;width: 0.75in; ">
+106.125
 </td>
-<td style="text-align:right;width: 0.8in; ">
-101.853
-</td>
-<td style="text-align:right;font-weight: bold;width: 0.8in; ">
-160
+<td style="text-align:right;width: 0.75in; ">
+108
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;font-weight: bold;width: 0.8in; ">
+<td style="text-align:left;width: 1.5in; font-weight: bold;">
+wrinkled, yellow
+</td>
+<td style="text-align:right;width: 0.75in; ">
+106.125
+</td>
+<td style="text-align:right;width: 0.75in; ">
+101
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1.5in; font-weight: bold;">
+wrinkled, green
+</td>
+<td style="text-align:right;width: 0.75in; ">
+35.375
+</td>
+<td style="text-align:right;width: 0.75in; ">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 1.5in; font-weight: bold;">
 Sum
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.8in; ">
-153.000
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+566.000
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.8in; ">
-268.000
-</td>
-<td style="text-align:right;font-weight: bold;font-weight: bold;width: 0.8in; ">
-421
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+566
 </td>
 </tr>
 </tbody>
 </table>
+<p>The hypothesis test method developed in the following sections will be used to determine if the differences between the expected and observed frequencies is “large” enough to suggest that the observed frequencies do not support the distribution represented in the null hypothesis.</p>
 </div>
-<div id="specifics" class="section level3" number="20.2.3">
-<h3><span class="header-section-number">20.2.3</span> Specifics</h3>
-<p>The Chi-Square Test is characterized by a categorical response variable recorded for two or more groups (or populations). The specifics of the Chi-Square Test are below.</p>
+<div id="specifics-1" class="section level3" number="21.1.3">
+<h3><span class="header-section-number">21.1.3</span> Specifics</h3>
+<p>The Goodness-of-Fit Test is characterized by a single categorical response variable. The hypotheses tested usually cannot be converted to mathematical symbols and are thus “wordy.” Specifics of the Goodness-of-Fit Test are below.</p>
 <ul>
-<li><strong>Null Hypothesis:</strong> “The distribution of individuals into the levels of the response variable is the same for all groups”</li>
-<li><strong>Alternative Hypothesis:</strong> “The distribution of individuals into the levels of the response variable is NOT the same for all groups.”</li>
+<li><strong>Hypotheses:</strong> H<sub>0</sub>: “the observed distribution of individuals into the levels follows the `theoretical distribution’” vs H<sub>A</sub>: “the observed distribution of individuals into the levels DOES NOT follow the ‘theoretical distribution.’”</li>
 <li><strong>Statistic:</strong> Observed frequency table.</li>
 <li><strong>Test Statistic:</strong> <span class="math inline">\(\chi^{2} = \sum_{cells}\frac{(Observed-Expected)^{2}}{Expected}\)</span></li>
-<li><strong>df:</strong> (r-1)×(c-1) where r is number of rows and c is the number of columns</li>
-<li><strong>Assumptions:</strong> Expected value for each category is ≥5.</li>
-<li><strong>Use with:</strong> Categorical response, two or more groups (or populations).</li>
+<li><strong>df:</strong> Number of levels minus 1.</li>
+<li><strong>Assumptions:</strong> Expected value in each level is ≥5.</li>
+<li><strong>Confidence Interval (for one level):</strong> <span class="math inline">\(\hat{p} \pm Z^{*}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span></li>
+<li><strong>Use with:</strong> Categorical response, one group (or population), comparing to a theoretical distribution.</li>
 </ul>
-<p>A confidence region is not usually constructed for a Chi-Square Test because of the complexity of the statistics and parameter. Thus, Step 11 for a hypothesis test will not be computed for a Chi-Square Test.</p>
+<p> </p>
+<p>It is cumbersome to produce a confidence interval in a Goodness-of-Fit Test because there generally is not a single parameter (i.e., there are as many parameters as levels in the response variable). Confidence intervals can be calculated for the proportions in each level as shown below. However, confidence intervals will only be “hand”-calculated when there are two levels. When using R (as discussed in a later module), confidence intervals will be computed for all levels, no matter the number of levels.</p>
+<p>Let <span class="math inline">\(p\)</span> be the population proportion in a particular level and <span class="math inline">\(\hat{p}\)</span> be the sample proportion in the same interval. The <span class="math inline">\(\hat{p}\)</span> is computed by dividing the frequency of individuals in this level by the total number of individuals in the sample (i.e., n). The <span class="math inline">\(\hat{p}\)</span> is a statistic that is subject to sampling variable with that sampling variability measured by <span class="math inline">\(SE_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span> for “large” values of <span class="math inline">\(n\)</span>. For “large” values of <span class="math inline">\(n\)</span> the <span class="math inline">\(\hat{p}\)</span> will follow a normal distribution such that a confidence interval for <span class="math inline">\(p\)</span> is computed using the general confidence interval formula found in Section <a href="ConfRegions1.html#constructing-confidence-regions">15.2</a> and repeated below:</p>
+<p><span class="math display">\[ \text{&quot;Statistic&quot;} + \text{&quot;scaling factor&quot;} * SE_{statistic} \]</span></p>
+<p>where the scaling factor is the familiar <span class="math inline">\(Z^{*}\)</span>. Thus, the confidence interval for <span class="math inline">\(p\)</span> is constructed with</p>
+<p><span class="math display">\[ \hat{p} \pm Z^{*}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]</span></p>
+<p>Note that one does not need to worry about lower and upper bounds, only confidence intervals will be computed, because of the two-tailed nature of the chi-square test statistic.</p>
+<p>In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was <span class="math inline">\(\hat{p}\)</span>=<span class="math inline">\(\frac{196}{371}\)</span>=0.528. The standard error for this sample proportion is <span class="math inline">\(\sqrt{\frac{0.528(1-0.528)}{371}}\)</span>=0.026. For a 95% confidence interval, <span class="math inline">\(Z^{*}\)</span>=±1.960.<a href="#fn60" class="footnote-ref" id="fnref60"><sup>60</sup></a> Thus, the confidence interval is 0.528±1.960×0.026 or 0.528±0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.</p>
 </div>
 </div>
-<div id="examples-4" class="section level2" number="20.3">
-<h2><span class="header-section-number">20.3</span> Examples</h2>
-<div id="christmas-trees" class="section level3" number="20.3.1">
-<h3><span class="header-section-number">20.3.1</span> Christmas Trees</h3>
-<p>Below are the 11-steps (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) for a full hypothesis test for the Christmas tree example.</p>
+<div id="examples-5" class="section level2" number="21.2">
+<h2><span class="header-section-number">21.2</span> Examples</h2>
+<div id="coins" class="section level3" number="21.2.1">
+<h3><span class="header-section-number">21.2.1</span> $1 Coins</h3>
+<p>Below are the 11-steps (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) for completing a full hypothesis test for the following situation:</p>
+<blockquote>
+<p><em>USA Today (June 14, 1995) reported that 77% of the population opposes replacing $1 bills with $1 coins. To test if this claim holds true for the residents of Ashland a student selected a sample of 80 Ashland residents and found that 54 were opposed to replacing the bills with coins. Develop a hypothesis test (at the 10% level) to determine if the proportion of Ashland residents that are opposed to replacing bills with coins is different from the proportion opposed for the general population.</em></p>
+</blockquote>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\alpha\)</span>=0.10.</li>
-<li>H<sub>0</sub>: “distribution of households by type of tree is the same for urban and rural households” vs. H<sub>A</sub>: “distribution of households by type of tree is NOT the same for urban and rural households.”</li>
-<li>A Chi-Square Test is required because …
+<li>H<sub>0</sub>:“the proportion of Ashland residents that oppose replacing the $1 bill with the $1 coin is 0.77” vs. H<sub>A</sub>: “The proportion of Ashland residents that oppose replacing the $1 bill with the $1 coin is NOT 0.77.”</li>
+<li>A Goodness-of-Fit Test is required because …
 <ol style="list-style-type: lower-roman">
-<li>a categorical response variable was recorded (type of tree) and</li>
-<li>two groups are being compared (urban and rural households).</li>
+<li>a single categorical variable was recorded (opinion about $1 coin),</li>
+<li>a single group (or population) was considered (Ashland residents), and</li>
+<li>the frequency of responses is being compared to a hypothesized distribution in the null hypothesis.</li>
 </ol></li>
-<li>The data appear to be part of an observational study with no clear indication of randomization.</li>
-<li>The expected frequency in each of the four cells is greater than five (Table <a href="ChiSquare.html#tab:ChiTreeExp">20.3</a>).</li>
-<li>The observed frequency table is in Table <a href="ChiSquare.html#tab:ChiTreeObs">20.1</a>.</li>
-<li><span class="math inline">\(\chi^{2}\)</span> = <span class="math inline">\(\frac{(89-94.853)^{2}}{94.853}\)</span> + <span class="math inline">\(\frac{(172-166.147)^{2}}{166.147}\)</span> + <span class="math inline">\(\frac{(64-58.147)^{2}}{58.147}\)</span> + <span class="math inline">\(\frac{(96-101.853)^{2}}{101.853}\)</span> = 0.3611+0.2062+0.5891+0.3363 = 1.4927 with 1 df.</li>
-<li>p-value=0.2218.</li>
-<li>H<sub>0</sub> is not rejected because the p-value is &gt;<span class="math inline">\(\alpha\)</span>.</li>
-<li>There does not appear to be a significant difference in the distribution of Christmas tree types among rural and urban households.</li>
-<li>Not performed for Chi-Square Test.</li>
+<li>The data appear to be part of an observational study with no clear indication of random selection of individuals.</li>
+<li>The expected number in the “oppose” level is 80×0.77=61.6. The expected number in the “do not oppose” category is 80×0.23=18.4. These expectations are shown in the table in the next step. The assumption of more than five individual in all cells of the expected table has been met.</li>
+<li>The observed table is shown below (along with the expected table).</li>
 </ol>
-<div id="r-appendix-5" class="section level4 unnumbered">
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+Level
+</th>
+<th style="text-align:right;font-weight: bold;">
+Expected
+</th>
+<th style="text-align:right;font-weight: bold;">
+Observed
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 1.3in; font-weight: bold;">
+Oppose
+</td>
+<td style="text-align:right;width: 0.75in; ">
+61.6
+</td>
+<td style="text-align:right;width: 0.75in; ">
+54
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 1.3in; font-weight: bold;">
+Do Not Oppose
+</td>
+<td style="text-align:right;width: 0.75in; ">
+18.4
+</td>
+<td style="text-align:right;width: 0.75in; ">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 1.3in; font-weight: bold;">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+80.0
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+80
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="7" style="list-style-type: decimal">
+<li><span class="math inline">\(\chi^{2}\)</span>=<span class="math inline">\(\frac{(61.6-54)^{2}}{55} + \frac{(18.4-26)^{2}}{25}\)</span>=0.938 + 3.139 = 4.077 with 2-1=1 df.</li>
+<li>p-value=0.0435.</li>
+<li>H<sub>0</sub> is rejected because the p-value&lt;<span class="math inline">\(\alpha\)</span>=0.10.</li>
+<li>The proportion of Ashland residents that oppose replacing the $1 bill with the $1 coin does appear to be different from the proportion (0.77) reported for the general population.</li>
+<li>I am 90% confident that the proportion of all Ashland residents opposed to the $1 coin is between 0.596 and 0.767 [i.e., <span class="math inline">\(\frac{54}{80}\pm1.645\times\sqrt{\frac{0.68125*0.31875}{80}}\)</span>=<span class="math inline">\(0.68125\pm1.645\times0.0521\)</span>=0.68125±0.0857=(0.5956,0.7670).]</li>
+</ol>
+<div id="r-appendix-6" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb41-1"><a href="ChiSquare.html#cb41-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">1.4927</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-33-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb42-1"><a href="GOFTest.html#cb42-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">4.077</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-35-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb43-1"><a href="GOFTest.html#cb43-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-35-2.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 
 </div>
@@ -588,10 +571,8 @@ Sum
 </div>
 <div class="footnotes">
 <hr />
-<ol start="57">
-<li id="fn57"><p>Subsequent sections demonstrate how this test statistic is used to compare observed frequencies (i.e., from a sample) to expected frequencies (i.e., from a null hypothesis).<a href="ChiSquare.html#fnref57" class="footnote-back">↩︎</a></p></li>
-<li id="fn58"><p>The Chi-Square Test is quite flexible and can be derived from different types of hypotheses than those described here.<a href="ChiSquare.html#fnref58" class="footnote-back">↩︎</a></p></li>
-<li id="fn59"><p>Note a slight difference here because 0.363 was rounded to three decimals, whereas the fraction is not rounded.<a href="ChiSquare.html#fnref59" class="footnote-back">↩︎</a></p></li>
+<ol start="60">
+<li id="fn60"><p>This <span class="math inline">\(Z^{*}\)</span> is computed with <code>distrib(0.975,type="q")</code>.<a href="GOFTest.html#fnref60" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -599,8 +580,8 @@ Sum
           </div>
         </div>
       </div>
-<a href="t2test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="GOFTest.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ChiSquare.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -116,6 +116,8 @@ fig:chiarea1
 tab:ChiTreeObs
 tab:ChiTreeObsPerc
 tab:ChiTreeExp
+tab:WYOtable
+tab:PEAtable
 WhyStats
 realities
 major-goals-of-statistics
@@ -255,3 +257,10 @@ tables
 specifics
 examples-4
 christmas-trees
+GOFTest
+goodness-of-fit-test-specifics
+the-hypotheses
+the-tables
+specifics-1
+examples-5
+coins
