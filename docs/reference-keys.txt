@@ -220,3 +220,8 @@ constructing-confidence-regions
 ConfRegions2
 precision-and-sample-size
 inference-type-relationship
+Ztest
+Hyp11Steps
+sample-z-test-specifics
+examples-1
+intra-class-travel

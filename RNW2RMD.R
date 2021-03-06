@@ -55,6 +55,7 @@ RNW2RMD <- function(path, new_path = NULL) {
   x <- gsub("(\\\\defn\\{)([^\\}]+)(\\})", "::: \\{.defn data-latex=''\\}\n\\2\n:::", x)
   x <- gsub("(\\\\index\\{)([^\\}]+)(\\})", "", x)
   x <- gsub("(\\\\vspace\\{)([^\\}]+)(\\})", "", x)
+  x <- gsub("(\\\\vspace\\*\\{)([^\\}]+)(\\})", "", x)
   x <- gsub("\\\\begin\\{quote\\}", "\n>", x)
   x <- gsub("\\\\end\\{quote\\}", "", x)
   x <- gsub("\\\\begin\\{Enumerate\\}", "\n* ", x)

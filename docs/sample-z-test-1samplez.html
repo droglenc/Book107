@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Readings for MTH107</title>
+  <title>Module 17 1-Sample Z-Test {#1SampleZ} | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Readings for MTH107" />
+  <meta property="og:title" content="Module 17 1-Sample Z-Test {#1SampleZ} | Readings for MTH107" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://derekogle.com/Book107/" />
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="droglenc/Book107" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Readings for MTH107" />
+  <meta name="twitter:title" content="Module 17 1-Sample Z-Test {#1SampleZ} | Readings for MTH107" />
   
   <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="WhyStats.html"/>
+<link rel="prev" href="ConfRegions2.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -236,11 +236,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#precision-and-sample-size"><i class="fa fa-check"></i><b>16.1</b> Precision and Sample Size</a></li>
 <li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.2</b> Inference Type Relationship</a></li>
 </ul></li>
-<li class="chapter" data-level="17" data-path="Ztest.html"><a href="Ztest.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test</a>
+<li class="chapter" data-level="17" data-path="sample-z-test-1samplez.html"><a href="sample-z-test-1samplez.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test {#1SampleZ}</a>
 <ul>
-<li class="chapter" data-level="17.1" data-path="Ztest.html"><a href="Ztest.html#Hyp11Steps"><i class="fa fa-check"></i><b>17.1</b> 11-Steps of Hypothesis Testing</a></li>
-<li class="chapter" data-level="17.2" data-path="Ztest.html"><a href="Ztest.html#sample-z-test-specifics"><i class="fa fa-check"></i><b>17.2</b> 1-Sample Z-Test Specifics</a></li>
-<li class="chapter" data-level="17.3" data-path="Ztest.html"><a href="Ztest.html#examples-1"><i class="fa fa-check"></i><b>17.3</b> Examples</a></li>
+<li class="chapter" data-level="17.1" data-path="sample-z-test-1samplez.html"><a href="sample-z-test-1samplez.html#steps-of-hypothesis-testing-11steps"><i class="fa fa-check"></i><b>17.1</b> 11-Steps of Hypothesis Testing {#11Steps}</a></li>
+<li class="chapter" data-level="17.2" data-path="sample-z-test-1samplez.html"><a href="sample-z-test-1samplez.html#sample-z-test-specifics"><i class="fa fa-check"></i><b>17.2</b> 1-Sample Z-Test Specifics</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -264,35 +263,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Readings for MTH107</h1>
-<p class="author"><em>Derek H. Ogle</em></p>
-<p class="date"><em>05 Mar 2021</em></p>
+<div id="sample-z-test-1samplez" class="section level1" number="17">
+<h1><span class="header-section-number">Module 17</span> 1-Sample Z-Test {#1SampleZ}</h1>
+<p>A foundation for making statistical inferences was provided in Modules <a href="SamplingDist.html#SamplingDist">11</a>-<a href="ConfRegions2.html#ConfRegions2">16</a>. Most of the material in Modules <a href="HypTesting1.html#HypTesting1">13</a> and <a href="ConfRegions1.html#ConfRegions1">15</a> is related to a 1-Sample Z-test, which is formalized in this module. Other specific hypothesis tests are in Modules <a href="#1Samplet"><strong>??</strong></a>-<a href="#GOFTest"><strong>??</strong></a>.</p>
+<div id="steps-of-hypothesis-testing-11steps" class="section level2" number="17.1">
+<h2><span class="header-section-number">17.1</span> 11-Steps of Hypothesis Testing {#11Steps}</h2>
+<p>Hypothesis testing is a rigorous and formal procedure for making inferences about a parameter from a statistic. The 11 steps listed below will help make sure that all aspects important to hypothesis testing are completed. These steps should be used for all hypothesis tests in this and ensuing modules.</p>
+<ol style="list-style-type: decimal">
+<li>State the rejection criterion (<span class="math inline">\(\alpha\)</span>).</li>
+<li>State the null and alternative hypotheses to be tested and define the parameter(s).</li>
+<li>Identify (and explain why!) the hypothesis test to use (e.g., 1-Sample t, 2-sample t, etc.).</li>
+<li>Collect the data (address study type and if randomization occurred).</li>
+<li>Check all necessary assumptions (describe how you tested the validity).</li>
+<li>Calculate the appropriate statistic(s).</li>
+<li>Calculate the appropriate test statistic.</li>
+<li>Calculate the p-value.</li>
+<li>State your rejection decision about H<sub>0</sub>.</li>
+<li>Summarize your findings in terms of the problem.</li>
+<li>Compute and interpret an appropriate confidence region for the parameter.</li>
+</ol>
+<p>The order of some of these steps is arbitrary. However, Steps 1-3 <strong>MUST</strong> be completed before collecting data (Step 4). Further note that Step 11 is most important after H<sub>0</sub> was rejected to provide a more definitive statement about the value of the parameter (i.e., if the parameter differs from the hypothesized value, then provide a range for which the actual parameter may exist).</p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p>This book contains a translation and re-development of past readings from MTH107. Thus, it contains all, but only, information that I expect you to know from this course. I have made every attempt to make it easy to read, provide visuals and explanations for all concepts, and grammatically correct. However, there are likely still errors or descriptions that don’t make sense. Please feel free to ask questions or post errors on the appropriate channel of the course MS Team.</p>
-<p>The book highlights definitions and tips in special boxes.</p>
-<div class="defn">
-<p><strong>Definition</strong>: This is a definition.</p>
-</div>
-<div class="tip">
-<p>This is a tip.</p>
-</div>
-<p>R Code and results are also shown in special boxes. Code in the R box can be copied verbatim from the box with the icon that appears when you hover over the upper right corner of the code box.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">8</span>)</span>
-<span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(dat)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   [1] 4.4</code></pre>
-<p>The material presented in this book can be challenging to master. Please don’t hesitate to ask me questions as you have them!</p>
+<div id="sample-z-test-specifics" class="section level2" number="17.2">
+<h2><span class="header-section-number">17.2</span> 1-Sample Z-Test Specifics</h2>
+<p>A 1-Sample Z-Test tests H<sub>0</sub>:<span class="math inline">\(\mu=\mu_{0}\)</span>, where <span class="math inline">\(\mu_{0}\)</span> represents a specific value of <span class="math inline">\(\mu\)</span>, when <span class="math inline">\(\sigma\)</span> is known. Other specifics of this test were discussed in previous modules and are summarized below.</p>
+<ul>
+<li><strong>Hypothesis:</strong> H<sub>0</sub>:<span class="math inline">\(\mu=\mu_{0}\)</span></li>
+<li><strong>Statistic:</strong> <span class="math inline">\(\bar{x}\)</span></li>
+<li><strong>Test Statistic:</strong> <span class="math inline">\(Z=\frac{\bar{x}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}\)</span></li>
+<li><strong>Confidence Region:</strong> <span class="math inline">\(\bar{x}+Z^{*}\frac{\sigma}{\sqrt{n}}\)</span></li>
+<li><strong>Assumptions:</strong>
+<ul>
+<li><span class="math inline">\(\sigma\)</span> is known</li>
+<li>n$<span class="math inline">\(30, n\)</span>$15 and the <strong>population</strong> is not strongly skewed, OR the <strong>population</strong> is normally distributed.</li>
+</ul></li>
+<li><strong>Use with:</strong> Quantitative response, one group (or population), <span class="math inline">\(\sigma\)</span> known.</li>
+</ul>
+<p> </p>
+<p>The only test that can possibly be confused with a 1-Sample Z-Test is a 1-Sample t-Test (Module <a href="#1Samplet"><strong>??</strong></a>), which tests the same null hypothesis but when <span class="math inline">\(\sigma\)</span> is unknown.</p>
+<div id="example---intra-class-travel" class="section level3" number="17.2.1">
+<h3><span class="header-section-number">17.2.1</span> Example - Intra-class Travel</h3>
+<p>Below are the 11-steps (Section <a href="#11Steps"><strong>??</strong></a>) for completing a full hypothesis test for the following situation:</p>
+<blockquote>
+<p><em>A dean wants to determine if it takes more than 10 minutes, on average, to go between classes. To test this hypothesis, she collected a random sample of 100 intra-class travel times and found a mean of 10.12 mins. Assume from previous studies that the distribution of intra-class times is symmetric with a standard deviation of 1.60 mins. Test the dean’s hypothesis with <span class="math inline">\(\alpha\)</span>=0.10.</em></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\alpha\)</span>=0.10.</li>
+<li>H<sub>0</sub>:<span class="math inline">\(\mu\)</span>=10 mins vs. H<sub>A</sub>:<span class="math inline">\(\mu\)</span>&gt;10 mins, where <span class="math inline">\(\mu\)</span> is the mean time for ALL intra-class travel events.</li>
+<li>A 1-Sample Z-Test is required because (i) a quantitative variable (intra-class travel time) was measured, (ii) individuals from one group (or population) is considered (students at the Dean’s school), and (iii) <span class="math inline">\(\sigma\)</span> is thought to be known (=1.60 mins).</li>
+<li>The data appear to be part of an observational study (the dean did not impart any conditions on the students) with a random selection of individuals.</li>
+<li>The assumptions are met because …
+<ol style="list-style-type: decimal">
+<li>n=100$$30, and</li>
+<li><span class="math inline">\(\sigma\)</span> is thought to be known (=1.60 mins).</li>
+</ol></li>
+<li><span class="math inline">\(\bar{x}\)</span>=10.12.</li>
+<li>Z=<span class="math inline">\(\frac{10.12-10}{\frac{1.60}{\sqrt{100}}}\)</span>=<span class="math inline">\(\frac{0.12}{0.16}\)</span>=0.75.</li>
+<li>p-value=0.2266.</li>
+<li>H<sub>0</sub> is not rejected because the p-value&gt;<span class="math inline">\(\alpha\)</span>=0.10.</li>
+<li>It appears that the mean time for <strong>all</strong> intra-class travel events is not more than 10 minutes.</li>
+<li>A 90% lower confidence bound will use <span class="math inline">\(Z{*}\)</span>=-1.282. The lower confidence bound is thus 10.12-1.282&amp;timesl<span class="math inline">\(\frac{1.60}{\sqrt{100}}\)</span>=9.91. Thus, I am 90% confident that the mean intra-class travel time is more than 9.91 minutes; further evidence that the mean intra-class travel time is not greater than 10 minutes.</li>
+</ol>
+<div id="r-appendix" class="section level4 unnumbered">
+<h4>R Appendix:</h4>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb26-1"><a href="sample-z-test-1samplez.html#cb26-1" aria-hidden="true" tabindex="-1"></a>( z <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">10.12</span>,<span class="at">mean=</span><span class="dv">10</span>,<span class="at">sd=</span><span class="fl">1.60</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">100</span>),<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span>
+<span id="cb26-2"><a href="sample-z-test-1samplez.html#cb26-2" aria-hidden="true" tabindex="-1"></a>( zstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
 
+</div>
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="WhyStats.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ConfRegions2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
