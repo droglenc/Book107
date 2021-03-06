@@ -1,5 +1,5 @@
 # Why Statistics is Important {#WhyStats}
-## Realities{#sect:Realities}
+## Realities
 The city of Ashland performed an investigation in the area of Kreher Park (Figure \@ref(fig:KreherParkMap)) when considering the possible expansion of an existing wastewater treatment facility in 1989. The discovery of contamination from creosote waste in the subsoils and ground water at Kreher Park prompted the city to abandon the project. A subsequent assessment by the Wisconsin Department of Natural Resources (WDNR) indicated elevated levels of hazardous substances in soil borings, ground water samples, and in the sediments of Chequamegon Bay directly offshore of Kreher Park. In 1995 and 1999, the Northern States Power Company conducted investigations that further defined the area of contamination and confirmed the presence of specific contaminants associated with coal tar wastes. This site is now listed as a superfund site and is being given considerably more attention.^[More information at the [EPA](https://cumulis.epa.gov/supercpad/cursites/csitinfo.cfm?id=0507952) and the [WDNR](http://dnr.wi.gov/topic/brownfields/ashland.html) websites.]
 
 &nbsp;

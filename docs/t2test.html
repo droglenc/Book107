@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 19 2-Sample t-Test | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 19 2-Sample t-Test | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book107" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 19 2-Sample t-Test | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-03-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="t1test.html"/>
+<link rel="next" href="ChiSquare.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#variable-types"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="DataProduction.html"><a href="DataProduction.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="DataProduction.html"><a href="DataProduction.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="DataProduction.html"><a href="DataProduction.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="UnivSum.html"><a href="UnivSum.html"><i class="fa fa-check"></i><b>4</b> Univariate Summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="UnivSum.html"><a href="UnivSum.html#quantitative-variable"><i class="fa fa-check"></i><b>4.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="4.2" data-path="UnivSum.html"><a href="UnivSum.html#categorical-variable"><i class="fa fa-check"></i><b>4.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="UnivEDA.html"><a href="UnivEDA.html"><i class="fa fa-check"></i><b>5</b> Univariate EDA</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="UnivEDA.html"><a href="UnivEDA.html#quantitative-variable-1"><i class="fa fa-check"></i><b>5.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="5.2" data-path="UnivEDA.html"><a href="UnivEDA.html#categorical-variable-1"><i class="fa fa-check"></i><b>5.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="NormalDist1.html"><a href="NormalDist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
+<li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="NormalDist2.html"><a href="NormalDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
+<li class="chapter" data-level="7.2" data-path="NormalDist2.html"><a href="NormalDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
+<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="BEDAQuant.html"><a href="BEDAQuant.html"><i class="fa fa-check"></i><b>8</b> Bivariate EDA - Quantitative</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="BEDAQuant.html"><a href="BEDAQuant.html#response-and-explanatory-variables"><i class="fa fa-check"></i><b>8.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="8.2" data-path="BEDAQuant.html"><a href="BEDAQuant.html#summaries"><i class="fa fa-check"></i><b>8.2</b> Summaries</a></li>
+<li class="chapter" data-level="8.3" data-path="BEDAQuant.html"><a href="BEDAQuant.html#bivariate-items-to-describe"><i class="fa fa-check"></i><b>8.3</b> Bivariate Items to Describe</a></li>
+<li class="chapter" data-level="8.4" data-path="BEDAQuant.html"><a href="BEDAQuant.html#example-interpretations-1"><i class="fa fa-check"></i><b>8.4</b> Example Interpretations</a></li>
+<li class="chapter" data-level="8.5" data-path="BEDAQuant.html"><a href="BEDAQuant.html#cautions-about-correlation"><i class="fa fa-check"></i><b>8.5</b> Cautions About Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="LinearRegression.html"><a href="LinearRegression.html"><i class="fa fa-check"></i><b>9</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="LinearRegression.html"><a href="LinearRegression.html#response-and-explanatory-variables-1"><i class="fa fa-check"></i><b>9.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="9.2" data-path="LinearRegression.html"><a href="LinearRegression.html#slope-and-intercept"><i class="fa fa-check"></i><b>9.2</b> Slope and Intercept</a></li>
+<li class="chapter" data-level="9.3" data-path="LinearRegression.html"><a href="LinearRegression.html#predictions"><i class="fa fa-check"></i><b>9.3</b> Predictions</a></li>
+<li class="chapter" data-level="9.4" data-path="LinearRegression.html"><a href="LinearRegression.html#residuals"><i class="fa fa-check"></i><b>9.4</b> Residuals</a></li>
+<li class="chapter" data-level="9.5" data-path="LinearRegression.html"><a href="LinearRegression.html#best-fit-criteria"><i class="fa fa-check"></i><b>9.5</b> Best-fit Criteria</a></li>
+<li class="chapter" data-level="9.6" data-path="LinearRegression.html"><a href="LinearRegression.html#assumptions"><i class="fa fa-check"></i><b>9.6</b> Assumptions</a></li>
+<li class="chapter" data-level="9.7" data-path="LinearRegression.html"><a href="LinearRegression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>9.7</b> Coefficient of Determination</a></li>
+<li class="chapter" data-level="9.8" data-path="LinearRegression.html"><a href="LinearRegression.html#examples"><i class="fa fa-check"></i><b>9.8</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="BEDACat.html"><a href="BEDACat.html"><i class="fa fa-check"></i><b>10</b> Bivariate EDA - Categorical</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="BEDACat.html"><a href="BEDACat.html#frequency-tables"><i class="fa fa-check"></i><b>10.1</b> Frequency Tables</a></li>
+<li class="chapter" data-level="10.2" data-path="BEDACat.html"><a href="BEDACat.html#percentage-tables"><i class="fa fa-check"></i><b>10.2</b> Percentage Tables</a></li>
+<li class="chapter" data-level="10.3" data-path="BEDACat.html"><a href="BEDACat.html#which-table-to-use"><i class="fa fa-check"></i><b>10.3</b> Which Table to Use?</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="SamplingDist.html"><a href="SamplingDist.html"><i class="fa fa-check"></i><b>11</b> Sampling Distributions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="SamplingDist.html"><a href="SamplingDist.html#what-is-a-sampling-distribution"><i class="fa fa-check"></i><b>11.1</b> What is a Sampling Distribution?</a></li>
+<li class="chapter" data-level="11.2" data-path="SamplingDist.html"><a href="SamplingDist.html#central-limit-theorem"><i class="fa fa-check"></i><b>11.2</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="11.3" data-path="SamplingDist.html"><a href="SamplingDist.html#accuracy-and-precision"><i class="fa fa-check"></i><b>11.3</b> Accuracy and Precision</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="Probability.html"><a href="Probability.html"><i class="fa fa-check"></i><b>12</b> Probability Introduction</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="Probability.html"><a href="Probability.html#probability-of-individuals"><i class="fa fa-check"></i><b>12.1</b> Probability of Individuals</a></li>
+<li class="chapter" data-level="12.2" data-path="Probability.html"><a href="Probability.html#probability-of-statistics"><i class="fa fa-check"></i><b>12.2</b> Probability of Statistics</a></li>
+<li class="chapter" data-level="12.3" data-path="Probability.html"><a href="Probability.html#a-process-for-handling-probability-questions"><i class="fa fa-check"></i><b>12.3</b> A Process for Handling Probability Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="HypTesting1.html"><a href="HypTesting1.html"><i class="fa fa-check"></i><b>13</b> Hypothesis Testing - Introduction</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-the-scientific-method"><i class="fa fa-check"></i><b>13.1</b> Hypothesis Testing &amp; The Scientific Method</a></li>
+<li class="chapter" data-level="13.2" data-path="HypTesting1.html"><a href="HypTesting1.html#statistical-hypotheses"><i class="fa fa-check"></i><b>13.2</b> Statistical Hypotheses</a></li>
+<li class="chapter" data-level="13.3" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-concept-summary"><i class="fa fa-check"></i><b>13.3</b> Hypothesis Testing Concept Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="HypTesting2.html"><a href="HypTesting2.html"><i class="fa fa-check"></i><b>14</b> Hypothesis Testing - Errors</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#errors"><i class="fa fa-check"></i><b>14.1</b> Errors</a></li>
+<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.2</b> Test Statistics and Effect Sizes</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ConfRegions1.html"><a href="ConfRegions1.html"><i class="fa fa-check"></i><b>15</b> Confidence Regions - Introduction</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="ConfRegions1.html"><a href="ConfRegions1.html#confidence-concept"><i class="fa fa-check"></i><b>15.1</b> Confidence Concept</a></li>
+<li class="chapter" data-level="15.2" data-path="ConfRegions1.html"><a href="ConfRegions1.html#constructing-confidence-regions"><i class="fa fa-check"></i><b>15.2</b> Constructing Confidence Regions</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#precision-and-sample-size"><i class="fa fa-check"></i><b>16.1</b> Precision and Sample Size</a></li>
+<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.2</b> Inference Type Relationship</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="Ztest.html"><a href="Ztest.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="Ztest.html"><a href="Ztest.html#Hyp11Steps"><i class="fa fa-check"></i><b>17.1</b> 11-Steps of Hypothesis Testing</a></li>
+<li class="chapter" data-level="17.2" data-path="Ztest.html"><a href="Ztest.html#Specifics1Z"><i class="fa fa-check"></i><b>17.2</b> 1-Sample Z-Test Specifics</a></li>
+<li class="chapter" data-level="17.3" data-path="Ztest.html"><a href="Ztest.html#examples-1"><i class="fa fa-check"></i><b>17.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="t1test.html"><a href="t1test.html"><i class="fa fa-check"></i><b>18</b> 1-Sample t-Test</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="t1test.html"><a href="t1test.html#t-distribution"><i class="fa fa-check"></i><b>18.1</b> t-distribution</a></li>
+<li class="chapter" data-level="18.2" data-path="t1test.html"><a href="t1test.html#Specifics1t"><i class="fa fa-check"></i><b>18.2</b> 1-Sample t-Test Specifics</a></li>
+<li class="chapter" data-level="18.3" data-path="t1test.html"><a href="t1test.html#examples-2"><i class="fa fa-check"></i><b>18.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="t2test.html"><a href="t2test.html"><i class="fa fa-check"></i><b>19</b> 2-Sample t-Test</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="t2test.html"><a href="t2test.html#sample-t-test-specifics"><i class="fa fa-check"></i><b>19.1</b> 2-Sample t-Test Specifics</a></li>
+<li class="chapter" data-level="19.2" data-path="t2test.html"><a href="t2test.html#LevenesTest"><i class="fa fa-check"></i><b>19.2</b> Testing for Equal Variances</a></li>
+<li class="chapter" data-level="19.3" data-path="t2test.html"><a href="t2test.html#examples-3"><i class="fa fa-check"></i><b>19.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="ChiSquare.html"><a href="ChiSquare.html"><i class="fa fa-check"></i><b>20</b> Chi-Square Test</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="ChiSquare.html"><a href="ChiSquare.html#chi-square-distribution"><i class="fa fa-check"></i><b>20.1</b> Chi-Square Distribution</a></li>
+<li class="chapter" data-level="20.2" data-path="ChiSquare.html"><a href="ChiSquare.html#chi-square-test-specifics"><i class="fa fa-check"></i><b>20.2</b> Chi-Square Test Specifics</a></li>
+<li class="chapter" data-level="20.3" data-path="ChiSquare.html"><a href="ChiSquare.html#examples-4"><i class="fa fa-check"></i><b>20.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="t2test" class="section level1" number="19">
+<h1><span class="header-section-number">Module 19</span> 2-Sample t-Test</h1>
+<p>While it is often useful to test whether a population mean differs from a specific value (i.e., with the 1-Sample t-Test of Module <a href="t1test.html#t1test">18</a>), there are many instances where interest is in whether means from two groups (or populations) differ. For example, is there a difference in mean income between males and females, in mean test scores between students from high- and low-income families, in mean percent body fat between raccoons from southern and northern Wisconsin, or in mean amount of milk produced from cows provided with a hormone or a placebo. In all of these situations, interest is identifying if a difference in population means exists between two groups (males and females, students from high- and low-income families, raccoons from southern and northern Wisconsin, cows given a hormone or a placebo). A <strong>2-Sample t-Test</strong> is used in these situations and is the subject of this module.</p>
+<div id="sample-t-test-specifics" class="section level2" number="19.1">
+<h2><span class="header-section-number">19.1</span> 2-Sample t-Test Specifics</h2>
+<p>In a 2-Sample t-Test, H<sub>0</sub>:<span class="math inline">\(\mu_{1}=\mu_{2}\)</span> states that the two population means are equal. This can be rewritten as H<sub>0</sub>:<span class="math inline">\(\mu_{1}-\mu_{2}\)</span>=0, because the difference between two population means is zero if the two population means are equal. With this H<sub>0</sub>, the “parameter” is <span class="math inline">\(\mu_{1}-\mu_{2}\)</span> and the corresponding statistic is <span class="math inline">\(\bar{x}_{1}-\bar{x}_{2}\)</span>. Thus, a 2-Sample t-Test is focused on the difference in population means.</p>
+<p>When looking at the “general” test statistic formula (see Section <a href="HypTesting2.html#test-statistics-and-effect-sizes">14.2</a>) of</p>
+<p> </p>
+<p><span class="math display">\[ \text{Test Statistic} = \frac{\text{Observed Statistic}-\text{Hypothesized Parameter}}{SE_{\text{Statistic}}} \]</span></p>
+<p> </p>
+<p>it is apparent that the SE of <span class="math inline">\(\bar{x}_{1}-\bar{x}_{2}\)</span> (i.e., the statistic) is needed. Unfortunately, the calculation of this standard error depends on whether the two population variances are equal or not. When the variances are approximately equal (discussed in Section <a href="t2test.html#LevenesTest">19.2</a>), the standard error of <span class="math inline">\(\bar{x}_{1}-\bar{x}_{2}\)</span> is</p>
+<p> </p>
+<p><span class="math display">\[ SE_{\bar{x}_{1}-\bar{x}_{2}}= \sqrt{s_{p}^{2}\left(\frac{1}{n_{1}}+\frac{1}{n_{2}} \right)} \]</span></p>
+<p> </p>
+<p>where <span class="math inline">\(n_{1}\)</span> and <span class="math inline">\(n_{2}\)</span> are the sample sizes for the two groups and <span class="math inline">\(s_{p}^{2}\)</span> is the “pooled sample variance” computed as a weighted average of the two sample variances (<span class="math inline">\(s_{1}^{2}\)</span> and <span class="math inline">\(s_{2}^{2}\)</span>), or</p>
+<p> </p>
+<p><span class="math display">\[ s_{p}^{2}=\frac{(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}}{n_{1}+n_{2}-2} \]</span></p>
+<p> </p>
+<p>The degrees-of-freedom for the 2-Sample t-Test with equal variances come from the denominator of the pooled variance calculation; i.e., <span class="math inline">\(df=n_{1}+n_{2}-2\)</span>. The specifics of the 2-Sample t-Test are below.</p>
+<ul>
+<li><strong>Hypothesis:</strong> H<sub>0</sub>:<span class="math inline">\(\mu_{1}-\mu_{2}\)</span>=0</li>
+<li><strong>Statistic:</strong> <span class="math inline">\(\bar{x}_{1}-\bar{x}_{2}\)</span></li>
+<li><strong>Test Statistic:</strong> <span class="math inline">\(t=\frac{\bar{x}_{1}-\bar{x}_{2}-0}{\sqrt{s_{p}^{2}\left(\frac{1}{n_{1}}+\frac{1}{n_{2}} \right)}}\)</span> where <span class="math inline">\(s_{p}^{2}=\frac{(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}}{n_{1}+n_{2}-2}\)</span>.</li>
+<li><strong>Confidence Region:</strong> <span class="math inline">\((\bar{x}_{1}-\bar{x}_{2})+t^{*}\sqrt{s_{p}^{2}\left(\frac{1}{n_{1}}+\frac{1}{n_{2}} \right)}\)</span></li>
+<li><strong>df:</strong> <span class="math inline">\(n_{1}+n_{2}-2\)</span></li>
+<li><strong>Assumptions:</strong>
+<ul>
+<li><span class="math inline">\(n_{1}+n_{2}\)</span>≥40, <span class="math inline">\(n_{1}+n_{2}\)</span>≥15 and <strong>each sample</strong> (i.e., histogram) is not strongly skewed, OR <strong>each sample</strong> is normally distributed.</li>
+<li>Variances are equal,</li>
+<li>Samples are independent,</li>
+</ul></li>
+<li><strong>Use with:</strong> Quantitative response, two groups (or populations), individuals are independent between groups.</li>
+</ul>
+<div class="tip">
+<p>The <span class="math inline">\(s_{p}^{2}\)</span> calculation can be “checked” by determining if the value of <span class="math inline">\(s_{p}^{2}\)</span> is between <span class="math inline">\(s_{1}^{2}\)</span> and <span class="math inline">\(s_{2}^{2}\)</span> or if the value of <span class="math inline">\(\sqrt{s_{p}^{2}}\)</span> is between <span class="math inline">\(s_{1}\)</span> and <span class="math inline">\(s_{2}\)</span>.</p>
+</div>
+<p>A 2-Sample t-Test is often used to test an alternative hypothesis of simply finding a difference between the two groups. However, if the null hypothesis is rejected in these instances (thus, identifying a significant difference between the two groups), then care should be taken to specifically describe how the two groups differ. If the statistic is negative, then the mean of the first group is lower than the mean of the second group and, if the statistic is positive, then the mean of the first group is larger than the mean of the second group. The values of the confidence region should be used to identify how much larger or smaller the mean from one group is compared to the mean of the other group.</p>
+</div>
+<div id="LevenesTest" class="section level2" number="19.2">
+<h2><span class="header-section-number">19.2</span> Testing for Equal Variances</h2>
+<p>As noted above, the methods of a 2-Sample t-Test differ depending on whether the two population variances are equal or not. This should present a problem to you because the population variances are parameters and are typically not known.<a href="#fn56" class="footnote-ref" id="fnref56"><sup>56</sup></a> The question of whether these parameters are equal or not is answered with a hypothesis test, as has been done with all other questions about parameters.</p>
+<p>A Levene’s Test is used to determine whether two population variances are equal. The specifics of the Levene’s test are not examined in detail here, rather you only need to know that H<sub>0</sub>:<span class="math inline">\(\sigma_{1}^{2}=\sigma_{2}^{2}\)</span> is tested against H<sub>A</sub>:<span class="math inline">\(\sigma_{1}^{2}\neq\sigma_{2}^{2}\)</span>. We will use computer software to compute the p-value for this test (without further detail). If the Levene’s Test p-value &lt;<span class="math inline">\(\alpha\)</span>, then H<sub>0</sub> is rejected and the population variances are considered unequal. If the p-value &gt;<span class="math inline">\(\alpha\)</span>, then H<sub>0</sub> is not rejected and the population variances are considered equal.</p>
+</div>
+<div id="examples-3" class="section level2" number="19.3">
+<h2><span class="header-section-number">19.3</span> Examples</h2>
+<div id="corn-and-fertilizers" class="section level3" number="19.3.1">
+<h3><span class="header-section-number">19.3.1</span> Corn and Fertilizers</h3>
+<p>Below are the 11-steps (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) for completing a full hypothesis test for the following situation:</p>
+<blockquote>
+<p><em>An agricultural researcher thought that corn plants grown in pots exposed to a certain type of synthetic fertilizer would grow taller than plants exposed to an organic fertilizer. To collect data to test this idea, he grew 50 corn plants in individual pots – 25 were treated with organic fertilizer and 25 were treated with synthetic fertilizer. Each pot contained soil from a well-mixed common source and was planted in the same greenhouse. Each plant was similar in all regards (similar genetics, age, etc.). Use the results (heights of individual plants) in Table <a href="t2test.html#tab:CornFert">19.1</a> and a Levene’s Test p of 0.1341 to test the researcher’s hypothesis at the 5% level.</em></p>
+</blockquote>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:CornFert">Table 19.1: </span>Summary statistics of the corn plant height in two treatments.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;font-weight: bold;">
+Group
+</th>
+<th style="text-align:center;font-weight: bold;">
+Mean
+</th>
+<th style="text-align:center;font-weight: bold;">
+SD
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 0.9in; ">
+Synthetic
+</td>
+<td style="text-align:center;width: 0.9in; ">
+51.46
+</td>
+<td style="text-align:center;width: 0.9in; ">
+5.975
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 0.9in; ">
+Organic
+</td>
+<td style="text-align:center;width: 0.9in; ">
+47.49
+</td>
+<td style="text-align:center;width: 0.9in; ">
+6.721
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\alpha\)</span> = 0.05.</li>
+<li>H<sub>0</sub>:<span class="math inline">\(\mu_{s}-\mu_{o}\)</span> = 0 vs H<sub>A</sub>:<span class="math inline">\(\mu_{s}-\mu_{o}\)</span> &gt; 0, where <span class="math inline">\(\mu\)</span> is the mean plant height, s represents synthetic fertilizer, and o represents organic fertilizer. [<em>Note that positive differences represent larger values for synthetic fertilizer; thus, H<sub>A</sub> represents synthetic fertilizer producing taller plants.</em>]</li>
+<li>A 2-Sample t-Test is required because …
+<ol style="list-style-type: lower-roman">
+<li>a quantitative variable (height) was measured,</li>
+<li>two groups are being compared (synthetic and organic fertilizers), and</li>
+<li>plants in the two groups were <strong>IN</strong>dependent as the plants were not paired, plants were not tested over time, etc.</li>
+</ol></li>
+<li>The data appear to be part of an experiment (the researcher imposed the treatments on the plants) with no clear indication of random selection of plants or random allocation of plants to the two treatments.
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(n_{s}+n_{o}\)</span> = 50≥40,</li>
+<li>individuals in the two groups are independent as discussed above, and</li>
+<li>the population variances appear to be equal because the Levene’s Test p-value (0.1341) is &gt;<span class="math inline">\(\alpha\)</span>.</li>
+</ol></li>
+<li><span class="math inline">\(\bar{x}_{s}-\bar{x}_{0}\)</span> = 51.46 - 47.49 = 3.97. Additionally, <span class="math inline">\(s_{p}^{2}=\frac{(25-1)5.975^{2}+(25-1)6.721^{2}}{25+25-2}\)</span> = 40.44 and <span class="math inline">\(SE_{\bar{x}_{s}-\bar{x}_{o}}=\sqrt{40.44\left(\frac{1}{25}+\frac{1}{25} \right)}\)</span> = 1.799.</li>
+<li>t = <span class="math inline">\(\frac{3.97-0}{1.799}\)</span> = <span class="math inline">\(\frac{3.97}{1.799}\)</span> = 2.207 with 25+25-2 = 48 df.</li>
+<li>p-value = 0.0161.</li>
+<li>H<sub>0</sub> is rejected because the p-value&lt;<span class="math inline">\(\alpha\)</span>.</li>
+<li>The average height of the corn plants appears to be greater for plants grown with synthetic fertilizer than for plants grown with organic fertilizer.</li>
+<li>I am 95% confident that plants grown with synthetic fertilizer are more than 0.95 cm taller, on average, than plants grown with the organic fertilizer. [<em>Note 3.97-1.677×1.799 = 3.97 - 3.02 = 0.95.</em>]</li>
+</ol>
+<div id="r-appendix-3" class="section level4 unnumbered">
+<h4>R Appendix:</h4>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb36-1"><a href="t2test.html#cb36-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">2.207</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">48</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-31-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb37-1"><a href="t2test.html#cb37-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">48</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-31-2.png" width="336" style="display: block; margin: auto;" /></p>
+<p> </p>
+</div>
+</div>
+<div id="music-and-anxiety" class="section level3" number="19.3.2">
+<h3><span class="header-section-number">19.3.2</span> Music and Anxiety</h3>
+<p>Below are the 11-steps (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) for completing a full hypothesis test for the following situation:</p>
+<blockquote>
+<p><em>An oral surgeon conducted an experiment to determine if background music decreased the anxiety level of patients during tooth extraction. Over a one-month period, 32 patients had a tooth removed while listening to music and 36 had a tooth removed without listening to music. Each patient was given a questionnaire following the extraction. Answers to the questionnaire were converted to a numeric scale to measure the patient’s level of anxiety (larger numbers mean more anxiety). For those given background music, the mean anxiety level was 4.2 (with a standard deviation of 1.2), while the group without music had a mean of 5.9 (with a standard deviation of 1.9). The surgeon also reported a Levene’s test p-value of 0.089. Test the surgeon’s hypothesis at the 5% level.</em></p>
+</blockquote>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\alpha\)</span> = 0.05.</li>
+<li>H<sub>0</sub>:<span class="math inline">\(\mu_{w}-\mu_{wo}\)</span>=0 vs H<sub>A</sub>:<span class="math inline">\(\mu_{w}-\mu_{wo}\)</span>&lt;0, where <span class="math inline">\(\mu\)</span> is the mean anxiety level, w represents patients “with,” and wo represents “without” music. [<em>Note that negative numbers represent lower anxiety values in patients in the “with music” treatment. Thus, H<sub>A</sub> suggests lower anxiety in patients with music.</em>]</li>
+<li>A 2-Sample t-Test is required because …
+<ol style="list-style-type: lower-roman">
+<li>a quantitative variable (anxiety level) was measured,</li>
+<li>two groups are being compared (music or no music), and</li>
+<li>individuals in the two groups are independent (i.e., they were not paired, were not otherwise related, etc.).</li>
+</ol></li>
+<li>The data appear to be an experiment as the music treatment was imparted by the surgeon, but there is no obvious random selection or allocation in this study.
+<ol style="list-style-type: lower-roman">
+<li><span class="math inline">\(n_{w}+n_{wo}\)</span> = 68≥40,</li>
+<li>individuals in the two groups are independent as described above, and</li>
+<li>the two population variances appear to be equal because the Levene’s Test p-value of 0.089 is greater than <span class="math inline">\(\alpha\)</span>.</li>
+</ol></li>
+<li><span class="math inline">\(\bar{x}_{w}-\bar{x}_{wo}\)</span> = 4.2-5.9 = -1.7. Additionally, <span class="math inline">\(s_{p}^{2}=\frac{(32-1)1.2^{2}+(36-1)1.9^{2}}{32+36-2}\)</span> = 2.59 and <span class="math inline">\(SE_{\bar{x}_{w}-\bar{x}_{wo}}=\sqrt{2.59\left(\frac{1}{32}+\frac{1}{36} \right)}\)</span> = 0.391.</li>
+<li>t = <span class="math inline">\(\frac{-1.7-0}{0.391}\)</span> = -4.348 with 32+36-2 = 66 df.</li>
+<li>p-value = &lt;0.00005.</li>
+<li>H<sub>0</sub> is rejected because the p-value&lt;<span class="math inline">\(\alpha\)</span>.</li>
+<li>The mean anxiety level appears to be lower when music was played for the patients.</li>
+<li>I am 95% confident that the mean anxiety level is more than 1.05 points lower, on average, when music is played than when it is not. [<em>Note -1.7+1.668×0.391 = -1.7+0.65 = -1.05</em>].</li>
+</ol>
+<div id="r-appendix-4" class="section level4 unnumbered">
+<h4>R Appendix:</h4>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb38-1"><a href="t2test.html#cb38-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">4.348</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">66</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-32-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb39-1"><a href="t2test.html#cb39-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">66</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-32-2.png" width="336" style="display: block; margin: auto;" /></p>
+<p> </p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="56">
+<li id="fn56"><p>Actually, the population variances don’t have to be known, it just needs to be known whether they are equal or not.<a href="t2test.html#fnref56" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="t1test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ChiSquare.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

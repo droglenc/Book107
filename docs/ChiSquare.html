@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 20 Chi-Square Test | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 20 Chi-Square Test | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book107" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 20 Chi-Square Test | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-03-06" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="t2test.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#variable-types"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="DataProduction.html"><a href="DataProduction.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="DataProduction.html"><a href="DataProduction.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="DataProduction.html"><a href="DataProduction.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="UnivSum.html"><a href="UnivSum.html"><i class="fa fa-check"></i><b>4</b> Univariate Summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="UnivSum.html"><a href="UnivSum.html#quantitative-variable"><i class="fa fa-check"></i><b>4.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="4.2" data-path="UnivSum.html"><a href="UnivSum.html#categorical-variable"><i class="fa fa-check"></i><b>4.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="UnivEDA.html"><a href="UnivEDA.html"><i class="fa fa-check"></i><b>5</b> Univariate EDA</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="UnivEDA.html"><a href="UnivEDA.html#quantitative-variable-1"><i class="fa fa-check"></i><b>5.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="5.2" data-path="UnivEDA.html"><a href="UnivEDA.html#categorical-variable-1"><i class="fa fa-check"></i><b>5.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="NormalDist1.html"><a href="NormalDist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
+<li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="NormalDist2.html"><a href="NormalDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
+<li class="chapter" data-level="7.2" data-path="NormalDist2.html"><a href="NormalDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
+<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="BEDAQuant.html"><a href="BEDAQuant.html"><i class="fa fa-check"></i><b>8</b> Bivariate EDA - Quantitative</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="BEDAQuant.html"><a href="BEDAQuant.html#response-and-explanatory-variables"><i class="fa fa-check"></i><b>8.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="8.2" data-path="BEDAQuant.html"><a href="BEDAQuant.html#summaries"><i class="fa fa-check"></i><b>8.2</b> Summaries</a></li>
+<li class="chapter" data-level="8.3" data-path="BEDAQuant.html"><a href="BEDAQuant.html#bivariate-items-to-describe"><i class="fa fa-check"></i><b>8.3</b> Bivariate Items to Describe</a></li>
+<li class="chapter" data-level="8.4" data-path="BEDAQuant.html"><a href="BEDAQuant.html#example-interpretations-1"><i class="fa fa-check"></i><b>8.4</b> Example Interpretations</a></li>
+<li class="chapter" data-level="8.5" data-path="BEDAQuant.html"><a href="BEDAQuant.html#cautions-about-correlation"><i class="fa fa-check"></i><b>8.5</b> Cautions About Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="LinearRegression.html"><a href="LinearRegression.html"><i class="fa fa-check"></i><b>9</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="LinearRegression.html"><a href="LinearRegression.html#response-and-explanatory-variables-1"><i class="fa fa-check"></i><b>9.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="9.2" data-path="LinearRegression.html"><a href="LinearRegression.html#slope-and-intercept"><i class="fa fa-check"></i><b>9.2</b> Slope and Intercept</a></li>
+<li class="chapter" data-level="9.3" data-path="LinearRegression.html"><a href="LinearRegression.html#predictions"><i class="fa fa-check"></i><b>9.3</b> Predictions</a></li>
+<li class="chapter" data-level="9.4" data-path="LinearRegression.html"><a href="LinearRegression.html#residuals"><i class="fa fa-check"></i><b>9.4</b> Residuals</a></li>
+<li class="chapter" data-level="9.5" data-path="LinearRegression.html"><a href="LinearRegression.html#best-fit-criteria"><i class="fa fa-check"></i><b>9.5</b> Best-fit Criteria</a></li>
+<li class="chapter" data-level="9.6" data-path="LinearRegression.html"><a href="LinearRegression.html#assumptions"><i class="fa fa-check"></i><b>9.6</b> Assumptions</a></li>
+<li class="chapter" data-level="9.7" data-path="LinearRegression.html"><a href="LinearRegression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>9.7</b> Coefficient of Determination</a></li>
+<li class="chapter" data-level="9.8" data-path="LinearRegression.html"><a href="LinearRegression.html#examples"><i class="fa fa-check"></i><b>9.8</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="BEDACat.html"><a href="BEDACat.html"><i class="fa fa-check"></i><b>10</b> Bivariate EDA - Categorical</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="BEDACat.html"><a href="BEDACat.html#frequency-tables"><i class="fa fa-check"></i><b>10.1</b> Frequency Tables</a></li>
+<li class="chapter" data-level="10.2" data-path="BEDACat.html"><a href="BEDACat.html#percentage-tables"><i class="fa fa-check"></i><b>10.2</b> Percentage Tables</a></li>
+<li class="chapter" data-level="10.3" data-path="BEDACat.html"><a href="BEDACat.html#which-table-to-use"><i class="fa fa-check"></i><b>10.3</b> Which Table to Use?</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="SamplingDist.html"><a href="SamplingDist.html"><i class="fa fa-check"></i><b>11</b> Sampling Distributions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="SamplingDist.html"><a href="SamplingDist.html#what-is-a-sampling-distribution"><i class="fa fa-check"></i><b>11.1</b> What is a Sampling Distribution?</a></li>
+<li class="chapter" data-level="11.2" data-path="SamplingDist.html"><a href="SamplingDist.html#central-limit-theorem"><i class="fa fa-check"></i><b>11.2</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="11.3" data-path="SamplingDist.html"><a href="SamplingDist.html#accuracy-and-precision"><i class="fa fa-check"></i><b>11.3</b> Accuracy and Precision</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="Probability.html"><a href="Probability.html"><i class="fa fa-check"></i><b>12</b> Probability Introduction</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="Probability.html"><a href="Probability.html#probability-of-individuals"><i class="fa fa-check"></i><b>12.1</b> Probability of Individuals</a></li>
+<li class="chapter" data-level="12.2" data-path="Probability.html"><a href="Probability.html#probability-of-statistics"><i class="fa fa-check"></i><b>12.2</b> Probability of Statistics</a></li>
+<li class="chapter" data-level="12.3" data-path="Probability.html"><a href="Probability.html#a-process-for-handling-probability-questions"><i class="fa fa-check"></i><b>12.3</b> A Process for Handling Probability Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="HypTesting1.html"><a href="HypTesting1.html"><i class="fa fa-check"></i><b>13</b> Hypothesis Testing - Introduction</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-the-scientific-method"><i class="fa fa-check"></i><b>13.1</b> Hypothesis Testing &amp; The Scientific Method</a></li>
+<li class="chapter" data-level="13.2" data-path="HypTesting1.html"><a href="HypTesting1.html#statistical-hypotheses"><i class="fa fa-check"></i><b>13.2</b> Statistical Hypotheses</a></li>
+<li class="chapter" data-level="13.3" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-concept-summary"><i class="fa fa-check"></i><b>13.3</b> Hypothesis Testing Concept Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="HypTesting2.html"><a href="HypTesting2.html"><i class="fa fa-check"></i><b>14</b> Hypothesis Testing - Errors</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#errors"><i class="fa fa-check"></i><b>14.1</b> Errors</a></li>
+<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.2</b> Test Statistics and Effect Sizes</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ConfRegions1.html"><a href="ConfRegions1.html"><i class="fa fa-check"></i><b>15</b> Confidence Regions - Introduction</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="ConfRegions1.html"><a href="ConfRegions1.html#confidence-concept"><i class="fa fa-check"></i><b>15.1</b> Confidence Concept</a></li>
+<li class="chapter" data-level="15.2" data-path="ConfRegions1.html"><a href="ConfRegions1.html#constructing-confidence-regions"><i class="fa fa-check"></i><b>15.2</b> Constructing Confidence Regions</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#precision-and-sample-size"><i class="fa fa-check"></i><b>16.1</b> Precision and Sample Size</a></li>
+<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.2</b> Inference Type Relationship</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="Ztest.html"><a href="Ztest.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="Ztest.html"><a href="Ztest.html#Hyp11Steps"><i class="fa fa-check"></i><b>17.1</b> 11-Steps of Hypothesis Testing</a></li>
+<li class="chapter" data-level="17.2" data-path="Ztest.html"><a href="Ztest.html#Specifics1Z"><i class="fa fa-check"></i><b>17.2</b> 1-Sample Z-Test Specifics</a></li>
+<li class="chapter" data-level="17.3" data-path="Ztest.html"><a href="Ztest.html#examples-1"><i class="fa fa-check"></i><b>17.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="t1test.html"><a href="t1test.html"><i class="fa fa-check"></i><b>18</b> 1-Sample t-Test</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="t1test.html"><a href="t1test.html#t-distribution"><i class="fa fa-check"></i><b>18.1</b> t-distribution</a></li>
+<li class="chapter" data-level="18.2" data-path="t1test.html"><a href="t1test.html#Specifics1t"><i class="fa fa-check"></i><b>18.2</b> 1-Sample t-Test Specifics</a></li>
+<li class="chapter" data-level="18.3" data-path="t1test.html"><a href="t1test.html#examples-2"><i class="fa fa-check"></i><b>18.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="t2test.html"><a href="t2test.html"><i class="fa fa-check"></i><b>19</b> 2-Sample t-Test</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="t2test.html"><a href="t2test.html#sample-t-test-specifics"><i class="fa fa-check"></i><b>19.1</b> 2-Sample t-Test Specifics</a></li>
+<li class="chapter" data-level="19.2" data-path="t2test.html"><a href="t2test.html#LevenesTest"><i class="fa fa-check"></i><b>19.2</b> Testing for Equal Variances</a></li>
+<li class="chapter" data-level="19.3" data-path="t2test.html"><a href="t2test.html#examples-3"><i class="fa fa-check"></i><b>19.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="ChiSquare.html"><a href="ChiSquare.html"><i class="fa fa-check"></i><b>20</b> Chi-Square Test</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="ChiSquare.html"><a href="ChiSquare.html#chi-square-distribution"><i class="fa fa-check"></i><b>20.1</b> Chi-Square Distribution</a></li>
+<li class="chapter" data-level="20.2" data-path="ChiSquare.html"><a href="ChiSquare.html#chi-square-test-specifics"><i class="fa fa-check"></i><b>20.2</b> Chi-Square Test Specifics</a></li>
+<li class="chapter" data-level="20.3" data-path="ChiSquare.html"><a href="ChiSquare.html#examples-4"><i class="fa fa-check"></i><b>20.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ChiSquare" class="section level1" number="20">
+<h1><span class="header-section-number">Module 20</span> Chi-Square Test</h1>
+<p>Situations where a categorical response variable is recorded would be summarized with a frequency or percentage table (see Modules <a href="UnivSum.html#UnivSum">4</a> and <a href="BEDACat.html#BEDACat">10</a>). The appropriate test statistic in these situations is a chi-square rather than a t. The Chi-Square Test test statistic follows a chi-square distribution, which is introduced below. The rest of this module is dedicated to the general Chi-Square Test where the distribution of a categorical response variable is compared between two or more groups (or populations). The related goodness-of-fit test for a categorical response recorded for only one group (or population) is introduced in Module <a href="#GOFTest"><strong>??</strong></a>.</p>
+<div id="chi-square-distribution" class="section level2" number="20.1">
+<h2><span class="header-section-number">20.1</span> Chi-Square Distribution</h2>
+<p>A chi-square (<span class="math inline">\(\chi^2\)</span>) distribution is generally right-skewed (Figure <a href="ChiSquare.html#fig:chiDist">20.1</a>), with the exact shape dictated by the degrees-of-freedom (df); as the df increase the sharpness of the skew decreases (Figure <a href="ChiSquare.html#fig:chiDist">20.1</a>). In its simplest form, the <span class="math inline">\(\chi^2\)</span> distribution arises as a sampling distribution for the <span class="math inline">\(\chi^2\)</span> test statistic,</p>
+<p><span class="math display">\[ \chi^{2} = \sum_{cells}\frac{(Observed-Expected)^{2}}{Expected} \]</span></p>
+<p>where “Observed” and “Expected” represent the observed and expected counts in the cells of frequency tables (see Module <a href="UnivSum.html#UnivSum">4</a> and Module <a href="BEDACat.html#BEDACat">10</a>). Thus, the <span class="math inline">\(\chi^2\)</span> distribution arises from comparing frequencies in two tables.<a href="#fn57" class="footnote-ref" id="fnref57"><sup>57</sup></a></p>
+<p> </p>
+<div class="figure" style="text-align: center"><span id="fig:chiDist"></span>
+<img src="Book107_files/figure-html/chiDist-1.png" alt="$\chi^2$ distributions with varying degrees-of-freedom." width="336" />
+<p class="caption">
+Figure 20.1: <span class="math inline">\(\chi^2\)</span> distributions with varying degrees-of-freedom.
+</p>
+</div>
+<p> </p>
+<p>Unlike the normal and t distributions, the <span class="math inline">\(\chi^2\)</span> distribution always represents the two-tailed situation, although the “two tails” will appear as one tail on the right side of the distribution. The simplest explanation for this characteristic is that the “squaring” in the calculation of the <span class="math inline">\(\chi^{2}\)</span> test statistic results in what would be a “negative tail” being “folded over” onto what is the “positive tail.” Thus, all probability (i.e., area) calculations on a <span class="math inline">\(\chi^{2}\)</span> distribution represent the two-tailed alternative hypotheses.</p>
+<p>Proportional areas on a <span class="math inline">\(\chi^2\)</span> distribution are computed with <code>disrib()</code>. The major differences with a <span class="math inline">\(\chi^2\)</span> distribution is that <code>distrib="chisq"</code> must be used in <code>distrib()</code> and the degrees-of-freedom must be given to <code>df=</code> (how to find the df will be discussed in subsequent sections). In addition, <code>lower.tail=FALSE</code> is always used when computing a p-value because the upper-tail probability represents the two-tailed alternative hypothesis inherent to all Chi-Square Tests. For example, the area right of <span class="math inline">\(\chi^2=6.456\)</span> on a <span class="math inline">\(\chi^2\)</span> distribution with 2 df is 0.0396 (Figure <a href="ChiSquare.html#fig:chiarea1">20.2</a>).</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb40-1"><a href="ChiSquare.html#cb40-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">6.456</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">2</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:chiarea1"></span>
+<img src="Book107_files/figure-html/chiarea1-1.png" alt="Depiction of the area to the right of $\chi^2=6.456$ on a $\chi^2$ distribution with 2 df." width="336" />
+<p class="caption">
+Figure 20.2: Depiction of the area to the right of <span class="math inline">\(\chi^2=6.456\)</span> on a <span class="math inline">\(\chi^2\)</span> distribution with 2 df.
+</p>
+</div>
+</div>
+<div id="chi-square-test-specifics" class="section level2" number="20.2">
+<h2><span class="header-section-number">20.2</span> Chi-Square Test Specifics</h2>
+<p>Researchers commonly want to compare the distribution of individuals into the levels of a categorical variable among two or more groups (or populations). For example, researchers may want to determine if the distribution of failing students differs between males and females, if the distribution of kids playing sports differs between kids from high- or low-income families, if the distribution of four major plant species differs between two locations, or if the distribution of responses to a five-choice question differs between respondents from neighboring counties. All of these questions have a categorical response variable (fail or not, play sport or not, plant species, answer to five-choice question) compared among two or more groups (gender, income category, two locations, neighboring counties). The Chi-Square Test, the subject of this module, can be used for each of these situations.<a href="#fn58" class="footnote-ref" id="fnref58"><sup>58</sup></a></p>
+<div id="hypotheses" class="section level3" number="20.2.1">
+<h3><span class="header-section-number">20.2.1</span> Hypotheses</h3>
+<p>The statistical hypotheses for a Chi-Square Test are “wordy.” To explore this, let’s first assume that a two-way frequency table (see Module <a href="BEDACat.html#BEDACat">10</a>) will summarize the data where the rows correspond to separate groups and the columns correspond to levels of the response variable. In this organization, the Chi-Square Test null hypothesis is that the row percentages are equal – i.e., “the percentage distribution of individuals into the levels of the response variable is the same for all groups.” The alternative hypothesis states that there is some difference among the row percentages – i.e., “the percentage distribution of individuals into the levels of the response variable is NOT the same for all groups.”</p>
+<p>As one example (more are shown below), consider the following:</p>
+<blockquote>
+<p><em>An association of Christmas tree growers in Indiana sponsored a survey of Indiana households to help improve the marketing of Christmas trees. Of the 261 rural households, 64 had a natural tree (as compared to an artificial tree). Of the 160 urban households, 89 had a natural tree. Use these results to determine, at the 10% level, if the distribution of households with a natural tree differed between rural and urban households.</em></p>
+</blockquote>
+<p>The hypotheses for this situation are,</p>
+<ul>
+<li>H<sub>0</sub>: “the distrubution of households into the tree types is the same for urban and rural households”</li>
+<li>H<sub>A</sub>: “the distrubution of households into the tree types is NOT the same for urban and rural households”</li>
+</ul>
+</div>
+<div id="tables" class="section level3" number="20.2.2">
+<h3><span class="header-section-number">20.2.2</span> Tables</h3>
+<p>As noted above, all two-way frequency tables used for a Chi-Square Test will be organized such that the response variable forms the columns and the groups to be compared form the rows. With this organization, the row-percentage table becomes the table of primary interest because it relates directly to the hypotheses described above. The question of a Chi-Square Test then becomes one of determining whether each row of the row-percentage table is equal, given sampling variability.</p>
+<p>The observed raw data must be organized into a two-way frequency table as described in Module <a href="BEDACat.html#BEDACat">10</a>. For example, the Christmas tree data is summarized as in Table <a href="ChiSquare.html#tab:ChiTreeObs">20.1</a>. The actual calculations for a Chi-Square Test are performed on this observed table. However, the hypothesis test, as described above, is best viewed as a method to determine if each row of the row-percentage table is statistically equivalent or not. Thus, the row-percentage table computed from the frequency table is useful when interpreting the results of a Chi-Square Test (Table <a href="ChiSquare.html#tab:ChiTreeObsPerc">20.2</a>).</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:ChiTreeObs">Table 20.1: </span>Frequency of individuals in urban and rural households that have a natural or an artificial Christmas tree.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+Natural
+</th>
+<th style="text-align:right;font-weight: bold;">
+Artificial
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Urban
+</td>
+<td style="text-align:right;width: 0.75in; ">
+89
+</td>
+<td style="text-align:right;width: 0.75in; ">
+172
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+261
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Rural
+</td>
+<td style="text-align:right;width: 0.75in; ">
+64
+</td>
+<td style="text-align:right;width: 0.75in; ">
+96
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+160
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;font-weight: bold;width: 0.75in; ">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+153
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+268
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;width: 0.75in; ">
+421
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:ChiTreeObsPerc">Table 20.2: </span>Percentage of individuals within urban and rural households that have a natural or an artificial Christmas tree.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+Natural
+</th>
+<th style="text-align:right;font-weight: bold;">
+Artificial
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Urban
+</td>
+<td style="text-align:right;width: 0.75in; ">
+34.1
+</td>
+<td style="text-align:right;width: 0.75in; ">
+65.9
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Rural
+</td>
+<td style="text-align:right;width: 0.75in; ">
+40.0
+</td>
+<td style="text-align:right;width: 0.75in; ">
+60.0
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+100
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;font-weight: bold;width: 0.75in; ">
+ALL
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+36.3
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+63.7
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;width: 0.75in; ">
+100
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>The Chi-Square Test requires constructing a table of expected values that are derived from the null hypothesis. Specifically, the “expected” table contains the expected frequency of individuals in each level of the response variable for each group assuming that the distribution of responses does not differ among groups. These expected tables are computed from the margins of the observed table, but are best explained with an illustrative example.</p>
+<p>In the Christmas tree example, the null hypothesis states that there is no difference in the distribution of households with a natural tree between the rural and urban areas. Thus, under this null hypothesis, one would expect the proportion (or percentage) of households with a natural tree to be the same in both groups. The proportion of households with a natural tree, regardless of location, is <span class="math inline">\(\frac{153}{421}\)</span>=<span class="math inline">\(0.363\)</span>. Thus, under the null hypothesis, the proportion of rural AND the proportion of urban households with a natural tree is 0.363. Because there is a different number of urban and rural households in the study, the actual NUMBER (rather than proportion) of households expected to have a natural tree will differ. The NUMBER of urban households expected to HAVE a natural tree is found by multiplying the number of urban households by the common proportion computed above – i.e., 261×0.363=94.743. The remaining urban households would be expected to NOT have a natural tree – i.e., 261-94.743=261×(1-0.363)=166.257. Similar calculations are made for the rural households (i.e., 160×0.363=58.080 expected to have a natural tree and 160×(1-0.363)=101.920 expected to NOT have a natural tree.</p>
+<p>These expected frequencies are computed directly and easily from the marginal totals of the observed frequency table (Table <a href="ChiSquare.html#tab:ChiTreeObs">20.1</a>). For example, substituting the fractional representation of the decimal proportions into the calculation of the expected number of urban households with a natural tree gives 261×<span class="math inline">\(\frac{153}{421}\)</span>=<span class="math inline">\(\frac{261\times153}{421}\)</span>=94.853<a href="#fn59" class="footnote-ref" id="fnref59"><sup>59</sup></a>. A close examination of this formula and the marginal totals in Table <a href="ChiSquare.html#tab:ChiTreeObs">20.1</a> shows that this value is equal to the product of the corresponding row and column marginal totals in the observed table divided by the total number of individuals. The other expected values follow a similar pattern as follows,</p>
+<ul>
+<li>261×<span class="math inline">\(\frac{268}{421}=\frac{261\times268}{421}\)</span>=166.147 urban households to NOT have a natural tree.</li>
+<li>160×<span class="math inline">\(\frac{153}{421}=\frac{160\times153}{421}\)</span>=58.147 rural households to have a natural tree.</li>
+<li>160×<span class="math inline">\(\frac{268}{421}=\frac{160\times268}{421}\)</span>=101.853 rural households to NOT have a natural tree.</li>
+</ul>
+<p>Thus, all expected values in a Chi-Square Test are calculated by multiplying the row and column totals of the frequency table and dividing by the total number of individuals. These expected values are summarized in a two-way table, called the expected frequencies table (Table <a href="ChiSquare.html#tab:ChiTreeExp">20.3</a>)</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:ChiTreeExp">Table 20.3: </span>Expected frequency of individuals in urban and rural households that have a natural or an artificial Christmas tree.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+Natural
+</th>
+<th style="text-align:right;font-weight: bold;">
+Artificial
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.8in; ">
+Urban
+</td>
+<td style="text-align:right;width: 0.8in; ">
+94.853
+</td>
+<td style="text-align:right;width: 0.8in; ">
+166.147
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.8in; ">
+261
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.8in; ">
+Rural
+</td>
+<td style="text-align:right;width: 0.8in; ">
+58.147
+</td>
+<td style="text-align:right;width: 0.8in; ">
+101.853
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.8in; ">
+160
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;font-weight: bold;width: 0.8in; ">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.8in; ">
+153.000
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.8in; ">
+268.000
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;width: 0.8in; ">
+421
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="specifics" class="section level3" number="20.2.3">
+<h3><span class="header-section-number">20.2.3</span> Specifics</h3>
+<p>The Chi-Square Test is characterized by a categorical response variable recorded for two or more groups (or populations). The specifics of the Chi-Square Test are below.</p>
+<ul>
+<li><strong>Null Hypothesis:</strong> “The distribution of individuals into the levels of the response variable is the same for all groups”</li>
+<li><strong>Alternative Hypothesis:</strong> “The distribution of individuals into the levels of the response variable is NOT the same for all groups.”</li>
+<li><strong>Statistic:</strong> Observed frequency table.</li>
+<li><strong>Test Statistic:</strong> <span class="math inline">\(\chi^{2} = \sum_{cells}\frac{(Observed-Expected)^{2}}{Expected}\)</span></li>
+<li><strong>df:</strong> (r-1)×(c-1) where r is number of rows and c is the number of columns</li>
+<li><strong>Assumptions:</strong> Expected value for each category is ≥5.</li>
+<li><strong>Use with:</strong> Categorical response, two or more groups (or populations).</li>
+</ul>
+<p>A confidence region is not usually constructed for a Chi-Square Test because of the complexity of the statistics and parameter. Thus, Step 11 for a hypothesis test will not be computed for a Chi-Square Test.</p>
+</div>
+</div>
+<div id="examples-4" class="section level2" number="20.3">
+<h2><span class="header-section-number">20.3</span> Examples</h2>
+<div id="christmas-trees" class="section level3" number="20.3.1">
+<h3><span class="header-section-number">20.3.1</span> Christmas Trees</h3>
+<p>Below are the 11-steps (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) for a full hypothesis test for the Christmas tree example.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\alpha\)</span>=0.10.</li>
+<li>H<sub>0</sub>: “distribution of households by type of tree is the same for urban and rural households” vs. H<sub>A</sub>: “distribution of households by type of tree is NOT the same for urban and rural households.”</li>
+<li>A Chi-Square Test is required because …
+<ol style="list-style-type: lower-roman">
+<li>a categorical response variable was recorded (type of tree) and</li>
+<li>two groups are being compared (urban and rural households).</li>
+</ol></li>
+<li>The data appear to be part of an observational study with no clear indication of randomization.</li>
+<li>The expected frequency in each of the four cells is greater than five (Table <a href="ChiSquare.html#tab:ChiTreeExp">20.3</a>).</li>
+<li>The observed frequency table is in Table <a href="ChiSquare.html#tab:ChiTreeObs">20.1</a>.</li>
+<li><span class="math inline">\(\chi^{2}\)</span> = <span class="math inline">\(\frac{(89-94.853)^{2}}{94.853}\)</span> + <span class="math inline">\(\frac{(172-166.147)^{2}}{166.147}\)</span> + <span class="math inline">\(\frac{(64-58.147)^{2}}{58.147}\)</span> + <span class="math inline">\(\frac{(96-101.853)^{2}}{101.853}\)</span> = 0.3611+0.2062+0.5891+0.3363 = 1.4927 with 1 df.</li>
+<li>p-value=0.2218.</li>
+<li>H<sub>0</sub> is not rejected because the p-value is &gt;<span class="math inline">\(\alpha\)</span>.</li>
+<li>There does not appear to be a significant difference in the distribution of Christmas tree types among rural and urban households.</li>
+<li>Not performed for Chi-Square Test.</li>
+</ol>
+<div id="r-appendix-5" class="section level4 unnumbered">
+<h4>R Appendix:</h4>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb41-1"><a href="ChiSquare.html#cb41-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">1.4927</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-33-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p> </p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="57">
+<li id="fn57"><p>Subsequent sections demonstrate how this test statistic is used to compare observed frequencies (i.e., from a sample) to expected frequencies (i.e., from a null hypothesis).<a href="ChiSquare.html#fnref57" class="footnote-back">↩︎</a></p></li>
+<li id="fn58"><p>The Chi-Square Test is quite flexible and can be derived from different types of hypotheses than those described here.<a href="ChiSquare.html#fnref58" class="footnote-back">↩︎</a></p></li>
+<li id="fn59"><p>Note a slight difference here because 0.363 was rounded to three decimals, whereas the fraction is not rounded.<a href="ChiSquare.html#fnref59" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="t2test.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
