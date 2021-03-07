@@ -35,13 +35,17 @@ SLpop+SLhist
 ```
 
 ## Definitions {#IVPPSS}
-The **individual** in a statistical analysis is one of the "items" examined by the researcher. Sometimes the individual is a person, but it may be an animal, a piece of wood, a location, a particular time, or an event. It is extremely important that you don't always visualize a person when considering an individual in a statistical sense. Synonyms for individual are unit, experimental unit (usually used in experiments), sampling unit (usually used in observational studies), case, and subject (usually used in studies involving humans). An individual in the Square Lake example is a fish, because the researcher will collect a set of fish and examine each individual fish.
+The **individual** in a statistical analysis is one of the "items" examined by the researcher.^[Synonyms for individual are unit, experimental unit (usually used in experiments), sampling unit (usually used in observational studies), case, and subject (usually used in studies involving humans).] Sometimes the individual is a person, but it may be an animal, a piece of wood, a location, a particular time, or an event. It is extremely important that you don't always visualize a person when identifying a statistical individual. An individual in the Square Lake example is a fish because the researcher will examine a characteristic of each particular fish.
 
-The **variable** is the characteristic recorded about each individual. The variable in the Square Lake example is the length of each fish. In most studies, the researcher will record more than one variable. For example, the researcher may also record the fish's weight, sex, age, time of capture, and location of capture. In this module, only one variable is considered. In other modules, two variables will be considered.
+::: {.tip data-latex=""}
+An individual is not necessarily a person.
+:::
 
-A **population** is ALL individuals of interest. In the Square Lake example, the population is all 1015 fish in the lake. The population should be defined as thoroughly as possible including qualifiers, especially those related to time and space, as necessary. This example is simple because Square Lake is so well defined; however, as you will see in the review exercises, the population is often only well-defined by your choice of descriptors.
+The **variable** is the characteristic recorded about each individual. The variable in the Square Lake example is the length of each fish. In most studies, the researcher will record more than one variable. For example, the researcher may also record the fish's weight, sex, age, time of capture, and location of capture. In this module, only one variable is considered, but in other modules two variables will be considered.
 
-A **parameter** is a summary computed from ALL individuals in a population. The term for the particular summary is usually preceded by the word "population." For example, the population average length of all 1015 fish in Square Lake is `r round(mean(SL$tl),2)` mm and the population standard deviation is `r round(sd(SL$tl),2)` mm (Table \@ref(tab:SquareLakePopnTbl)).^[We will discuss how to compute and interpret each of these values in later modules.] Parameters are ultimately what is of interest, because interest is in all individuals in the population. However, in practice, parameters cannot be computed because the entire population cannot usually be "seen."
+A **population** is ALL individuals of interest. In the Square Lake example, the population is all 1015 fish in the lake. The population should be defined as thoroughly as possible including qualifiers, especially those related to time and space, as necessary. This example is simple because Square Lake is so well defined; however, as you will see in the examples below, the population is often only well-defined by your choice of descriptors.
+
+A **parameter** is a summary computed from ALL individuals in a population. In this module the summary will either be the mean or percentage. For example, the mean length (=`r round(mean(SL$tl),2)` mm) and standard deviation (=`r round(sd(SL$tl),2)` mm; Table \@ref(tab:SquareLakePopnTbl)) of ALL 1015 fish in Square Lake are both parameters.^[We will discuss how to compute and interpret each of these values in Module \@ref(UnivSum).] Parameters are ultimately what is of interest because interest is in all individuals in the population. However, in practice, parameters cannot be computed because the entire population cannot usually be "seen." Summaries for parameters are preceded by "population"; e.g., population mean or population standard deviation.
 
 &nbsp;
 
@@ -53,9 +57,12 @@ knitr::kable(t(slstat),booktabs=TRUE,
   kableExtra::row_spec(0,bold=TRUE)
 ```
 
-&nbsp;
 
-The entire population cannot be"seen" in real life. Thus, to learn something about the population, a subset of the population is usually examined. This subset is called a **sample**. The red dots in Figure \@ref(fig:SquareLakeSample1) represent a random sample of n=50 fish from Square Lake (note that the sample size is usually denoted by n).
+::: {.tip data-latex=""}
+Populations and parameters can generally not be"seen."
+:::
+
+To learn something about a population that cannot usually be seen we must **sample** a subset of that population. The red dots in Figure \@ref(fig:SquareLakeSample1) represent a random sample of n=50 fish from Square Lake (note that the sample size is usually denoted by n).
 
 &nbsp;
 
@@ -63,9 +70,9 @@ The entire population cannot be"seen" in real life. Thus, to learn something abo
 set.seed(1)
 SL1 <- srsdf(SL,n=50)
 
-SLpop1 <- SLpop + geom_point(data=SL1,color="red")
+SLpop1 <- SLpop + geom_point(data=SL1,color=clrs[4])
 SLhist1 <- SLhist %+% SL1 +
-    geom_histogram(color="gray10",fill="red",alpha=0.65,
+    geom_histogram(color="gray10",fill=clrs[4],
                    closed="left",boundary=0,binwidth=hwid)
 
 SLpop1+SLhist1
@@ -73,9 +80,9 @@ SLpop1+SLhist1
 
 &nbsp;
 
-Summaries computed from individuals in a sample are called **statistics**. Specific names of statistics are preceded by"sample. "  The statistic of interest is always the same as the parameter of interest; i.e., the statistic describes the sample in the same way that the parameter describes the population. For example, if interest is in the population mean, then the sample mean would be computed.
+Summaries computed from individuals in a sample are called **statistics**. The summary for the statistic is always the same as that for the parameter; i.e., the statistic describes the sample in the same way that the parameter describes the population. For example, if mean was used for the parameter then the mean will be used for the statistic. Summaries for statistics are preceded by "sample"; e.g., sample mean or sample standard deviation.
 
-Some statistics computed from the sample from Square Lake are shown in Table \@ref(tab:SquareLakeSample1s) and Figure \@ref(fig:SquareLakeSample1). The sample mean of `r round(mean(SL1$tl),2)` mm is the best"guess" at the population mean. Not surprisingly from the discussion in Module \@ref(WhyStats), the sample mean does not perfectly equal the population mean.
+Some statistics computed from the sample from Square Lake are shown in Table \@ref(tab:SquareLakeSample1s) and Figure \@ref(fig:SquareLakeSample1). The sample mean of `r round(mean(SL1$tl),2)` mm is the best "guess" at the population mean. Not surprisingly from the discussion in Module \@ref(WhyStats), the sample mean does not perfectly equal the population mean.
 
 &nbsp;
 
@@ -88,31 +95,31 @@ knitr::kable(t(slstat),booktabs=TRUE,
 ```
 
 ::: {.tip data-latex=""}
-An individual is not necessarily a person.
-:::
-
-::: {.tip data-latex=""}
-Populations and parameters can generally not be"seen."
+A sample represents a population, a statistic represents (or is an estimate of) a parameter.
 :::
 
 ## Performing an IVPPSS
-In each statistical analysis it is important that you determine the Individual, Variable, Population, Parameter, Sample, and Statistic (**IVPPSS**). First, determine what items you are actually going to look at; those are the individuals. Second, determine what is recorded about each individual; that is the variable. Third, ALL individuals is the population. Fourth, the summary (e.g., mean or proportion) of the variable recorded from ALL individuals in the population is the parameter.^[Again, parameters generally cannot be computed because all of the individuals in the population can not be seen. Thus, the parameter is largely conceptual.] Fifth, the population usually cannot be seen, so only a few individuals are examined; those few individuals are the sample. Finally, the summary of the individuals in the sample is the statistic.
+In each statistical analysis it is important that you determine the **I**ndividual, **V**ariable, **P**opulation, **P**arameter, **S**ample, and **S**tatistic. First, determine what items you are actually going to look at; those are the individuals. Second, determine what is recorded about each individual; that is the variable. Third, ALL individuals is the population. Fourth, the summary (e.g., mean or percentage) of the variable recorded from ALL individuals in the population is the parameter.^[Again, parameters generally cannot be computed because all of the individuals in the population can not be seen. Thus, the parameter is largely conceptual.] Fifth, the population usually cannot be seen, so only a few individuals are examined; those few individuals are the sample. Finally, the summary of the individuals in the sample is the statistic.
 
-When performing an IVPPSS, keep in mind that parameters describe populations (note that they both start with"p") and statistics describe samples (note that they both start with"s"). This can also be looked at from another perspective. A sample is an estimate of the population and a statistic is an estimate of a parameter. Thus, the statistic has to be the same summary (mean or proportion) of the sample as the parameter is of the population.
+When performing an IVPPSS, keep in mind that parameters describe populations (note that they both start with "p") and statistics describe samples (note that they both start with "s"). This can also be looked at from another perspective. A sample is an estimate of the population and a statistic is an estimate of a parameter. Thus, the statistic has to be the same summary (mean or percentage) from the sample as the parameter is from the population.
 
+#### Example -- Rabbits in Maine {-}
+<img src="zimgs/rabbit.jpg" alt="Decoration" class="img-right">
 The IVPPSS process is illustrated for the following situation:
 
-> *A University of New Hampshire graduate student (and Northland College alum) investigated habitat utilization by New England (Sylvilagus transitionalis) and Eastern (Sylvilagus floridanus) cottontail rabbits in eastern Maine in 2007. In a preliminary portion of his research he determined the proportion of "rabbit patches" that were inhabited by New England cottontails. He examined 70 "patches" and found that 53 showed evidence of inhabitance by New England cottontails.*
+> *A University of New Hampshire graduate student (and Northland College alum) investigated habitat utilization by New England (Sylvilagus transitionalis) and Eastern (Sylvilagus floridanus) cottontail rabbits in eastern Maine in 2007. In a preliminary portion of his research he determined the percentage of "rabbit patches" that were inhabited by New England cottontails. He examined 70 "patches" and found that 53 showed evidence of inhabitance by New England cottontails.*
 
 * An individual is a rabbit patch in eastern Maine in 2007 (i.e., a rabbit patch is the "item" being sampled and examined).
-* The variable is "evidence for New England cottontails or not (yes or no)" (i.e., the characteristic of each rabbit patch that was recorded).
+* The variable is "evidence for New England cottontails (yes or no)" (i.e., the characteristic of each rabbit patch that was recorded).
 * The population is ALL rabbit patches in eastern Maine in 2007.
-* The parameter is the proportion of ALL rabbit patches in eastern Maine in 2007 that showed evidence for New England cottontails.^[Note that this population and parameter cannot actually be calculated but it is what the researcher wants to know.]
+* The parameter is the percentage of ALL rabbit patches in eastern Maine in 2007 that showed evidence for New England cottontails.^[Note that this population and parameter cannot actually be calculated but it is what the researcher wants to know.]
 * The sample is the 70 rabbit patches from eastern Maine in 2007 that were actually examined by the researcher.
-* The statistic is the proportion of the 70 rabbit patches from eastern Maine in 2007 actually examined that showed evidence for New England cottontails. [In this case, the statistic would be 53/70 or `r formatC(53/70,format="f",digits=3)`.]
+* The statistic is the percentage of the 70 rabbit patches from eastern Maine in 2007 actually examined that showed evidence for New England cottontails. [In this case, the statistic would be $\frac{53}{70}$&times;100 or `r formatC(53/70*100,format="f",digits=1)`%.]
 
-In the descriptions above, take note that the individual is very carefully defined (including stating a specific time (2007) and place (eastern Maine)), the population and parameter both use the word "ALL", the sample and statistic both use the specific sample size (70 rabbits), and that the parameter and statistics both use the same summary (i.e., proportion of patches that showed evidence of New England cottontails).
+In the descriptions above, take note that the individual is very carefully defined (including stating a specific time (2007) and place (eastern Maine)), the population and parameter both use the word "ALL", the sample and statistic both use the specific sample size (70 rabbits), and the parameter and statistics both use the same summary (i.e., percentage of patches that showed evidence of New England cottontails).
 
+#### Example -- Duluth Raptors {-}
+<img src="zimgs/HawkRidge.jpg" alt="Decoration" class="img-right">
 In some situations it may be easier to identify the sample first. From this, and realizing that a sample is always "of the individuals," it may be easier to identify the individual. This process is illustrated in the following example, with the items listed in the order identified rather than in the traditional IVPPSS order.
 
 > *The Duluth, MN Touristry Board is interested in the average number of raptors seen per year at Hawk Ridge.^[Information about Hawk Ridge is found [here](http://www.hawkridge.org/).] To determine this value, they collected the total number of raptors seen in a sample of years from 1971-2003.*
@@ -120,26 +127,17 @@ In some situations it may be easier to identify the sample first. From this, and
 * The sample is the 32 years between 1971 and 2003 at Hawk Ridge.
 * An individual is a year (because a "sample of *years*" was taken) at Hawk Ridge.
 * The variable recorded was the number of raptors seen in one year at Hawk Ridge.
-* The population is ALL years at Hawk Ridge (this is a bit ambiguous but may be thought of as all years that Hawk Ridge has existed).
+* The population is ALL years at Hawk Ridge.^[This is a bit ambiguous but may be thought of as all years that Hawk Ridge has existed.]
 * The parameter is the average number of raptors seen per year in ALL years at Hawk Ridge.
 * The statistic is the average number of raptors seen in the 1971-2003 sample of years at Hawk Ridge.
 
-Again, note that the individual is very carefully defined (including stating a specific time and place), the population and parameter both use the word "ALL", the sample and statistic both use the specific sample size (32 years), and that the parameter and statistics both use the same summary (i.e., average number of raptors).
+Again, note that the individual is very carefully defined (including stating a specific time and place), the population and parameter both use the word "ALL", the sample and statistic both use the specific sample size (32 years), and the parameter and statistics both use the same summary (i.e., average number of raptors).
 
 ::: {.tip data-latex=""}
-An individual is usually defined by a specific time and place.
-:::
-
-::: {.tip data-latex=""}
-Descriptions for population and parameter will always include the word "All."
-:::
-
-::: {.tip data-latex=""}
-Descriptions for sample and statistic will contain the specific sample size.
-:::
-
-::: {.tip data-latex=""}
-Descriptions for parameter and statistic will contain the same summary (usually average/mean or proportion/percentage). Howeve the summary is for a different set of individuals -- the population for the parameter and the sample for the statistic.
+* An individual is usually defined by a specific time and place.
+*Descriptions for population and parameter will always include the word "All."
+* Descriptions for sample and statistic will contain the specific sample size.
+* Descriptions for parameter and statistic will contain the same summary (usually average/mean or proportion/percentage). However the summary is for a different set of individuals -- the population for the parameter and the sample for the statistic.
 :::
 
 ### Sampling Variability (Revisited)
@@ -152,11 +150,11 @@ set.seed(2); SL2 <- SL[sample(SL$i,50),]
 set.seed(3); SL3 <- SL[sample(SL$i,50),]
 set.seed(4); SL4 <- SL[sample(SL$i,50),]
 
-SLpop2 <- SLpop + geom_point(data=SL2,color="red")
+SLpop2 <- SLpop + geom_point(data=SL2,color=clrs[4])
 SLhist2 <- SLhist1 %+% SL2
-SLpop3 <- SLpop + geom_point(data=SL3,color="red")
+SLpop3 <- SLpop + geom_point(data=SL3,color=clrs[4])
 SLhist3 <- SLhist1 %+% SL3
-SLpop4 <- SLpop + geom_point(data=SL4,color="red")
+SLpop4 <- SLpop + geom_point(data=SL4,color=clrs[4])
 SLhist4 <- SLhist1 %+% SL4
 
 (SLpop2+SLhist2) / (SLpop3+SLhist3) / (SLpop4+SLhist4)
@@ -191,7 +189,7 @@ Parameters are fixed in value, while statistics vary in value.
 The type of statistic that can be calculated is dictated by the type of variable recorded. For example, an average can only be calculated for quantitative variables (defined below). Thus, the type of variable should be identified immediately after performing an IVPPSS.
 
 ### Variable Definitions
-There are two main groups of variable types -- quantitative and categorical (Figure \@ref(fig:VarTypes)). **Quantitative** variables are variables with numerical values for which it makes sense to do arithmetic operations (like adding or averaging). Synonyms for quantitative are measurement or numerical. **Categorical** variables are variables that record which group or category an individual belongs. Synonyms for categorical are qualitative or attribute. Within each main type of variable are two subgroups (Figure \@ref(fig:VarTypes)).
+There are two main groups of variable types -- quantitative and categorical (Figure \@ref(fig:VarTypes)). **Quantitative** variables are variables with numerical values for which it makes sense to do arithmetic operations (like adding or averaging).^[Synonyms for quantitative are measurement or numerical.] **Categorical** variables are variables that record which group or category an individual belongs.^[Synonyms for categorical are qualitative or attribute.] Within each main type of variable are two subgroups (Figure \@ref(fig:VarTypes)).
 
 &nbsp;
 
@@ -229,15 +227,15 @@ ggplot(data=vrbls,mapping=aes(x=x,y=y,label=lbls,fill=fclr,color=tclr)) +
 
 &nbsp;
 
-The two types of quantitative variables are continuous and discrete variables. **Continuous** variables are quantitative variables that have an uncountable number of values. In other words, a potential value *does* exist between every pair of values of a continuous variable. **Discrete** variables are quantitative variables that have a countable number of values. Stated differently, a potential value *does not* exist between every pair of values for a discrete variable. Typically, but not always, discrete variables are counts of items.
+The two types of quantitative variables are continuous and discrete variables. **Continuous** variables have an uncountable number of values. **Discrete** variables have a countable number of values. Typically, but not always, discrete variables are counts of items.
 
-Continuous and discrete variables are easily distinguished by determining if it is possible for a value to exist between every two values of the variable. For example, can there be between 2 and 3 ducks on a pond?  No!  Thus, the number of ducks is a discrete variable. Alternatively, can a duck weigh between 2 and 3 kg?  Yes!  Can it weigh between 2 and 2.1 kg?  Yes!  Can it weigh between 2 and 2.01 kg? Yes! You can see that this line of questions could continue forever; thus, duck weight is a continuous variable.
+Continuous and discrete variables are easily distinguished by determining if it is possible for a value to exist between every two values of the variable. If a potential value can always be found between two values then the variable is continuous, otherwise it is discrete. For example, can there be between 2 and 3 ducks on a pond? No! Thus, the number of ducks is a discrete variable. Alternatively, can a duck weigh between 2 and 3 kg? Yes! Can it weigh between 2 and 2.1 kg? Yes! Can it weigh between 2 and 2.01 kg? Yes! You can see that this line of questions could continue forever; thus, duck weight is a continuous variable.
 
 ::: {.tip data-latex=""}
 A quantitative variable is continuous if a possible value exists between every two values of the variable; otherwise, it is discrete.
 :::
 
-The two types of categorical variables are ordinal and nominal. **Ordinal** variables are categorical variables where a natural order or ranking exists among the categories. **Nominal** variables are categorical variables where no order or ranking exists among the categories.
+The two types of categorical variables are ordinal and nominal. **Ordinal** variables have a natural order or ranking among the categories. **Nominal** variables have no order or ranking among the categories.
 
 Ordinal and nominal variables are easily distinguished by determining if the order of the categories matters. For example, suppose that a researcher recorded a subjective measure of condition (i.e., poor, average, excellent) and the species of each duck. Order matters with the condition variable -- i.e., condition improves from the first (poor) to the last category (excellent) -- and some reorderings of the categories would not make sense -- i.e., average, poor, excellent does not make sense. Thus, condition is an ordinal variable. In contrast, species (e.g., mallard, redhead, canvasback, and wood duck) is a nominal variable because there is no inherent order among the categories (i.e., any reordering of the categories also "makes sense").
 
@@ -247,20 +245,12 @@ Ordinal and nominal variables are easily distinguished by determining if the ord
 
 The following are some issues to consider when identifying the type of a variable:
 
-* The categories of a categorical variable are sometimes labeled with numbers. For example, 1="Poor", 3="Fair", and 5="Good". Don't let this fool you into calling the variable quantitative.
-* Rankings, ratings, and preferences are ordinal (categorical) variables.
 * Counts of numbers are discrete (quantitative) variables.
 * Measurements are typically continuous (quantitative) variables.
 * It does not matter how precisely quantitative variables are recorded when deciding if the variable is continuous or discrete. For example, the weight of the duck might have been recorded to the nearest kg. However, this was just a choice that was made, the actual values can be continuously finer than kg and, thus, weight is a continuous variable.
+* The categories of a categorical variable are sometimes labeled with numbers. For example, 1="Poor", 3="Fair", and 5="Good". Don't let this fool you into calling the variable quantitative.
+* Rankings, ratings, and preferences are ordinal (categorical) variables.
 * Categorical variables that consist of only two levels or categories will be labeled as a nominal variable (because any order of the groups makes sense). This type of variable is also often called "binomial."
 * Do not confuse "what type of variable" (answer is one of "continuous", "discrete", "nominal", or "ordinal")  with "what type of variability" (answer is "natural" or "sampling") questions.
-
-::: {.tip data-latex=""}
-"What type of variable is ...?" is a different question than "what type of variability is ...?" Be careful to note the word difference (i.e., "variable" versus "variability") when answering these questions.
-:::
-
-::: {.tip data-latex=""}
-The precision to which a quantitative variable was recorded does not determine whether it is continuous or discrete. How precisely the variable COULD have been recorded is the important consideration.
-:::
 
 &nbsp;

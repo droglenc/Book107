@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-06" />
+<meta name="date" content="2021-03-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -138,10 +138,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#introductory-example"><i class="fa fa-check"></i><b>1.1</b> Introductory Example</a></li>
 <li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
-<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
-<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.3</b> Why Does Statistics (as a tool) Exist?</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.4</b> Definition of Statistics</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
 <ul>
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Summarizing large quantities of data with few graphical or numerical summaries makes it is easier to identify meaning from data (discussed in Module <a href="WhyStats.html#WhyStats">1</a>). Numeric and graphical summaries specific to a single variable are described in this module. Interpretations from these numeric and graphical summaries are described in the next module.</p>
 <div id="quantitative-variable" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Quantitative Variable</h2>
-<p>Two data sets will be considered in this section about summarizing quantitative variables. The first data set consists of the number of open pit mines in countries with open pit mines (Table <a href="UnivSum.html#tab:MineData">4.1</a>).<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> The second data set is Richter scale recordings for 15 major earthquakes (Table <a href="UnivSum.html#tab:EQData">4.2</a>).</p>
+<p>Two data sets will be considered in this section about summarizing quantitative variables. The first data set consists of the number of open pit mines in countries with open pit mines (Table <a href="UnivSum.html#tab:MineData">4.1</a>).<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> The second data set is Richter scale recordings for 15 major earthquakes (Table <a href="UnivSum.html#tab:EQData">4.2</a>).</p>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -483,11 +483,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="numerical-summaries" class="section level3" number="4.1.1">
 <h3><span class="header-section-number">4.1.1</span> Numerical Summaries</h3>
 <p>A “typical” value and the “variability” of a quantitative variable are often described from numerical summaries. Calculation of these summaries is described in this module, whereas their interpretation is described in Module <a href="UnivEDA.html#UnivEDA">5</a>. As you will see in Module <a href="UnivEDA.html#UnivEDA">5</a>, “typical” values are measures of <strong>center</strong> and “variability” is often described as <strong>dispersion</strong> (or spread). Three measures of center are the median, mean, and mode. Three measures of dispersion are the inter-quartile range, standard deviation, and range.</p>
-<p>All measures computed in this module are summary <em>statistics</em> – i.e., they are computed from individuals in a sample. Thus, the name of each measure should be preceded by “sample” – e.g., sample median, sample mean, and sample standard deviation. These measures could be computed from every individual, if the population was known. The values would then be <em>parameters</em> and would be preceded by “population” – e.g., population median, population mean, and population standard deviation.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a></p>
+<p>All measures computed in this module are summary <em>statistics</em> – i.e., they are computed from individuals in a sample. Thus, the name of each measure should be preceded by “sample” – e.g., sample median, sample mean, and sample standard deviation. These measures could be computed from every individual, if the population was known. The values would then be <em>parameters</em> and would be preceded by “population” – e.g., population median, population mean, and population standard deviation.<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a></p>
 <div id="median" class="section level4" number="4.1.1.1">
 <h4><span class="header-section-number">4.1.1.1</span> Median</h4>
 <p>The median is the value of the individual in the position that splits the <strong>ordered</strong> list of individuals into two equal-<strong>sized</strong> halves. In other words, if the data are ordered, half the values will be smaller than the median and half will be larger.</p>
-<p>The process for finding the median consists of three steps,<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a></p>
+<p>The process for finding the median consists of three steps,<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a></p>
 <ul>
 <li>Order the data from smallest to largest.</li>
 <li>Find the “middle <strong>position</strong>” (<span class="math inline">\(mp\)</span>) with <span class="math inline">\(mp=\frac{n+1}{2}\)</span>.</li>
@@ -588,11 +588,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="inter-quartile-range" class="section level4" number="4.1.1.2">
 <h4><span class="header-section-number">4.1.1.2</span> Inter-Quartile Range</h4>
-<p>Quartiles are the values for the three individuals that divide ordered data into four (approximately) equal parts. Finding the three quartiles consists of finding the median, splitting the data into two equal parts at the median, and then finding the medians of the two halves.<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a> A concern in this process is that the median is NOT part of either half if there is an odd number of individuals. These steps are summarized as,</p>
+<p>Quartiles are the values for the three individuals that divide ordered data into four (approximately) equal parts. Finding the three quartiles consists of finding the median, splitting the data into two equal parts at the median, and then finding the medians of the two halves.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a> A concern in this process is that the median is NOT part of either half if there is an odd number of individuals. These steps are summarized as,</p>
 <ul>
 <li>Order the data from smallest to largest.</li>
 <li>Find the median – this is the second quartile (Q2).</li>
-<li>Split the data into two halves at the median. If <span class="math inline">\(n\)</span> is odd (so that the median is one of the observed values), then the median is not part of either half.<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a></li>
+<li>Split the data into two halves at the median. If <span class="math inline">\(n\)</span> is odd (so that the median is one of the observed values), then the median is not part of either half.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a></li>
 <li>Find the median of the lower half of data – this is the 1st quartile (Q1).</li>
 <li>Find the median of the upper half of data – this is the third quartile (Q3).</li>
 </ul>
@@ -1583,12 +1583,12 @@ Figure 4.4: Bar charts of the frequency of individuals in MTH107 during Winter 2
 </div>
 <div class="footnotes">
 <hr />
-<ol start="18">
-<li id="fn18"><p>These data were collected from <a href="https://en.wikipedia.org/wiki/List_of_open-pit_mines">this page</a>.<a href="UnivSum.html#fnref18" class="footnote-back">↩︎</a></p></li>
-<li id="fn19"><p>See Section <a href="FoundationalDefns.html#IVPPSS">2.1</a> for clarification on the differences between populations and samples and parameters and statistics.<a href="UnivSum.html#fnref19" class="footnote-back">↩︎</a></p></li>
-<li id="fn20"><p>Most computer programs use a more sophisticated algorithm for computing the median and, thus, will produce different results than what will result from applying these steps.<a href="UnivSum.html#fnref20" class="footnote-back">↩︎</a></p></li>
-<li id="fn21"><p>You should review how a median is computed before proceeding with this section.<a href="UnivSum.html#fnref21" class="footnote-back">↩︎</a></p></li>
-<li id="fn22"><p>Some authors put the median into both halves when <span class="math inline">\(n\)</span> is odd. The difference between the two methods is minimal for large <span class="math inline">\(n\)</span>.<a href="UnivSum.html#fnref22" class="footnote-back">↩︎</a></p></li>
+<ol start="24">
+<li id="fn24"><p>These data were collected from <a href="https://en.wikipedia.org/wiki/List_of_open-pit_mines">this page</a>.<a href="UnivSum.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<li id="fn25"><p>See Section <a href="FoundationalDefns.html#IVPPSS">2.1</a> for clarification on the differences between populations and samples and parameters and statistics.<a href="UnivSum.html#fnref25" class="footnote-back">↩︎</a></p></li>
+<li id="fn26"><p>Most computer programs use a more sophisticated algorithm for computing the median and, thus, will produce different results than what will result from applying these steps.<a href="UnivSum.html#fnref26" class="footnote-back">↩︎</a></p></li>
+<li id="fn27"><p>You should review how a median is computed before proceeding with this section.<a href="UnivSum.html#fnref27" class="footnote-back">↩︎</a></p></li>
+<li id="fn28"><p>Some authors put the median into both halves when <span class="math inline">\(n\)</span> is odd. The difference between the two methods is minimal for large <span class="math inline">\(n\)</span>.<a href="UnivSum.html#fnref28" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

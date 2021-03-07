@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-06" />
+<meta name="date" content="2021-03-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -138,10 +138,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#introductory-example"><i class="fa fa-check"></i><b>1.1</b> Introductory Example</a></li>
 <li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
-<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
-<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.3</b> Why Does Statistics (as a tool) Exist?</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.4</b> Definition of Statistics</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
 <ul>
@@ -336,7 +336,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb91-2"><a href="RUnivEDA.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <div id="data-sets" class="section level4 unnumbered">
 <h4>Data Sets</h4>
-<p>Summaries for quantitative data will be demonstrated with a dataset of the number of days of ice cover at ice gauge station 9004 in Lake Superior. These data are in <a href="https://raw.githubusercontent.com/droglenc/NCData/master/LakeSuperiorIce.csv">LakeSuperiorIce.csv</a> and are loaded into <code>LSI</code> below with the methods described in Section <a href="RData.html#alternative-forms-of-getting-data">22.3.1</a>.<a href="#fn73" class="footnote-ref" id="fnref73"><sup>73</sup></a></p>
+<p>Summaries for quantitative data will be demonstrated with a dataset of the number of days of ice cover at ice gauge station 9004 in Lake Superior. These data are in <a href="https://raw.githubusercontent.com/droglenc/NCData/master/LakeSuperiorIce.csv">LakeSuperiorIce.csv</a> and are loaded into <code>LSI</code> below with the methods described in Section <a href="RData.html#alternative-forms-of-getting-data">22.3.1</a>.<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a></p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb92-1"><a href="RUnivEDA.html#cb92-1" aria-hidden="true" tabindex="-1"></a>LSI <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;LakeSuperiorIce.csv&quot;</span>)</span>
 <span id="cb92-2"><a href="RUnivEDA.html#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(LSI)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     season decade   period  temp days
@@ -361,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">24.1</span> Quantitative</h2>
 <div id="summary-statistics" class="section level3" number="24.1.1">
 <h3><span class="header-section-number">24.1.1</span> Summary Statistics</h3>
-<p>The main summary statistics for quantitative data are the mean, median, standard deviation, IQR, and range, as described in Module <a href="UnivEDA.html#UnivEDA">5</a>. These statistics can be computed in R with <code>Summarize()</code>,<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a> using a one-sided formula of the form <code>~qvar</code>, where <code>qvar</code> generically represents the quantitative variable. The data frame that contains <code>qvar</code> is included in <code>data=</code>. The number of digits after the decimal place may be controlled with <code>digits=</code>.</p>
+<p>The main summary statistics for quantitative data are the mean, median, standard deviation, IQR, and range, as described in Module <a href="UnivEDA.html#UnivEDA">5</a>. These statistics can be computed in R with <code>Summarize()</code>,<a href="#fn80" class="footnote-ref" id="fnref80"><sup>80</sup></a> using a one-sided formula of the form <code>~qvar</code>, where <code>qvar</code> generically represents the quantitative variable. The data frame that contains <code>qvar</code> is included in <code>data=</code>. The number of digits after the decimal place may be controlled with <code>digits=</code>.</p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb96-1"><a href="RUnivEDA.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Summarize</span>(<span class="sc">~</span>days,<span class="at">data=</span>LSI,<span class="at">digits=</span><span class="dv">1</span>)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;        n nvalid   mean     sd    min     Q1 median     Q3    max 
 #R&gt;     42.0   39.0  107.8   21.6   48.0   97.0  114.0  118.0  146.0</code></pre>
@@ -380,11 +380,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="tip">
 <p>Only define the x variable for a histogram.</p>
 </div>
-<p>This base histogram is rather ugly. Fortunately it can be improved fairly easily. Most importantly, set <code>bins=</code> to the desired number of bins.<a href="#fn75" class="footnote-ref" id="fnref75"><sup>75</sup></a> Additionally, the bin bars can be made more readable by outlining them in black with <code>color="black"</code> and filling then with a light gray with <code>fill="lightgray"</code>.</p>
+<p>This base histogram is rather ugly. Fortunately it can be improved fairly easily. Most importantly, set <code>bins=</code> to the desired number of bins.<a href="#fn81" class="footnote-ref" id="fnref81"><sup>81</sup></a> Additionally, the bin bars can be made more readable by outlining them in black with <code>color="black"</code> and filling then with a light gray with <code>fill="lightgray"</code>.</p>
 <div class="sourceCode" id="cb99"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb99-1"><a href="RUnivEDA.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
 <span id="cb99-2"><a href="RUnivEDA.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">10</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>)</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-69-1.png" width="336" style="display: block; margin: auto;" /></p>
-<p>While this histogram is great improved it will look better if the bars are set on the x-axis with <code>scale_y_continuous()</code> shown below,<a href="#fn76" class="footnote-ref" id="fnref76"><sup>76</sup></a> the x- and y-axes are labeled more appropriately using <code>x=</code> and <code>y=</code> in <code>labs()</code> as shown below, and we use <code>theme_NCStats()</code>,<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a> which was created especially for this class.</p>
+<p>While this histogram is great improved it will look better if the bars are set on the x-axis with <code>scale_y_continuous()</code> shown below,<a href="#fn82" class="footnote-ref" id="fnref82"><sup>82</sup></a> the x- and y-axes are labeled more appropriately using <code>x=</code> and <code>y=</code> in <code>labs()</code> as shown below, and we use <code>theme_NCStats()</code>,<a href="#fn83" class="footnote-ref" id="fnref83"><sup>83</sup></a> which was created especially for this class.</p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb100-1"><a href="RUnivEDA.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
 <span id="cb100-2"><a href="RUnivEDA.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">10</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
 <span id="cb100-3"><a href="RUnivEDA.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
@@ -479,7 +479,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre class="ROUTPUT"><code>#R&gt;   recycle
 #R&gt;      Always     Often Sometimes     Never Not Avail 
 #R&gt;        1289       850       823       448       129</code></pre>
-<p>A percentage table is computed by including the saved frequency table as the first argument to <code>percTable()</code>.<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a> The number of digits of output is controlled with <code>digits=</code>, though this defaults to 1 which is adequate for most percentages.</p>
+<p>A percentage table is computed by including the saved frequency table as the first argument to <code>percTable()</code>.<a href="#fn84" class="footnote-ref" id="fnref84"><sup>84</sup></a> The number of digits of output is controlled with <code>digits=</code>, though this defaults to 1 which is adequate for most percentages.</p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb117-1"><a href="RUnivEDA.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(tabRecycle)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   recycle
 #R&gt;      Always     Often Sometimes     Never Not Avail 
@@ -505,13 +505,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="73">
-<li id="fn73"><p>Data originally from the <a href="http://www.nsidc.org/">National Snow and Ice Data Center</a>.<a href="RUnivEDA.html#fnref73" class="footnote-back">↩︎</a></p></li>
-<li id="fn74"><p><code>Summarize()</code> is from <code>NCStats</code>.<a href="RUnivEDA.html#fnref74" class="footnote-back">↩︎</a></p></li>
-<li id="fn75"><p>Generally near 8-10 bins, depending on n.<a href="RUnivEDA.html#fnref75" class="footnote-back">↩︎</a></p></li>
-<li id="fn76"><p>A full description of this code is beyond this class, but this exact code should be used for all histograms constructed for this class.<a href="RUnivEDA.html#fnref76" class="footnote-back">↩︎</a></p></li>
-<li id="fn77"><p>This theme mostly removes the background grid and color.<a href="RUnivEDA.html#fnref77" class="footnote-back">↩︎</a></p></li>
-<li id="fn78"><p>Thus, <code>xtabs()</code> must be completed and saved to an object before <code>percTable()</code>.<a href="RUnivEDA.html#fnref78" class="footnote-back">↩︎</a></p></li>
+<ol start="79">
+<li id="fn79"><p>Data originally from the <a href="http://www.nsidc.org/">National Snow and Ice Data Center</a>.<a href="RUnivEDA.html#fnref79" class="footnote-back">↩︎</a></p></li>
+<li id="fn80"><p><code>Summarize()</code> is from <code>NCStats</code>.<a href="RUnivEDA.html#fnref80" class="footnote-back">↩︎</a></p></li>
+<li id="fn81"><p>Generally near 8-10 bins, depending on n.<a href="RUnivEDA.html#fnref81" class="footnote-back">↩︎</a></p></li>
+<li id="fn82"><p>A full description of this code is beyond this class, but this exact code should be used for all histograms constructed for this class.<a href="RUnivEDA.html#fnref82" class="footnote-back">↩︎</a></p></li>
+<li id="fn83"><p>This theme mostly removes the background grid and color.<a href="RUnivEDA.html#fnref83" class="footnote-back">↩︎</a></p></li>
+<li id="fn84"><p>Thus, <code>xtabs()</code> must be completed and saved to an object before <code>percTable()</code>.<a href="RUnivEDA.html#fnref84" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

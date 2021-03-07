@@ -133,10 +133,10 @@ tab:GOFshrikesRes
 tab:GOFshrikesChi
 tab:GOFshrikesCIs
 WhyStats
-realities
+introductory-example
 major-goals-of-statistics
-definition-of-statistics
 why-does-statistics-as-a-tool-exist
+definition-of-statistics
 FoundationalDefns
 IVPPSS
 performing-an-ivppss

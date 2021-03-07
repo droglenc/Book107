@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-06" />
+<meta name="date" content="2021-03-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -138,10 +138,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#realities"><i class="fa fa-check"></i><b>1.1</b> Realities</a></li>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#introductory-example"><i class="fa fa-check"></i><b>1.1</b> Introductory Example</a></li>
 <li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
-<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.3</b> Definition of Statistics</a></li>
-<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.4</b> Why Does Statistics (as a tool) Exist?</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.3</b> Why Does Statistics (as a tool) Exist?</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.4</b> Definition of Statistics</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
 <ul>
@@ -330,9 +330,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="WhyStats" class="section level1" number="1">
 <h1><span class="header-section-number">Module 1</span> Why Statistics is Important</h1>
-<div id="realities" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Realities</h2>
-<p>The city of Ashland performed an investigation in the area of Kreher Park (Figure <a href="WhyStats.html#fig:KreherParkMap">1.1</a>) when considering the possible expansion of an existing wastewater treatment facility in 1989. The discovery of contamination from creosote waste in the subsoils and ground water at Kreher Park prompted the city to abandon the project. A subsequent assessment by the Wisconsin Department of Natural Resources (WDNR) indicated elevated levels of hazardous substances in soil borings, ground water samples, and in the sediments of Chequamegon Bay directly offshore of Kreher Park. In 1995 and 1999, the Northern States Power Company conducted investigations that further defined the area of contamination and confirmed the presence of specific contaminants associated with coal tar wastes. This site is now listed as a superfund site and is being given considerably more attention.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<div id="introductory-example" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Introductory Example</h2>
+<p>The city of Ashland performed an investigation in the area of Kreher Park (Figure <a href="WhyStats.html#fig:KreherParkMap">1.1</a>) when considering the possible expansion of an existing wastewater treatment facility in 1989. The discovery of contamination from creosote waste in the subsoils and ground water at Kreher Park prompted the city to abandon the project. A subsequent assessment by the Wisconsin Department of Natural Resources (WDNR) indicated elevated levels of hazardous substances in soil borings, ground water samples, and in the sediments of Chequamegon Bay directly offshore of Kreher Park. In 1995 and 1999, the Northern States Power Company conducted investigations that further defined the area of contamination and confirmed the presence of specific contaminants associated with coal tar wastes. This site was then listed as a superfund site and was given considerably more attention.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:KreherParkMap"></span>
 <img src="zimgs/Kreher_Park_Map.png" alt="Location of the Ashland superfund site (left) with the location of 119 historical sediment sampling sites (right)." width="80%" />
@@ -343,11 +343,11 @@ Figure 1.1: Location of the Ashland superfund site (left) with the location of 1
 <p> </p>
 <p>The WDNR wants to study elements in the sediment (among other things) in the entire 3000 m<sup>2</sup> area shaded in Figure <a href="WhyStats.html#fig:KreherParkMap">1.1</a>. Is it physically possible to examine every square meter of that area? Is it prudent, ecologically and economically, to examine every square meter of this area? The answer, of course, is “no.” How then will the WDNR be able to make conclusions about this entire area if they cannot reasonably examine the whole area? The most reasonable solution is to sample a subset of the area and use the results from this sample to make inferences about the entire area.</p>
 <p>Methods for properly selecting a sample that fairly represents a larger collection of individuals are an important area of study in statistics. For example, the WDNR would not want to sample areas that are only conveniently near shore because this will likely not be an accurate representation of the entire area. In this example, it appears that the WDNR used a grid to assure a relatively even dispersal of samples throughout the study area (Figure <a href="WhyStats.html#fig:KreherParkMap">1.1</a>). Methods for choosing the number of individuals to select and how to select those individuals are discussed in Module <a href="DataProduction.html#DataProduction">3</a>.</p>
-<p>Suppose that the WDNR measured the concentration of lead at each of the 119 locations shown in Figure <a href="WhyStats.html#fig:KreherParkMap">1.1</a>. Further suppose that they presented their results at a public meeting by simply showing the list of lead concentration measurements (Table <a href="WhyStats.html#tab:KreherParkPbconc">1.1</a>).<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> Is it easy to make conclusions about what these data mean from this type of presentation?</p>
+<p>Suppose that the WDNR measured the concentration of lead at each of the 119 locations shown in Figure <a href="WhyStats.html#fig:KreherParkMap">1.1</a>. Further suppose that they presented their results at a public meeting by simply showing the list of lead concentration measurements (Table <a href="WhyStats.html#tab:KreherParkPbconc">1.1</a>). Is it easy to make conclusions about what these data mean from this type of presentation?</p>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:KreherParkPbconc">Table 1.1: </span>Lead concentration (<span class="math inline">\(\mu g \cdot m^{-3}\)</span>) from 119 sites in Kreher Park superfund site.
+<span id="tab:KreherParkPbconc">Table 1.1: </span>Lead concentration (<span class="math inline">\(\mu g \cdot m^{-3}\)</span>) from 119 sites in Kreher Park superfund site.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
 </caption>
 <tbody>
 <tr>
@@ -748,16 +748,17 @@ Figure 1.3: Histogram and summary statistics of lead concentration measurements 
 <p> </p>
 <p>The results from two different samples do not perfectly agree because each sample contains different individuals (sites in this example), and no two individuals are exactly alike. The fact that no two individuals are exactly alike is <strong>natural variability</strong>, because of the “natural” differences that occur among individuals. The fact that the results from different samples are different is called <strong>sampling variability</strong>. If there was no natural variability, then there would be no sampling variability. If there was no sampling variability, then the field of statistics would not be needed because a sample (even of one individual) would perfectly represent the larger group of individuals. Thus, understanding variability is at the core of statistical practice. Natural and sampling variability will be revisited continuously throughout this course.</p>
 <p>This may be unsettling! First, it was shown that an entire area or all of the individuals of interest cannot be examined. It was then shown that a sample of individuals from the larger whole did not perfectly represent the larger whole. Furthermore, each sample is unique and will likely lead to a (slightly) different conclusion. These are all real and difficult issues faced by the practicing scientist and considered by the informed consumer. However, the field of statistics is designed to “deal with” these issues such that the results from a relatively small subset of measurements can be used to make conclusions about the entire collection of measurements.</p>
-<div class="tip">
-<p>Statistics provides methods for overcoming the difficulties caused by the requirement of sampling and the presence of sampling variability.</p>
-</div>
 </div>
 <div id="major-goals-of-statistics" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Major Goals of Statistics</h2>
 <p>As seen in the Kreher Park example, the field of statistics has two primary purposes. First, statistics provides methods to summarize large quantities of data into concise and informative numerical or graphical summaries. For example, it was easier to discern the general underlying structure of the lead measurements from the statistics and histograms presented in Figures <a href="WhyStats.html#fig:KreherParkPbhist">1.2</a> and <a href="WhyStats.html#fig:KreherParkPbhist1">1.3</a>, than it was from the full list of lead measurements in Table <a href="WhyStats.html#tab:KreherParkPbconc">1.1</a>. Second, statistical methods allow inferences to be made about all individuals (i.e., a population) from a few individuals (i.e., a sample).<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 </div>
-<div id="definition-of-statistics" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Definition of Statistics</h2>
+<div id="why-does-statistics-as-a-tool-exist" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Why Does Statistics (as a tool) Exist?</h2>
+<p>Besides demonstrating the two major goals of statistics, the Kreher Park example illustrates three “realities” that exist in nature and life that necessitate the need for statistics as tool for understanding. First, in most realistic situations it is not possible or, at least, not reasonable to “see” the entire population. For example, it was not reasonable to sample the sediments throughout the entire contaminated area near Kreher Park. In other examples, is it possible (or reasonable) to examine every Northern Short-Tailed Shew (<em>Blarina bevicauda</em>) in Great Lakes states, every person of legal voting age in Wisconsin, or every click on Facebook? Second, as described above, variability exists, both among individuals and results of samples. Third, because we must take samples from populations and those samples are both imperfect representations of the population and sampling variability exists, our conclusions about the population are uncertain. For example, the first sample in the Kreher Park example suggested that the mean lead concentration was 1.02 <span class="math inline">\(\mu g \cdot m^{-3}\)</span>, whereas the second sample was 0.98 <span class="math inline">\(\mu g \cdot m^{-3}\)</span>. You have also seen this concept when the margin-of-error in poll results are presented. In summary, statistics exist because we must sample instead of observe entire populations, variability is ever present, and the conclusions from samples are uncertain.</p>
+</div>
+<div id="definition-of-statistics" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Definition of Statistics</h2>
 <p>Statistics is the science of collecting, organizing, and interpreting numerical information or data (Moore and McCabe 1998). People study statistics for a variety of reasons, including (Bluman 2000):</p>
 <ul>
 <li>To understand the statistical studies performed in their field (i.e., be knowledgeable about the vocabulary, symbols, concepts, and statistical procedures used in those studies).</li>
@@ -768,10 +769,6 @@ Figure 1.3: Histogram and summary statistics of lead concentration measurements 
 <blockquote>
 <p>The study and collection of data are important in the work of many professions, so that training in the science of statistics is valuable preparation for a variety of careers. Each month, for example, government statistical offices release the latest numerical information on unemployment and inflation. Economists and financial advisers, as well as policy makers in government and business study these data in order to make informed decisions. Doctors must understand the origin and trustworthiness of the data that appear in medical journals if they are to offer their patients the most effective treatments. Politicians rely on data from polls of public opinion. Business decisions are based on market research data that reveal customer tastes. Farmers study data from field trials of new crop varieties. Engineers gather data on the quality and reliability of manufactured products. Most areas of academic study make use of numbers, and therefore also make use of the methods of statistics.</p>
 </blockquote>
-</div>
-<div id="why-does-statistics-as-a-tool-exist" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Why Does Statistics (as a tool) Exist?</h2>
-<p>Besides demonstrating the two major goals of statistics, the Kreher Park example illustrates three “realities” that exist in nature and life that necessitate the need for statistics as tool for understanding. First, in most realistic situations it is not possible or, at least, not reasonable to “see” the entire population. For example, it was not reasonable to sample the sediments throughout the entire contaminated area near Kreher Park. In other examples, is it possible (or reasonable) to examine every Northern Short-Tailed Shew (<em>Blarina bevicauda</em>) in Great Lakes states, every person of legal voting age in Wisconsin, or every click on Facebook? Second, as described above, variability exists, both among individuals and results of samples. Third, because we must take samples from populations and those samples are both imperfect representations of the population and sampling variability exists, our conclusions about the population are uncertain. For example, the first sample in the Kreher Park example suggested that the mean lead concentration was 1.02 <span class="math inline">\(\mu g \cdot m^{-3}\)</span>, whereas the second sample was 0.98 <span class="math inline">\(\mu g \cdot m^{-3}\)</span>. You have also seen this concept when the margin-of-error in poll results are presented. In summary, statistics exist because we must sample instead of observe entire populations, variability is ever present, and the conclusions from samples are uncertain.</p>
 <p> </p>
 
 </div>
