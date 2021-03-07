@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Summarizing large quantities of data with few graphical or numerical summaries makes it is easier to identify meaning from data (discussed in Module <a href="WhyStats.html#WhyStats">1</a>). Numeric and graphical summaries specific to a single variable are described in this module. Interpretations from these numeric and graphical summaries are described in the next module.</p>
 <div id="quantitative-variable" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Quantitative Variable</h2>
-<p>Two data sets will be considered in this section about summarizing quantitative variables. The first data set consists of the number of open pit mines in countries with open pit mines (Table <a href="UnivSum.html#tab:MineData">4.1</a>).<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> The second data set is Richter scale recordings for 15 major earthquakes (Table <a href="UnivSum.html#tab:EQData">4.2</a>).</p>
+<p>Data about the number of open pit mines in countries with open pit mines (Table <a href="UnivSum.html#tab:MineData">4.1</a>)<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> and Richter scale recordings for 15 major earthquakes (Table <a href="UnivSum.html#tab:EQData">4.2</a>) will be used throughout this section.</p>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -342,10 +342,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tbody>
 <tr>
 <td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
 2
 </td>
 <td style="text-align:right;">
-11
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+4
 </td>
 <td style="text-align:right;">
 4
@@ -354,10 +366,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 1
 </td>
 <td style="text-align:right;">
-15
+12
 </td>
 <td style="text-align:right;">
-12
+4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
 </td>
 <td style="text-align:right;">
 1
@@ -369,27 +387,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 3
 </td>
 <td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
+11
 </td>
 <td style="text-align:right;">
 1
 </td>
 <td style="text-align:right;">
-1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
+15
 </td>
 <td style="text-align:right;">
 4
@@ -398,13 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 1
 </td>
 <td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
 2
-</td>
-<td style="text-align:right;">
-4
 </td>
 <td style="text-align:right;">
 2
@@ -413,7 +411,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 1
 </td>
 <td style="text-align:right;">
-4
+2
 </td>
 <td style="text-align:right;">
 11
@@ -429,6 +427,158 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <caption>
 <span id="tab:EQData">Table 4.2: </span>Richter scale recordings for 15 major earthquakes.
 </caption>
+<tbody>
+<tr>
+<td style="text-align:right;">
+7.8
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+6.8
+</td>
+<td style="text-align:right;">
+5.5
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+8.1
+</td>
+<td style="text-align:right;">
+7.3
+</td>
+<td style="text-align:right;">
+6.5
+</td>
+<td style="text-align:right;">
+6.8
+</td>
+<td style="text-align:right;">
+6.3
+</td>
+<td style="text-align:right;">
+7.1
+</td>
+<td style="text-align:right;">
+7.3
+</td>
+<td style="text-align:right;">
+6.5
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<div id="numerical-summaries" class="section level3" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Numerical Summaries</h3>
+<p>A “typical” value and the “variability” of a quantitative variable are often described from numerical summaries. Calculation of these summaries is described in this module, whereas their interpretation is described in Module <a href="UnivEDA.html#UnivEDA">5</a>. As you will see in Module <a href="UnivEDA.html#UnivEDA">5</a>, “typical” values are measures of <strong>center</strong> and “variability” is often described as <strong>dispersion</strong> (or spread). Three measures of center are the median, mean, and mode. Three measures of dispersion are the inter-quartile range, standard deviation, and range.</p>
+<p>All measures computed in this module are summary <em>statistics</em> – i.e., they are computed from individuals in a sample. Thus, the name of each measure should be preceded by “sample” – e.g., sample median, sample mean, and sample standard deviation. These measures could be computed from every individual <em>if</em> the population was known. The values would then be <em>parameters</em> and would be preceded by “population” – e.g., population median, population mean, and population standard deviation.<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a></p>
+<div id="median" class="section level4" number="4.1.1.1">
+<h4><span class="header-section-number">4.1.1.1</span> Median</h4>
+<p>The median is the value of the individual in the position that splits the <strong>ordered</strong> list of individuals into two equal-<strong>sized</strong> halves. In other words, if the data are ordered, half the values will be smaller than the median and half will be larger.</p>
+<p>The process for finding the median consists of three steps,<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a></p>
+<ol style="list-style-type: decimal">
+<li>Order the data from smallest to largest.</li>
+<li>Find the “middle <strong>position</strong>” (MP) with MP=<span class="math inline">\(\frac{n+1}{2}\)</span>.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a></li>
+<li>If MP is an integer (i.e., no decimal), then the median is the value of the individual in that position. If MP is not an integer, then the median is the <em>average</em> of the value immediately below and the value immediately above the MP.</li>
+</ol>
+<p>As an example, the <strong>ordered</strong> open pit data from Table <a href="UnivSum.html#tab:MineData">4.1</a> are shown below.</p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;font-weight: bold;color: red !important;">
+2
+</td>
+<td style="text-align:right;font-weight: bold;color: red !important;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+15
+</td>
+</tr>
+</tbody>
+</table>
+<p>Because n=26, the MP=<span class="math inline">\(\frac{26+1}{2}\)</span>=13.5. The MP is not an integer so the median is the average of the values in the 13th and 14th ordered positions (i.e., the two positions closest to MP). Thus, the median number of open pit mines in this sample of countries is 2 (=<span class="math inline">\(\frac{2+2}{2}\)</span>).</p>
+<p>Consider finding the median of the Richter Scale magnitude recorded for fifteen major earthquakes as another example (ordered data below).</p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <tbody>
 <tr>
 <td style="text-align:right;">
@@ -452,7 +602,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align:right;">
 6.9
 </td>
-<td style="text-align:right;">
+<td style="text-align:right;font-weight: bold;color: red !important;">
 7.1
 </td>
 <td style="text-align:right;">
@@ -479,125 +629,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p> </p>
-<div id="numerical-summaries" class="section level3" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Numerical Summaries</h3>
-<p>A “typical” value and the “variability” of a quantitative variable are often described from numerical summaries. Calculation of these summaries is described in this module, whereas their interpretation is described in Module <a href="UnivEDA.html#UnivEDA">5</a>. As you will see in Module <a href="UnivEDA.html#UnivEDA">5</a>, “typical” values are measures of <strong>center</strong> and “variability” is often described as <strong>dispersion</strong> (or spread). Three measures of center are the median, mean, and mode. Three measures of dispersion are the inter-quartile range, standard deviation, and range.</p>
-<p>All measures computed in this module are summary <em>statistics</em> – i.e., they are computed from individuals in a sample. Thus, the name of each measure should be preceded by “sample” – e.g., sample median, sample mean, and sample standard deviation. These measures could be computed from every individual, if the population was known. The values would then be <em>parameters</em> and would be preceded by “population” – e.g., population median, population mean, and population standard deviation.<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a></p>
-<div id="median" class="section level4" number="4.1.1.1">
-<h4><span class="header-section-number">4.1.1.1</span> Median</h4>
-<p>The median is the value of the individual in the position that splits the <strong>ordered</strong> list of individuals into two equal-<strong>sized</strong> halves. In other words, if the data are ordered, half the values will be smaller than the median and half will be larger.</p>
-<p>The process for finding the median consists of three steps,<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a></p>
-<ul>
-<li>Order the data from smallest to largest.</li>
-<li>Find the “middle <strong>position</strong>” (<span class="math inline">\(mp\)</span>) with <span class="math inline">\(mp=\frac{n+1}{2}\)</span>.</li>
-<li>If <span class="math inline">\(mp\)</span> is an integer (i.e., no decimal), then the median is the value of the individual in that position. If <span class="math inline">\(mp\)</span> is not an integer, then the median is the average of the value immediately below and the value immediately above the <span class="math inline">\(mp\)</span>.</li>
-</ul>
-<p>As an example, the open pit data from Table <a href="UnivSum.html#tab:MineData">4.1</a> are shown below.</p>
-<p> </p>
-<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
-<tbody>
-<tr>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-2
-</td>
-<td style="text-align:right;">
-3
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-11
-</td>
-<td style="text-align:right;">
-12
-</td>
-<td style="text-align:right;">
-15
-</td>
-</tr>
-</tbody>
-</table>
-<p> </p>
-<p>Because <span class="math inline">\(n=26\)</span>, the <span class="math inline">\(mp=\frac{26+1}{2}=13.5\)</span>. The <span class="math inline">\(mp\)</span> is not an integer so the median is the average of the values in the 13th and 14th ordered positions (i.e., the two positions closest to <span class="math inline">\(mp\)</span>). Thus, the median number of open pit mines in this sample of countries is <span class="math inline">\(\frac{2+2}{2}=2\)</span>.</p>
-<p>Consider finding the median of the Richter Scale magnitude recorded for fifteen major earthquakes as another example (ordered data are in Table <a href="UnivSum.html#tab:EQData">4.2</a>). Because <span class="math inline">\(n=15\)</span>, the <span class="math inline">\(mp=\frac{15+1}{2}=8\)</span>. The <span class="math inline">\(mp\)</span> is an integer so the median is the value of the individual in the 8th ordered position, which is 7.1.</p>
+<p>Because n=15, the MP=<span class="math inline">\(\frac{15+1}{2}\)</span>=8. The MP is an integer so the median is the value of the individual in the 8th ordered position, which is 7.1.</p>
 <div class="tip">
 <p>Don’t forget to order the data when computing the median.</p>
 </div>
 </div>
 <div id="inter-quartile-range" class="section level4" number="4.1.1.2">
 <h4><span class="header-section-number">4.1.1.2</span> Inter-Quartile Range</h4>
-<p>Quartiles are the values for the three individuals that divide ordered data into four (approximately) equal parts. Finding the three quartiles consists of finding the median, splitting the data into two equal parts at the median, and then finding the medians of the two halves.<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a> A concern in this process is that the median is NOT part of either half if there is an odd number of individuals. These steps are summarized as,</p>
-<ul>
+<p>Quartiles are the values for the three individuals that divide ordered data into four (approximately) equal parts. Finding the three quartiles consists of finding the median, splitting the data into two equal parts at the median, and then finding the medians of the two halves.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a> A concern in this process is that the median is NOT part of either half if there is an odd number of individuals. These steps are summarized as,</p>
+<ol style="list-style-type: decimal">
 <li>Order the data from smallest to largest.</li>
 <li>Find the median – this is the second quartile (Q2).</li>
-<li>Split the data into two halves at the median. If <span class="math inline">\(n\)</span> is odd (so that the median is one of the observed values), then the median is not part of either half.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a></li>
+<li>Split the data into two halves at the median. If n is odd (so that the median is one of the observed values), then the median is <strong>not</strong> part of either half.<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a></li>
 <li>Find the median of the lower half of data – this is the 1st quartile (Q1).</li>
 <li>Find the median of the upper half of data – this is the third quartile (Q3).</li>
-</ul>
-<p>These calculations are illustrated with the open pit mine data (the median was computed in Section <a href="UnivSum.html#median">4.1.1.1</a>). Because <span class="math inline">\(n=26\)</span> is even, the halves of the data split naturally into two halves each with 13 individuals. Therefore, the <span class="math inline">\(mp=\frac{13+1}{2}=7\)</span> and the median of each half is the value of the individual in the seventh position. Thus, <span class="math inline">\(Q1=1\)</span> and <span class="math inline">\(Q3=4\)</span>.</p>
-<p> </p>
+</ol>
+<p>These calculations are illustrated with the open pit mine data (the median was computed in Section <a href="UnivSum.html#median">4.1.1.1</a>).</p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <tbody>
 <tr>
@@ -619,7 +666,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align:right;">
 1
 </td>
-<td style="text-align:right;">
+<td style="text-align:right;font-weight: bold;color: red !important;">
 1
 </td>
 <td style="text-align:right;">
@@ -639,6 +686,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </td>
 <td style="text-align:right;">
 2
+</td>
+<td style="text-align:right;background-color: gray !important;">
 </td>
 <td style="text-align:right;">
 2
@@ -658,7 +707,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td style="text-align:right;">
 4
 </td>
-<td style="text-align:right;">
+<td style="text-align:right;font-weight: bold;color: red !important;">
 4
 </td>
 <td style="text-align:right;">
@@ -682,28 +731,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p> </p>
-<p>In summary, the first, second, and third quartiles for the open pit mine data are 1, 2, and 4, respectively. These three values separate the ordered individuals into approximately four equally-sized groups – those with values less than (or equal to) 1, with values between (inclusive) 1 and 2, with values between (inclusive) 2 and 4, and with values greater (or equal to) than 4.</p>
-<p>As another example, consider finding the quartiles for the earthquake data (Table <a href="UnivSum.html#tab:EQData">4.2</a>). Recall from Section <a href="UnivSum.html#median">4.1.1.1</a> that the median (=7.1) is in the eighth position of the ordered data. The value in the eighth position will NOT be included in either half. Thus, the two halves of the data are 5.5, 6.3, 6.5, 6.5, 6.8, 6.8, 6.9 and 7.3, 7.3, 7.7, 7.7, 7.7, 7.8, 8.1. The middle position for each half is then <span class="math inline">\(mp=\frac{7+1}{2}=4\)</span>. Thus, the median for each half is the individual in the fourth position. Therefore, the median of the first half is <span class="math inline">\(Q1=6.5\)</span> and the median of the second half is <span class="math inline">\(Q3=7.7\)</span>.</p>
-<p>The interquartile range (IQR) is the difference between <span class="math inline">\(Q3\)</span> and <span class="math inline">\(Q1\)</span>, namely <span class="math inline">\(Q3-Q1\)</span>. However, the IQR (as strictly defined) suffers from a lack of information. For example, what does an IQR of 9 mean? It can have a completely different interpretation if the IQR is from values of 1 to 10 or if it is from values of 1000 to 1009. Thus, the IQR is more useful if presented as both <span class="math inline">\(Q3\)</span> and <span class="math inline">\(Q1\)</span>, rather than as the difference. Thus, for example, the IQR for the open pit mine data is from a <span class="math inline">\(Q1\)</span> of 1 to a <span class="math inline">\(Q3\)</span> of 4 and the IQR for the earthquake data is from a <span class="math inline">\(Q1\)</span> of 6.5 to a <span class="math inline">\(Q3\)</span> of 7.</p>
+<p>Because n=26 is even, the halves of the data split naturally into two halves, each with 13 individuals. Therefore, the MP=<span class="math inline">\(\frac{13+1}{2}\)</span>=7 and the median of each half is the value of the individual in the seventh position. Thus, Q1=1 and Q3=4.</p>
+<p>In summary, the first, second (i.e,. median), and third quartiles for the open pit mine data are 1, 2, and 4, respectively. These three values separate the ordered individuals into approximately four equally-sized groups – those with values less than (or equal to) 1, with values between (inclusive) 1 and 2, with values between (inclusive) 2 and 4, and with values greater (or equal to) than 4.</p>
+<p>As another example, consider finding the quartiles for the earthquake data. Recall from Section <a href="UnivSum.html#median">4.1.1.1</a> that the median (=7.1) is in the eighth position of the ordered data. The value in the eighth position will NOT be included in either half when finding the quartiles.</p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td style="text-align:right;">
+5.5
+</td>
+<td style="text-align:right;">
+6.3
+</td>
+<td style="text-align:right;">
+6.5
+</td>
+<td style="text-align:right;font-weight: bold;color: red !important;">
+6.5
+</td>
+<td style="text-align:right;">
+6.8
+</td>
+<td style="text-align:right;">
+6.8
+</td>
+<td style="text-align:right;">
+6.9
+</td>
+<td style="text-align:right;text-decoration: line-through;background-color: gray !important;">
+7.1
+</td>
+<td style="text-align:right;">
+7.3
+</td>
+<td style="text-align:right;">
+7.3
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;font-weight: bold;color: red !important;">
+7.7
+</td>
+<td style="text-align:right;">
+7.7
+</td>
+<td style="text-align:right;">
+7.8
+</td>
+<td style="text-align:right;">
+8.1
+</td>
+</tr>
+</tbody>
+</table>
+<p>Thus, each half has 7 individuals such that the middle position for each half is MP=<span class="math inline">\(\frac{7+1}{2}\)</span>=4. The median for each half is the individual in the fourth position of each half so that Q1=6.5 and Q3=7.7.</p>
+<p>The interquartile range (IQR) is the difference between Q3 and Q1, namely Q3-Q1. However, the IQR (as strictly defined) suffers from a lack of information. For example, what does an IQR of 9 mean? It can have a completely different interpretation if the IQR is from 1 to 10 or if it is from 1000 to 1009. Thus, the IQR is more useful if presented as both Q3 and Q1, rather than as the difference. Thus, for example, the IQR for the open pit mine data is from a Q1 of 1 to a Q3 of 4 and the IQR for the earthquake data is from a Q1 of 6.5 to a Q3 of 7.</p>
 <div class="tip">
-<p>The IQR can be thought of as the “range of the middle half of the data.”</p>
-</div>
-<div class="tip">
-<p>When reporting the IQR, explicitly state both <span class="math inline">\(Q1\)</span> and <span class="math inline">\(Q3\)</span> (i.e., do not subtract them).</p>
+<ul>
+<li>The IQR can be thought of as the “range of the middle half of the data.”</li>
+<li>When reporting the IQR, explicitly state both Q1 and Q3 (i.e., do not subtract them).</li>
+</ul>
 </div>
 </div>
 <div id="mean" class="section level4" number="4.1.1.3">
 <h4><span class="header-section-number">4.1.1.3</span> Mean</h4>
-<p>The mean is the arithmetic average of the data. The sample mean is denoted by <span class="math inline">\(\bar{x}\)</span> and the population mean by <span class="math inline">\(\mu\)</span>. The mean is simply computed by adding up all of the values and dividing by the number of individuals. If the measurement of the generic variable <span class="math inline">\(x\)</span> on the <span class="math inline">\(i\)</span>th individual is denoted as <span class="math inline">\(x_{i}\)</span>, then the sample mean is computed with these two steps,</p>
-<ul>
-<li>Sum (i.e., add together) all of the values – <span class="math inline">\(\sum_{i=1}^{n}x_{i}\)</span>.</li>
-<li>Divide by the number of individuals in the sample – <span class="math inline">\(n\)</span>.</li>
-</ul>
+<p>The mean is the arithmetic average of the data. The sample mean is denoted by <span class="math inline">\(\bar{\text{x}}\)</span> and the population mean by μ. The mean is simply computed by adding up all of the values and dividing by the number of individuals. If the measurement of the generic variable x on the ith individual is denoted as x<sub>i</sub>, then the sample mean is computed with these two steps,</p>
+<ol style="list-style-type: decimal">
+<li>Sum (i.e., add together) all of the values – <span class="math inline">\(\sum_{\text{i=1}}^{\text{n}}\text{x}_{\text{i}}\)</span>.</li>
+<li>Divide by the number of individuals in the sample – n.</li>
+</ol>
 <p>or more succinctly summarized with this equation,</p>
-<p><span class="math display">\[ \bar{x} = \frac{\sum_{i=1}^{n}x_{i}}{n} \]</span></p>
+<p><span class="math display">\[ \bar{\text{x}} = \frac{\sum_{\text{i=1}}^{\text{n}}\text{x}_{\text{i}}}{\text{n}} \]</span></p>
 <p>For example, the sample mean of the open pit mine data is computed as follows:</p>
-<p><span class="math display">\[ \bar{x} = \frac{2+11+4+1+15+ ... +2+1+4+11+1}{26} = \frac{94}{26} = 3.6 \]</span></p>
+<p><span class="math display">\[ \bar{\text{x}} = \frac{2+11+4+1+15+ ... +2+1+4+11+1}{26} = \frac{94}{26} = 3.6 \]</span></p>
 <p>Note in this example with a discrete variable that it is possible (and reasonable) to present the mean with a decimal. For example, it is not possible for a country to have 3.6 open pit mines, but it IS possible for the mean of a sample of countries to be 3.6 open pit mines.</p>
 <div class="tip">
 <p>As a general rule-of-thumb, present the mean with one more decimal than the number of decimals it was recorded in.</p>
@@ -711,25 +812,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="standard-deviation" class="section level4" number="4.1.1.4">
 <h4><span class="header-section-number">4.1.1.4</span> Standard Deviation</h4>
-<p>The sample standard deviation, denoted by <span class="math inline">\(s\)</span>, is computed with these six steps:</p>
-<ul>
-<li>Compute the sample mean (i.e., <span class="math inline">\(\bar{x}\)</span>).</li>
-<li>For each value (<span class="math inline">\(x_{i}\)</span>), find the difference between the value and the mean (i.e., <span class="math inline">\(x_{i}-\bar{x}\)</span>).</li>
-<li>Square each difference (i.e., <span class="math inline">\((x_{i}-\bar{x})^{2}\)</span>).</li>
+<p>The sample standard deviation, denoted by s, is computed with these six steps:</p>
+<ol style="list-style-type: decimal">
+<li>Compute the sample mean (i.e., <span class="math inline">\(\bar{\text{x}}\)</span>).</li>
+<li>For each value (<span class="math inline">\(\text{x}_{\text{i}}\)</span>), find the difference between the value and the mean (i.e., <span class="math inline">\(\text{x}_{\text{i}}-\bar{\text{x}}\)</span>).</li>
+<li>Square each difference (i.e., <span class="math inline">\((\text{x}_{\text{i}}-\bar{\text{x}})^{2}\)</span>).</li>
 <li>Add together all the squared differences.</li>
-<li>Divide this sum by <span class="math inline">\(n-1\)</span>. [*Stopping here gives the sample variance, <span class="math inline">\(s^{2}\)</span>.}]</li>
-<li>Square root the result from the previous step to get <span class="math inline">\(s\)</span>.</li>
-</ul>
+<li>Divide this sum by n-1. [<em>Stopping here gives the sample variance, s<sup>2</sup>.</em>]</li>
+<li>Square root the result from the previous step to get s.</li>
+</ol>
 <p>These steps are neatly summarized with</p>
-<p><span class="math display">\[ s = \sqrt{\frac{\sum_{i=1}^{n}(x_{i}-\bar{x})^{2}}{n-1}} \]</span></p>
+<p><span class="math display">\[ s = \sqrt{\frac{\sum_{\text{i=1}}^{\text{n}}(\text{x}_{\text{i}}-\bar{\text{x}})^{2}}{\text{n}-1}} \]</span></p>
 <p>The calculation of the standard deviation of the earthquake data is facilitated with the calculations shown in Table <a href="UnivSum.html#tab:SDCalc">4.3</a>. In Table <a href="UnivSum.html#tab:SDCalc">4.3</a>, note that</p>
 <ul>
-<li><span class="math inline">\(\bar{x}\)</span> is the sum of the “Value” column divided by <span class="math inline">\(n=15\)</span> (i.e., <span class="math inline">\(\bar{x}=7.07\)</span>).</li>
-<li>The “Diff” column is each observed value minus <span class="math inline">\(\bar{x}\)</span> (i.e., Step 2).</li>
-<li>The “Diff<span class="math inline">\(^2\)</span>” column is the square of the differences (i.e., Step 3).</li>
-<li>The sum of the “Diff<span class="math inline">\(^2\)</span>” column is Step 4.</li>
-<li>The sample variance (i.e., Step 5) is equal to this sum divided by <span class="math inline">\(n-1=14\)</span> or <span class="math inline">\(\frac{6.773}{14}=0.484\)</span>.</li>
-<li>The sample standard deviation is the square root of the sample variance or <span class="math inline">\(s=\sqrt{0.484}=0.696\)</span>.</li>
+<li><span class="math inline">\(\bar{\text{x}}\)</span> is the sum of the “Value” column divided by n=15 (i.e., <span class="math inline">\(\bar{\text{x}}\)</span>=7.07).</li>
+<li>The “Diff” column is each observed value minus <span class="math inline">\(\bar{\text{x}}\)</span> (i.e., Step 2).</li>
+<li>The “Diff<sup>2</sup>” column is the square of the differences (i.e., Step 3).</li>
+<li>The sum of the “Diff<sup>2</sup>” column is Step 4.</li>
+<li>The sample variance (i.e., Step 5) is equal to this sum divided by n-1=14 or <span class="math inline">\(\frac{6.773}{14}\)</span>=0.484.</li>
+<li>The sample standard deviation is the square root of the sample variance or s=<span class="math inline">\(\sqrt{0.484}\)</span>=0.696.</li>
 </ul>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
@@ -965,20 +1066,17 @@ Diff<sup>2</sup>
 </tr>
 </tbody>
 </table>
-<p> </p>
-<p>From this, on average, each earthquake is approximately 0.70 Richter Scale units different than the average earthquake in these data.</p>
 <div class="tip">
-<p>In the standard deviation calculations don’t forget to take the square root of the variance.</p>
+<ul>
+<li>In the standard deviation calculations don’t forget to take the square root of the variance.</li>
+<li>The standard deviation is greater than zero.</li>
+<li>Use the fact that the sum of all differences from the mean equals zero as a check of your standard deviation calculation.</li>
+</ul>
 </div>
-<div class="tip">
-<p>The standard deviation is greater than or equal to zero.</p>
-</div>
-<p>The standard deviation can be thought of as “the average difference between the values and the mean.” This is, however, not a strict definition because the formula for the standard deviation does not simply add the differences and divide by <span class="math inline">\(n\)</span> as this definition would imply. Notice in Table <a href="UnivSum.html#tab:SDCalc">4.3</a> that the sum of the differences from the mean is 0. This will be the case for all standard deviation calculations using the correct mean, because the mean balances the distance to individuals below the mean with the distance of individuals above the mean (see Section <a href="UnivEDA.html#comparing-the-median-and-mean">5.1.3</a>). Thus, the mean difference will always be zero. This “problem” is corrected by squaring the differences before summing them. To get back to the original units, the squaring is later “reversed” by the square root. So, more accurately, the standard deviation is the square root of the average squared differences between the values and the mean. Therefore, “the average difference between the values and the mean” works as a practical definition of the meaning of the standard deviation, but it is not strictly correct.</p>
-<div class="tip">
-<p>Use the fact that the sum of all differences from the mean equals zero as a check of your standard deviation calculation.</p>
-</div>
+<p>The standard deviation can be thought of as “the average difference between the values and the mean.” Thus, on average, each earthquake is approximately 0.70 Richter Scale units different than the average earthquake in these data.</p>
+<p>This interpretation of s is, however, not a strict definition because the formula for the standard deviation does not simply add the differences and divide by n as this definition would imply. Notice in Table <a href="UnivSum.html#tab:SDCalc">4.3</a> that the sum of the differences from the mean is 0. This will be the case for all standard deviation calculations using the correct mean, because the mean balances the distance to individuals below the mean with the distance of individuals above the mean (see Section <a href="UnivEDA.html#comparing-the-median-and-mean">5.1.3</a>). Thus, the mean difference will always be zero. This “problem” is corrected by squaring the differences before summing them. To get back to the original units, the squaring is later “reversed” by the square root. So, more accurately, the standard deviation is the square root of the average squared differences between the values and the mean. Therefore, “the average difference between the values and the mean” works as a practical definition of the meaning of the standard deviation, but it is not strictly correct.</p>
 <p>Further note that the mean is the value that minimizes the value of the standard deviation calculation – i.e., putting any other value besides the mean into the standard deviation equation will result in a larger value.</p>
-<p>Finally, you may be wondering why the sum of the squared differences in the standard deviation calculation is divided by <span class="math inline">\(n-1\)</span>, rather than <span class="math inline">\(n\)</span>. Recall (from Section <a href="FoundationalDefns.html#IVPPSS">2.1</a>) that statistics are meant to estimate parameters. The sample standard deviation is supposed to estimate the population standard deviation (<span class="math inline">\(\sigma\)</span>). Theorists have shown that if we divide by <span class="math inline">\(n\)</span>, <span class="math inline">\(s\)</span> will consistently underestimate <span class="math inline">\(\sigma\)</span>. Thus, <span class="math inline">\(s\)</span> calculated in this way would be a biased estimator of <span class="math inline">\(\sigma\)</span>. Theorists have found, though, that dividing by <span class="math inline">\(n-1\)</span> will cause <span class="math inline">\(s\)</span> to be an unbiased estimator of <span class="math inline">\(\sigma\)</span>. Being unbiased is generally good – it means that on average our statistic estimates our parameter (this concept is discussed in more detail in Module <a href="SamplingDist.html#SamplingDist">11</a>).</p>
+<p>Finally, you may be wondering why the sum of the squared differences in the standard deviation calculation is divided by n-1, rather than n. Recall (from Section <a href="FoundationalDefns.html#IVPPSS">2.1</a>) that statistics are meant to estimate parameters. The sample standard deviation is supposed to estimate the population standard deviation (σ). Theorists have shown that if we divide by n, s will consistently underestimate σ. Thus, s calculated in this way would be a biased estimator of σ. Theorists have found, though, that dividing by n-1 will cause s to be an unbiased estimator of σ. Being unbiased is generally good – it means that on average our statistic estimates our parameter (this concept is discussed in more detail in Module <a href="SamplingDist.html#SamplingDist">11</a>).</p>
 </div>
 <div id="mode" class="section level4" number="4.1.1.5">
 <h4><span class="header-section-number">4.1.1.5</span> Mode</h4>
@@ -1104,8 +1202,8 @@ Freq of Earthquakes
 </div>
 <div id="range" class="section level4" number="4.1.1.6">
 <h4><span class="header-section-number">4.1.1.6</span> Range</h4>
-<p>The range is the difference between the maximum and minimum values in the data and measures the ultimate dispersion or spread of the data. The range in the open pit mine data is 15-1 = 14.</p>
-<p>The range should <strong>never be used by itself</strong> as a measure of dispersion. The range is extremely sensitive to outliers and is best used only to show all possible values present in the data. The range (as strictly defined) also suffers from a lack of information. For example, what does a range of 9 mean? It can have a completely different interpretation if it came from values of 1 to 10 or if it came from values of 1000 to 1009. Thus, the range is more instructive if presented as both the maximum and minimum value rather than the difference.</p>
+<p>The range is the difference between the maximum and minimum values in the data and measures the ultimate dispersion or spread of the data. The range in the earthquake data is 8.1-5.5 = 2.6.</p>
+<p>The range should <strong>never be used by itself</strong> as a measure of dispersion. The range is extremely sensitive to outliers and is best used only to show all possible values present in the data. The range (as strictly defined) also suffers from a lack of information in the same way that the IQR did (see above).</p>
 </div>
 </div>
 <div id="graphical-summaries" class="section level3" number="4.1.2">
@@ -1203,9 +1301,9 @@ Figure 4.2: Histogram of length of eruptions for Old Faithful geyser with varyin
 <p>The <strong>five-number summary</strong> consists of the minimum, Q1, median, Q3, and maximum values (effectively contains the range, IQR, and median). For example, the five-number summary for the open pit mine data is 1, 1, 2, 4, and 15 (all values computed in the previous sections). The five-number summary may be displayed as a <strong>boxplot</strong>. A traditional boxplot (Figure <a href="UnivSum.html#fig:MineBoxplot">4.3</a>-Left) consists of a horizontal line at the median, horizontal lines at Q1 and Q3 that are connected with vertical lines to form a box, and vertical lines from Q1 to the minimum and from Q3 to the maximum. In modern boxplots (Figure <a href="UnivSum.html#fig:MineBoxplot">4.3</a>-Right) the upper line extends from Q3 to the last observed value that is within 1.5 IQRs of Q3 and the lower line extends from Q1 to the last observed value that is within 1.5 IQRs of Q1. Observed values outside of the whiskers are termed “outliers” by this algorithm and are typically plotted with circles or asterisks. If no individuals are deemed “outliers” by this algorithm, then the traditional and modern boxplots will be the same.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:MineBoxplot"></span>
-<img src="Book107_files/figure-html/MineBoxplot-1.png" alt="Traditional (Left) and modern (Right) boxplots of the open pit mine data." width="672" />
+<img src="Book107_files/figure-html/MineBoxplot-1.png" alt="Traditional (**Left**) and modern (**Right**) boxplots of the open pit mine data." width="672" />
 <p class="caption">
-Figure 4.3: Traditional (Left) and modern (Right) boxplots of the open pit mine data.
+Figure 4.3: Traditional (<strong>Left</strong>) and modern (<strong>Right</strong>) boxplots of the open pit mine data.
 </p>
 </div>
 </div>
@@ -1221,15 +1319,15 @@ Figure 4.3: Traditional (Left) and modern (Right) boxplots of the open pit mine 
 </caption>
 <thead>
 <tr>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 Individual
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 Required
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 </th>
 </tr>
 </thead>
@@ -1336,7 +1434,7 @@ Y
 <h3><span class="header-section-number">4.2.1</span> Numerical Summaries</h3>
 <div id="frequency-and-percentage-tables" class="section level4" number="4.2.1.1">
 <h4><span class="header-section-number">4.2.1.1</span> Frequency and Percentage Tables</h4>
-<p>A simple method to summarize categorical data is to count the number of individuals in each level of the categorical variable. These counts are called frequencies and the resulting table (Table <a href="UnivSum.html#tab:MTH107SubsetFreq">4.8</a>) is called a frequency table. From this table, it is seen that there were five students that were required and three that were not required to take MTH107.</p>
+<p>A simple method to summarize categorical data is to count the number of individuals in each level of the categorical variable. These counts are called frequencies and the resulting table (Table <a href="UnivSum.html#tab:MTH107SubsetFreq">4.8</a>) is called a <strong>frequency table</strong>. From this table, it is seen that there were five students that were required and three that were not required to take MTH107.</p>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -1344,15 +1442,15 @@ Y
 </caption>
 <thead>
 <tr>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 Required
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 Frequency
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 </th>
 </tr>
 </thead>
@@ -1388,22 +1486,22 @@ Y
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:Mth107Freq">Table 4.9: </span>Frequency tables for whether (Y) or not (N) MTH107 was required (Left) and year-in-school (Right) for all individuals in MTH107 in Winter 2020.
+<span id="tab:Mth107Freq">Table 4.9: </span>Frequency tables for whether (Y) or not (N) MTH107 was required (<strong>Left</strong>) and year-in-school (<strong>Right</strong>) for all individuals in MTH107 in Winter 2020.
 </caption>
 <thead>
 <tr>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 Required
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 Frequency
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 Year
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 Frequency
 </th>
 </tr>
@@ -1472,7 +1570,7 @@ Sr
 </tbody>
 </table>
 <p> </p>
-<p>Frequency tables are often modified to show the percentage of individuals in each level. <strong>Percentage tables</strong> are constructed from frequency tables by dividing the number of individuals in each level by the total number of individuals examined (<span class="math inline">\(n\)</span>) and then multiplying by 100. For example, the percentage tables for both whether or not MTH107 was required and year-in-school (Table <a href="UnivSum.html#tab:Mth107Perc">4.10</a>) for students in MTH107 is constructed from Table <a href="UnivSum.html#tab:Mth107Freq">4.9</a> by dividing the value in each cell by 68, the total number of students in the class, and then multiplying by 100. From this it is seen that 55.9% of students were required to take the course and 13.0% were seniors (Table <a href="UnivSum.html#tab:Mth107Perc">4.10</a>).</p>
+<p>Frequency tables are often modified to show the percentage of individuals in each level. <strong>Percentage tables</strong> are constructed from frequency tables by dividing the number of individuals in each level by the total number of individuals examined (n) and then multiplying by 100. For example, the percentage tables for both whether or not MTH107 was required and year-in-school (Table <a href="UnivSum.html#tab:Mth107Perc">4.10</a>) for students in MTH107 is constructed from Table <a href="UnivSum.html#tab:Mth107Freq">4.9</a> by dividing the value in each cell by 68, the total number of students in the class, and then multiplying by 100. From this it is seen that 55.9% of students were required to take the course and 13.0% were seniors (Table <a href="UnivSum.html#tab:Mth107Perc">4.10</a>).</p>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -1480,18 +1578,18 @@ Sr
 </caption>
 <thead>
 <tr>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 Required
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 Percentage
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 Year
 </th>
-<th style="text-align:center;">
+<th style="text-align:center;font-weight: bold;">
 Percentage
 </th>
 </tr>
@@ -1576,6 +1674,7 @@ Figure 4.4: Bar charts of the frequency of individuals in MTH107 during Winter 2
 <div class="tip">
 <p>Bar charts are used to display the frequency of individuals in the categories of a categorical variable. Histograms are used to display the frequency of individuals in classes created from quantitative variables.</p>
 </div>
+<p> </p>
 
 </div>
 </div>
@@ -1587,8 +1686,9 @@ Figure 4.4: Bar charts of the frequency of individuals in MTH107 during Winter 2
 <li id="fn24"><p>These data were collected from <a href="https://en.wikipedia.org/wiki/List_of_open-pit_mines">this page</a>.<a href="UnivSum.html#fnref24" class="footnote-back">↩︎</a></p></li>
 <li id="fn25"><p>See Section <a href="FoundationalDefns.html#IVPPSS">2.1</a> for clarification on the differences between populations and samples and parameters and statistics.<a href="UnivSum.html#fnref25" class="footnote-back">↩︎</a></p></li>
 <li id="fn26"><p>Most computer programs use a more sophisticated algorithm for computing the median and, thus, will produce different results than what will result from applying these steps.<a href="UnivSum.html#fnref26" class="footnote-back">↩︎</a></p></li>
-<li id="fn27"><p>You should review how a median is computed before proceeding with this section.<a href="UnivSum.html#fnref27" class="footnote-back">↩︎</a></p></li>
-<li id="fn28"><p>Some authors put the median into both halves when <span class="math inline">\(n\)</span> is odd. The difference between the two methods is minimal for large <span class="math inline">\(n\)</span>.<a href="UnivSum.html#fnref28" class="footnote-back">↩︎</a></p></li>
+<li id="fn27"><p>Recall that n is the sample size or number of individuals in the sample.<a href="UnivSum.html#fnref27" class="footnote-back">↩︎</a></p></li>
+<li id="fn28"><p>You should review how a median is computed before proceeding with this section.<a href="UnivSum.html#fnref28" class="footnote-back">↩︎</a></p></li>
+<li id="fn29"><p>Some authors put the median into both halves when n is odd. The difference between the two methods is minimal for large n.<a href="UnivSum.html#fnref29" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

@@ -381,7 +381,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="chi-square-test-in-r" class="section level3" number="28.1.2">
 <h3><span class="header-section-number">28.1.2</span> Chi-Square test in R</h3>
-<p>The Chi-Square Test is performed with <code>chisq.test()</code>, which takes the observed frequency table as the first argument and <code>correct=FALSE</code> so that the continuity correction is not used.<a href="#fn95" class="footnote-ref" id="fnref95"><sup>95</sup></a> The results of <code>chisq.test()</code> should be assigned to an object. The Chi-Square test statistic and p-value are extracted by simply printing the saved object. The expected frequency table is returned by appending <code>$expected</code> to the saved object.</p>
+<p>The Chi-Square Test is performed with <code>chisq.test()</code>, which takes the observed frequency table as the first argument and <code>correct=FALSE</code> so that the continuity correction is not used.<a href="#fn96" class="footnote-ref" id="fnref96"><sup>96</sup></a> The results of <code>chisq.test()</code> should be assigned to an object. The Chi-Square test statistic and p-value are extracted by simply printing the saved object. The expected frequency table is returned by appending <code>$expected</code> to the saved object.</p>
 <div class="sourceCode" id="cb183"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb183-1"><a href="RChi.html#cb183-1" aria-hidden="true" tabindex="-1"></a>( fp.chi <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(fp.obs,<span class="at">correct=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   Pearson&#39;s Chi-squared test with fp.obs 
 #R&gt;   X-squared = 5.0003, df = 3, p-value = 0.1718</code></pre>
@@ -536,7 +536,7 @@ Sum
 <li>χ<sup>2</sup>=16.54 with 5 df (Table <a href="RChi.html#tab:ChiAIchi">28.2</a>).</li>
 <li>p-value=0.0055 (Table <a href="RChi.html#tab:ChiAIchi">28.2</a>).</li>
 <li>H<sub>0</sub> is rejected because the p-value is &lt; α.</li>
-<li>There does appear to be a significant difference in the distribution of the dominant plants between the two sites. A look at the Pearson residuals (Table <a href="RChi.html#tab:ChiAIres">28.3</a>) and the row-percentage table (Table <a href="RChi.html#tab:ChiAIrow">28.4</a>) both suggest that the biggest difference between the two locations is due to “plant A.”<a href="#fn96" class="footnote-ref" id="fnref96"><sup>96</sup></a></li>
+<li>There does appear to be a significant difference in the distribution of the dominant plants between the two sites. A look at the Pearson residuals (Table <a href="RChi.html#tab:ChiAIres">28.3</a>) and the row-percentage table (Table <a href="RChi.html#tab:ChiAIrow">28.4</a>) both suggest that the biggest difference between the two locations is due to “plant A.”<a href="#fn97" class="footnote-ref" id="fnref97"><sup>97</sup></a></li>
 </ol>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -1198,9 +1198,9 @@ Wetland
 </div>
 <div class="footnotes">
 <hr />
-<ol start="95">
-<li id="fn95"><p>The continuity correction is not used here simply so that the results using R will match hand-calculations. The continuity correction should usually be used.<a href="RChi.html#fnref95" class="footnote-back">↩︎</a></p></li>
-<li id="fn96"><p>When “Plant A” is removed from the observed table, the Chi-Square Test performed on the remaining plant species showed no difference in the distribution of the remaining plants between the two locations (p=0.9239). Thus, most of the difference in plant distributions between Devil’s Island and the Mainland appears to be due primarily to “plant A” with more of “plant A” found on the Mainland than on Devil’s Island.<a href="RChi.html#fnref96" class="footnote-back">↩︎</a></p></li>
+<ol start="96">
+<li id="fn96"><p>The continuity correction is not used here simply so that the results using R will match hand-calculations. The continuity correction should usually be used.<a href="RChi.html#fnref96" class="footnote-back">↩︎</a></p></li>
+<li id="fn97"><p>When “Plant A” is removed from the observed table, the Chi-Square Test performed on the remaining plant species showed no difference in the distribution of the remaining plants between the two locations (p=0.9239). Thus, most of the difference in plant distributions between Devil’s Island and the Mainland appears to be due primarily to “plant A” with more of “plant A” found on the Mainland than on Devil’s Island.<a href="RChi.html#fnref97" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

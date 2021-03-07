@@ -517,7 +517,7 @@ Sum
 <p>where the scaling factor is the familiar <span class="math inline">\(Z^{*}\)</span>. Thus, the confidence interval for <span class="math inline">\(p\)</span> is constructed with</p>
 <p><span class="math display">\[ \hat{p} \pm Z^{*}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]</span></p>
 <p>Note that one does not need to worry about lower and upper bounds, only confidence intervals will be computed, because of the two-tailed nature of the chi-square test statistic.</p>
-<p>In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was <span class="math inline">\(\hat{p}\)</span>=<span class="math inline">\(\frac{196}{371}\)</span>=0.528. The standard error for this sample proportion is <span class="math inline">\(\sqrt{\frac{0.528(1-0.528)}{371}}\)</span>=0.026. For a 95% confidence interval, <span class="math inline">\(Z^{*}\)</span>=±1.960.<a href="#fn66" class="footnote-ref" id="fnref66"><sup>66</sup></a> Thus, the confidence interval is 0.528±1.960×0.026 or 0.528±0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.</p>
+<p>In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was <span class="math inline">\(\hat{p}\)</span>=<span class="math inline">\(\frac{196}{371}\)</span>=0.528. The standard error for this sample proportion is <span class="math inline">\(\sqrt{\frac{0.528(1-0.528)}{371}}\)</span>=0.026. For a 95% confidence interval, <span class="math inline">\(Z^{*}\)</span>=±1.960.<a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a> Thus, the confidence interval is 0.528±1.960×0.026 or 0.528±0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.</p>
 </div>
 </div>
 <div id="examples-5" class="section level2" number="21.2">
@@ -601,9 +601,9 @@ Sum
 <div id="r-appendix-6" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb40-1"><a href="GOFTest.html#cb40-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">4.077</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-35-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p><img src="Book107_files/figure-html/unnamed-chunk-37-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb41-1"><a href="GOFTest.html#cb41-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-35-2.png" width="336" style="display: block; margin: auto;" /></p>
+<p><img src="Book107_files/figure-html/unnamed-chunk-37-2.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 
 </div>
@@ -612,8 +612,8 @@ Sum
 </div>
 <div class="footnotes">
 <hr />
-<ol start="66">
-<li id="fn66"><p>This <span class="math inline">\(Z^{*}\)</span> is computed with <code>distrib(0.975,type="q")</code>.<a href="GOFTest.html#fnref66" class="footnote-back">↩︎</a></p></li>
+<ol start="67">
+<li id="fn67"><p>This <span class="math inline">\(Z^{*}\)</span> is computed with <code>distrib(0.975,type="q")</code>.<a href="GOFTest.html#fnref67" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

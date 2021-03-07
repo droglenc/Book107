@@ -529,14 +529,14 @@ Figure 8.1: Scatterplot between the highway MPG and weight of cars manufactured 
 <h3><span class="header-section-number">8.2.2</span> Correlation Coefficient</h3>
 <p>The sample correlation coefficient, abbreviated as <span class="math inline">\(r\)</span>, is calculated with</p>
 <p><span class="math display">\[ r = \frac{\sum_{i=1}^{n}\left[\left(\frac{x_{i}-\bar{x}}{s_{x}}\right)\left(\frac{y_{i}-\bar{y}}{s_{y}}\right)\right]}{n-1} \]</span></p>
-<p>where <span class="math inline">\(s_{x}\)</span> and <span class="math inline">\(s_{y}\)</span> are the sample standard deviations for the explanatory and response variables, respectively.<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a> The formulae in the two sets of parentheses in the numerator are standardized values;<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a> thus, the value in each parenthesis is called the standardized x or standardized y, respectively. Using this terminology, the equation for <span class="math inline">\(r\)</span> reduces to these steps:</p>
+<p>where <span class="math inline">\(s_{x}\)</span> and <span class="math inline">\(s_{y}\)</span> are the sample standard deviations for the explanatory and response variables, respectively.<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a> The formulae in the two sets of parentheses in the numerator are standardized values;<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a> thus, the value in each parenthesis is called the standardized x or standardized y, respectively. Using this terminology, the equation for <span class="math inline">\(r\)</span> reduces to these steps:</p>
 <ul>
 <li>For each individual, standardize x and standardize y.</li>
 <li>For each individual, find the product of the standardized x and standardized y.</li>
 <li>Sum all of the products from step 2.</li>
 <li>Divide the sum from step 3 by n-1.</li>
 </ul>
-<p>Table <a href="BEDAQuant.html#tab:corrCalc">8.2</a> illustrates these calculations for the first five individuals in the cars data.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a> Note that the “i” column is an index for each individual, the <span class="math inline">\(x_{i}\)</span> and <span class="math inline">\(y_{i}\)</span> columns are the observed values of the two variables for individual <span class="math inline">\(i\)</span>, <span class="math inline">\(\bar{x}\)</span> was computed by dividing the sum of the <span class="math inline">\(x_{i}\)</span> column by <span class="math inline">\(n\)</span>, <span class="math inline">\(s_{x}\)</span> was computed by dividing the sum of the <span class="math inline">\((x_{i}-\bar{x})^{2}\)</span> column by <span class="math inline">\(n-1\)</span> and taking the square root, and the “std x” column are the standardized x values found by dividing the values in the <span class="math inline">\(x_{i}-\bar{x}\)</span> column by <span class="math inline">\(s_{x}\)</span>. Similar calculations were made for the y variable. The final correlation coefficient is the sum of the last column divided by <span class="math inline">\(n-1\)</span>. Thus, the correlation between car weight and highway mpg for these five cars is -0.54.</p>
+<p>Table <a href="BEDAQuant.html#tab:corrCalc">8.2</a> illustrates these calculations for the first five individuals in the cars data.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a> Note that the “i” column is an index for each individual, the <span class="math inline">\(x_{i}\)</span> and <span class="math inline">\(y_{i}\)</span> columns are the observed values of the two variables for individual <span class="math inline">\(i\)</span>, <span class="math inline">\(\bar{x}\)</span> was computed by dividing the sum of the <span class="math inline">\(x_{i}\)</span> column by <span class="math inline">\(n\)</span>, <span class="math inline">\(s_{x}\)</span> was computed by dividing the sum of the <span class="math inline">\((x_{i}-\bar{x})^{2}\)</span> column by <span class="math inline">\(n-1\)</span> and taking the square root, and the “std x” column are the standardized x values found by dividing the values in the <span class="math inline">\(x_{i}-\bar{x}\)</span> column by <span class="math inline">\(s_{x}\)</span>. Similar calculations were made for the y variable. The final correlation coefficient is the sum of the last column divided by <span class="math inline">\(n-1\)</span>. Thus, the correlation between car weight and highway mpg for these five cars is -0.54.</p>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -976,10 +976,10 @@ Figure 8.9: Scatterplot between the highway MPG and weight of cars manufactured 
 </div>
 <div class="footnotes">
 <hr />
-<ol start="33">
-<li id="fn33"><p>See Section <a href="UnivSum.html#standard-deviation">4.1.1.4</a> for a review of standard deviations.<a href="BEDAQuant.html#fnref33" class="footnote-back">↩︎</a></p></li>
-<li id="fn34"><p>See Section <a href="NormalDist2.html#standardization-and-z-scores">7.3</a> for a review of standardized values.<a href="BEDAQuant.html#fnref34" class="footnote-back">↩︎</a></p></li>
-<li id="fn35"><p>The five cars are treated as if they are the entire sample.<a href="BEDAQuant.html#fnref35" class="footnote-back">↩︎</a></p></li>
+<ol start="34">
+<li id="fn34"><p>See Section <a href="UnivSum.html#standard-deviation">4.1.1.4</a> for a review of standard deviations.<a href="BEDAQuant.html#fnref34" class="footnote-back">↩︎</a></p></li>
+<li id="fn35"><p>See Section <a href="NormalDist2.html#standardization-and-z-scores">7.3</a> for a review of standardized values.<a href="BEDAQuant.html#fnref35" class="footnote-back">↩︎</a></p></li>
+<li id="fn36"><p>The five cars are treated as if they are the entire sample.<a href="BEDAQuant.html#fnref36" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
