@@ -2,7 +2,7 @@
 XXX
 
 ## Errors
-The goal of hypothesis testing is to make a decision about H~0~. Unfortunately, because of sampling variability, there is always a risk of making an incorrect decision. Two types of incorrect decisions can be made (Table \@ref(tab:DMerrs)). A Type I error occurs when a true H~0~ is falsely rejected. In other words, even if H~0~ is true, there is a chance that a rare sample will occur and H~0~ will be deemed incorrect. The probability of making a Type I error is set when $\alpha$ is chosen. A Type II error occurs when a false H~0~ is not rejected. The probability of a Type II error is denoted by $\beta$.
+The goal of hypothesis testing is to make a decision about H~0~. Unfortunately, because of sampling variability, there is always a risk of making an incorrect decision. Two types of incorrect decisions can be made (Table \@ref(tab:DMerrs)). A Type I error occurs when a true H~0~ is falsely rejected. In other words, even if H~0~ is true, there is a chance that a rare sample will occur and H~0~ will be deemed incorrect. The probability of making a Type I error is set when &alpha; is chosen. A Type II error occurs when a false H~0~ is not rejected. The probability of a Type II error is denoted by &beta;.
 
 &nbsp;
 
@@ -11,7 +11,7 @@ tibble("Truth about Popn"=c("H~0~ is true","H~0~ is true",
                             "H~A~ is true","H~A~ is true"),
        "Decision from Test"=c("Reject H~0~","DNR H~0~",
                               "Reject H~0~","DNR H~0~"),
-       "Error Type"=c("Type I ($\alpha$)","--","--","Type II ($\beta$)")) %>%
+       "Error Type"=c("Type I (&alpha;)","--","--","Type II (&beta;)")) %>%
   knitr::kable(booktabs=TRUE,caption="Types of decisions that can be made from a hypothesis test.",align="c") %>%
   kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
   kableExtra::row_spec(0,bold=TRUE) %>%
@@ -20,15 +20,15 @@ tibble("Truth about Popn"=c("H~0~ is true","H~0~ is true",
 
 &nbsp;
 
-The decision in the Square Lake example of Module \@ref(HypTesting1) produced a Type II error because H~0~:$\mu$=105 was not rejected even though we know that $\mu$=98.06 (Table \@ref(tab:SquareLakePopnTbl)). Unfortunately, in real life, it will never be known exactly when a Type I or a Type II error has been made because the true $\mu$ is not known. However, it is known that a Type I error will be made $100\alpha$\% of the time. The probability of a type II error ($\beta$), though, is never known because this probability depends on the true but unknown $\mu$. Decisions can be made, however, that affect the magnitude of $\beta$.
+The decision in the Square Lake example of Module \@ref(HypTesting1) produced a Type II error because H~0~:&mu;=105 was not rejected even though we know that &mu;=98.06 (Table \@ref(tab:SquareLakePopnTbl)). Unfortunately, in real life, it will never be known exactly when a Type I or a Type II error has been made because the true &mu; is not known. However, it is known that a Type I error will be made 100&alpha;% of the time. The probability of a type II error (&beta;), though, is never known because this probability depends on the true but unknown &mu;. Decisions can be made, however, that affect the magnitude of &beta;.
 
-Even though $\beta$ can not usually be calculated, a researcher can make decisions that will reduce $\beta$ (Figure \@ref(fig:SLBetaRelations)). For example, a researcher can decrease $\beta$ by increasing $\alpha$ or $n$. Increasing $n$ is more beneficial because it does not result in an increase in Type I errors as would occur with increasing $\alpha$.
+Even though &beta; can not usually be calculated, a researcher can make decisions that will reduce &beta; (Figure \@ref(fig:SLBetaRelations)). For example, a researcher can decrease &beta; by increasing &alpha; or n. Increasing n is more beneficial because it does not result in an increase in Type I errors as would occur with increasing &alpha;.
 
-In addition, $\beta$ increases as the difference between the hypothesized mean ($\mu_{0}$) and the actual mean ($\mu_{A}$) decreases (Figure \@ref(fig:SLBetaRelations)). This means that you will make more Type II errors when the hypothesized and actual mean are close together. In addition, $\beta$ increases with a increasing amount of natural variability (i.e., $\sigma$; Figure \@ref(fig:SLBetaRelations)). In other words, more Type II errors are made when there is more variability among individuals. A researcher cannot control the difference between $\mu_{0}$ and $\mu_{A}$ or the value of $\sigma$. However, it is important to know that if a situation with a "large" amount of variability is encountered or the difference to be detected is small, the researcher will need to increase $n$ to reduce $\beta$. For example, if $n$ could be doubled in the Square Lake example to 100, then $\beta$ (for H~0~:$\mu=105$) would decrease to approximately 0.18 (Figure \@ref(fig:SLBetaRelations)).
+In addition, &beta; increases as the difference between the hypothesized mean (&mu;~0~) and the actual mean (&mu;~A~) decreases (Figure \@ref(fig:SLBetaRelations)). This means that you will make more Type II errors when the hypothesized and actual mean are close together. In addition, &beta; increases with a increasing amount of natural variability (i.e., &sigma;; Figure \@ref(fig:SLBetaRelations)). In other words, more Type II errors are made when there is more variability among individuals. A researcher cannot control the difference between &mu;~0~ and &mu;~A~ or the value of &sigma;. However, it is important to know that if a situation with a "large" amount of variability is encountered or the difference to be detected is small, the researcher will need to increase n to reduce &beta;. For example, if n could be doubled in the Square Lake example to 100, then &beta; (for H~0~:&mu;=105) would decrease to approximately 0.18 (Figure \@ref(fig:SLBetaRelations)).
 
 &nbsp;
 
-```{r SLBetaRelations, echo=FALSE, fig.width=6.5, fig.height=6.5, fig.cap="The relationship between one-tailed (lower) $\\beta$ and $\\alpha$, $n$, actual mean ($\\mu_{A}$), and $\\sigma$. In all situations where the variable does not vary, $\\mu_{0}=105$, $\\mu_{A}=98.06$, $\\sigma=31.49$, $n=50$, and $\\alpha=0.05$. "}
+```{r SLBetaRelations, echo=FALSE, fig.width=6.5, fig.height=6.5, fig.cap="The relationship between one-tailed (lower) &beta; and &alpha;, n, actual mean (&mu;~A~), and &sigma;. In all situations where the variable does not vary, &mu;~0~=105, &mu;~A~=98.06, &sigma;=31.49, n=50, and &alpha;=0.05."}
 beta <- function(mu0,mua,sigma,n,alpha,uptail=FALSE){
   SE <- sigma/sqrt(n)
   if (uptail) pnorm(qnorm(1-alpha,mu0,SE),mua,SE)

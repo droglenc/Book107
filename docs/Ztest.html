@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-07" />
+<meta name="date" content="2021-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -335,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">17.1</span> 11-Steps of Hypothesis Testing</h2>
 <p>Hypothesis testing is a rigorous and formal procedure for making inferences about a parameter from a statistic. The 11 steps listed below will help make sure that all aspects important to hypothesis testing are completed. These steps should be used for all hypothesis tests in this and ensuing modules.</p>
 <ol style="list-style-type: decimal">
-<li>State the rejection criterion (<span class="math inline">\(\alpha\)</span>).</li>
+<li>State the rejection criterion (α).</li>
 <li>State the null and alternative hypotheses to be tested and define the parameter(s).</li>
 <li>Identify (and explain why!) the hypothesis test to use (e.g., 1-Sample t, 2-sample t, etc.).</li>
 <li>Collect the data (address study type and if randomization occurred).</li>
@@ -351,21 +351,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="Specifics1Z" class="section level2" number="17.2">
 <h2><span class="header-section-number">17.2</span> 1-Sample Z-Test Specifics</h2>
-<p>A 1-Sample Z-Test tests H<sub>0</sub>:<span class="math inline">\(\mu=\mu_{0}\)</span>, where <span class="math inline">\(\mu_{0}\)</span> represents a specific value of <span class="math inline">\(\mu\)</span>, when <span class="math inline">\(\sigma\)</span> is known. Other specifics of this test were discussed in previous modules and are summarized below.</p>
+<p>A 1-Sample Z-Test tests H<sub>0</sub>:μ=μ<sub>0</sub>, where μ<sub>0</sub> represents a specific value of μ, when σ is known. Other specifics of this test were discussed in previous modules and are summarized below.</p>
 <ul>
-<li><strong>Hypothesis:</strong> H<sub>0</sub>:<span class="math inline">\(\mu=\mu_{0}\)</span></li>
-<li><strong>Statistic:</strong> <span class="math inline">\(\bar{x}\)</span></li>
-<li><strong>Test Statistic:</strong> <span class="math inline">\(Z=\frac{\bar{x}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}\)</span></li>
-<li><strong>Confidence Region:</strong> <span class="math inline">\(\bar{x}+Z^{*}\frac{\sigma}{\sqrt{n}}\)</span></li>
+<li><strong>Hypothesis:</strong> H<sub>0</sub>:μ=μ<sub>0</sub></li>
+<li><strong>Statistic:</strong> <span class="math inline">\(\bar{\text{x}}\)</span></li>
+<li><strong>Test Statistic:</strong> Z=<span class="math inline">\(\frac{\bar{\text{x}}-\mu_{0}}{\frac{\sigma}{\sqrt{\text{n}}}}\)</span></li>
+<li><strong>Confidence Region:</strong> <span class="math inline">\(\bar{\text{x}}+\text{Z}^{*}\frac{\sigma}{\sqrt{\text{n}}}\)</span></li>
 <li><strong>Assumptions:</strong>
 <ul>
-<li><span class="math inline">\(\sigma\)</span> is known</li>
+<li>σ is known</li>
 <li>n≥30, n≥15 and the <strong>population</strong> is not strongly skewed, OR the <strong>population</strong> is normally distributed.</li>
 </ul></li>
-<li><strong>Use with:</strong> Quantitative response, one group (or population), <span class="math inline">\(\sigma\)</span> known.</li>
+<li><strong>Use with:</strong> Quantitative response, one group (or population), σ known.</li>
 </ul>
 <p> </p>
-<p>The only test that can possibly be confused with a 1-Sample Z-Test is a 1-Sample t-Test (Module <a href="t1test.html#t1test">18</a>), which tests the same null hypothesis but when <span class="math inline">\(\sigma\)</span> is unknown.</p>
+<p>The only test that can possibly be confused with a 1-Sample Z-Test is a 1-Sample t-Test (Module <a href="t1test.html#t1test">18</a>), which tests the same null hypothesis but when σ is unknown.</p>
 </div>
 <div id="examples-1" class="section level2" number="17.3">
 <h2><span class="header-section-number">17.3</span> Examples</h2>
@@ -373,29 +373,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">17.3.1</span> Intra-class Travel</h3>
 <p>Below are the 11-steps (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) for completing a full hypothesis test for the following situation:</p>
 <blockquote>
-<p><em>A dean wants to determine if it takes more than 10 minutes, on average, to go between classes. To test this hypothesis, she collected a random sample of 100 intra-class travel times and found a mean of 10.12 mins. Assume from previous studies that the distribution of intra-class times is symmetric with a standard deviation of 1.60 mins. Test the dean’s hypothesis with <span class="math inline">\(\alpha\)</span>=0.10.</em></p>
+<p><em>A dean wants to determine if it takes more than 10 minutes, on average, to go between classes. To test this hypothesis, she collected a random sample of 100 intra-class travel times and found a mean of 10.12 mins. Assume from previous studies that the distribution of intra-class times is symmetric with a standard deviation of 1.60 mins. Test the dean’s hypothesis with α=0.10.</em></p>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(\alpha\)</span>=0.10.</li>
-<li>H<sub>0</sub>:<span class="math inline">\(\mu\)</span>=10 mins vs. H<sub>A</sub>:<span class="math inline">\(\mu\)</span>&gt;10 mins, where <span class="math inline">\(\mu\)</span> is the mean time for ALL intra-class travel events.</li>
+<li>α=0.10.</li>
+<li>H<sub>0</sub>:μ=10 mins vs. H<sub>A</sub>:μ&gt;10 mins, where μ is the mean time for ALL intra-class travel events.</li>
 <li>A 1-Sample Z-Test is required because …
 <ol style="list-style-type: lower-roman">
 <li>a quantitative variable (intra-class travel time) was measured,</li>
 <li>individuals from one group (or population) is considered (students at the Dean’s school), and</li>
-<li><span class="math inline">\(\sigma\)</span> is thought to be known (=1.60 mins).</li>
+<li>σ is thought to be known (=1.60 mins).</li>
 </ol></li>
 <li>The data appear to be part of an observational study (the dean did not impart any conditions on the students) with a random selection of individuals.</li>
 <li>The assumptions are met because …
 <ol style="list-style-type: lower-roman">
 <li>n=100≥30, and</li>
-<li><span class="math inline">\(\sigma\)</span> is thought to be known (=1.60 mins).</li>
+<li>σ is thought to be known (=1.60 mins).</li>
 </ol></li>
-<li><span class="math inline">\(\bar{x}\)</span>=10.12.</li>
+<li><span class="math inline">\(\bar{\text{x}}\)</span>=10.12.</li>
 <li>Z=<span class="math inline">\(\frac{10.12-10}{\frac{1.60}{\sqrt{100}}}\)</span>=<span class="math inline">\(\frac{0.12}{0.16}\)</span>=0.75.</li>
 <li>p-value=0.2266.</li>
-<li>H<sub>0</sub> is not rejected because the p-value&gt;<span class="math inline">\(\alpha\)</span>=0.10.</li>
+<li>H<sub>0</sub> is not rejected because the p-value&gt;α=0.10.</li>
 <li>It appears that the mean time for <strong>all</strong> intra-class travel events is not more than 10 minutes.</li>
-<li>A 90% lower confidence bound will use <span class="math inline">\(Z^{*}\)</span>=-1.282. The lower confidence bound is thus 10.12-1.282×<span class="math inline">\(\frac{1.60}{\sqrt{100}}\)</span>=9.91. Thus, I am 90% confident that the mean intra-class travel time is more than 9.91 minutes; further evidence that the mean intra-class travel time is not greater than 10 minutes.</li>
+<li>A 90% lower confidence bound will use Z<sup>*</sup>=-1.282. The lower confidence bound is thus 10.12-1.282×<span class="math inline">\(\frac{1.60}{\sqrt{100}}\)</span>=9.91. Thus, I am 90% confident that the mean intra-class travel time is more than 9.91 minutes; further evidence that the mean intra-class travel time is not greater than 10 minutes.</li>
 </ol>
 <div id="r-appendix" class="section level4 unnumbered">
 <h4>R Appendix:</h4>

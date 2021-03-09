@@ -208,9 +208,9 @@ $$ slope = r\frac{s_{y}}{s_{x}} $$
 
 and an intercept given by
 
-$$ intercept = \bar{y}-slope*\bar{x} $$
+$$ intercept = \bar{\text{y}}-slope*\bar{\text{x}} $$
 
-where $\bar{x}$ and $s_{x}$ are the sample mean and standard deviation of the explanatory variable, $\bar{y}$ and $s_{y}$ are the sample mean and standard deviation of the response variable, and $r$ is the sample correlation coefficient between the two variables. Thus, using these formulas finds the slope and intercept for the line, out of all possible lines, that minimizes the RSS.
+where $\bar{\text{x}}$ and $s_{x}$ are the sample mean and standard deviation of the explanatory variable, $\bar{\text{y}}$ and $s_{y}$ are the sample mean and standard deviation of the response variable, and $r$ is the sample correlation coefficient between the two variables. Thus, using these formulas finds the slope and intercept for the line, out of all possible lines, that minimizes the RSS.
 
 
 ## Assumptions

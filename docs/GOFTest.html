@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-07" />
+<meta name="date" content="2021-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -512,12 +512,12 @@ Sum
 </ul>
 <p> </p>
 <p>It is cumbersome to produce a confidence interval in a Goodness-of-Fit Test because there generally is not a single parameter (i.e., there are as many parameters as levels in the response variable). Confidence intervals can be calculated for the proportions in each level as shown below. However, confidence intervals will only be “hand”-calculated when there are two levels. When using R (as discussed in a later module), confidence intervals will be computed for all levels, no matter the number of levels.</p>
-<p>Let <span class="math inline">\(p\)</span> be the population proportion in a particular level and <span class="math inline">\(\hat{p}\)</span> be the sample proportion in the same interval. The <span class="math inline">\(\hat{p}\)</span> is computed by dividing the frequency of individuals in this level by the total number of individuals in the sample (i.e., n). The <span class="math inline">\(\hat{p}\)</span> is a statistic that is subject to sampling variable with that sampling variability measured by <span class="math inline">\(SE_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span> for “large” values of <span class="math inline">\(n\)</span>. For “large” values of <span class="math inline">\(n\)</span> the <span class="math inline">\(\hat{p}\)</span> will follow a normal distribution such that a confidence interval for <span class="math inline">\(p\)</span> is computed using the general confidence interval formula found in Section <a href="ConfRegions1.html#constructing-confidence-regions">15.2</a> and repeated below:</p>
+<p>Let <span class="math inline">\(p\)</span> be the population proportion in a particular level and <span class="math inline">\(\hat{p}\)</span> be the sample proportion in the same interval. The <span class="math inline">\(\hat{p}\)</span> is computed by dividing the frequency of individuals in this level by the total number of individuals in the sample (i.e., n). The <span class="math inline">\(\hat{p}\)</span> is a statistic that is subject to sampling variable with that sampling variability measured by <span class="math inline">\(SE_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span> for “large” values of n. For “large” values of n the <span class="math inline">\(\hat{p}\)</span> will follow a normal distribution such that a confidence interval for <span class="math inline">\(p\)</span> is computed using the general confidence interval formula found in Section <a href="ConfRegions1.html#constructing-confidence-regions">15.2</a> and repeated below:</p>
 <p><span class="math display">\[ \text{&quot;Statistic&quot;} + \text{&quot;scaling factor&quot;} * SE_{statistic} \]</span></p>
-<p>where the scaling factor is the familiar <span class="math inline">\(Z^{*}\)</span>. Thus, the confidence interval for <span class="math inline">\(p\)</span> is constructed with</p>
+<p>where the scaling factor is the familiar Z<sup>*</sup>. Thus, the confidence interval for <span class="math inline">\(p\)</span> is constructed with</p>
 <p><span class="math display">\[ \hat{p} \pm Z^{*}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]</span></p>
 <p>Note that one does not need to worry about lower and upper bounds, only confidence intervals will be computed, because of the two-tailed nature of the chi-square test statistic.</p>
-<p>In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was <span class="math inline">\(\hat{p}\)</span>=<span class="math inline">\(\frac{196}{371}\)</span>=0.528. The standard error for this sample proportion is <span class="math inline">\(\sqrt{\frac{0.528(1-0.528)}{371}}\)</span>=0.026. For a 95% confidence interval, <span class="math inline">\(Z^{*}\)</span>=±1.960.<a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a> Thus, the confidence interval is 0.528±1.960×0.026 or 0.528±0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.</p>
+<p>In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was <span class="math inline">\(\hat{p}\)</span>=<span class="math inline">\(\frac{196}{371}\)</span>=0.528. The standard error for this sample proportion is <span class="math inline">\(\sqrt{\frac{0.528(1-0.528)}{371}}\)</span>=0.026. For a 95% confidence interval, Z<sup>*</sup>=±1.960.<a href="#fn68" class="footnote-ref" id="fnref68"><sup>68</sup></a> Thus, the confidence interval is 0.528±1.960×0.026 or 0.528±0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.</p>
 </div>
 </div>
 <div id="examples-5" class="section level2" number="21.2">
@@ -529,7 +529,7 @@ Sum
 <p><em>USA Today (June 14, 1995) reported that 77% of the population opposes replacing $1 bills with $1 coins. To test if this claim holds true for the residents of Ashland a student selected a sample of 80 Ashland residents and found that 54 were opposed to replacing the bills with coins. Develop a hypothesis test (at the 10% level) to determine if the proportion of Ashland residents that are opposed to replacing bills with coins is different from the proportion opposed for the general population.</em></p>
 </blockquote>
 <ol style="list-style-type: decimal">
-<li><span class="math inline">\(\alpha\)</span>=0.10.</li>
+<li>α=0.10.</li>
 <li>H<sub>0</sub>:“the proportion of Ashland residents that oppose replacing the $1 bill with the $1 coin is 0.77” vs. H<sub>A</sub>: “The proportion of Ashland residents that oppose replacing the $1 bill with the $1 coin is NOT 0.77.”</li>
 <li>A Goodness-of-Fit Test is required because …
 <ol style="list-style-type: lower-roman">
@@ -592,9 +592,9 @@ Sum
 </tbody>
 </table>
 <ol start="7" style="list-style-type: decimal">
-<li><span class="math inline">\(\chi^{2}\)</span>=<span class="math inline">\(\frac{(61.6-54)^{2}}{55} + \frac{(18.4-26)^{2}}{25}\)</span>=0.938 + 3.139 = 4.077 with 2-1=1 df.</li>
+<li>χ<sup>2</sup>=<span class="math inline">\(\frac{(61.6-54)^{2}}{55} + \frac{(18.4-26)^{2}}{25}\)</span>=0.938 + 3.139 = 4.077 with 2-1=1 df.</li>
 <li>p-value=0.0435.</li>
-<li>H<sub>0</sub> is rejected because the p-value&lt;<span class="math inline">\(\alpha\)</span>=0.10.</li>
+<li>H<sub>0</sub> is rejected because the p-value&lt;α=0.10.</li>
 <li>The proportion of Ashland residents that oppose replacing the $1 bill with the $1 coin does appear to be different from the proportion (0.77) reported for the general population.</li>
 <li>I am 90% confident that the proportion of all Ashland residents opposed to the $1 coin is between 0.596 and 0.767 [i.e., <span class="math inline">\(\frac{54}{80}\pm1.645\times\sqrt{\frac{0.68125*0.31875}{80}}\)</span>=<span class="math inline">\(0.68125\pm1.645\times0.0521\)</span>=0.68125±0.0857=(0.5956,0.7670).]</li>
 </ol>
@@ -612,8 +612,8 @@ Sum
 </div>
 <div class="footnotes">
 <hr />
-<ol start="67">
-<li id="fn67"><p>This <span class="math inline">\(Z^{*}\)</span> is computed with <code>distrib(0.975,type="q")</code>.<a href="GOFTest.html#fnref67" class="footnote-back">↩︎</a></p></li>
+<ol start="68">
+<li id="fn68"><p>This Z<sup>*</sup> is computed with <code>distrib(0.975,type="q")</code>.<a href="GOFTest.html#fnref68" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

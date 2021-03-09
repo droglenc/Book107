@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-07" />
+<meta name="date" content="2021-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -353,7 +353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><img src="zimgs/Data_File_1.jpg" width="30%" style="display: block; margin: auto;" /></p>
 <p>Variable names must NOT contain spaces. For example, don’t use “total length” or “length (cm).” If you feel the need to have longer variable names, then separate the parts with a period (e.g., “length.cm”) or an underscore (e.g., “length_cm”). Furthermore, numerical measurements should NOT include units (e.g., don’t use “7 cm”). Finally, for categorical data, make sure that all categories are consistent (e.g., do not have a column that contains both “bayfield” and “Bayfield”).</p>
-<p>The spreadsheet is saved as a CSV file by selecting the <strong>File..Save As</strong> menu item, which will produce the dialog box below. In this dialog box, change “Save as type” to "CSV (Comma delimited) (*.csv)“,<a href="#fn68" class="footnote-ref" id="fnref68"><sup>68</sup></a>, provide a file name (do not put any periods in the name), select a location to save the file (don’t forget this location!!), and press”Save“. Two”warning" dialog boxes may then appear – select “OK” for the first and “YES” for the second. You can now close the spreadsheet file.<a href="#fn69" class="footnote-ref" id="fnref69"><sup>69</sup></a></p>
+<p>The spreadsheet is saved as a CSV file by selecting the <strong>File..Save As</strong> menu item, which will produce the dialog box below. In this dialog box, change “Save as type” to "CSV (Comma delimited) (*.csv)“,<a href="#fn69" class="footnote-ref" id="fnref69"><sup>69</sup></a>, provide a file name (do not put any periods in the name), select a location to save the file (don’t forget this location!!), and press”Save“. Two”warning" dialog boxes may then appear – select “OK” for the first and “YES” for the second. You can now close the spreadsheet file.<a href="#fn70" class="footnote-ref" id="fnref70"><sup>70</sup></a></p>
 <p><img src="zimgs/Data_File_2.jpg" width="60%" style="display: block; margin: auto;" /></p>
 <p> </p>
 <p>The following steps are used to load the data in the CSV file into R.</p>
@@ -365,7 +365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><img src="zimgs/Data_File_3.jpg" width="60%" style="display: block; margin: auto;" /></p>
 <ul>
-<li><p>Set the working directory (tell R where the file is) with the “Session,” “Set Working Directory …,” “To Source File Location” menu items in RStudio. RStudio will print an appropriate <code>setwd()</code> command to the console (lower-left pane). Copy this command from the console to the second line in your script.<a href="#fn70" class="footnote-ref" id="fnref70"><sup>70</sup></a> For example, I stored the file created above in the “C:/data” directory, so that RStudio will create this <code>setwd("C:/data")</code>.</p></li>
+<li><p>Set the working directory (tell R where the file is) with the “Session,” “Set Working Directory …,” “To Source File Location” menu items in RStudio. RStudio will print an appropriate <code>setwd()</code> command to the console (lower-left pane). Copy this command from the console to the second line in your script.<a href="#fn71" class="footnote-ref" id="fnref71"><sup>71</sup></a> For example, I stored the file created above in the “C:/data” directory, so that RStudio will create this <code>setwd("C:/data")</code>.</p></li>
 <li><p>The CSV file is read into R by including the name of the file (in quotes) in <code>read.csv()</code>. For example, the external “Bears.csv” file is read into the R object called <code>bears</code> with <code>bears &lt;- read.csv("Bears.csv")</code>.</p></li>
 <li><p>One should check the data in this object as described in the <a href="RData.html#viewing-a-data-frame">Viewing a Data Frame</a> section below.</p></li>
 </ul>
@@ -481,7 +481,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="vectors" class="section level2" number="22.5">
 <h2><span class="header-section-number">22.5</span> Vectors</h2>
-<p>Data.frames are the primary structure in which to store real data. However, much simpler situations that don’t require a data.frame may arise. In R, items of the same data type (see <a href="RData.html#data-types">Data Types</a>) are stored in a one-dimensional <strong>vector</strong>. Vectors are usually displayed in one row (with many columns), but they may also be thought of as a single column (with many rows). Items are entered into a vector with <code>c()</code>, where the individual arguments are specific numbers, characters, or logical values.<a href="#fn71" class="footnote-ref" id="fnref71"><sup>71</sup></a> Items for a vector of characters must be contained within paired quotes.</p>
+<p>Data.frames are the primary structure in which to store real data. However, much simpler situations that don’t require a data.frame may arise. In R, items of the same data type (see <a href="RData.html#data-types">Data Types</a>) are stored in a one-dimensional <strong>vector</strong>. Vectors are usually displayed in one row (with many columns), but they may also be thought of as a single column (with many rows). Items are entered into a vector with <code>c()</code>, where the individual arguments are specific numbers, characters, or logical values.<a href="#fn72" class="footnote-ref" id="fnref72"><sup>72</sup></a> Items for a vector of characters must be contained within paired quotes.</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb67-1"><a href="RData.html#cb67-1" aria-hidden="true" tabindex="-1"></a>( v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] 1 2 5</code></pre>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb69-1"><a href="RData.html#cb69-1" aria-hidden="true" tabindex="-1"></a>( y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Iowa&quot;</span>,<span class="st">&quot;Minnesota&quot;</span>,<span class="st">&quot;Wisconsin&quot;</span>) )</span></code></pre></div>
@@ -496,11 +496,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="68">
-<li id="fn68"><p>There are several choices for CSV files here; do NOT choose the one with "UTF-8" in the name.<a href="RData.html#fnref68" class="footnote-back">↩︎</a></p></li>
-<li id="fn69"><p>You may be asked to save changes – you should say “No.”<a href="RData.html#fnref69" class="footnote-back">↩︎</a></p></li>
-<li id="fn70"><p>Doing this will eliminate the need to manually select the menu options every time you want to run this script.<a href="RData.html#fnref70" class="footnote-back">↩︎</a></p></li>
-<li id="fn71"><p><code>c</code> comes from “concatenate” or “combine.”<a href="RData.html#fnref71" class="footnote-back">↩︎</a></p></li>
+<ol start="69">
+<li id="fn69"><p>There are several choices for CSV files here; do NOT choose the one with "UTF-8" in the name.<a href="RData.html#fnref69" class="footnote-back">↩︎</a></p></li>
+<li id="fn70"><p>You may be asked to save changes – you should say “No.”<a href="RData.html#fnref70" class="footnote-back">↩︎</a></p></li>
+<li id="fn71"><p>Doing this will eliminate the need to manually select the menu options every time you want to run this script.<a href="RData.html#fnref71" class="footnote-back">↩︎</a></p></li>
+<li id="fn72"><p><code>c</code> comes from “concatenate” or “combine.”<a href="RData.html#fnref72" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

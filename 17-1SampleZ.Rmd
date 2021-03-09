@@ -4,7 +4,7 @@ A foundation for making statistical inferences was provided in Modules \@ref(Sam
 ## 11-Steps of Hypothesis Testing {#Hyp11Steps}
 Hypothesis testing is a rigorous and formal procedure for making inferences about a parameter from a statistic. The 11 steps listed below will help make sure that all aspects important to hypothesis testing are completed. These steps should be used for all hypothesis tests in this and ensuing modules.
 
-1. State the rejection criterion ($\alpha$).
+1. State the rejection criterion (&alpha;).
 1. State the null and alternative hypotheses to be tested and define the parameter(s).
 1. Identify (and explain why!) the hypothesis test to use (e.g., 1-Sample t, 2-sample t, etc.).
 1. Collect the data (address study type and if randomization occurred).
@@ -19,43 +19,43 @@ Hypothesis testing is a rigorous and formal procedure for making inferences abou
 The order of some of these steps is arbitrary. However, Steps 1-3 **MUST** be completed before collecting data (Step 4). Further note that Step 11 is most important after H~0~ was rejected to provide a more definitive statement about the value of the parameter (i.e., if the parameter differs from the hypothesized value, then provide a range for which the actual parameter may exist).
 
 ## 1-Sample Z-Test Specifics {#Specifics1Z}
-A 1-Sample Z-Test tests H~0~:$\mu=\mu_{0}$, where $\mu_{0}$ represents a specific value of $\mu$, when $\sigma$ is known. Other specifics of this test were discussed in previous modules and are summarized below.
+A 1-Sample Z-Test tests H~0~:&mu;=&mu;~0~, where &mu;~0~ represents a specific value of &mu;, when &sigma; is known. Other specifics of this test were discussed in previous modules and are summarized below.
 
-* **Hypothesis:** H~0~:$\mu=\mu_{0}$
-* **Statistic:** $\bar{x}$
-* **Test Statistic:** $Z=\frac{\bar{x}-\mu_{0}}{\frac{\sigma}{\sqrt{n}}}$
-* **Confidence Region:** $\bar{x}+Z^{*}\frac{\sigma}{\sqrt{n}}$
+* **Hypothesis:** H~0~:&mu;=&mu;~0~
+* **Statistic:** $\bar{\text{x}}$
+* **Test Statistic:** Z=$\frac{\bar{\text{x}}-\mu_{0}}{\frac{\sigma}{\sqrt{\text{n}}}}$
+* **Confidence Region:** $\bar{\text{x}}+\text{Z}^{*}\frac{\sigma}{\sqrt{\text{n}}}$
 * **Assumptions:**
-    * $\sigma$ is known
+    * &sigma; is known
     * n&geq;30, n&geq;15 and the **population** is not strongly skewed, OR the **population** is normally distributed.
-* **Use with:** Quantitative response, one group (or population), $\sigma$ known.
+* **Use with:** Quantitative response, one group (or population), &sigma; known.
 
 &nbsp;
 
-The only test that can possibly be confused with a 1-Sample Z-Test is a 1-Sample t-Test (Module \@ref(t1test)), which tests the same null hypothesis but when $\sigma$ is unknown.
+The only test that can possibly be confused with a 1-Sample Z-Test is a 1-Sample t-Test (Module \@ref(t1test)), which tests the same null hypothesis but when &sigma; is unknown.
 
 ## Examples
 ### Intra-class Travel
 Below are the 11-steps (Section \@ref(Hyp11Steps)) for completing a full hypothesis test for the following situation:
 
-> *A dean wants to determine if it takes more than 10 minutes, on average, to go between classes. To test this hypothesis, she collected a random sample of 100 intra-class travel times and found a mean of 10.12 mins. Assume from previous studies that the distribution of intra-class times is symmetric with a standard deviation of 1.60 mins. Test the dean's hypothesis with $\alpha$=0.10.*
+> *A dean wants to determine if it takes more than 10 minutes, on average, to go between classes. To test this hypothesis, she collected a random sample of 100 intra-class travel times and found a mean of 10.12 mins. Assume from previous studies that the distribution of intra-class times is symmetric with a standard deviation of 1.60 mins. Test the dean's hypothesis with &alpha;=0.10.*
 
-1. $\alpha$=0.10.
-1. H~0~:$\mu$=10 mins vs. H~A~:$\mu$>10 mins, where $\mu$ is the mean time for ALL intra-class travel events.
+1. &alpha;=0.10.
+1. H~0~:&mu;=10 mins vs. H~A~:&mu;>10 mins, where &mu; is the mean time for ALL intra-class travel events.
 1. A 1-Sample Z-Test is required because ...
     i. a quantitative variable (intra-class travel time) was measured,
     i. individuals from one group (or population) is considered (students at the Dean's school), and
-    i. $\sigma$ is thought to be known (=1.60 mins).
+    i. &sigma; is thought to be known (=1.60 mins).
 1. The data appear to be part of an observational study (the dean did not impart any conditions on the students) with a random selection of individuals.
 1. The assumptions are met because ...
     i. n=100&geq;30, and
-    i. $\sigma$ is thought to be known (=1.60 mins).
-1. $\bar{x}$=10.12.
+    i. &sigma; is thought to be known (=1.60 mins).
+1. $\bar{\text{x}}$=10.12.
 1. Z=$\frac{10.12-10}{\frac{1.60}{\sqrt{100}}}$=$\frac{0.12}{0.16}$=0.75.
 1. p-value=`r kPvalue(pnorm(10.12,mean=10,sd=0.16,lower.tail=FALSE),include.p=FALSE,latex=FALSE)`.
-1. H~0~ is not rejected because the p-value>$\alpha$=0.10.
+1. H~0~ is not rejected because the p-value>&alpha;=0.10.
 1. It appears that the mean time for **all** intra-class travel events is not more than 10 minutes.
-1. A 90% lower confidence bound will use $Z^{*}$=`r formatC(qnorm(0.90,lower.tail=FALSE),format="f",digits=3)`. The lower confidence bound is thus 10.12-1.282&times;$\frac{1.60}{\sqrt{100}}$=`r formatC(10.12-1.282*1.60/sqrt(100),format="f",digits=2)`. Thus, I am 90% confident that the mean intra-class travel time is more than `r formatC(10.12-1.282*1.60/sqrt(100),format="f",digits=2)` minutes; further evidence that the mean intra-class travel time is not greater than 10 minutes.
+1. A 90% lower confidence bound will use Z^\*^=`r formatC(qnorm(0.90,lower.tail=FALSE),format="f",digits=3)`. The lower confidence bound is thus 10.12-1.282&times;$\frac{1.60}{\sqrt{100}}$=`r formatC(10.12-1.282*1.60/sqrt(100),format="f",digits=2)`. Thus, I am 90% confident that the mean intra-class travel time is more than `r formatC(10.12-1.282*1.60/sqrt(100),format="f",digits=2)` minutes; further evidence that the mean intra-class travel time is not greater than 10 minutes.
 
 #### R Appendix: {-}
 ```{r echo=-1, results="hide"}

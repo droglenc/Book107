@@ -83,17 +83,17 @@ The Goodness-of-Fit Test is characterized by a single categorical response varia
 
 It is cumbersome to produce a confidence interval in a Goodness-of-Fit Test because there generally is not a single parameter (i.e., there are as many parameters as levels in the response variable). Confidence intervals can be calculated for the proportions in each level as shown below. However, confidence intervals will only be "hand"-calculated when there are two levels. When using R (as discussed in a later module), confidence intervals will be computed for all levels, no matter the number of levels.
 
-Let $p$ be the population proportion in a particular level and $\hat{p}$ be the sample proportion in the same interval. The $\hat{p}$ is computed by dividing the frequency of individuals in this level by the total number of individuals in the sample (i.e., n). The $\hat{p}$ is a statistic that is subject to sampling variable with that sampling variability measured by $SE_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$ for "large" values of $n$. For "large" values of $n$ the $\hat{p}$ will follow a normal distribution such that a confidence interval for $p$ is computed using the general confidence interval formula found in Section \@ref(constructing-confidence-regions) and repeated below:
+Let $p$ be the population proportion in a particular level and $\hat{p}$ be the sample proportion in the same interval. The $\hat{p}$ is computed by dividing the frequency of individuals in this level by the total number of individuals in the sample (i.e., n). The $\hat{p}$ is a statistic that is subject to sampling variable with that sampling variability measured by $SE_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$ for "large" values of n. For "large" values of n the $\hat{p}$ will follow a normal distribution such that a confidence interval for $p$ is computed using the general confidence interval formula found in Section \@ref(constructing-confidence-regions) and repeated below:
 
 $$ \text{"Statistic"} + \text{"scaling factor"} * SE_{statistic} $$
 
-where the scaling factor is the familiar $Z^{*}$. Thus, the confidence interval for $p$ is constructed with
+where the scaling factor is the familiar Z^\*^. Thus, the confidence interval for $p$ is constructed with
 
 $$ \hat{p} \pm Z^{*}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} $$
 
 Note that one does not need to worry about lower and upper bounds, only confidence intervals will be computed, because of the two-tailed nature of the chi-square test statistic.
 
-In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was $\hat{p}$=$\frac{196}{371}$=0.528. The standard error for this sample proportion is $\sqrt{\frac{0.528(1-0.528)}{371}}$=0.026. For a 95\% confidence interval, $Z^{*}$=&plusmn;`r formatC(qnorm(0.975),format="f",digits=3)`.^[This $Z^{*}$ is computed with `distrib(0.975,type="q")`.] Thus, the confidence interval is 0.528&plusmn;1.960&times;0.026 or 0.528&plusmn;0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.
+In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was $\hat{p}$=$\frac{196}{371}$=0.528. The standard error for this sample proportion is $\sqrt{\frac{0.528(1-0.528)}{371}}$=0.026. For a 95\% confidence interval, Z^\*^=&plusmn;`r formatC(qnorm(0.975),format="f",digits=3)`.^[This Z^\*^ is computed with `distrib(0.975,type="q")`.] Thus, the confidence interval is 0.528&plusmn;1.960&times;0.026 or 0.528&plusmn;0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.
 
 ## Examples
 ### \$1 Coins
@@ -101,7 +101,7 @@ Below are the 11-steps (Section \@ref(Hyp11Steps)) for completing a full hypothe
 
 > *USA Today (June 14, 1995) reported that 77% of the population opposes replacing \$1 bills with \$1 coins. To test if this claim holds true for the residents of Ashland a student selected a sample of 80 Ashland residents and found that 54 were opposed to replacing the bills with coins. Develop a hypothesis test (at the 10% level) to determine if the proportion of Ashland residents that are opposed to replacing bills with coins is different from the proportion opposed for the general population.*
 
-1. $\alpha$=0.10.
+1. &alpha;=0.10.
 1. H~0~:"the proportion of Ashland residents that oppose replacing the \$1 bill with the \$1 coin is 0.77" vs. H~A~: "The proportion of Ashland residents that oppose replacing the \$1 bill with the \$1 coin is NOT 0.77."
 1. A Goodness-of-Fit Test is required because ...
     i. a single categorical variable was recorded (opinion about \$1 coin),
@@ -122,9 +122,9 @@ knitr::kable(booktabs=TRUE) %>%
   kableExtra::column_spec(2:3,width="0.75in")
 ```
 
-7. $\chi^{2}$=$\frac{(61.6-54)^{2}}{55} + \frac{(18.4-26)^{2}}{25}$=0.938 + 3.139 = 4.077 with 2-1=1 df.
+7. &chi;^2^=$\frac{(61.6-54)^{2}}{55} + \frac{(18.4-26)^{2}}{25}$=0.938 + 3.139 = 4.077 with 2-1=1 df.
 1. p-value=`r kPvalue(pchisq(4.077,df=1,lower.tail=FALSE),include.p=FALSE,latex=FALSE)`.
-1. H~0~ is rejected because the p-value<$\alpha$=0.10.
+1. H~0~ is rejected because the p-value<&alpha;=0.10.
 1. The proportion of Ashland residents that oppose replacing the \$1 bill with the \$1 coin does appear to be different from the proportion (0.77) reported for the general population.
 1. I am 90% confident that the proportion of all Ashland residents opposed to the \$1 coin is between 0.596 and 0.767 [i.e., $\frac{54}{80}\pm1.645\times\sqrt{\frac{0.68125*0.31875}{80}}$=$0.68125\pm1.645\times0.0521$=0.68125&plusmn;0.0857=(0.5956,0.7670).]
 

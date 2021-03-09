@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-07" />
+<meta name="date" content="2021-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -332,23 +332,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Module 5</span> Univariate EDA</h1>
 <div id="quantitative-variable-1" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Quantitative Variable</h2>
-<p>A univariate EDA for a quantitative variable is concerned with describing the distribution of values for that variable; i.e., describing what values occurred and how often those values occurred. Specifically, the distribution is described with these four attributes:</p>
+<p>A univariate EDA for a quantitative variable is concerned with describing the <strong>distribution of values</strong> for that variable; i.e., describing what values occurred and how often those values occurred. Specifically, the distribution is described with these four attributes:</p>
 <ul>
 <li><strong>shape</strong> of the distribution,</li>
 <li>presence of <strong>outliers</strong>,</li>
 <li><strong>center</strong> of the distribution, and</li>
-<li><strong>dispersion</strong> or spread of the distribution.</li>
+<li><strong>dispersion</strong> of the distribution.</li>
 </ul>
 <p>Graphs are used to identify shape and the presence of outliers and to get a general feel for center and dispersion. Numerical summaries, however, are used to specifically describe center and dispersion of the variable. Computing and constructing the required numerical and graphical summaries was described in Module <a href="UnivSum.html#UnivSum">4</a>. Those summaries are interpreted here to provide an overall description of the distribution of the quantitative variable.</p>
-<p>The same three data sets used in Module <a href="UnivSum.html#UnivSum">4</a> are used here.</p>
+<p>The same two data sets used in Module <a href="UnivSum.html#UnivSum">4</a> are used here.</p>
 <ul>
 <li>Number of open pit mines in countries with open pit mines (Table <a href="UnivSum.html#tab:MineData">4.1</a>).</li>
 <li>Richter scale recordings for 15 major earthquakes (Table <a href="UnivSum.html#tab:EQData">4.2</a>).</li>
-<li>The number of days of ice cover at ice gauge station 9004 in Lake Superior.</li>
 </ul>
 <div id="interpreting-shape" class="section level3" number="5.1.1">
 <h3><span class="header-section-number">5.1.1</span> Interpreting Shape</h3>
-<p>A distribution has two tails – a left-tail of smaller or more negative values and a right-tail of larger or more positive values (Figure <a href="UnivEDA.html#fig:ShapeExamples1">5.1</a>). The relative appearance of the tails is used to identify the shape of a distribution. If the left- and right-tail are approximately equal in length and height, then the distribution is <strong>symmetric</strong> (or more specifically <strong>approximately symmetric</strong>). If the left-tail is stretched out or is longer and flatter than the right-tail, then the distribution is negatively- or <strong>left-skewed</strong>. If the right-tail is stretched out or is longer and flatter than the left-tail, then the distribution is positively- or <strong>right-skewed</strong>.</p>
+<p>A distribution has two tails – a left-tail of smaller or more negative values and a right-tail of larger or more positive values (Figure <a href="UnivEDA.html#fig:ShapeExamples1">5.1</a>). The relative appearance of the tails is used to identify the shape of a distribution. If the left- and right-tail are approximately equal in length and height, then the distribution is <strong>approximately symmetric</strong>. If the left-tail is stretched out or is longer and flatter than the right-tail, then the distribution is <strong>left-skewed</strong>. If the right-tail is stretched out or is longer and flatter than the left-tail, then the distribution is <strong>right-skewed</strong>.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a></p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:ShapeExamples1"></span>
 <img src="Book107_files/figure-html/ShapeExamples1-1.png" alt="Examples of left-skewed, approximately symmetric, and right-skewed histograms. The skewed distributions are more skewed in the top row and less skewed in the bottom row." width="672" />
@@ -359,7 +358,7 @@ Figure 5.1: Examples of left-skewed, approximately symmetric, and right-skewed h
 <div class="tip">
 <p>The longer tail defines the type of skew; a longer right-tail means the distribution is right-skewed and a longer left-tail means it is left-skewed.</p>
 </div>
-<p>In practice, these labels form a continuum (Figure <a href="UnivEDA.html#fig:ShapeExamples1">5.1</a>). For example, it may be difficult to discern whether the shape is approximately symmetric or skew. To partially address this issue, “slightly” or “strongly” may be used with “skewed” to distinguish whether the distribution is obviously skewed (i.e., “strongly skewed”) or nearly symmetric (i.e., “slightly skewed”).</p>
+<p>In practice, these labels form a continuum (Figure <a href="UnivEDA.html#fig:ShapeExamples1">5.1</a>). For example, it may be difficult to discern whether the shape is approximately symmetric or skewed. To partially address this issue, “slightly” or “strongly” may be used with “skewed” to distinguish whether the distribution is obviously skewed (i.e., “strongly skewed”) or nearly symmetric (i.e., “slightly skewed”).</p>
 <div class="tip">
 <p>Shape terms may be modified with “approximately,” “slightly,” or “strongly.”</p>
 </div>
@@ -380,7 +379,6 @@ Figure 5.2: Example of a bimodal left-skewed histograms.
 Figure 5.3: Histograms and boxplots for several different shapes of distributions.
 </p>
 </div>
-<p> </p>
 <div class="tip">
 <p>Shape is easier to describe from a histogram than a boxplot.</p>
 </div>
@@ -399,10 +397,10 @@ Figure 5.4: Example histogram with an outlier to the right (dark gray).
 <p>An outlier may be a result of human error in the sampling process and, thus, it should be corrected or removed. Other times an outlier may be an individual that was not part of the population of interest – e.g., an adult animal that was sampled when only immature animals were being considered – and, thus, it should be removed from the sample. Still other times, an outlier is part of the population and should generally not be removed from the sample. In fact you may wish to highlight an outlier as an interesting observation! Regardless, it is important to construct a histogram to determine if outliers are present or not.</p>
 <p>Don’t let outliers completely influence how you define the shape of a distribution. For example, if the main cluster of values is approximately symmetric and there is one outlier to the right of the main cluster (as illustrated in Figure <a href="UnivEDA.html#fig:OutlierExHist">5.4</a>), <strong>DON’T</strong> call the distribution right-skewed. You should describe this distribution as approximately symmetric with an outlier to the right.</p>
 <div class="tip">
-<p>Not all outliers warrant removal from your sample.</p>
-</div>
-<div class="tip">
-<p>Don’t let outliers completely influence how you define the shape of a distribution.</p>
+<ul>
+<li>Not all outliers warrant removal from your sample.</li>
+<li>Don’t let outliers completely influence how you define the shape of a distribution.</li>
+</ul>
 </div>
 </div>
 <div id="comparing-the-median-and-mean" class="section level3" number="5.1.3">
@@ -410,10 +408,7 @@ Figure 5.4: Example histogram with an outlier to the right (dark gray).
 <p>As mentioned previously, numerical measures will be used to describe the center and dispersion of a distribution. However, which values should be used? Should one use the mean or the median as a measure of center? Should one use the IQR or the standard deviation as a measure of dispersion? Which measures are used depends on how the measures respond to skew and the presence of outliers. Thus, before stating a rule for which measures should be used, a fundamental difference among the measures discussed in Module <a href="UnivSum.html#UnivSum">4</a> is explored here.</p>
 <p>The following discussion is focused on comparing the mean and the median. However, note that the IQR is fundamentally linked to the median (i.e., to find the IQR, the median must first be found) and the standard deviation is fundamentally linked to the mean (i.e., to find the standard deviation, the mean must first be found). Thus, <strong>the median and IQR will always be used together to measure center and dispersion, as will the mean and standard deviation.</strong></p>
 <p>The mean and median measure center differently. The median balances the number of individuals smaller and larger than it. The mean, on the other hand, balances the sum of the distances to all points smaller than it and the sum of the distances to all points greater than it. Thus, the median is primarily concerned with the <strong>position</strong> of the value rather than the value itself, whereas the mean is concerned with the <strong>values</strong> for each individual (i.e., the values are used to find the “distance” from the mean).</p>
-<div class="tip">
-<p>The actual values of the data (beyond ordering data) <strong>are not</strong> considered when calculating the median; whereas the actual values <strong>are</strong> considered when calculating the mean.</p>
-</div>
-<p>A plot of the Richter scale data against the corresponding ordered individual numbers is shown in Figure <a href="UnivEDA.html#fig:MeanMedianComp1">5.5</a>-Top. The median (blue line) is the Richter scale value that corresponds to the middle individual number (i.e., move right from the individual number until the point is intercepted and then move down to the x-axis). Thus, the median (blue line) has the same <strong>number</strong> of individuals (i.e., points) above and below it. In contrast, the mean finds the Richter scale value that has the same total distance to values below it as total distance to values above it. In other words, the mean (vertical red line) is placed such that the total <strong>length</strong> of the horizontal dashed red lines (distances from mean to point) is the same to the left as to the right.</p>
+<p>A plot of the Richter scale data against the corresponding ordered individual numbers is shown in Figure <a href="UnivEDA.html#fig:MeanMedianComp1">5.5</a>-Top. The median (blue line) is the Richter scale value that corresponds to the middle position (i.e., move right from the individual number until the point is intercepted and then move down to the x-axis). Thus, the median (blue line) has the same <strong>number</strong> of individuals (i.e., points) above and below it. In contrast, the mean finds the Richter scale value that has the same total distance to values below it as total distance to values above it. In other words, the mean (vertical red line) is placed such that the total <strong>length</strong> of the horizontal dashed red lines (distances from mean to point) is the same to the left as to the right.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:MeanMedianComp1"></span>
 <img src="Book107_files/figure-html/MeanMedianComp1-1.png" alt="Plot of the individual number versus Richter scale values for the original earthquake data (**Top**) and the earthquake data with an extreme outlier (**Bottom**). The median value is shown as a blue vertical line and the mean value is shown as a red vertical line. Differences between each individual value and the mean value are shown with horizontal red lines." width="480" />
@@ -421,14 +416,14 @@ Figure 5.4: Example histogram with an outlier to the right (dark gray).
 Figure 5.5: Plot of the individual number versus Richter scale values for the original earthquake data (<strong>Top</strong>) and the earthquake data with an extreme outlier (<strong>Bottom</strong>). The median value is shown as a blue vertical line and the mean value is shown as a red vertical line. Differences between each individual value and the mean value are shown with horizontal red lines.
 </p>
 </div>
-<p> </p>
 <div class="tip">
-<p>The mean balances the distance to individuals above and below the mean. The median balances the number of individuals above and below the median.</p>
+<ul>
+<li>The actual values of the data (beyond ordering data) <strong>are not</strong> considered when calculating the median; whereas the actual values <strong>are</strong> considered when calculating the mean.</li>
+<li>The mean balances the distance to individuals above and below the mean. The median balances the number of individuals above and below the median.</li>
+<li>The sum of all differences between individual values and the mean equals zero.</li>
+</ul>
 </div>
-<div class="tip">
-<p>The sum of all differences between individual values and the mean equals zero.</p>
-</div>
-<p>The mean and median differ in their sensitivity to outliers (Figure <a href="UnivEDA.html#fig:MeanMedianComp1">5.5</a>). For example, suppose that an incredible earthquake with a Richter Scale value of 19.0 was added to the earthquake data set. With this additional individual, the median increases from 7.1 to 7.2, but the mean increases from 7.1 to 7.8. The outlier impacts the value of the mean more than the value of the median because of the way that each statistic measures center. The mean will be pulled towards an outlier because it must “put” many values on the “side” of the mean away from the outlier so that the sum of the differences to the larger values and the sum of the differences to the smaller values will be equal. In this example, the outlier creates a large difference to the right of the mean such that the mean has to “move” to the right to make this difference smaller, move more individuals to the left side of the mean, and increase the differences of individuals to the left of the mean to balance this one large individual. The median on the other hand will simply “put” one more individual on the side opposite of the outlier because it balances the number of individuals on each side of it. Thus, the median has to move very little to the right to accomplish this balance.</p>
+<p>The mean and median differ in their sensitivity to outliers (Figure <a href="UnivEDA.html#fig:MeanMedianComp1">5.5</a>). For example, suppose that an incredible earthquake with a Richter Scale value of 19.0 was added to the earthquake data set. With this additional individual, the median increases only from 7.1 to 7.2, but the mean increases from 7.1 to 7.8. The outlier impacts the value of the mean more than the value of the median because of the way that each statistic measures center. The mean will be pulled towards an outlier because it must “put” many values on the “side” of the mean away from the outlier so that the sum of the differences to the larger values and the sum of the differences to the smaller values will be equal. In this example, the outlier creates a large difference to the right of the mean such that the mean has to “move” to the right to make this difference smaller, move more individuals to the left side of the mean, and increase the differences of individuals to the left of the mean to balance this one large individual. The median on the other hand will simply “put” one more individual on the side opposite of the outlier because it balances the number of individuals on each side of it. Thus, the median has to move very little to the right to accomplish this balance.</p>
 <div class="tip">
 <p>The mean is more sensitive (i.e., changes more) to outliers than the median; it will be “pulled” towards the outlier more than the median.</p>
 </div>
@@ -447,16 +442,23 @@ Figure 5.6: Three histograms with vertical dashed lines marking the median (blue
 <p>As shown above, the mean and median measure center differently. The question now becomes “which measure of center is better?” The median is a “better” measure of center when outliers are present. In addition, the median gives a better measure of a typical individual when the data are skewed. Thus, in this course, the median is used when outliers are present or the distribution of the data is skewed. If the distribution is symmetric, then the purpose of the analysis will dictate which measure of center is “better.” However, in this course, use the mean when the data are symmetric or, at least, not strongly skewed.</p>
 <p>As noted above, the IQR and standard deviation behave similarly to the median and mean, respectively, in the face of outliers and skews. Specifically, the IQR is less sensitive to outliers than the standard deviation.</p>
 <div class="tip">
-<p>In this course, center and dispersion will be measured by the median and IQR if outliers are present or the distribution is more than slightly skewed, and the mean and standar deviation will be used if no outliers are present and the distribution is symmetric or only slightly skewed.</p>
+<p>In this course, center and dispersion will be measured by the median and IQR if outliers are present or the distribution is more than slightly skewed, and the mean and standard deviation will be used if no outliers are present and the distribution is symmetric or only slightly skewed.</p>
 </div>
 </div>
 <div id="synthetic-interpretations" class="section level3" number="5.1.4">
 <h3><span class="header-section-number">5.1.4</span> Synthetic Interpretations</h3>
-<p>The graphical and numerical summaries from Module <a href="UnivSum.html#UnivSum">4</a> and the rationale described above can be used to construct a synthetic description of the shape, outliers, center, and dispersion of the distribution of a quantitative variable. In the examples below specifically note that 1) shape and outliers are described from the histogram, 2) center and dispersion are described ONLY from the mean and standard deviation OR the median and IQR are discussed, 3) the specific position of outliers (if present) is explained, 4) an explanation is given for why either the median and IQR or the mean and standard deviation were used, and 5) the range was not used alone as a measure of dispersion.</p>
+<p>The graphical and numerical summaries from Module <a href="UnivSum.html#UnivSum">4</a> and the rationale described above can be used to construct a synthetic description of the shape, outliers, center, and dispersion of the distribution of a quantitative variable. In the examples below specifically note that</p>
+<ul>
+<li>shape and outliers are described from the histogram,</li>
+<li>center and dispersion are described ONLY from the mean and standard deviation OR the median and IQR,</li>
+<li>the specific position of outliers (if present) is explained,</li>
+<li>an explanation is given for why either the median and IQR or the mean and standard deviation were used, and</li>
+<li>the range was not used alone as a measure of dispersion.</li>
+</ul>
 <div id="number-of-open-pit-mines" class="section level4" number="5.1.4.1">
 <h4><span class="header-section-number">5.1.4.1</span> Number of Open Pit Mines</h4>
 <blockquote>
-<p><em>Construct a proper EDA for the number of open pit mines in countries that have open pit mines as summarized in Table <a href="UnivSum.html#tab:MineData">4.1</a> and Figure <a href="UnivEDA.html#fig:MineHist2">5.7</a>.</em></p>
+<p><em>Construct a proper EDA for the number of open pit mines in countries that have open pit mines as summarized in Table <a href="UnivEDA.html#tab:MineStats">5.1</a> and Figure <a href="UnivEDA.html#fig:MineHist2">5.7</a>.</em></p>
 </blockquote>
 <div class="figure" style="text-align: center"><span id="fig:MineHist2"></span>
 <img src="Book107_files/figure-html/MineHist2-1.png" alt="Histogram of number of open pit mines in countries with open pit mines." width="336" />
@@ -688,7 +690,7 @@ max
 </div>
 <div id="categorical-variable-1" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Categorical Variable</h2>
-<p>An appropriate EDA for a categorical variable consists of identifying the major characteristics among the categories. Shape, center, dispersion, and outliers are NOT described for categorical data because the data is not numerical and, if nominal, no order exists. In general, the major characteristics of the table or graph are described from an intuitive basis; the numerical values in the graph or table are not simply repeated.</p>
+<p>An appropriate EDA for a categorical variable consists of identifying the major characteristics among the categories. Shape, center, dispersion, and outliers are <strong>NOT</strong> described for categorical data because the data is not numerical and, if nominal, no order exists. In general, the major characteristics of the table or graph are described from an intuitive basis; the numerical values in the graph or table are not simply repeated.</p>
 <div class="tip">
 <p>Do NOT describe shape, center, dispersion, and outliers for a categorical variable.</p>
 </div>
@@ -768,6 +770,12 @@ Not Avail
 </div>
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="30">
+<li id="fn30"><p>Some people use “negatively skewed” instead of “left-skewed” and “positively skewed” instead of “right-skewed.” When using these think that “left” means more towards “negaive” values and “right” means more towards “positive” values.<a href="UnivEDA.html#fnref30" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

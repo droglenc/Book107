@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-07" />
+<meta name="date" content="2021-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -335,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="forward-calculations" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Forward Calculations</h2>
 <p>The area under a normal curve relative to a particular value is computed in R with <code>distrib()</code>. This function requires the <em>particular value</em> as the first argument and the mean and standard deviation of the normal distribution in the <code>mean=</code> and <code>sd=</code> arguments, respectively. The <code>distrib()</code> function defaults to finding the area under the curve to the <strong>left of</strong> the particular value, but it can find the area under the curve to the right of the particular value by including <code>lower.tail=FALSE</code>.</p>
-<p>For example, suppose that the heights of a population of students is known to be <span class="math inline">\(H\sim N(66,3)\)</span>. The proportion of students in this population that have a height less than 71 inches is computed below. Thus, approximately 95.2% of students in this population have a height less than 71 inches (Figure <a href="NormalDist2.html#fig:NormZCalc1">7.1</a>).</p>
+<p>For example, suppose that the heights of a population of students is known to be H~N(66,3). The proportion of students in this population that have a height less than 71 inches is computed below. Thus, approximately 95.2% of students in this population have a height less than 71 inches (Figure <a href="NormalDist2.html#fig:NormZCalc1">7.1</a>).</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb7-1"><a href="NormalDist2.html#cb7-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">71</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:NormZCalc1"></span>
 <img src="Book107_files/figure-html/NormZCalc1-1.png" alt="Calculation of the proportion of individuals on a $N(66,3)$ with a value less than 71." width="336" />
@@ -377,7 +377,7 @@ Figure 7.4: Calculation of the areas less than 70 inches (<strong>Left</strong>)
 </div>
 <div id="reverse-calculations" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Reverse Calculations</h2>
-<p>Reverse questions are also answered with <code>distrib()</code>, though the first argument is now the given proportion (or area) of interest. The calculation is treated as a “reverse” question when <code>type="q"</code> is given to <code>distrib()</code>.<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a> For example, the height that has 20% of all students shorter is 63.5 inches, as computed below (Figure <a href="NormalDist2.html#fig:NormZCalc4">7.5</a>).</p>
+<p>Reverse questions are also answered with <code>distrib()</code>, though the first argument is now the given proportion (or area) of interest. The calculation is treated as a “reverse” question when <code>type="q"</code> is given to <code>distrib()</code>.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a> For example, the height that has 20% of all students shorter is 63.5 inches, as computed below (Figure <a href="NormalDist2.html#fig:NormZCalc4">7.5</a>).</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb13-1"><a href="NormalDist2.html#cb13-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.20</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:NormZCalc4"></span>
 <img src="Book107_files/figure-html/NormZCalc4-1.png" alt="Calculation of the height with 20% of all students shorter." width="336" />
@@ -395,7 +395,7 @@ Figure 7.6: Calculation of the height with 10% of all students taller.
 </p>
 </div>
 <p> </p>
-<p>“Between” questions can only be easily handled if the question is looking for endpoint values that are symmetric about <span class="math inline">\(\mu\)</span>. In other words, the question must ask for the two values that contain the “most common” proportion of individuals. For example, suppose that you were asked to find the most common 80% of heights. This type of question is handled by converting this “symmetric between” question into two “less than” questions. For example, in Figure <a href="NormalDist2.html#fig:NormRevBetween">7.7</a> the area D is the symmetric area of interest. If D is 0.80, then C+E must be 0.20.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a> Because D is symmetric about <span class="math inline">\(\mu\)</span>, C and E must both equal 0.10. Thus, the lower bound on D is the value that has 10% of all values smaller. Similarly, because the combined area of C and D is 0.90, the upper bound on D is the value that has 90% of all values smaller. This question has now been converted from a “symmetric between” to two “less than” questions that can be answered exactly as shown above.</p>
+<p>“Between” questions can only be easily handled if the question is looking for endpoint values that are symmetric about μ. In other words, the question must ask for the two values that contain the “most common” proportion of individuals. For example, suppose that you were asked to find the most common 80% of heights. This type of question is handled by converting this “symmetric between” question into two “less than” questions. For example, in Figure <a href="NormalDist2.html#fig:NormRevBetween">7.7</a> the area D is the symmetric area of interest. If D is 0.80, then C+E must be 0.20.<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a> Because D is symmetric about μ, C and E must both equal 0.10. Thus, the lower bound on D is the value that has 10% of all values smaller. Similarly, because the combined area of C and D is 0.90, the upper bound on D is the value that has 90% of all values smaller. This question has now been converted from a “symmetric between” to two “less than” questions that can be answered exactly as shown above.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:NormRevBetween"></span>
 <img src="Book107_files/figure-html/NormRevBetween-1.png" alt="Depiction of areas in a reverse between type normal distribution question." width="336" />
@@ -416,21 +416,21 @@ Figure 7.8: Calculations for the two values with an area of 80% between them.
 </div>
 <div id="standardization-and-z-scores" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> Standardization and Z-Scores</h2>
-<p>An individual that is 59 inches tall is 7 inches shorter than average if heights are <span class="math inline">\(N(66,3)\)</span>. Is this a large or a small difference? Alternatively, this same individual is <span class="math inline">\(\frac{-7}{3}\)</span> = <span class="math inline">\(-2.33\)</span> standard deviations below the mean. Thus, a height of 59 inches is relatively rare in this population because few individuals are more than two standard deviations away from the mean.<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a> As seen here, the relative magnitude that an individual differs from the mean is better expressed as the number of standard deviations that the individual is away from the mean.</p>
-<p>Values are “standardized” by changing the original scale (inches in this example) to one that counts the number of standard deviations (i.e., <span class="math inline">\(\sigma\)</span>) that the value is away from the mean (i.e., <span class="math inline">\(\mu\)</span>). For example, with the height variable above, 69 inches is one standard deviation above the mean, which corresponds to +1 on the standardized scale. Similarly, 60 inches is two standard deviations below the mean, which corresponds to -2 on the standardized scale. Finally, 67.5 inches on the original scale is one half standard deviation above the mean or +0.5 on the standardized scale.</p>
+<p>An individual that is 59 inches tall is 7 inches shorter than average if heights are N(66,3). Is this a large or a small difference? Alternatively, this same individual is <span class="math inline">\(\frac{-7}{3}\)</span> = -2.33 standard deviations below the mean. Thus, a height of 59 inches is relatively rare in this population because few individuals are more than two standard deviations away from the mean.<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a> As seen here, the relative magnitude that an individual differs from the mean is better expressed as the number of standard deviations that the individual is away from the mean.</p>
+<p>Values are “standardized” by changing the original scale (inches in this example) to one that counts the number of standard deviations (i.e., σ) that the value is away from the mean (i.e., μ). For example, with the height variable above, 69 inches is one standard deviation above the mean, which corresponds to +1 on the standardized scale. Similarly, 60 inches is two standard deviations below the mean, which corresponds to -2 on the standardized scale. Finally, 67.5 inches on the original scale is one half standard deviation above the mean or +0.5 on the standardized scale.</p>
 <p>The process of computing the number of standard deviations that an individual is away from the mean is called <strong>standardizing</strong>. Standardizing is accomplished with</p>
 <p><span class="math display">\[Z = \frac{``\text{value&quot;}-``\text{center&quot;}}{``\text{dispersion&quot;}} \]</span></p>
 <p>or, more specifically,</p>
-<p><span class="math display">\[ Z = \frac{x-\mu}{\sigma} \]</span></p>
-<p>For example, the standardized value of an individual with a height of 59 inches is <span class="math inline">\(z=\frac{59-66}{3}=-2.33\)</span>. Thus, this individual’s height is 2.33 standard deviations below the average height in the population.</p>
-<p>Standardized values (<span class="math inline">\(Z\)</span>) follow a <span class="math inline">\(N(0,1)\)</span>. Thus, <span class="math inline">\(N(0,1)\)</span> is called the “standard normal distribution.” The relationship between <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> is one-to-one meaning that each value of <span class="math inline">\(X\)</span> converts to one and only one value of <span class="math inline">\(Z\)</span>. This means that the area to the left of <span class="math inline">\(X\)</span> on a <span class="math inline">\(N(\mu,\sigma)\)</span> is the same as the area to the left of <span class="math inline">\(Z\)</span> on a <span class="math inline">\(N(0,1)\)</span>. This one-to-one relationship is illustrated in Figure <a href="NormalDist2.html#fig:NormStandardizingEx">7.9</a> using the individual with a height of 59 inches and <span class="math inline">\(Z=-2.33\)</span>.</p>
+<p><span class="math display">\[ \text{Z} = \frac{\text{x}-\mu}{\sigma} \]</span></p>
+<p>For example, the standardized value of an individual with a height of 59 inches is Z=<span class="math inline">\(\frac{59-66}{3}\)</span>=-2.33. Thus, this individual’s height is 2.33 standard deviations below the average height in the population.</p>
+<p>Standardized values (Z) follow a N(0,1). Thus, N(0,1) is called the “standard normal distribution.” The relationship between X and Z is one-to-one meaning that each value of X converts to one and only one value of Z. This means that the area to the left of X on a N(μ,σ) is the same as the area to the left of Z on a N(0,1). This one-to-one relationship is illustrated in Figure <a href="NormalDist2.html#fig:NormStandardizingEx">7.9</a> using the individual with a height of 59 inches and Z=-2.33.</p>
 <div class="tip">
 <p>The standardized scale (i.e., z-scores) represents the number of standard deviations that a value is from the mean.</p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:NormStandardizingEx"></span>
-<img src="Book107_files/figure-html/NormStandardizingEx-1.png" alt="Plots depicting the area to the left of 59 on a $N(66,3)$ (**Left**) and the area to the right of the corresponding Z-score of $Z=-2.33$ on a $N(0,1)$ (**Right**). Note that the x-axis scales are different." width="336" /><img src="Book107_files/figure-html/NormStandardizingEx-2.png" alt="Plots depicting the area to the left of 59 on a $N(66,3)$ (**Left**) and the area to the right of the corresponding Z-score of $Z=-2.33$ on a $N(0,1)$ (**Right**). Note that the x-axis scales are different." width="336" />
+<img src="Book107_files/figure-html/NormStandardizingEx-1.png" alt="Plots depicting the area to the left of 59 on a N(66,3) (**Left**) and the area to the right of the corresponding Z-score of Z=-2.33 on a N(0,1) (**Right**). Note that the x-axis scales are different." width="336" /><img src="Book107_files/figure-html/NormStandardizingEx-2.png" alt="Plots depicting the area to the left of 59 on a N(66,3) (**Left**) and the area to the right of the corresponding Z-score of Z=-2.33 on a N(0,1) (**Right**). Note that the x-axis scales are different." width="336" />
 <p class="caption">
-Figure 7.9: Plots depicting the area to the left of 59 on a <span class="math inline">\(N(66,3)\)</span> (<strong>Left</strong>) and the area to the right of the corresponding Z-score of <span class="math inline">\(Z=-2.33\)</span> on a <span class="math inline">\(N(0,1)\)</span> (<strong>Right</strong>). Note that the x-axis scales are different.
+Figure 7.9: Plots depicting the area to the left of 59 on a N(66,3) (<strong>Left</strong>) and the area to the right of the corresponding Z-score of Z=-2.33 on a N(0,1) (<strong>Right</strong>). Note that the x-axis scales are different.
 </p>
 </div>
 <p> </p>
@@ -439,10 +439,10 @@ Figure 7.9: Plots depicting the area to the left of 59 on a <span class="math in
 </div>
 <div class="footnotes">
 <hr />
-<ol start="31">
-<li id="fn31"><p>“q” stands for quantile.<a href="NormalDist2.html#fnref31" class="footnote-back">↩︎</a></p></li>
-<li id="fn32"><p>Because all three areas must sum to 1.<a href="NormalDist2.html#fnref32" class="footnote-back">↩︎</a></p></li>
-<li id="fn33"><p>From the 68-95-99.7% Rule.<a href="NormalDist2.html#fnref33" class="footnote-back">↩︎</a></p></li>
+<ol start="32">
+<li id="fn32"><p>“q” stands for quantile.<a href="NormalDist2.html#fnref32" class="footnote-back">↩︎</a></p></li>
+<li id="fn33"><p>Because all three areas must sum to 1.<a href="NormalDist2.html#fnref33" class="footnote-back">↩︎</a></p></li>
+<li id="fn34"><p>From the 68-95-99.7% Rule.<a href="NormalDist2.html#fnref34" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

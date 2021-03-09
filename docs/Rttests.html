@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-07" />
+<meta name="date" content="2021-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -452,7 +452,7 @@ mean of x
 </div>
 <div id="levenes-test" class="section level3" number="27.2.2">
 <h3><span class="header-section-number">27.2.2</span> Levene’s Test</h3>
-<p>Before conducting a 2-Sample t-Test, the assumption of equal population variances must be tested with Levene’s test. The Levene’s test is computed with <code>levenesTest()</code>, where the first argument is a formula of the form <code>qvar~cvar</code>, where <code>qvar</code> represents the quantitative response variable and <code>cvar</code> represents the group factor variable.<a href="#fn95" class="footnote-ref" id="fnref95"><sup>95</sup></a> The data.frame containing <code>qvar</code> and <code>cvar</code> is given in <code>data=</code>. The results of the following code are shown in Table <a href="Rttests.html#tab:LevBOD">27.2</a> and interpreted in the example analysis below.</p>
+<p>Before conducting a 2-Sample t-Test, the assumption of equal population variances must be tested with Levene’s test. The Levene’s test is computed with <code>levenesTest()</code>, where the first argument is a formula of the form <code>qvar~cvar</code>, where <code>qvar</code> represents the quantitative response variable and <code>cvar</code> represents the group factor variable.<a href="#fn96" class="footnote-ref" id="fnref96"><sup>96</sup></a> The data.frame containing <code>qvar</code> and <code>cvar</code> is given in <code>data=</code>. The results of the following code are shown in Table <a href="Rttests.html#tab:LevBOD">27.2</a> and interpreted in the example analysis below.</p>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb169-1"><a href="Rttests.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levenesTest</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua)</span></code></pre></div>
 </div>
 <div id="histograms-2" class="section level3" number="27.2.3">
@@ -624,8 +624,8 @@ Figure 27.2: Histogram of the BOD measurements at the outlet and inlet of the aq
 </div>
 <div class="footnotes">
 <hr />
-<ol start="95">
-<li id="fn95"><p>This is the same model formula introduced in Section <a href="RUnivEDA.html#summary-statistics-1">24.2.1</a> for summarizing multiple groups of data.<a href="Rttests.html#fnref95" class="footnote-back">↩︎</a></p></li>
+<ol start="96">
+<li id="fn96"><p>This is the same model formula introduced in Section <a href="RUnivEDA.html#summary-statistics-1">24.2.1</a> for summarizing multiple groups of data.<a href="Rttests.html#fnref96" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

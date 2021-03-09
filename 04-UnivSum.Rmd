@@ -152,15 +152,19 @@ The calculation of the standard deviation of the earthquake data is facilitated 
 &nbsp;
 
 ```{r SDCalc, echo=FALSE}
-tibble(
+tmp <- tibble(
   Indiv=1:length(EQ),
   Value=EQ,
   Diff=EQ-mean(EQ),
-  "Diff^2^"=Diff^2) %>%
+  "Diff^2^"=Diff^2)
+tmp2 <- tibble("Sum",sum(tmp[,2]),sum(tmp[,3]),sum(tmp[,4]))
+names(tmp2) <- names(tmp)
+rbind(tmp,tmp2) %>%
 knitr::kable(booktab=TRUE,digits=c(0,1,2,3),caption="Table showing an efficient calculation of the standard deviation of the earthquake data.") %>%
   kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
   kableExtra::row_spec(0,bold=TRUE) %>%
-  kableExtra::column_spec(1:4,width="1in")
+  kableExtra::column_spec(1:4,width="1in") %>%
+  kableExtra::row_spec(16,bold=TRUE,background="beige")
 ```
 
 ::: {.tip data-latex=''}

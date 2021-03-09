@@ -6,7 +6,7 @@ The width of a confidence interval explains how precisely the parameter is estim
 
 A small standard error means that sampling variability is low and the parameter is precisely estimated by the statistic. Smaller standard errors are obtained only by increasing the sample size. A smaller standard deviation would also result in a smaller SE, but the standard deviation cannot be made smaller (i.e., it is an inherent characteristic of the population).
 
-A smaller scaling factor is obtained by reducing the level of confidence. For example, a 90% confidence interval uses a $Z^{*}$&plusmn;1.645 whereas a 95% confidence interval uses a $Z^{*}$&plusmn;1.960. Thus, decreasing the confidence level narrows the CI. However, reducing the level of confidence will also increase the number of confidence intervals that do not contain the parameter. Thus, reducing the level of confidence may not be the best choice for narrowing the confidence interval.
+A smaller scaling factor is obtained by reducing the level of confidence. For example, a 90% confidence interval uses a Z^\*^&plusmn;1.645 whereas a 95% confidence interval uses a Z^\*^&plusmn;1.960. Thus, decreasing the confidence level narrows the CI. However, reducing the level of confidence will also increase the number of confidence intervals that do not contain the parameter. Thus, reducing the level of confidence may not be the best choice for narrowing the confidence interval.
 
 The margin-of-error formula can be solved for n.
 
@@ -16,15 +16,15 @@ The margin-of-error formula can be solved for n.
     n &= \left(\frac{Z^{*}\sigma}{m.e}\right)^{2} \\
 \end{split} \]
 
-This formula can be used to find the n required to estimate $\mu$ within &plusmn; m.e. units with C% confidence assuming that $\sigma$ is known. For example, suppose that one wants to determine n required to estimate the mean length of fish in Square Lake to within 5 mm with 90% confidence knowing that the population standard deviation is 34.91. From this, m.e.=5, $\sigma$=34.91, and $Z^{*}$=1.645 (found previously for 90% confidence).^[Strictly, $Z^{*]$=&plusmn;1.645, but the sign is inconsequential due to squaring in the sample size formula.] Thus, n = $\left(\frac{1.645*34.91}{5}\right)^{2}$ = 131.91. Therefore, a sample of at least 132 fish from Square Lake should be taken to meet these constraints. Note that sample size calculations are always rounded up to the next integer because rounding down would produce a sample size that does not meet the desired criteria.
+This formula can be used to find the n required to estimate &mu; within &plusmn; m.e. units with C% confidence assuming that &sigma; is known. For example, suppose that one wants to determine n required to estimate the mean length of fish in Square Lake to within 5 mm with 90% confidence knowing that the population standard deviation is 34.91. From this, m.e.=5, &sigma;=34.91, and Z^\*^=1.645 (found previously for 90% confidence).^[Strictly, $Z^{*]$=&plusmn;1.645, but the sign is inconsequential due to squaring in the sample size formula.] Thus, n = $\left(\frac{1.645*34.91}{5}\right)^{2}$ = 131.91. Therefore, a sample of at least 132 fish from Square Lake should be taken to meet these constraints. Note that sample size calculations are always rounded up to the next integer because rounding down would produce a sample size that does not meet the desired criteria.
 
 ::: {.tip data-latex=''}
 Always round sample size calculations up to the next integer.
 :::
 
-The margin-of-error and confidence level in these calculations need to come from the researcher's beliefs about how much error they can live with (i.e., chance that a confidence interval does not contain the parameter) and how precise their estimate of the mean needs to be. Values for $\sigma$ are rarely known in practice (because it is a parameter) and estimates from preliminary studies, previous similar studies, similar populations, or best guesses are often used instead. In practice, a researcher will often prepare a graph with varying values of $\sigma$ to make an informed decision of what sample size to choose.
+The margin-of-error and confidence level in these calculations need to come from the researcher's beliefs about how much error they can live with (i.e., chance that a confidence interval does not contain the parameter) and how precise their estimate of the mean needs to be. Values for &sigma; are rarely known in practice (because it is a parameter) and estimates from preliminary studies, previous similar studies, similar populations, or best guesses are often used instead. In practice, a researcher will often prepare a graph with varying values of &sigma; to make an informed decision of what sample size to choose.
 
-```{r SampleSizeSigma, echo=FALSE, fig.show='hide', fig.cap='Desired sample size versus margin-of-error for constant values of $\\sigma$ (shown to the left of each line) and C=90. The desired sample size for m.e.=5, $\\sigma=35$, and C=90 is illustrated with the black dotted lines.'}
+```{r SampleSizeSigma, echo=FALSE, fig.show='hide', fig.cap='Desired sample size versus margin-of-error for constant values of $\\sigma$ (shown to the left of each line) and C=90. The desired sample size for m.e.=5, &sigma;=35, and C=90 is illustrated with the black dotted lines.'}
 sigma <- seq(25,50,5); me <- seq(3,10,0.25); z <- qnorm(0.95)
 res <- matrix(0,nrow=length(me),ncol=length(sigma))
 for (i in 1:length(sigma)) res[,i] <- (z*sigma[i]/me)^2
@@ -37,17 +37,17 @@ lines(c(5,0),c(res[9,3],res[9,3]),lty=3,lwd=2)
 
 
 ## Inference Type Relationship
-An alternative conceptualization of confidence intervals can show how confidence regions and hypothesis tests are related. This conceptualization rests on considering the sample means that would be "reasonable to see" from populations with various values of $\mu$. A graphic is constructed below using the Square Lake population as an example and assuming that $\sigma$ is known (=31.49), n=50, and 95% CIs are used.
+An alternative conceptualization of confidence intervals can show how confidence regions and hypothesis tests are related. This conceptualization rests on considering the sample means that would be "reasonable to see" from populations with various values of &mu;. A graphic is constructed below using the Square Lake population as an example and assuming that &sigma; is known (=31.49), n=50, and 95% CIs are used.
 
-First, compute the most common 95% of sample means assuming that $\mu$=70; i.e., 70&plusmn;1.960$\frac{31.49}{\sqrt{50}}$ or (61.27,78.73). This range is plotted as a vertical rectangle centered on $\mu$=70 (left-most rectangle) in Figure \@ref(fig:CIAlt1)-Left. Next, compute and plot the same range for a slightly larger $\mu$ (e.g., with $\mu$=71, plot (62.27,78.73)). Then repeat these steps for sequentially larger values of $\mu$ until a plot similar to Figure \@ref(fig:CIAlt1)-Left is constructed.
+First, compute the most common 95% of sample means assuming that &mu;=70; i.e., 70&plusmn;1.960$\frac{31.49}{\sqrt{50}}$ or (61.27,78.73). This range is plotted as a vertical rectangle centered on &mu;=70 (left-most rectangle) in Figure \@ref(fig:CIAlt1)-Left. Next, compute and plot the same range for a slightly larger &mu; (e.g., with &mu;=71, plot (62.27,78.73)). Then repeat these steps for sequentially larger values of &mu; until a plot similar to Figure \@ref(fig:CIAlt1)-Left is constructed.
 
 Consider very carefully what Figure \@ref(fig:CIAlt1)-Left represents. The vertical rectangles represent the ranges of the most common 95% of sample means (values read from the y-axis) that will be produced for a particular population mean (value read from the x-axis). In essence, each vertical line represents the sample means that are likely to be observed from a population with a given population mean (x-axis).
 
-Now suppose that $\bar{x}$=100.04 (Table \@ref(tab:SquareLakeSample1s)). Draw a horizontal line across Figure \@ref(fig:CIAlt1) at this value and then draw vertical lines down from where the horizontal line first enters and last leaves the band of possible sample means (Figure \@ref(fig:CIAlt1)-Right). The x-axis values that these vertical lines intercept are an approximate 95% CI for $\mu$. The approximation is only as close as the intervals used to construct the rectangles (i.e., 1.0 mm were used here).
+Now suppose that $\bar{\text{x}}$=100.04 (Table \@ref(tab:SquareLakeSample1s)). Draw a horizontal line across Figure \@ref(fig:CIAlt1) at this value and then draw vertical lines down from where the horizontal line first enters and last leaves the band of possible sample means (Figure \@ref(fig:CIAlt1)-Right). The x-axis values that these vertical lines intercept are an approximate 95% CI for &mu;. The approximation is only as close as the intervals used to construct the rectangles (i.e., 1.0 mm were used here).
 
 &nbsp;
 
-```{r CIAlt1, echo=FALSE, fig.show="hold", fig.cap="Range (95%) of sample means that would be produced by particular population means in the Square Lake fish length example (**Left**) and the ranges intercepted by $\\bar{x}$=100.04 mm (**Right**)."}
+```{r CIAlt1, echo=FALSE, fig.show="hold", fig.cap="Range (95%) of sample means that would be produced by particular population means in the Square Lake fish length example (**Left**) and the ranges intercepted by $\\bar{\text{x}}$=100.04 mm (**Right**)."}
 par(mar=c(3.05,3.05,0.5,0.5),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
     cex.lab=0.95,cex.axis=0.9)
 sigma <- 31.49; n <- 50; SE <- sigma/sqrt(n)

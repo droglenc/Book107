@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-07" />
+<meta name="date" content="2021-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -340,7 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">9.2</span> Slope and Intercept</h2>
 <p>The equation of a line is commonly expressed as,</p>
 <p><span class="math display">\[ y = mx + b \]</span></p>
-<p>where both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are variables, <span class="math inline">\(m\)</span> represents the slope of the line, and <span class="math inline">\(b\)</span> represents the y-intercept.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a> It is important that you can look at the equation of a line and identify the response variable, explanatory variable, slope, and intercept. The response variable will always appear on the left side of the equation by itself. The explanatory variable (e.g., <span class="math inline">\(x\)</span>) will be on the right side of the equation and will be multiplied by the slope. The value or symbol by itself on the right side of the equation is the intercept. For example, in</p>
+<p>where both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are variables, <span class="math inline">\(m\)</span> represents the slope of the line, and <span class="math inline">\(b\)</span> represents the y-intercept.<a href="#fn38" class="footnote-ref" id="fnref38"><sup>38</sup></a> It is important that you can look at the equation of a line and identify the response variable, explanatory variable, slope, and intercept. The response variable will always appear on the left side of the equation by itself. The explanatory variable (e.g., <span class="math inline">\(x\)</span>) will be on the right side of the equation and will be multiplied by the slope. The value or symbol by itself on the right side of the equation is the intercept. For example, in</p>
 <p><span class="math display">\[ \text{blood} = 3.501 + 0.579\text{intake} \]</span></p>
 <p>blood is the response variable, intake is the explanatory variable, <span class="math inline">\(0.579\)</span> is the slope (it is multiplied by the explanatory variable), and <span class="math inline">\(3.501\)</span> is the intercept (it is on the right side and not multiplied by anything). The same conclusions would be made if the equation had been written as</p>
 <p><span class="math display">\[ \text{blood} = 0.579\text{intake}+3.501 \]</span></p>
@@ -348,7 +348,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In the equation of a line, the slope is always multiplied by the explanatory variable and the intercept is always by itself.</p>
 </div>
 <p>In addition to being able to identify the slope and intercept of a line you also need to be able to interpret these values. Most students define the slope as “rise over run” and the intercept as “where the line crosses the y-axis.” These “definitions” are loose geometric representations. For our purposes, the slope and intercept must be more strictly defined.</p>
-<p>To define the slope, first think of “plugging” two values of intake into the equation discussed above. For example, if intake=100, then blood=3.501+0.579×100=61.40 and if intake is one unit larger at 101, then blood=3.501+0.579×101=61.98.<a href="#fn38" class="footnote-ref" id="fnref38"><sup>38</sup></a> The difference between these two values is 61.98-61.40=0.579, which is the same as the slope. Thus, the slope is the change in value of the response variable FOR A SINGLE UNIT CHANGE in the value of the explanatory variable (Figure <a href="LinearRegression.html#fig:SlopeInt">9.1</a>). That is, mercury in the blood changes 0.579 units FOR A SINGLE UNIT CHANGE in mercury intake. So, if an individual increases mercury intake by one unit, then mercury in the blood will increase by 0.579 units, ON AVERAGE. Alternatively, if one individual has one more unit of mercury intake than another individual, then the first individual will have 0.579 more units of mercury in their blood, ON AVERAGE.</p>
+<p>To define the slope, first think of “plugging” two values of intake into the equation discussed above. For example, if intake=100, then blood=3.501+0.579×100=61.40 and if intake is one unit larger at 101, then blood=3.501+0.579×101=61.98.<a href="#fn39" class="footnote-ref" id="fnref39"><sup>39</sup></a> The difference between these two values is 61.98-61.40=0.579, which is the same as the slope. Thus, the slope is the change in value of the response variable FOR A SINGLE UNIT CHANGE in the value of the explanatory variable (Figure <a href="LinearRegression.html#fig:SlopeInt">9.1</a>). That is, mercury in the blood changes 0.579 units FOR A SINGLE UNIT CHANGE in mercury intake. So, if an individual increases mercury intake by one unit, then mercury in the blood will increase by 0.579 units, ON AVERAGE. Alternatively, if one individual has one more unit of mercury intake than another individual, then the first individual will have 0.579 more units of mercury in their blood, ON AVERAGE.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:SlopeInt"></span>
 <img src="Book107_files/figure-html/SlopeInt-1.png" alt="Schematic representation of the meaning of the intercept and slope in a linear equation." width="384" />
@@ -385,7 +385,7 @@ Figure 9.2: Scatterplot between the intake of mercury in fish and the mercury in
 <p><span class="math display">\[ \text{residual}=\text{observed response}-\text{predicted response}\]</span></p>
 <p>For example, consider an individual that has an observed intake of 650 and an observed level of mercury in the blood of 480. As shown in the previous section, the predicted level of mercury in the blood for this individual is</p>
 <p><span class="math display">\[ \text{blood} = 3.501 + 0.579*650 = 379.851\]</span></p>
-<p>The residual for this individual is then 480-379.851 = 100.149. This positive residual indicates that the observed value is approximately 100 units GREATER than the average for individuals with an intake of 650.<a href="#fn39" class="footnote-ref" id="fnref39"><sup>39</sup></a> As a second example, consider an individual with an observed intake of 250 and an observed level of mercury in the blood of 105. The predicted value for this individual is</p>
+<p>The residual for this individual is then 480-379.851 = 100.149. This positive residual indicates that the observed value is approximately 100 units GREATER than the average for individuals with an intake of 650.<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a> As a second example, consider an individual with an observed intake of 250 and an observed level of mercury in the blood of 105. The predicted value for this individual is</p>
 <p><span class="math display">\[ \text{blood} = 3.501 + 0.579*250 = 148.251\]</span></p>
 <p>and the residual is 105-148.251 = -43.251. This negative residual indicates that the observed value is approximately 43 units LESS than the average for individuals with an intake of 250.</p>
 <p>Visually, a residual is the vertical distance between an individual’s point and the best-fit line (Figure <a href="LinearRegression.html#fig:HGresidual">9.3</a>).</p>
@@ -413,8 +413,8 @@ Figure 9.4: Scatterplot with the best-fit line (light gray) and candidate best-f
 <p>The discussion thusfar implies that all possible lines must be “fit” to the data and the one with the minimum RSS is chosen as the “best-fit” line. As there are an infinite number of possible lines, this would be impossible to do. Theoretical statisticians have shown that the application of the least-squares criterion always produces a best-fit line with a slope given by</p>
 <p><span class="math display">\[ slope = r\frac{s_{y}}{s_{x}} \]</span></p>
 <p>and an intercept given by</p>
-<p><span class="math display">\[ intercept = \bar{y}-slope*\bar{x} \]</span></p>
-<p>where <span class="math inline">\(\bar{x}\)</span> and <span class="math inline">\(s_{x}\)</span> are the sample mean and standard deviation of the explanatory variable, <span class="math inline">\(\bar{y}\)</span> and <span class="math inline">\(s_{y}\)</span> are the sample mean and standard deviation of the response variable, and <span class="math inline">\(r\)</span> is the sample correlation coefficient between the two variables. Thus, using these formulas finds the slope and intercept for the line, out of all possible lines, that minimizes the RSS.</p>
+<p><span class="math display">\[ intercept = \bar{\text{y}}-slope*\bar{\text{x}} \]</span></p>
+<p>where <span class="math inline">\(\bar{\text{x}}\)</span> and <span class="math inline">\(s_{x}\)</span> are the sample mean and standard deviation of the explanatory variable, <span class="math inline">\(\bar{\text{y}}\)</span> and <span class="math inline">\(s_{y}\)</span> are the sample mean and standard deviation of the response variable, and <span class="math inline">\(r\)</span> is the sample correlation coefficient between the two variables. Thus, using these formulas finds the slope and intercept for the line, out of all possible lines, that minimizes the RSS.</p>
 </div>
 <div id="assumptions" class="section level2" number="9.6">
 <h2><span class="header-section-number">9.6</span> Assumptions</h2>
@@ -426,10 +426,10 @@ Figure 9.4: Scatterplot with the best-fit line (light gray) and candidate best-f
 <li>Independent residuals at a given x.</li>
 <li>The explanatory variable is measured without error.</li>
 </ul>
-<p>While all five assumptions of linear regression are important, only the first two are vital when the best-fit line is being used primarily as a descriptive model for data.<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a> Description is the primary goal of linear regression used in this course and, thus, only the first two assumptions are considered further.</p>
+<p>While all five assumptions of linear regression are important, only the first two are vital when the best-fit line is being used primarily as a descriptive model for data.<a href="#fn41" class="footnote-ref" id="fnref41"><sup>41</sup></a> Description is the primary goal of linear regression used in this course and, thus, only the first two assumptions are considered further.</p>
 <p>The linearity assumption appears obvious – if a line does not represent the data, then don’t try to fit a line to it! Violations of this assumption are evident by a non-linear or curving form in the scatterplot.</p>
 <p>The homoscedasticity assumption states that the variability about the line is the same for all values of the explanatory variable. In other words, the dispersion of the data around the line must be the same along the entire line. Violations of this assumption generally present as a “funnel-shaped” dispersion of points from left-to-right on a scatterplot.</p>
-<p>Violations of these assumptions are often evident on a “fitted-line plot,” which is a scatterplot with the best-fit line superimposed (Figure <a href="LinearRegression.html#fig:ResidPlotEx">9.5</a>).<a href="#fn41" class="footnote-ref" id="fnref41"><sup>41</sup></a> If the points look more-or-less like random scatter around the best-fit line, then neither the linearity nor the homoscedasticity assumption has been violated. A violation of one of these assumptions should be obvious on the scatterplot. In other words, there should be a clear curvature or funneling on the plot.</p>
+<p>Violations of these assumptions are often evident on a “fitted-line plot,” which is a scatterplot with the best-fit line superimposed (Figure <a href="LinearRegression.html#fig:ResidPlotEx">9.5</a>).<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a> If the points look more-or-less like random scatter around the best-fit line, then neither the linearity nor the homoscedasticity assumption has been violated. A violation of one of these assumptions should be obvious on the scatterplot. In other words, there should be a clear curvature or funneling on the plot.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:ResidPlotEx"></span>
 <img src="Book107_files/figure-html/ResidPlotEx-1.png" alt="Fitted-line plots illustrating when the regression assumptions are met (upper-left) and three common assumption violations." width="672" />
@@ -445,7 +445,7 @@ Figure 9.5: Fitted-line plots illustrating when the regression assumptions are m
 </div>
 <div id="coefficient-of-determination" class="section level2" number="9.7">
 <h2><span class="header-section-number">9.7</span> Coefficient of Determination</h2>
-<p>The coefficient of determination (<span class="math inline">\(r^{2}\)</span>) is the proportion of the total variability in the response variable that is explained away by knowing the value of the explanatory variable and the best-fit model. In simple linear regression, <span class="math inline">\(r^{2}\)</span> is literally the square of <span class="math inline">\(r\)</span>, the correlation coefficient.<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a> Values of <span class="math inline">\(r^{2}\)</span> are between 0 and 1.<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a></p>
+<p>The coefficient of determination (<span class="math inline">\(r^{2}\)</span>) is the proportion of the total variability in the response variable that is explained away by knowing the value of the explanatory variable and the best-fit model. In simple linear regression, <span class="math inline">\(r^{2}\)</span> is literally the square of <span class="math inline">\(r\)</span>, the correlation coefficient.<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a> Values of <span class="math inline">\(r^{2}\)</span> are between 0 and 1.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a></p>
 <p>The meaning of <span class="math inline">\(r^{2}\)</span> can be examined by making predictions of the response variable with and without knowing the value of the explanatory variable. First, consider predicting the value of the response variable without any information about the explanatory variable. In this case, the best prediction is the sample mean of the response variable (represented by the dashed blue horizontal line in Figure <a href="LinearRegression.html#fig:CoeffDeterm">9.6</a>). However, because of natural variability, not all individuals will have this value. Thus, the prediction might be “bracketed” by predicting that the individual will be between the observed minimum and maximum values (solid blue horizontal lines). Loosely speaking, this range is the “total variability in the response variable” (blue box).</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:CoeffDeterm"></span>
@@ -523,7 +523,7 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 <div id="chimp-hunting-parties" class="section level3 unnumbered">
 <h3>Chimp Hunting Parties</h3>
 <blockquote>
-<p><em>Stanford (1996) gathered data to determine if the size of the hunting party (number of individuals hunting together) affected the hunting success of the party (percent of hunts that resulted in a kill) for wild chimpanzees (Pan troglodytes) at Gombe. The results of their analysis for 17 hunting parties is shown in the figure below.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a> Use these results to answer the questions below.</em></p>
+<p><em>Stanford (1996) gathered data to determine if the size of the hunting party (number of individuals hunting together) affected the hunting success of the party (percent of hunts that resulted in a kill) for wild chimpanzees (Pan troglodytes) at Gombe. The results of their analysis for 17 hunting parties is shown in the figure below.<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a> Use these results to answer the questions below.</em></p>
 </blockquote>
 <p><img src="Book107_files/figure-html/ChimpFLP-1.png" width="336" style="display: block; margin: auto;" /></p>
 <ol style="list-style-type: decimal">
@@ -597,7 +597,7 @@ Figure 9.7: Fitted line plot of the regression of highway MPG on weight of 93 ca
 </ul></li>
 <li>Do any aspects of this regression fit concern you?
 <ul>
-<li>The simple linear regression model appears to fit the data moderately well as the fitted-line plot (Figure <a href="LinearRegression.html#fig:CarFit">9.7</a>) shows only a very slight curvature and only very slight heteroscedasticity.<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a>.</li>
+<li>The simple linear regression model appears to fit the data moderately well as the fitted-line plot (Figure <a href="LinearRegression.html#fig:CarFit">9.7</a>) shows only a very slight curvature and only very slight heteroscedasticity.<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a>.</li>
 </ul></li>
 <li>In terms of the variables of the problem, what is the equation of the best-fit line?
 <ul>
@@ -643,16 +643,16 @@ Figure 9.7: Fitted line plot of the regression of highway MPG on weight of 93 ca
 </div>
 <div class="footnotes">
 <hr />
-<ol start="37">
-<li id="fn37"><p>Hereafter, simply called the “intercept.”<a href="LinearRegression.html#fnref37" class="footnote-back">↩︎</a></p></li>
-<li id="fn38"><p>For simplicity of exposition, the actual units are not used in this discussion. However, “units” would usually be replaced with the actual units used for the measurements.<a href="LinearRegression.html#fnref38" class="footnote-back">↩︎</a></p></li>
-<li id="fn39"><p>In other words, the observed value is “above” the line.<a href="LinearRegression.html#fnref39" class="footnote-back">↩︎</a></p></li>
-<li id="fn40"><p>In contrast to using the model to make inferences about a population model.<a href="LinearRegression.html#fnref40" class="footnote-back">↩︎</a></p></li>
-<li id="fn41"><p>Residual plots, not discussed in this text, are another plot that often times is used to better assess assumption violations.<a href="LinearRegression.html#fnref41" class="footnote-back">↩︎</a></p></li>
-<li id="fn42"><p>Simple linear regression is the fitting of a model with a single explanatory variable and is the only model considered in this module and this course. See Section <a href="BEDAQuant.html#correlation-coefficient">8.2.2</a> for a review of the correlation coefficient.<a href="LinearRegression.html#fnref42" class="footnote-back">↩︎</a></p></li>
-<li id="fn43"><p>It is common for <span class="math inline">\(r^{2}\)</span> to be presented as a percentage.<a href="LinearRegression.html#fnref43" class="footnote-back">↩︎</a></p></li>
-<li id="fn44"><p>These data are in <a href="https://raw.githubusercontent.com/droglenc/NCData/master/Chimp.csv">Chimp.csv</a>.<a href="LinearRegression.html#fnref44" class="footnote-back">↩︎</a></p></li>
-<li id="fn45"><p>In advanced statistics books, objective measures for determining whether there is significant curvature or heteroscedasticity in the data are used. In this book, we will only be concerned with whether there is strong evidence of curvature or heteroscedasticity. There does not seem to be either here.<a href="LinearRegression.html#fnref45" class="footnote-back">↩︎</a></p></li>
+<ol start="38">
+<li id="fn38"><p>Hereafter, simply called the “intercept.”<a href="LinearRegression.html#fnref38" class="footnote-back">↩︎</a></p></li>
+<li id="fn39"><p>For simplicity of exposition, the actual units are not used in this discussion. However, “units” would usually be replaced with the actual units used for the measurements.<a href="LinearRegression.html#fnref39" class="footnote-back">↩︎</a></p></li>
+<li id="fn40"><p>In other words, the observed value is “above” the line.<a href="LinearRegression.html#fnref40" class="footnote-back">↩︎</a></p></li>
+<li id="fn41"><p>In contrast to using the model to make inferences about a population model.<a href="LinearRegression.html#fnref41" class="footnote-back">↩︎</a></p></li>
+<li id="fn42"><p>Residual plots, not discussed in this text, are another plot that often times is used to better assess assumption violations.<a href="LinearRegression.html#fnref42" class="footnote-back">↩︎</a></p></li>
+<li id="fn43"><p>Simple linear regression is the fitting of a model with a single explanatory variable and is the only model considered in this module and this course. See Section <a href="BEDAQuant.html#correlation-coefficient">8.2.2</a> for a review of the correlation coefficient.<a href="LinearRegression.html#fnref43" class="footnote-back">↩︎</a></p></li>
+<li id="fn44"><p>It is common for <span class="math inline">\(r^{2}\)</span> to be presented as a percentage.<a href="LinearRegression.html#fnref44" class="footnote-back">↩︎</a></p></li>
+<li id="fn45"><p>These data are in <a href="https://raw.githubusercontent.com/droglenc/NCData/master/Chimp.csv">Chimp.csv</a>.<a href="LinearRegression.html#fnref45" class="footnote-back">↩︎</a></p></li>
+<li id="fn46"><p>In advanced statistics books, objective measures for determining whether there is significant curvature or heteroscedasticity in the data are used. In this book, we will only be concerned with whether there is strong evidence of curvature or heteroscedasticity. There does not seem to be either here.<a href="LinearRegression.html#fnref46" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

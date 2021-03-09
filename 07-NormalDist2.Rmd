@@ -6,7 +6,7 @@ In this course, we will use a function from the `NCStats` package in R to perfor
 ## Forward Calculations
 The area under a normal curve relative to a particular value is computed in R with `distrib()`. This function requires the *particular value* as the first argument and the mean and standard deviation of the normal distribution in the `mean=` and `sd=` arguments, respectively. The `distrib()` function defaults to finding the area under the curve to the **left of** the particular value, but it can find the area under the curve to the right of the particular value by including `lower.tail=FALSE`.
 
-For example, suppose that the heights of a population of students is known to be $H\sim N(66,3)$. The proportion of students in this population that have a height less than 71 inches is computed below. Thus, approximately `r formatC(pnorm(71,mean=66,sd=3)*100,format="f",digits=1)`% of students in this population have a height less than 71 inches (Figure \@ref(fig:NormZCalc1)).
+For example, suppose that the heights of a population of students is known to be H~N(66,3). The proportion of students in this population that have a height less than 71 inches is computed below. Thus, approximately `r formatC(pnorm(71,mean=66,sd=3)*100,format="f",digits=1)`% of students in this population have a height less than 71 inches (Figure \@ref(fig:NormZCalc1)).
 
 ```{r NormZCalc1, echo=-1, results="hide", fig.cap="Calculation of the proportion of individuals on a $N(66,3)$ with a value less than 71."}
 par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
@@ -86,7 +86,7 @@ par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
 
 &nbsp;
 
-"Between" questions can only be easily handled if the question is looking for endpoint values that are symmetric about $\mu$. In other words, the question must ask for the two values that contain the "most common" proportion of individuals. For example, suppose that you were asked to find the most common 80% of heights. This type of question is handled by converting this "symmetric between" question into two "less than" questions. For example, in Figure \@ref(fig:NormRevBetween) the area D is the symmetric area of interest. If D is 0.80, then C+E must be 0.20.^[Because all three areas must sum to 1.]  Because D is symmetric about $\mu$, C and E must both equal 0.10. Thus, the lower bound on D is the value that has 10% of all values smaller. Similarly, because the combined area of C and D is 0.90, the upper bound on D is the value that has 90% of all values smaller. This question has now been converted from a "symmetric between" to two "less than" questions that can be answered exactly as shown above.
+"Between" questions can only be easily handled if the question is looking for endpoint values that are symmetric about &mu;. In other words, the question must ask for the two values that contain the "most common" proportion of individuals. For example, suppose that you were asked to find the most common 80% of heights. This type of question is handled by converting this "symmetric between" question into two "less than" questions. For example, in Figure \@ref(fig:NormRevBetween) the area D is the symmetric area of interest. If D is 0.80, then C+E must be 0.20.^[Because all three areas must sum to 1.]  Because D is symmetric about &mu;, C and E must both equal 0.10. Thus, the lower bound on D is the value that has 10% of all values smaller. Similarly, because the combined area of C and D is 0.90, the upper bound on D is the value that has 90% of all values smaller. This question has now been converted from a "symmetric between" to two "less than" questions that can be answered exactly as shown above.
 
 &nbsp;
 
@@ -119,9 +119,9 @@ par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
 ```
 
 ## Standardization and Z-Scores
-An individual that is 59 inches tall is 7 inches shorter than average if heights are $N(66,3)$. Is this a large or a small difference?  Alternatively, this same individual is $\frac{-7}{3}$ = $-2.33$ standard deviations below the mean. Thus, a height of 59 inches is relatively rare in this population because few individuals are more than two standard deviations away from the mean.^[From the 68-95-99.7% Rule.] As seen here, the relative magnitude that an individual differs from the mean is better expressed as the number of standard deviations that the individual is away from the mean.
+An individual that is 59 inches tall is 7 inches shorter than average if heights are N(66,3). Is this a large or a small difference?  Alternatively, this same individual is $\frac{-7}{3}$ = -2.33 standard deviations below the mean. Thus, a height of 59 inches is relatively rare in this population because few individuals are more than two standard deviations away from the mean.^[From the 68-95-99.7% Rule.] As seen here, the relative magnitude that an individual differs from the mean is better expressed as the number of standard deviations that the individual is away from the mean.
 
-Values are "standardized" by changing the original scale (inches in this example) to one that counts the number of standard deviations (i.e., $\sigma$) that the value is away from the mean (i.e., $\mu$). For example, with the height variable above, 69 inches is one standard deviation above the mean, which corresponds to +1 on the standardized scale. Similarly, 60 inches is two standard deviations below the mean, which corresponds to -2 on the standardized scale. Finally, 67.5 inches on the original scale is one half standard deviation above the mean or +0.5 on the standardized scale.
+Values are "standardized" by changing the original scale (inches in this example) to one that counts the number of standard deviations (i.e., &sigma;) that the value is away from the mean (i.e., &mu;). For example, with the height variable above, 69 inches is one standard deviation above the mean, which corresponds to +1 on the standardized scale. Similarly, 60 inches is two standard deviations below the mean, which corresponds to -2 on the standardized scale. Finally, 67.5 inches on the original scale is one half standard deviation above the mean or +0.5 on the standardized scale.
 
 The process of computing the number of standard deviations that an individual is away from the mean is called **standardizing**. Standardizing is accomplished with
 
@@ -129,17 +129,17 @@ $$Z = \frac{``\text{value"}-``\text{center"}}{``\text{dispersion"}} $$
 
 or, more specifically,
 
-$$ Z = \frac{x-\mu}{\sigma} $$
+$$ \text{Z} = \frac{\text{x}-\mu}{\sigma} $$
 
-For example, the standardized value of an individual with a height of 59 inches is $z=\frac{59-66}{3}=-2.33$. Thus, this individual's height is 2.33 standard deviations below the average height in the population.
+For example, the standardized value of an individual with a height of 59 inches is Z=$\frac{59-66}{3}$=-2.33. Thus, this individual's height is 2.33 standard deviations below the average height in the population.
 
-Standardized values ($Z$) follow a $N(0,1)$. Thus, $N(0,1)$ is called the "standard normal distribution."  The relationship between $X$ and $Z$ is one-to-one meaning that each value of $X$ converts to one and only one value of $Z$. This means that the area to the left of $X$ on a $N(\mu,\sigma)$ is the same as the area to the left of $Z$ on a $N(0,1)$. This one-to-one relationship is illustrated in Figure \@ref(fig:NormStandardizingEx) using the individual with a height of 59 inches and $Z=-2.33$.
+Standardized values (Z) follow a N(0,1). Thus, N(0,1) is called the "standard normal distribution."  The relationship between X and Z is one-to-one meaning that each value of X converts to one and only one value of Z. This means that the area to the left of X on a N(&mu;,&sigma;) is the same as the area to the left of Z on a N(0,1). This one-to-one relationship is illustrated in Figure \@ref(fig:NormStandardizingEx) using the individual with a height of 59 inches and Z=-2.33.
 
 ::: {.tip data-latex=''}
 The standardized scale (i.e., z-scores) represents the number of standard deviations that a value is from the mean.
 :::
 
-```{r NormStandardizingEx, echo=FALSE, fig.show="hold", fig.cap="Plots depicting the area to the left of 59 on a $N(66,3)$ (**Left**) and the area to the right of the corresponding Z-score of $Z=-2.33$ on a $N(0,1)$ (**Right**). Note that the x-axis scales are different."}
+```{r NormStandardizingEx, echo=FALSE, fig.show="hold", fig.cap="Plots depicting the area to the left of 59 on a N(66,3) (**Left**) and the area to the right of the corresponding Z-score of Z=-2.33 on a N(0,1) (**Right**). Note that the x-axis scales are different."}
 par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
     cex.lab=0.95,cex.axis=0.9)
 x <- 59

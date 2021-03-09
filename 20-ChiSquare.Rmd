@@ -3,11 +3,11 @@ Situations where a categorical response variable is recorded would be summarized
 
 
 ## Chi-Square Distribution
-A chi-square ($\chi^2$) distribution is generally right-skewed (Figure \@ref(fig:chiDist)), with the exact shape dictated by the degrees-of-freedom (df); as the df increase the sharpness of the skew decreases (Figure \@ref(fig:chiDist)). In its simplest form, the $\chi^2$ distribution arises as a sampling distribution for the $\chi^2$ test statistic,
+A chi-square (&chi;^2^) distribution is generally right-skewed (Figure \@ref(fig:chiDist)), with the exact shape dictated by the degrees-of-freedom (df); as the df increase the sharpness of the skew decreases (Figure \@ref(fig:chiDist)). In its simplest form, the &chi;^2^ distribution arises as a sampling distribution for the &chi;^2^ test statistic,
 
 $$ \chi^{2} = \sum_{cells}\frac{(Observed-Expected)^{2}}{Expected} $$
 
-where "Observed" and "Expected" represent the observed and expected counts in the cells of frequency tables (see Module \@ref(UnivSum) and Module \@ref(BEDACat)). Thus, the $\chi^2$ distribution arises from comparing frequencies in two tables.^[Subsequent sections demonstrate how this test statistic is used to compare observed frequencies (i.e., from a sample) to expected frequencies (i.e., from a null hypothesis).]
+where "Observed" and "Expected" represent the observed and expected counts in the cells of frequency tables (see Module \@ref(UnivSum) and Module \@ref(BEDACat)). Thus, the &chi;^2^ distribution arises from comparing frequencies in two tables.^[Subsequent sections demonstrate how this test statistic is used to compare observed frequencies (i.e., from a sample) to expected frequencies (i.e., from a null hypothesis).]
 
 &nbsp;
 
@@ -31,9 +31,9 @@ ggplot(data=d,mapping=aes(x=x,y=y,color=df)) +
 
 &nbsp;
 
-Unlike the normal and t distributions, the $\chi^2$ distribution always represents the two-tailed situation, although the "two tails" will appear as one tail on the right side of the distribution. The simplest explanation for this characteristic is that the "squaring" in the calculation of the $\chi^{2}$ test statistic results in what would be a "negative tail" being "folded over" onto what is the "positive tail."  Thus, all probability (i.e., area) calculations on a $\chi^{2}$ distribution represent the two-tailed alternative hypotheses.
+Unlike the normal and t distributions, the &chi;^2^ distribution always represents the two-tailed situation, although the "two tails" will appear as one tail on the right side of the distribution. The simplest explanation for this characteristic is that the "squaring" in the calculation of the &chi;^2^ test statistic results in what would be a "negative tail" being "folded over" onto what is the "positive tail."  Thus, all probability (i.e., area) calculations on a &chi;^2^ distribution represent the two-tailed alternative hypotheses.
 
-Proportional areas on a $\chi^2$ distribution are computed with `disrib()`. The major differences with a $\chi^2$ distribution is that `distrib="chisq"` must be used in `distrib()` and the degrees-of-freedom must be given to `df=` (how to find the df will be discussed in subsequent sections). In addition, `lower.tail=FALSE` is always used when computing a p-value because the upper-tail probability represents the two-tailed alternative hypothesis inherent to all Chi-Square Tests. For example, the area right of $\chi^2=6.456$ on a $\chi^2$ distribution with 2 df is `r formatC(pchisq(6.456,df=2,lower.tail=FALSE),format="f",digits=4)` (Figure \@ref(fig:chiarea1)).
+Proportional areas on a &chi;^2^ distribution are computed with `disrib()`. The major differences with a &chi;^2^ distribution is that `distrib="chisq"` must be used in `distrib()` and the degrees-of-freedom must be given to `df=` (how to find the df will be discussed in subsequent sections). In addition, `lower.tail=FALSE` is always used when computing a p-value because the upper-tail probability represents the two-tailed alternative hypothesis inherent to all Chi-Square Tests. For example, the area right of &chi;^2^=6.456 on a &chi;^2^ distribution with 2 df is `r formatC(pchisq(6.456,df=2,lower.tail=FALSE),format="f",digits=4)` (Figure \@ref(fig:chiarea1)).
 
 ```{r chiarea1, echo=-1, results="hide", fig.cap="Depiction of the area to the right of $\\chi^2=6.456$ on a $\\chi^2$ distribution with 2 df."}
 par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
@@ -96,7 +96,7 @@ knitr::kable(rperc,booktabs=TRUE,
 
 The Chi-Square Test requires constructing a table of expected values that are derived from the null hypothesis. Specifically, the "expected" table contains the expected frequency of individuals in each level of the response variable for each group assuming that the distribution of responses does not differ among groups. These expected tables are computed from the margins of the observed table, but are best explained with an illustrative example.
 
-In the Christmas tree example, the null hypothesis states that there is no difference in the distribution of households with a natural tree between the rural and urban areas. Thus, under this null hypothesis, one would expect the proportion (or percentage) of households with a natural tree to be the same in both groups. The proportion of households with a natural tree, regardless of location, is $\frac{153}{421}$=$0.363$. Thus, under the null hypothesis, the proportion of rural AND the proportion of urban households with a natural tree is 0.363. Because there is a different number of urban and rural households in the study, the actual NUMBER (rather than proportion) of households expected to have a natural tree will differ. The NUMBER of urban households expected to HAVE a natural tree is found by multiplying the number of urban households by the common proportion computed above -- i.e., 261&times;0.363=94.743. The remaining urban households would be expected to NOT have a natural tree -- i.e., 261-94.743=261&times;(1-0.363)=166.257. Similar calculations are made for the rural households (i.e., 160&times;0.363=58.080 expected to have a natural tree and 160&times;(1-0.363)=101.920 expected to NOT have a natural tree.
+In the Christmas tree example, the null hypothesis states that there is no difference in the distribution of households with a natural tree between the rural and urban areas. Thus, under this null hypothesis, one would expect the proportion (or percentage) of households with a natural tree to be the same in both groups. The proportion of households with a natural tree, regardless of location, is $\frac{153}{421}$=0.363. Thus, under the null hypothesis, the proportion of rural AND the proportion of urban households with a natural tree is 0.363. Because there is a different number of urban and rural households in the study, the actual NUMBER (rather than proportion) of households expected to have a natural tree will differ. The NUMBER of urban households expected to HAVE a natural tree is found by multiplying the number of urban households by the common proportion computed above -- i.e., 261&times;0.363=94.743. The remaining urban households would be expected to NOT have a natural tree -- i.e., 261-94.743=261&times;(1-0.363)=166.257. Similar calculations are made for the rural households (i.e., 160&times;0.363=58.080 expected to have a natural tree and 160&times;(1-0.363)=101.920 expected to NOT have a natural tree.
 
 These expected frequencies are computed directly and easily from the marginal totals of the observed frequency table (Table \@ref(tab:ChiTreeObs)). For example, substituting the fractional representation of the decimal proportions into the calculation of the expected number of urban households with a natural tree gives 261&times;$\frac{153}{421}$=$\frac{261\times153}{421}$=94.853^[Note a slight difference here because 0.363 was rounded to three decimals, whereas the fraction is not rounded.]. A close examination of this formula and the marginal totals in Table \@ref(tab:ChiTreeObs) shows that this value is equal to the product of the corresponding row and column marginal totals in the observed table divided by the total number of individuals. The other expected values follow a similar pattern as follows,
 
@@ -125,7 +125,7 @@ The Chi-Square Test is characterized by a categorical response variable recorded
 * **Null Hypothesis:** "The distribution of individuals into the levels of the response variable is the same for all groups"
 * **Alternative Hypothesis:** "The distribution of individuals into the levels of the response variable is NOT the same for all groups."
 * **Statistic:** Observed frequency table.
-* **Test Statistic:** $\chi^{2} = \sum_{cells}\frac{(Observed-Expected)^{2}}{Expected}$
+* **Test Statistic:** &chi;^2^=$\sum_{cells}\frac{(Observed-Expected)^{2}}{Expected}$
 * **df:** (r-1)&times;(c-1) where r is number of rows and c is the number of columns
 * **Assumptions:** Expected value for each category is &geq;5.
 * **Use with:** Categorical response, two or more groups (or populations).
@@ -136,7 +136,7 @@ A confidence region is not usually constructed for a Chi-Square Test because of 
 ### Christmas Trees
 Below are the 11-steps (Section \@ref(Hyp11Steps)) for a full hypothesis test for the Christmas tree example.
 
-1. $\alpha$=0.10.
+1. &alpha;=0.10.
 1. H~0~: "distribution of households by type of tree is the same for urban and rural households" vs. H~A~: "distribution of households by type of tree is NOT the same for urban and rural households."
 1. A Chi-Square Test is required because ...
     i. a categorical response variable was recorded (type of tree) and
@@ -144,9 +144,9 @@ Below are the 11-steps (Section \@ref(Hyp11Steps)) for a full hypothesis test fo
 1. The data appear to be part of an observational study with no clear indication of randomization.
 1. The expected frequency in each of the four cells is greater than five (Table \@ref(tab:ChiTreeExp)).
 1. The observed frequency table is in Table \@ref(tab:ChiTreeObs).
-1. $\chi^{2}$ = $\frac{(89-94.853)^{2}}{94.853}$ + $\frac{(172-166.147)^{2}}{166.147}$ + $\frac{(64-58.147)^{2}}{58.147}$ + $\frac{(96-101.853)^{2}}{101.853}$ = 0.3611+0.2062+0.5891+0.3363 = 1.4927 with 1 df.
+1. &chi;^2^ = $\frac{(89-94.853)^{2}}{94.853}$ + $\frac{(172-166.147)^{2}}{166.147}$ + $\frac{(64-58.147)^{2}}{58.147}$ + $\frac{(96-101.853)^{2}}{101.853}$ = 0.3611+0.2062+0.5891+0.3363 = 1.4927 with 1 df.
 1. p-value=`r kPvalue(pchisq(1.4927,df=1,lower.tail=FALSE),include.p=FALSE,latex=FALSE)`.
-1. H~0~ is not rejected because the p-value is >$\alpha$.
+1. H~0~ is not rejected because the p-value is >&alpha;.
 1. There does not appear to be a significant difference in the distribution of Christmas tree types among rural and urban households.
 1. Not performed for Chi-Square Test.
 

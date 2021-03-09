@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-07" />
+<meta name="date" content="2021-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -333,7 +333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>XXX</p>
 <div id="errors" class="section level2" number="14.1">
 <h2><span class="header-section-number">14.1</span> Errors</h2>
-<p>The goal of hypothesis testing is to make a decision about H<sub>0</sub>. Unfortunately, because of sampling variability, there is always a risk of making an incorrect decision. Two types of incorrect decisions can be made (Table <a href="HypTesting2.html#tab:DMerrs">14.1</a>). A Type I error occurs when a true H<sub>0</sub> is falsely rejected. In other words, even if H<sub>0</sub> is true, there is a chance that a rare sample will occur and H<sub>0</sub> will be deemed incorrect. The probability of making a Type I error is set when <span class="math inline">\(\alpha\)</span> is chosen. A Type II error occurs when a false H<sub>0</sub> is not rejected. The probability of a Type II error is denoted by <span class="math inline">\(\beta\)</span>.</p>
+<p>The goal of hypothesis testing is to make a decision about H<sub>0</sub>. Unfortunately, because of sampling variability, there is always a risk of making an incorrect decision. Two types of incorrect decisions can be made (Table <a href="HypTesting2.html#tab:DMerrs">14.1</a>). A Type I error occurs when a true H<sub>0</sub> is falsely rejected. In other words, even if H<sub>0</sub> is true, there is a chance that a rare sample will occur and H<sub>0</sub> will be deemed incorrect. The probability of making a Type I error is set when α is chosen. A Type II error occurs when a false H<sub>0</sub> is not rejected. The probability of a Type II error is denoted by β.</p>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -361,7 +361,7 @@ H<sub>0</sub> is true
 Reject H<sub>0</sub>
 </td>
 <td style="text-align:center;width: 1.6in; ">
-Type I (<span class="math inline">\(lpha\)</span>)
+Type I (&amp;alpha;)
 </td>
 </tr>
 <tr>
@@ -394,20 +394,20 @@ H<sub>A</sub> is true
 DNR H<sub>0</sub>
 </td>
 <td style="text-align:center;width: 1.6in; ">
-Type II (<span class="math inline">\(eta\)</span>)
+Type II (&amp;beta;)
 </td>
 </tr>
 </tbody>
 </table>
 <p> </p>
-<p>The decision in the Square Lake example of Module <a href="HypTesting1.html#HypTesting1">13</a> produced a Type II error because H<sub>0</sub>:<span class="math inline">\(\mu\)</span>=105 was not rejected even though we know that <span class="math inline">\(\mu\)</span>=98.06 (Table <a href="FoundationalDefns.html#tab:SquareLakePopnTbl">2.1</a>). Unfortunately, in real life, it will never be known exactly when a Type I or a Type II error has been made because the true <span class="math inline">\(\mu\)</span> is not known. However, it is known that a Type I error will be made <span class="math inline">\(100\alpha\)</span>% of the time. The probability of a type II error (<span class="math inline">\(\beta\)</span>), though, is never known because this probability depends on the true but unknown <span class="math inline">\(\mu\)</span>. Decisions can be made, however, that affect the magnitude of <span class="math inline">\(\beta\)</span>.</p>
-<p>Even though <span class="math inline">\(\beta\)</span> can not usually be calculated, a researcher can make decisions that will reduce <span class="math inline">\(\beta\)</span> (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>). For example, a researcher can decrease <span class="math inline">\(\beta\)</span> by increasing <span class="math inline">\(\alpha\)</span> or <span class="math inline">\(n\)</span>. Increasing <span class="math inline">\(n\)</span> is more beneficial because it does not result in an increase in Type I errors as would occur with increasing <span class="math inline">\(\alpha\)</span>.</p>
-<p>In addition, <span class="math inline">\(\beta\)</span> increases as the difference between the hypothesized mean (<span class="math inline">\(\mu_{0}\)</span>) and the actual mean (<span class="math inline">\(\mu_{A}\)</span>) decreases (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>). This means that you will make more Type II errors when the hypothesized and actual mean are close together. In addition, <span class="math inline">\(\beta\)</span> increases with a increasing amount of natural variability (i.e., <span class="math inline">\(\sigma\)</span>; Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>). In other words, more Type II errors are made when there is more variability among individuals. A researcher cannot control the difference between <span class="math inline">\(\mu_{0}\)</span> and <span class="math inline">\(\mu_{A}\)</span> or the value of <span class="math inline">\(\sigma\)</span>. However, it is important to know that if a situation with a “large” amount of variability is encountered or the difference to be detected is small, the researcher will need to increase <span class="math inline">\(n\)</span> to reduce <span class="math inline">\(\beta\)</span>. For example, if <span class="math inline">\(n\)</span> could be doubled in the Square Lake example to 100, then <span class="math inline">\(\beta\)</span> (for H<sub>0</sub>:<span class="math inline">\(\mu=105\)</span>) would decrease to approximately 0.18 (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>).</p>
+<p>The decision in the Square Lake example of Module <a href="HypTesting1.html#HypTesting1">13</a> produced a Type II error because H<sub>0</sub>:μ=105 was not rejected even though we know that μ=98.06 (Table <a href="FoundationalDefns.html#tab:SquareLakePopnTbl">2.1</a>). Unfortunately, in real life, it will never be known exactly when a Type I or a Type II error has been made because the true μ is not known. However, it is known that a Type I error will be made 100α% of the time. The probability of a type II error (β), though, is never known because this probability depends on the true but unknown μ. Decisions can be made, however, that affect the magnitude of β.</p>
+<p>Even though β can not usually be calculated, a researcher can make decisions that will reduce β (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>). For example, a researcher can decrease β by increasing α or n. Increasing n is more beneficial because it does not result in an increase in Type I errors as would occur with increasing α.</p>
+<p>In addition, β increases as the difference between the hypothesized mean (μ<sub>0</sub>) and the actual mean (μ<sub>A</sub>) decreases (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>). This means that you will make more Type II errors when the hypothesized and actual mean are close together. In addition, β increases with a increasing amount of natural variability (i.e., σ; Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>). In other words, more Type II errors are made when there is more variability among individuals. A researcher cannot control the difference between μ<sub>0</sub> and μ<sub>A</sub> or the value of σ. However, it is important to know that if a situation with a “large” amount of variability is encountered or the difference to be detected is small, the researcher will need to increase n to reduce β. For example, if n could be doubled in the Square Lake example to 100, then β (for H<sub>0</sub>:μ=105) would decrease to approximately 0.18 (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>).</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:SLBetaRelations"></span>
-<img src="Book107_files/figure-html/SLBetaRelations-1.png" alt="The relationship between one-tailed (lower) $\beta$ and $\alpha$, $n$, actual mean ($\mu_{A}$), and $\sigma$. In all situations where the variable does not vary, $\mu_{0}=105$, $\mu_{A}=98.06$, $\sigma=31.49$, $n=50$, and $\alpha=0.05$. " width="624" />
+<img src="Book107_files/figure-html/SLBetaRelations-1.png" alt="The relationship between one-tailed (lower) &amp;beta; and &amp;alpha;, n, actual mean (&amp;mu;~A~), and &amp;sigma;. In all situations where the variable does not vary, &amp;mu;~0~=105, &amp;mu;~A~=98.06, &amp;sigma;=31.49, n=50, and &amp;alpha;=0.05." width="624" />
 <p class="caption">
-Figure 14.1: The relationship between one-tailed (lower) <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(n\)</span>, actual mean (<span class="math inline">\(\mu_{A}\)</span>), and <span class="math inline">\(\sigma\)</span>. In all situations where the variable does not vary, <span class="math inline">\(\mu_{0}=105\)</span>, <span class="math inline">\(\mu_{A}=98.06\)</span>, <span class="math inline">\(\sigma=31.49\)</span>, <span class="math inline">\(n=50\)</span>, and <span class="math inline">\(\alpha=0.05\)</span>.
+Figure 14.1: The relationship between one-tailed (lower) β and α, n, actual mean (μ<sub>A</sub>), and σ. In all situations where the variable does not vary, μ<sub>0</sub>=105, μ<sub>A</sub>=98.06, σ=31.49, n=50, and α=0.05.
 </p>
 </div>
 <p> </p>
