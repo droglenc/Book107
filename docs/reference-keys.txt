@@ -190,11 +190,12 @@ NormalDist1
 characteristics-of-a-normal-distribution
 area-under-the-curve
 or-empirical-rule
-example-calculations
+example-6895997
 distinguish-calculation-types
 NormalDist2
 forward-calculations
 reverse-calculations
+example-calculations
 standardization-and-z-scores
 BEDAQuant
 response-and-explanatory-variables

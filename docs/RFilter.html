@@ -169,14 +169,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
 <li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
 <li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
-<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-6895997"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
 <li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="NormalDist2.html"><a href="NormalDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
 <li class="chapter" data-level="7.2" data-path="NormalDist2.html"><a href="NormalDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
-<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#example-calculations"><i class="fa fa-check"></i><b>7.3</b> Example Calculations</a></li>
+<li class="chapter" data-level="7.4" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.4</b> Standardization and Z-Scores</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="BEDAQuant.html"><a href="BEDAQuant.html"><i class="fa fa-check"></i><b>8</b> Bivariate EDA - Quantitative</a>
 <ul>
@@ -332,9 +333,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Module 23</span> Filtering Data in R</h1>
 <p>In Module <a href="RData.html#RData">22</a>, you learned how to retrieve data from the class webpage, enter your own data into a CSV file, load that data into R, and how to view that data in R. In this module, we will learn how to create subsets (i.e., filter) of a data frame into smaller data frames. For example, you may want to create a data frame that contains just male bears from a data frame with both male and female bears, or a data frame that contains only sales during summer months from a data frame that contains all sales. Less often you may wish to eliminate a particular individual from the data frame, perhaps if it is considered to be erroneous.</p>
 <p>This module also uses the <code>bears</code> data frame from Module <a href="RData.html#RData">22</a>, which is shown below for reference.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb73-1"><a href="RFilter.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NCStats)</span>
-<span id="cb73-2"><a href="RFilter.html#cb73-2" aria-hidden="true" tabindex="-1"></a>bears <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Bears.csv&quot;</span>)</span>
-<span id="cb73-3"><a href="RFilter.html#cb73-3" aria-hidden="true" tabindex="-1"></a>bears</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb78-1"><a href="RFilter.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NCStats)</span>
+<span id="cb78-2"><a href="RFilter.html#cb78-2" aria-hidden="true" tabindex="-1"></a>bears <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;Bears.csv&quot;</span>)</span>
+<span id="cb78-3"><a href="RFilter.html#cb78-3" aria-hidden="true" tabindex="-1"></a>bears</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;      length.cm weight.kg      loc
 #R&gt;   1      139.0       110 Bayfield
 #R&gt;   2      138.0        60 Bayfield
@@ -453,8 +454,8 @@ All rows where <strong>ONE or BOTH</strong> conditions are true<a href="#fn79" c
 <ul>
 <li>Only individuals from <em>Bayfield</em> county.</li>
 </ul>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb75-1"><a href="RFilter.html#cb75-1" aria-hidden="true" tabindex="-1"></a>bf <span class="ot">&lt;-</span> <span class="fu">filterD</span>(bears,loc<span class="sc">==</span><span class="st">&quot;Bayfield&quot;</span>)</span>
-<span id="cb75-2"><a href="RFilter.html#cb75-2" aria-hidden="true" tabindex="-1"></a>bf</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb80-1"><a href="RFilter.html#cb80-1" aria-hidden="true" tabindex="-1"></a>bf <span class="ot">&lt;-</span> <span class="fu">filterD</span>(bears,loc<span class="sc">==</span><span class="st">&quot;Bayfield&quot;</span>)</span>
+<span id="cb80-2"><a href="RFilter.html#cb80-2" aria-hidden="true" tabindex="-1"></a>bf</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     length.cm weight.kg      loc
 #R&gt;   1     139.0       110 Bayfield
 #R&gt;   2     138.0        60 Bayfield
@@ -464,8 +465,8 @@ All rows where <strong>ONE or BOTH</strong> conditions are true<a href="#fn79" c
 <ul>
 <li>Individuals from both <em>Bayfield</em> and <em>Ashland</em> counties.</li>
 </ul>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb77-1"><a href="RFilter.html#cb77-1" aria-hidden="true" tabindex="-1"></a>bfash <span class="ot">&lt;-</span> <span class="fu">filterD</span>(bears,loc <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Bayfield&quot;</span>,<span class="st">&quot;Ashland&quot;</span>))</span>
-<span id="cb77-2"><a href="RFilter.html#cb77-2" aria-hidden="true" tabindex="-1"></a>bfash</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb82-1"><a href="RFilter.html#cb82-1" aria-hidden="true" tabindex="-1"></a>bfash <span class="ot">&lt;-</span> <span class="fu">filterD</span>(bears,loc <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;Bayfield&quot;</span>,<span class="st">&quot;Ashland&quot;</span>))</span>
+<span id="cb82-2"><a href="RFilter.html#cb82-2" aria-hidden="true" tabindex="-1"></a>bfash</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     length.cm weight.kg      loc
 #R&gt;   1     139.0       110 Bayfield
 #R&gt;   2     138.0        60 Bayfield
@@ -477,8 +478,8 @@ All rows where <strong>ONE or BOTH</strong> conditions are true<a href="#fn79" c
 <ul>
 <li>Individuals with a weight greater than 100 kg.</li>
 </ul>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb79-1"><a href="RFilter.html#cb79-1" aria-hidden="true" tabindex="-1"></a>gt100 <span class="ot">&lt;-</span> <span class="fu">filterD</span>(bears,weight.kg<span class="sc">&gt;</span><span class="dv">100</span>)</span>
-<span id="cb79-2"><a href="RFilter.html#cb79-2" aria-hidden="true" tabindex="-1"></a>gt100</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb84-1"><a href="RFilter.html#cb84-1" aria-hidden="true" tabindex="-1"></a>gt100 <span class="ot">&lt;-</span> <span class="fu">filterD</span>(bears,weight.kg<span class="sc">&gt;</span><span class="dv">100</span>)</span>
+<span id="cb84-2"><a href="RFilter.html#cb84-2" aria-hidden="true" tabindex="-1"></a>gt100</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     length.cm weight.kg      loc
 #R&gt;   1     139.0       110 Bayfield
 #R&gt;   2     166.0       155  Douglas
@@ -488,8 +489,8 @@ All rows where <strong>ONE or BOTH</strong> conditions are true<a href="#fn79" c
 <ul>
 <li>Individuals from <em>Douglas</em> County that weighed at least 150 kg.</li>
 </ul>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb81-1"><a href="RFilter.html#cb81-1" aria-hidden="true" tabindex="-1"></a>do150 <span class="ot">&lt;-</span> <span class="fu">filterD</span>(bears,loc<span class="sc">==</span><span class="st">&quot;Douglas&quot;</span>,weight.kg<span class="sc">&gt;=</span><span class="dv">150</span>)</span>
-<span id="cb81-2"><a href="RFilter.html#cb81-2" aria-hidden="true" tabindex="-1"></a>do150</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb86-1"><a href="RFilter.html#cb86-1" aria-hidden="true" tabindex="-1"></a>do150 <span class="ot">&lt;-</span> <span class="fu">filterD</span>(bears,loc<span class="sc">==</span><span class="st">&quot;Douglas&quot;</span>,weight.kg<span class="sc">&gt;=</span><span class="dv">150</span>)</span>
+<span id="cb86-2"><a href="RFilter.html#cb86-2" aria-hidden="true" tabindex="-1"></a>do150</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     length.cm weight.kg     loc
 #R&gt;   1       166       155 Douglas</code></pre>
 <p> </p>
@@ -497,20 +498,20 @@ All rows where <strong>ONE or BOTH</strong> conditions are true<a href="#fn79" c
 <div id="selecting-individuals" class="section level2" number="23.2">
 <h2><span class="header-section-number">23.2</span> Selecting Individuals</h2>
 <p>In some instances, you may need to select or exclude an individual from a data frame. Positions within an object are identified within square brackets. As data frames are two-dimensional objects they are indexed by a row and a column, in that order. For example, the item in the third row and second column of <code>bears</code> is selected below.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb83-1"><a href="RFilter.html#cb83-1" aria-hidden="true" tabindex="-1"></a>bears[<span class="dv">3</span>,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb88-1"><a href="RFilter.html#cb88-1" aria-hidden="true" tabindex="-1"></a>bears[<span class="dv">3</span>,<span class="dv">2</span>]</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] 90</code></pre>
 <p>An entire row or column may be selected by omitting the other dimension. For example, one could select the entire second column with <code>bears[,2]</code>, but this is also the <code>weight.kg</code> variable and is better selected with <code>bears$weight.kg</code>. As a better example, the entire third row is selected below (note that the column designation was omitted).</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb85-1"><a href="RFilter.html#cb85-1" aria-hidden="true" tabindex="-1"></a>bears[<span class="dv">3</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb90-1"><a href="RFilter.html#cb90-1" aria-hidden="true" tabindex="-1"></a>bears[<span class="dv">3</span>,]</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     length.cm weight.kg      loc
 #R&gt;   3       139        90 Bayfield</code></pre>
 <p>Multiple rows are selected by combining row indices together with <code>c()</code>. For example, the third, fifth, and eighth rows are selected below (again, the column index is omitted).</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb87-1"><a href="RFilter.html#cb87-1" aria-hidden="true" tabindex="-1"></a>bears[<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span>),]</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb92-1"><a href="RFilter.html#cb92-1" aria-hidden="true" tabindex="-1"></a>bears[<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span>),]</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     length.cm weight.kg      loc
 #R&gt;   3       139        90 Bayfield
 #R&gt;   5       149        85 Bayfield
 #R&gt;   8       150        85  Douglas</code></pre>
 <p>Finally, rows can be excluded by preceding the row indices with a negative sign.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb89-1"><a href="RFilter.html#cb89-1" aria-hidden="true" tabindex="-1"></a>bears[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">12</span>),]</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb94-1"><a href="RFilter.html#cb94-1" aria-hidden="true" tabindex="-1"></a>bears[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">12</span>),]</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;      length.cm weight.kg      loc
 #R&gt;   1      139.0       110 Bayfield
 #R&gt;   2      138.0        60 Bayfield

@@ -169,14 +169,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
 <li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
 <li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
-<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-6895997"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
 <li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="NormalDist2.html"><a href="NormalDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
 <li class="chapter" data-level="7.2" data-path="NormalDist2.html"><a href="NormalDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
-<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#example-calculations"><i class="fa fa-check"></i><b>7.3</b> Example Calculations</a></li>
+<li class="chapter" data-level="7.4" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.4</b> Standardization and Z-Scores</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="BEDAQuant.html"><a href="BEDAQuant.html"><i class="fa fa-check"></i><b>8</b> Bivariate EDA - Quantitative</a>
 <ul>
@@ -412,7 +413,7 @@ Figure 6.7: The N(3,1) distribution depicting how the 68-95-99.7 Rule is used to
 <p>The 68-95-99.7 Rule can only be used for questions involving <strong>integer</strong> standard deviations away from the mean.</p>
 </div>
 </div>
-<div id="example-calculations" class="section level2" number="6.4">
+<div id="example-6895997" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> Example Calculations</h2>
 <p>Suppose, for example, that the total miles driven per week by a particular person is normally distributed with a mean of 160 miles and a standard deviation of 25 miles. The following questions can be answered for this situation using the 68-95-99.7% Rule.</p>
 <ul>
@@ -469,7 +470,7 @@ Figure 6.7: The N(3,1) distribution depicting how the 68-95-99.7 Rule is used to
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:NormQuestionType1">Table 6.1: </span>What is given (or known) and what you are asked to find for “forward” and “reverse” normal disribution questions.
+<span id="tab:NormQuestionType1">Table 6.1: </span>What is given (or known) and what you are asked to find for “Forward” and “Reverse” normal disribution questions.
 </caption>
 <thead>
 <tr>
@@ -510,6 +511,34 @@ Value (X)
 </tbody>
 </table>
 <p> </p>
+<p>In addition to categorizing the question as a “Forward” or “Reverse” question, we will also categorize it as a “Left”-of, “Right”-of, or “Between” question based on which way is shaded to mark the area on the normal distribution. So for each question we can categorize as one of six possibilities – Forward-Left, Forward-Right, Forward-Between, Reverse-Left, Reverse-Right, or Reverse-Between.</p>
+<p>All of the questions from the previous section are shown below and marked as to what type of question they are.</p>
+<ul>
+<li>What percentage of weeks does the driver drive less than 110 miles?
+<ul>
+<li><strong>Forward-Left</strong> (<em>given a value of X, shaded to the left</em>)</li>
+</ul></li>
+<li>What percentage of weeks does the driver drive less than 185 miles?
+<ul>
+<li><strong>Forward-Left</strong> (<em>given a value of X, shaded to the left</em>)</li>
+</ul></li>
+<li>What percentage of weeks does the driver drive between 135 and 210 miles?
+<ul>
+<li><strong>Forward-Between</strong> (<em>given two values of X, shaded between them</em>)</li>
+</ul></li>
+<li>What are the miles driven for the highest 16% of miles driven?
+<ul>
+<li><strong>Reverse-Right</strong> (<em>given a percentage, shaded to the right</em>)</li>
+</ul></li>
+<li>What are the miles driven for the lowest 2.5% of miles driven?
+<ul>
+<li><strong>Reverse-Left</strong> (<em>given a percentage, shaded to the left</em>)</li>
+</ul></li>
+<li>What are the most common 68% of miles driven?
+<ul>
+<li><strong>Reverse-Between</strong> (<em>given a percentage, shaded the middle between two values</em>)</li>
+</ul></li>
+</ul>
 
 </div>
 </div>

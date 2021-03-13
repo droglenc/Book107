@@ -169,14 +169,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
 <li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
 <li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
-<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-6895997"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
 <li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="NormalDist2.html"><a href="NormalDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
 <li class="chapter" data-level="7.2" data-path="NormalDist2.html"><a href="NormalDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
-<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#example-calculations"><i class="fa fa-check"></i><b>7.3</b> Example Calculations</a></li>
+<li class="chapter" data-level="7.4" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.4</b> Standardization and Z-Scores</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="BEDAQuant.html"><a href="BEDAQuant.html"><i class="fa fa-check"></i><b>8</b> Bivariate EDA - Quantitative</a>
 <ul>
@@ -517,7 +518,7 @@ Figure 15.3: Areas (yellow) that define Z<sup>*</sup> for confidence regions of 
 <li>Upper confidence bound because H<sub>A</sub> is a “less than.”</li>
 <li>Z<sup>*</sup>=+1.645 as found with [Note that <code>mean=0</code> and <code>sd=1</code> are the default settings for <code>distrib()</code> and can, thus, be omitted when finding a Z<sup>*</sup>.]</li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb20-1"><a href="ConfRegions1.html#cb20-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb25-1"><a href="ConfRegions1.html#cb25-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] 1.644854</code></pre>
 <ul>
 <li>100.04+1.645<span class="math inline">\(\frac{31.49}{\sqrt{50}}\)</span>, 100.04+7.33, or 107.37.</li>
@@ -529,7 +530,7 @@ Figure 15.3: Areas (yellow) that define Z<sup>*</sup> for confidence regions of 
 <li>Confidence interval because H<sub>A</sub> is a “not equals.”</li>
 <li>Z<sup>*</sup>=±2.576 as found with</li>
 </ul>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb22-1"><a href="ConfRegions1.html#cb22-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.995</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb27-1"><a href="ConfRegions1.html#cb27-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.995</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] 2.575829</code></pre>
 <ul>
 <li>107.8±2.576<span class="math inline">\(\frac{22}{\sqrt{42}}\)</span>, 107.8±8.74, or (99.06,116.54).</li>
@@ -541,7 +542,7 @@ Figure 15.3: Areas (yellow) that define Z<sup>*</sup> for confidence regions of 
 <li>Lower confidence bound because H<sub>A</sub> is a “greater than.”</li>
 <li>Z<sup>*</sup>=-1.282 as found with</li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb24-1"><a href="ConfRegions1.html#cb24-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb29-1"><a href="ConfRegions1.html#cb29-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] -1.281552</code></pre>
 <ul>
 <li>45-1.282<span class="math inline">\(\frac{7}{\sqrt{40}}\)</span>, 45-1.42, or 43.58.</li>

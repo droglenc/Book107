@@ -169,14 +169,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
 <li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
 <li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
-<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-calculations"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-6895997"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
 <li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
 <ul>
 <li class="chapter" data-level="7.1" data-path="NormalDist2.html"><a href="NormalDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
 <li class="chapter" data-level="7.2" data-path="NormalDist2.html"><a href="NormalDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
-<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.3</b> Standardization and Z-Scores</a></li>
+<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#example-calculations"><i class="fa fa-check"></i><b>7.3</b> Example Calculations</a></li>
+<li class="chapter" data-level="7.4" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.4</b> Standardization and Z-Scores</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="BEDAQuant.html"><a href="BEDAQuant.html"><i class="fa fa-check"></i><b>8</b> Bivariate EDA - Quantitative</a>
 <ul>
@@ -330,13 +331,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="NormalDist2" class="section level1" number="7">
 <h1><span class="header-section-number">Module 7</span> Normal Distribution Calculations</h1>
-<p>The normal distribution was introduced in Module <a href="NormalDist1.html#NormalDist1">6</a> and the 68-95-99.7% Rule was used to find the percentage of individuals with particular values of the variable (i.e., a forward calculation) or to find the value or values of the variable with a certain percentage of individuals (i.e., a reverse calculation). Unfortunately, the 68-95-99.7% Rule can only be use if the questions fall exactly 1, 2, or 3 standard deviations away from the mean. In other words, questions relative to non-integer numbers of standard deviations away from the mean can not be found with the 68-95-99.7% Rule and will require special tables or computer software.</p>
-<p>In this course, we will use a function from the <code>NCStats</code> package in R to perform these calculations. How you use this function depends on whether you will need to make a forward or a reverse calculation (see Section <a href="NormalDist1.html#distinguish-calculation-types">6.5</a>).</p>
+<p>The normal distribution was introduced in Module <a href="NormalDist1.html#NormalDist1">6</a> and the 68-95-99.7% Rule was used to find the percentage of individuals with particular values of the variable (i.e., a forward calculation) or to find the value or values of the variable with a certain percentage of individuals (i.e., a reverse calculation). Unfortunately, the 68-95-99.7% Rule can only be used if the value (or values) in the question fall exactly 1, 2, or 3 standard deviations away from the mean. In other words, questions relative to non-integer numbers of standard deviations away from the mean can not be found with the 68-95-99.7% Rule and will require special tables or computer software.</p>
+<p>In this course, we will use a function from the <code>NCStats</code> package in R to perform these calculations. How you use this function depends on whether it is a forward or reverse calculation (see Section <a href="NormalDist1.html#distinguish-calculation-types">6.5</a>).</p>
 <div id="forward-calculations" class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Forward Calculations</h2>
-<p>The area under a normal curve relative to a particular value is computed in R with <code>distrib()</code>. This function requires the <em>particular value</em> as the first argument and the mean and standard deviation of the normal distribution in the <code>mean=</code> and <code>sd=</code> arguments, respectively. The <code>distrib()</code> function defaults to finding the area under the curve to the <strong>left of</strong> the particular value, but it can find the area under the curve to the right of the particular value by including <code>lower.tail=FALSE</code>.</p>
-<p>For example, suppose that the heights of a population of students is known to be H~N(66,3). The proportion of students in this population that have a height less than 71 inches is computed below. Thus, approximately 95.2% of students in this population have a height less than 71 inches (Figure <a href="NormalDist2.html#fig:NormZCalc1">7.1</a>).</p>
+<p>The area under a normal curve relative to a particular value is computed in R with <code>distrib()</code>, with the <em>particular value</em> as the first argument and the mean (μ) and standard deviation (σ) of the normal distribution in the <code>mean=</code> and <code>sd=</code> arguments, respectively. The <code>distrib()</code> function defaults to finding the area to the <strong>left of</strong> the particular value; it can find the area to the right of the particular value by including <code>lower.tail=FALSE</code>.</p>
+<p>For example, suppose that the heights of a population of students is known to be H~N(66,3). The proportion of students in this population that have a height less than 71 inches is with</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb7-1"><a href="NormalDist2.html#cb7-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">71</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>) )</span></code></pre></div>
+<p>which produces Figure <a href="NormalDist2.html#fig:NormZCalc1">7.1</a>. Thus, approximately 95.2% of students in this population have a height less than 71 inches.</p>
 <div class="figure" style="text-align: center"><span id="fig:NormZCalc1"></span>
 <img src="Book107_files/figure-html/NormZCalc1-1.png" alt="Calculation of the proportion of individuals on a $N(66,3)$ with a value less than 71." width="336" />
 <p class="caption">
@@ -344,13 +346,17 @@ Figure 7.1: Calculation of the proportion of individuals on a <span class="math 
 </p>
 </div>
 <p> </p>
-<p>The proportion of students in this population that have a height <em>greater</em> than 68 inches is computed below (note use of <code>lower.tail=FALSE</code>). Thus, approximately 25.2% of students in this population have a height greater than 68 inches (Figure <a href="NormalDist2.html#fig:NormZCalc2">7.2</a>).</p>
+<p>The proportion of students in this population that have a height <em>greater</em> than 68 inches is computed with (note use of <code>lower.tail=FALSE</code>)</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb8-1"><a href="NormalDist2.html#cb8-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">68</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p>which produces Figure <a href="NormalDist2.html#fig:NormZCalc2">7.2</a>. Thus, approximately 25.2% of students in this population have a height greater than 68 inches.</p>
 <div class="figure" style="text-align: center"><span id="fig:NormZCalc2"></span>
 <img src="Book107_files/figure-html/NormZCalc2-1.png" alt="Calculation of the proportion of individuals on a $N(66,3)$ with a value greater than 68." width="336" />
 <p class="caption">
 Figure 7.2: Calculation of the proportion of individuals on a <span class="math inline">\(N(66,3)\)</span> with a value greater than 68.
 </p>
+</div>
+<div class="tip">
+<p>If a question is a “Forward-Right” then you must include <code>lower.tail=FALSE</code> in <code>distrib()</code>.</p>
 </div>
 <p>Finding the area between two particular values is a bit more work. To answer “between”-type questions, the area less than the smaller of the two values is subtracted from the area less than the larger of the two values. This is illustrated by noting that two values split the area under the normal curve into three parts – A, B, and C in Figure <a href="NormalDist2.html#fig:NormDistBetween">7.3</a>. The area between the two values is B. The area to the left of the larger value corresponds to the area A+B. The area to the left of the smaller value corresponds to the area A. Thus, subtracting the latter from the former leaves the “in-between” area B (i.e., (A+B)-A = B).</p>
 <div class="figure" style="text-align: center"><span id="fig:NormDistBetween"></span>
@@ -377,8 +383,9 @@ Figure 7.4: Calculation of the areas less than 70 inches (<strong>Left</strong>)
 </div>
 <div id="reverse-calculations" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Reverse Calculations</h2>
-<p>Reverse questions are also answered with <code>distrib()</code>, though the first argument is now the given proportion (or area) of interest. The calculation is treated as a “reverse” question when <code>type="q"</code> is given to <code>distrib()</code>.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a> For example, the height that has 20% of all students shorter is 63.5 inches, as computed below (Figure <a href="NormalDist2.html#fig:NormZCalc4">7.5</a>).</p>
+<p>Reverse questions also use <code>distrib()</code>, though the first argument is now the given percentage, though it must be entered as a proportion. The calculation is treated as a “reverse” question only when <code>type="q"</code> is also given to <code>distrib()</code>.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a> For example, the height that has 20% of all students shorter is computed with</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb13-1"><a href="NormalDist2.html#cb13-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.20</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<p>which produces Figure <a href="NormalDist2.html#fig:NormZCalc4">7.5</a>. Thus, the shortest 20% of students are less than 63.5 inches tall.</p>
 <div class="figure" style="text-align: center"><span id="fig:NormZCalc4"></span>
 <img src="Book107_files/figure-html/NormZCalc4-1.png" alt="Calculation of the height with 20% of all students shorter." width="336" />
 <p class="caption">
@@ -386,15 +393,18 @@ Figure 7.5: Calculation of the height with 20% of all students shorter.
 </p>
 </div>
 <p> </p>
-<p>“Greater than” reverse questions are computed by including <code>lower.tail=FALSE</code>. For example, 10% of the population of students is taller than 69.8 inches, as computed below (Figure <a href="NormalDist2.html#fig:NormZCalc5">7.6</a>).</p>
+<p>“Greater than” reverse questions are computed by also including <code>lower.tail=FALSE</code>. For example, the tallest 10% of the population of students is computed with</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb14-1"><a href="NormalDist2.html#cb14-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.10</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p>which produces Figure <a href="NormalDist2.html#fig:NormZCalc5">7.6</a>. Thus, the tallest 10% of students are taller than 69.8 inches.</p>
 <div class="figure" style="text-align: center"><span id="fig:NormZCalc5"></span>
 <img src="Book107_files/figure-html/NormZCalc5-1.png" alt="Calculation of the height with 10% of all students taller." width="336" />
 <p class="caption">
 Figure 7.6: Calculation of the height with 10% of all students taller.
 </p>
 </div>
-<p> </p>
+<div class="tip">
+<p>For “Reverse” normal distribution questions you <strong>MUST</strong> use <code>type="q"</code> in <code>distrib()</code>. If the question is a “Reverse-Right” then you must also include <code>lower.tail=FALSE</code> in <code>distrib()</code>.</p>
+</div>
 <p>“Between” questions can only be easily handled if the question is looking for endpoint values that are symmetric about μ. In other words, the question must ask for the two values that contain the “most common” proportion of individuals. For example, suppose that you were asked to find the most common 80% of heights. This type of question is handled by converting this “symmetric between” question into two “less than” questions. For example, in Figure <a href="NormalDist2.html#fig:NormRevBetween">7.7</a> the area D is the symmetric area of interest. If D is 0.80, then C+E must be 0.20.<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a> Because D is symmetric about μ, C and E must both equal 0.10. Thus, the lower bound on D is the value that has 10% of all values smaller. Similarly, because the combined area of C and D is 0.90, the upper bound on D is the value that has 90% of all values smaller. This question has now been converted from a “symmetric between” to two “less than” questions that can be answered exactly as shown above.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:NormRevBetween"></span>
@@ -413,25 +423,77 @@ Figure 7.7: Depiction of areas in a reverse between type normal distribution que
 Figure 7.8: Calculations for the two values with an area of 80% between them.
 </p>
 </div>
+<div class="tip">
+<p>For “Reverse-Between” questions you must convert the symmetric between area to two “left-of” areas and then perform two “Reverse-Left” questions with those areas.</p>
 </div>
-<div id="standardization-and-z-scores" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Standardization and Z-Scores</h2>
+</div>
+<div id="example-calculations" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Example Calculations</h2>
+<p>Suppose (as in Section <a href="NormalDist1.html#example-6895997">6.4</a>) that the total miles driven per week by a particular person is normally distributed with a mean of 160 miles and a standard deviation of 25 miles. Use this information to answer the following questions.</p>
+<ul>
+<li>What percentage of weeks does the driver drive more than 125 miles?
+<ul>
+<li><strong>91.9%</strong> – This is a Forward-Right question because a value of “X” is given and we should shade to the right (i.e., “more than”). This percentage is computed with</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb16-1"><a href="NormalDist2.html#cb16-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">125</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-25-1.png" width="336" style="display: block; margin: auto;" /></p>
+<ul>
+<li>What is the miles driven for the 25% of weeks with the fewest miles driven?
+<ul>
+<li><strong>Less than 143.1 miles</strong> – This is a Reverse-Left question because a percentage is given and we should shade to the left (i.e., “fewest”). This value is computed with</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb17-1"><a href="NormalDist2.html#cb17-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.25</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-26-1.png" width="336" style="display: block; margin: auto;" /></p>
+<ul>
+<li>What is the miles driven for the 5% of weeks with the most miles driven?
+<ul>
+<li><strong>More than 201.1 miles</strong> – This is a Reverse-Right question because a percentage is given and we should shade to the right (i.e., “most”). This value is computed with</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb18-1"><a href="NormalDist2.html#cb18-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.05</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-27-1.png" width="336" style="display: block; margin: auto;" /></p>
+<ul>
+<li>What percentage of weeks does the driver drive between 75 and 100 miles?
+<ul>
+<li><strong>0.8%</strong> – This is a Forward-Between question because two values of “X” are given and we should shade between the two values. This percentage is computed by finding the difference of the two areas provided from the following</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb19-1"><a href="NormalDist2.html#cb19-1" aria-hidden="true" tabindex="-1"></a>( AB <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="dv">100</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>) )</span>
+<span id="cb19-2"><a href="NormalDist2.html#cb19-2" aria-hidden="true" tabindex="-1"></a>( A <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="dv">75</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>) )</span>
+<span id="cb19-3"><a href="NormalDist2.html#cb19-3" aria-hidden="true" tabindex="-1"></a>AB<span class="sc">-</span>A</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li>What is the most common 60% of miles driven?
+<ul>
+<li><strong>Between 139.0 and 181.0 miles</strong> – This is a Reverse-between question because a percentage is given and we should shade in between (i.e., “most common”). These values are computed with</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb20-1"><a href="NormalDist2.html#cb20-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.2</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span>
+<span id="cb20-2"><a href="NormalDist2.html#cb20-2" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.8</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p> </p>
+</div>
+<div id="standardization-and-z-scores" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> Standardization and Z-Scores</h2>
 <p>An individual that is 59 inches tall is 7 inches shorter than average if heights are N(66,3). Is this a large or a small difference? Alternatively, this same individual is <span class="math inline">\(\frac{-7}{3}\)</span> = -2.33 standard deviations below the mean. Thus, a height of 59 inches is relatively rare in this population because few individuals are more than two standard deviations away from the mean.<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a> As seen here, the relative magnitude that an individual differs from the mean is better expressed as the number of standard deviations that the individual is away from the mean.</p>
 <p>Values are “standardized” by changing the original scale (inches in this example) to one that counts the number of standard deviations (i.e., σ) that the value is away from the mean (i.e., μ). For example, with the height variable above, 69 inches is one standard deviation above the mean, which corresponds to +1 on the standardized scale. Similarly, 60 inches is two standard deviations below the mean, which corresponds to -2 on the standardized scale. Finally, 67.5 inches on the original scale is one half standard deviation above the mean or +0.5 on the standardized scale.</p>
 <p>The process of computing the number of standard deviations that an individual is away from the mean is called <strong>standardizing</strong>. Standardizing is accomplished with</p>
-<p><span class="math display">\[Z = \frac{``\text{value&quot;}-``\text{center&quot;}}{``\text{dispersion&quot;}} \]</span></p>
+<p><span class="math display">\[ \text{Z} = \frac{``\text{value&quot;}-``\text{center&quot;}}{``\text{dispersion&quot;}} \]</span></p>
 <p>or, more specifically,</p>
 <p><span class="math display">\[ \text{Z} = \frac{\text{x}-\mu}{\sigma} \]</span></p>
 <p>For example, the standardized value of an individual with a height of 59 inches is Z=<span class="math inline">\(\frac{59-66}{3}\)</span>=-2.33. Thus, this individual’s height is 2.33 standard deviations below the average height in the population.</p>
 <p>Standardized values (Z) follow a N(0,1). Thus, N(0,1) is called the “standard normal distribution.” The relationship between X and Z is one-to-one meaning that each value of X converts to one and only one value of Z. This means that the area to the left of X on a N(μ,σ) is the same as the area to the left of Z on a N(0,1). This one-to-one relationship is illustrated in Figure <a href="NormalDist2.html#fig:NormStandardizingEx">7.9</a> using the individual with a height of 59 inches and Z=-2.33.</p>
-<div class="tip">
-<p>The standardized scale (i.e., z-scores) represents the number of standard deviations that a value is from the mean.</p>
-</div>
+<p> </p>
 <div class="figure" style="text-align: center"><span id="fig:NormStandardizingEx"></span>
 <img src="Book107_files/figure-html/NormStandardizingEx-1.png" alt="Plots depicting the area to the left of 59 on a N(66,3) (**Left**) and the area to the right of the corresponding Z-score of Z=-2.33 on a N(0,1) (**Right**). Note that the x-axis scales are different." width="336" /><img src="Book107_files/figure-html/NormStandardizingEx-2.png" alt="Plots depicting the area to the left of 59 on a N(66,3) (**Left**) and the area to the right of the corresponding Z-score of Z=-2.33 on a N(0,1) (**Right**). Note that the x-axis scales are different." width="336" />
 <p class="caption">
 Figure 7.9: Plots depicting the area to the left of 59 on a N(66,3) (<strong>Left</strong>) and the area to the right of the corresponding Z-score of Z=-2.33 on a N(0,1) (<strong>Right</strong>). Note that the x-axis scales are different.
 </p>
+</div>
+<div class="tip">
+<p>The standardized scale (i.e., z-scores) represents the number of standard deviations that a value is from the mean.</p>
 </div>
 <p> </p>
 

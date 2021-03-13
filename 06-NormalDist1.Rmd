@@ -262,7 +262,7 @@ arrows(5.25,0.175,5.3,0.01,length=0.1,angle=20)
 The 68-95-99.7 Rule can only be used for questions involving **integer** standard deviations away from the mean.
 :::
 
-## Example Calculations
+## Example Calculations {#example-6895997}
 ```{r echo=FALSE}
 mn <- 160
 sd <- 25
@@ -390,7 +390,7 @@ Distinguishing between these two types of calculations (Table \@ref(tab:NormQues
 tibble("Question Type"=c("Forward","Reverse"),
        "Given (Know)"=c("Value (X)","Percentage (area)"),
        "Asked to Find"=c("Percentage (area)","Value (X)")) %>%
-  knitr::kable(booktabs=TRUE,align="c",caption='What is given (or known) and what you are asked to find for "forward" and "reverse" normal disribution questions.') %>%
+  knitr::kable(booktabs=TRUE,align="c",caption='What is given (or known) and what you are asked to find for "Forward" and "Reverse" normal disribution questions.') %>%
   kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
   kableExtra::row_spec(0,bold=TRUE) %>%
   kableExtra::column_spec(1,width="0.9in",bold=TRUE) %>%
@@ -398,3 +398,20 @@ tibble("Question Type"=c("Forward","Reverse"),
 ```
 
 &nbsp;
+
+In addition to categorizing the question as a "Forward" or "Reverse" question, we will also categorize it as a "Left"-of, "Right"-of, or "Between" question based on which way is shaded to mark the area on the normal distribution. So for each question we can categorize as one of six possibilities -- Forward-Left, Forward-Right, Forward-Between, Reverse-Left, Reverse-Right, or Reverse-Between.
+
+All of the questions from the previous section are shown below and marked as to what type of question they are.
+
+* What percentage of weeks does the driver drive less than 110 miles?
+    * **Forward-Left** (*given a value of X, shaded to the left*)
+* What percentage of weeks does the driver drive less than 185 miles?
+    * **Forward-Left** (*given a value of X, shaded to the left*)
+* What percentage of weeks does the driver drive between 135 and 210 miles?
+    * **Forward-Between** (*given two values of X, shaded between them*)
+* What are the miles driven for the highest 16% of miles driven?
+    * **Reverse-Right** (*given a percentage, shaded to the right*)
+* What are the miles driven for the lowest 2.5% of miles driven?
+    * **Reverse-Left** (*given a percentage, shaded to the left*)
+* What are the most common 68% of miles driven?
+    * **Reverse-Between** (*given a percentage, shaded the middle between two values*)
