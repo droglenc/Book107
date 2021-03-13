@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-08" />
+<meta name="date" content="2021-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -330,7 +330,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="NormalDist1" class="section level1" number="6">
 <h1><span class="header-section-number">Module 6</span> Normal Distribution Introduction</h1>
-<p>A model for the distribution of a single quantitative variable can be visualized by “fitting” a smooth curve to a histogram (Figure <a href="NormalDist1.html#fig:NormDensityEx">6.1</a>-Left), removing the histogram (Figure <a href="NormalDist1.html#fig:NormDensityEx">6.1</a>-Center), and using the remaining curve (Figure <a href="NormalDist1.html#fig:NormDensityEx">6.1</a>-Right) as a model for the distribution of the entire population of individuals. The smooth red curve drawn over the histogram serves as a model for the distribution of the <strong>entire population</strong>. If the smooth curve follows a known distribution, then certain calculations are greatly simplified.</p>
+<p>A model for the distribution of a single quantitative variable can be visualized by “fitting” a smooth curve to a histogram (Figure <a href="NormalDist1.html#fig:NormDensityEx">6.1</a>-Left), removing the histogram (Figure <a href="NormalDist1.html#fig:NormDensityEx">6.1</a>-Center), and using the remaining curve (Figure <a href="NormalDist1.html#fig:NormDensityEx">6.1</a>-Right) as a model for the distribution of the <strong>entire population</strong> of individuals. If the smooth curve follows a known distribution, then certain calculations are greatly simplified.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:NormDensityEx"></span>
 <img src="Book107_files/figure-html/NormDensityEx-1.png" alt="Depiction of fitting a smooth curve to a histogram to serve as a model for the distribution." width="672" />
@@ -339,7 +339,7 @@ Figure 6.1: Depiction of fitting a smooth curve to a histogram to serve as a mod
 </p>
 </div>
 <p> </p>
-<p>The normal distribution is one of the most important distributions in statistics because it serves as a model for the distribution of individuals in many natural situations and the distribution of statistics from repeated samplings (i.e., sampling distributions).<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a> The use of a normal distribution model to make certain calculations is demonstrated in this module.</p>
+<p>The normal distribution is one of the most important distributions in statistics because it serves as a model for the distribution of individuals in many natural situations and the distribution of statistics from repeated samplings (i.e., sampling distributions).<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a> The use of a normal distribution model to make certain calculations is demonstrated in this module. More complex calculations are described in the next module.</p>
 <div id="characteristics-of-a-normal-distribution" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Characteristics of a Normal Distribution</h2>
 <p>The normal distribution is the familiar bell-shaped curve (Figure <a href="NormalDist1.html#fig:NormDensityEx">6.1</a>-Right). Normal distributions have two parameters – the population mean, μ, and the population standard deviation, σ – that control the exact shape and position of the distribution. Specifically, the mean μ controls the center and the standard deviation σ controls the dispersion of the distribution (Figure <a href="NormalDist1.html#fig:NormMultDists">6.2</a>).</p>
@@ -351,19 +351,19 @@ Figure 6.2: Nine normal distributions. Distributions with the same line type hav
 </p>
 </div>
 <p> </p>
-<p>There are an infinite number of normal distributions because there are an infinite number of combinations of μ and σ. However, each normal distribution will</p>
+<p>There are an infinite number of normal distributions for each of the infinite number of combinations of μ and σ. However, each normal distribution</p>
 <ul>
-<li>be bell-shaped and symmetric,</li>
-<li>centered at μ,</li>
-<li>have inflection points at μ±σ, and</li>
-<li>have a total area under the curve equal to 1.</li>
+<li>is bell-shaped and symmetric,</li>
+<li>is centered at μ,</li>
+<li>has inflection points at μ±σ, and</li>
+<li>has a total area under the curve equal to 1.</li>
 </ul>
-<p>If a generic variable X follows a normal distribution with a mean of μ and a standard deviation of σ, then it is said that X~N(μ,σ). For example, if the heights of students (H) follows a normal distribution with a μ of 66 and a σ of 3, then it is said that H~N(66,3). As another example, Z~N(0,1) means that the variable Z follows a normal distribution with a mean of μ=0 and a standard deviation of σ=1.</p>
+<p>If a generic variable X follows a normal distribution with a mean of μ and a standard deviation of σ, then it is said that X~N(μ,σ). For example, if the heights of students (H) follows a normal distribution with a mean of 66 and a standard deviation of 3, then it is said that H~N(66,3). As another example, Z~N(0,1) means that the variable Z follows a normal distribution with a mean of μ=0 and a standard deviation of σ=1.</p>
 </div>
 <div id="area-under-the-curve" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Area Under the Curve</h2>
-<p>A common problem is to determine the proportion of individuals with a value of the variable between two numbers. For example, you might be faced with determining the proportion of all sites that have lead concentrations between 1.2 and 1.5 <span class="math inline">\(\mu g \cdot m^{-3}\)</span>, the proportion of students that scored higher than 700 on the SAT, or the proportion of Least Weasels that are shorter than 150 mm. Before considering these more realistic situations, we explore calculations for the generic variable X shown in Figure <a href="NormalDist1.html#fig:NormDistShade">6.3</a>.</p>
-<p>Let’s consider finding the proportion of individuals in a <em>sample</em> with values between 0 and 2. A histogram can be used to answer this question because it is about the individuals in a sample (Figure <a href="NormalDist1.html#fig:NormDistShade">6.3</a>-Left). In this case, the proportion of individuals with values between 0 and 2 is computed by dividing the number of individuals in the red shaded bars by the total number of individuals in the histogram. The analogous computation on the superimposed smooth curve is to find the area under the curve between 0 and 2 (Figure <a href="NormalDist1.html#fig:NormDistShade">6.3</a>-Right). The area under the curve is a “proportion of the total” because, as stated above, the area under the entire curve is equal to 1. The actual calculations on the normal curve are shown in the following sections. However, at this point, note that the calculation of an area on a normal curve is analogous to summing the number of individuals in the appropriate classes of the histogram and dividing by n.</p>
+<p>A common question in statistics is to determine the proportion of individuals with a value of the variable between two numbers. For example, you might be faced with determining the proportion of all sites that have lead concentrations between 1.2 and 1.5 <span class="math inline">\(\mu g \cdot m^{-3}\)</span>, the proportion of students that scored higher than 700 on the SAT, or the proportion of Least Weasels that are shorter than 150 mm. Before considering these more realistic situations, lets explore calculations for the generic variable X shown in Figure <a href="NormalDist1.html#fig:NormDistShade">6.3</a>.</p>
+<p>Consider finding the proportion of individuals in a <em>sample</em> with values between 0 and 2. A histogram can be used to answer this question because it is about the individuals in a sample (Figure <a href="NormalDist1.html#fig:NormDistShade">6.3</a>-Left). In this case, the proportion of individuals with values between 0 and 2 is computed by dividing the number of individuals in the red shaded bars by the total number of individuals in the histogram. The analogous computation on the superimposed smooth curve is to find the area under the curve between 0 and 2 (Figure <a href="NormalDist1.html#fig:NormDistShade">6.3</a>-Right). The area under the curve is a “proportion of the total” because, as stated above, the area under the entire curve is equal to 1.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:NormDistShade"></span>
 <img src="Book107_files/figure-html/NormDistShade-1.png" alt="Depiction of finding the proportion of individuals between 0 and 2 on a histogram (**Left**) and on a standard normal distribution (**Right**)." width="672" />
@@ -372,13 +372,12 @@ Figure 6.3: Depiction of finding the proportion of individuals between 0 and 2 o
 </p>
 </div>
 <div class="tip">
-<p>The proportion of individuals between two values of a variable that is normally distributed is the area under the normal distribution between those two values.</p>
+<p>The proportion of individuals between two values of a variable that is normally distributed is the area under the normal distribution between those two values. This area is analogous to summing the number of individuals in the appropriate bars of a histogram and dividing by n.</p>
 </div>
 </div>
 <div id="or-empirical-rule" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> 68-95-99.7 (or Empirical) Rule</h2>
 <p>The 68-95-99.7 (or Empirical) Rule states that 68% of individuals that follow a normal distribution have values between μ-1σ and μ+1σ, 95% have values between μ-2σ and μ+2σ, and 99.7% have values between μ-3σ and μ+3σ (Figure <a href="NormalDist1.html#fig:NormEmpiricalRule">6.4</a>).</p>
-<p> </p>
 <div class="figure" style="text-align: center"><span id="fig:NormEmpiricalRule"></span>
 <img src="Book107_files/figure-html/NormEmpiricalRule-1.png" alt="Depiction of the 68-95-99.7 (or Empirical) Rule on a normal distribution." width="336" />
 <p class="caption">
@@ -386,13 +385,27 @@ Figure 6.4: Depiction of the 68-95-99.7 (or Empirical) Rule on a normal distribu
 </p>
 </div>
 <p> </p>
-<p>The 68-95-99.7 Rule is true no matter what μ and σ are as long as the distribution is normal. For example, if A~N(3,1), then 68% of the individuals will fall between 2 (i.e., 3-1<em>1) and 4 (i.e., 3+1</em>1) and 99.7% will fall between 0 (i.e., 3-3<em>1) and 6 (i.e., 3+3</em>1). Alternatively, if B~N(9,3), then 68% of the individuals will fall between 6 (i.e., 9-1<em>3) and 12 (i.e., 9+1</em>3) and 95% will be between 3 (i.e., 9-2<em>3) and 15 (i.e., 9+2</em>3). Similar calculations can be made for any normal distribution.</p>
-<p>The 68-95-99.7 Rule is used to find areas under the normal curve as long as the value of interest is an <strong>integer</strong> number of standard deviations away from the mean. For example, the proportion of individuals that have a value of A greater than 5 (Figure <a href="NormalDist1.html#fig:NormEmpiricalRuleCalc">6.5</a>) is found by first realizing that 95% of the individuals on this distribution fall between 1 and 5 (i.e., ±2σ from μ). By subtraction this means that 5% of the individuals must be less than 1 <strong>AND</strong> greater than 5. Finally, because normal distributions are symmetric, the same percentage of individuals must be less than 1 as are greater than 5. Thus, half of 5%, or 2.5%, of the individuals have a value of A greater than 5.</p>
+<p>The 68-95-99.7 Rule is true no matter what μ and σ are as long as the distribution is normal. For example, if A~N(3,1), then 68% of the individuals will fall between 2 (i.e., 3-1×1) and 4 (i.e., 3+1×1) and 99.7% will fall between 0 (i.e., 3-3×1) and 6 (i.e., 3+3×1).</p>
+<div class="figure" style="text-align: center"><span id="fig:NormEmpiricalRuleA"></span>
+<img src="Book107_files/figure-html/NormEmpiricalRuleA-1.png" alt="Depiction of the 68-95-99.7 (or Empirical) Rule on a A~N(3,1) distribution." width="336" />
+<p class="caption">
+Figure 6.5: Depiction of the 68-95-99.7 (or Empirical) Rule on a A~N(3,1) distribution.
+</p>
+</div>
 <p> </p>
+<p>Alternatively, if B~N(9,3), then 68% of the individuals will fall between 6 (i.e., 9-1×3) and 12 (i.e., 9+1×3) and 95% will be between 3 (i.e., 9-2×3) and 15 (i.e., 9+2×3). Similar calculations can be made for any normal distribution.</p>
+<div class="figure" style="text-align: center"><span id="fig:NormEmpiricalRuleB"></span>
+<img src="Book107_files/figure-html/NormEmpiricalRuleB-1.png" alt="Depiction of the 68-95-99.7 (or Empirical) Rule on a A~N(9,3) distribution." width="336" />
+<p class="caption">
+Figure 6.6: Depiction of the 68-95-99.7 (or Empirical) Rule on a A~N(9,3) distribution.
+</p>
+</div>
+<p> </p>
+<p>The 68-95-99.7 Rule is used to find areas under the normal curve as long as the value of interest is an <strong>integer</strong> number of standard deviations away from the mean. For example, the proportion of individuals that have a value of A greater than 5 (Figure <a href="NormalDist1.html#fig:NormEmpiricalRuleCalc">6.7</a>) is found by first realizing that 95% of the individuals on this distribution fall between 1 and 5 (i.e., ±2σ from μ). By subtraction this means that 5% of the individuals must be less than 1 <strong>AND</strong> greater than 5. Finally, because normal distributions are symmetric, the same percentage of individuals must be less than 1 as are greater than 5. Thus, half of 5%, or 2.5%, of the individuals have a value of A greater than 5.</p>
 <div class="figure" style="text-align: center"><span id="fig:NormEmpiricalRuleCalc"></span>
 <img src="Book107_files/figure-html/NormEmpiricalRuleCalc-1.png" alt="The N(3,1) distribution depicting how the 68-95-99.7 Rule is used to compute the percentage of individuals with values greater than 5." width="336" />
 <p class="caption">
-Figure 6.5: The N(3,1) distribution depicting how the 68-95-99.7 Rule is used to compute the percentage of individuals with values greater than 5.
+Figure 6.7: The N(3,1) distribution depicting how the 68-95-99.7 Rule is used to compute the percentage of individuals with values greater than 5.
 </p>
 </div>
 <div class="tip">
@@ -419,7 +432,7 @@ Figure 6.5: The N(3,1) distribution depicting how the 68-95-99.7 Rule is used to
 <ul>
 <li>What percentage of weeks does the driver drive between 135 and 210 miles?
 <ul>
-<li>135 miles is exactly 1 standard deviation below the mean (i.e., 160-1×25=135) and thus has 16% of the area below it. 210 miles is exactly 2 standard deviations above the mean (i.e., 160+2×25=210) and thus has 2.5% of the area above. To get the area between 135 and 210, subtract these combined areas from 100.</li>
+<li><strong>81.5%</strong> – 135 miles is exactly 1 standard deviation below the mean (i.e., 160-1×25=135) and thus has 16% of the area below it. 210 miles is exactly 2 standard deviations above the mean (i.e., 160+2×25=210) and thus has 2.5% of the area above. To get the area between 135 and 210, subtract these combined areas from 100.</li>
 </ul></li>
 </ul>
 <p><img src="Book107_files/figure-html/unnamed-chunk-16-1.png" width="336" style="display: block; margin: auto;" /></p>
@@ -428,15 +441,19 @@ Figure 6.5: The N(3,1) distribution depicting how the 68-95-99.7 Rule is used to
 <ul>
 <li>What are the miles driven for the highest 16% of miles driven?
 <ul>
-<li><strong>185</strong> – Hopefully the 16% sounds familiar from above, which relates it to one tail “left over” from 68%. The question is looking for the “highest 16%” so i is the upper tail that starts exactly one standard deviatin above the mean (i.e., 160+1×25=185).
+<li><strong>185</strong> – Hopefully the 16% sounds familiar from above, which relates it to one tail “left over” from 68%. The question is looking for the “highest 16%” so it is the upper tail that starts exactly one standard deviation above the mean (i.e., 160+1×25=185).
 <img src="Book107_files/figure-html/unnamed-chunk-17-1.png" width="336" style="display: block; margin: auto;" /></li>
 </ul></li>
+</ul>
+<p> </p>
+<ul>
 <li>What are the miles driven for the lowest 2.5% of miles driven?
 <ul>
 <li><strong>110</strong> – Hopefully the 2.5% sounds familiar from above, which relates it to one tail “left over” from 95%. The question is looking for the “lowest 2.5%” so it is the lower tail that starts exactly two standard deviations below the mean (i.e., 160-2×25=110).</li>
 </ul></li>
 </ul>
 <p><img src="Book107_files/figure-html/unnamed-chunk-18-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p> </p>
 <ul>
 <li>What are the most common 68% of miles driven?
 <ul>
@@ -448,7 +465,50 @@ Figure 6.5: The N(3,1) distribution depicting how the 68-95-99.7 Rule is used to
 <h2><span class="header-section-number">6.5</span> Distinguish Calculation Types</h2>
 <p>It is critical to be able to distinguish between two main types of calculations made from normal distributions. The first type of calculation is when you are given a value of the variable (X) and asked to find a percentage of individuals. These questions are called <strong>forward</strong> questions. The first three questions in the examples of the previous section are forward calculations because the questions gave you miles driven per week values and asked you to find a percentage of weeks.</p>
 <p>The second type of calculation occurs when you are given a percentage and asked to find the value (or values) of the variable related to that percentage. These calculations are called <strong>reverse</strong> questions simply to contrast them with the previous forward calculations. The last three questions in the examples of the previous section are reverse calculations because the questions gave you a percentage of weeks and asked you to find a miles driven per week value.</p>
-<p>Distinguishing between these two types of calculations is a matter of deciding if (i) the value of the variable is given and the percentage (or area) is to be found or (ii) if the percentage (or area) is given and the value of the variable is to be found. Therefore, distinguishing between the calculation types is as simple as identifying what is given (or known) and what must be found. If the value of the variable is given but not the percentage then a forward calculation is used. If the percentage is given then a reverse calculation to find the value of the variable is used.</p>
+<p>Distinguishing between these two types of calculations (Table <a href="NormalDist1.html#tab:NormQuestionType1">6.1</a>) is a matter of deciding if (i) the value of the variable is given and the percentage (or area) is to be found or (ii) if the percentage (or area) is given and the value of the variable is to be found. Therefore, distinguishing between the calculation types is as simple as identifying what is given (or known) and what must be found. If the value of the variable is given but not the percentage then a forward calculation is used. If the percentage is given then a reverse calculation to find the value of the variable is used.</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:NormQuestionType1">Table 6.1: </span>What is given (or known) and what you are asked to find for “forward” and “reverse” normal disribution questions.
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;font-weight: bold;">
+Question Type
+</th>
+<th style="text-align:center;font-weight: bold;">
+Given (Know)
+</th>
+<th style="text-align:center;font-weight: bold;">
+Asked to Find
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;width: 0.9in; font-weight: bold;">
+Forward
+</td>
+<td style="text-align:center;width: 1.6in; ">
+Value (X)
+</td>
+<td style="text-align:center;width: 1.6in; ">
+Percentage (area)
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 0.9in; font-weight: bold;">
+Reverse
+</td>
+<td style="text-align:center;width: 1.6in; ">
+Percentage (area)
+</td>
+<td style="text-align:center;width: 1.6in; ">
+Value (X)
+</td>
+</tr>
+</tbody>
+</table>
 <p> </p>
 
 </div>

@@ -21,8 +21,8 @@ A distribution has two tails -- a left-tail of smaller or more negative values a
 &nbsp;
 
 ```{r ShapeExamples1, echo=FALSE, fig.width=7, fig.height=7, fig.cap="Examples of left-skewed, approximately symmetric, and right-skewed histograms. The skewed distributions are more skewed in the top row and less skewed in the bottom row."}
-clrs <- c("Left-Skewed"="lightblue1","Symmetric"="lightsalmon",
-          "Right-Skewed"="lightgreen")
+clrsH <- c("Left-Skewed"="lightblue1","Symmetric"="lightsalmon",
+           "Right-Skewed"="lightgreen")
 lbls <- data.frame(x=c(-Inf,0.5,Inf),y=c(Inf,Inf,Inf),
                    vj=c(1.3,1.3,1.3),hj=c(-0.1,0.5,1.1),
                    type=factor(c("Left-Skewed","Symmetric","Right-Skewed"),
@@ -48,7 +48,7 @@ ggplot(data=df,mapping=aes(x=x,fill=type)) +
             vjust=lbls$vj,hjust=lbls$hj,color="darkblue") +
   scale_x_continuous(name="Quantitative Variable",expand=expansion(mult=0.02)) +
   scale_y_continuous(name="Frequency",expand=expansion(mult=c(0,0.02))) +
-  scale_fill_manual(values=clrs) +
+  scale_fill_manual(values=clrsH) +
   facet_grid(rows=vars(ex),cols=vars(type),scale="free_y") +
   theme_NCStats() +
   theme(axis.text=element_blank(),
@@ -112,7 +112,7 @@ h <- ggplot() +
             vjust=lbls$vj,hjust=lbls$hj,color="darkblue") +
   scale_x_continuous(name="Quantitative Variable",expand=expansion(mult=0.02)) +
   scale_y_continuous(name="Frequency",expand=expansion(mult=c(0,0.02))) +
-  scale_fill_manual(values=clrs) +
+  scale_fill_manual(values=clrsH) +
   facet_wrap(vars(type),scale="free") +
   theme_NCStats() +
   theme(axis.text=element_blank(),
@@ -128,7 +128,7 @@ b <- ggplot(data=df2,mapping=aes(x=type,y=x,fill=type)) +
   geom_text(data=lbls2,mapping=aes(x=x,y=y,label=lbls),
             vjust=lbls2$vj,hjust=lbls2$hj,color="darkblue") +
   scale_y_continuous(name="Quantitative Variable",expand=expansion(mult=0.02)) +
-  scale_fill_manual(values=clrs) +
+  scale_fill_manual(values=clrsH) +
   facet_wrap(vars(type),scale="free") +
   theme_NCStats() +
   theme(axis.text=element_blank(),
@@ -280,7 +280,7 @@ ggplot() +
             vjust=lbls3$vj,hjust=lbls3$hj,color="darkblue") +
   scale_x_continuous(name="Quantitative Variable",expand=expansion(mult=0.02)) +
   scale_y_continuous(name="Frequency",expand=expansion(mult=c(0,0.02))) +
-  scale_fill_manual(values=clrs) +
+  scale_fill_manual(values=clrsH) +
   facet_wrap(vars(type),scale="free") +
   theme_NCStats() +
   theme(axis.text=element_blank(),

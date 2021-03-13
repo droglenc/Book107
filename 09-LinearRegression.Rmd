@@ -181,7 +181,7 @@ RSSer <- function(res,rss,i) {
     geom_segment(aes(xend=X,yend=pred),linetype="dashed",color="red") +
     geom_point(size=2,pch=21,color="black",fill="lightgray") +
     geom_smooth(method="lm",se=FALSE,color="gray70") +
-    geom_path(aes(y=pred),color=clr_full,size=1.25) +
+    geom_path(aes(y=pred),color=clrs["blue"],size=1.25) +
     theme_NCStats() +
     labs(x="Explanatory Variable",y="Response Variable") +
     theme(axis.text=element_blank()) +

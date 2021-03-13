@@ -14,9 +14,9 @@ For example, the probability of selecting a red ball from a thoroughly mixed box
 set.seed(34344)
 n <- 25
 succ <- 15
-clrs <- col2rgbt(c("red","blue"),.7)
+clrsT <- col2rgbt(c("red","blue"),.7)
 df <- data.frame(x=runif(n),y=runif(n),
-                 grp=sample(rep(clrs,times=c(succ,n-succ))),stringsAsFactors=FALSE)
+                 grp=sample(rep(clrsT,times=c(succ,n-succ))),stringsAsFactors=FALSE)
 par(mar=c(0.2,0.2,0.2,0.2),xaxt="n",yaxt="n")
 plot(y~x,data=df,pch=21,bg=grp,cex=2,xlim=c(0,1),ylim=c(0,1),xlab="",ylab="")
 
@@ -25,7 +25,7 @@ succ <- 30
 symb <- c("\\MA","\\VE")
 df <- data.frame(x=runif(n),y=runif(n),
                  grp=sample(rep(symb,times=c(succ,n-succ))),stringsAsFactors=FALSE)
-df$clrs <- mapvalues(df$grp,from=c("\\MA","\\VE"),to=clrs)
+df$clrs <- mapvalues(df$grp,from=c("\\MA","\\VE"),to=clrsT)
 plot(y~x,data=df,col="white",xlim=c(0,1),ylim=c(0,1),xlab="",ylab="")
 text(df$x,df$y,df$grp,vfont=c("sans serif symbol","plain"),col=df$clrs,cex=2)
 ```

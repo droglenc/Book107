@@ -45,7 +45,10 @@ fig:NormDensityEx
 fig:NormMultDists
 fig:NormDistShade
 fig:NormEmpiricalRule
+fig:NormEmpiricalRuleA
+fig:NormEmpiricalRuleB
 fig:NormEmpiricalRuleCalc
+tab:NormQuestionType1
 fig:NormZCalc1
 fig:NormZCalc2
 fig:NormDistBetween
