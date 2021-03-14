@@ -203,6 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="BEDACat.html"><a href="BEDACat.html#frequency-tables"><i class="fa fa-check"></i><b>10.1</b> Frequency Tables</a></li>
 <li class="chapter" data-level="10.2" data-path="BEDACat.html"><a href="BEDACat.html#percentage-tables"><i class="fa fa-check"></i><b>10.2</b> Percentage Tables</a></li>
 <li class="chapter" data-level="10.3" data-path="BEDACat.html"><a href="BEDACat.html#which-table-to-use"><i class="fa fa-check"></i><b>10.3</b> Which Table to Use?</a></li>
+<li class="chapter" data-level="10.4" data-path="BEDACat.html"><a href="BEDACat.html#example-calculations-1"><i class="fa fa-check"></i><b>10.4</b> Example Calculations</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="SamplingDist.html"><a href="SamplingDist.html"><i class="fa fa-check"></i><b>11</b> Sampling Distributions</a>
 <ul>
@@ -331,14 +332,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="BEDACat" class="section level1" number="10">
 <h1><span class="header-section-number">Module 10</span> Bivariate EDA - Categorical</h1>
-<p>Two-way frequency tables summarize two categorical variables recorded on the same individual by displaying levels of the first variable as rows and levels of the second variable as columns. Each cell in this table contains the frequency of individuals that were in the corresponding levels of each variable. These frequency tables are often converted to percentage tables for ease of summarization and comparison among populations. This module explores the construction and interpretation of frequency and percentage tables.</p>
+<p>Two-way frequency tables summarize two categorical variables recorded on the same individual by displaying levels of the first variable as rows and levels of the second variable as columns. Each cell in this table contains the frequency of individuals that were in the corresponding levels of each variable. These frequency tables are often converted to percentage tables for ease of summarization and comparison among populations. This module explores the construction and interpretation of two-way frequency and percentage tables.</p>
 <p>The General Sociological Survey (GSS) is a very large survey that has been administered 25 times since 1972. The purpose of the GSS is to gather data on contemporary American society in order to monitor and explain trends in attitudes, behaviors, and attributes. Data from the following two questions on the GSS are used throughout this module.</p>
 <ol style="list-style-type: decimal">
 <li>What is your highest degree earned? [choices – “less than high school diploma,” “high school diploma,” “junior college,” “bachelors,” or “graduate”; labeled as degree]</li>
 <li>How willing would you be to accept cuts in your standard of living in order to protect the environment? [choices – “very willing,” “fairly willing,” “neither willing nor unwilling,” “not very willing,” or “not at all willing”; labeled as grnsol]</li>
 </ol>
-<p>An example of these data are shown below below.</p>
-<p> </p>
+<p>An example of these data are shown below.</p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -361,23 +361,23 @@ vwill
 </tr>
 <tr>
 <td style="text-align:center;width: 1in; ">
-ltHS
+HS
 </td>
 <td style="text-align:center;width: 1in; ">
-vwill
-</td>
-</tr>
-<tr>
-<td style="text-align:center;width: 1in; ">
-ltHS
-</td>
-<td style="text-align:center;width: 1in; ">
-vwill
+will
 </td>
 </tr>
 <tr>
 <td style="text-align:center;width: 1in; ">
-grad
+HS
+</td>
+<td style="text-align:center;width: 1in; ">
+un
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 1in; ">
+JC
 </td>
 <td style="text-align:center;width: 1in; ">
 vun
@@ -393,17 +393,25 @@ vun
 </tr>
 <tr>
 <td style="text-align:center;width: 1in; ">
-grad
+.
 </td>
 <td style="text-align:center;width: 1in; ">
-vun
+.
+</td>
+</tr>
+<tr>
+<td style="text-align:center;width: 1in; ">
+.
+</td>
+<td style="text-align:center;width: 1in; ">
+.
 </td>
 </tr>
 </tbody>
 </table>
 <div id="frequency-tables" class="section level2" number="10.1">
 <h2><span class="header-section-number">10.1</span> Frequency Tables</h2>
-<p>A common method of summarizing bivariate categorical data is to count individuals that have each combination of levels of the two categorical variables. For example, how many respondents had less than a HS degree and were very willing, how many had a high school degree and were willing, and so on. The count of the number of individuals of each combination is called a frequency. A two-way frequency table offers an efficient way to display these frequencies (Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>). For example, 40 of the respondents had less than a high school degree and were very willing to take a cut in their standard of living to protect the environment. Similarly, 542 respondents had a high school degree and were willing to cut their standard of living.</p>
+<p>A common method of summarizing bivariate categorical data is to count individuals that have each combination of levels of the two categorical variables. For example, how many respondents had less than a HS degree and were very willing, how many had a high school degree and were willing, and so on. The count of the number of individuals of each combination is called a frequency. A two-way frequency table (Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>) offers an efficient way to display these frequencies. For example, 40 of the respondents had less than a high school degree and were very willing to take a cut in their standard of living to protect the environment. Similarly, 542 respondents had a high school degree and were willing to cut their standard of living.</p>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -453,7 +461,7 @@ ltHS
 <td style="text-align:right;width: 0.7in; ">
 178
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 646
 </td>
 </tr>
@@ -476,7 +484,7 @@ HS
 <td style="text-align:right;width: 0.7in; ">
 392
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 2090
 </td>
 </tr>
@@ -499,7 +507,7 @@ JC
 <td style="text-align:right;width: 0.7in; ">
 44
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 238
 </td>
 </tr>
@@ -522,7 +530,7 @@ BS
 <td style="text-align:right;width: 0.7in; ">
 75
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 682
 </td>
 </tr>
@@ -545,30 +553,30 @@ grad
 <td style="text-align:right;width: 0.7in; ">
 24
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 299
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;font-weight: bold;width: 0.7in; ">
+<td style="text-align:left;font-weight: bold;background-color: beige !important;font-weight: bold;width: 0.7in; ">
 Sum
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 208
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 1051
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 970
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 1013
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 713
 </td>
-<td style="text-align:right;font-weight: bold;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 3955
 </td>
 </tr>
@@ -576,7 +584,7 @@ Sum
 </table>
 <p> </p>
 <p>The margins of a two-way frequency table may be augmented with row and column totals (as in Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>). Each marginal total represents the distribution of one of the categorical variables, while ignoring the other. The total column represents the distribution of the row variable; in this case, the highest degree completed. The total row represents the distribution of the column variable; in this case, willingness to cut their standard of living to protect the environment. Thus, for example there were 238 respondents whose highest completed degree was junior college and there were 713 respondents who were very unwilling to cut their standard of living to protect the environment.</p>
-<p>If one variables can be considered as the response, then this variable should form the columns of the frequency table. For example, “willingness to cut” could be considered the response variable and it was, appropriately, placed as the column variable in Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>.</p>
+<p>If one variable can be considered as the response, then this variable should form the columns of the frequency table. For example, “willingness to cut” could be considered the response variable and it was, appropriately, placed as the column variable in Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>.</p>
 </div>
 <div id="percentage-tables" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Percentage Tables</h2>
@@ -633,7 +641,7 @@ ltHS
 <td style="text-align:right;width: 0.7in; ">
 4.5
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 16.3
 </td>
 </tr>
@@ -656,7 +664,7 @@ HS
 <td style="text-align:right;width: 0.7in; ">
 9.9
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 52.8
 </td>
 </tr>
@@ -679,7 +687,7 @@ JC
 <td style="text-align:right;width: 0.7in; ">
 1.1
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 6.0
 </td>
 </tr>
@@ -702,7 +710,7 @@ BS
 <td style="text-align:right;width: 0.7in; ">
 1.9
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 17.2
 </td>
 </tr>
@@ -725,30 +733,30 @@ grad
 <td style="text-align:right;width: 0.7in; ">
 0.6
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 7.5
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;font-weight: bold;width: 0.7in; ">
+<td style="text-align:left;font-weight: bold;background-color: beige !important;font-weight: bold;width: 0.7in; ">
 Sum
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 5.3
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 26.5
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 24.4
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 25.6
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 18.0
 </td>
-<td style="text-align:right;font-weight: bold;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 99.8
 </td>
 </tr>
@@ -809,7 +817,7 @@ ltHS
 <td style="text-align:right;width: 0.7in; ">
 27.6
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 100.0
 </td>
 </tr>
@@ -832,7 +840,7 @@ HS
 <td style="text-align:right;width: 0.7in; ">
 18.8
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 100.1
 </td>
 </tr>
@@ -855,7 +863,7 @@ JC
 <td style="text-align:right;width: 0.7in; ">
 18.5
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 100.0
 </td>
 </tr>
@@ -878,7 +886,7 @@ BS
 <td style="text-align:right;width: 0.7in; ">
 11.0
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 100.0
 </td>
 </tr>
@@ -901,14 +909,14 @@ grad
 <td style="text-align:right;width: 0.7in; ">
 8.0
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 100.0
 </td>
 </tr>
 </tbody>
 </table>
 <p> </p>
-<p>The value in each cell of a row-percentage table is the percentage of individuals in that ROW that have the characteristic of that column. For example, 6.2% of the respondents with less than a high school degree are very willing to cut their standard of living to protect the environment. This statement must be read carefully. OF THE RESPONDENTS WITH LESS THAN A HIGH SCHOOL DEGREE, not of all respondents, 6.2% were very willing to cut their standard of living.</p>
+<p>The value in each cell of a row-percentage table is the percentage <strong>OF INDIVIDUALS IN THAT ROW</strong> that have the characteristic of that column. For example, 6.2% <strong>OF RESPONDENTS WITH LESS THAN A HIGH SCHOOL DEGREE</strong> are very willing to cut their standard of living to protect the environment.<a href="#fn47" class="footnote-ref" id="fnref47"><sup>47</sup></a></p>
 <p>If the response variable formed the columns, then the row-percentage table allows one to compare percentages in levels of the response (i.e., columns) across groups (i.e., rows). For example, one can see that there is a general decrease in the percentage of respondents that were “very unwilling” to cut their standard of living to protect the environment as the level of education increased (Table <a href="BEDACat.html#tab:EnvRowP">10.3</a>).</p>
 </div>
 <div id="column-percentage-table" class="section level3" number="10.2.3">
@@ -1042,47 +1050,190 @@ grad
 </td>
 </tr>
 <tr>
-<td style="text-align:left;font-weight: bold;font-weight: bold;width: 0.7in; ">
+<td style="text-align:left;font-weight: bold;background-color: beige !important;font-weight: bold;width: 0.7in; ">
 Sum
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 99.9
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 100.0
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 100.1
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 100.0
 </td>
-<td style="text-align:right;font-weight: bold;width: 0.7in; ">
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
 100.1
 </td>
 </tr>
 </tbody>
 </table>
 <p> </p>
-<p>The value in each cell of a column-percentage table is the percentage of all individuals in that COLUMN that have the characteristic of that row. For example, 19.2% of respondents who were very willing to cut their standard of living had less than a high school degree. Again, this is a very literal statement. OF THE RESPONDENTS WHO WERE VERY WILLING TO CUT THEIR STANDARD OF LIVING, not of all respondents, 19.2% had less than a high school degree.</p>
+<p>The value in each cell of a column-percentage table is the percentage <strong>OF ALL INDIVIDUALS IN THAT COLUMN</strong> that have the characteristic of that row. For example, 19.2% <strong>OF RESPONDENTS WHO WERE ERY WILLING TO CUT THEIR STANDARD OF LIVING</strong> had less than a high school degree.<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a></p>
 </div>
 </div>
 <div id="which-table-to-use" class="section level2" number="10.3">
 <h2><span class="header-section-number">10.3</span> Which Table to Use?</h2>
-<p>Determining which table to use comes from applying one simple rule and practicing with several tables. The rule comes from determining if the question restricts the frame of reference to a particular level or category of one of the variables. If the question does restrict to a particular level, then either the row or column-percentage table that similarly restricts the frame of reference must be used. If a restriction to a particular level is not made, then the total-percentage table is used.</p>
-<p>For example, consider the question – “What percentage of respondents with a bachelor’s degree were very unwilling to cut their standard of living to protect the environment?” This question refers to only respondents with bachelor’s degrees (i.e., “… of respondents with a bachelor’s degree …”). Thus, the answer is restricted to the “BS” row of the frequency table. The ROW-percentage table restricts the original table to the row levels and would be used to answer this question. Therefore, 11.0% of respondents with bachelor’s degrees were very unwilling to cut their standard of living to protect the environment (Table <a href="BEDACat.html#tab:EnvRowP">10.3</a>).</p>
-<p>Now consider the question – “What percentage of all respondents had a high school degree and were very willing to cut their standard of living?” This question does not restrict the frame of reference because it refers to “… of all respondents ….” Therefore, from the TOTAL-percentage table (Table <a href="BEDACat.html#tab:EnvTblP">10.2</a>), 2.2% of respondents had a high school degree and were very willing to cut their standard of living.</p>
-<p>Also consider this question – “What percentage of respondents who were neither willing nor unwilling to cut their standard of living had graduate degrees?” This question refers only to respondents who were neither willing nor unwilling to cut their standard of living and, thus, restricts the question to the “neither” column of the frequency table. Thus, the answer will come from the COLUMN-percentage table. Therefore, 8.6% of respondents who were neither willing nor unwilling to cut their standard of living had graduate degrees (Table <a href="BEDACat.html#tab:EnvColP">10.4</a>).</p>
-<p>Finally, consider this question – “What percentage of all respondents were very willing to cut their standard of living to help the environment?” This question has no restrictions, so the total-percentage table would be used. In addition, this question is only concerned with one of the two variables; thus, the answer will come from a marginal distribution. Therefore, 208 out of all 3955 respondents, or 5.3%, were very willing to cut their standard of living to help the environment.</p>
+<p>Determining which table to use comes from applying one simple rule and practicing with several tables. The rule comes from determining if the question restricts the frame of reference to a particular level of one of the variables. If the question does restrict to a particular level, then either the row or column-percentage table that similarly restricts the frame of reference must be used. If a restriction to a particular level is not made, then the total-percentage table is used.</p>
+<p>For example, consider the question – “What percentage of respondents with a bachelor’s degree were very unwilling to cut their standard of living to protect the environment?” This question refers to only respondents with bachelor’s degrees (i.e., “… of respondents with a bachelor’s degree …”). Thus, the answer is restricted to the “BS” <em>ROW</em> of the frequency table and, thus, the answer is found in the <em>ROW</em>-percentage table. Therefore, 11.0% of respondents with bachelor’s degrees were very unwilling to cut their standard of living to protect the environment (Table <a href="BEDACat.html#tab:EnvRowP">10.3</a>).</p>
+<p>Now consider the question – “What percentage of all respondents had a high school degree and were very willing to cut their standard of living?” This question does not restrict the frame of reference because it asks “… of all respondents ….” Therefore, from the TOTAL-percentage table (Table <a href="BEDACat.html#tab:EnvTblP">10.2</a>), 2.2% of all respondents had a high school degree and were very willing to cut their standard of living.</p>
+<p>Also consider this question – “What percentage of respondents who were neither willing nor unwilling to cut their standard of living had graduate degrees?” This question refers only to respondents in the NEITHER <em>COLUMN</em> (i.e., “… neither willing nor unwilling …”) and, thus, the answer will come from the <em>COLUMN</em>-percentage table. Therefore, 8.6% of respondents who were neither willing nor unwilling to cut their standard of living had graduate degrees (Table <a href="BEDACat.html#tab:EnvColP">10.4</a>).</p>
+<p>Finally, consider this question – “What percentage of all respondents were very willing to cut their standard of living to help the environment?” This question has no restrictions, so the total-percentage table would be used. In addition, this question is only concerned with with the <em>COLUMN</em> variable and, thus, the answer will come from the “Sum” <em>ROW</em>. Therefore, 5.3%, were very willing to cut their standard of living to help the environment.</p>
 <div class="tip">
-<p>To determine which percentage table to use determine what type of restriction, if any, has been placed on the frame of reference for the question.</p>
+<ul>
+<li>To determine which percentage table to use determine what type of restriction, if any, has been placed on the frame of reference for the question.</li>
+<li>If a question does not refer to one of the two variables, then the answer will generally come from the marginal distribution (the “Sum” row or column) of the other variable.</li>
+</ul>
 </div>
-<div class="tip">
-<p>If a question does not refer to one of the two variables, then the answer will generally come from the marginal distribution of the other variable.</p>
+<p> </p>
 </div>
+<div id="example-calculations-1" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> Example Calculations</h2>
+<p>In early 2021, the United States was deeply divided with respect to political allegiances and was just beginning to combat the COVID-19 virus with three different vaccines. The development of the vaccines had begun during the Donald Trump’s presidency, but administration of the vaccine had largely been carried out during the first months of Joseph Biden’s presidency. In March 2021, YouGov asked a sample of U.S. adults “Thinking about the vaccine rollout in the US, do you believe the Trump administration or the Biden administration deserves more credit?” The results for those respondents that identified a political affiliation and had an opinion about which administration deserved credit are shown in Table <a href="BEDACat.html#tab:COVIDPoll">10.5</a>.</p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:COVIDPoll">Table 10.5: </span>Frequency table of respondent by political affiliation (rows) and which presidential administration they think deserves more credit for the COVID-19 vaccine rollout (columns).
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+Trump
+</th>
+<th style="text-align:right;font-weight: bold;">
+Biden
+</th>
+<th style="text-align:right;font-weight: bold;">
+Both
+</th>
+<th style="text-align:right;font-weight: bold;">
+Neither
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.8in; ">
+Democrat
+</td>
+<td style="text-align:right;width: 0.8in; ">
+249
+</td>
+<td style="text-align:right;width: 0.8in; ">
+2023
+</td>
+<td style="text-align:right;width: 0.8in; ">
+436
+</td>
+<td style="text-align:right;width: 0.8in; ">
+187
+</td>
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.8in; ">
+2895
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.8in; ">
+Republican
+</td>
+<td style="text-align:right;width: 0.8in; ">
+2013
+</td>
+<td style="text-align:right;width: 0.8in; ">
+230
+</td>
+<td style="text-align:right;width: 0.8in; ">
+316
+</td>
+<td style="text-align:right;width: 0.8in; ">
+144
+</td>
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.8in; ">
+2703
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.8in; ">
+Independent
+</td>
+<td style="text-align:right;width: 0.8in; ">
+323
+</td>
+<td style="text-align:right;width: 0.8in; ">
+313
+</td>
+<td style="text-align:right;width: 0.8in; ">
+127
+</td>
+<td style="text-align:right;width: 0.8in; ">
+108
+</td>
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.8in; ">
+871
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;background-color: beige !important;font-weight: bold;width: 0.8in; ">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.8in; ">
+2585
+</td>
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.8in; ">
+2566
+</td>
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.8in; ">
+879
+</td>
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.8in; ">
+439
+</td>
+<td style="text-align:right;font-weight: bold;background-color: beige !important;font-weight: bold;background-color: beige !important;width: 0.8in; ">
+6469
+</td>
+</tr>
+</tbody>
+</table>
+<p>Use these results to answer the following questions.</p>
+<ol style="list-style-type: decimal">
+<li>What percent of “Democrats” believe that Donald Trump’s administration deserves credit for the COVID-19 vaccine rollout?
+<ul>
+<li>Of the 2895 “Democrats” in the sample, 8.6% believed that Donald Trump’s administration deserved credit for the COVID-19 vaccine rollout (=<span class="math inline">\(\frac{249}{2895}\)</span>×100).</li>
+</ul></li>
+<li>What percent of “Republicans” believe that Joseph Biden’s administration deserves credit for the COVID-19 vaccine rollout?
+<ul>
+<li>Of the 2703 “Replublicans” in the sample, 8.5% believed that Joseph Biden’s administration deserved credit for the COVID-19 vaccine rollout (=<span class="math inline">\(\frac{230}{2703}\)</span>×100).</li>
+</ul></li>
+<li>What percent of those that believe that neither administration deserves credits for the COVID-19 vaccine rollout were “Independents?”
+<ul>
+<li>Of the 439 respondent that believed neither administration deserved credit for the COVID-19 vaccine rollout, 24.6% were “Independents” (=<span class="math inline">\(\frac{108}{439}\)</span>×100).</li>
+</ul></li>
+<li>What percent of all respondents were “Independents?”
+<ul>
+<li>Of the 6469 respondents in the sample, 13.5% were “Independents” (=<span class="math inline">\(\frac{871}{6469}\)</span>×100).</li>
+</ul></li>
+<li>What percent of all respondents were “Democrats” and believed that both administrations deserved credit for the COVID-19 vaccine rollout?
+<ul>
+<li>Of the 6469 respondents in the sample, 6.7% were “Democrats” and believed that both administrations deserved credit for the COVID-19 vaccine rollout (=<span class="math inline">\(\frac{436}{6469}\)</span>×100).</li>
+</ul></li>
+</ol>
 <p> </p>
 
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="47">
+<li id="fn47"><p>This statement must be read carefully. OF THE RESPONDENTS WITH LESS THAN A HIGH SCHOOL DEGREE, not of all respondents, 6.2% were very willing to cut their standard of living.<a href="BEDACat.html#fnref47" class="footnote-back">↩︎</a></p></li>
+<li id="fn48"><p>Again, read this carefully. OF THE RESPONDENTS WHO WERE VERY WILLING TO CUT THEIR STANDARD OF LIVING, not of all respondents, 19.2% had less than a high school degree.<a href="BEDACat.html#fnref48" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

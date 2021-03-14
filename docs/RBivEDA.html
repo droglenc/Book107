@@ -203,6 +203,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.1" data-path="BEDACat.html"><a href="BEDACat.html#frequency-tables"><i class="fa fa-check"></i><b>10.1</b> Frequency Tables</a></li>
 <li class="chapter" data-level="10.2" data-path="BEDACat.html"><a href="BEDACat.html#percentage-tables"><i class="fa fa-check"></i><b>10.2</b> Percentage Tables</a></li>
 <li class="chapter" data-level="10.3" data-path="BEDACat.html"><a href="BEDACat.html#which-table-to-use"><i class="fa fa-check"></i><b>10.3</b> Which Table to Use?</a></li>
+<li class="chapter" data-level="10.4" data-path="BEDACat.html"><a href="BEDACat.html#example-calculations-1"><i class="fa fa-check"></i><b>10.4</b> Example Calculations</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="SamplingDist.html"><a href="SamplingDist.html"><i class="fa fa-check"></i><b>11</b> Sampling Distributions</a>
 <ul>
@@ -337,7 +338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb125-2"><a href="RBivEDA.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <div id="data-sets-1" class="section level4 unnumbered">
 <h4>Data Sets</h4>
-<p>The quantitative summaries and graphics will use the <code>weight</code> (lbs) and highway miles per gallon (<code>HMPG</code>) for 93 cars from the 1993 model year. Ultimately the relationship between highway MPG and the weight of a car is described. These data are in 93cars.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars.csv">data</a>, <a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars_meta.txt">meta</a>) and are loaded into R below with the methods described in Section <a href="RData.html#alternative-forms-of-getting-data">22.3.1</a>.<a href="#fn87" class="footnote-ref" id="fnref87"><sup>87</sup></a></p>
+<p>The quantitative summaries and graphics will use the <code>weight</code> (lbs) and highway miles per gallon (<code>HMPG</code>) for 93 cars from the 1993 model year. Ultimately the relationship between highway MPG and the weight of a car is described. These data are in 93cars.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars.csv">data</a>, <a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars_meta.txt">meta</a>) and are loaded into R below with the methods described in Section <a href="RData.html#alternative-forms-of-getting-data">22.3.1</a>.<a href="#fn89" class="footnote-ref" id="fnref89"><sup>89</sup></a></p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb126-1"><a href="RBivEDA.html#cb126-1" aria-hidden="true" tabindex="-1"></a>cars93 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;93cars.csv&quot;</span>)</span>
 <span id="cb126-2"><a href="RBivEDA.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(cars93,<span class="at">which=</span><span class="fu">c</span>(<span class="st">&quot;MFG&quot;</span>,<span class="st">&quot;Model&quot;</span>,<span class="st">&quot;Type&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;HMPG&quot;</span>))</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;             MFG   Model    Type Weight HMPG
@@ -364,7 +365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre class="ROUTPUT"><code>#R&gt;   [1] &quot;ltHS&quot; &quot;HS&quot;   &quot;JC&quot;   &quot;BS&quot;   &quot;grad&quot;</code></pre>
 <div class="sourceCode" id="cb132"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb132-1"><a href="RBivEDA.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(gss<span class="sc">$</span>grnsol)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] &quot;vwill&quot;   &quot;will&quot;    &quot;neither&quot; &quot;un&quot;      &quot;vun&quot;</code></pre>
-<p>The variables are then converted to factors below with <code>factor()</code> using <code>levels=</code> to control the order of the variables.<a href="#fn88" class="footnote-ref" id="fnref88"><sup>88</sup></a></p>
+<p>The variables are then converted to factors below with <code>factor()</code> using <code>levels=</code> to control the order of the variables.<a href="#fn90" class="footnote-ref" id="fnref90"><sup>90</sup></a></p>
 <div class="sourceCode" id="cb134"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb134-1"><a href="RBivEDA.html#cb134-1" aria-hidden="true" tabindex="-1"></a>gss<span class="sc">$</span>degree <span class="ot">&lt;-</span> <span class="fu">factor</span>(gss<span class="sc">$</span>degree,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;ltHS&quot;</span>,<span class="st">&quot;HS&quot;</span>,<span class="st">&quot;JC&quot;</span>,<span class="st">&quot;BS&quot;</span>,<span class="st">&quot;grad&quot;</span>))</span>
 <span id="cb134-2"><a href="RBivEDA.html#cb134-2" aria-hidden="true" tabindex="-1"></a>gss<span class="sc">$</span>grnsol <span class="ot">&lt;-</span> <span class="fu">factor</span>(gss<span class="sc">$</span>grnsol,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;vwill&quot;</span>,<span class="st">&quot;will&quot;</span>,<span class="st">&quot;neither&quot;</span>,<span class="st">&quot;un&quot;</span>,<span class="st">&quot;vun&quot;</span>))</span></code></pre></div>
 <p>The levels are checked with <code>levels()</code> below to make sure that the order is correct and that none are missing (which would imply that the level was mis-spelled above).</p>
@@ -382,14 +383,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">25.1</span> Quantitative</h2>
 <div id="scatterplots-1" class="section level3" number="25.1.1">
 <h3><span class="header-section-number">25.1.1</span> Scatterplots</h3>
-<p>Scatterplots are constructed by giving the x- and y-axis variables to <code>x=</code> and <code>y=</code> in <code>aes()</code> in <code>ggplot()</code><a href="#fn89" class="footnote-ref" id="fnref89"><sup>89</sup></a> and then adding <code>geom_point()</code>.</p>
+<p>Scatterplots are constructed by giving the x- and y-axis variables to <code>x=</code> and <code>y=</code> in <code>aes()</code> in <code>ggplot()</code><a href="#fn91" class="footnote-ref" id="fnref91"><sup>91</sup></a> and then adding <code>geom_point()</code>.</p>
 <div class="sourceCode" id="cb139"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb139-1"><a href="RBivEDA.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
 <span id="cb139-2"><a href="RBivEDA.html#cb139-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-101-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>Define both x and y variables for a scatterplot.</p>
 </div>
-<p>The axis labels can be properly labeled with <code>labs()</code> and the theme used in the course applied with <code>theme_NCStats()</code>.<a href="#fn90" class="footnote-ref" id="fnref90"><sup>90</sup></a></p>
+<p>The axis labels can be properly labeled with <code>labs()</code> and the theme used in the course applied with <code>theme_NCStats()</code>.<a href="#fn92" class="footnote-ref" id="fnref92"><sup>92</sup></a></p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb140-1"><a href="RBivEDA.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
 <span id="cb140-2"><a href="RBivEDA.html#cb140-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb140-3"><a href="RBivEDA.html#cb140-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Car Weight (lbs)&quot;</span>,<span class="at">y=</span><span class="st">&quot;Miles per Gallon on the Highway&quot;</span>) <span class="sc">+</span></span>
@@ -405,7 +406,7 @@ Figure 25.1: Point shapes available in R and their numerical codes. For shapes 0
 </p>
 </div>
 <p> </p>
-<p>My typical choice for plotting points are shown below.<a href="#fn91" class="footnote-ref" id="fnref91"><sup>91</sup></a></p>
+<p>My typical choice for plotting points are shown below.<a href="#fn93" class="footnote-ref" id="fnref93"><sup>93</sup></a></p>
 <div class="sourceCode" id="cb141"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb141-1"><a href="RBivEDA.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
 <span id="cb141-2"><a href="RBivEDA.html#cb141-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">21</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;darkgray&quot;</span>,<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb141-3"><a href="RBivEDA.html#cb141-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Car Weight (lbs)&quot;</span>,<span class="at">y=</span><span class="st">&quot;Miles per Gallon on the Highway&quot;</span>) <span class="sc">+</span></span>
@@ -417,7 +418,7 @@ Figure 25.1: Point shapes available in R and their numerical codes. For shapes 0
 </div>
 <div id="correlation-coefficient-1" class="section level3" number="25.1.2">
 <h3><span class="header-section-number">25.1.2</span> Correlation Coefficient</h3>
-<p>The correlation coefficient (<span class="math inline">\(r\)</span>) between two quantitative variables is computed with <code>corr()</code> using a formula of the form <code>qvarY~qvarX</code> or <code>~qvarY+qvarX</code>, where <code>qvarY</code> and <code>qvarX</code> are the names of quantitative variables, as the first argument and the corresponding data frame in <code>data=</code>.<a href="#fn92" class="footnote-ref" id="fnref92"><sup>92</sup></a> For example, the correlation coefficient between highway MPG and weight for all cars in the car data is -0.81.</p>
+<p>The correlation coefficient (<span class="math inline">\(r\)</span>) between two quantitative variables is computed with <code>corr()</code> using a formula of the form <code>qvarY~qvarX</code> or <code>~qvarY+qvarX</code>, where <code>qvarY</code> and <code>qvarX</code> are the names of quantitative variables, as the first argument and the corresponding data frame in <code>data=</code>.<a href="#fn94" class="footnote-ref" id="fnref94"><sup>94</sup></a> For example, the correlation coefficient between highway MPG and weight for all cars in the car data is -0.81.</p>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb142-1"><a href="RBivEDA.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corr</span>(HMPG<span class="sc">~</span>Weight,<span class="at">data=</span>cars93)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] -0.8106581</code></pre>
 <div class="sourceCode" id="cb144"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb144-1"><a href="RBivEDA.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corr</span>(<span class="sc">~</span>HMPG<span class="sc">+</span>Weight,<span class="at">data=</span>cars93)  <span class="co"># alternative form</span></span></code></pre></div>
@@ -458,7 +459,7 @@ Figure 25.1: Point shapes available in R and their numerical codes. For shapes 0
 </div>
 <div id="percentage-tables-1" class="section level3" number="25.2.2">
 <h3><span class="header-section-number">25.2.2</span> Percentage Tables</h3>
-<p>Percentage tables are constructed in R by submitting the saved <code>xtabs()</code> object to <code>percTable()</code>.<a href="#fn93" class="footnote-ref" id="fnref93"><sup>93</sup></a> A total- or table-percentage table is constructed by default.</p>
+<p>Percentage tables are constructed in R by submitting the saved <code>xtabs()</code> object to <code>percTable()</code>.<a href="#fn95" class="footnote-ref" id="fnref95"><sup>95</sup></a> A total- or table-percentage table is constructed by default.</p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb152-1"><a href="RBivEDA.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(tbl1)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;         grnsol
 #R&gt;   degree vwill will neither   un  vun  Sum
@@ -494,14 +495,14 @@ Figure 25.1: Point shapes available in R and their numerical codes. For shapes 0
 </div>
 <div class="footnotes">
 <hr />
-<ol start="87">
-<li id="fn87"><p>The <code>which=</code> argument in <code>headtail()</code> is used to show only a few variables of <code>cars93</code>, just to save space.<a href="RBivEDA.html#fnref87" class="footnote-back">↩︎</a></p></li>
-<li id="fn88"><p>Recall from the previous module that these levels must be spelled <strong>exactly</strong> as they appear in the data frame.<a href="RBivEDA.html#fnref88" class="footnote-back">↩︎</a></p></li>
-<li id="fn89"><p>The use of <code>ggplot()</code> was introduced in the previous module.<a href="RBivEDA.html#fnref89" class="footnote-back">↩︎</a></p></li>
-<li id="fn90"><p>Both <code>labs()</code> and <code>theme_NCStats()</code> were introduced in the previous module.<a href="RBivEDA.html#fnref90" class="footnote-back">↩︎</a></p></li>
-<li id="fn91"><p>The <code>size=</code> is used to make the points larger.<a href="RBivEDA.html#fnref91" class="footnote-back">↩︎</a></p></li>
-<li id="fn92"><p><code>corr()</code> is from <code>NCStats</code>.<a href="RBivEDA.html#fnref92" class="footnote-back">↩︎</a></p></li>
-<li id="fn93"><p><code>percTable()</code> is from <code>NCStats</code>.<a href="RBivEDA.html#fnref93" class="footnote-back">↩︎</a></p></li>
+<ol start="89">
+<li id="fn89"><p>The <code>which=</code> argument in <code>headtail()</code> is used to show only a few variables of <code>cars93</code>, just to save space.<a href="RBivEDA.html#fnref89" class="footnote-back">↩︎</a></p></li>
+<li id="fn90"><p>Recall from the previous module that these levels must be spelled <strong>exactly</strong> as they appear in the data frame.<a href="RBivEDA.html#fnref90" class="footnote-back">↩︎</a></p></li>
+<li id="fn91"><p>The use of <code>ggplot()</code> was introduced in the previous module.<a href="RBivEDA.html#fnref91" class="footnote-back">↩︎</a></p></li>
+<li id="fn92"><p>Both <code>labs()</code> and <code>theme_NCStats()</code> were introduced in the previous module.<a href="RBivEDA.html#fnref92" class="footnote-back">↩︎</a></p></li>
+<li id="fn93"><p>The <code>size=</code> is used to make the points larger.<a href="RBivEDA.html#fnref93" class="footnote-back">↩︎</a></p></li>
+<li id="fn94"><p><code>corr()</code> is from <code>NCStats</code>.<a href="RBivEDA.html#fnref94" class="footnote-back">↩︎</a></p></li>
+<li id="fn95"><p><code>percTable()</code> is from <code>NCStats</code>.<a href="RBivEDA.html#fnref95" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

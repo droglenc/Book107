@@ -1,20 +1,19 @@
 # Bivariate EDA - Categorical {#BEDACat}
-Two-way frequency tables summarize two categorical variables recorded on the same individual by displaying levels of the first variable as rows and levels of the second variable as columns. Each cell in this table contains the frequency of individuals that were in the corresponding levels of each variable. These frequency tables are often converted to percentage tables for ease of summarization and comparison among populations. This module explores the construction and interpretation of frequency and percentage tables.
+Two-way frequency tables summarize two categorical variables recorded on the same individual by displaying levels of the first variable as rows and levels of the second variable as columns. Each cell in this table contains the frequency of individuals that were in the corresponding levels of each variable. These frequency tables are often converted to percentage tables for ease of summarization and comparison among populations. This module explores the construction and interpretation of two-way frequency and percentage tables.
 
 The General Sociological Survey (GSS) is a very large survey that has been administered 25 times since 1972. The purpose of the GSS is to gather data on contemporary American society in order to monitor and explain trends in attitudes, behaviors, and attributes. Data from the following two questions on the GSS are used throughout this module.
 
 1. What is your highest degree earned? [choices -- "less than high school diploma", "high school diploma", "junior college", "bachelors", or "graduate"; labeled as degree]
 1. How willing would you be to accept cuts in your standard of living in order to protect the environment? [choices -- "very willing", "fairly willing", "neither willing nor unwilling", "not very willing", or "not at all willing"; labeled as grnsol]
 
-An example of these data are shown below below.
-
-&nbsp;
+An example of these data are shown below.
 
 ```{r echo=FALSE}
 gss <- read.csv("https://raw.githubusercontent.com/droglenc/NCData/master/GSSWill2Pay.csv") %>%
   mutate(degree=factor(degree,levels=c("ltHS","HS","JC","BS","grad")),
          grnsol=factor(grnsol,levels=c("vwill","will","neither","un","vun")))
-headtail(gss) %>%
+FSA::peek(gss,n=5) %>%
+  tibble::add_row(degree=rep(".",2),grnsol=rep(".",2)) %>%
   knitr::kable(booktab=TRUE,row.names=FALSE,align="c") %>%
   kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
   kableExtra::row_spec(0,bold=TRUE) %>%
@@ -27,7 +26,7 @@ headtail(gss) %>%
 tbl1 <- xtabs(~degree+grnsol,data=gss)
 tbl2 <- addMargins(tbl1)
 ```
-A common method of summarizing bivariate categorical data is to count individuals that have each combination of levels of the two categorical variables. For example, how many respondents had less than a HS degree and were very willing, how many had a high school degree and were willing, and so on. The count of the number of individuals of each combination is called a frequency. A two-way frequency table offers an efficient way to display these frequencies (Table \@ref(tab:EnvFreq)). For example, `r tbl2["ltHS","vwill"]` of the respondents had less than a high school degree and were very willing to take a cut in their standard of living to protect the environment. Similarly, `r tbl2["HS","will"]` respondents had a high school degree and were willing to cut their standard of living.
+A common method of summarizing bivariate categorical data is to count individuals that have each combination of levels of the two categorical variables. For example, how many respondents had less than a HS degree and were very willing, how many had a high school degree and were willing, and so on. The count of the number of individuals of each combination is called a frequency. A two-way frequency table (Table \@ref(tab:EnvFreq)) offers an efficient way to display these frequencies. For example, `r tbl2["ltHS","vwill"]` of the respondents had less than a high school degree and were very willing to take a cut in their standard of living to protect the environment. Similarly, `r tbl2["HS","will"]` respondents had a high school degree and were willing to cut their standard of living.
 
 &nbsp;
 
@@ -36,7 +35,9 @@ tbl2 %>%
   knitr::kable(booktab=TRUE,align="r",caption="Frequency table of respondent's highest completed degree (rows) and willingness to cut their standard of living to protect the environment (columns).") %>%
   kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
   kableExtra::row_spec(c(0,6),bold=TRUE) %>%
+  kableExtra::row_spec(6,background="beige") %>%
   kableExtra::column_spec(c(1,7),bold=TRUE) %>%
+  kableExtra::column_spec(7,background="beige") %>%
   kableExtra::column_spec(1:7,width="0.7in")
 ```
 
@@ -44,7 +45,7 @@ tbl2 %>%
 
 The margins of a two-way frequency table may be augmented with row and column totals (as in Table \@ref(tab:EnvFreq)). Each marginal total represents the distribution of one of the categorical variables, while ignoring the other. The total column represents the distribution of the row variable; in this case, the highest degree completed. The total row represents the distribution of the column variable; in this case, willingness to cut their standard of living to protect the environment. Thus, for example there were `r tbl2["JC","Sum"]` respondents whose highest completed degree was junior college and there were `r tbl2["Sum","vun"]` respondents who were very unwilling to cut their standard of living to protect the environment.
 
-If one variables can be considered as the response, then this variable should form the columns of the frequency table. For example, "willingness to cut" could be considered the response variable and it was, appropriately, placed as the column variable in Table \@ref(tab:EnvFreq).
+If one variable can be considered as the response, then this variable should form the columns of the frequency table. For example, "willingness to cut" could be considered the response variable and it was, appropriately, placed as the column variable in Table \@ref(tab:EnvFreq).
 
 
 ## Percentage Tables
@@ -61,7 +62,9 @@ tbl1.t %>%
   knitr::kable(booktab=TRUE,align="r",caption="Table-percentage table of respondent's highest completed degree (rows) and willingness to cut their standard of living to protect the environment (columns).") %>%
   kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
   kableExtra::row_spec(c(0,6),bold=TRUE) %>%
+  kableExtra::row_spec(6,background="beige") %>%
   kableExtra::column_spec(c(1,7),bold=TRUE) %>%
+  kableExtra::column_spec(7,background="beige") %>%
   kableExtra::column_spec(1:7,width="0.7in")
 ```
 
@@ -81,12 +84,13 @@ tbl1.r %>%
   kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
   kableExtra::row_spec(0,bold=TRUE) %>%
   kableExtra::column_spec(c(1,7),bold=TRUE) %>%
+  kableExtra::column_spec(7,background="beige") %>%
   kableExtra::column_spec(1:7,width="0.7in")
 ```
 
 &nbsp;
 
-The value in each cell of a row-percentage table is the percentage of individuals in that ROW that have the characteristic of that column. For example, `r formatC(tbl1.r["ltHS","vwill"],format="f",digits=1)`% of the respondents with less than a high school degree are very willing to cut their standard of living to protect the environment. This statement must be read carefully. OF THE RESPONDENTS WITH LESS THAN A HIGH SCHOOL DEGREE, not of all respondents, `r formatC(tbl1.r["ltHS","vwill"],format="f",digits=1)`% were very willing to cut their standard of living.
+The value in each cell of a row-percentage table is the percentage **OF INDIVIDUALS IN THAT ROW** that have the characteristic of that column. For example, `r formatC(tbl1.r["ltHS","vwill"],format="f",digits=1)`% **OF RESPONDENTS WITH LESS THAN A HIGH SCHOOL DEGREE** are very willing to cut their standard of living to protect the environment.^[This statement must be read carefully. OF THE RESPONDENTS WITH LESS THAN A HIGH SCHOOL DEGREE, not of all respondents, `r formatC(tbl1.r["ltHS","vwill"],format="f",digits=1)`% were very willing to cut their standard of living.]
 
 If the response variable formed the columns, then the row-percentage table allows one to compare percentages in levels of the response (i.e., columns) across groups (i.e., rows). For example, one can see that there is a general decrease in the percentage of respondents that were "very unwilling" to cut their standard of living to protect the environment as the level of education increased (Table \@ref(tab:EnvRowP)).
 
@@ -101,32 +105,67 @@ tbl1.c %>%
   knitr::kable(booktab=TRUE,align="r",caption="Column-percentage table of respondent's highest completed degree (rows) and willingness to cut their standard of living to protect the environment (columns).") %>%
   kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
   kableExtra::row_spec(c(0,6),bold=TRUE) %>%
+  kableExtra::row_spec(6,background="beige") %>%
   kableExtra::column_spec(1,bold=TRUE) %>%
   kableExtra::column_spec(1:6,width="0.7in")
 ```
 
 &nbsp;
 
-The value in each cell of a column-percentage table is the percentage of all individuals in that COLUMN that have the characteristic of that row. For example, `r formatC(tbl1.c["ltHS","vwill"],format="f",digits=1)`% of respondents who were very willing to cut their standard of living had less than a high school degree. Again, this is a very literal statement. OF THE RESPONDENTS WHO WERE VERY WILLING TO CUT THEIR STANDARD OF LIVING, not of all respondents, `r formatC(tbl1.c["ltHS","vwill"],format="f",digits=1)`% had less than a high school degree.
+The value in each cell of a column-percentage table is the percentage **OF ALL INDIVIDUALS IN THAT COLUMN** that have the characteristic of that row. For example, `r formatC(tbl1.c["ltHS","vwill"],format="f",digits=1)`% **OF RESPONDENTS WHO WERE ERY WILLING TO CUT THEIR STANDARD OF LIVING** had less than a high school degree.^[Again, read this carefully. OF THE RESPONDENTS WHO WERE VERY WILLING TO CUT THEIR STANDARD OF LIVING, not of all respondents, `r formatC(tbl1.c["ltHS","vwill"],format="f",digits=1)`% had less than a high school degree.]
 
 
 ## Which Table to Use?
-Determining which table to use comes from applying one simple rule and practicing with several tables. The rule comes from determining if the question restricts the frame of reference to a particular level or category of one of the variables. If the question does restrict to a particular level, then either the row or column-percentage table that similarly restricts the frame of reference must be used. If a restriction to a particular level is not made, then the total-percentage table is used.
+Determining which table to use comes from applying one simple rule and practicing with several tables. The rule comes from determining if the question restricts the frame of reference to a particular level of one of the variables. If the question does restrict to a particular level, then either the row or column-percentage table that similarly restricts the frame of reference must be used. If a restriction to a particular level is not made, then the total-percentage table is used.
 
-For example, consider the question -- "What percentage of respondents with a bachelor's degree were very unwilling to cut their standard of living to protect the environment?"  This question refers to only respondents with bachelor's degrees (i.e., "... of respondents with a bachelor's degree ..."). Thus, the answer is restricted to the "BS" row of the frequency table. The ROW-percentage table restricts the original table to the row levels and would be used to answer this question. Therefore, `r formatC(tbl1.r["BS","vun"],format="f",digits=1)`% of respondents with bachelor's degrees were very unwilling to cut their standard of living to protect the environment (Table \@ref(tab:EnvRowP)).
+For example, consider the question -- "What percentage of respondents with a bachelor's degree were very unwilling to cut their standard of living to protect the environment?"  This question refers to only respondents with bachelor's degrees (i.e., "... of respondents with a bachelor's degree ..."). Thus, the answer is restricted to the "BS" *ROW* of the frequency table and, thus, the answer is found in the *ROW*-percentage table. Therefore, `r formatC(tbl1.r["BS","vun"],format="f",digits=1)`% of respondents with bachelor's degrees were very unwilling to cut their standard of living to protect the environment (Table \@ref(tab:EnvRowP)).
 
-Now consider the question -- "What percentage of all respondents had a high school degree and were very willing to cut their standard of living?"  This question does not restrict the frame of reference because it refers to "... of all respondents ...". Therefore, from the TOTAL-percentage table (Table \@ref(tab:EnvTblP)), `r formatC(tbl1.t["HS","vwill"],format="f",digits=1)`% of respondents had a high school degree and were very willing to cut their standard of living.
+Now consider the question -- "What percentage of all respondents had a high school degree and were very willing to cut their standard of living?"  This question does not restrict the frame of reference because it asks "... of all respondents ...". Therefore, from the TOTAL-percentage table (Table \@ref(tab:EnvTblP)), `r formatC(tbl1.t["HS","vwill"],format="f",digits=1)`% of all respondents had a high school degree and were very willing to cut their standard of living.
 
-Also consider this question -- "What percentage of respondents who were neither willing nor unwilling to cut their standard of living had graduate degrees?"  This question refers only to respondents who were neither willing nor unwilling to cut their standard of living and, thus, restricts the question to the "neither" column of the frequency table. Thus, the answer will come from the COLUMN-percentage table. Therefore, `r formatC(tbl1.c["grad","neither"],format="f",digits=1)`% of respondents who were neither willing nor unwilling to cut their standard of living had graduate degrees (Table \@ref(tab:EnvColP)).
+Also consider this question -- "What percentage of respondents who were neither willing nor unwilling to cut their standard of living had graduate degrees?"  This question refers only to respondents in the NEITHER *COLUMN* (i.e., "... neither willing nor unwilling ...") and, thus, the answer will come from the *COLUMN*-percentage table. Therefore, `r formatC(tbl1.c["grad","neither"],format="f",digits=1)`% of respondents who were neither willing nor unwilling to cut their standard of living had graduate degrees (Table \@ref(tab:EnvColP)).
 
-Finally, consider this question -- "What percentage of all respondents were very willing to cut their standard of living to help the environment?"  This question has no restrictions, so the total-percentage table would be used. In addition, this question is only concerned with one of the two variables; thus, the answer will come from a marginal distribution. Therefore, `r tbl2["Sum","vwill"]` out of all `r tbl2["Sum","Sum"]` respondents, or `r formatC(100*tbl2["Sum","vwill"]/tbl2["Sum","Sum"],format="f",digits=1)`%, were very willing to cut their standard of living to help the environment.
-
-::: {.tip data-latex=''}
-To determine which percentage table to use determine what type of restriction, if any, has been placed on the frame of reference for the question.
-:::
+Finally, consider this question -- "What percentage of all respondents were very willing to cut their standard of living to help the environment?"  This question has no restrictions, so the total-percentage table would be used. In addition, this question is only concerned with with the *COLUMN* variable and, thus, the answer will come from the "Sum" *ROW*. Therefore, `r formatC(tbl1.t["Sum","vwill"],format="f",digits=1)`%, were very willing to cut their standard of living to help the environment.
 
 ::: {.tip data-latex=''}
-If a question does not refer to one of the two variables, then the answer will generally come from the marginal distribution of the other variable.
+* To determine which percentage table to use determine what type of restriction, if any, has been placed on the frame of reference for the question.
+* If a question does not refer to one of the two variables, then the answer will generally come from the marginal distribution (the "Sum" row or column) of the other variable.
 :::
+
+&nbsp;
+
+## Example Calculations
+In early 2021, the United States was deeply divided with respect to political allegiances and was just beginning to combat the COVID-19 virus with three different vaccines. The development of the vaccines had begun during the Donald Trump's presidency, but administration of the vaccine had largely been carried out during the first months of Joseph Biden's presidency. In March 2021, YouGov asked a sample of U.S. adults "Thinking about the vaccine rollout in the US, do you believe the Trump administration or the Biden administration deserves more credit?". The results for those respondents that identified a political affiliation and had an opinion about which administration deserved credit are shown in Table \@ref(tab:COVIDPoll).
+
+```{r COVIDPoll, echo=FALSE}
+dems <- round(c(8,14,65,6,7)/100*3113,0)
+reps <- round(c(70,11,8,5,6)/100*2876,0)
+inds <- round(c(33,13,32,11,11)/100*978,0)
+ctbl <- matrix(c(dems,reps,inds),nrow=3,byrow=TRUE)
+colnames(ctbl) <- c("Trump","Both","Biden","Neither","Don't Know")
+rownames(ctbl) <- c("Democrat","Republican","Independent")
+ctbl <- ctbl[,c(1,3,2,4)]
+ctbl <- addmargins(ctbl)
+ctbl %>%
+  knitr::kable(booktab=TRUE,align="r",caption="Frequency table of respondent by political affiliation (rows) and which presidential administration they think deserves more credit for the COVID-19 vaccine rollout (columns).") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(c(0,4),bold=TRUE) %>%
+  kableExtra::row_spec(4,background="beige") %>%
+  kableExtra::column_spec(c(1,6),bold=TRUE) %>%
+  kableExtra::column_spec(6,background="beige") %>%
+  kableExtra::column_spec(1:6,width="0.8in")
+```
+
+Use these results to answer the following questions.
+
+1. What percent of "Democrats" believe that Donald Trump's administration deserves credit for the COVID-19 vaccine rollout?
+    * Of the `r ctbl["Democrat","Sum"]` "Democrats" in the sample, `r formatC(ctbl["Democrat","Trump"]/ctbl["Democrat","Sum"]*100,format="f",digits=1)`% believed that Donald Trump's administration deserved credit for the COVID-19 vaccine rollout (=$\frac{`r ctbl["Democrat","Trump"]`}{`r ctbl["Democrat","Sum"]`}$&times;100).
+1. What percent of "Republicans" believe that Joseph Biden's administration deserves credit for the COVID-19 vaccine rollout?
+    * Of the `r ctbl["Republican","Sum"]` "Replublicans" in the sample, `r formatC(ctbl["Republican","Biden"]/ctbl["Republican","Sum"]*100,format="f",digits=1)`% believed that Joseph Biden's administration deserved credit for the COVID-19 vaccine rollout (=$\frac{`r ctbl["Republican","Biden"]`}{`r ctbl["Republican","Sum"]`}$&times;100).
+1. What percent of those that believe that neither administration deserves credits for the COVID-19 vaccine rollout were "Independents"?
+    * Of the `r ctbl["Sum","Neither"]` respondent that believed neither administration deserved credit for the COVID-19 vaccine rollout, `r formatC(ctbl["Independent","Neither"]/ctbl["Sum","Neither"]*100,format="f",digits=1)`% were "Independents" (=$\frac{`r ctbl["Independent","Neither"]`}{`r ctbl["Sum","Neither"]`}$&times;100).
+1. What percent of all respondents were "Independents"?
+    * Of the `r ctbl["Sum","Sum"]` respondents in the sample, `r formatC(ctbl["Independent","Sum"]/ctbl["Sum","Sum"]*100,format="f",digits=1)`% were "Independents" (=$\frac{`r ctbl["Independent","Sum"]`}{`r ctbl["Sum","Sum"]`}$&times;100).
+1. What percent of all respondents were "Democrats" and believed that both administrations deserved credit for the COVID-19 vaccine rollout?
+    * Of the `r ctbl["Sum","Sum"]` respondents in the sample, `r formatC(ctbl["Democrat","Both"]/ctbl["Sum","Sum"]*100,format="f",digits=1)`% were "Democrats" and believed that both administrations deserved credit for the COVID-19 vaccine rollout (=$\frac{`r ctbl["Democrat","Both"]`}{`r ctbl["Sum","Sum"]`}$&times;100).
 
 &nbsp;
