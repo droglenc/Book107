@@ -1,9 +1,7 @@
 # Bivariate EDA - Quantitative {#BEDAQuant}
-Bivariate data occurs when two} variables are measured on the same individuals. For example, you may measure (i) the height and weight of students in class, (ii) depth and area of a lake, (iii) gender and age of welfare recipients, or (iv) number of mice and biomass of legumes in fields. This module is focused on describing the bivariate relationship between two quantitative variables. Bivariate relationships between two categorical variables is described in Module \@ref(BEDACat).
+Bivariate data occurs when two variables are measured on the same individuals. For example, you may measure (i) the height and weight of students in class, (ii) depth and area of a lake, (iii) gender and age of welfare recipients, or (iv) number of mice and biomass of legumes in fields. This module is focused on describing the bivariate relationship between two quantitative variables. Bivariate relationships between two categorical variables is described in Module \@ref(BEDACat).
 
 Data on the weight (lbs) and highway miles per gallon (HMPG) for 93 cars from the 1993 model year are used as an example throughout this module. Ultimately, the relationship between highway MPG and the weight of a car is described. A sample of these data are shown below.
-
-&nbsp;
 
 ```{r CarData, echo=FALSE}
 cars93 <- read.csv("https://raw.githubusercontent.com/droglenc/NCData/master/93cars.csv")
@@ -14,12 +12,14 @@ headtail(cars93,which=c("MFG","Model","Type","CMPG","HMPG","Weight","Cyls")) %>%
   kableExtra::row_spec(0,bold=TRUE)
 ```
 
+&nbsp;
+
 ## Response and Explanatory Variables
 The **response variable** is the variable that one is interested in explaining something (i.e., variability) or in making future predictions about. The **explanatory variable** is the variable that may help explain or allow one to predict the response variable. In general, the response variable is thought to depend on the explanatory variable. Thus, the response variable is often called the **dependent variable**, whereas the explanatory variable is often called the **independent variable**.
 
-One may identify the response variable by determining which of the two variables depends on the other. For example, in the car data, highway MPG is the response variable because gas mileage is most likely affected by the weight of the car (e.g., hypothesize that heavier cars get worse gas mileage), rather than vice versa.
+One may identify the response variable by determining which of the two variables most likely depends on the other. For example, in the car data, highway MPG is the response variable because gas mileage is most likely affected by the weight of the car (e.g., hypothesize that heavier cars get worse gas mileage), rather than vice versa.
 
-In some situations it is not obvious which variable is the response. For example, does the number of mice in the field depend on the number of legumes (lots of feed=lots of mice) or the other way around (lots of mice=not much food left)? Similarly, does area depend on depth or does depth depend on area of the lake? In these situations, the context of the research question is needed to identify the response variable. For example, if the researcher hypothesized that number of mice will be greater if there is more legumes, then number of mice is the response variable. In many cases, the more difficult variable to measure will likely be the response variable. For example, researchers likely wish to predict area of a lake (hard to measure) from depth of the lake (easy to measure).
+In some situations it is not obvious which variable is the response. For example, does the number of mice in the field depend on the number of legumes (lots of food=lots of mice) or the other way around (lots of mice=not much food left)? Similarly, does area depend on depth or does depth depend on area of the lake? In these situations, the context of the research question is needed to identify the response variable. For example, if the researcher hypothesized that number of mice will be greater if there are more legumes, then number of mice is the response variable. In many cases, the more difficult variable to measure will likely be the response variable. For example, researchers likely wish to predict area of a lake (hard to measure) from depth of the lake (easy to measure).
 
 ::: {.tip data-latex=''}
 Which variable is the response may depend on the context of the research question.
@@ -31,11 +31,11 @@ A scatterplot is a graph where each point simultaneously represents the values o
 
 &nbsp;
 
-```{r carscat2, echo=FALSE, fig.cap="Scatterplot between the highway MPG and weight of cars manufactured in 1993. For reference to the main text, the first individual is red and the second individual is green."}
+```{r carscat2, echo=FALSE, fig.cap="Scatterplot between the highway MPG and weight of cars manufactured in 1993. For reference to the main text, the first individual is red and the second individual is blue."}
 ggplot(data=cars93,mapping=aes(x=Weight,y=HMPG)) +
   geom_point(color="gray50",size=2) +
-  geom_point(data=cars93[1,],color="red",size=2) +
-  geom_point(data=cars93[2,],color="green",size=2) +
+  geom_point(data=cars93[1,],color=clrs["red"],size=2) +
+  geom_point(data=cars93[2,],color=clrs["blue"],size=2) +
   labs(x="Weight (lbs)",y="Highway MPG") +
   theme_NCStats()
 ```
@@ -45,14 +45,14 @@ The sample correlation coefficient, abbreviated as r, is calculated with
 
 $$ \text{r} = \frac{\sum_{\text{i}=1}^{n}\left[\left(\frac{\text{x}_{\text{i}}-\bar{\text{x}}}{\text{s}_{\text{x}}}\right)\left(\frac{\text{y}_{\text{i}}-\bar{\text{y}}}{\text{s}_{\text{y}}}\right)\right]}{\text{n}-1} $$
 
-where s~x~ and s~y are the sample standard deviations for the explanatory and response variables, respectively.^[See Section \@ref(standard-deviation) for a review of standard deviations.] The formulae in the two sets of parentheses in the numerator are standardized values;^[See Section \@ref(standardization-and-z-scores) for a review of standardized values.] thus, the value in each parenthesis is called the standardized x or standardized y, respectively. Using this terminology, the equation for r reduces to these steps:
+where s~x~ and s~y~ are the sample standard deviations for the explanatory and response variables, respectively.^[See Section \@ref(standard-deviation) for a review of standard deviations.] The formulae in the two sets of parentheses in the numerator are standardized values; thus, the value in each parenthesis is called the standardized x or standardized y, respectively. Using this terminology, the equation for r reduces to these steps:
 
-* For each individual, standardize x and standardize y.
-* For each individual, find the product of the standardized x and standardized y.
-* Sum all of the products from step 2.
-* Divide the sum from step 3 by n-1.
+1. For each individual, standardize x and standardize y.^[See Section \@ref(standardization-and-z-scores) for a review of standardized values.]
+1. For each individual, find the product of the standardized x and standardized y.
+1. Sum all of the products from step 2.
+1. Divide the sum from step 3 by n-1.
 
-Table \@ref(tab:corrCalc) illustrates these calculations for the first five individuals in the cars data.^[The five cars are treated as if they are the entire sample.] Note that the "i" column is an index for each individual, the x~i~ and y~i~ columns are the observed values of the two variables for individual i, $\bar{\text{x}}$ was computed by dividing the sum of the x~i~ column by n, s~x~ was computed by dividing the sum of the x~i~-$\bar{\text{x}})^{2}$ column by n-1 and taking the square root, and the "std x" column are the standardized x values found by dividing the values in the x~i~-$\bar{\text{x}}$ column by s~x~. Similar calculations were made for the y variable. The final correlation coefficient is the sum of the last column divided by n-1. Thus, the correlation between car weight and highway mpg for these five cars is `r formatC(corr(~HMPG+Weight,data=cars93[1:5,]),format="f",digits=2)`.
+Table \@ref(tab:corrCalc) illustrates these calculations for the first five individuals in the cars data.^[The five cars are treated as if they are the entire sample.] Note that the "i" column is an index for each individual, the x~i~ and y~i~ columns are the observed values of the two variables for individual i, $\bar{\text{x}}$ was computed by dividing the sum of the x~i~ column by n, s~x~ was computed by dividing the sum of the (x~i~-$\bar{\text{x}})$^2^ column by n-1 and taking the square root, and the "std x" column are the standardized x values found by dividing the values in the x~i~-$\bar{\text{x}}$ column by s~x~. Similar calculations were made for the y variable. The final correlation coefficient is the sum of the last column divided by n-1. Thus, the correlation between car weight and highway mpg for these five cars is `r formatC(corr(~HMPG+Weight,data=cars93[1:5,]),format="f",digits=2)`.
 
 &nbsp;
 
@@ -101,7 +101,7 @@ The form of a relationship is determined by whether the "cloud" of points on a s
 
 &nbsp;
 
-```{r forms, echo=FALSE, fig.width=7.5,fig.height=2.5, fig.cap="Depictions of two linear and one nonlinear relationship."}
+```{r forms, echo=FALSE, fig.width=7.5,fig.height=2.5, fig.cap="Depictions of two linear and one nonlinear relationship. A smoother is shown to highlight the general form of the relationship."}
 set.seed(1054)
 tmp1 <- data.frame(mvtnorm::rmvnorm(n=100,mean=c(0,0),
                                     sigma=matrix(c(1,-0.9,-0.9,1),ncol=2)),
@@ -117,6 +117,7 @@ tmp <- rbind(tmp1,tmp2,tmp3) %>%
   mutate(grp=factor(grp))
 
 ggplot(data=tmp,mapping=aes(x=x,y=y)) +
+  geom_smooth(se=FALSE,color=clrs["ltblue"]) +
   geom_point(shape=21,color="black",fill="darkgrey",size=2) +
   theme_NCStats() +
   theme(axis.title.x=element_blank(),axis.title.y=element_blank(),
@@ -138,7 +139,7 @@ An outlier is a point that is far removed from the main cluster of points (Figur
 tmp1a <- rbind(tmp1[,1:2],c(X1=1.5,X2=3))
 ggplot(data=tmp1a,mapping=aes(x=X1,y=X2)) +
   geom_point(shape=21,color="black",fill="darkgrey",size=2) +
-  annotate(geom="point",x=1.5,y=3,pch=21,color="black",fill="red",size=2) +
+  annotate(geom="point",x=1.5,y=3,pch=21,color="black",fill=clrs["red"],size=2) +
   theme_NCStats() +
   theme(axis.title.x=element_blank(),axis.title.y=element_blank(),
         axis.text=element_blank(),
@@ -170,6 +171,7 @@ tmp <- rbind(tmp1,tmp2,tmp3) %>%
 ggplot(data=tmp,mapping=aes(x=stdx,y=stdy)) +
   geom_vline(xintercept=0,color="gray80",linetype="dashed") +
   geom_hline(yintercept=0,color="gray80",linetype="dashed") +
+  geom_smooth(se=FALSE,color=clrs["ltblue"]) +
   geom_point(shape=21,color="black",fill="darkgrey",size=2) +
   theme_NCStats() +
   theme(axis.title.x=element_blank(),axis.title.y=element_blank(),
@@ -180,7 +182,7 @@ ggplot(data=tmp,mapping=aes(x=stdx,y=stdy)) +
 ```
 
 ### Strength (and Association, Again)
-Strength is a summary of how closely the points cluster about the general form of the relationship. For example, if a linear form exists, then strength is how closely the points cluster around the line. Strength is difficult to define from a scatterplot because it is a relative term. However, the correlation coefficient (r; Section \@ref(correlation-coefficient)) is a measure of strength and association between two variables, *if the form is linear*.
+Strength is a summary of how closely the points cluster around the general form of the relationship. For example, if a linear form exists, then strength is how closely the points cluster around the line. Strength is difficult to define from a scatterplot because it is a relative term. However, the correlation coefficient (r; Section \@ref(correlation-coefficient)) is a measure of strength and association between two variables, *if the form is linear*.
 
 To better understand how r is a measure of association and strength, reconsider the steps in calculating r from Section \@ref(correlation-coefficient). The scatterplots in Figure \@ref(fig:corrdefn1) represent different associations. These scatterplots have dashed lines at the mean of both the x- and y-axis variables. Because the mean is subtracted from observed values when standardizing, points that fall above the mean will have positive standardized values and points that fall below the mean will have negative standardized values. The sign for the standardized values are depicted along the axes.
 
@@ -190,8 +192,9 @@ To better understand how r is a measure of association and strength, reconsider 
 ggplot(data=tmp,mapping=aes(x=stdx,y=stdy)) +
   geom_vline(xintercept=0,color="gray80",linetype="dashed") +
   geom_hline(yintercept=0,color="gray80",linetype="dashed") +
+  geom_smooth(se=FALSE,color=clrs["ltblue"]) +
   geom_point(aes(fill=prod>0),shape=21,color="black",size=2) +
-  scale_fill_manual(values=c("red","blue")) +
+  scale_fill_manual(values=c(clrs[["ltred"]],clrs[["blue"]])) +
   scale_y_continuous(breaks=c(-1.5,1.5),labels=c("Below (-)","Above (+)")) +
   scale_x_continuous(breaks=c(-1.5,1.5),labels=c("Below (-)","Above (+)")) +
   theme_NCStats() +
@@ -247,10 +250,11 @@ tmp <- rbind(tmp1,tmp2,tmp3,tmp4,tmp5,tmp6,tmp7,tmp8) %>%
          stdx=scale(x),stdy=scale(y),prod=stdx*stdy)
 
 ggplot(data=tmp,mapping=aes(x=stdx,y=stdy)) +
-  geom_point(aes(fill=prod>0),shape=21,color="black",size=2) +
-  scale_fill_manual(values=c("red","blue")) +
   geom_vline(xintercept=0,color="gray80",linetype="dashed") +
   geom_hline(yintercept=0,color="gray80",linetype="dashed") +
+  geom_smooth(se=FALSE,color=clrs["ltblue"]) +
+  geom_point(aes(fill=prod>0),shape=21,color="black",size=2) +
+  scale_fill_manual(values=c(clrs[["ltred"]],clrs[["blue"]])) +
   theme_NCStats() +
   theme(axis.title.x=element_blank(),axis.title.y=element_blank(),
         axis.text=element_blank(),
@@ -275,26 +279,25 @@ knitr::kable(tmp,booktab=TRUE,align="c",
   kableExtra::column_spec(1:3,width="1.3in")
 ```
 
+&nbsp;
+
 ## Example Interpretations
 When performing a bivariate EDA for two quantitative variables, the form, presence (or absence) of outliers, association, and strength should be specifically addressed. In addition, you should state how you assessed strength. Specifically, you should use r to assess strength (see Section \@ref(strength-and-association-again)) **IF** the relationship is linear without any outliers. However, if the relationship is nonlinear, has outliers, or both, then strength should be subjectively assessed from the scatterplot.
 
 Two other points should be considered when performing a bivariate EDA with quantitative variables. First, if outliers are present, do not let them completely influence your conclusions about form, association, and strength. In other words, assess these items ignoring the outlier(s). If you have raw data and the form excluding the outlier is linear, then compute r with the outlier eliminated from the data. Second, the form of weak relationships is difficult to describe because, by definition, there is very little clustering to a form. As a rule-of-thumb, if the scatterplot is not obviously curved, then it is described as linear by default.
 
 ::: {.tip data-latex=''}
-Outliers should not influence the descriptions of association, strength, and form.
+* Outliers should not influence the descriptions of association, strength, and form.
+* The form is linear unless there is an OBVIOUS curvature.
 :::
 
-::: {.tip data-latex=''}
-The form is linear unless there is an OBVIOUS curvature.
-:::
-
-Finally, in the examples below note that 1) form, outliers, association, and strength are specifically assessed in each; 2) strength is assess from the correlation coefficient and (Table \@ref(tab:StrengthCriteria)) **only if the form is linear and there are no outliers**, 3) the position of outliers is specifically identified, and 4) how strength was assessed was described.
+Finally, in the examples below note that 1) form, outliers, association, and strength are specifically assessed in each; 2) strength is assessed from the correlation coefficient (and Table \@ref(tab:StrengthCriteria)) **only if the form is linear and there are no outliers**, 3) the position of outliers is specifically identified, and 4) how whether strength was assessed from the correlation coefficient or not was described.
 
 ### Highway MPG and Weight {-}
 
-*The following overall bivariate summary for the relationship between highway MPG and weight is made using the scatterplot and correlation coefficient from the previous sections.*
+*The following overall bivariate summary for the relationship between highway MPG and weight is made using the scatterplot (Figure \@ref(fig:carscat2)) and correlation coefficient from the previous sections.*
 
-The relationship between highway MPG and weight of cars (Figure \@ref(fig:carscat2)) appears to be primarily linear (although I see a very slight concavity), negative, and moderately strong with a correlation of `r formatC(corr(HMPG~Weight,data=cars93),format="f",digits=2)`. The three points at (2400,46), (2500,27), and (1800,33) might be considered SLIGHT outliers (these are not far enough removed for me to consider them outliers, but some people may). The correlation coefficient was used to assess strength because I deemed the relationship to be linear without any outliers.
+The relationship between highway MPG and weight of cars appears to be slightly nonlinear (a slight concavity is apparent), negative, and moderately strong. The three points at (2400,46), (2500,27), and (1800,33) might be considered SLIGHT outliers (these are not far enough removed for me to consider them outliers, but some people may). The correlation coefficient was not used to assess strength because I deemed the relationship to be nonlinear.
 
 ### State Energy Usage {-}
 
@@ -309,7 +312,8 @@ p1 <- ggplot(data=NRG,mapping=aes(x=Coal,y=TotalPet)) +
   geom_point(pch=21,color="black",fill="darkgray",size=2) +
   labs(x="Coal Consumption (trillion BTU)",y="Total Petroleum (trillion BTU)") +
   theme_NCStats()
-p2 <- p1 %+% NRG1
+p2 <- p1 %+% NRG1 +
+  annotate(geom="label",x=Inf,y=Inf,label="r = 0.53",vjust=1.3,hjust=1.1)
 p1 + p2
 ```
 
@@ -330,6 +334,7 @@ df <- data.frame(inctime=c(53,54,56,60,60,60,60,60,63,63,77,
 ggplot(data=df,mapping=aes(x=inctime,y=hatchwt)) +
   geom_point(pch=21,color="black",fill="darkgray",size=2) +
   labs(x="Incubation Time (days)",y="Hatchling Weight (grams)") +
+  annotate(geom="label",x=-Inf,y=Inf,label="r = 0.11",vjust=1.3,hjust=-0.1) +
   theme_NCStats()
 ```
 
@@ -364,7 +369,7 @@ ggplot(data=filterD(cars93,!is.na(Cyls)),
 
 &nbsp;
 
-More interesting examples (e.g., high correlation between number of people who drowned by falling into a pool and the annual number of films that Nicolas Cage appeared in) that further demonstrate that "correlation is not causation" can be found on the [Spurious Correlations website.](http://www.tylervigen.com/spurious-correlations)
+More interesting examples that further demonstrate that "correlation is not causation" can be found on the [Spurious Correlations website](http://www.tylervigen.com/spurious-correlations) (e.g., high correlation between number of people who drowned by falling into a pool and the annual number of films that Nicolas Cage appeared in).
 
 Finally, the word "correlation" is often misused in everyday language. "Correlation" should only be used when discussing the actual correlation coefficient (i.e., r). When discussing the association between two variables, one should use "association" or "relationship" rather than "correlation." For example, one might ask "What is the relationship between age and rate of cancer?", but should not ask (unless specifically interested in r) "What is the correlation between age and rate of cancer?".
 

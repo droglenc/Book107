@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-13" />
+<meta name="date" content="2021-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -331,9 +331,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="BEDAQuant" class="section level1" number="8">
 <h1><span class="header-section-number">Module 8</span> Bivariate EDA - Quantitative</h1>
-<p>Bivariate data occurs when two} variables are measured on the same individuals. For example, you may measure (i) the height and weight of students in class, (ii) depth and area of a lake, (iii) gender and age of welfare recipients, or (iv) number of mice and biomass of legumes in fields. This module is focused on describing the bivariate relationship between two quantitative variables. Bivariate relationships between two categorical variables is described in Module <a href="BEDACat.html#BEDACat">10</a>.</p>
+<p>Bivariate data occurs when two variables are measured on the same individuals. For example, you may measure (i) the height and weight of students in class, (ii) depth and area of a lake, (iii) gender and age of welfare recipients, or (iv) number of mice and biomass of legumes in fields. This module is focused on describing the bivariate relationship between two quantitative variables. Bivariate relationships between two categorical variables is described in Module <a href="BEDACat.html#BEDACat">10</a>.</p>
 <p>Data on the weight (lbs) and highway miles per gallon (HMPG) for 93 cars from the 1993 model year are used as an example throughout this module. Ultimately, the relationship between highway MPG and the weight of a car is described. A sample of these data are shown below.</p>
-<p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:CarData">Table 8.1: </span>Sample data from 1993 cars data set.
@@ -504,11 +503,12 @@ Midsize
 </tr>
 </tbody>
 </table>
+<p> </p>
 <div id="response-and-explanatory-variables" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> Response and Explanatory Variables</h2>
 <p>The <strong>response variable</strong> is the variable that one is interested in explaining something (i.e., variability) or in making future predictions about. The <strong>explanatory variable</strong> is the variable that may help explain or allow one to predict the response variable. In general, the response variable is thought to depend on the explanatory variable. Thus, the response variable is often called the <strong>dependent variable</strong>, whereas the explanatory variable is often called the <strong>independent variable</strong>.</p>
-<p>One may identify the response variable by determining which of the two variables depends on the other. For example, in the car data, highway MPG is the response variable because gas mileage is most likely affected by the weight of the car (e.g., hypothesize that heavier cars get worse gas mileage), rather than vice versa.</p>
-<p>In some situations it is not obvious which variable is the response. For example, does the number of mice in the field depend on the number of legumes (lots of feed=lots of mice) or the other way around (lots of mice=not much food left)? Similarly, does area depend on depth or does depth depend on area of the lake? In these situations, the context of the research question is needed to identify the response variable. For example, if the researcher hypothesized that number of mice will be greater if there is more legumes, then number of mice is the response variable. In many cases, the more difficult variable to measure will likely be the response variable. For example, researchers likely wish to predict area of a lake (hard to measure) from depth of the lake (easy to measure).</p>
+<p>One may identify the response variable by determining which of the two variables most likely depends on the other. For example, in the car data, highway MPG is the response variable because gas mileage is most likely affected by the weight of the car (e.g., hypothesize that heavier cars get worse gas mileage), rather than vice versa.</p>
+<p>In some situations it is not obvious which variable is the response. For example, does the number of mice in the field depend on the number of legumes (lots of food=lots of mice) or the other way around (lots of mice=not much food left)? Similarly, does area depend on depth or does depth depend on area of the lake? In these situations, the context of the research question is needed to identify the response variable. For example, if the researcher hypothesized that number of mice will be greater if there are more legumes, then number of mice is the response variable. In many cases, the more difficult variable to measure will likely be the response variable. For example, researchers likely wish to predict area of a lake (hard to measure) from depth of the lake (easy to measure).</p>
 <div class="tip">
 <p>Which variable is the response may depend on the context of the research question.</p>
 </div>
@@ -520,9 +520,9 @@ Midsize
 <p>A scatterplot is a graph where each point simultaneously represents the values of both the quantitative response and quantitative explanatory variable. The value of the explanatory variable gives the x-coordinate and the value of the response variable gives the y-coordinate of the point plotted for an individual. For example, the first individual in the cars data is plotted at x (Weight) = 2705 and y (HMPG) = 31, whereas the second individual is at x = 3560 and y = 25 (Figure <a href="BEDAQuant.html#fig:carscat2">8.1</a>).</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:carscat2"></span>
-<img src="Book107_files/figure-html/carscat2-1.png" alt="Scatterplot between the highway MPG and weight of cars manufactured in 1993. For reference to the main text, the first individual is red and the second individual is green." width="336" />
+<img src="Book107_files/figure-html/carscat2-1.png" alt="Scatterplot between the highway MPG and weight of cars manufactured in 1993. For reference to the main text, the first individual is red and the second individual is blue." width="336" />
 <p class="caption">
-Figure 8.1: Scatterplot between the highway MPG and weight of cars manufactured in 1993. For reference to the main text, the first individual is red and the second individual is green.
+Figure 8.1: Scatterplot between the highway MPG and weight of cars manufactured in 1993. For reference to the main text, the first individual is red and the second individual is blue.
 </p>
 </div>
 </div>
@@ -530,14 +530,14 @@ Figure 8.1: Scatterplot between the highway MPG and weight of cars manufactured 
 <h3><span class="header-section-number">8.2.2</span> Correlation Coefficient</h3>
 <p>The sample correlation coefficient, abbreviated as r, is calculated with</p>
 <p><span class="math display">\[ \text{r} = \frac{\sum_{\text{i}=1}^{n}\left[\left(\frac{\text{x}_{\text{i}}-\bar{\text{x}}}{\text{s}_{\text{x}}}\right)\left(\frac{\text{y}_{\text{i}}-\bar{\text{y}}}{\text{s}_{\text{y}}}\right)\right]}{\text{n}-1} \]</span></p>
-<p>where s<sub>x</sub> and s~y are the sample standard deviations for the explanatory and response variables, respectively.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a> The formulae in the two sets of parentheses in the numerator are standardized values;<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a> thus, the value in each parenthesis is called the standardized x or standardized y, respectively. Using this terminology, the equation for r reduces to these steps:</p>
-<ul>
-<li>For each individual, standardize x and standardize y.</li>
+<p>where s<sub>x</sub> and s<sub>y</sub> are the sample standard deviations for the explanatory and response variables, respectively.<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a> The formulae in the two sets of parentheses in the numerator are standardized values; thus, the value in each parenthesis is called the standardized x or standardized y, respectively. Using this terminology, the equation for r reduces to these steps:</p>
+<ol style="list-style-type: decimal">
+<li>For each individual, standardize x and standardize y.<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a></li>
 <li>For each individual, find the product of the standardized x and standardized y.</li>
 <li>Sum all of the products from step 2.</li>
 <li>Divide the sum from step 3 by n-1.</li>
-</ul>
-<p>Table <a href="BEDAQuant.html#tab:corrCalc">8.2</a> illustrates these calculations for the first five individuals in the cars data.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a> Note that the “i” column is an index for each individual, the x<sub>i</sub> and y<sub>i</sub> columns are the observed values of the two variables for individual i, <span class="math inline">\(\bar{\text{x}}\)</span> was computed by dividing the sum of the x<sub>i</sub> column by n, s<sub>x</sub> was computed by dividing the sum of the x<sub>i</sub>-<span class="math inline">\(\bar{\text{x}})^{2}\)</span> column by n-1 and taking the square root, and the “std x” column are the standardized x values found by dividing the values in the x<sub>i</sub>-<span class="math inline">\(\bar{\text{x}}\)</span> column by s<sub>x</sub>. Similar calculations were made for the y variable. The final correlation coefficient is the sum of the last column divided by n-1. Thus, the correlation between car weight and highway mpg for these five cars is -0.54.</p>
+</ol>
+<p>Table <a href="BEDAQuant.html#tab:corrCalc">8.2</a> illustrates these calculations for the first five individuals in the cars data.<a href="#fn37" class="footnote-ref" id="fnref37"><sup>37</sup></a> Note that the “i” column is an index for each individual, the x<sub>i</sub> and y<sub>i</sub> columns are the observed values of the two variables for individual i, <span class="math inline">\(\bar{\text{x}}\)</span> was computed by dividing the sum of the x<sub>i</sub> column by n, s<sub>x</sub> was computed by dividing the sum of the (x<sub>i</sub>-<span class="math inline">\(\bar{\text{x}})\)</span><sup>2</sup> column by n-1 and taking the square root, and the “std x” column are the standardized x values found by dividing the values in the x<sub>i</sub>-<span class="math inline">\(\bar{\text{x}}\)</span> column by s<sub>x</sub>. Similar calculations were made for the y variable. The final correlation coefficient is the sum of the last column divided by n-1. Thus, the correlation between car weight and highway mpg for these five cars is -0.54.</p>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -791,9 +791,9 @@ Sum
 <p>The form of a relationship is determined by whether the “cloud” of points on a scatterplot forms a line or some sort of curve (Figure <a href="BEDAQuant.html#fig:corrassn">8.4</a>). For the purposes of this introductory course, if the “cloud” appears linear then the form will be said to be linear, whereas if the “cloud” is curved then the form will be nonlinear. Scatterplots should be considered <strong>linear</strong> unless there is an OBVIOUS curvature in the points.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:forms"></span>
-<img src="Book107_files/figure-html/forms-1.png" alt="Depictions of two linear and one nonlinear relationship." width="720" />
+<img src="Book107_files/figure-html/forms-1.png" alt="Depictions of two linear and one nonlinear relationship. A smoother is shown to highlight the general form of the relationship." width="720" />
 <p class="caption">
-Figure 8.2: Depictions of two linear and one nonlinear relationship.
+Figure 8.2: Depictions of two linear and one nonlinear relationship. A smoother is shown to highlight the general form of the relationship.
 </p>
 </div>
 <p> </p>
@@ -819,7 +819,7 @@ Figure 8.4: Depiction of three types of association present in scatterplots. Das
 </div>
 <div id="strength-and-association-again" class="section level3" number="8.3.3">
 <h3><span class="header-section-number">8.3.3</span> Strength (and Association, Again)</h3>
-<p>Strength is a summary of how closely the points cluster about the general form of the relationship. For example, if a linear form exists, then strength is how closely the points cluster around the line. Strength is difficult to define from a scatterplot because it is a relative term. However, the correlation coefficient (r; Section <a href="BEDAQuant.html#correlation-coefficient">8.2.2</a>) is a measure of strength and association between two variables, <em>if the form is linear</em>.</p>
+<p>Strength is a summary of how closely the points cluster around the general form of the relationship. For example, if a linear form exists, then strength is how closely the points cluster around the line. Strength is difficult to define from a scatterplot because it is a relative term. However, the correlation coefficient (r; Section <a href="BEDAQuant.html#correlation-coefficient">8.2.2</a>) is a measure of strength and association between two variables, <em>if the form is linear</em>.</p>
 <p>To better understand how r is a measure of association and strength, reconsider the steps in calculating r from Section <a href="BEDAQuant.html#correlation-coefficient">8.2.2</a>. The scatterplots in Figure <a href="BEDAQuant.html#fig:corrdefn1">8.5</a> represent different associations. These scatterplots have dashed lines at the mean of both the x- and y-axis variables. Because the mean is subtracted from observed values when standardizing, points that fall above the mean will have positive standardized values and points that fall below the mean will have negative standardized values. The sign for the standardized values are depicted along the axes.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:corrdefn1"></span>
@@ -904,6 +904,7 @@ None
 </tr>
 </tbody>
 </table>
+<p> </p>
 </div>
 </div>
 <div id="example-interpretations-1" class="section level2" number="8.4">
@@ -911,16 +912,16 @@ None
 <p>When performing a bivariate EDA for two quantitative variables, the form, presence (or absence) of outliers, association, and strength should be specifically addressed. In addition, you should state how you assessed strength. Specifically, you should use r to assess strength (see Section <a href="BEDAQuant.html#strength-and-association-again">8.3.3</a>) <strong>IF</strong> the relationship is linear without any outliers. However, if the relationship is nonlinear, has outliers, or both, then strength should be subjectively assessed from the scatterplot.</p>
 <p>Two other points should be considered when performing a bivariate EDA with quantitative variables. First, if outliers are present, do not let them completely influence your conclusions about form, association, and strength. In other words, assess these items ignoring the outlier(s). If you have raw data and the form excluding the outlier is linear, then compute r with the outlier eliminated from the data. Second, the form of weak relationships is difficult to describe because, by definition, there is very little clustering to a form. As a rule-of-thumb, if the scatterplot is not obviously curved, then it is described as linear by default.</p>
 <div class="tip">
-<p>Outliers should not influence the descriptions of association, strength, and form.</p>
+<ul>
+<li>Outliers should not influence the descriptions of association, strength, and form.</li>
+<li>The form is linear unless there is an OBVIOUS curvature.</li>
+</ul>
 </div>
-<div class="tip">
-<p>The form is linear unless there is an OBVIOUS curvature.</p>
-</div>
-<p>Finally, in the examples below note that 1) form, outliers, association, and strength are specifically assessed in each; 2) strength is assess from the correlation coefficient and (Table <a href="BEDAQuant.html#tab:StrengthCriteria">8.3</a>) <strong>only if the form is linear and there are no outliers</strong>, 3) the position of outliers is specifically identified, and 4) how strength was assessed was described.</p>
+<p>Finally, in the examples below note that 1) form, outliers, association, and strength are specifically assessed in each; 2) strength is assessed from the correlation coefficient (and Table <a href="BEDAQuant.html#tab:StrengthCriteria">8.3</a>) <strong>only if the form is linear and there are no outliers</strong>, 3) the position of outliers is specifically identified, and 4) how whether strength was assessed from the correlation coefficient or not was described.</p>
 <div id="highway-mpg-and-weight" class="section level3 unnumbered">
 <h3>Highway MPG and Weight</h3>
-<p><em>The following overall bivariate summary for the relationship between highway MPG and weight is made using the scatterplot and correlation coefficient from the previous sections.</em></p>
-<p>The relationship between highway MPG and weight of cars (Figure <a href="BEDAQuant.html#fig:carscat2">8.1</a>) appears to be primarily linear (although I see a very slight concavity), negative, and moderately strong with a correlation of -0.81. The three points at (2400,46), (2500,27), and (1800,33) might be considered SLIGHT outliers (these are not far enough removed for me to consider them outliers, but some people may). The correlation coefficient was used to assess strength because I deemed the relationship to be linear without any outliers.</p>
+<p><em>The following overall bivariate summary for the relationship between highway MPG and weight is made using the scatterplot (Figure <a href="BEDAQuant.html#fig:carscat2">8.1</a>) and correlation coefficient from the previous sections.</em></p>
+<p>The relationship between highway MPG and weight of cars appears to be slightly nonlinear (a slight concavity is apparent), negative, and moderately strong. The three points at (2400,46), (2500,27), and (1800,33) might be considered SLIGHT outliers (these are not far enough removed for me to consider them outliers, but some people may). The correlation coefficient was not used to assess strength because I deemed the relationship to be nonlinear.</p>
 </div>
 <div id="state-energy-usage" class="section level3 unnumbered">
 <h3>State Energy Usage</h3>
@@ -971,7 +972,7 @@ Figure 8.9: Scatterplot between the highway MPG and weight of cars manufactured 
 </p>
 </div>
 <p> </p>
-<p>More interesting examples (e.g., high correlation between number of people who drowned by falling into a pool and the annual number of films that Nicolas Cage appeared in) that further demonstrate that “correlation is not causation” can be found on the <a href="http://www.tylervigen.com/spurious-correlations">Spurious Correlations website.</a></p>
+<p>More interesting examples that further demonstrate that “correlation is not causation” can be found on the <a href="http://www.tylervigen.com/spurious-correlations">Spurious Correlations website</a> (e.g., high correlation between number of people who drowned by falling into a pool and the annual number of films that Nicolas Cage appeared in).</p>
 <p>Finally, the word “correlation” is often misused in everyday language. “Correlation” should only be used when discussing the actual correlation coefficient (i.e., r). When discussing the association between two variables, one should use “association” or “relationship” rather than “correlation.” For example, one might ask “What is the relationship between age and rate of cancer?” but should not ask (unless specifically interested in r) “What is the correlation between age and rate of cancer?”</p>
 <p> </p>
 
