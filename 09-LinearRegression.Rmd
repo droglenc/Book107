@@ -1,5 +1,10 @@
 # Linear Regression  {#LinearRegression}
-Linear regression analysis is used to model the relationship between two quantitative variables for two related purposes -- (i) explaining variability in the response variable and (ii) predicting future values of the response variable. Examples include predicting future sales of a product from its price, family expenditures on recreation from family income, an animal's food consumption in relation to ambient temperature, and a person's score on a German assessment test based on how many years the person studied German.
+Linear regression analysis is used to model the relationship between two quantitative variables for two related purposes:
+
+1. explaining variability in the response variable and
+1. predicting future values of the response variable.
+
+Examples include predicting future sales of a product from its price, family expenditures on recreation from family income, an animal's food consumption in relation to ambient temperature, and a person's score on a German assessment test based on how many years the person studied German.
 
 Exact predictions cannot be made because of natural variability. For example, two people with the same intake of mercury (from consumption of fish) will likely not have the same level of mercury in their blood stream. Thus, the best that can be accomplished is to predict the average or expected value for a person with a particular intake value. This is accomplished by finding the line that best "fits" the points on a scatterplot of the data and using that line to make predictions. Finding and using the "best-fit" line is the topic of this module.
 
@@ -10,15 +15,15 @@ Recall from Section \@ref(response-and-explanatory-variables) that the response 
 ## Slope and Intercept
 The equation of a line is commonly expressed as,
 
-$$ y = mx + b $$
+$$ y = m\times x + b $$
 
-where both $x$ and $y$ are variables, $m$ represents the slope of the line, and $b$ represents the y-intercept.^[Hereafter, simply called the "intercept."]  It is important that you can look at the equation of a line and identify the response variable, explanatory variable, slope, and intercept. The response variable will always appear on the left side of the equation by itself. The explanatory variable (e.g., $x$) will be on the right side of the equation and will be multiplied by the slope. The value or symbol by itself on the right side of the equation is the intercept. For example, in
+where both $x$ and $y$ are variables, $m$ represents the slope of the line, and $b$ represents the y-intercept.^[Hereafter, simply called the "intercept."]  It is important that you can look at the equation of a line and identify the response variable, explanatory variable, slope, and intercept. The response variable will always appear by itself on the left side of the equation. The explanatory variable (e.g., $x$) will be on the right side of the equation and will be multiplied by the slope. The value or symbol by itself on the right side of the equation is the intercept. For example, in
 
-$$ \text{blood} = 3.501 + 0.579\text{intake} $$
+$$ \text{blood} = 0.579\times\text{intake}+3.501 $$
 
-blood is the response variable, intake is the explanatory variable, $0.579$ is the slope (it is multiplied by the explanatory variable), and $3.501$ is the intercept (it is on the right side and not multiplied by anything). The same conclusions would be made if the equation had been written as
+blood is the response variable, intake is the explanatory variable, 0.579 is the slope (it is multiplied by the explanatory variable), and 3.501 is the intercept (it is not multiplied by anything on the right side). The same conclusions would be made if the equation had been written as
 
-$$ \text{blood} = 0.579\text{intake}+3.501 $$
+$$ \text{blood} = 3.501 + 0.579\times\text{intake} $$
 
 ::: {.tip data-latex=''}
 In the equation of a line, the slope is always multiplied by the explanatory variable and the intercept is always by itself.
@@ -26,7 +31,7 @@ In the equation of a line, the slope is always multiplied by the explanatory var
 
 In addition to being able to identify the slope and intercept of a line you also need to be able to interpret these values. Most students define the slope as "rise over run" and the intercept as "where the line crosses the y-axis."  These "definitions" are loose geometric representations. For our purposes, the slope and intercept must be more strictly defined.
 
-To define the slope, first think of "plugging" two values of intake into the equation discussed above. For example, if intake=100, then blood=3.501+0.579&times;100=`r formatC(3.501+0.579*100,format="f",digits=2)` and if intake is one unit larger at 101, then blood=3.501+0.579&times;101=`r formatC(3.501+0.579*101,format="f",digits=2)`.^[For simplicity of exposition, the actual units are not used in this discussion. However, "units" would usually be replaced with the actual units used for the measurements.] The difference between these two values is `r formatC(3.501+0.579*101,format="f",digits=2)`-`r formatC(3.501+0.579*100,format="f",digits=2)`=0.579, which is the same as the slope. Thus, the slope is the change in value of the response variable FOR A SINGLE UNIT CHANGE in the value of the explanatory variable (Figure \@ref(fig:SlopeInt)). That is, mercury in the blood changes 0.579 units FOR A SINGLE UNIT CHANGE in mercury intake. So, if an individual increases mercury intake by one unit, then mercury in the blood will increase by 0.579 units, ON AVERAGE. Alternatively, if one individual has one more unit of mercury intake than another individual, then the first individual will have 0.579 more units of mercury in their blood, ON AVERAGE.
+To define the slope, first think of "plugging" two values of intake into the equation discussed above. For example, if intake=100, then blood=3.501+0.579&times;100=`r formatC(3.501+0.579*100,format="f",digits=3)` and if intake is one unit larger at 101, then blood=3.501+0.579&times;101=`r formatC(3.501+0.579*101,format="f",digits=3)`.^[For simplicity of exposition, the actual units are not used in this discussion. However, "units" would usually be replaced with the actual units used for the measurements.] The difference between these two values is `r formatC(3.501+0.579*101,format="f",digits=3)`-`r formatC(3.501+0.579*100,format="f",digits=3)`=0.579, which is the same as the slope. Thus, the slope is the change in the AVERAGE value of the response variable FOR A SINGLE UNIT CHANGE in the value of the explanatory variable (Figure \@ref(fig:SlopeInt)). That is, mercury in the blood changes 0.579 units FOR A SINGLE UNIT CHANGE in mercury intake, ON AVERAGE. So, if an individual increases mercury intake by one unit, then mercury in the blood will increase by 0.579 units, ON AVERAGE. Alternatively, if one individual has one more unit of mercury intake than another individual, then the first individual will have 0.579 more units of mercury in their blood, ON AVERAGE.
 
 &nbsp;
 
@@ -40,21 +45,21 @@ ggplot() +
                      expand=expansion(mult=c(0,0))) +
   labs(x="Explanatory Variable",y="Response Variable") +
   annotate(geom="segment",x=2,xend=3,y=int+slope*2,yend=int+slope*2,
-           color="red",size=1,lineend="square") +
+           color=clrs[["dkred"]],size=1,lineend="square") +
   annotate(geom="segment",x=3,xend=3,y=int+slope*2,yend=int+slope*3,
-           color="red",size=1,lineend="square") +
+           color=clrs[["dkred"]],size=1,lineend="square") +
   annotate(geom="text",x=2.5,y=int+slope*2,label="1",vjust=1.2,
-           color="red",size=4) +
+           color=clrs[["dkred"]],size=4) +
   annotate(geom="text",x=3,y=int+slope*2.5,label="slope",hjust=-0.2,vjust=0.4,
-           color="red",size=4) +
+           color=clrs[["dkred"]],size=4) +
   annotate(geom="segment",x=6,xend=7,y=int+slope*6,yend=int+slope*6,
-           color="red",size=1,lineend="square") +
+           color=clrs[["dkred"]],size=1,lineend="square") +
   annotate(geom="segment",x=7,xend=7,y=int+slope*6,yend=int+slope*7,
-           color="red",size=1,lineend="square") +
+           color=clrs[["dkred"]],size=1,lineend="square") +
   annotate(geom="text",x=6.5,y=int+slope*6,label="1",vjust=1.2,
-           color="red",size=4) +
+           color=clrs[["dkred"]],size=4) +
   annotate(geom="text",x=7,y=int+slope*6.5,label="slope",hjust=-0.2,vjust=0.4,
-           color="red",size=4) +
+           color=clrs[["dkred"]],size=4) +
   theme_NCStats() +
   theme(aspect.ratio=1)
 ```
@@ -63,21 +68,21 @@ ggplot() +
 
 To define the intercept, first "plug" intake=0 into the equation discussed above; i.e., blood=3.501+0.579&times;0 = 3.501. Thus, the intercept is the value of the response variable when the explanatory variable is equal to zero (Figure \@ref(fig:SlopeInt)). In this example, the AVERAGE mercury in the blood for an individual with no mercury intake is 3.501. Many times, as is true with this example, the interpretation of the intercept will be nonsensical. This is because x=0 will likely be outside the range of the data collected and, perhaps, outside the range of possible data that could be collected.
 
-The equation of the line is a model for the relationship depicted in a scatterplot. Thus, the interpretations for the slope and intercept represent the *average* change or the *average* response variable. Thus, whenever a slope or intercept is being interpreted it must be noted that the result is an *average* or *on average*.
+The equation of the line is a model for the relationship depicted in a scatterplot. Thus, the interpretations for the slope and intercept represent the *average* change or the *average* response variable. Thus, whenever a slope or intercept is being interpreted it **must** be noted that the result is an *average* or *on average*.
 
 
 ## Predictions
 Once a best-fit line has been identified (criteria for doing so is discussed in Section \@ref(best-fit-criteria)), the equation of the line can be used to predict the average value of the response variable for individuals with a particular value of the explanatory variable. For example, the best-fit line for the mercury data shown in Figure \@ref(fig:HGpredict) is
 
-$$ \text{blood} = 3.501 + 0.579*\text{intake} $$
+$$ \text{blood} = 3.501 + 0.579\times\text{intake} $$
 
 Thus, the predicated average level of mercury in the blood for an individual that consumed 240 ug HG/day is found with
 
-$$ \text{blood} = 3.501 + 0.579*240 = 142.461 $$
+$$ \text{blood} = 3.501 + 0.579\times240 = 142.461 $$
 
 Similarly, the predicted average level of mercury in the blood for an individual that consumed 575 ug HG/day is found with
 
-$$ \text{blood} = 3.501 + 0.579*575 = 336.426 $$
+$$ \text{blood} = 3.501 + 0.579\times575 = 336.426 $$
 
 A prediction may be visualized by finding the value of the explanatory variable on the x-axis, drawing a vertical line until the best-fit line is reached, and then drawing a horizontal line over to the y-axis where the value of the response variable is read (Figure \@ref(fig:HGpredict)).
 
@@ -95,14 +100,14 @@ tmp <- data.frame(x=rep(df1,each=2),xend=c(rbind(df1,c(-Inf,-Inf))),
 
 ggplot(data=merc,mapping=aes(x=intake,y=blood)) +
   geom_point(pch=21,color="black",fill="darkgray",size=2) +
-  geom_smooth(method="lm",se=FALSE,color="red",size=1) +
+  geom_smooth(method="lm",se=FALSE,color=clrs[["red"]],size=1) +
   labs(x="Intake (ug Hg/day)",y="Blood (ng/g)") +
-  scale_x_continuous(breaks=c(100,200,df1[1],300,400,500,df1[2],600),
-                     labels=c(100,"",df1[1],"",400,500,df1[2],"")) +
+  scale_x_continuous(breaks=c(100,200,df1[1],300,400,df1[2],600),
+                     labels=c(100,"",df1[1],"",400,df1[2],"")) +
   scale_y_continuous(breaks=c(100,p1[1],200,300,p1[2],400,500),
                      labels=c(100,p1l[1],200,300,p1l[2],400,500)) +
   geom_segment(data=tmp,mapping=aes(x=x,xend=xend,y=y,yend=yend),
-               color="red",linetype="dashed") +
+               color=clrs[["dkred"]],linetype="dashed",arrow=ARROW) +
   theme_NCStats()
 ```
 
@@ -117,11 +122,11 @@ $$ \text{residual}=\text{observed response}-\text{predicted response}$$
 
 For example, consider an individual that has an observed intake of 650 and an observed level of mercury in the blood of 480. As shown in the previous section, the predicted level of mercury in the blood for this individual is
 
-$$ \text{blood} = 3.501 + 0.579*650 = 379.851$$
+$$ \text{blood} = 3.501 + 0.579\times650 = 379.851$$
 
 The residual for this individual is then 480-379.851 = 100.149. This positive residual indicates that the observed value is approximately 100 units GREATER than the average for individuals with an intake of 650.^[In other words, the observed value is "above" the line.]  As a second example, consider an individual with an observed intake of 250 and an observed level of mercury in the blood of 105. The predicted value for this individual is
 
-$$ \text{blood} = 3.501 + 0.579*250 = 148.251$$
+$$ \text{blood} = 3.501 + 0.579\times250 = 148.251$$
 
 and the residual is 105-148.251 = -43.251. This negative residual indicates that the observed value is approximately 43 units LESS than the average for individuals with an intake of 250.
 
@@ -136,14 +141,14 @@ tmp <- merc[c(11,13),] %>%
 
 ggplot(data=merc,mapping=aes(x=intake,y=blood)) +
   geom_point(pch=21,color="black",fill="darkgray",size=2) +
-  geom_smooth(method="lm",se=FALSE,color="red",size=1) +
+  geom_smooth(method="lm",se=FALSE,color=clrs[["red"]],size=1) +
   labs(x="Intake (ug Hg/day)",y="Blood (ng/g)") +
   scale_x_continuous(breaks=seq(100,600,100)) +
   scale_y_continuous(breaks=seq(100,500,100)) +
   geom_segment(data=tmp,mapping=aes(x=intake,xend=xend,
                                     y=blood,yend=yend,color=resid),
                linetype="dashed",size=1) +
-  scale_color_manual(values=c("blue","red")) +
+  scale_color_manual(values=c(clrs[["dkblue"]],clrs[["dkred"]])) +
   theme_NCStats() +
   theme(legend.position="none")
 ```
@@ -157,7 +162,7 @@ The residual sum-of-squares (RSS) is the sum of all squared residuals. The least
 
 &nbsp;
 
-```{r RSSanim, echo=FALSE, cache=TRUE, fig.width=7, animation.hook="gifski", interval=0.5, fig.cap="Scatterplot with the best-fit line (light gray) and candidate best-fit lines (blue line) and residuals (vertical red dashed lines) in the left pane and the residual sum-of-squares for all candidate lines (gray) with the current line highlighted with a red dot. Note how the candidate line is on the best-fit line when the RSS is smallest."}
+```{r RSSanim, echo=FALSE, fig.width=7, animation.hook="gifski", interval=0.5, fig.cap="Scatterplot with the best-fit line (light gray) and candidate best-fit lines (red line) and residuals (vertical red dashed lines) in the left pane and the residual sum-of-squares for all candidate lines (gray) with the current line highlighted with a red dot. Note how the candidate line is on the best-fit line when the RSS is smallest."}
 set.seed(1070)
 tmp1 <- tibble(X=scale(runif(n=10)),Y=X+scale(rnorm(n=10,sd=0.5),scale=FALSE))
 slopes <- seq(0,2,0.1)
@@ -178,10 +183,10 @@ rss <- res %>%
 RSSer <- function(res,rss,i) {
   res <- filter(res,sample==i)
   pres <- ggplot(res,aes(x=X,y=Y)) +
-    geom_segment(aes(xend=X,yend=pred),linetype="dashed",color="red") +
+    geom_segment(aes(xend=X,yend=pred),linetype="dashed",color=clrs[["red"]]) +
     geom_point(size=2,pch=21,color="black",fill="lightgray") +
     geom_smooth(method="lm",se=FALSE,color="gray70") +
-    geom_path(aes(y=pred),color=clrs["blue"],size=1.25) +
+    geom_path(aes(y=pred),color=clrs[["dkred"]],size=1.25) +
     theme_NCStats() +
     labs(x="Explanatory Variable",y="Response Variable") +
     theme(axis.text=element_blank()) +
@@ -189,7 +194,7 @@ RSSer <- function(res,rss,i) {
   rss2 <- filter(rss,sample==i)
   prss <- ggplot(rss,aes(x=slope,y=RSS)) +
     geom_path(size=1.25,color="gray50") +
-    geom_point(data=rss2,size=2,color="red") +
+    geom_point(data=rss2,size=2,color=clrs[["red"]]) +
     theme_NCStats() +
     labs(x="Slope, Intercept",y="RSS") +
     theme(axis.text=element_blank())
@@ -204,13 +209,13 @@ for (i in seq_along(slopes)) RSSer(res,rss,i)
 
 The discussion thusfar implies that all possible lines must be "fit" to the data and the one with the minimum RSS is chosen as the "best-fit" line. As there are an infinite number of possible lines, this would be impossible to do. Theoretical statisticians have shown that the application of the least-squares criterion always produces a best-fit line with a slope given by
 
-$$ slope = r\frac{s_{y}}{s_{x}} $$
+$$ \text{slope} = \text{r}\frac{\text{s}_{\text{y}}}{\text{s}_{\text{x}}} $$
 
 and an intercept given by
 
-$$ intercept = \bar{\text{y}}-slope*\bar{\text{x}} $$
+$$ \text{intercept} = \bar{\text{y}}-\text{slope}\times\bar{\text{x}} $$
 
-where $\bar{\text{x}}$ and $s_{x}$ are the sample mean and standard deviation of the explanatory variable, $\bar{\text{y}}$ and $s_{y}$ are the sample mean and standard deviation of the response variable, and $r$ is the sample correlation coefficient between the two variables. Thus, using these formulas finds the slope and intercept for the line, out of all possible lines, that minimizes the RSS.
+where $\bar{\text{x}}$ and s~x~ are the sample mean and standard deviation of the explanatory variable, $\bar{\text{y}}$ and s~y~ are the sample mean and standard deviation of the response variable, and r is the sample correlation coefficient between the two variables. Thus, using these formulae finds the slope and intercept for the line, out of all possible lines, that minimizes the RSS.
 
 
 ## Assumptions
@@ -308,7 +313,7 @@ ggplot(data=d,mapping=aes(x=p,y=r)) +
 tmp <- unique(d$nm)
 met <- ggplot(data=filter(d,nm==tmp[1]),mapping=aes(x=x,y=y)) +
   geom_point(pch=21,color="black",bg="lightgray") +
-  geom_smooth(method="lm",se=FALSE,size=1) +
+  geom_smooth(method="lm",se=FALSE,size=1,color=clrs[["red"]]) +
   labs(x="Explanatory Variable",y="Response Variable") +
   theme_NCStats() +
   theme(axis.text=element_blank(),aspect.ratio=1,
@@ -318,7 +323,7 @@ met <- ggplot(data=filter(d,nm==tmp[1]),mapping=aes(x=x,y=y)) +
 
 nmet1 <- ggplot(data=filter(d,nm==tmp[2]),mapping=aes(x=x,y=y)) +
   geom_point(pch=21,color="black",bg="lightgray") +
-  geom_smooth(method="lm",se=FALSE,size=1) +
+  geom_smooth(method="lm",se=FALSE,size=1,color=clrs[["red"]]) +
   labs(x="Explanatory Variable",y="Response Variable") +
   theme_NCStats() +
   theme(axis.text=element_blank(),aspect.ratio=1,
@@ -342,13 +347,13 @@ If the regression assumptions are not met, then the regression results should no
 
 
 ## Coefficient of Determination
-The coefficient of determination ($r^{2}$) is the proportion of the total variability in the response variable that is explained away by knowing the value of the explanatory variable and the best-fit model. In simple linear regression, $r^{2}$ is literally the square of $r$, the correlation coefficient.^[Simple linear regression is the fitting of a model with a single explanatory variable and is the only model considered in this module and this course. See Section \@ref(correlation-coefficient) for a review of the correlation coefficient.] Values of $r^{2}$ are between 0 and 1.^[It is common for $r^{2}$ to be presented as a percentage.]
+The coefficient of determination (r^2^) is the proportion of the total variability in the response variable that is explained away by knowing the value of the explanatory variable and the best-fit model. In simple linear regression, r^2^ is literally the square of r, the correlation coefficient.^[Simple linear regression is the fitting of a model with a single explanatory variable and is the only model considered in this module and this course. See Section \@ref(correlation-coefficient) for a review of the correlation coefficient.] Values of r^2^ are between 0 and 1.^[It is common for r^2^ to be presented as a percentage.]
 
-The meaning of $r^{2}$ can be examined by making predictions of the response variable with and without knowing the value of the explanatory variable. First, consider predicting the value of the response variable without any information about the explanatory variable. In this case, the best prediction is the sample mean of the response variable (represented by the dashed blue horizontal line in Figure \@ref(fig:CoeffDeterm)). However, because of natural variability, not all individuals will have this value. Thus, the prediction might be "bracketed" by predicting that the individual will be between the observed minimum and maximum values (solid blue horizontal lines). Loosely speaking, this range is the "total variability in the response variable" (blue box).
+The meaning of r^2^ can be examined by making predictions of the response variable with and without knowing the value of the explanatory variable. First, consider predicting the value of the response variable without any information about the explanatory variable. In this case, the best prediction is the sample mean of the response variable (represented by the dashed blue horizontal line in Figure \@ref(fig:CoeffDeterm)). However, because of natural variability, not all individuals will have this value. Thus, the prediction might be "bracketed" by predicting that the individual will be between the observed minimum and maximum values (solid blue horizontal lines). Loosely speaking, this range is the "total variability in the response variable" (blue box).
 
 &nbsp;
 
-```{r CoeffDeterm, echo=FALSE, fig.width=6, fig.height=3.5, out.width='.8\\linewidth', fig.cap="Fitted line plot with visual representations of variabilities explained and unexplained. A full explanation is in the text."}
+```{r CoeffDeterm, echo=FALSE, fig.width=6, fig.height=3.5, fig.cap="Fitted line plot with visual representations of variabilities explained and unexplained. A full explanation is in the main text."}
 ## Makes some data
 set.seed(199)
 covmat <- matrix(c(1,0.9,0.9,1),ncol=2)
@@ -366,7 +371,8 @@ predy <- predict(lm1,data.frame(x=predx))
 layout(matrix(1:2,nrow=1),widths=c(3,1))
 par(mar=c(3,3,0.5,0),mgp=c(1.9,0.5,0),tcl=-0.2,xaxs="i",yaxs="i")
 # base plot
-plot(y~x,pch=21,bg="gray70",bty="l",ylim=c(74.5,85),xlim=c(44.5,55))
+plot(y~x,pch=21,bg="gray70",bty="l",ylim=c(74.5,85),xlim=c(44.5,55),
+     xlab="Explanatory Variable",ylab="Response Variable")
 abline(lm1,col="gray30",lwd=2)
 # total variability lines (and line at mean)
 lines(c(x[miny],60),c(y[miny],y[miny]),col="darkblue",lwd=2)
@@ -403,32 +409,32 @@ text(2.5,avgy,"Total Variability in Y",col="white",cex=1.1,font=2,srt=90)
 
 &nbsp;
 
-Suppose now that the response variable is predicted for an individual with a known value of the explanatory variable (e.g., at the dashed vertical red line in Figure \@ref(fig:CoeffDeterm)). The predicted value for this individual is the value of the response variable at the corresponding point on the best-fit line (dashed horizontal red line). Again, because of natural variability, not all individuals with this value of the explanatory variable will have this exact value of the response variable. However, the prediction is now "bracketed" by the minimum and maximum value of the response variable **ONLY** for those individuals with the same value of the explanatory variable (solid red horizontal lines). Loosely speaking, this range is the "variability in the response variable remaining after knowing the value of the explanatory variable" (red box). This is the variability in the response variable that remains even after knowing the value of the explanatory variable or the variability in the response variable that cannot be explained away (by the explanatory variable).
+Suppose now that the response variable is predicted for an individual with a known value of the explanatory variable (e.g., at the dashed vertical red line in Figure \@ref(fig:CoeffDeterm)). The predicted value for this individual is the value of the response variable at the corresponding point on the best-fit line (dashed horizontal red line). Again, because of natural variability, not all individuals with this value of the explanatory variable will have this exact value of the response variable. However, the prediction is now "bracketed" by the minimum and maximum value of the response variable **ONLY** for those individuals with the same value of the explanatory variable (solid red horizontal lines). Loosely speaking, this range (red box) is the "variability in the response variable remaining after knowing the value of the explanatory variable" or "the variability in the response variable that cannot be explained away (by the explanatory variable)."
 
 The portion of the total variability in the response variable that was explained away consists of all the values of the response variable that would no longer be entertained as possible predictions once the value of the explanatory variable is known (green box in Figure \@ref(fig:CoeffDeterm)).
 
-Now, by the definition of $r^{2}$, $r^{2}$ can be visualized as the area of the green box divided by the area of the blue box. This calculation does not depend on which value of the explanatory variable is chosen as long as the data are evenly distributed around the line (i.e., homoscedasticity -- see Section \@ref(assumptions)).
+Now, by its definition, r^2^ can be visualized as the area of the green box divided by the area of the blue box. This calculation does not depend on which value of the explanatory variable is chosen as long as the data are evenly distributed around the line (i.e., homoscedasticity exists -- see Section \@ref(assumptions)).
 
-If the variability explained away (green box) approaches the total variability in the response variable (blue box), then $r^{2}$ approaches 1. This will happen only if the variability around the line approaches zero. In contrast, the variability explained (green box) will approach zero if the slope is zero (i.e., no relationship between the response and explanatory variables). Thus, values of $r^{2}$ also indicate the strength of the relationship; values near 1 are stronger than values near 0. Values near 1 also mean that predictions will be fairly accurate -- i.e., there is little variability remaining after knowing the explanatory variable.
+If the variability explained away (green box) approaches the total variability in the response variable (blue box), then r^2^ approaches 1. This will happen only if the variability around the line approaches zero. In contrast, the variability explained (green box) will approach zero if the slope is zero (i.e., no relationship between the response and explanatory variables). Thus, values of r^2^ also indicate the strength of the relationship; values near 1 are stronger than values near 0. Values near 1 also mean that predictions will be very precise -- i.e., there is little variability remaining after knowing the explanatory variable.
 
 ::: {.tip data-latex=''}
-A value of $r^{2}$ near 1 represents a strong relationship between the response and explanatory variables that will lead to accurate predictions.
+A value of r^2^ near 1 represents a strong relationship between the response and explanatory variables that will lead to precise predictions.
 :::
 
 
 ## Examples
-There are twelve questions that are commonly asked about linear regression results. These twelve questions are listed below with some hints about things to remember when answering some of the questions. An example of these questions in context is then provided.
+There are twelve questions that are commonly asked about linear regression results. These twelve questions are listed below with some thoughts about things to remember when answering some of the questions. Example of these questions in a context is then provided.
 
 1. What is the response variable?
-    * *Identify which variable is to be predicted or explained, which variable is dependent on another variable, which would be hardest to measure, or which is on the y-axis.*
+    * *Identify which variable is to be predicted or explained, which variable is dependent on the other variable, which would be hardest to measure, or which is on the y-axis.*
 1. What is the explanatory variable?
     * *The remaining variable after identifying the response variable.*
 1. Comment on linearity and homoscedasticity.
     * *Examine fitted-line plot for curvature (i.e., non-linearity) or a funnel-shape (i.e., heteroscedasticity).*
 1. What is the equation of the best-fit line?
-    * *In the generic equation of the line ($y=mx+b$) replace $y$ with the name of the response variable, $x$ with the name of the explanatory variable, $m$ with the value of the slope, and $b$ with the value of the intercept.*
+    * *In the generic equation of the line (y=m&times;x+b) replace y with the name of the response variable, x with the name of the explanatory variable, m with the value of the slope, and b with the value of the intercept.*
 1. Interpret the value of the slope.
-    * *Comment on how the response variable changes by slope amount for each one unit change of the explanatory variable, on average.*
+    * *Comment on how the response variable changes by the slope amount for each one unit change of the explanatory variable, on average.*
 1. Interpret the value of the intercept.
     * *Comment on how the response variable equals the intercept, on average, if the explanatory variable is zero.*
 1. Make a prediction given a value of the explanatory variable.
@@ -438,16 +444,15 @@ There are twelve questions that are commonly asked about linear regression resul
 1. Identify an extrapolation in the context of a prediction problem.
     * *Examine the x-axis scale on the fitted-line plot and do not make predictions outside of the plotted range.*
 1. What is the proportion of variability in the response variable explained by knowing the value of the explanatory variable?
-    * *This is $r^{2}$.*
+    * *This is r^2^.*
 1. What is the correlation coefficient?
-    * *This is the square root of $r^{2}$. Make sure to put a negative sign on the result if the slope is negative.*
+    * *This is the square root of r^2^. Make sure to put a negative sign on the result if the slope is negative.*
 1. How much does the response variable change if the explanatory variable changes by X units?
     * *This is an alternative to asking for an interpretation of the slope. If the explanatory variable changes by X units, then the response variable will change by X&times;slope units, on average.*
 
-All answers should refer to the variables of the problem -- thus, "y", "x", "response", or "explanatory" should not be in any part of any answer. The questions about the slope, intercept, and predictions need to explicitly identify that the answer is an "average" or "on average."
-
 ::: {.tip data-latex=''}
-All interpretations should be "in terms of the variables of the problem" rather than the generic terms of x, y, response variable, and explanatory variable.
+* All interpretations should be "in terms of the variables of the problem" rather than the generic terms of x, y, response variable, and explanatory variable.
+* Questions about the slope, intercept, and predictions need to explicitly identify that the answer is an "average" or "on average."
 :::
 
 
@@ -463,7 +468,7 @@ int <- formatC(coef(lm.chimp)[1],format="f",digits=2)
 r2 <- formatC(rSquared(lm.chimp),format="f",digits=2)
 ggplot(data=chimp,mapping=aes(x=huntparty,y=percsucc)) +
   geom_point(pch=21,color="black",fill="darkgray",size=2) +
-  geom_smooth(method="lm",se=FALSE,color="red",size=1) +
+  geom_smooth(method="lm",se=FALSE,color=clrs[["red"]],size=1) +
   stat_SLR_equation(aes(label=..eq.label..),
                     label.x.npc=0,label.y.npc=1) +
   stat_SLR_equation(aes(label=..rr.label..),
@@ -473,11 +478,13 @@ ggplot(data=chimp,mapping=aes(x=huntparty,y=percsucc)) +
   theme(aspect.ratio=1,plot.title=element_text(size=12))
 ```
 
+&nbsp;
+
 1. What is the response variable?
     * The response variable is the percent of successful hunts because the authors are attempting to see if success depends on hunting party size. Additionally, the percent of successful hunts is shown on the y-axis.
 1. What is the explanatory variable?
     * The explanatory variable is the size of the hunting party.
-1. Does any aspect of this regression concern you (i.e., consider the regression assumptions)?
+1. Comment on linearity and homoscedasticity.
     * The data appear to be very slightly curved but there is no evidence of a funnel-shape. Thus, the data may be slightly non-linear but they appear homoscedastic.
 1. In terms of the variables of the problem, what is the equation of the best-fit line?
     * The equation of the best-fit line is % Success of Hunt = `r int` + `r slp`&times;Number of Hunting Party Members.
@@ -490,16 +497,17 @@ ggplot(data=chimp,mapping=aes(x=huntparty,y=percsucc)) +
 1. What is the predicted hunt success if the hunting party consists of 12 chimpanzees?
     * The predicted hunt success for parties with 12 individuals is `r int` + `r slp`&times;12 = 68.7%.
 1. What is the residual if the hunt success for 10 individuals is 50%?
-    * The residual in this case is 50-(`r int` + `r slp`&times;10) = 50-61.3 = -11.3. Therefore, it appears that the success of this hunting party is 11.3% lower than average for this size of hunting party.
+    * The predicted hunt success for 10 indviduals is (`r int` + `r slp`&times;10) = 61.3%.
+    * Thus, the residual in this case is 50-61.3 = -11.3. Therefore, it appears that the success of this hunting party is 11.3% lower than average for this size of hunting party.
 1. What proportion of the variability in hunting success is explained by knowing the size of the hunting party?
-    * The proportion of the variability in hunting success that is explained by knowing the size of the hunting party is $r^{2}$=`r r2`.
+    * The proportion of the variability in hunting success that is explained by knowing the size of the hunting party is r^2^=`r r2`.
 1. What is the correlation between hunting success and size of hunting party?
-    * The correlation between hunting success and size of hunting party is r=`r formatC(sqrt(rSquared(lm.chimp)),format="f",digits=2)`. [*Note that this is the square root of $r^{2}$.}]
+    * The correlation between hunting success and size of hunting party is r=`r formatC(sqrt(rSquared(lm.chimp)),format="f",digits=2)`. [*Note that this is the square root of r^2^.*]
 1. How much does hunt success decrease, on average, if there are two fewer individuals in the party?
     * If the hunting party has two fewer members, then the hunting success would decrease by `r formatC(2*coef(lm.chimp)[2],format="f",digits=1)`% (i.e., -2&times;`r slp`), on average. [*Note that this is two times the slope, with a negative as it asks about "fewer" members.*]
 
 ### Car Weight and MPG {-}
-In Module \@ref(BEDAQuant), an EDA for the relationship between HMPG (the highway miles per gallon) and Weight (lbs) of 93 cars from the 1993 model year was performed. This relationship will be explored further here as an example of a complete regression analysis. In this analysis, the regression output will be examined within the context of answering the twelve typical questions. The results are shown in Figure \@ref(fig:CarFit).
+In Module \@ref(BEDAQuant), an EDA for the relationship between HMPG (the highway miles per gallon) and Weight (lbs) of 93 cars from the 1993 model year was performed. This relationship will be explored further here as an example of a complete regression analysis. The best-fit line question and r^2^ for these data are shown in Figure \@ref(fig:CarFit).
 
 ```{r CarFit, echo=FALSE, message=FALSE, fig.cap="Fitted line plot of the regression of highway MPG on weight of 93 cars from 1993."}
 cars93 <- read.csv("https://raw.githubusercontent.com/droglenc/NCData/master/93cars.csv")
@@ -509,7 +517,7 @@ int <- formatC(coef(lm2)[1],format="f",digits=1)
 r2 <- formatC(rSquared(lm2),format="f",digits=2)
 ggplot(data=cars93,mapping=aes(x=Weight,y=HMPG)) +
   geom_point(pch=21,color="black",fill="darkgray",size=2) +
-  geom_smooth(method="lm",se=FALSE,color="red",size=1) +
+  geom_smooth(method="lm",se=FALSE,color=clrs[["red"]],size=1) +
   stat_SLR_equation(aes(label=..eq.label..),
                     label.x.npc=0.45,label.y.npc=1,cf.digits=c(1,4)) +
   stat_SLR_equation(aes(label=..rr.label..),
@@ -519,11 +527,13 @@ ggplot(data=cars93,mapping=aes(x=Weight,y=HMPG)) +
   theme(aspect.ratio=1,plot.title=element_text(size=12))
 ```
 
+&nbsp;
+
 1. What is the response variable?
-    * The response variable in this analysis is the highway MPG, because that is the variable that we are trying to learn about or explain the variability of.
+    * The response variable in this analysis is the highway MPG, because that is the variable that we are trying to learn about or explain the variability of. In addition, it is presented on the y-axis of the fitted line plot.
 1. What is the explanatory variable?
     * The explanatory variable in this analysis is the weight of the car (by process of elimination).
-1. Do any aspects of this regression fit concern you?
+1. Comment on linearity and homoscedasticity.
     * The simple linear regression model appears to fit the data moderately well as the fitted-line plot (Figure \@ref(fig:CarFit)) shows only a very slight curvature and only very slight heteroscedasticity.^[In advanced statistics books, objective measures for determining whether there is significant curvature or heteroscedasticity in the data are used. In this book, we will only be concerned with whether there is strong evidence of curvature or heteroscedasticity. There does not seem to be either here.].
 1. In terms of the variables of the problem, what is the equation of the best-fit line?
     * The equation of the best-fit line for this problem is HMPG = `r int` - `r slp`&times;Weight.
@@ -536,11 +546,11 @@ ggplot(data=cars93,mapping=aes(x=Weight,y=HMPG)) +
 1. What is the predicted highway MPG for a car that weighs 5100 lbs?
     * The predicted highway MPG for a car that weighs 5100 lbs should not be computed with the results of this regression, because 5100 lbs is outside the domain of the data (Figure \@ref(fig:CarFit)).
 1. What is the residual for a car that weights 3500 lbs and has a highway MPG of 24?
-    * The predicted highway MPG for a car that weighs 3500 lbs is `r int` - `r slp`&times;3500 = 26.1. Thus, the residual for this car is 24 - 26.1 = -2.1. Therefore, it appears that this car gets 2.5 MPG LESS than an average car with the same weight.
+    * The predicted highway MPG for a car that weighs 3500 lbs is `r int` - `r slp`&times;3500 = 26.1. Thus, the residual for this car is 24 - 26.1 = -2.1. Therefore, it appears that this car gets 2.1 MPG LESS than an average car with the same weight.
 1. What proportion of the variability in highway MPG is explained by knowing the weight of the car?
-    * The proportion of the variability in highway MPG that is explained by knowing the weight of the car is $r^{2}$=`r r2`.
+    * The proportion of the variability in highway MPG that is explained by knowing the weight of the car is r^2^=`r r2`.
 1. What is the correlation between highway MPG and car weight?
-    * The correlation between highway MPG and car weight is $r=$`r formatC(-1*sqrt(rSquared(lm2)),format="f",digits=2)`. [*Not that this is the square root of $r^{2}$, but as a negative because form of the relationship between highway MPG and weight is negative.}
+    * The correlation between highway MPG and car weight is r=`r formatC(-1*sqrt(rSquared(lm2)),format="f",digits=2)`. [*Not that this is the square root of r^2^, but as a negative because form of the relationship between highway MPG and weight is negative.*]
 1. How much is the highway MPG expected to change if a car is 1000 lbs heavier?
     * If the car was 1000 lbs heavier, you would expect the car's highway MPG to decrease by `r formatC(-1000*coef(lm2)[2],format="f",digits=2)`. [*Note that this is 1000 slopes.*]
 

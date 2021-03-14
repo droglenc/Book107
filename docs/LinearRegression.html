@@ -331,7 +331,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="LinearRegression" class="section level1" number="9">
 <h1><span class="header-section-number">Module 9</span> Linear Regression</h1>
-<p>Linear regression analysis is used to model the relationship between two quantitative variables for two related purposes – (i) explaining variability in the response variable and (ii) predicting future values of the response variable. Examples include predicting future sales of a product from its price, family expenditures on recreation from family income, an animal’s food consumption in relation to ambient temperature, and a person’s score on a German assessment test based on how many years the person studied German.</p>
+<p>Linear regression analysis is used to model the relationship between two quantitative variables for two related purposes:</p>
+<ol style="list-style-type: decimal">
+<li>explaining variability in the response variable and</li>
+<li>predicting future values of the response variable.</li>
+</ol>
+<p>Examples include predicting future sales of a product from its price, family expenditures on recreation from family income, an animal’s food consumption in relation to ambient temperature, and a person’s score on a German assessment test based on how many years the person studied German.</p>
 <p>Exact predictions cannot be made because of natural variability. For example, two people with the same intake of mercury (from consumption of fish) will likely not have the same level of mercury in their blood stream. Thus, the best that can be accomplished is to predict the average or expected value for a person with a particular intake value. This is accomplished by finding the line that best “fits” the points on a scatterplot of the data and using that line to make predictions. Finding and using the “best-fit” line is the topic of this module.</p>
 <div id="response-and-explanatory-variables-1" class="section level2" number="9.1">
 <h2><span class="header-section-number">9.1</span> Response and Explanatory Variables</h2>
@@ -340,16 +345,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="slope-and-intercept" class="section level2" number="9.2">
 <h2><span class="header-section-number">9.2</span> Slope and Intercept</h2>
 <p>The equation of a line is commonly expressed as,</p>
-<p><span class="math display">\[ y = mx + b \]</span></p>
-<p>where both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are variables, <span class="math inline">\(m\)</span> represents the slope of the line, and <span class="math inline">\(b\)</span> represents the y-intercept.<a href="#fn38" class="footnote-ref" id="fnref38"><sup>38</sup></a> It is important that you can look at the equation of a line and identify the response variable, explanatory variable, slope, and intercept. The response variable will always appear on the left side of the equation by itself. The explanatory variable (e.g., <span class="math inline">\(x\)</span>) will be on the right side of the equation and will be multiplied by the slope. The value or symbol by itself on the right side of the equation is the intercept. For example, in</p>
-<p><span class="math display">\[ \text{blood} = 3.501 + 0.579\text{intake} \]</span></p>
-<p>blood is the response variable, intake is the explanatory variable, <span class="math inline">\(0.579\)</span> is the slope (it is multiplied by the explanatory variable), and <span class="math inline">\(3.501\)</span> is the intercept (it is on the right side and not multiplied by anything). The same conclusions would be made if the equation had been written as</p>
-<p><span class="math display">\[ \text{blood} = 0.579\text{intake}+3.501 \]</span></p>
+<p><span class="math display">\[ y = m\times x + b \]</span></p>
+<p>where both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are variables, <span class="math inline">\(m\)</span> represents the slope of the line, and <span class="math inline">\(b\)</span> represents the y-intercept.<a href="#fn38" class="footnote-ref" id="fnref38"><sup>38</sup></a> It is important that you can look at the equation of a line and identify the response variable, explanatory variable, slope, and intercept. The response variable will always appear by itself on the left side of the equation. The explanatory variable (e.g., <span class="math inline">\(x\)</span>) will be on the right side of the equation and will be multiplied by the slope. The value or symbol by itself on the right side of the equation is the intercept. For example, in</p>
+<p><span class="math display">\[ \text{blood} = 0.579\times\text{intake}+3.501 \]</span></p>
+<p>blood is the response variable, intake is the explanatory variable, 0.579 is the slope (it is multiplied by the explanatory variable), and 3.501 is the intercept (it is not multiplied by anything on the right side). The same conclusions would be made if the equation had been written as</p>
+<p><span class="math display">\[ \text{blood} = 3.501 + 0.579\times\text{intake} \]</span></p>
 <div class="tip">
 <p>In the equation of a line, the slope is always multiplied by the explanatory variable and the intercept is always by itself.</p>
 </div>
 <p>In addition to being able to identify the slope and intercept of a line you also need to be able to interpret these values. Most students define the slope as “rise over run” and the intercept as “where the line crosses the y-axis.” These “definitions” are loose geometric representations. For our purposes, the slope and intercept must be more strictly defined.</p>
-<p>To define the slope, first think of “plugging” two values of intake into the equation discussed above. For example, if intake=100, then blood=3.501+0.579×100=61.40 and if intake is one unit larger at 101, then blood=3.501+0.579×101=61.98.<a href="#fn39" class="footnote-ref" id="fnref39"><sup>39</sup></a> The difference between these two values is 61.98-61.40=0.579, which is the same as the slope. Thus, the slope is the change in value of the response variable FOR A SINGLE UNIT CHANGE in the value of the explanatory variable (Figure <a href="LinearRegression.html#fig:SlopeInt">9.1</a>). That is, mercury in the blood changes 0.579 units FOR A SINGLE UNIT CHANGE in mercury intake. So, if an individual increases mercury intake by one unit, then mercury in the blood will increase by 0.579 units, ON AVERAGE. Alternatively, if one individual has one more unit of mercury intake than another individual, then the first individual will have 0.579 more units of mercury in their blood, ON AVERAGE.</p>
+<p>To define the slope, first think of “plugging” two values of intake into the equation discussed above. For example, if intake=100, then blood=3.501+0.579×100=61.401 and if intake is one unit larger at 101, then blood=3.501+0.579×101=61.980.<a href="#fn39" class="footnote-ref" id="fnref39"><sup>39</sup></a> The difference between these two values is 61.980-61.401=0.579, which is the same as the slope. Thus, the slope is the change in the AVERAGE value of the response variable FOR A SINGLE UNIT CHANGE in the value of the explanatory variable (Figure <a href="LinearRegression.html#fig:SlopeInt">9.1</a>). That is, mercury in the blood changes 0.579 units FOR A SINGLE UNIT CHANGE in mercury intake, ON AVERAGE. So, if an individual increases mercury intake by one unit, then mercury in the blood will increase by 0.579 units, ON AVERAGE. Alternatively, if one individual has one more unit of mercury intake than another individual, then the first individual will have 0.579 more units of mercury in their blood, ON AVERAGE.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:SlopeInt"></span>
 <img src="Book107_files/figure-html/SlopeInt-1.png" alt="Schematic representation of the meaning of the intercept and slope in a linear equation." width="384" />
@@ -359,16 +364,16 @@ Figure 9.1: Schematic representation of the meaning of the intercept and slope i
 </div>
 <p> </p>
 <p>To define the intercept, first “plug” intake=0 into the equation discussed above; i.e., blood=3.501+0.579×0 = 3.501. Thus, the intercept is the value of the response variable when the explanatory variable is equal to zero (Figure <a href="LinearRegression.html#fig:SlopeInt">9.1</a>). In this example, the AVERAGE mercury in the blood for an individual with no mercury intake is 3.501. Many times, as is true with this example, the interpretation of the intercept will be nonsensical. This is because x=0 will likely be outside the range of the data collected and, perhaps, outside the range of possible data that could be collected.</p>
-<p>The equation of the line is a model for the relationship depicted in a scatterplot. Thus, the interpretations for the slope and intercept represent the <em>average</em> change or the <em>average</em> response variable. Thus, whenever a slope or intercept is being interpreted it must be noted that the result is an <em>average</em> or <em>on average</em>.</p>
+<p>The equation of the line is a model for the relationship depicted in a scatterplot. Thus, the interpretations for the slope and intercept represent the <em>average</em> change or the <em>average</em> response variable. Thus, whenever a slope or intercept is being interpreted it <strong>must</strong> be noted that the result is an <em>average</em> or <em>on average</em>.</p>
 </div>
 <div id="predictions" class="section level2" number="9.3">
 <h2><span class="header-section-number">9.3</span> Predictions</h2>
 <p>Once a best-fit line has been identified (criteria for doing so is discussed in Section <a href="LinearRegression.html#best-fit-criteria">9.5</a>), the equation of the line can be used to predict the average value of the response variable for individuals with a particular value of the explanatory variable. For example, the best-fit line for the mercury data shown in Figure <a href="LinearRegression.html#fig:HGpredict">9.2</a> is</p>
-<p><span class="math display">\[ \text{blood} = 3.501 + 0.579*\text{intake} \]</span></p>
+<p><span class="math display">\[ \text{blood} = 3.501 + 0.579\times\text{intake} \]</span></p>
 <p>Thus, the predicated average level of mercury in the blood for an individual that consumed 240 ug HG/day is found with</p>
-<p><span class="math display">\[ \text{blood} = 3.501 + 0.579*240 = 142.461 \]</span></p>
+<p><span class="math display">\[ \text{blood} = 3.501 + 0.579\times240 = 142.461 \]</span></p>
 <p>Similarly, the predicted average level of mercury in the blood for an individual that consumed 575 ug HG/day is found with</p>
-<p><span class="math display">\[ \text{blood} = 3.501 + 0.579*575 = 336.426 \]</span></p>
+<p><span class="math display">\[ \text{blood} = 3.501 + 0.579\times575 = 336.426 \]</span></p>
 <p>A prediction may be visualized by finding the value of the explanatory variable on the x-axis, drawing a vertical line until the best-fit line is reached, and then drawing a horizontal line over to the y-axis where the value of the response variable is read (Figure <a href="LinearRegression.html#fig:HGpredict">9.2</a>).</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:HGpredict"></span>
@@ -385,9 +390,9 @@ Figure 9.2: Scatterplot between the intake of mercury in fish and the mercury in
 <p>The predicted value is a “best-guess” for an individual based on the best-fit line. The actual value for any individual is likely to be different from this predicted value. The <strong>residual</strong> is a measure of how “far off” the prediction is from what is actually observed. Specifically, the residual for an individual is found by subtracting the predicted value (given the individual’s observed value of the explanatory variable) from the individual’s observed value of the response variable, or</p>
 <p><span class="math display">\[ \text{residual}=\text{observed response}-\text{predicted response}\]</span></p>
 <p>For example, consider an individual that has an observed intake of 650 and an observed level of mercury in the blood of 480. As shown in the previous section, the predicted level of mercury in the blood for this individual is</p>
-<p><span class="math display">\[ \text{blood} = 3.501 + 0.579*650 = 379.851\]</span></p>
+<p><span class="math display">\[ \text{blood} = 3.501 + 0.579\times650 = 379.851\]</span></p>
 <p>The residual for this individual is then 480-379.851 = 100.149. This positive residual indicates that the observed value is approximately 100 units GREATER than the average for individuals with an intake of 650.<a href="#fn40" class="footnote-ref" id="fnref40"><sup>40</sup></a> As a second example, consider an individual with an observed intake of 250 and an observed level of mercury in the blood of 105. The predicted value for this individual is</p>
-<p><span class="math display">\[ \text{blood} = 3.501 + 0.579*250 = 148.251\]</span></p>
+<p><span class="math display">\[ \text{blood} = 3.501 + 0.579\times250 = 148.251\]</span></p>
 <p>and the residual is 105-148.251 = -43.251. This negative residual indicates that the observed value is approximately 43 units LESS than the average for individuals with an intake of 250.</p>
 <p>Visually, a residual is the vertical distance between an individual’s point and the best-fit line (Figure <a href="LinearRegression.html#fig:HGresidual">9.3</a>).</p>
 <p> </p>
@@ -405,17 +410,17 @@ Figure 9.3: Scatterplot between the intake of mercury in fish and the mercury in
 <p>The residual sum-of-squares (RSS) is the sum of all squared residuals. The least-squares criterion says that the “best-fit” line is the one line out of all possible lines that has the minimum RSS (Figure <a href="LinearRegression.html#fig:RSSanim">9.4</a>).</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:RSSanim"></span>
-<img src="Book107_files/figure-html/RSSanim-.gif" alt="Scatterplot with the best-fit line (light gray) and candidate best-fit lines (blue line) and residuals (vertical red dashed lines) in the left pane and the residual sum-of-squares for all candidate lines (gray) with the current line highlighted with a red dot. Note how the candidate line is on the best-fit line when the RSS is smallest." width="672" />
+<img src="Book107_files/figure-html/RSSanim-.gif" alt="Scatterplot with the best-fit line (light gray) and candidate best-fit lines (red line) and residuals (vertical red dashed lines) in the left pane and the residual sum-of-squares for all candidate lines (gray) with the current line highlighted with a red dot. Note how the candidate line is on the best-fit line when the RSS is smallest." width="672" />
 <p class="caption">
-Figure 9.4: Scatterplot with the best-fit line (light gray) and candidate best-fit lines (blue line) and residuals (vertical red dashed lines) in the left pane and the residual sum-of-squares for all candidate lines (gray) with the current line highlighted with a red dot. Note how the candidate line is on the best-fit line when the RSS is smallest.
+Figure 9.4: Scatterplot with the best-fit line (light gray) and candidate best-fit lines (red line) and residuals (vertical red dashed lines) in the left pane and the residual sum-of-squares for all candidate lines (gray) with the current line highlighted with a red dot. Note how the candidate line is on the best-fit line when the RSS is smallest.
 </p>
 </div>
 <p> </p>
 <p>The discussion thusfar implies that all possible lines must be “fit” to the data and the one with the minimum RSS is chosen as the “best-fit” line. As there are an infinite number of possible lines, this would be impossible to do. Theoretical statisticians have shown that the application of the least-squares criterion always produces a best-fit line with a slope given by</p>
-<p><span class="math display">\[ slope = r\frac{s_{y}}{s_{x}} \]</span></p>
+<p><span class="math display">\[ \text{slope} = \text{r}\frac{\text{s}_{\text{y}}}{\text{s}_{\text{x}}} \]</span></p>
 <p>and an intercept given by</p>
-<p><span class="math display">\[ intercept = \bar{\text{y}}-slope*\bar{\text{x}} \]</span></p>
-<p>where <span class="math inline">\(\bar{\text{x}}\)</span> and <span class="math inline">\(s_{x}\)</span> are the sample mean and standard deviation of the explanatory variable, <span class="math inline">\(\bar{\text{y}}\)</span> and <span class="math inline">\(s_{y}\)</span> are the sample mean and standard deviation of the response variable, and <span class="math inline">\(r\)</span> is the sample correlation coefficient between the two variables. Thus, using these formulas finds the slope and intercept for the line, out of all possible lines, that minimizes the RSS.</p>
+<p><span class="math display">\[ \text{intercept} = \bar{\text{y}}-\text{slope}\times\bar{\text{x}} \]</span></p>
+<p>where <span class="math inline">\(\bar{\text{x}}\)</span> and s<sub>x</sub> are the sample mean and standard deviation of the explanatory variable, <span class="math inline">\(\bar{\text{y}}\)</span> and s<sub>y</sub> are the sample mean and standard deviation of the response variable, and r is the sample correlation coefficient between the two variables. Thus, using these formulae finds the slope and intercept for the line, out of all possible lines, that minimizes the RSS.</p>
 </div>
 <div id="assumptions" class="section level2" number="9.6">
 <h2><span class="header-section-number">9.6</span> Assumptions</h2>
@@ -446,31 +451,31 @@ Figure 9.5: Fitted-line plots illustrating when the regression assumptions are m
 </div>
 <div id="coefficient-of-determination" class="section level2" number="9.7">
 <h2><span class="header-section-number">9.7</span> Coefficient of Determination</h2>
-<p>The coefficient of determination (<span class="math inline">\(r^{2}\)</span>) is the proportion of the total variability in the response variable that is explained away by knowing the value of the explanatory variable and the best-fit model. In simple linear regression, <span class="math inline">\(r^{2}\)</span> is literally the square of <span class="math inline">\(r\)</span>, the correlation coefficient.<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a> Values of <span class="math inline">\(r^{2}\)</span> are between 0 and 1.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a></p>
-<p>The meaning of <span class="math inline">\(r^{2}\)</span> can be examined by making predictions of the response variable with and without knowing the value of the explanatory variable. First, consider predicting the value of the response variable without any information about the explanatory variable. In this case, the best prediction is the sample mean of the response variable (represented by the dashed blue horizontal line in Figure <a href="LinearRegression.html#fig:CoeffDeterm">9.6</a>). However, because of natural variability, not all individuals will have this value. Thus, the prediction might be “bracketed” by predicting that the individual will be between the observed minimum and maximum values (solid blue horizontal lines). Loosely speaking, this range is the “total variability in the response variable” (blue box).</p>
+<p>The coefficient of determination (r<sup>2</sup>) is the proportion of the total variability in the response variable that is explained away by knowing the value of the explanatory variable and the best-fit model. In simple linear regression, r<sup>2</sup> is literally the square of r, the correlation coefficient.<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a> Values of r<sup>2</sup> are between 0 and 1.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a></p>
+<p>The meaning of r<sup>2</sup> can be examined by making predictions of the response variable with and without knowing the value of the explanatory variable. First, consider predicting the value of the response variable without any information about the explanatory variable. In this case, the best prediction is the sample mean of the response variable (represented by the dashed blue horizontal line in Figure <a href="LinearRegression.html#fig:CoeffDeterm">9.6</a>). However, because of natural variability, not all individuals will have this value. Thus, the prediction might be “bracketed” by predicting that the individual will be between the observed minimum and maximum values (solid blue horizontal lines). Loosely speaking, this range is the “total variability in the response variable” (blue box).</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:CoeffDeterm"></span>
-<img src="Book107_files/figure-html/CoeffDeterm-1.png" alt="Fitted line plot with visual representations of variabilities explained and unexplained. A full explanation is in the text." width=".8\linewidth" />
+<img src="Book107_files/figure-html/CoeffDeterm-1.png" alt="Fitted line plot with visual representations of variabilities explained and unexplained. A full explanation is in the main text." width="576" />
 <p class="caption">
-Figure 9.6: Fitted line plot with visual representations of variabilities explained and unexplained. A full explanation is in the text.
+Figure 9.6: Fitted line plot with visual representations of variabilities explained and unexplained. A full explanation is in the main text.
 </p>
 </div>
 <p> </p>
-<p>Suppose now that the response variable is predicted for an individual with a known value of the explanatory variable (e.g., at the dashed vertical red line in Figure <a href="LinearRegression.html#fig:CoeffDeterm">9.6</a>). The predicted value for this individual is the value of the response variable at the corresponding point on the best-fit line (dashed horizontal red line). Again, because of natural variability, not all individuals with this value of the explanatory variable will have this exact value of the response variable. However, the prediction is now “bracketed” by the minimum and maximum value of the response variable <strong>ONLY</strong> for those individuals with the same value of the explanatory variable (solid red horizontal lines). Loosely speaking, this range is the “variability in the response variable remaining after knowing the value of the explanatory variable” (red box). This is the variability in the response variable that remains even after knowing the value of the explanatory variable or the variability in the response variable that cannot be explained away (by the explanatory variable).</p>
+<p>Suppose now that the response variable is predicted for an individual with a known value of the explanatory variable (e.g., at the dashed vertical red line in Figure <a href="LinearRegression.html#fig:CoeffDeterm">9.6</a>). The predicted value for this individual is the value of the response variable at the corresponding point on the best-fit line (dashed horizontal red line). Again, because of natural variability, not all individuals with this value of the explanatory variable will have this exact value of the response variable. However, the prediction is now “bracketed” by the minimum and maximum value of the response variable <strong>ONLY</strong> for those individuals with the same value of the explanatory variable (solid red horizontal lines). Loosely speaking, this range (red box) is the “variability in the response variable remaining after knowing the value of the explanatory variable” or “the variability in the response variable that cannot be explained away (by the explanatory variable).”</p>
 <p>The portion of the total variability in the response variable that was explained away consists of all the values of the response variable that would no longer be entertained as possible predictions once the value of the explanatory variable is known (green box in Figure <a href="LinearRegression.html#fig:CoeffDeterm">9.6</a>).</p>
-<p>Now, by the definition of <span class="math inline">\(r^{2}\)</span>, <span class="math inline">\(r^{2}\)</span> can be visualized as the area of the green box divided by the area of the blue box. This calculation does not depend on which value of the explanatory variable is chosen as long as the data are evenly distributed around the line (i.e., homoscedasticity – see Section <a href="LinearRegression.html#assumptions">9.6</a>).</p>
-<p>If the variability explained away (green box) approaches the total variability in the response variable (blue box), then <span class="math inline">\(r^{2}\)</span> approaches 1. This will happen only if the variability around the line approaches zero. In contrast, the variability explained (green box) will approach zero if the slope is zero (i.e., no relationship between the response and explanatory variables). Thus, values of <span class="math inline">\(r^{2}\)</span> also indicate the strength of the relationship; values near 1 are stronger than values near 0. Values near 1 also mean that predictions will be fairly accurate – i.e., there is little variability remaining after knowing the explanatory variable.</p>
+<p>Now, by its definition, r<sup>2</sup> can be visualized as the area of the green box divided by the area of the blue box. This calculation does not depend on which value of the explanatory variable is chosen as long as the data are evenly distributed around the line (i.e., homoscedasticity exists – see Section <a href="LinearRegression.html#assumptions">9.6</a>).</p>
+<p>If the variability explained away (green box) approaches the total variability in the response variable (blue box), then r<sup>2</sup> approaches 1. This will happen only if the variability around the line approaches zero. In contrast, the variability explained (green box) will approach zero if the slope is zero (i.e., no relationship between the response and explanatory variables). Thus, values of r<sup>2</sup> also indicate the strength of the relationship; values near 1 are stronger than values near 0. Values near 1 also mean that predictions will be very precise – i.e., there is little variability remaining after knowing the explanatory variable.</p>
 <div class="tip">
-<p>A value of <span class="math inline">\(r^{2}\)</span> near 1 represents a strong relationship between the response and explanatory variables that will lead to accurate predictions.</p>
+<p>A value of r<sup>2</sup> near 1 represents a strong relationship between the response and explanatory variables that will lead to precise predictions.</p>
 </div>
 </div>
 <div id="examples" class="section level2" number="9.8">
 <h2><span class="header-section-number">9.8</span> Examples</h2>
-<p>There are twelve questions that are commonly asked about linear regression results. These twelve questions are listed below with some hints about things to remember when answering some of the questions. An example of these questions in context is then provided.</p>
+<p>There are twelve questions that are commonly asked about linear regression results. These twelve questions are listed below with some thoughts about things to remember when answering some of the questions. Example of these questions in a context is then provided.</p>
 <ol style="list-style-type: decimal">
 <li>What is the response variable?
 <ul>
-<li><em>Identify which variable is to be predicted or explained, which variable is dependent on another variable, which would be hardest to measure, or which is on the y-axis.</em></li>
+<li><em>Identify which variable is to be predicted or explained, which variable is dependent on the other variable, which would be hardest to measure, or which is on the y-axis.</em></li>
 </ul></li>
 <li>What is the explanatory variable?
 <ul>
@@ -482,11 +487,11 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 </ul></li>
 <li>What is the equation of the best-fit line?
 <ul>
-<li><em>In the generic equation of the line (<span class="math inline">\(y=mx+b\)</span>) replace <span class="math inline">\(y\)</span> with the name of the response variable, <span class="math inline">\(x\)</span> with the name of the explanatory variable, <span class="math inline">\(m\)</span> with the value of the slope, and <span class="math inline">\(b\)</span> with the value of the intercept.</em></li>
+<li><em>In the generic equation of the line (y=m×x+b) replace y with the name of the response variable, x with the name of the explanatory variable, m with the value of the slope, and b with the value of the intercept.</em></li>
 </ul></li>
 <li>Interpret the value of the slope.
 <ul>
-<li><em>Comment on how the response variable changes by slope amount for each one unit change of the explanatory variable, on average.</em></li>
+<li><em>Comment on how the response variable changes by the slope amount for each one unit change of the explanatory variable, on average.</em></li>
 </ul></li>
 <li>Interpret the value of the intercept.
 <ul>
@@ -506,20 +511,22 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 </ul></li>
 <li>What is the proportion of variability in the response variable explained by knowing the value of the explanatory variable?
 <ul>
-<li><em>This is <span class="math inline">\(r^{2}\)</span>.</em></li>
+<li><em>This is r<sup>2</sup>.</em></li>
 </ul></li>
 <li>What is the correlation coefficient?
 <ul>
-<li><em>This is the square root of <span class="math inline">\(r^{2}\)</span>. Make sure to put a negative sign on the result if the slope is negative.</em></li>
+<li><em>This is the square root of r<sup>2</sup>. Make sure to put a negative sign on the result if the slope is negative.</em></li>
 </ul></li>
 <li>How much does the response variable change if the explanatory variable changes by X units?
 <ul>
 <li><em>This is an alternative to asking for an interpretation of the slope. If the explanatory variable changes by X units, then the response variable will change by X×slope units, on average.</em></li>
 </ul></li>
 </ol>
-<p>All answers should refer to the variables of the problem – thus, “y,” “x,” “response,” or “explanatory” should not be in any part of any answer. The questions about the slope, intercept, and predictions need to explicitly identify that the answer is an “average” or “on average.”</p>
 <div class="tip">
-<p>All interpretations should be “in terms of the variables of the problem” rather than the generic terms of x, y, response variable, and explanatory variable.</p>
+<ul>
+<li>All interpretations should be “in terms of the variables of the problem” rather than the generic terms of x, y, response variable, and explanatory variable.</li>
+<li>Questions about the slope, intercept, and predictions need to explicitly identify that the answer is an “average” or “on average.”</li>
+</ul>
 </div>
 <div id="chimp-hunting-parties" class="section level3 unnumbered">
 <h3>Chimp Hunting Parties</h3>
@@ -527,6 +534,7 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 <p><em>Stanford (1996) gathered data to determine if the size of the hunting party (number of individuals hunting together) affected the hunting success of the party (percent of hunts that resulted in a kill) for wild chimpanzees (Pan troglodytes) at Gombe. The results of their analysis for 17 hunting parties is shown in the figure below.<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a> Use these results to answer the questions below.</em></p>
 </blockquote>
 <p><img src="Book107_files/figure-html/ChimpFLP-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p> </p>
 <ol style="list-style-type: decimal">
 <li>What is the response variable?
 <ul>
@@ -536,7 +544,7 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 <ul>
 <li>The explanatory variable is the size of the hunting party.</li>
 </ul></li>
-<li>Does any aspect of this regression concern you (i.e., consider the regression assumptions)?
+<li>Comment on linearity and homoscedasticity.
 <ul>
 <li>The data appear to be very slightly curved but there is no evidence of a funnel-shape. Thus, the data may be slightly non-linear but they appear homoscedastic.</li>
 </ul></li>
@@ -562,15 +570,16 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 </ul></li>
 <li>What is the residual if the hunt success for 10 individuals is 50%?
 <ul>
-<li>The residual in this case is 50-(24.21 + 3.71×10) = 50-61.3 = -11.3. Therefore, it appears that the success of this hunting party is 11.3% lower than average for this size of hunting party.</li>
+<li>The predicted hunt success for 10 indviduals is (24.21 + 3.71×10) = 61.3%.</li>
+<li>Thus, the residual in this case is 50-61.3 = -11.3. Therefore, it appears that the success of this hunting party is 11.3% lower than average for this size of hunting party.</li>
 </ul></li>
 <li>What proportion of the variability in hunting success is explained by knowing the size of the hunting party?
 <ul>
-<li>The proportion of the variability in hunting success that is explained by knowing the size of the hunting party is <span class="math inline">\(r^{2}\)</span>=0.88.</li>
+<li>The proportion of the variability in hunting success that is explained by knowing the size of the hunting party is r<sup>2</sup>=0.88.</li>
 </ul></li>
 <li>What is the correlation between hunting success and size of hunting party?
 <ul>
-<li>The correlation between hunting success and size of hunting party is r=0.94. [*Note that this is the square root of <span class="math inline">\(r^{2}\)</span>.}]</li>
+<li>The correlation between hunting success and size of hunting party is r=0.94. [<em>Note that this is the square root of r<sup>2</sup>.</em>]</li>
 </ul></li>
 <li>How much does hunt success decrease, on average, if there are two fewer individuals in the party?
 <ul>
@@ -580,23 +589,24 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 </div>
 <div id="car-weight-and-mpg" class="section level3 unnumbered">
 <h3>Car Weight and MPG</h3>
-<p>In Module <a href="BEDAQuant.html#BEDAQuant">8</a>, an EDA for the relationship between HMPG (the highway miles per gallon) and Weight (lbs) of 93 cars from the 1993 model year was performed. This relationship will be explored further here as an example of a complete regression analysis. In this analysis, the regression output will be examined within the context of answering the twelve typical questions. The results are shown in Figure <a href="LinearRegression.html#fig:CarFit">9.7</a>.</p>
+<p>In Module <a href="BEDAQuant.html#BEDAQuant">8</a>, an EDA for the relationship between HMPG (the highway miles per gallon) and Weight (lbs) of 93 cars from the 1993 model year was performed. This relationship will be explored further here as an example of a complete regression analysis. The best-fit line question and r<sup>2</sup> for these data are shown in Figure <a href="LinearRegression.html#fig:CarFit">9.7</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:CarFit"></span>
 <img src="Book107_files/figure-html/CarFit-1.png" alt="Fitted line plot of the regression of highway MPG on weight of 93 cars from 1993." width="336" />
 <p class="caption">
 Figure 9.7: Fitted line plot of the regression of highway MPG on weight of 93 cars from 1993.
 </p>
 </div>
+<p> </p>
 <ol style="list-style-type: decimal">
 <li>What is the response variable?
 <ul>
-<li>The response variable in this analysis is the highway MPG, because that is the variable that we are trying to learn about or explain the variability of.</li>
+<li>The response variable in this analysis is the highway MPG, because that is the variable that we are trying to learn about or explain the variability of. In addition, it is presented on the y-axis of the fitted line plot.</li>
 </ul></li>
 <li>What is the explanatory variable?
 <ul>
 <li>The explanatory variable in this analysis is the weight of the car (by process of elimination).</li>
 </ul></li>
-<li>Do any aspects of this regression fit concern you?
+<li>Comment on linearity and homoscedasticity.
 <ul>
 <li>The simple linear regression model appears to fit the data moderately well as the fitted-line plot (Figure <a href="LinearRegression.html#fig:CarFit">9.7</a>) shows only a very slight curvature and only very slight heteroscedasticity.<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a>.</li>
 </ul></li>
@@ -622,15 +632,15 @@ Figure 9.7: Fitted line plot of the regression of highway MPG on weight of 93 ca
 </ul></li>
 <li>What is the residual for a car that weights 3500 lbs and has a highway MPG of 24?
 <ul>
-<li>The predicted highway MPG for a car that weighs 3500 lbs is 51.6 - 0.0073×3500 = 26.1. Thus, the residual for this car is 24 - 26.1 = -2.1. Therefore, it appears that this car gets 2.5 MPG LESS than an average car with the same weight.</li>
+<li>The predicted highway MPG for a car that weighs 3500 lbs is 51.6 - 0.0073×3500 = 26.1. Thus, the residual for this car is 24 - 26.1 = -2.1. Therefore, it appears that this car gets 2.1 MPG LESS than an average car with the same weight.</li>
 </ul></li>
 <li>What proportion of the variability in highway MPG is explained by knowing the weight of the car?
 <ul>
-<li>The proportion of the variability in highway MPG that is explained by knowing the weight of the car is <span class="math inline">\(r^{2}\)</span>=0.66.</li>
+<li>The proportion of the variability in highway MPG that is explained by knowing the weight of the car is r<sup>2</sup>=0.66.</li>
 </ul></li>
 <li>What is the correlation between highway MPG and car weight?
 <ul>
-<li>The correlation between highway MPG and car weight is <span class="math inline">\(r=\)</span>-0.81. [*Not that this is the square root of <span class="math inline">\(r^{2}\)</span>, but as a negative because form of the relationship between highway MPG and weight is negative.}</li>
+<li>The correlation between highway MPG and car weight is r=-0.81. [<em>Not that this is the square root of r<sup>2</sup>, but as a negative because form of the relationship between highway MPG and weight is negative.</em>]</li>
 </ul></li>
 <li>How much is the highway MPG expected to change if a car is 1000 lbs heavier?
 <ul>
@@ -651,7 +661,7 @@ Figure 9.7: Fitted line plot of the regression of highway MPG on weight of 93 ca
 <li id="fn41"><p>In contrast to using the model to make inferences about a population model.<a href="LinearRegression.html#fnref41" class="footnote-back">↩︎</a></p></li>
 <li id="fn42"><p>Residual plots, not discussed in this text, are another plot that often times is used to better assess assumption violations.<a href="LinearRegression.html#fnref42" class="footnote-back">↩︎</a></p></li>
 <li id="fn43"><p>Simple linear regression is the fitting of a model with a single explanatory variable and is the only model considered in this module and this course. See Section <a href="BEDAQuant.html#correlation-coefficient">8.2.2</a> for a review of the correlation coefficient.<a href="LinearRegression.html#fnref43" class="footnote-back">↩︎</a></p></li>
-<li id="fn44"><p>It is common for <span class="math inline">\(r^{2}\)</span> to be presented as a percentage.<a href="LinearRegression.html#fnref44" class="footnote-back">↩︎</a></p></li>
+<li id="fn44"><p>It is common for r<sup>2</sup> to be presented as a percentage.<a href="LinearRegression.html#fnref44" class="footnote-back">↩︎</a></p></li>
 <li id="fn45"><p>These data are in <a href="https://raw.githubusercontent.com/droglenc/NCData/master/Chimp.csv">Chimp.csv</a>.<a href="LinearRegression.html#fnref45" class="footnote-back">↩︎</a></p></li>
 <li id="fn46"><p>In advanced statistics books, objective measures for determining whether there is significant curvature or heteroscedasticity in the data are used. In this book, we will only be concerned with whether there is strong evidence of curvature or heteroscedasticity. There does not seem to be either here.<a href="LinearRegression.html#fnref46" class="footnote-back">↩︎</a></p></li>
 </ol>
