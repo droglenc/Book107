@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-14" />
+<meta name="date" content="2021-03-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -341,11 +341,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="definitions-and-characteristics" class="section level3" number="11.1.1">
 <h3><span class="header-section-number">11.1.1</span> Definitions and Characteristics</h3>
 <p>A <strong>Sampling distribution</strong> is the distribution of values of a particular statistic computed from all possible samples of the same size from the same population. The discussion of sampling distributions and all subsequent theories related to statistical inference are based on repeated samples from the same population. As these theories are developed, we will consider taking multiple samples; however, after the theories have been developed, then only one sample will be taken with the theory then being applied to those results. Thus, it is important to note that only one sample is ever actually taken from a population.</p>
-<p>The concept of a sampling distribution is illustrated with a population of six students that scored 6, 6, 4, 5, 7 and 8 points, respectively, on an 8-point quiz. The mean of this population is μ= 6.000 points and the standard deviation is σ=1.414 points. Suppose that every sample of size n=2 is extracted from this population and that the sample mean is computed for each sample (Table <a href="SamplingDist.html#tab:SDistQuiz2">11.1</a>).<a href="#fn50" class="footnote-ref" id="fnref50"><sup>50</sup></a> The sampling distribution of the sample mean from samples of n=2 from this population (Figure <a href="SamplingDist.html#fig:SDistQuizHist2">11.1</a>) is the histogram of means from these 15 samples.<a href="#fn51" class="footnote-ref" id="fnref51"><sup>51</sup></a></p>
-<p> </p>
+<p>The concept of a sampling distribution is illustrated with a population of six students that scored 6, 6, 4, 5, 7 and 8 points, respectively, on an 8-point quiz. The mean of this population is μ= 6.000 points and the standard deviation is σ=1.414 points. Suppose that every sample of size n=2 is extracted from this population and that the sample mean is computed for each sample (Table <a href="SamplingDist.html#tab:SDistQuiz2">11.1</a>).<a href="#fn50" class="footnote-ref" id="fnref50"><sup>50</sup></a></p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:SDistQuiz2">Table 11.1: </span>All possible samples of <span class="math inline">\(n=2\)</span> and corresponding sample mean from the quiz score population.
+<span id="tab:SDistQuiz2">Table 11.1: </span>All possible samples of n=2 and corresponding sample mean from the quiz score population.
 </caption>
 <thead>
 <tr>
@@ -529,33 +528,39 @@ Mean
 </tbody>
 </table>
 <p> </p>
+<p>Again, a sampling distribution shows the values of a statistic from all possible samples. Thus, the sampling distribution of <span class="math inline">\(\bar{\text{x}}\)</span> from samples of n=2 from this population is the histogram of the 15 sample means in Table <a href="SamplingDist.html#tab:SDistQuiz2">11.1</a> (Figure <a href="SamplingDist.html#fig:SDistQuizHist2">11.1</a>).<a href="#fn51" class="footnote-ref" id="fnref51"><sup>51</sup></a></p>
 <div class="figure" style="text-align: center"><span id="fig:SDistQuizHist2"></span>
-<img src="Book107_files/figure-html/SDistQuizHist2-1.png" alt="Sampling distribution of mean quiz scores from samples of $n=2$ from the quiz score population." width="336" />
+<img src="Book107_files/figure-html/SDistQuizHist2-1.png" alt="Sampling distribution of mean quiz scores from samples of n=2 from the quiz score population." width="336" />
 <p class="caption">
-Figure 11.1: Sampling distribution of mean quiz scores from samples of <span class="math inline">\(n=2\)</span> from the quiz score population.
+Figure 11.1: Sampling distribution of mean quiz scores from samples of n=2 from the quiz score population.
 </p>
 </div>
 <p> </p>
-<p>The mean (=6.000) and standard deviation (=0.845) of the 15 sample means are measures of center and dispersion for the sampling distribution. The standard deviation of statistics (i.e., dispersion of the sampling distribution) is generally referred to as the <strong>standard error of the statistic</strong> (abbreviated as <span class="math inline">\(SE_{stat}\)</span>). This new terminology is used to keep the dispersion of the sampling distribution separate from the dispersion of individuals in the population, which is measured by the standard deviation. Thus, the standard deviation of all possible sample means is referred to as the standard error of the sample means (SE). The SE in this example is 0.845. The standard deviation is the dispersion of individuals in the population and, in this example, is 1.414.</p>
-<p>This example illustrates three major concepts concerning sampling distributions. First, the sampling distribution will more closely resemble a normal distribution than the original population distribution (unless, of course, the population distribution was normal).</p>
-<p>Second, the center (i.e., mean) of the sampling distribution will equal the parameter that the statistic was intended to estimate (e.g., a sample mean is intended to be an estimate of the population mean). In this example, the mean of all possible sample means (= 6.0 points) is equal to the mean of the original population (μ=6.0 points). A statistic is said to be <strong>unbiased</strong> if the center (mean) of its sampling distribution equals the parameter it was intended to estimate. This example illustrates that the sample mean is an unbiased estimate of the population mean.</p>
-<p>Third, the standard error of the statistic is less than the standard deviation of the original population. In other words, the dispersion of statistics is less than the dispersion of individuals in the population. For example, the dispersion of individuals in the population is σ=1.414 points, whereas the dispersion of statistics from all possible samples is <span class="math inline">\(SE_{\bar{\text{x}}}=\)</span> 0.845 points.</p>
+<p>The mean (=6.000) and standard deviation (=0.845) of the 15 sample means are measures of center and dispersion for the sampling distribution. The standard deviation of statistics (i.e., dispersion of the sampling distribution) is generally referred to as the <strong>standard error of the statistic</strong> (abbreviated as SE<sub>stat</sub>). This new terminology is used to keep the dispersion of the sampling distribution separate from the dispersion of individuals in the population. Thus, the standard deviation of <strong>all possible sample means</strong> is referred to as the standard error of the sample means (SE<span class="math inline">\(_{\bar{\text{x}}}\)</span>), which is 0.845 in this example. The standard deviation is the dispersion of <strong>individuals in the population</strong> and is 1.414 in this example.</p>
+<p>This example illustrates three major concepts concerning sampling distributions. First, the sampling distribution will more closely resemble a normal distribution than the original population distribution (unless, of course, the original population distribution was normal).</p>
+<p>Second, the center (i.e., mean) of the sampling distribution will equal the parameter that the statistic was intended to estimate (e.g., a sample mean is intended to be an estimate of the population mean). In this example, the mean of all possible sample means (= 6.000 points) is equal to the mean of the original population (μ=6.000 points). A statistic is said to be <strong>unbiased</strong> if the center (mean) of its sampling distribution equals the parameter it was intended to estimate. This example illustrates that the sample mean is an unbiased estimate of the population mean.</p>
+<p>Third, the standard error of the statistic is less than the standard deviation of the original population. In other words, the dispersion of statistics is less than the dispersion of individuals in the population. For example, the dispersion of individuals in the population is σ=1.414 points, whereas the dispersion of statistics from all possible samples is SE<span class="math inline">\(_{\bar{\text{x}}}=\)</span> 0.845 points.</p>
 <div class="tip">
-<p>All statistics in this course are unbiased.</p>
+<p>All statistics in this course are unbiased, which means that each statistic will equal its corresponding parameter, <strong>on average</strong>.</p>
 </div>
 </div>
 <div id="critical-distinction" class="section level3" number="11.1.2">
 <h3><span class="header-section-number">11.1.2</span> Critical Distinction</h3>
-<p>Three distributions are considered in statistics. The sampling distribution is the distribution of a statistic computed from all possible samples of the same size from the same population, the population distribution is the distribution of all individuals in a population (see Module <a href="NormalDist1.html#NormalDist1">6</a>), and the sample distribution is the distribution of all individuals in a sample (see histograms in Module <a href="UnivSum.html#UnivSum">4</a>). The sampling distribution is about <strong>statistics</strong>, whereas the population and sample distributions are about <strong>individuals</strong>. For inferential statistics, it is important to distinguish between population and sampling distributions. Keep in mind that one (population) is the distribution of individuals and the other (sampling) is the distribution of statistics.</p>
-<p>Just as importantly, remember that a standard error measures the dispersion among statistics (i.e., sampling variability), whereas a standard deviation measures dispersion among individuals (i.e., natural variability). Specifically, the population standard deviation measures dispersion among all individuals in the population and the sample standard deviation measures dispersion of all individuals in a sample. In contrast, the standard error measures dispersion among statistics computed from all possible samples. The population standard deviation is the dispersion on a population distribution, whereas the standard error is the dispersion on a sampling distribution.</p>
+<p>Three distributions are considered in statistics:</p>
+<ul>
+<li>the <strong>sampling distribution</strong> is the distribution of a statistic computed from all possible samples of the same size from the same population,</li>
+<li>the <strong>population distribution</strong> is the distribution of all individuals in a population (see Module <a href="NormalDist1.html#NormalDist1">6</a>), and</li>
+<li>the <strong>sample distribution</strong> is the distribution of all individuals in a sample (see histograms in Module <a href="UnivSum.html#UnivSum">4</a>).</li>
+</ul>
+<p>For making inferences, it will be important to distinguish between population and sampling distributions. To do so, keep in mind that the sampling distribution is about <strong>statistics</strong>, whereas the population and sample distributions are about <strong>individuals</strong>.</p>
+<p>Just as importantly, remember that a <strong>standard error measures the dispersion among statistics (i.e., sampling variability)</strong>, whereas a <strong>standard deviation measures dispersion among individuals (i.e., natural variability)</strong>. Specifically, the population standard deviation (σ) is the dispersion of individuals in a population distribution, whereas the standard error is the dispersion of a statistic (e.g., sample mean) in a sampling distribution.</p>
 </div>
 <div id="dependencies" class="section level3" number="11.1.3">
 <h3><span class="header-section-number">11.1.3</span> Dependencies</h3>
-<p>The sampling distribution of sample means from samples of <span class="math inline">\(n=2\)</span> from the population of quizzes was shown above. The sampling distribution will look different if any other sample size is used. For example, the samples and means from each sample of <span class="math inline">\(n=3\)</span> are shown in Table <a href="SamplingDist.html#tab:SDistQuiz3">11.2</a>. The mean of these means is 6.000, the standard error is 0.592, and the sampling distribution is symmetric, perhaps approximately normal (Figure <a href="SamplingDist.html#fig:SDistQuizHist3">11.2</a>). The three major characteristics of sampling distributions noted in Section <a href="SamplingDist.html#definitions-and-characteristics">11.1.1</a> are still true: the sampling distribution is still more normal than the original population, the sample mean is still unbiased (i.e, the mean of the means is equal to μ), and the standard error is smaller than the standard deviation of the original population. However, also take note that the standard error of the sample mean is smaller from samples of <span class="math inline">\(n=3\)</span> than from <span class="math inline">\(n=2\)</span>.<a href="#fn52" class="footnote-ref" id="fnref52"><sup>52</sup></a></p>
-<p> </p>
+<p>The sampling distribution of sample means from samples of n=2 from the population of quizzes was shown in Figure <a href="SamplingDist.html#fig:SDistQuizHist2">11.1</a>. The sampling distribution will look different if any other sample size is used. For example, the samples and means from each sample of n=3 are shown in Table <a href="SamplingDist.html#tab:SDistQuiz3">11.2</a>.</p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:SDistQuiz3">Table 11.2: </span>All possible samples of <span class="math inline">\(n=3\)</span> and corresponding sample mean from the quiz score population.
+<span id="tab:SDistQuiz3">Table 11.2: </span>All possible samples of n=3 and corresponding sample mean from the quiz score population.
 </caption>
 <thead>
 <tr>
@@ -794,18 +799,18 @@ Mean
 </tbody>
 </table>
 <p> </p>
+<p>The mean of these means is 6.000, the standard error is 0.592, and the sampling distribution is symmetric, perhaps approximately normal (Figure <a href="SamplingDist.html#fig:SDistQuizHist3">11.2</a>). The three major characteristics of sampling distributions noted in Section <a href="SamplingDist.html#definitions-and-characteristics">11.1.1</a> are still true: the sampling distribution is still more normal than the original population, the sample mean is still unbiased (i.e, the mean of the means is equal to μ), and the standard error is smaller than the standard deviation of the original population. However, also take note that the standard error of the sample mean is smaller from samples of n=3 than from n=2.<a href="#fn52" class="footnote-ref" id="fnref52"><sup>52</sup></a></p>
 <div class="figure" style="text-align: center"><span id="fig:SDistQuizHist3"></span>
-<img src="Book107_files/figure-html/SDistQuizHist3-1.png" alt="Sampling distribution of mean quiz scores from samples of $n=3$ from the quiz score population." width="336" />
+<img src="Book107_files/figure-html/SDistQuizHist3-1.png" alt="Sampling distribution of mean quiz scores from samples of n=3 from the quiz score population." width="336" />
 <p class="caption">
-Figure 11.2: Sampling distribution of mean quiz scores from samples of <span class="math inline">\(n=3\)</span> from the quiz score population.
+Figure 11.2: Sampling distribution of mean quiz scores from samples of n=3 from the quiz score population.
 </p>
 </div>
 <p> </p>
-<p>The sampling distribution will also be different if the statistic changes; e.g, if the sample median rather than sample mean is computed in each sample. Before showing the results of each sample, note that the population median (i.e., the median of the individuals in the population — 6, 6, 4, 5, 7, and 8) is 6.0 points. The sample median from each sample is shown in Table <a href="SamplingDist.html#tab:SDistQuizMdns3">11.3</a> and the actual sampling distribution is shown in Figure <a href="SamplingDist.html#fig:SDistQuizMdnsHist3">11.3</a>. Note that the sampling distribution of the sample medians is still “more” normal than the original population distribution, the mean of the sample medians (=6.000 points) still equals the parameter (population median) that the sample median is intended to estimate (thus the sample median is also unbiased), and this sampling distribution differs from the sampling distribution of sample means from samples of <span class="math inline">\(n=3\)</span>.</p>
-<p> </p>
+<p>The sampling distribution will also be different if the statistic changes; e.g, if the sample median rather than sample mean is computed in each sample. Before showing the results of each sample, note that the population median (i.e., the median of the individuals in the population — 6, 6, 4, 5, 7, and 8) is 6.0 points. The sample median from each sample is shown in Table <a href="SamplingDist.html#tab:SDistQuizMdns3">11.3</a> and the actual sampling distribution is shown in Figure <a href="SamplingDist.html#fig:SDistQuizMdnsHist3">11.3</a>. Note that the sampling distribution of the sample medians is still “more” normal than the original population distribution, the mean of the sample medians (=6.000 points; thus, the sample median is also unbiased), and this sampling distribution differs from the sampling distribution of sample means (Figure <a href="SamplingDist.html#fig:SDistQuizHist3">11.2</a>).</p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:SDistQuizMdns3">Table 11.3: </span>All possible samples of <span class="math inline">\(n=3\)</span> and corresponding sample medians from the quiz score population.
+<span id="tab:SDistQuizMdns3">Table 11.3: </span>All possible samples of n=3 and corresponding sample medians from the quiz score population.
 </caption>
 <thead>
 <tr>
@@ -1045,21 +1050,22 @@ Mean
 </table>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:SDistQuizMdnsHist3"></span>
-<img src="Book107_files/figure-html/SDistQuizMdnsHist3-1.png" alt="Sampling distribution of median quiz scores from $n=3$ samples from the quiz score population." width="336" />
+<img src="Book107_files/figure-html/SDistQuizMdnsHist3-1.png" alt="Sampling distribution of median quiz scores from n=3 samples from the quiz score population." width="336" />
 <p class="caption">
-Figure 11.3: Sampling distribution of median quiz scores from <span class="math inline">\(n=3\)</span> samples from the quiz score population.
+Figure 11.3: Sampling distribution of median quiz scores from n=3 samples from the quiz score population.
 </p>
 </div>
 <p> </p>
 <p>These examples demonstrate that the naming of a sampling distribution must be specific. For example, the first sampling distribution in this module should be described as the “sampling distribution of sample means from samples of n=2.” This last example should be described as the “sampling distribution of sample medians from samples of n=3.” Doing this with each distribution reinforces the point that sampling distributions depend on the sample size and the statistic calculated.</p>
 <div class="tip">
-<p>Each sampling distribution should be specifically labeled with the statistic calculated and the sample size of the samples.</p>
+<p>Each sampling distribution should be specifically labeled with the statistic calculated and the sample size of the samples, because the specific characteristics of a sampling distribution depend on the statistic calculated and the sample size.</p>
 </div>
+<p> </p>
 </div>
 <div id="simulating-a-sampling-distribution" class="section level3" number="11.1.4">
 <h3><span class="header-section-number">11.1.4</span> Simulating a Sampling Distribution</h3>
-<p>Exact sampling distributions can only be computed for very small samples taken from a small population. Exact sampling distributions are difficult to show for even moderate sample sizes from moderately-sized populations. For example, there are 15504 unique samples of <span class="math inline">\(n=5\)</span> from a population of 20 individuals. How are sampling distributions examined in these and even larger situations?</p>
-<p>There are two ways to examine sampling distributions in situations with large sample and population sizes. First, theorems exist that describe the specifics of sampling distributions under certain conditions. One such theorem is described in Section <a href="SamplingDist.html#central-limit-theorem">11.2</a>. Second, the computer can take many (hundreds or thousands) samples and compute the statistic for each. These statistics can then be summarized to give an indication of what the actual sampling distribution would look like. This process is called “simulating a sampling distribution.” We will simulate some sampling distributions here so that the theorem will be easier to understand.</p>
+<p>Exact sampling distributions can only be computed for very small samples taken from a small population. Exact sampling distributions are difficult to show for even moderate sample sizes from moderately-sized populations. For example, there are 15504 unique samples of n=5 from a population of 20 individuals.</p>
+<p>There are two ways to examine sampling distributions in situations with large sample and population sizes. First, theorems exist that describe the specifics of sampling distributions under certain conditions. One such theorem is described in Section <a href="SamplingDist.html#central-limit-theorem">11.2</a>. Second, the computer can take many (hundreds or thousands) samples and compute the statistic for each. These statistics can then be summarized to give an indication of what the actual sampling distribution would look like. This process is called “simulating a sampling distribution.” We will simulate some sampling distributions here so that the theorem in Section <a href="SamplingDist.html#central-limit-theorem">11.2</a> will be easier to understand.</p>
 <p>Sampling distributions are simulated by drawing many samples from a population, computing the statistic of interest for each sample, and constructing a histogram of those statistics (Figure <a href="SamplingDist.html#fig:SamplingDistributionScheme">11.4</a>). The computer is helpful with this simulation; however, keep in mind that the computer is basically following the same process as used in Section <a href="SamplingDist.html#definitions-and-characteristics">11.1.1</a>, with the exception that not every sample is taken.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:SamplingDistributionScheme"></span>
@@ -1069,12 +1075,12 @@ Figure 11.4: Schematic representation of the process for simulating a sampling d
 </p>
 </div>
 <p> </p>
-<p>Let’s return to the Square Lake fish population from Section <a href="FoundationalDefns.html#performing-an-ivppss">2.2</a> to illustrate simulating a sampling distribution. Recall that this is a hypothetical population with 1015 fish, a population distribution shown in Figure <a href="FoundationalDefns.html#fig:SquareLakePopn">2.1</a>, and parameters shown in Table <a href="FoundationalDefns.html#tab:SquareLakePopnTbl">2.1</a>. Further recall that four samples of <span class="math inline">\(n=50\)</span> were removed from this population and summarized in Table <a href="FoundationalDefns.html#tab:SquareLakeSample1s">2.2</a> and Table <a href="FoundationalDefns.html#tab:SquareLakeSample234s">2.3</a>. Suppose, that an additional 996 samples of <span class="math inline">\(n=50\)</span> were extracted in exactly the same way as the first four, the sample mean was computed in each sample, and the 1000 sample means were collected to form the histogram in Figure <a href="SamplingDist.html#fig:SampDistSLMean50">11.5</a>. This histogram is a simulated sampling distribution of sample means because it represents the distribution of sample means from 1000, rather than all possible, samples.</p>
+<p>Let’s return to the Square Lake fish population from Section <a href="FoundationalDefns.html#performing-an-ivppss">2.2</a> to illustrate simulating a sampling distribution. Recall that this is a hypothetical population with 1015 fish, a population distribution shown in Figure <a href="FoundationalDefns.html#fig:SquareLakePopn">2.1</a>, and parameters shown in Table <a href="FoundationalDefns.html#tab:SquareLakePopnTbl">2.1</a>. Further recall that four samples of n=50 were removed from this population and summarized in Tables <a href="FoundationalDefns.html#tab:SquareLakeSample1s">2.2</a> and <a href="FoundationalDefns.html#tab:SquareLakeSample234s">2.3</a>. Suppose, that an additional 996 samples of n=50 were extracted in exactly the same way as the first four, the sample mean was computed in each sample, and the 1000 sample means were collected to form the histogram in Figure <a href="SamplingDist.html#fig:SampDistSLMean50">11.5</a>. This histogram is a simulated sampling distribution of sample means because it represents the distribution of sample means from 1000, rather than all possible, samples.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:SampDistSLMean50"></span>
-<img src="Book107_files/figure-html/SampDistSLMean50-1.png" alt="Histogram (**Left**) and summary statistics (**Right**) from 1000 sample mean total lengths computed from samples of $n=50$ from the Square Lake fish population." width="336" /><img src="Book107_files/figure-html/SampDistSLMean50-2.png" alt="Histogram (**Left**) and summary statistics (**Right**) from 1000 sample mean total lengths computed from samples of $n=50$ from the Square Lake fish population." width="336" />
+<img src="Book107_files/figure-html/SampDistSLMean50-1.png" alt="Histogram (**Left**) and summary statistics (**Right**) from 1000 sample mean total lengths computed from samples of n=50 from the Square Lake fish population." width="336" /><img src="Book107_files/figure-html/SampDistSLMean50-2.png" alt="Histogram (**Left**) and summary statistics (**Right**) from 1000 sample mean total lengths computed from samples of n=50 from the Square Lake fish population." width="336" />
 <p class="caption">
-Figure 11.5: Histogram (<strong>Left</strong>) and summary statistics (<strong>Right</strong>) from 1000 sample mean total lengths computed from samples of <span class="math inline">\(n=50\)</span> from the Square Lake fish population.
+Figure 11.5: Histogram (<strong>Left</strong>) and summary statistics (<strong>Right</strong>) from 1000 sample mean total lengths computed from samples of n=50 from the Square Lake fish population.
 </p>
 </div>
 <p> </p>
@@ -1082,9 +1088,9 @@ Figure 11.5: Histogram (<strong>Left</strong>) and summary statistics (<strong>R
 <p>As before, computing a different statistic on each sample results in a different sampling distribution. This is illustrated by comparing the sampling distributions of a variety of statistics from the same 1000 samples of size n=50 taken above (Figure <a href="SamplingDist.html#fig:SampDistSLOther50">11.6</a>).</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:SampDistSLOther50"></span>
-<img src="Book107_files/figure-html/SampDistSLOther50-1.png" alt="Histograms from 1000 sample median (**Left**), standard deviation (**Center**), and range (**Right**) of total lengths computed from samples of $n=50$ from the Square Lake fish population. Note that the value in the parameter row is the value computed from the entire population." width="720" />
+<img src="Book107_files/figure-html/SampDistSLOther50-1.png" alt="Histograms from 1000 sample median (**Left**), standard deviation (**Center**), and range (**Right**) of total lengths computed from samples of n=50 from the Square Lake fish population. Note that the value in the parameter row is the value computed from the entire population." width="720" />
 <p class="caption">
-Figure 11.6: Histograms from 1000 sample median (<strong>Left</strong>), standard deviation (<strong>Center</strong>), and range (<strong>Right</strong>) of total lengths computed from samples of <span class="math inline">\(n=50\)</span> from the Square Lake fish population. Note that the value in the parameter row is the value computed from the entire population.
+Figure 11.6: Histograms from 1000 sample median (<strong>Left</strong>), standard deviation (<strong>Center</strong>), and range (<strong>Right</strong>) of total lengths computed from samples of n=50 from the Square Lake fish population. Note that the value in the parameter row is the value computed from the entire population.
 </p>
 </div>
 <p> </p>
@@ -1096,27 +1102,35 @@ Figure 11.6: Histograms from 1000 sample median (<strong>Left</strong>), standar
 </div>
 <div id="central-limit-theorem" class="section level2" number="11.2">
 <h2><span class="header-section-number">11.2</span> Central Limit Theorem</h2>
-<p>The sampling distribution of the sample mean was examined in the previous sections by taking all possible samples from a small population (Section <a href="SamplingDist.html#definitions-and-characteristics">11.1.1</a>) or taking a large number of samples from a large population (Section <a href="SamplingDist.html#simulating-a-sampling-distribution">11.1.4</a>). In both instances, it was observed that the sampling distribution <em>of the sample mean</em> was approximately normally distributed, centered on the true mean of the population, and had a standard error that was smaller than the standard deviation of the population and decreased as n increased. In this section, the Central Limit Theorem (CLT) is introduced and explored as a method to identify the specific characteristics of the sampling distribution of the sample mean without going through the process of extracting multiple samples from the population.</p>
-<p>The CLT specifically addresses the shape, center, and dispersion of the sampling distribution of the sample means by stating that <span class="math inline">\(\bar{\text{x}}\sim N\left(\mu,\frac{\sigma}{\sqrt{n}}\right)\)</span> as long as</p>
+<p>The sampling distribution of the sample mean was examined in the previous sections by taking all possible samples from a small population (Section <a href="SamplingDist.html#definitions-and-characteristics">11.1.1</a>) or taking a large number of samples from a large population (Section <a href="SamplingDist.html#simulating-a-sampling-distribution">11.1.4</a>). In both instances, it was observed that the sampling distribution <em>of the sample mean</em> was approximately normally distributed, centered on the true mean of the population, and had a standard error that was smaller than the standard deviation of the population and decreased as n increased. In this section, the Central Limit Theorem (CLT) is introduced and explored as a method to identify the specific characteristics of the sampling distribution of the sample mean without going through the process of extracting all or multiple samples from the population.</p>
+<p>The CLT specifically addresses the shape, center, and dispersion of the sampling distribution of the sample means by stating that <span class="math inline">\(\bar{\text{x}}\)</span>~N(μ,<span class="math inline">\(\frac{\sigma}{\sqrt{n}}\)</span>) as long as</p>
 <ol style="list-style-type: decimal">
 <li>n≥30,</li>
 <li>n≥15 and the population distribution is not strongly skewed, <strong>or</strong></li>
 <li>the population distribution is normally distributed.</li>
 </ol>
-<p>Thus, the sampling distribution of <span class="math inline">\(\bar{\text{x}}\)</span> should be normally distributed <strong>no matter what the shape of the population distribution is</strong> as long as n≥30. The CLT also suggests that <span class="math inline">\(\bar{\text{x}}\)</span> is unbiased and that the formula for the <span class="math inline">\(SE_{\bar{\text{x}}}\)</span> is <span class="math inline">\(\frac{\sigma}{\sqrt{n}}\)</span> regardless of the size of n. In other words, n impacts the shape of the sampling distribution of the sample means, but not the center or formula for computing the standard error.</p>
-<p>The validity of the CLT can be examined by simulating several (with different n) sampling distributions of <span class="math inline">\(\bar{\text{x}}\)</span> from the Square Lake population and from a strongly right-skewed exponential distribution (Figure <a href="SamplingDist.html#fig:SampDistCLT">11.7</a>). Several observations about the CLT can be made from Figure <a href="SamplingDist.html#fig:SampDistCLT">11.7</a>. First, the sampling distribution is approximately normal for n≥30 for both scenarios and is approximately normal for smaller n for the Square Lake example because that population is only slightly skewed. Second, the means of all sampling distributions in both examples are approximately equal to μ, regardless of n. Third, the dispersion of the sampling distributions (i.e., the SE of the means) becomes smaller with increasing n. Furthermore, the SE from the simulated results closely match the SE expected from the CLT.</p>
+<p>Thus, the sampling distribution of <span class="math inline">\(\bar{\text{x}}\)</span> should be normally distributed <strong>no matter what the shape of the population distribution is</strong> as long as n≥30. The CLT also suggests that <span class="math inline">\(\bar{\text{x}}\)</span> is unbiased and that the formula for the SE<span class="math inline">\(_{\bar{\text{x}}}\)</span> is <span class="math inline">\(\frac{\sigma}{\sqrt{\text{n}}}\)</span> regardless of the size of n. In other words, n impacts the dispersion of the sampling distribution of the sample means, but not the center or formula for computing the standard error.</p>
+<p>The validity of the CLT can be examined by simulating several (with different n) sampling distributions of <span class="math inline">\(\bar{\text{x}}\)</span> from the Square Lake population and from a strongly right-skewed distribution (Figure <a href="SamplingDist.html#fig:SampDistCLT">11.7</a>). In Figure <a href="SamplingDist.html#fig:SampDistCLT">11.7</a> note that the two population distributions are shown at the very top of the figure, samplng distributions use n=5, 15, 30, and 60 are shown below that, and that expected means and SEs based on the CLT are shown on the left side of each subplot and observed means and SEs computed from the results are shown on the right side of each subplot. Please spend a few minutes to examine the following characteristics of these plots.</p>
+<ul>
+<li>How do the shapes of the sampling distributions change with increasing n?</li>
+<li>How well do the observed means compare to the expected means? Does this change with increasing n?</li>
+<li>How well do the observed SEs compare to the expected SEs? Does this change with increasing n?</li>
+<li>How do the SEs change with increasing n?</li>
+</ul>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:SampDistCLT"></span>
-<img src="Book107_files/figure-html/SampDistCLT-1.png" alt="Sampling distribution of the sample mean simulated from 5000 samples of four different sample sizes extracted from the Square Lake fish population (Left) and an exponential population (Right). The shapes of the populations are shown in the top histogram. On each simulated sampling distribution, the vertical blue line is the mean of the 5000 means and the horizontal red line represents &amp;plusmn;1SE from the mean." width="720" />
+<img src="Book107_files/figure-html/SampDistCLT-1.png" alt="Sampling distribution of the sample mean simulated from 5000 samples of four different sample sizes extracted from the Square Lake fish population (**Left**) and a strongly right-skewed population (**Right**). The shapes of the populations are shown in the top histogram. On each simulated sampling distribution, the vertical blue line is the mean of the 5000 means and the horizontal red line represents &amp;plusmn;1SE from the mean." width="720" />
 <p class="caption">
-Figure 11.7: Sampling distribution of the sample mean simulated from 5000 samples of four different sample sizes extracted from the Square Lake fish population (Left) and an exponential population (Right). The shapes of the populations are shown in the top histogram. On each simulated sampling distribution, the vertical blue line is the mean of the 5000 means and the horizontal red line represents ±1SE from the mean.
+Figure 11.7: Sampling distribution of the sample mean simulated from 5000 samples of four different sample sizes extracted from the Square Lake fish population (<strong>Left</strong>) and a strongly right-skewed population (<strong>Right</strong>). The shapes of the populations are shown in the top histogram. On each simulated sampling distribution, the vertical blue line is the mean of the 5000 means and the horizontal red line represents ±1SE from the mean.
 </p>
 </div>
+<p> </p>
+<p>Several observations about the CLT can be made from Figure <a href="SamplingDist.html#fig:SampDistCLT">11.7</a>. First, the sampling distribution is approximately normal for n≥30 for both scenarios and is approximately normal for smaller n for the Square Lake example because that population is only slightly skewed. Second, the means of all sampling distributions in both examples are approximately equal to μ, regardless of n. Third, the dispersion of the sampling distributions (i.e., the SE of the means) becomes smaller with increasing n and the SE from the simulated results closely match the expected SEs. In fact, it appears that all expectations from the CLT about shape, center, and dispersion are upheld. Thus, it appears that the CLT can accurately predict what the sampling distribution of <span class="math inline">\(\bar{\text{x}}\)</span> is so that we don’t have to take all or multiple samples from the population.</p>
 <p> </p>
 </div>
 <div id="accuracy-and-precision" class="section level2" number="11.3">
 <h2><span class="header-section-number">11.3</span> Accuracy and Precision</h2>
-<p><strong>Accuracy</strong> and <strong>precision</strong> are often used to describe characteristics of a sampling distribution. Accuracy refers to how closely a statistic estimates the intended parameter. If, <strong>on average</strong>, a statistic is approximately equal to the parameter it was intended to estimate, then the statistic is considered <strong>accurate</strong>. Unbiased statistics are also accurate statistics. Precision refers to the repeatability of a statistic. A statistic is considered to be <strong>precise</strong> if multiple samples produce similar statistics. The standard error is a measure of precision; i.e., a high SE means low precision and a low SE means high precision.</p>
+<p>Accuracy and precision are often used to describe characteristics of a sampling distribution. <strong>Accuracy</strong> refers to how closely a statistic estimates the intended parameter. If, <strong>on average</strong>, a statistic is approximately equal to the parameter it was intended to estimate, then the statistic is considered <strong>accurate</strong>. Unbiased statistics are also accurate statistics. <strong>Precision</strong> refers to the repeatability of a statistic. A statistic is considered to be <strong>precise</strong> if multiple samples produce similar statistics. The standard error is a measure of precision; i.e., a high SE means low precision and a low SE means high precision.</p>
 <p>The targets in Figure <a href="SamplingDist.html#fig:AccPrec">11.8</a> provide an intuitive interpretation of accuracy and precision, whereas the sampling distributions (i.e., histograms) are what statisticians look at to identify accuracy and precision. Targets in which the blue plus (i.e., mean of the means) is close to the bullseye are considered accurate (i.e., unbiased). Similarly, sampling distributions where the observed center (i.e., blue vertical line) is very close to the actual parameter (i.e., black tick labeled with a “T”) are considered accurate. Targets in which the red dots are closely clustered are considered precise. Similarly, sampling distributions that exhibit little variability (low dispersion) are considered precise.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:AccPrec"></span>
@@ -1126,6 +1140,28 @@ Figure 11.8: The center of each target (i.e., the bullseye) and the point marked
 </p>
 </div>
 <p> </p>
+<p>As a more concrete example, supposed that a researcher takes five samples from a population with μ=100. You know that the sample means (<span class="math inline">\(\bar{\text{x}}\)</span>) computed from these five samples will not be exactly equal because of sampling variability. However, the means will be considered accurate if their average is equal to μ=100. In addition, the means will be considered precise if they are relatively close together (i.e., little sampling variability is exhibited). With this in mind, consider the four situations below where the values represent the five sample means.</p>
+<ul>
+<li>98, 99, 100, 101, 102
+<ul>
+<li>These are <em>accurate</em> because they average to μ=100 and <em>precise</em> because they vary very little (SE=0.71).</li>
+</ul></li>
+<li>80, 90, 100, 105, 125
+<ul>
+<li>These are <em>accurate</em> because they average to μ=100 and <em>imprecise</em> because they vary quite a bit (SE=7.6).</li>
+</ul></li>
+<li>60, 61, 62, 63, 64
+<ul>
+<li>These are <em>inaccurate</em> because they do not average to μ=100 (=62) and <em>precise</em> because they vary very little (SE=0.71).</li>
+</ul></li>
+<li>30, 50, 70, 100, 120
+<ul>
+<li>These are <em>inaccurate</em> because they do not average to μ=100 (=74) and <em>imprecise</em> because they vary quite a bit (SE=16.3).</li>
+</ul></li>
+</ul>
+<div class="tip">
+<p>The precision of a statistics is measured by the standard error (SE); relatively small values of the SE mean the statistic is precise.</p>
+</div>
 
 </div>
 </div>
@@ -1135,7 +1171,7 @@ Figure 11.8: The center of each target (i.e., the bullseye) and the point marked
 <li id="fn49"><p>See Module <a href="WhyStats.html#WhyStats">1</a> for a review of sampling variability.<a href="SamplingDist.html#fnref49" class="footnote-back">↩︎</a></p></li>
 <li id="fn50"><p>These samples are found by putting the values into a vector with <code>vals &lt;- c(6,6,4,5,7,8)</code> and then using <code>combn(vals,2)</code>. The means are found with <code>mns &lt;- as.numeric(combn(vals,2,mean))</code>.<a href="SamplingDist.html#fnref50" class="footnote-back">↩︎</a></p></li>
 <li id="fn51"><p>The histogram is constructed with <code>hist(~mns,w=0.5)</code>.<a href="SamplingDist.html#fnref51" class="footnote-back">↩︎</a></p></li>
-<li id="fn52"><p>One should also look at the results from <span class="math inline">\(n=4\)</span> in one of the online Review Exercises.<a href="SamplingDist.html#fnref52" class="footnote-back">↩︎</a></p></li>
+<li id="fn52"><p>One should also look at the results from n=4 in one of the online Review Exercises.<a href="SamplingDist.html#fnref52" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
