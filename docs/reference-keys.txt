@@ -111,6 +111,7 @@ tab:Calpha
 tab:HAsCI
 fig:CIboundsZ
 fig:CIAlt1
+fig:CIAlt2
 fig:tvsZ
 fig:tarea1
 fig:tstar1
@@ -255,7 +256,8 @@ confidence-concept
 constructing-confidence-regions
 example-confidence-region-calculations
 ConfRegions2
-precision-and-sample-size
+confidence-intervals-and-precision
+sample-size-calculations
 inference-type-relationship
 Ztest
 Hyp11Steps

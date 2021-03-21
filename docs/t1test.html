@@ -239,8 +239,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#precision-and-sample-size"><i class="fa fa-check"></i><b>16.1</b> Precision and Sample Size</a></li>
-<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.2</b> Inference Type Relationship</a></li>
+<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#confidence-intervals-and-precision"><i class="fa fa-check"></i><b>16.1</b> Confidence Intervals and Precision</a></li>
+<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#sample-size-calculations"><i class="fa fa-check"></i><b>16.2</b> Sample Size Calculations</a></li>
+<li class="chapter" data-level="16.3" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.3</b> Inference Type Relationship</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="Ztest.html"><a href="Ztest.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test</a>
 <ul>
@@ -339,7 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Prior to this module, hypothesis testing methods required knowing σ, which is a parameter that is seldom known. When σ is replaced by its estimator, s, the test statistic follows a Student’s t rather than a standard normal (Z) distribution. In this module, the t-distribution is described and a 1-Sample t-Test for testing that the mean from one population equals a specific value is discussed.</p>
 <div id="t-distribution" class="section level2" number="18.1">
 <h2><span class="header-section-number">18.1</span> t-distribution</h2>
-<p>A t-distribution is similar to a standard normal distribution (i.e., N(0,1)) in that it is centered on 0 and is bell shaped (Figure <a href="t1test.html#fig:tvsZ">18.1</a>). The t-distribution differs from the standard normal distribution in that it is heavier in the tails, flatter near the center, and its exact dispersion is dictated by a quantity called the degrees-of-freedom (df). The t-distribution is “flatter and fatter” because of the uncertainty surrounding the use of s rather than σ in the standard error calculation.<a href="#fn64" class="footnote-ref" id="fnref64"><sup>64</sup></a> The degrees-of-freedom are related to n and generally come from the denominator in the standard deviation calculation. As the degrees-of-freedom increase, the t-distribution becomes narrower, taller, and approaches the standard normal distribution (Figure <a href="t1test.html#fig:tvsZ">18.1</a>).</p>
+<p>A t-distribution is similar to a standard normal distribution (i.e., N(0,1)) in that it is centered on 0 and is bell shaped (Figure <a href="t1test.html#fig:tvsZ">18.1</a>). The t-distribution differs from the standard normal distribution in that it is heavier in the tails, flatter near the center, and its exact dispersion is dictated by a quantity called the degrees-of-freedom (df). The t-distribution is “flatter and fatter” because of the uncertainty surrounding the use of s rather than σ in the standard error calculation.<a href="#fn66" class="footnote-ref" id="fnref66"><sup>66</sup></a> The degrees-of-freedom are related to n and generally come from the denominator in the standard deviation calculation. As the degrees-of-freedom increase, the t-distribution becomes narrower, taller, and approaches the standard normal distribution (Figure <a href="t1test.html#fig:tvsZ">18.1</a>).</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:tvsZ"></span>
 <img src="Book107_files/figure-html/tvsZ-1.png" alt="Standard normal (black) and t-distributions with varying degrees-of-freedom." width="336" />
@@ -357,7 +358,7 @@ Figure 18.2: Depiction of the area to the right of t=-1.456 on a t-distribution 
 </p>
 </div>
 <p> </p>
-<p>Similarly, the t with an upper-tail area of 0.95 on a t-distribution with 19 df is -1.729 (Figure <a href="t1test.html#fig:tstar1">18.3</a>).<a href="#fn65" class="footnote-ref" id="fnref65"><sup>65</sup></a></p>
+<p>Similarly, the t with an upper-tail area of 0.95 on a t-distribution with 19 df is -1.729 (Figure <a href="t1test.html#fig:tstar1">18.3</a>).<a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a></p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb37-1"><a href="t1test.html#cb37-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">df=</span><span class="dv">19</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:tstar1"></span>
 <img src="Book107_files/figure-html/tstar1-1.png" alt="Depiction of the value of t with an area to the right of 0.95 on a t-distribution with 19 df." width="336" />
@@ -368,7 +369,7 @@ Figure 18.3: Depiction of the value of t with an area to the right of 0.95 on a 
 </div>
 <div id="Specifics1t" class="section level2" number="18.2">
 <h2><span class="header-section-number">18.2</span> 1-Sample t-Test Specifics</h2>
-<p>A 1-Sample t-Test is similar to a 1-Sample Z-test in that both test the same H<sub>0</sub>. The difference, as discussed above, is that when σ is replaced by s, the test statistic becomes t and the scaling factor for confidence regions becomes a t<sup>*</sup>. Other aspects are similar between the two tests as shown below.<a href="#fn66" class="footnote-ref" id="fnref66"><sup>66</sup></a></p>
+<p>A 1-Sample t-Test is similar to a 1-Sample Z-test in that both test the same H<sub>0</sub>. The difference, as discussed above, is that when σ is replaced by s, the test statistic becomes t and the scaling factor for confidence regions becomes a t<sup>*</sup>. Other aspects are similar between the two tests as shown below.<a href="#fn68" class="footnote-ref" id="fnref68"><sup>68</sup></a></p>
 <ul>
 <li><strong>Hypothesis:</strong> H<sub>0</sub>:μ=μ<sub>0</sub></li>
 <li><strong>Statistic:</strong> <span class="math inline">\(\bar{\text{x}}\)</span></li>
@@ -398,7 +399,7 @@ Figure 18.3: Depiction of the value of t with an area to the right of 0.95 on a 
 <ol style="list-style-type: lower-roman">
 <li>a quantitative variable (weight) was measured,</li>
 <li>individuals from one group (or population) were considered (this catch of salmon), and</li>
-<li>σ is <strong>UN</strong>known.<a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a></li>
+<li>σ is <strong>UN</strong>known.<a href="#fn69" class="footnote-ref" id="fnref69"><sup>69</sup></a></li>
 </ol></li>
 <li>The data appear to be part of an observational study with random selection.</li>
 <li>The assumptions are met because …
@@ -526,11 +527,11 @@ max
 </div>
 <div class="footnotes">
 <hr />
-<ol start="64">
-<li id="fn64"><p>Recall that the sample standard deviation is a statistic and is thus subject to sampling variability.<a href="t1test.html#fnref64" class="footnote-back">↩︎</a></p></li>
-<li id="fn65"><p>This “reverse” calculation would be t<sup>*</sup> for a 95% lower confidence bound.<a href="t1test.html#fnref65" class="footnote-back">↩︎</a></p></li>
-<li id="fn66"><p>Compare these specifics to those for a 1-Sample Z-test in Section <a href="Ztest.html#Specifics1Z">17.2</a>.<a href="t1test.html#fnref66" class="footnote-back">↩︎</a></p></li>
-<li id="fn67"><p>If σ is given, then it will appear in the background information to the question and will be in a sentence that uses the words “population,” “assume that,” or “suppose that.”<a href="t1test.html#fnref67" class="footnote-back">↩︎</a></p></li>
+<ol start="66">
+<li id="fn66"><p>Recall that the sample standard deviation is a statistic and is thus subject to sampling variability.<a href="t1test.html#fnref66" class="footnote-back">↩︎</a></p></li>
+<li id="fn67"><p>This “reverse” calculation would be t<sup>*</sup> for a 95% lower confidence bound.<a href="t1test.html#fnref67" class="footnote-back">↩︎</a></p></li>
+<li id="fn68"><p>Compare these specifics to those for a 1-Sample Z-test in Section <a href="Ztest.html#Specifics1Z">17.2</a>.<a href="t1test.html#fnref68" class="footnote-back">↩︎</a></p></li>
+<li id="fn69"><p>If σ is given, then it will appear in the background information to the question and will be in a sentence that uses the words “population,” “assume that,” or “suppose that.”<a href="t1test.html#fnref69" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

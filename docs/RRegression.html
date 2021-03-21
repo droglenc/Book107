@@ -239,8 +239,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#precision-and-sample-size"><i class="fa fa-check"></i><b>16.1</b> Precision and Sample Size</a></li>
-<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.2</b> Inference Type Relationship</a></li>
+<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#confidence-intervals-and-precision"><i class="fa fa-check"></i><b>16.1</b> Confidence Intervals and Precision</a></li>
+<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#sample-size-calculations"><i class="fa fa-check"></i><b>16.2</b> Sample Size Calculations</a></li>
+<li class="chapter" data-level="16.3" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.3</b> Inference Type Relationship</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="Ztest.html"><a href="Ztest.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test</a>
 <ul>
@@ -342,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb161-2"><a href="RRegression.html#cb161-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <div id="data-sets-2" class="section level4 unnumbered">
 <h4>Data Sets</h4>
-<p>The descriptions below will use the same <code>weight</code> (lbs) and highway miles per gallon (<code>HMPG</code>) data for 93 cars from the 1993 model year that were used in the second example in the Modules <a href="LinearRegression.html#LinearRegression">9</a>. These data are in 93cars.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars.csv">data</a>, <a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars_meta.txt">meta</a>) and are loaded into R below with the methods described in Section <a href="RData.html#alternative-forms-of-getting-data">22.3.1</a>.<a href="#fn98" class="footnote-ref" id="fnref98"><sup>98</sup></a></p>
+<p>The descriptions below will use the same <code>weight</code> (lbs) and highway miles per gallon (<code>HMPG</code>) data for 93 cars from the 1993 model year that were used in the second example in the Modules <a href="LinearRegression.html#LinearRegression">9</a>. These data are in 93cars.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars.csv">data</a>, <a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars_meta.txt">meta</a>) and are loaded into R below with the methods described in Section <a href="RData.html#alternative-forms-of-getting-data">22.3.1</a>.<a href="#fn100" class="footnote-ref" id="fnref100"><sup>100</sup></a></p>
 <div class="sourceCode" id="cb162"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb162-1"><a href="RRegression.html#cb162-1" aria-hidden="true" tabindex="-1"></a>cars93 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;93cars.csv&quot;</span>)</span>
 <span id="cb162-2"><a href="RRegression.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(cars93,<span class="at">which=</span><span class="fu">c</span>(<span class="st">&quot;MFG&quot;</span>,<span class="st">&quot;Model&quot;</span>,<span class="st">&quot;Type&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;HMPG&quot;</span>))</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;             MFG   Model    Type Weight HMPG
@@ -356,7 +357,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="fitted-line-plot" class="section level2" number="26.1">
 <h2><span class="header-section-number">26.1</span> Fitted Line Plot</h2>
-<p>The linear fitted line can be added to a scatterplot (see Section <a href="BEDAQuant.html#scatterplots">8.2.1</a>) with <code>geom_smooth()</code>. The <code>geom_smooth()</code> function requires <code>method="lm"</code> to show the linear regression line and <code>se=FALSE</code> to remove the underlying confidence band.<a href="#fn99" class="footnote-ref" id="fnref99"><sup>99</sup></a></p>
+<p>The linear fitted line can be added to a scatterplot (see Section <a href="BEDAQuant.html#scatterplots">8.2.1</a>) with <code>geom_smooth()</code>. The <code>geom_smooth()</code> function requires <code>method="lm"</code> to show the linear regression line and <code>se=FALSE</code> to remove the underlying confidence band.<a href="#fn101" class="footnote-ref" id="fnref101"><sup>101</sup></a></p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb164-1"><a href="RRegression.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
 <span id="cb164-2"><a href="RRegression.html#cb164-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">pch=</span><span class="dv">21</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;darkgray&quot;</span>,<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb164-3"><a href="RRegression.html#cb164-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Weight (lbs)&quot;</span>,<span class="at">y=</span><span class="st">&quot;Highway MPG&quot;</span>) <span class="sc">+</span></span>
@@ -397,9 +398,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="98">
-<li id="fn98"><p>The <code>which=</code> argument in <code>headtail()</code> is used to show only a few variables of <code>cars93</code>, just to save space.<a href="RRegression.html#fnref98" class="footnote-back">↩︎</a></p></li>
-<li id="fn99"><p>This is an advanced topic for a future course.<a href="RRegression.html#fnref99" class="footnote-back">↩︎</a></p></li>
+<ol start="100">
+<li id="fn100"><p>The <code>which=</code> argument in <code>headtail()</code> is used to show only a few variables of <code>cars93</code>, just to save space.<a href="RRegression.html#fnref100" class="footnote-back">↩︎</a></p></li>
+<li id="fn101"><p>This is an advanced topic for a future course.<a href="RRegression.html#fnref101" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

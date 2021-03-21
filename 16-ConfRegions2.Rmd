@@ -1,28 +1,37 @@
 # Confidence Regions - Extension {#ConfRegions2}
-XXX
+In Module \@ref(ConfRegions1) the concept, calculation, and interpreation of confidence regions were introduced. In this module, some miscellaneous relationships and extensions of that material are introduced.
 
-## Precision and Sample Size
-The width of a confidence interval explains how precisely the parameter is estimated. For example, narrow intervals represent precise estimates of the parameter. The width of a confidence interval is directly related to the margin-of-error which depends on (1) the standard error and (2) the scaling factor. As either of these two items gets smaller (while holding the other constant), the width of the confidence interval gets smaller.
+## Confidence Intervals and Precision
+The width of a confidence interval explains how *precisely* the parameter is estimated.^[Be clear that this statement is about precision. We cannot usually speak to accuracy because the true value of the parameter is usually unknown.] More specifically, narrow intervals represent precise estimates of the parameter, whereas wide intervales represent imprecise estimates of the parameter.
 
-A small standard error means that sampling variability is low and the parameter is precisely estimated by the statistic. Smaller standard errors are obtained only by increasing the sample size. A smaller standard deviation would also result in a smaller SE, but the standard deviation cannot be made smaller (i.e., it is an inherent characteristic of the population).
+The width of a confidence interval is directly related to the margin-of-error^[More specifically the width of a confidence interval is two tmes the margin-of-error.] which depends on (1) the standard error and (2) the scaling factor. As either of these two items gets smaller (while holding the other constant), the width of the confidence interval gets smaller.
 
-A smaller scaling factor is obtained by reducing the level of confidence. For example, a 90% confidence interval uses a Z^\*^&plusmn;1.645 whereas a 95% confidence interval uses a Z^\*^&plusmn;1.960. Thus, decreasing the confidence level narrows the CI. However, reducing the level of confidence will also increase the number of confidence intervals that do not contain the parameter. Thus, reducing the level of confidence may not be the best choice for narrowing the confidence interval.
+A small standard error means that sampling variability is low and precision is high. Smaller standard errors are obtained only by increasing the sample size. A smaller standard deviation would also result in a smaller SE, but the standard deviation cannot be made smaller (i.e., it is an inherent characteristic of the population).
 
-The margin-of-error formula can be solved for n.
+A smaller scaling factor is obtained by reducing the level of confidence. For example, a 90% confidence interval uses a Z^\*^ of &plusmn;1.645, whereas a 95% confidence interval uses a Z^\*^ of &plusmn;1.960. Thus, decreasing the confidence level narrows the CI. However, reducing the level of confidence will also increase the number of confidence intervals that do not contain the parameter. Thus, reducing the level of confidence may not be the best choice for narrowing the confidence interval.
+
+## Sample Size Calculations
+As noted in the previous module, the portion of the confidence interval to the right of the &plusmn; symbol is called the margin-of-error (ME). Thus,
+
+$$ \text{ME} = \text{Z}^{*}\times\frac{\sigma}{\sqrt{\text{n}}} $$
+
+This margin-of-error formula can be solved for n.
 
 \[\begin{split}
-    m.e. &= Z^{*}\frac{\sigma}{\sqrt{n}} \\
-    \sqrt{n} &= \frac{Z^{*}\sigma}{m.e.} \\
-    n &= \left(\frac{Z^{*}\sigma}{m.e}\right)^{2} \\
+    \text{ME} &= \text{Z}^{*}\times\frac{\sigma}{\sqrt{\text{n}}} \\
+    \sqrt{\text{n}} &= \frac{\text{Z}^{*}\times\sigma}{\text{ME}} \\
+    \text{n} &= \left(\frac{\text{Z}^{*}\times\sigma}{\text{ME}}\right)^{2} \\
 \end{split} \]
 
-This formula can be used to find the n required to estimate &mu; within &plusmn; m.e. units with C% confidence assuming that &sigma; is known. For example, suppose that one wants to determine n required to estimate the mean length of fish in Square Lake to within 5 mm with 90% confidence knowing that the population standard deviation is 34.91. From this, m.e.=5, &sigma;=34.91, and Z^\*^=1.645 (found previously for 90% confidence).^[Strictly, $Z^{*]$=&plusmn;1.645, but the sign is inconsequential due to squaring in the sample size formula.] Thus, n = $\left(\frac{1.645*34.91}{5}\right)^{2}$ = 131.91. Therefore, a sample of at least 132 fish from Square Lake should be taken to meet these constraints. Note that sample size calculations are always rounded up to the next integer because rounding down would produce a sample size that does not meet the desired criteria.
+This formula can be used to find the n required to estimate &mu; within &plusmn; ME units with C% confidence assuming that &sigma; is known.
+
+For example, suppose that one wants to determine n required to estimate the mean length of fish in Square Lake to within 5 mm with 90% confidence knowing that the population standard deviation is 34.91. From this, ME=5, &sigma;=34.91, and Z^\*^=1.645 (found previously for 90% confidence).^[Strictly, Z^\*^=&plusmn;1.645, but the sign is inconsequential due to squaring in the sample size formula.] Thus, n = $\left(\frac{1.645\times34.91}{5}\right)^{2}$ = 131.91. Therefore, a sample of at least 132 fish from Square Lake should be taken to meet these constraints.
 
 ::: {.tip data-latex=''}
-Always round sample size calculations up to the next integer.
+Sample size calculations are always rounded up to the next integer because rounding down would produce a sample size that does not meet the desired criteria.
 :::
 
-The margin-of-error and confidence level in these calculations need to come from the researcher's beliefs about how much error they can live with (i.e., chance that a confidence interval does not contain the parameter) and how precise their estimate of the mean needs to be. Values for &sigma; are rarely known in practice (because it is a parameter) and estimates from preliminary studies, previous similar studies, similar populations, or best guesses are often used instead. In practice, a researcher will often prepare a graph with varying values of &sigma; to make an informed decision of what sample size to choose.
+The margin-of-error and confidence level in these calculations need to come from the researcher's beliefs about how much error they can live with (i.e., chance that a confidence interval does not contain the parameter) and how precise their estimate of the mean needs to be (i.e., the ME they desire). Values for &sigma; are rarely known in practice (because it is a parameter) and estimates from preliminary studies, previous similar studies, similar populations, or best guesses are often used instead. In practice, a researcher will often prepare a graph with varying values of &sigma; to make an informed decision of what sample size to choose.
 
 ```{r SampleSizeSigma, echo=FALSE, fig.show='hide', fig.cap='Desired sample size versus margin-of-error for constant values of $\\sigma$ (shown to the left of each line) and C=90. The desired sample size for m.e.=5, &sigma;=35, and C=90 is illustrated with the black dotted lines.'}
 sigma <- seq(25,50,5); me <- seq(3,10,0.25); z <- qnorm(0.95)
@@ -41,13 +50,9 @@ An alternative conceptualization of confidence intervals can show how confidence
 
 First, compute the most common 95% of sample means assuming that &mu;=70; i.e., 70&plusmn;1.960$\frac{31.49}{\sqrt{50}}$ or (61.27,78.73). This range is plotted as a vertical rectangle centered on &mu;=70 (left-most rectangle) in Figure \@ref(fig:CIAlt1)-Left. Next, compute and plot the same range for a slightly larger &mu; (e.g., with &mu;=71, plot (62.27,78.73)). Then repeat these steps for sequentially larger values of &mu; until a plot similar to Figure \@ref(fig:CIAlt1)-Left is constructed.
 
-Consider very carefully what Figure \@ref(fig:CIAlt1)-Left represents. The vertical rectangles represent the ranges of the most common 95% of sample means (values read from the y-axis) that will be produced for a particular population mean (value read from the x-axis). In essence, each vertical line represents the sample means that are likely to be observed from a population with a given population mean (x-axis).
-
-Now suppose that $\bar{\text{x}}$=100.04 (Table \@ref(tab:SquareLakeSample1s)). Draw a horizontal line across Figure \@ref(fig:CIAlt1) at this value and then draw vertical lines down from where the horizontal line first enters and last leaves the band of possible sample means (Figure \@ref(fig:CIAlt1)-Right). The x-axis values that these vertical lines intercept are an approximate 95% CI for &mu;. The approximation is only as close as the intervals used to construct the rectangles (i.e., 1.0 mm were used here).
-
 &nbsp;
 
-```{r CIAlt1, echo=FALSE, fig.show="hold", fig.cap="Range (95%) of sample means that would be produced by particular population means in the Square Lake fish length example (**Left**) and the ranges intercepted by $\\bar{\text{x}}$=100.04 mm (**Right**)."}
+```{r CIAlt1, echo=FALSE, fig.cap="Range (95%) of sample means that would be produced by particular population means in the Square Lake fish length example."}
 par(mar=c(3.05,3.05,0.5,0.5),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
     cex.lab=0.95,cex.axis=0.9)
 sigma <- 31.49; n <- 50; SE <- sigma/sqrt(n)
@@ -68,7 +73,19 @@ for (i in 1:length(mu)) {
   py <- c(res[i,1],res[i,2],res[i,2],res[i,1],res[i,1])
   polygon(px,py,col="gray")
 }
+```
 
+&nbsp;
+
+Consider very carefully what Figure \@ref(fig:CIAlt1)-Left represents. The vertical rectangles represent the ranges of the most common 95% of sample means (values read from the y-axis) that will be produced for a particular population mean (value read from the x-axis). In essence, each vertical line represents the sample means that are likely to be observed from a population with a given population mean (x-axis).
+
+Now suppose that $\bar{\text{x}}$=100.04 (Table \@ref(tab:SquareLakeSample1s)). Draw a horizontal line across Figure \@ref(fig:CIAlt1) at this value and then draw vertical lines down from where the horizontal line first enters and last leaves the band of possible sample means (Figure \@ref(fig:CIAlt2)). The x-axis values that these vertical lines intercept are an approximate 95% CI for &mu;.
+
+&nbsp;
+
+```{r CIAlt2, echo=FALSE, fig.show="hold", fig.cap="Range (95%) of sample means that would be produced by particular population means in the Square Lake fish length example with the ranges intercepted by $\\bar{\\text{x}}$=100.04 mm."}
+par(mar=c(3.05,3.05,0.5,0.5),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
+    cex.lab=0.95,cex.axis=0.9)
 xbar <- 100
 plot(0,0,xlim=c(min(mu)-int,max(mu)+int),ylim=range(res),
      xlab="Population Mean",ylab="Sample Mean")
@@ -77,22 +94,22 @@ for (i in 1:length(mu)) {
   px <- c(rep(mu[i]-wid,2),rep(mu[i]+wid,2),mu[i])
   py <- c(res[i,1],res[i,2],res[i,2],res[i,1],res[i,1])
   if ((xbar>res[i,1]) & (xbar<res[i,2])) {
-    polygon(px,py,col="green2")
+    polygon(px,py,col="blue2")
   } else {
     polygon(px,py,col=col2rgbt("red",0.5))
   }
-  abline(h=xbar,lwd=1,col="green2")
+  abline(h=xbar,lwd=1,col="blue2")
 }
 
-arrows(mu[23],res[23,2],mu[23],65,length=0.1,angle=20,col="green2")
+arrows(mu[23],res[23,2],mu[23],65,length=0.1,angle=20,col="blue2")
 text(mu[23],67,round(mu[23],1),pos=1)
-arrows(mu[39],res[39,2],mu[39],65,length=0.1,angle=20,col="green2")
+arrows(mu[39],res[39,2],mu[39],65,length=0.1,angle=20,col="blue2")
 text(mu[39],67,round(mu[39],1),pos=1)
 ```
 
 &nbsp;
 
-In the next section a more efficient and specific formula will be shown for constructing a confidence region (and you will see that the result from this visualization -- (92,108) -- compares favorably to the results in the next section -- (91.27,108.73). However, the graphical representation shown here illustrates that a confidence interval (or region, more generally) consists of population means that are likely to produce the observed sample mean. Thus, a confidence region represents possible null hypothesized population means that WOULD NOT BE rejected during hypothesis testing.
+The actual confidence interval computed in Module \@ref(ConfRegions2) was (91.27,108.73), which compares favorably to the (92,108) from Figure \@ref(fig:CIAlt2). The approximation here will only as close as the intervals used to construct the rectangles (i.e., 1.0 mm were used here). More importantly, this graphical representation illustrates that a confidence interval (or region, more generally) consists of population means that are likely to produce the observed sample mean. Thus, a confidence region represents possible null hypothesized population means that WOULD NOT BE rejected during hypothesis testing.
 
 ::: {.tip data-latex=''}
 A confidence region represents null hypothesized values that would NOT be rejected.

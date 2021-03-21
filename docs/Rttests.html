@@ -239,8 +239,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#precision-and-sample-size"><i class="fa fa-check"></i><b>16.1</b> Precision and Sample Size</a></li>
-<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.2</b> Inference Type Relationship</a></li>
+<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#confidence-intervals-and-precision"><i class="fa fa-check"></i><b>16.1</b> Confidence Intervals and Precision</a></li>
+<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#sample-size-calculations"><i class="fa fa-check"></i><b>16.2</b> Sample Size Calculations</a></li>
+<li class="chapter" data-level="16.3" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.3</b> Inference Type Relationship</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="Ztest.html"><a href="Ztest.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test</a>
 <ul>
@@ -458,7 +459,7 @@ mean of x
 </div>
 <div id="levenes-test" class="section level3" number="27.2.2">
 <h3><span class="header-section-number">27.2.2</span> Levene’s Test</h3>
-<p>Before conducting a 2-Sample t-Test, the assumption of equal population variances must be tested with Levene’s test. The Levene’s test is computed with <code>levenesTest()</code>, where the first argument is a formula of the form <code>qvar~cvar</code>, where <code>qvar</code> represents the quantitative response variable and <code>cvar</code> represents the group factor variable.<a href="#fn100" class="footnote-ref" id="fnref100"><sup>100</sup></a> The data.frame containing <code>qvar</code> and <code>cvar</code> is given in <code>data=</code>. The results of the following code are shown in Table <a href="Rttests.html#tab:LevBOD">27.2</a> and interpreted in the example analysis below.</p>
+<p>Before conducting a 2-Sample t-Test, the assumption of equal population variances must be tested with Levene’s test. The Levene’s test is computed with <code>levenesTest()</code>, where the first argument is a formula of the form <code>qvar~cvar</code>, where <code>qvar</code> represents the quantitative response variable and <code>cvar</code> represents the group factor variable.<a href="#fn102" class="footnote-ref" id="fnref102"><sup>102</sup></a> The data.frame containing <code>qvar</code> and <code>cvar</code> is given in <code>data=</code>. The results of the following code are shown in Table <a href="Rttests.html#tab:LevBOD">27.2</a> and interpreted in the example analysis below.</p>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb177-1"><a href="Rttests.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levenesTest</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua)</span></code></pre></div>
 </div>
 <div id="histograms-2" class="section level3" number="27.2.3">
@@ -630,8 +631,8 @@ Figure 27.2: Histogram of the BOD measurements at the outlet and inlet of the aq
 </div>
 <div class="footnotes">
 <hr />
-<ol start="100">
-<li id="fn100"><p>This is the same model formula introduced in Section <a href="RUnivEDA.html#summary-statistics-1">24.2.1</a> for summarizing multiple groups of data.<a href="Rttests.html#fnref100" class="footnote-back">↩︎</a></p></li>
+<ol start="102">
+<li id="fn102"><p>This is the same model formula introduced in Section <a href="RUnivEDA.html#summary-statistics-1">24.2.1</a> for summarizing multiple groups of data.<a href="Rttests.html#fnref102" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

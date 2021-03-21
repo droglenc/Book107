@@ -239,8 +239,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#precision-and-sample-size"><i class="fa fa-check"></i><b>16.1</b> Precision and Sample Size</a></li>
-<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.2</b> Inference Type Relationship</a></li>
+<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#confidence-intervals-and-precision"><i class="fa fa-check"></i><b>16.1</b> Confidence Intervals and Precision</a></li>
+<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#sample-size-calculations"><i class="fa fa-check"></i><b>16.2</b> Sample Size Calculations</a></li>
+<li class="chapter" data-level="16.3" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.3</b> Inference Type Relationship</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="Ztest.html"><a href="Ztest.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test</a>
 <ul>
@@ -357,7 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p> </p>
 <div id="filtering-a-data-frame" class="section level2" number="23.1">
 <h2><span class="header-section-number">23.1</span> Filtering a data frame</h2>
-<p>It is common to create a new data frame that contains only some of the individuals from an existing data frame. The process of creating the newer, smaller data frame is called filtering (or subsetting) and is accomplished with <code>filterD()</code>.<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a> The <code>filterD()</code> function requires the original data frame as the first argument and a condition statement as the second argument. The condition statement is used to either include or exclude individuals from the original data frame. Condition statements consist of the name of a variable in the original data frame, a comparison operator, and a comparison value (Table <a href="RFilter.html#tab:filterComps">23.1</a>). The results from <code>filterD()</code> should be assigned to an object, which is then the name of the new data frame.</p>
+<p>It is common to create a new data frame that contains only some of the individuals from an existing data frame. The process of creating the newer, smaller data frame is called filtering (or subsetting) and is accomplished with <code>filterD()</code>.<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a> The <code>filterD()</code> function requires the original data frame as the first argument and a condition statement as the second argument. The condition statement is used to either include or exclude individuals from the original data frame. Condition statements consist of the name of a variable in the original data frame, a comparison operator, and a comparison value (Table <a href="RFilter.html#tab:filterComps">23.1</a>). The results from <code>filterD()</code> should be assigned to an object, which is then the name of the new data frame.</p>
 <div class="tip">
 <p><code>filterD()</code> is used to create a subset of a data frame.</p>
 </div>
@@ -398,7 +399,7 @@ All rows where <code>var</code> <strong>is NOT equal</strong> to <code>value</co
 <code>var %in% c(value1,value2)</code>
 </td>
 <td style="text-align:left;">
-All rows where <code>var</code> <strong>IS IN</strong> vector of <code>value</code>s<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a>
+All rows where <code>var</code> <strong>IS IN</strong> vector of <code>value</code>s<a href="#fn80" class="footnote-ref" id="fnref80"><sup>80</sup></a>
 </td>
 </tr>
 <tr>
@@ -406,7 +407,7 @@ All rows where <code>var</code> <strong>IS IN</strong> vector of <code>value</co
 <code>var&amp;gt;value</code>
 </td>
 <td style="text-align:left;">
-All rows where <code>var</code> is <strong>greater than</strong> <code>value</code><a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a>
+All rows where <code>var</code> is <strong>greater than</strong> <code>value</code><a href="#fn81" class="footnote-ref" id="fnref81"><sup>81</sup></a>
 </td>
 </tr>
 <tr>
@@ -414,7 +415,7 @@ All rows where <code>var</code> is <strong>greater than</strong> <code>value</co
 <code>var&amp;gt;=value</code>
 </td>
 <td style="text-align:left;">
-All rows where <code>var</code> is <strong>greater than or equal to</strong> <code>value</code><a href="#fn80" class="footnote-ref" id="fnref80"><sup>80</sup></a>
+All rows where <code>var</code> is <strong>greater than or equal to</strong> <code>value</code><a href="#fn82" class="footnote-ref" id="fnref82"><sup>82</sup></a>
 </td>
 </tr>
 <tr>
@@ -422,7 +423,7 @@ All rows where <code>var</code> is <strong>greater than or equal to</strong> <co
 <code>var&amp;lt;value</code>
 </td>
 <td style="text-align:left;">
-All rows where <code>var</code> is <strong>less than</strong> <code>value</code><a href="#fn81" class="footnote-ref" id="fnref81"><sup>81</sup></a>
+All rows where <code>var</code> is <strong>less than</strong> <code>value</code><a href="#fn83" class="footnote-ref" id="fnref83"><sup>83</sup></a>
 </td>
 </tr>
 <tr>
@@ -430,7 +431,7 @@ All rows where <code>var</code> is <strong>less than</strong> <code>value</code>
 <code>var&amp;lt;=value</code>
 </td>
 <td style="text-align:left;">
-All rows where <code>var</code> is <strong>less than or equal to</strong> <code>value</code><a href="#fn82" class="footnote-ref" id="fnref82"><sup>82</sup></a>
+All rows where <code>var</code> is <strong>less than or equal to</strong> <code>value</code><a href="#fn84" class="footnote-ref" id="fnref84"><sup>84</sup></a>
 </td>
 </tr>
 <tr>
@@ -446,13 +447,13 @@ All rows where <strong>BOTH</strong> conditions are true
 condition1 | condition2
 </td>
 <td style="text-align:left;">
-All rows where <strong>ONE or BOTH</strong> conditions are true<a href="#fn83" class="footnote-ref" id="fnref83"><sup>83</sup></a>
+All rows where <strong>ONE or BOTH</strong> conditions are true<a href="#fn85" class="footnote-ref" id="fnref85"><sup>85</sup></a>
 </td>
 </tr>
 </tbody>
 </table>
 <p> </p>
-<p>The following are examples of new data frames created from <code>bears</code>. The name of the new data frame (i.e., object left of the assignment operator) can be any valid object name. As demonstrated below, the new data frame should be examined after each filtering to ensure that the data frame actually contains the items that you desire.<a href="#fn84" class="footnote-ref" id="fnref84"><sup>84</sup></a></p>
+<p>The following are examples of new data frames created from <code>bears</code>. The name of the new data frame (i.e., object left of the assignment operator) can be any valid object name. As demonstrated below, the new data frame should be examined after each filtering to ensure that the data frame actually contains the items that you desire.<a href="#fn86" class="footnote-ref" id="fnref86"><sup>86</sup></a></p>
 <div class="tip">
 <p>Examine the new data frame after subsetting to ensure that it contains the data you intended.</p>
 </div>
@@ -530,15 +531,15 @@ All rows where <strong>ONE or BOTH</strong> conditions are true<a href="#fn83" c
 </div>
 <div class="footnotes">
 <hr />
-<ol start="77">
-<li id="fn77"><p><code>filterD()</code> requires the <code>NCStats</code> package.<a href="RFilter.html#fnref77" class="footnote-back">↩︎</a></p></li>
-<li id="fn78"><p><code>value</code> should be a character, factor, or integer.<a href="RFilter.html#fnref78" class="footnote-back">↩︎</a></p></li>
-<li id="fn79"><p><code>value</code> must be numeric.<a href="RFilter.html#fnref79" class="footnote-back">↩︎</a></p></li>
-<li id="fn80"><p><code>value</code> must be numeric.<a href="RFilter.html#fnref80" class="footnote-back">↩︎</a></p></li>
+<ol start="79">
+<li id="fn79"><p><code>filterD()</code> requires the <code>NCStats</code> package.<a href="RFilter.html#fnref79" class="footnote-back">↩︎</a></p></li>
+<li id="fn80"><p><code>value</code> should be a character, factor, or integer.<a href="RFilter.html#fnref80" class="footnote-back">↩︎</a></p></li>
 <li id="fn81"><p><code>value</code> must be numeric.<a href="RFilter.html#fnref81" class="footnote-back">↩︎</a></p></li>
 <li id="fn82"><p><code>value</code> must be numeric.<a href="RFilter.html#fnref82" class="footnote-back">↩︎</a></p></li>
-<li id="fn83"><p>Note that this “or” operator is a “vertical line”" which is typed with the shift-backslash key.<a href="RFilter.html#fnref83" class="footnote-back">↩︎</a></p></li>
-<li id="fn84"><p>For larger data.frames you should check the structure (using <code>str()</code>) or the <code>headtail()</code> of the new data frame.<a href="RFilter.html#fnref84" class="footnote-back">↩︎</a></p></li>
+<li id="fn83"><p><code>value</code> must be numeric.<a href="RFilter.html#fnref83" class="footnote-back">↩︎</a></p></li>
+<li id="fn84"><p><code>value</code> must be numeric.<a href="RFilter.html#fnref84" class="footnote-back">↩︎</a></p></li>
+<li id="fn85"><p>Note that this “or” operator is a “vertical line”" which is typed with the shift-backslash key.<a href="RFilter.html#fnref85" class="footnote-back">↩︎</a></p></li>
+<li id="fn86"><p>For larger data.frames you should check the structure (using <code>str()</code>) or the <code>headtail()</code> of the new data frame.<a href="RFilter.html#fnref86" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

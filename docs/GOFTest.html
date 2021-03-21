@@ -239,8 +239,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#precision-and-sample-size"><i class="fa fa-check"></i><b>16.1</b> Precision and Sample Size</a></li>
-<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.2</b> Inference Type Relationship</a></li>
+<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#confidence-intervals-and-precision"><i class="fa fa-check"></i><b>16.1</b> Confidence Intervals and Precision</a></li>
+<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#sample-size-calculations"><i class="fa fa-check"></i><b>16.2</b> Sample Size Calculations</a></li>
+<li class="chapter" data-level="16.3" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.3</b> Inference Type Relationship</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="Ztest.html"><a href="Ztest.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test</a>
 <ul>
@@ -523,7 +524,7 @@ Sum
 <p>where the scaling factor is the familiar Z<sup>*</sup>. Thus, the confidence interval for <span class="math inline">\(p\)</span> is constructed with</p>
 <p><span class="math display">\[ \hat{p} \pm Z^{*}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]</span></p>
 <p>Note that one does not need to worry about lower and upper bounds, only confidence intervals will be computed, because of the two-tailed nature of the chi-square test statistic.</p>
-<p>In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was <span class="math inline">\(\hat{p}\)</span>=<span class="math inline">\(\frac{196}{371}\)</span>=0.528. The standard error for this sample proportion is <span class="math inline">\(\sqrt{\frac{0.528(1-0.528)}{371}}\)</span>=0.026. For a 95% confidence interval, Z<sup>*</sup>=±1.960.<a href="#fn72" class="footnote-ref" id="fnref72"><sup>72</sup></a> Thus, the confidence interval is 0.528±1.960×0.026 or 0.528±0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.</p>
+<p>In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was <span class="math inline">\(\hat{p}\)</span>=<span class="math inline">\(\frac{196}{371}\)</span>=0.528. The standard error for this sample proportion is <span class="math inline">\(\sqrt{\frac{0.528(1-0.528)}{371}}\)</span>=0.026. For a 95% confidence interval, Z<sup>*</sup>=±1.960.<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a> Thus, the confidence interval is 0.528±1.960×0.026 or 0.528±0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.</p>
 </div>
 </div>
 <div id="examples-5" class="section level2" number="21.2">
@@ -618,8 +619,8 @@ Sum
 </div>
 <div class="footnotes">
 <hr />
-<ol start="72">
-<li id="fn72"><p>This Z<sup>*</sup> is computed with <code>distrib(0.975,type="q")</code>.<a href="GOFTest.html#fnref72" class="footnote-back">↩︎</a></p></li>
+<ol start="74">
+<li id="fn74"><p>This Z<sup>*</sup> is computed with <code>distrib(0.975,type="q")</code>.<a href="GOFTest.html#fnref74" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
