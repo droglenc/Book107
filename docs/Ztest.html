@@ -222,7 +222,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="13.1" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-the-scientific-method"><i class="fa fa-check"></i><b>13.1</b> Hypothesis Testing &amp; The Scientific Method</a></li>
 <li class="chapter" data-level="13.2" data-path="HypTesting1.html"><a href="HypTesting1.html#statistical-hypotheses"><i class="fa fa-check"></i><b>13.2</b> Statistical Hypotheses</a></li>
-<li class="chapter" data-level="13.3" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-concept-summary"><i class="fa fa-check"></i><b>13.3</b> Hypothesis Testing Concept Summary</a></li>
+<li class="chapter" data-level="13.3" data-path="HypTesting1.html"><a href="HypTesting1.html#example-p-value-calculations"><i class="fa fa-check"></i><b>13.3</b> Example p-value Calculations</a></li>
+<li class="chapter" data-level="13.4" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-concept-summary"><i class="fa fa-check"></i><b>13.4</b> Hypothesis Testing Concept Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="HypTesting2.html"><a href="HypTesting2.html"><i class="fa fa-check"></i><b>14</b> Hypothesis Testing - Errors</a>
 <ul>
@@ -402,10 +403,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div id="r-appendix" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb34-1"><a href="Ztest.html#cb34-1" aria-hidden="true" tabindex="-1"></a>( z <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">10.12</span>,<span class="at">mean=</span><span class="dv">10</span>,<span class="at">sd=</span><span class="fl">1.60</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">100</span>),<span class="at">lower.tail=</span><span class="cn">FALSE</span>) ) <span class="co">#p-value</span></span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-44-1.png" width="336" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb35-1"><a href="Ztest.html#cb35-1" aria-hidden="true" tabindex="-1"></a>( zstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )               <span class="co">#z-star</span></span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-44-2.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb37-1"><a href="Ztest.html#cb37-1" aria-hidden="true" tabindex="-1"></a>( z <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">10.12</span>,<span class="at">mean=</span><span class="dv">10</span>,<span class="at">sd=</span><span class="fl">1.60</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">100</span>),<span class="at">lower.tail=</span><span class="cn">FALSE</span>) ) <span class="co">#p-value</span></span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-47-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb38-1"><a href="Ztest.html#cb38-1" aria-hidden="true" tabindex="-1"></a>( zstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )               <span class="co">#z-star</span></span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-47-2.png" width="336" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>

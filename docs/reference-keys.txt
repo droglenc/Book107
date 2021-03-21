@@ -244,6 +244,7 @@ HypTesting1
 hypothesis-testing-the-scientific-method
 statistical-hypotheses
 hypothesis-testing-concept
+example-p-value-calculations
 hypothesis-testing-concept-summary
 HypTesting2
 errors
