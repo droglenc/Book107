@@ -235,6 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="15.1" data-path="ConfRegions1.html"><a href="ConfRegions1.html#confidence-concept"><i class="fa fa-check"></i><b>15.1</b> Confidence Concept</a></li>
 <li class="chapter" data-level="15.2" data-path="ConfRegions1.html"><a href="ConfRegions1.html#constructing-confidence-regions"><i class="fa fa-check"></i><b>15.2</b> Constructing Confidence Regions</a></li>
+<li class="chapter" data-level="15.3" data-path="ConfRegions1.html"><a href="ConfRegions1.html#example-confidence-region-calculations"><i class="fa fa-check"></i><b>15.3</b> Example Confidence Region Calculations</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
 <ul>
@@ -338,7 +339,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Prior to this module, hypothesis testing methods required knowing σ, which is a parameter that is seldom known. When σ is replaced by its estimator, s, the test statistic follows a Student’s t rather than a standard normal (Z) distribution. In this module, the t-distribution is described and a 1-Sample t-Test for testing that the mean from one population equals a specific value is discussed.</p>
 <div id="t-distribution" class="section level2" number="18.1">
 <h2><span class="header-section-number">18.1</span> t-distribution</h2>
-<p>A t-distribution is similar to a standard normal distribution (i.e., N(0,1)) in that it is centered on 0 and is bell shaped (Figure <a href="t1test.html#fig:tvsZ">18.1</a>). The t-distribution differs from the standard normal distribution in that it is heavier in the tails, flatter near the center, and its exact dispersion is dictated by a quantity called the degrees-of-freedom (df). The t-distribution is “flatter and fatter” because of the uncertainty surrounding the use of s rather than σ in the standard error calculation.<a href="#fn63" class="footnote-ref" id="fnref63"><sup>63</sup></a> The degrees-of-freedom are related to n and generally come from the denominator in the standard deviation calculation. As the degrees-of-freedom increase, the t-distribution becomes narrower, taller, and approaches the standard normal distribution (Figure <a href="t1test.html#fig:tvsZ">18.1</a>).</p>
+<p>A t-distribution is similar to a standard normal distribution (i.e., N(0,1)) in that it is centered on 0 and is bell shaped (Figure <a href="t1test.html#fig:tvsZ">18.1</a>). The t-distribution differs from the standard normal distribution in that it is heavier in the tails, flatter near the center, and its exact dispersion is dictated by a quantity called the degrees-of-freedom (df). The t-distribution is “flatter and fatter” because of the uncertainty surrounding the use of s rather than σ in the standard error calculation.<a href="#fn64" class="footnote-ref" id="fnref64"><sup>64</sup></a> The degrees-of-freedom are related to n and generally come from the denominator in the standard deviation calculation. As the degrees-of-freedom increase, the t-distribution becomes narrower, taller, and approaches the standard normal distribution (Figure <a href="t1test.html#fig:tvsZ">18.1</a>).</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:tvsZ"></span>
 <img src="Book107_files/figure-html/tvsZ-1.png" alt="Standard normal (black) and t-distributions with varying degrees-of-freedom." width="336" />
@@ -348,7 +349,7 @@ Figure 18.1: Standard normal (black) and t-distributions with varying degrees-of
 </div>
 <p> </p>
 <p>Proportional areas on a t-distribution are computed using <code>distrib()</code> similar to what was described for a normal distribution in Modules <a href="NormalDist1.html#NormalDist1">6</a> and <a href="SamplingDist.html#SamplingDist">11</a>. The major exceptions for using <code>distrib()</code> with a t-distribution is that <code>distrib="t"</code> must be used and the degrees-of-freedom must be given in <code>df=</code> (how to find df is discussed in subsequent sections). For example, the area right of t=-1.456 on a t-distribution with 9 df is 0.9103 (Figure <a href="t1test.html#fig:tarea1">18.2</a>).</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb39-1"><a href="t1test.html#cb39-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">1.456</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">9</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb36-1"><a href="t1test.html#cb36-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">1.456</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">9</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:tarea1"></span>
 <img src="Book107_files/figure-html/tarea1-1.png" alt="Depiction of the area to the right of t=-1.456 on a t-distribution with 9 df." width="336" />
 <p class="caption">
@@ -356,8 +357,8 @@ Figure 18.2: Depiction of the area to the right of t=-1.456 on a t-distribution 
 </p>
 </div>
 <p> </p>
-<p>Similarly, the t with an upper-tail area of 0.95 on a t-distribution with 19 df is -1.729 (Figure <a href="t1test.html#fig:tstar1">18.3</a>).<a href="#fn64" class="footnote-ref" id="fnref64"><sup>64</sup></a></p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb40-1"><a href="t1test.html#cb40-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">df=</span><span class="dv">19</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p>Similarly, the t with an upper-tail area of 0.95 on a t-distribution with 19 df is -1.729 (Figure <a href="t1test.html#fig:tstar1">18.3</a>).<a href="#fn65" class="footnote-ref" id="fnref65"><sup>65</sup></a></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb37-1"><a href="t1test.html#cb37-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">df=</span><span class="dv">19</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:tstar1"></span>
 <img src="Book107_files/figure-html/tstar1-1.png" alt="Depiction of the value of t with an area to the right of 0.95 on a t-distribution with 19 df." width="336" />
 <p class="caption">
@@ -367,7 +368,7 @@ Figure 18.3: Depiction of the value of t with an area to the right of 0.95 on a 
 </div>
 <div id="Specifics1t" class="section level2" number="18.2">
 <h2><span class="header-section-number">18.2</span> 1-Sample t-Test Specifics</h2>
-<p>A 1-Sample t-Test is similar to a 1-Sample Z-test in that both test the same H<sub>0</sub>. The difference, as discussed above, is that when σ is replaced by s, the test statistic becomes t and the scaling factor for confidence regions becomes a t<sup>*</sup>. Other aspects are similar between the two tests as shown below.<a href="#fn65" class="footnote-ref" id="fnref65"><sup>65</sup></a></p>
+<p>A 1-Sample t-Test is similar to a 1-Sample Z-test in that both test the same H<sub>0</sub>. The difference, as discussed above, is that when σ is replaced by s, the test statistic becomes t and the scaling factor for confidence regions becomes a t<sup>*</sup>. Other aspects are similar between the two tests as shown below.<a href="#fn66" class="footnote-ref" id="fnref66"><sup>66</sup></a></p>
 <ul>
 <li><strong>Hypothesis:</strong> H<sub>0</sub>:μ=μ<sub>0</sub></li>
 <li><strong>Statistic:</strong> <span class="math inline">\(\bar{\text{x}}\)</span></li>
@@ -397,7 +398,7 @@ Figure 18.3: Depiction of the value of t with an area to the right of 0.95 on a 
 <ol style="list-style-type: lower-roman">
 <li>a quantitative variable (weight) was measured,</li>
 <li>individuals from one group (or population) were considered (this catch of salmon), and</li>
-<li>σ is <strong>UN</strong>known.<a href="#fn66" class="footnote-ref" id="fnref66"><sup>66</sup></a></li>
+<li>σ is <strong>UN</strong>known.<a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a></li>
 </ol></li>
 <li>The data appear to be part of an observational study with random selection.</li>
 <li>The assumptions are met because …
@@ -414,9 +415,9 @@ Figure 18.3: Depiction of the value of t with an area to the right of 0.95 on a 
 </ol>
 <div id="r-appendix-1" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb41-1"><a href="t1test.html#cb41-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">1.87</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">49</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb38-1"><a href="t1test.html#cb38-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">1.87</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">49</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-48-1.png" width="336" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb42-1"><a href="t1test.html#cb42-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">df=</span><span class="dv">49</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb39-1"><a href="t1test.html#cb39-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">df=</span><span class="dv">49</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-48-2.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 </div>
@@ -513,9 +514,9 @@ max
 </ol>
 <div id="r-appendix-2" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb43-1"><a href="t1test.html#cb43-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">5.469</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">130</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb40-1"><a href="t1test.html#cb40-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">5.469</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">130</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-49-1.png" width="336" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb44-1"><a href="t1test.html#cb44-1" aria-hidden="true" tabindex="-1"></a>(tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.995</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">130</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb41-1"><a href="t1test.html#cb41-1" aria-hidden="true" tabindex="-1"></a>(tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.995</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">130</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-49-2.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 
@@ -525,11 +526,11 @@ max
 </div>
 <div class="footnotes">
 <hr />
-<ol start="63">
-<li id="fn63"><p>Recall that the sample standard deviation is a statistic and is thus subject to sampling variability.<a href="t1test.html#fnref63" class="footnote-back">↩︎</a></p></li>
-<li id="fn64"><p>This “reverse” calculation would be t<sup>*</sup> for a 95% lower confidence bound.<a href="t1test.html#fnref64" class="footnote-back">↩︎</a></p></li>
-<li id="fn65"><p>Compare these specifics to those for a 1-Sample Z-test in Section <a href="Ztest.html#Specifics1Z">17.2</a>.<a href="t1test.html#fnref65" class="footnote-back">↩︎</a></p></li>
-<li id="fn66"><p>If σ is given, then it will appear in the background information to the question and will be in a sentence that uses the words “population,” “assume that,” or “suppose that.”<a href="t1test.html#fnref66" class="footnote-back">↩︎</a></p></li>
+<ol start="64">
+<li id="fn64"><p>Recall that the sample standard deviation is a statistic and is thus subject to sampling variability.<a href="t1test.html#fnref64" class="footnote-back">↩︎</a></p></li>
+<li id="fn65"><p>This “reverse” calculation would be t<sup>*</sup> for a 95% lower confidence bound.<a href="t1test.html#fnref65" class="footnote-back">↩︎</a></p></li>
+<li id="fn66"><p>Compare these specifics to those for a 1-Sample Z-test in Section <a href="Ztest.html#Specifics1Z">17.2</a>.<a href="t1test.html#fnref66" class="footnote-back">↩︎</a></p></li>
+<li id="fn67"><p>If σ is given, then it will appear in the background information to the question and will be in a sentence that uses the words “population,” “assume that,” or “suppose that.”<a href="t1test.html#fnref67" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

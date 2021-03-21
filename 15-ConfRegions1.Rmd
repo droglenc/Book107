@@ -34,12 +34,14 @@ make.CI<-function(mu,SE,C=0.95,num=100) {
 } # end make.CI
 ```
 
-The final result from a hypothesis test (Module \@ref(HypTesting1)) can feel uneventful -- i.e., either conclude that the parameter may be equal to or different from the hypothesized value.^[Depending on the H~A~ it may be known if the parameter is more or less than the hypothesized value.] If the parameter is thought to be different from the hypothesized value we might then say that our best guess at the parameter is the observed statistic. However, as shown in Module \@ref(SamplingDist), a statistic is an imperfect estimate of the unknown parameter because of sampling variability. This imperfectness can be recognized by computing a range of values that is likely to contain the parameter. For example, we may make a statement such as this -- "Our best guess for the true population mean length of fish in Square Lake is the sample mean of 98.5 mm; however, we are 95% confident that the mean of ALL fish in the lake is between 95.9 and 101.1 mm."  The range in the last phrase acknowledges sampling variability and is called a confidence region. In this module, the concept, calculation, and interpretation of confidence regions is explored.
+The final result from a hypothesis test (Module \@ref(HypTesting1)) can feel uneventful -- i.e., either conclude that the parameter may be equal to or different from the hypothesized value.^[Depending on the H~A~ it may be known if the parameter is more or less than the hypothesized value.] If the parameter is thought to be different from the hypothesized value we might then say that our best guess at the parameter is the observed statistic. However, as shown in Module \@ref(SamplingDist), a statistic is an imperfect estimate of the unknown parameter because of sampling variability. This imperfectness can be recognized by computing a range of values that is likely to contain the parameter. For example, we may make a statement such as this -- "I am 95% confident that the mean length of ALL fish in the lake is between 95.9 and 101.1 mm."  The range in this sentence acknowledges sampling variability and is called a confidence region. In this module, the concept, calculation, and interpretation of confidence regions is explored.
 
 ## Confidence Concept
-An understanding of what it means to be "95% confident" requires examination of multiple samples from a population, as was done in Module \@ref(SamplingDist) when considering sampling variability. In this initial discussion, only 95% confidence intervals (CI), where a range (i.e., bounded on both ends) is computed, are considered. These simplifying restrictions and unrealistically knowing population values are used here only so that the **concept** of confidence intervals can be more easily explained. General methods for constructing other types of confidence regions with other levels of confidence are in Section \@ref(constructing-confidence-regions).
+In this section, we focus on a 95% confidence interval (CI). General methods for constructing other types of confidence regions with other levels of confidence are in Section \@ref(constructing-confidence-regions). Our goal here is to understand what it means to be "95% confident" that the parameter is within the CI range.
 
-In the Square Lake example (introduced in Module \@ref(WhyStats)), it was known that &mu;=98.06 and &sigma;=31.49 (Table \@ref(tab:SquareLakePopnTbl)). Additionally, $\bar{\text{x}}$=100.04 was obtained from the first sample of n=50 (Table \@ref(tab:SquareLakeSample1s)). A 95% CI for &mu; is defined as $\bar{\text{x}}$&plusmn;2$SE_{\bar{\text{x}}}$. The 95% CI for the mean total length for the Square Lake population, computed from this one sample, is 100.04&plusmn;2$\frac{31.49}{\sqrt{50}}$, 100.04&plusmn;8.91, or (91.13,108.95). This interval contains &mu; (i.e., 98.06 is between 91.13 and 108.95). In other words, this particular CI accomplished what it was intended to do; i.e., provide a range that contains &mu;.
+A 95% confidence interval for the population mean is computed with $\bar{\text{x}}$&plusmn;2&times;SE$_{\bar{\text{x}}}$. Again, the specifics of this will be discussed in Section \@ref(constructing-confidence-regions), but note here that 2 SEs are used for a 95% CI because of the 68-95-99.7% Rule (see Section \@ref(or-empirical-rule)). For example, using the results of the first sample from Square Lake (Table \@ref(tab:SquareLakeSample1s)) a 95% CI for the mean total length for the Square Lake population is 100.04&plusmn;2$\frac{31.49}{\sqrt{50}}$, 100.04&plusmn;8.91, or (91.13,108.95). With this, we would conclude that the mean total length for ALL fish in Square Lake is between 91.13 and 108.95 mm.
+
+For the Square Lake example (introduced in Module \@ref(WhyStats)), it was known that &mu;=98.06 (Table \@ref(tab:SquareLakePopnTbl)). Thus, this particular CI actually does contain &mu; as 98.06 is between 91.13 and 108.95. In other words, this particular CI accomplished what it was intended to do; i.e., provide a range that contained &mu;.^[In reality you would usually not be able to determine if the CI contained &mu; or not because &mu; is typically not known. We use the Square Lake example here purely to demonstrate the concept of what 95% confidence means.]
 
 Despite the success observed in this first sample, not all confidence intervals will contain &mu;. For example, four of 100 95% confidence intervals shown in Figure \@ref(fig:CIex100) did not contain &mu;. Thus, the researcher would have concluded that &mu; was in an incorrect interval four times in these 100 samples. The concept of "confidence" in confidence regions is related to determining how often the intervals correctly contain the parameter.
 
@@ -58,7 +60,7 @@ make.CI(mu,SE)
 
 &nbsp;
 
-From the Central Limit Theorem, the sampling distribution of $\bar{\text{x}}$ for samples of n=50 is N(98.06,$\frac{31.49}{\sqrt{50}}$) or N(98.06,4.45) for this known population. According to the 68-95-99.7% Rule, it is known that 95% of the sample means in this sampling distribution will be between &mu;&plusmn;2&times;SE or, in this specific case, between 98.06&plusmn;2&times;4.45. The sampling distribution and this range of expected sample means is shown at the top of Figure \@ref(fig:CIex100). Note that any sample that produced a mean (dot on the CI line) inside the expected range of sample means (light green area) also produced a 95% CI that contained &mu; (i.e., black CI line with a solid circle). Because 95% of the sample means will be within the expected range of sample means, 95% of the 95% CIs will contain &mu;. So, "95% confident" means that 95% of all 95% CIs will contain the parameter and 5% will not. In other words, the mistake identified above will be made with 5% of all 95% CIs.
+From the Central Limit Theorem, the sampling distribution of $\bar{\text{x}}$ for samples of n=50 is N(98.06,$\frac{31.49}{\sqrt{50}}$) or N(98.06,4.45) for this known population. According to the 68-95-99.7% Rule, it is known that 95% of the sample means in this sampling distribution will be between &mu;&plusmn;2&times;SE or, in this specific case, between 98.06&plusmn;2&times;4.45. The sampling distribution and this range of expected sample means is shown at the top of Figure \@ref(fig:CIex100). Note that any sample that produced a mean (dot on the CI line) inside the expected range of sample means (light green area) also produced a 95% CI that contained &mu; (i.e., black CI line with a solid circle). Because 95% of the sample means will be within the expected range of sample means, 95% of the 95% CIs will contain &mu;. So, **"95% confident" means that 95% of all 95% CIs will contain the parameter** and 5% will not. In other words, the mistake identified above will be made with only 5% of all 95% CIs.
 
 The specifics for constructing confidence regions with different levels of confidence is described below. However, at this point, it should be noted that the number of CIs expected to contain the parameter of interest is set by the level of confidence used to construct the CI. For example, 80% of 80% CIs and 90% of 90% CIs will contain the parameter of interest. In either case, a particular CI either does or does not contain the interval and, in real-life, we will never know whether it does or does not (i.e., we won't know the value of the parameter). However, we do know that the technique (i.e., the construction of the CI) will "work" (i.e., contain the parameter) a set percentage of the time. To reiterate this point, examine the 100 90% CIs (Figure \@ref(fig:CI9080Ex)-Left) and 100 80% CIs (Figure \@ref(fig:CI9080Ex)-Right) for the Square Lake fish length data.
 
@@ -77,10 +79,10 @@ make.CI(mu,SE,C=0.8)
 
 &nbsp;
 
-The concept of confidence regions can be difficult to grasp at first. Thus, one should consider the following subtleties about the concept of a confidence region:
+The concept of confidence regions can be difficult to grasp at first. Thus, one should consider the following subtleties about confidence regions.
 
-* A CI is a random variable like any other statistic. That is, each sample results in a different 95% CI (see CI lines in Figures \@ref(fig:CIex100) and \@ref(fig:CI9080Ex)) just like it results in a different $\bar{\text{x}}$ (see dots on CI lines in Figures \@ref(fig:CIex100) and \@ref(fig:CI9080Ex)).
-* Any CI either contains the parameter (e.g., &mu;) or not. However, on average, 95% of 95% CIs will contain the parameter and 5% will not. That is, 95% of all possible 95% CIs wil contain the parameter.
+* Each sample results in a different 95% CI (see CI lines in Figures \@ref(fig:CIex100) and \@ref(fig:CI9080Ex)) just like it results in a different $\bar{\text{x}}$ (see dots on CI lines in Figures \@ref(fig:CIex100) and \@ref(fig:CI9080Ex)).
+* Any CI either contains the parameter (e.g., &mu;) or it does not. However, on average, 95% of 95% CIs will contain the parameter and 5% will not. That is, 95% of all possible 95% CIs wil contain the parameter.
 * A 95% CI is a technique that "works correctly" 95% of the time. In other words, 95% of all 95% CI "capture" the unknown parameter.
 
 Because of these subtleties, confidence regions are often misinterpreted. Common misinterpretations are listed below with an explanation for the misinterpretation in parentheses. These misinterpretations should be studied, compared to the interpretations discussed above, and avoided.
@@ -93,11 +95,8 @@ Because of these subtleties, confidence regions are often misinterpreted. Common
     * *First, this is physically impossible because each CI is the same width (if n and the level of confidence stay constant). Second, it is not important how many CI are contained in a CI; interest is in whether the parameter is in the interval or not.*
 
 ::: {.tip data-latex=''}
-Confidence intervals are constructed for parameters, not statistics.
-:::
-
-::: {.tip data-latex=''}
-Care and specificity must be used when interpreting and describing confidence intervals.
+* Confidence intervals are constructed for parameters, not statistics.
+* Care and specificity must be used when interpreting and describing confidence intervals.
 :::
 
 ## Constructing Confidence Regions
@@ -110,7 +109,7 @@ The level of confidence (C) used will be determined by the &alpha; chosen for th
 ```{r Calpha, echo=FALSE}
 tibble("$\\alpha$"=c(0.01,0.05,0.10),
        C=c("99%","95%","90%")) %>%
-  knitr::kable(booktabs=TRUE,align="c",caption="Several common confidence levels (C) and the corresponding probability of a Type I error (&alpha;).") %>%
+  knitr::kable(booktabs=TRUE,align="c",caption="Several common probabilities of a Type I error (&alpha;) and the corresponding confidence levels (C).") %>%
   kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
   kableExtra::row_spec(0,bold=TRUE) %>%
   kableExtra::column_spec(1:2,width="1in")
@@ -140,9 +139,9 @@ tibble("$H_{A}$"=c("$\\neq$","$\\lt$","$\\gt$"),
 
 Fortunately, most confidence regions follow the same basic form of
 
-$$ "\text{Statistic"} + "\text{scaling factor"} \times SE_{statistic} $$
+$$ ``\text{Statistic"} + ``\text{scaling factor"} \times \text{SE}_{\text{statistic}} $$
 
-where "Statistic" represents the statistic used to estimate the parameter, $SE_{statistic}$ is the standard error of that statistic, and $"\text{scaling factor"}$&times;$SE_{statistic}$ is called the margin-of-error. The scaling factor is computed from a known distribution. When &sigma; is known, the scaling factor is computed from a N(0,1) and is called Z^\*^. Thus, in the case when a confidence interval is being constructed for &mu; and &sigma; is known, the specific formula for the confidence region is
+where "Statistic" represents the statistic used to estimate the parameter, SE~statistic~ is the standard error of that statistic, and scaling factor"&times;SE~statistic~ is called the margin-of-error. The scaling factor is computed from a known distribution. When &sigma; is known, the scaling factor is computed from a N(0,1) and is called Z^\*^. Thus, in the case when a confidence interval is being constructed for &mu; and &sigma; is known, the specific formula for the confidence region is
 
 $$ \bar{\text{x}} + Z^{*}\frac{\sigma}{\sqrt{n}} $$
 
@@ -207,51 +206,67 @@ text(0,0.15,expression(C),col="blue3",cex=2)
 
 &nbsp;
 
-In contrast, if the alternative hypothesis is a "less than", then an upper confidence bound is desired and Z^\*^ has an area equal to the level of confidence LESS THAN it (Figure \@ref(fig:CIboundsZ)-Middle). As the level of confidence will always be greater than 50%, this definition will produce a positive Z^\*^ so that the scaling factor will be $+Z^{*}$. Similarly, if the alternative hypothesis is a "greater than", then a lower confidence bound is desired and Z^\*^ has an area equal to the level of confidence GREATER THAN it (Figure \@ref(fig:CIboundsZ)-Right). This definition produces a negative Z^\*^ so that the scaling factor will be $-Z^{*}$.
+In contrast, if the alternative hypothesis is a "less than", then an upper confidence bound is desired and Z^\*^ has an area equal to the level of confidence LESS THAN it (Figure \@ref(fig:CIboundsZ)-Middle). As the level of confidence will always be greater than 50%, this definition will produce a positive Z^\*^ so that the scaling factor will be +Z^\*^. Similarly, if the alternative hypothesis is a "greater than", then a lower confidence bound is desired and Z^\*^ has an area equal to the level of confidence GREATER THAN it (Figure \@ref(fig:CIboundsZ)-Right). This definition produces a negative Z^\*^ so that the scaling factor will be -Z^\*^.
 
 ::: {.tip data-latex=''}
 When finding Z^\*^ for a confidence bound, the level of confidence always represents an area shaded in the same direction as the sign in H~A~.
 :::
 
+## Example Confidence Region Calculations
 Constructing a proper confidence region should follow the five steps below. These steps are illustrated in three examples further below.
 
-* Identify the level of confidence (i.e., C=100(1-&alpha;)%; Table \@ref(tab:Calpha)).
-* Identify the type of confidence regions -- interval, lower bound, or upper bound (Table \@ref(tab:HAsCI)).
-* Determine the scaling factor.
-* Compute the actual confidence region.
-* Interpret the confidence region.
+1. Identify the level of confidence (i.e., C=100(1-&alpha;)%; Table \@ref(tab:Calpha)).
+1. Identify the type of confidence regions -- interval, lower bound, or upper bound (Table \@ref(tab:HAsCI)).
+1. Determine the scaling factor.
+1. Compute the actual confidence region.
+1. Interpret the confidence region.
 
+#### Example - Square Lake (Less Than H~A~) {-}
 Consider the Square Lake example where H~A~:&mu;<105, &alpha;=0.05, and $\bar{\text{x}}$=100.04 from n=50 (Table \@ref(tab:SquareLakeSample1s)).
 
-* C=95% (=100(1-0.05)).
-* Upper confidence bound because H~A~ is a "less than."
-* Z^\*^=+`r formatC(qnorm(0.95),format="f",digits=3)` as found with [Note that `mean=0` and `sd=1` are the default settings for `distrib()` and can, thus, be omitted when finding a Z^\*^.]
-```{r fig.show='hide'}
-( distrib(0.95,type="q") )
+1. C=95% (=100(1-0.05)).
+1. Upper confidence bound because H~A~ is a "less than."
+1. Z^\*^=+`r formatC(qnorm(0.95),format="f",digits=3)` as show below.
+    * Note that `mean=0` and `sd=1` are the default settings for `distrib()` and can, thus, be omitted when finding a Z^\*^.
+1. 100.04+1.645$\frac{31.49}{\sqrt{50}}$, 100.04+7.33, or 107.37.
+1. One is 95% confident that the mean total length of ALL fish in Square Lake is less than 107.4 mm.
+
+```{r echo=-1}
+par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
+    cex.lab=0.95,cex.axis=0.9)
+distrib(0.95,type="q")
 ```
-* 100.04+1.645$\frac{31.49}{\sqrt{50}}$, 100.04+7.33, or 107.37.
-* One is 95% confident that the mean total length of ALL fish in Square Lake is less than 107.4 mm. By confident, it is meant that 95% of all 95% confidence regions will contain &mu;.
 
-Second, suppose that the Lake Superior ice cover data from Table \@ref(tab:LSIStats) (note that $\bar{\text{x}}$=107.8 and n=42) was tested with H~A~: &mu;&ne;100, &sigma;=22, and &alpha;=0.01.
+#### Example - Lake Superior Ice Cover (Not Equals H~A~) {-}
+Suppose that the Lake Superior ice cover data from Table \@ref(tab:LSIStats) (note that $\bar{\text{x}}$=107.8 and n=42) was tested with H~A~: &mu;&ne;100, &sigma;=22, and &alpha;=0.01.
 
-* C=99% (=100(1-0.01)).
-* Confidence interval because H~A~ is a "not equals."
-* Z^\*^=&plusmn;`r formatC(qnorm(0.995),format="f",digits=3)` as found with
-```{r fig.show='hide'}
-( distrib(0.995,type="q") )
+1. C=99% (=100(1-0.01)).
+1. Confidence interval because H~A~ is a "not equals."
+1. Z^\*^=&plusmn;`r formatC(qnorm(0.995),format="f",digits=3)` as computed below.
+    * Here we are trying to find the two values of Z with the most common 99% of values between them. As is typical for a reverse-between calculation you want to find half the area outside of the "most common" value; i.e., 0.005. In this case I found the -Z^\*^ value; the "other" value is simply the positive version of this because the distribution is symmetric around 0.
+1. 107.8&plusmn;2.576$\frac{22}{\sqrt{42}}$, 107.8&plusmn;8.74, or (99.06,116.54).
+1. One is 95% confident that the mean number of days of ice cover on Lake Superior during ALL years is between 99.1 and 116.5 days.
+
+```{r echo=-1}
+par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
+    cex.lab=0.95,cex.axis=0.9)
+distrib(0.005,type="q")
 ```
-* 107.8&plusmn;2.576$\frac{22}{\sqrt{42}}$, 107.8&plusmn;8.74, or (99.06,116.54).
-* One is 95% confident that the mean annual number of days of ice cover on Lake Superior is between 99.1 and 116.5 days. By confident, it is meant that 95% of all 95% confidence regions will contain &mu;.
 
-Finally, suppose that the second example hypothesis test in Module \@ref(HypTesting1) about battery life (i.e., H~A~:&mu;>36 vs H~0~:&mu;=36) is being tested with &alpha;=0.10. Further suppose that &sigma;=7 and that $\bar{\text{x}}$=45 from n=40.
+#### Example - Battery Life (Greater Than H~A~) {-}
+Ssuppose that the second example hypothesis test in Module \@ref(HypTesting1) about battery life (i.e., H~A~:&mu;>36 vs H~0~:&mu;=36) is being tested with &alpha;=0.10. Further suppose that &sigma;=7 and that $\bar{\text{x}}$=45 from n=40.
 
-* C=90% (=100(1-0.10)).
-* Lower confidence bound because H~A~ is a "greater than."
-* Z^\*^=`r formatC(qnorm(0.10),format="f",digits=3)` as found with
-```{r fig.show='hide'}
-( distrib(0.90,type="q",lower.tail=FALSE) )
+1. C=90% (=100(1-0.10)).
+1. Lower confidence bound because H~A~ is a "greater than."
+1. Z^\*^=`r formatC(qnorm(0.10),format="f",digits=3)` as computed below.
+1. 45-1.282$\frac{7}{\sqrt{40}}$, 45-1.42, or 43.58.
+    * Note that this becomes a subtraction because we are "adding" a margin-of-error that is computed with a negative Z^\*^. Adding a negative presents as a subtraction.
+1. One is 90% confident that the mean life for ALL batteries with the additive is more than 43.58 months.
+
+```{r echo=-1}
+par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
+    cex.lab=0.95,cex.axis=0.9)
+distrib(0.90,type="q",lower.tail=FALSE)
 ```
-* 45-1.282$\frac{7}{\sqrt{40}}$, 45-1.42, or 43.58.
-* One is 90% confident that the mean life for ALL batteries with the additive is more than 43.58 months. By confident, it is meant that 95% of all 95% confidence regions will contain &mu;.
 
 &nbsp;

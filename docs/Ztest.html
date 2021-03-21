@@ -235,6 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="15.1" data-path="ConfRegions1.html"><a href="ConfRegions1.html#confidence-concept"><i class="fa fa-check"></i><b>15.1</b> Confidence Concept</a></li>
 <li class="chapter" data-level="15.2" data-path="ConfRegions1.html"><a href="ConfRegions1.html#constructing-confidence-regions"><i class="fa fa-check"></i><b>15.2</b> Constructing Confidence Regions</a></li>
+<li class="chapter" data-level="15.3" data-path="ConfRegions1.html"><a href="ConfRegions1.html#example-confidence-region-calculations"><i class="fa fa-check"></i><b>15.3</b> Example Confidence Region Calculations</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
 <ul>
@@ -404,9 +405,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <div id="r-appendix" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb37-1"><a href="Ztest.html#cb37-1" aria-hidden="true" tabindex="-1"></a>( z <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">10.12</span>,<span class="at">mean=</span><span class="dv">10</span>,<span class="at">sd=</span><span class="fl">1.60</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">100</span>),<span class="at">lower.tail=</span><span class="cn">FALSE</span>) ) <span class="co">#p-value</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb34-1"><a href="Ztest.html#cb34-1" aria-hidden="true" tabindex="-1"></a>( z <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">10.12</span>,<span class="at">mean=</span><span class="dv">10</span>,<span class="at">sd=</span><span class="fl">1.60</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">100</span>),<span class="at">lower.tail=</span><span class="cn">FALSE</span>) ) <span class="co">#p-value</span></span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-47-1.png" width="336" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb38-1"><a href="Ztest.html#cb38-1" aria-hidden="true" tabindex="-1"></a>( zstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )               <span class="co">#z-star</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb35-1"><a href="Ztest.html#cb35-1" aria-hidden="true" tabindex="-1"></a>( zstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )               <span class="co">#z-star</span></span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-47-2.png" width="336" style="display: block; margin: auto;" /></p>
 
 </div>

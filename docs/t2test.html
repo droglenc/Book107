@@ -235,6 +235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="15.1" data-path="ConfRegions1.html"><a href="ConfRegions1.html#confidence-concept"><i class="fa fa-check"></i><b>15.1</b> Confidence Concept</a></li>
 <li class="chapter" data-level="15.2" data-path="ConfRegions1.html"><a href="ConfRegions1.html#constructing-confidence-regions"><i class="fa fa-check"></i><b>15.2</b> Constructing Confidence Regions</a></li>
+<li class="chapter" data-level="15.3" data-path="ConfRegions1.html"><a href="ConfRegions1.html#example-confidence-region-calculations"><i class="fa fa-check"></i><b>15.3</b> Example Confidence Region Calculations</a></li>
 </ul></li>
 <li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
 <ul>
@@ -373,7 +374,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="LevenesTest" class="section level2" number="19.2">
 <h2><span class="header-section-number">19.2</span> Testing for Equal Variances</h2>
-<p>As noted above, the methods of a 2-Sample t-Test differ depending on whether the two population variances are equal or not. This should present a problem to you because the population variances are parameters and are typically not known.<a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a> The question of whether these parameters are equal or not is answered with a hypothesis test, as has been done with all other questions about parameters.</p>
+<p>As noted above, the methods of a 2-Sample t-Test differ depending on whether the two population variances are equal or not. This should present a problem to you because the population variances are parameters and are typically not known.<a href="#fn68" class="footnote-ref" id="fnref68"><sup>68</sup></a> The question of whether these parameters are equal or not is answered with a hypothesis test, as has been done with all other questions about parameters.</p>
 <p>A Levene’s Test is used to determine whether two population variances are equal. The specifics of the Levene’s test are not examined in detail here, rather you only need to know that H<sub>0</sub>:<span class="math inline">\(\sigma_{1}^{2}=\sigma_{2}^{2}\)</span> is tested against H<sub>A</sub>:<span class="math inline">\(\sigma_{1}^{2}\neq\sigma_{2}^{2}\)</span>. We will use computer software to compute the p-value for this test (without further detail). If the Levene’s Test p-value &lt;α, then H<sub>0</sub> is rejected and the population variances are considered unequal. If the p-value &gt;α, then H<sub>0</sub> is not rejected and the population variances are considered equal.</p>
 </div>
 <div id="examples-3" class="section level2" number="19.3">
@@ -451,9 +452,9 @@ Organic
 </ol>
 <div id="r-appendix-3" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb45-1"><a href="t2test.html#cb45-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">2.207</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">48</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb42-1"><a href="t2test.html#cb42-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">2.207</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">48</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-50-1.png" width="336" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb46-1"><a href="t2test.html#cb46-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">48</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb43-1"><a href="t2test.html#cb43-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">48</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-50-2.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 </div>
@@ -488,9 +489,9 @@ Organic
 </ol>
 <div id="r-appendix-4" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb47-1"><a href="t2test.html#cb47-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">4.348</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">66</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb44-1"><a href="t2test.html#cb44-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">4.348</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">66</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-51-1.png" width="336" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb48-1"><a href="t2test.html#cb48-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">66</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb45-1"><a href="t2test.html#cb45-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">66</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-51-2.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 
@@ -500,8 +501,8 @@ Organic
 </div>
 <div class="footnotes">
 <hr />
-<ol start="67">
-<li id="fn67"><p>Actually, the population variances don’t have to be known, it just needs to be known whether they are equal or not.<a href="t2test.html#fnref67" class="footnote-back">↩︎</a></p></li>
+<ol start="68">
+<li id="fn68"><p>Actually, the population variances don’t have to be known, it just needs to be known whether they are equal or not.<a href="t2test.html#fnref68" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

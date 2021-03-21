@@ -253,6 +253,7 @@ test-statistics-and-effect-sizes
 ConfRegions1
 confidence-concept
 constructing-confidence-regions
+example-confidence-region-calculations
 ConfRegions2
 precision-and-sample-size
 inference-type-relationship
