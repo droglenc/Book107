@@ -247,7 +247,8 @@ hypothesis-testing-concept
 example-p-value-calculations
 hypothesis-testing-concept-summary
 HypTesting2
-errors
+error-types
+error-rates
 test-statistics-and-effect-sizes
 ConfRegions1
 confidence-concept

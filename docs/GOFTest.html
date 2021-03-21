@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-20" />
+<meta name="date" content="2021-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -227,8 +227,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="14" data-path="HypTesting2.html"><a href="HypTesting2.html"><i class="fa fa-check"></i><b>14</b> Hypothesis Testing - Errors</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#errors"><i class="fa fa-check"></i><b>14.1</b> Errors</a></li>
-<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.2</b> Test Statistics and Effect Sizes</a></li>
+<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#error-types"><i class="fa fa-check"></i><b>14.1</b> Error Types</a></li>
+<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#error-rates"><i class="fa fa-check"></i><b>14.2</b> Error Rates</a></li>
+<li class="chapter" data-level="14.3" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.3</b> Test Statistics and Effect Sizes</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="ConfRegions1.html"><a href="ConfRegions1.html"><i class="fa fa-check"></i><b>15</b> Confidence Regions - Introduction</a>
 <ul>
@@ -521,7 +522,7 @@ Sum
 <p>where the scaling factor is the familiar Z<sup>*</sup>. Thus, the confidence interval for <span class="math inline">\(p\)</span> is constructed with</p>
 <p><span class="math display">\[ \hat{p} \pm Z^{*}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]</span></p>
 <p>Note that one does not need to worry about lower and upper bounds, only confidence intervals will be computed, because of the two-tailed nature of the chi-square test statistic.</p>
-<p>In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was <span class="math inline">\(\hat{p}\)</span>=<span class="math inline">\(\frac{196}{371}\)</span>=0.528. The standard error for this sample proportion is <span class="math inline">\(\sqrt{\frac{0.528(1-0.528)}{371}}\)</span>=0.026. For a 95% confidence interval, Z<sup>*</sup>=±1.960.<a href="#fn70" class="footnote-ref" id="fnref70"><sup>70</sup></a> Thus, the confidence interval is 0.528±1.960×0.026 or 0.528±0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.</p>
+<p>In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was <span class="math inline">\(\hat{p}\)</span>=<span class="math inline">\(\frac{196}{371}\)</span>=0.528. The standard error for this sample proportion is <span class="math inline">\(\sqrt{\frac{0.528(1-0.528)}{371}}\)</span>=0.026. For a 95% confidence interval, Z<sup>*</sup>=±1.960.<a href="#fn71" class="footnote-ref" id="fnref71"><sup>71</sup></a> Thus, the confidence interval is 0.528±1.960×0.026 or 0.528±0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.</p>
 </div>
 </div>
 <div id="examples-5" class="section level2" number="21.2">
@@ -616,8 +617,8 @@ Sum
 </div>
 <div class="footnotes">
 <hr />
-<ol start="70">
-<li id="fn70"><p>This Z<sup>*</sup> is computed with <code>distrib(0.975,type="q")</code>.<a href="GOFTest.html#fnref70" class="footnote-back">↩︎</a></p></li>
+<ol start="71">
+<li id="fn71"><p>This Z<sup>*</sup> is computed with <code>distrib(0.975,type="q")</code>.<a href="GOFTest.html#fnref71" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

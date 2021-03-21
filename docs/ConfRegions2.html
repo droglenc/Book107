@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-20" />
+<meta name="date" content="2021-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -227,8 +227,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="14" data-path="HypTesting2.html"><a href="HypTesting2.html"><i class="fa fa-check"></i><b>14</b> Hypothesis Testing - Errors</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#errors"><i class="fa fa-check"></i><b>14.1</b> Errors</a></li>
-<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.2</b> Test Statistics and Effect Sizes</a></li>
+<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#error-types"><i class="fa fa-check"></i><b>14.1</b> Error Types</a></li>
+<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#error-rates"><i class="fa fa-check"></i><b>14.2</b> Error Rates</a></li>
+<li class="chapter" data-level="14.3" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.3</b> Test Statistics and Effect Sizes</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="ConfRegions1.html"><a href="ConfRegions1.html"><i class="fa fa-check"></i><b>15</b> Confidence Regions - Introduction</a>
 <ul>
@@ -346,7 +347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     \sqrt{n} &amp;= \frac{Z^{*}\sigma}{m.e.} \\
     n &amp;= \left(\frac{Z^{*}\sigma}{m.e}\right)^{2} \\
 \end{split} \]</span></p>
-<p>This formula can be used to find the n required to estimate μ within ± m.e. units with C% confidence assuming that σ is known. For example, suppose that one wants to determine n required to estimate the mean length of fish in Square Lake to within 5 mm with 90% confidence knowing that the population standard deviation is 34.91. From this, m.e.=5, σ=34.91, and Z<sup>*</sup>=1.645 (found previously for 90% confidence).<a href="#fn61" class="footnote-ref" id="fnref61"><sup>61</sup></a>$=±1.645, but the sign is inconsequential due to squaring in the sample size formula.] Thus, n = <span class="math inline">\(\left(\frac{1.645*34.91}{5}\right)^{2}\)</span> = 131.91. Therefore, a sample of at least 132 fish from Square Lake should be taken to meet these constraints. Note that sample size calculations are always rounded up to the next integer because rounding down would produce a sample size that does not meet the desired criteria.</p>
+<p>This formula can be used to find the n required to estimate μ within ± m.e. units with C% confidence assuming that σ is known. For example, suppose that one wants to determine n required to estimate the mean length of fish in Square Lake to within 5 mm with 90% confidence knowing that the population standard deviation is 34.91. From this, m.e.=5, σ=34.91, and Z<sup>*</sup>=1.645 (found previously for 90% confidence).<a href="#fn62" class="footnote-ref" id="fnref62"><sup>62</sup></a>$=±1.645, but the sign is inconsequential due to squaring in the sample size formula.] Thus, n = <span class="math inline">\(\left(\frac{1.645*34.91}{5}\right)^{2}\)</span> = 131.91. Therefore, a sample of at least 132 fish from Square Lake should be taken to meet these constraints. Note that sample size calculations are always rounded up to the next integer because rounding down would produce a sample size that does not meet the desired criteria.</p>
 <div class="tip">
 <p>Always round sample size calculations up to the next integer.</p>
 </div>
@@ -376,8 +377,8 @@ Figure 16.1: Range (95%) of sample means that would be produced by particular po
 </div>
 <div class="footnotes">
 <hr />
-<ol start="61">
-<li id="fn61"><p>Strictly, $Z^{*<a href="ConfRegions2.html#fnref61" class="footnote-back">↩︎</a></p></li>
+<ol start="62">
+<li id="fn62"><p>Strictly, $Z^{*<a href="ConfRegions2.html#fnref62" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

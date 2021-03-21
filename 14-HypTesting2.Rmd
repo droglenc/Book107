@@ -1,17 +1,15 @@
 # Hypothesis Testing - Errors {#HypTesting2}
-XXX
+In Module \@ref(HypTesting1) we examined the concept of hypothesis testing and showed how a p-value is calculated and used to reject or not reject H~0~. The basic concept there is that if the p-value is small (<&alpha;) then it unlikely that the observed statistic would come from a population with the parameter in the H~0~. It is important to note the word *unlikely* in this statement. It is possible that the observed statistic would come from this population, just unlikely. In the case where this unlikely event actually happened, we would make an error in our conclusion about H~0~. These errors are discussed in this module.
 
-## Errors
-The goal of hypothesis testing is to make a decision about H~0~. Unfortunately, because of sampling variability, there is always a risk of making an incorrect decision. Two types of incorrect decisions can be made (Table \@ref(tab:DMerrs)). A Type I error occurs when a true H~0~ is falsely rejected. In other words, even if H~0~ is true, there is a chance that a rare sample will occur and H~0~ will be deemed incorrect. The probability of making a Type I error is set when &alpha; is chosen. A Type II error occurs when a false H~0~ is not rejected. The probability of a Type II error is denoted by &beta;.
-
-&nbsp;
+## Error Types
+The goal of hypothesis testing is to make a decision about H~0~. Unfortunately, because of sampling variability, there is always a risk of making an incorrect decision. Two types of incorrect decisions can be made (Table \@ref(tab:DMerrs)). A **Type I error** occurs when a true H~0~ is falsely rejected. In other words, even if H~0~ is true, there is a chance that a rare sample will occur and H~0~ will be deemed incorrect. A **Type II error** occurs when a false H~0~ is not rejected.
 
 ```{r DMerrs, echo=FALSE}
 tibble("Truth about Popn"=c("H~0~ is true","H~0~ is true",
                             "H~A~ is true","H~A~ is true"),
        "Decision from Test"=c("Reject H~0~","DNR H~0~",
                               "Reject H~0~","DNR H~0~"),
-       "Error Type"=c("Type I (&alpha;)","--","--","Type II (&beta;)")) %>%
+       "Error Type"=c("Type I ($\\alpha$)","--","--","Type II ($\\beta$)")) %>%
   knitr::kable(booktabs=TRUE,caption="Types of decisions that can be made from a hypothesis test.",align="c") %>%
   kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
   kableExtra::row_spec(0,bold=TRUE) %>%
@@ -20,11 +18,26 @@ tibble("Truth about Popn"=c("H~0~ is true","H~0~ is true",
 
 &nbsp;
 
-The decision in the Square Lake example of Module \@ref(HypTesting1) produced a Type II error because H~0~:&mu;=105 was not rejected even though we know that &mu;=98.06 (Table \@ref(tab:SquareLakePopnTbl)). Unfortunately, in real life, it will never be known exactly when a Type I or a Type II error has been made because the true &mu; is not known. However, it is known that a Type I error will be made 100&alpha;% of the time. The probability of a type II error (&beta;), though, is never known because this probability depends on the true but unknown &mu;. Decisions can be made, however, that affect the magnitude of &beta;.
+It is important to be able to articulate what Type I and a Type II errors are within the context of a specific situation. For example, suppose that if the mean abundance of a rare plant in a particular area drops below 0.5 plants per m^2^ then there is a real concern that that plant will become extinct. A researcher may conduct a study to determine if the mean abundance of this plant has dropped below the 0.5 m^2^ threshold or not. The null and alternative hypotheses would be
 
-Even though &beta; can not usually be calculated, a researcher can make decisions that will reduce &beta; (Figure \@ref(fig:SLBetaRelations)). For example, a researcher can decrease &beta; by increasing &alpha; or n. Increasing n is more beneficial because it does not result in an increase in Type I errors as would occur with increasing &alpha;.
+* H~0~: &mu;=0.5, where &mu; is the mean abundance of the plant per m^2^
+* H~A~: &mu;<0.5
 
-In addition, &beta; increases as the difference between the hypothesized mean (&mu;~0~) and the actual mean (&mu;~A~) decreases (Figure \@ref(fig:SLBetaRelations)). This means that you will make more Type II errors when the hypothesized and actual mean are close together. In addition, &beta; increases with a increasing amount of natural variability (i.e., &sigma;; Figure \@ref(fig:SLBetaRelations)). In other words, more Type II errors are made when there is more variability among individuals. A researcher cannot control the difference between &mu;~0~ and &mu;~A~ or the value of &sigma;. However, it is important to know that if a situation with a "large" amount of variability is encountered or the difference to be detected is small, the researcher will need to increase n to reduce &beta;. For example, if n could be doubled in the Square Lake example to 100, then &beta; (for H~0~:&mu;=105) would decrease to approximately 0.18 (Figure \@ref(fig:SLBetaRelations)).
+Before articulating what the errors would be in this example, it is useful to write in words what the hypotheses are within the context of the situation.
+
+* H~0~: "abundance at or above the threshold; population not at risk of extinction"
+* H~A~: "abundance below the threshold; population at risk of extinction"
+
+From the definition of a Type I error (i.e., incorrectly rejecting a true H~0~), a Type I error occurs if we conclude that H~A~ is true when H~0~ is really true. In this scenario then, a Type I error would be concluding that the abundance of the plant is low (*think H~A~ is true*) when the abundance is really not low (*H~0~ is really true*) or concluding that the population is at risk of extinction when the population is really not at risk of extinction.
+
+From the definition of a Type II error (i.e., incorrectly not rejecting a false H~0~), a Type II error is concluding that H~0~ is true when H~A~ is really true. In this scenario then, a Type II error is concluding that the abundance of the plant is not low (*think H~0~ is true*) when the abundance is really low (*H~A~ is really true*) or concluding that the population is not at risk of extinction when the population is really at risk of extinction.
+
+## Error Rates
+The decision in the Square Lake example of Module \@ref(HypTesting1) was a Type II error because H~0~:&mu;=105 was not rejected even though we know that &mu;=98.06 (Table \@ref(tab:SquareLakePopnTbl)). Unfortunately, in real life, it will never be known exactly when a Type I or a Type II error has been made because the true &mu; is not known. However, the rates at which these errors are made can be considered.
+
+The probability of making a Type I error is set when &alpha; is chosen. Thus, the researcher can largely choose the rate at which they will make a Type I error. The probability of a Type II error is denoted by &beta;, which is never known because calculating &beta; requires knowing the true but unknown &mu;. Decisions can be made, however, that affect the magnitude of &beta; (Figure \@ref(fig:SLBetaRelations)).
+
+There are two items that affect &beta; that a researcher can control -- the size of &alpha; and n. The &beta; decreases as &alpha; increases (Figure \@ref(fig:SLBetaRelations)); i.e., the researcher is reducing Type II errors by allowing for more Type errors. In other words, the researcher is simply "trading errors," which may be appropriate if a Type II error is more egregious than a Type I error. The &beta; also decreases with increasing n (Figure \@ref(fig:SLBetaRelations)); i.e., fewer errors are made as more information is gathered. Of these two choices, reducing &beta; by increasing n is generally more beneficial because it does not result in an increase in Type I errors as would occur with increasing &alpha;.
 
 &nbsp;
 
@@ -89,7 +102,14 @@ plota + plotn + plots + plotm
 
 &nbsp;
 
-A concept that is very closely related to decision-making errors is the idea of statistical power, or just **power** for short. Power is the probability of correctly rejecting a false H~0~. In other words, it is the probability of detecting a difference from the hypothesized value if a difference really exists. Power is used to demonstrate how sensitive a hypothesis test is for identifying a difference. High power related to a H~0~ that is not rejected implies that the H~0~ really should not have been rejected. Conversely, low power related to a H~0~ that was not rejected implies that the test was very unlikely to detect a difference, so not rejecting H~0~ is not surprising nor particularly conclusive. Power is equal to $1-\beta$.
+The value of &beta; is als related to two items that a researcher cannot control. The &beta; increases as the difference between the hypothesized mean (&mu;~0~) and the actual mean (&mu;~A~) decreases (Figure \@ref(fig:SLBetaRelations)). This means that more Type II errors will be made when the hypothesized and actual mean are close together. In other words, more Type II errors are made when it is harder to distinguish the hypothesized mean from the actual mean.
+
+In addition, &beta; increases with increasing amounts of natural variability (i.e., &sigma;; Figure \@ref(fig:SLBetaRelations)). In other words, more Type II errors are made when there is more variability among individuals.
+
+A researcher cannot control the difference between &mu;~0~ and &mu;~A~ or the value of &sigma;. However, it is important to know that if a situation with a "large" amount of variability is encountered or the difference to be detected is small, the researcher will need to increase n to reduce &beta;. For example, if n could be doubled in the Square Lake example to 100, then &beta; (for H~0~:&mu;=105) would decrease to approximately 0.18 (Figure \@ref(fig:SLBetaRelations)).
+
+#### Statistical Power {-}
+A concept that is very closely related to decision-making errors is the idea of statistical power, or just **power** for short. Power is the probability of correctly rejecting a false H~0~. In other words, it is the probability of detecting a difference from the hypothesized value if a difference really exists. Power is used to demonstrate how sensitive a hypothesis test is for identifying a difference. High power related to a H~0~ that is not rejected implies that the H~0~ really should not have been rejected. Conversely, low power related to a H~0~ that was not rejected implies that the test was very unlikely to detect a difference, so not rejecting H~0~ is not surprising nor particularly conclusive. Power is equal to 1-&beta;.
 
 &nbsp;
 
@@ -137,9 +157,9 @@ arrows(90,0.008,90,0.0007,col="red",length=0.15,angle=15)
 
 The difference between the observed statistic and the hypothesized parameter is  standardized to a common scale by dividing by the standard error of the statistic. The result is called a *test statistic* and is generalized with
 
-$$ \text{Test Statistic} = \frac{\text{Observed Statistic}-\text{Hypothesized Parameter}}{SE_{\text{Statistic}}} $$
+$$ \text{Test Statistic} = \frac{\text{Observed Statistic}-\text{Hypothesized Parameter}}{\text{SE}_{\text{Statistic}}} $$
 
-Thus, the test statistic measures how many standard errors the observed statistic is away from the hypothesized parameter. A relatively large value is indicative of a difference that is likely not due to randomness (i.e., sampling variability) and suggests that the null hypothesis should be rejected.
+Thus, the test statistic measures how many standard errors the observed statistic is away from the hypothesized parameter.^[This is very closely related to the concept of Z-scores and standardization introduced in Section \@ref(standardization-and-z-scores).] A relatively large value of the test statistic is indicative of a difference that is likely not due to randomness (i.e., sampling variability) and suggests that the null hypothesis should be rejected.
 
 The test statistic in the Square Lake Example is $\frac{100-105}{\frac{31.49}{\sqrt{50}}}$=-1.12. Thus, the observed mean total length of 100 mm is 1.12 standard errors below the null hypothesized mean of 105 mm. From our experience, a little over one SE from the mean is not "extreme" and, thus, it is not surprising that the null hypothesis was not rejected.
 

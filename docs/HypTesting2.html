@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-20" />
+<meta name="date" content="2021-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -227,8 +227,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="14" data-path="HypTesting2.html"><a href="HypTesting2.html"><i class="fa fa-check"></i><b>14</b> Hypothesis Testing - Errors</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#errors"><i class="fa fa-check"></i><b>14.1</b> Errors</a></li>
-<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.2</b> Test Statistics and Effect Sizes</a></li>
+<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#error-types"><i class="fa fa-check"></i><b>14.1</b> Error Types</a></li>
+<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#error-rates"><i class="fa fa-check"></i><b>14.2</b> Error Rates</a></li>
+<li class="chapter" data-level="14.3" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.3</b> Test Statistics and Effect Sizes</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="ConfRegions1.html"><a href="ConfRegions1.html"><i class="fa fa-check"></i><b>15</b> Confidence Regions - Introduction</a>
 <ul>
@@ -334,11 +335,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="HypTesting2" class="section level1" number="14">
 <h1><span class="header-section-number">Module 14</span> Hypothesis Testing - Errors</h1>
-<p>XXX</p>
-<div id="errors" class="section level2" number="14.1">
-<h2><span class="header-section-number">14.1</span> Errors</h2>
-<p>The goal of hypothesis testing is to make a decision about H<sub>0</sub>. Unfortunately, because of sampling variability, there is always a risk of making an incorrect decision. Two types of incorrect decisions can be made (Table <a href="HypTesting2.html#tab:DMerrs">14.1</a>). A Type I error occurs when a true H<sub>0</sub> is falsely rejected. In other words, even if H<sub>0</sub> is true, there is a chance that a rare sample will occur and H<sub>0</sub> will be deemed incorrect. The probability of making a Type I error is set when α is chosen. A Type II error occurs when a false H<sub>0</sub> is not rejected. The probability of a Type II error is denoted by β.</p>
-<p> </p>
+<p>In Module <a href="HypTesting1.html#HypTesting1">13</a> we examined the concept of hypothesis testing and showed how a p-value is calculated and used to reject or not reject H<sub>0</sub>. The basic concept there is that if the p-value is small (&lt;α) then it unlikely that the observed statistic would come from a population with the parameter in the H<sub>0</sub>. It is important to note the word <em>unlikely</em> in this statement. It is possible that the observed statistic would come from this population, just unlikely. In the case where this unlikely event actually happened, we would make an error in our conclusion about H<sub>0</sub>. These errors are discussed in this module.</p>
+<div id="error-types" class="section level2" number="14.1">
+<h2><span class="header-section-number">14.1</span> Error Types</h2>
+<p>The goal of hypothesis testing is to make a decision about H<sub>0</sub>. Unfortunately, because of sampling variability, there is always a risk of making an incorrect decision. Two types of incorrect decisions can be made (Table <a href="HypTesting2.html#tab:DMerrs">14.1</a>). A <strong>Type I error</strong> occurs when a true H<sub>0</sub> is falsely rejected. In other words, even if H<sub>0</sub> is true, there is a chance that a rare sample will occur and H<sub>0</sub> will be deemed incorrect. A <strong>Type II error</strong> occurs when a false H<sub>0</sub> is not rejected.</p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:DMerrs">Table 14.1: </span>Types of decisions that can be made from a hypothesis test.
@@ -365,7 +365,7 @@ H<sub>0</sub> is true
 Reject H<sub>0</sub>
 </td>
 <td style="text-align:center;width: 1.6in; ">
-Type I (&amp;alpha;)
+Type I (<span class="math inline">\(\alpha\)</span>)
 </td>
 </tr>
 <tr>
@@ -398,15 +398,30 @@ H<sub>A</sub> is true
 DNR H<sub>0</sub>
 </td>
 <td style="text-align:center;width: 1.6in; ">
-Type II (&amp;beta;)
+Type II (<span class="math inline">\(\beta\)</span>)
 </td>
 </tr>
 </tbody>
 </table>
 <p> </p>
-<p>The decision in the Square Lake example of Module <a href="HypTesting1.html#HypTesting1">13</a> produced a Type II error because H<sub>0</sub>:μ=105 was not rejected even though we know that μ=98.06 (Table <a href="FoundationalDefns.html#tab:SquareLakePopnTbl">2.1</a>). Unfortunately, in real life, it will never be known exactly when a Type I or a Type II error has been made because the true μ is not known. However, it is known that a Type I error will be made 100α% of the time. The probability of a type II error (β), though, is never known because this probability depends on the true but unknown μ. Decisions can be made, however, that affect the magnitude of β.</p>
-<p>Even though β can not usually be calculated, a researcher can make decisions that will reduce β (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>). For example, a researcher can decrease β by increasing α or n. Increasing n is more beneficial because it does not result in an increase in Type I errors as would occur with increasing α.</p>
-<p>In addition, β increases as the difference between the hypothesized mean (μ<sub>0</sub>) and the actual mean (μ<sub>A</sub>) decreases (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>). This means that you will make more Type II errors when the hypothesized and actual mean are close together. In addition, β increases with a increasing amount of natural variability (i.e., σ; Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>). In other words, more Type II errors are made when there is more variability among individuals. A researcher cannot control the difference between μ<sub>0</sub> and μ<sub>A</sub> or the value of σ. However, it is important to know that if a situation with a “large” amount of variability is encountered or the difference to be detected is small, the researcher will need to increase n to reduce β. For example, if n could be doubled in the Square Lake example to 100, then β (for H<sub>0</sub>:μ=105) would decrease to approximately 0.18 (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>).</p>
+<p>It is important to be able to articulate what Type I and a Type II errors are within the context of a specific situation. For example, suppose that if the mean abundance of a rare plant in a particular area drops below 0.5 plants per m<sup>2</sup> then there is a real concern that that plant will become extinct. A researcher may conduct a study to determine if the mean abundance of this plant has dropped below the 0.5 m<sup>2</sup> threshold or not. The null and alternative hypotheses would be</p>
+<ul>
+<li>H<sub>0</sub>: μ=0.5, where μ is the mean abundance of the plant per m<sup>2</sup></li>
+<li>H<sub>A</sub>: μ&lt;0.5</li>
+</ul>
+<p>Before articulating what the errors would be in this example, it is useful to write in words what the hypotheses are within the context of the situation.</p>
+<ul>
+<li>H<sub>0</sub>: “abundance at or above the threshold; population not at risk of extinction”</li>
+<li>H<sub>A</sub>: “abundance below the threshold; population at risk of extinction”</li>
+</ul>
+<p>From the definition of a Type I error (i.e., incorrectly rejecting a true H<sub>0</sub>), a Type I error occurs if we conclude that H<sub>A</sub> is true when H<sub>0</sub> is really true. In this scenario then, a Type I error would be concluding that the abundance of the plant is low (<em>think H<sub>A</sub> is true</em>) when the abundance is really not low (<em>H<sub>0</sub> is really true</em>) or concluding that the population is at risk of extinction when the population is really not at risk of extinction.</p>
+<p>From the definition of a Type II error (i.e., incorrectly not rejecting a false H<sub>0</sub>), a Type II error is concluding that H<sub>0</sub> is true when H<sub>A</sub> is really true. In this scenario then, a Type II error is concluding that the abundance of the plant is not low (<em>think H<sub>0</sub> is true</em>) when the abundance is really low (<em>H<sub>A</sub> is really true</em>) or concluding that the population is not at risk of extinction when the population is really at risk of extinction.</p>
+</div>
+<div id="error-rates" class="section level2" number="14.2">
+<h2><span class="header-section-number">14.2</span> Error Rates</h2>
+<p>The decision in the Square Lake example of Module <a href="HypTesting1.html#HypTesting1">13</a> was a Type II error because H<sub>0</sub>:μ=105 was not rejected even though we know that μ=98.06 (Table <a href="FoundationalDefns.html#tab:SquareLakePopnTbl">2.1</a>). Unfortunately, in real life, it will never be known exactly when a Type I or a Type II error has been made because the true μ is not known. However, the rates at which these errors are made can be considered.</p>
+<p>The probability of making a Type I error is set when α is chosen. Thus, the researcher can largely choose the rate at which they will make a Type I error. The probability of a Type II error is denoted by β, which is never known because calculating β requires knowing the true but unknown μ. Decisions can be made, however, that affect the magnitude of β (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>).</p>
+<p>There are two items that affect β that a researcher can control – the size of α and n. The β decreases as α increases (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>); i.e., the researcher is reducing Type II errors by allowing for more Type errors. In other words, the researcher is simply “trading errors,” which may be appropriate if a Type II error is more egregious than a Type I error. The β also decreases with increasing n (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>); i.e., fewer errors are made as more information is gathered. Of these two choices, reducing β by increasing n is generally more beneficial because it does not result in an increase in Type I errors as would occur with increasing α.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:SLBetaRelations"></span>
 <img src="Book107_files/figure-html/SLBetaRelations-1.png" alt="The relationship between one-tailed (lower) &amp;beta; and &amp;alpha;, n, actual mean (&amp;mu;~A~), and &amp;sigma;. In all situations where the variable does not vary, &amp;mu;~0~=105, &amp;mu;~A~=98.06, &amp;sigma;=31.49, n=50, and &amp;alpha;=0.05." width="624" />
@@ -415,11 +430,17 @@ Figure 14.1: The relationship between one-tailed (lower) β and α, n, actual me
 </p>
 </div>
 <p> </p>
-<p>A concept that is very closely related to decision-making errors is the idea of statistical power, or just <strong>power</strong> for short. Power is the probability of correctly rejecting a false H<sub>0</sub>. In other words, it is the probability of detecting a difference from the hypothesized value if a difference really exists. Power is used to demonstrate how sensitive a hypothesis test is for identifying a difference. High power related to a H<sub>0</sub> that is not rejected implies that the H<sub>0</sub> really should not have been rejected. Conversely, low power related to a H<sub>0</sub> that was not rejected implies that the test was very unlikely to detect a difference, so not rejecting H<sub>0</sub> is not surprising nor particularly conclusive. Power is equal to <span class="math inline">\(1-\beta\)</span>.</p>
+<p>The value of β is als related to two items that a researcher cannot control. The β increases as the difference between the hypothesized mean (μ<sub>0</sub>) and the actual mean (μ<sub>A</sub>) decreases (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>). This means that more Type II errors will be made when the hypothesized and actual mean are close together. In other words, more Type II errors are made when it is harder to distinguish the hypothesized mean from the actual mean.</p>
+<p>In addition, β increases with increasing amounts of natural variability (i.e., σ; Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>). In other words, more Type II errors are made when there is more variability among individuals.</p>
+<p>A researcher cannot control the difference between μ<sub>0</sub> and μ<sub>A</sub> or the value of σ. However, it is important to know that if a situation with a “large” amount of variability is encountered or the difference to be detected is small, the researcher will need to increase n to reduce β. For example, if n could be doubled in the Square Lake example to 100, then β (for H<sub>0</sub>:μ=105) would decrease to approximately 0.18 (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>).</p>
+<div id="statistical-power" class="section level4 unnumbered">
+<h4>Statistical Power</h4>
+<p>A concept that is very closely related to decision-making errors is the idea of statistical power, or just <strong>power</strong> for short. Power is the probability of correctly rejecting a false H<sub>0</sub>. In other words, it is the probability of detecting a difference from the hypothesized value if a difference really exists. Power is used to demonstrate how sensitive a hypothesis test is for identifying a difference. High power related to a H<sub>0</sub> that is not rejected implies that the H<sub>0</sub> really should not have been rejected. Conversely, low power related to a H<sub>0</sub> that was not rejected implies that the test was very unlikely to detect a difference, so not rejecting H<sub>0</sub> is not surprising nor particularly conclusive. Power is equal to 1-β.</p>
 <p> </p>
 </div>
-<div id="test-statistics-and-effect-sizes" class="section level2" number="14.2">
-<h2><span class="header-section-number">14.2</span> Test Statistics and Effect Sizes</h2>
+</div>
+<div id="test-statistics-and-effect-sizes" class="section level2" number="14.3">
+<h2><span class="header-section-number">14.3</span> Test Statistics and Effect Sizes</h2>
 <p>Instead of reporting the observed statistic and the resulting p-value, it may be of interest to know how “far” the observed statistic was from the hypothesized value of the parameter. This is easily calculated with</p>
 <p><span class="math display">\[ \text{Observed Statistic}-\text{Hypothesized Parameter} \]</span></p>
 <p>where “Hypothesized Parameter” represents the specific value in H<sub>0</sub>. However, the meaning of this difference is difficult to interpret without an understanding of the standard error of the statistic. For example, a difference of 10 between the observed statistic and the hypothesized parameter seems “very different” if the standard error is 3 but does not seem “different” if the standard error is 15 (Figure <a href="HypTesting2.html#fig:EffectSizeSE">14.2</a>).</p>
@@ -432,13 +453,19 @@ Figure 14.2: Sampling distribution of samples means with SE=3 (Left) and SE=15 (
 </div>
 <p> </p>
 <p>The difference between the observed statistic and the hypothesized parameter is standardized to a common scale by dividing by the standard error of the statistic. The result is called a <em>test statistic</em> and is generalized with</p>
-<p><span class="math display">\[ \text{Test Statistic} = \frac{\text{Observed Statistic}-\text{Hypothesized Parameter}}{SE_{\text{Statistic}}} \]</span></p>
-<p>Thus, the test statistic measures how many standard errors the observed statistic is away from the hypothesized parameter. A relatively large value is indicative of a difference that is likely not due to randomness (i.e., sampling variability) and suggests that the null hypothesis should be rejected.</p>
+<p><span class="math display">\[ \text{Test Statistic} = \frac{\text{Observed Statistic}-\text{Hypothesized Parameter}}{\text{SE}_{\text{Statistic}}} \]</span></p>
+<p>Thus, the test statistic measures how many standard errors the observed statistic is away from the hypothesized parameter.<a href="#fn60" class="footnote-ref" id="fnref60"><sup>60</sup></a> A relatively large value of the test statistic is indicative of a difference that is likely not due to randomness (i.e., sampling variability) and suggests that the null hypothesis should be rejected.</p>
 <p>The test statistic in the Square Lake Example is <span class="math inline">\(\frac{100-105}{\frac{31.49}{\sqrt{50}}}\)</span>=-1.12. Thus, the observed mean total length of 100 mm is 1.12 standard errors below the null hypothesized mean of 105 mm. From our experience, a little over one SE from the mean is not “extreme” and, thus, it is not surprising that the null hypothesis was not rejected.</p>
 <p>There are other forms for calculating test statistics, but all test statistics retain the general idea of scaling the difference between what was observed and what was expected from the null hypothesis in terms of sampling variability. Even though there is a one-to-one relationship between a test statistic and a p-value, a test statistic is often reported with a hypothesis test to give another feel for the magnitude of the difference between what was observed and what was predicted.</p>
 <p> </p>
 
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="60">
+<li id="fn60"><p>This is very closely related to the concept of Z-scores and standardization introduced in Section <a href="NormalDist2.html#standardization-and-z-scores">7.4</a>.<a href="HypTesting2.html#fnref60" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

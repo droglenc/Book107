@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-03-20" />
+<meta name="date" content="2021-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -227,8 +227,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="14" data-path="HypTesting2.html"><a href="HypTesting2.html"><i class="fa fa-check"></i><b>14</b> Hypothesis Testing - Errors</a>
 <ul>
-<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#errors"><i class="fa fa-check"></i><b>14.1</b> Errors</a></li>
-<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.2</b> Test Statistics and Effect Sizes</a></li>
+<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#error-types"><i class="fa fa-check"></i><b>14.1</b> Error Types</a></li>
+<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#error-rates"><i class="fa fa-check"></i><b>14.2</b> Error Rates</a></li>
+<li class="chapter" data-level="14.3" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.3</b> Test Statistics and Effect Sizes</a></li>
 </ul></li>
 <li class="chapter" data-level="15" data-path="ConfRegions1.html"><a href="ConfRegions1.html"><i class="fa fa-check"></i><b>15</b> Confidence Regions - Introduction</a>
 <ul>
@@ -456,7 +457,7 @@ mean of x
 </div>
 <div id="levenes-test" class="section level3" number="27.2.2">
 <h3><span class="header-section-number">27.2.2</span> Levene’s Test</h3>
-<p>Before conducting a 2-Sample t-Test, the assumption of equal population variances must be tested with Levene’s test. The Levene’s test is computed with <code>levenesTest()</code>, where the first argument is a formula of the form <code>qvar~cvar</code>, where <code>qvar</code> represents the quantitative response variable and <code>cvar</code> represents the group factor variable.<a href="#fn98" class="footnote-ref" id="fnref98"><sup>98</sup></a> The data.frame containing <code>qvar</code> and <code>cvar</code> is given in <code>data=</code>. The results of the following code are shown in Table <a href="Rttests.html#tab:LevBOD">27.2</a> and interpreted in the example analysis below.</p>
+<p>Before conducting a 2-Sample t-Test, the assumption of equal population variances must be tested with Levene’s test. The Levene’s test is computed with <code>levenesTest()</code>, where the first argument is a formula of the form <code>qvar~cvar</code>, where <code>qvar</code> represents the quantitative response variable and <code>cvar</code> represents the group factor variable.<a href="#fn99" class="footnote-ref" id="fnref99"><sup>99</sup></a> The data.frame containing <code>qvar</code> and <code>cvar</code> is given in <code>data=</code>. The results of the following code are shown in Table <a href="Rttests.html#tab:LevBOD">27.2</a> and interpreted in the example analysis below.</p>
 <div class="sourceCode" id="cb180"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb180-1"><a href="Rttests.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levenesTest</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua)</span></code></pre></div>
 </div>
 <div id="histograms-2" class="section level3" number="27.2.3">
@@ -628,8 +629,8 @@ Figure 27.2: Histogram of the BOD measurements at the outlet and inlet of the aq
 </div>
 <div class="footnotes">
 <hr />
-<ol start="98">
-<li id="fn98"><p>This is the same model formula introduced in Section <a href="RUnivEDA.html#summary-statistics-1">24.2.1</a> for summarizing multiple groups of data.<a href="Rttests.html#fnref98" class="footnote-back">↩︎</a></p></li>
+<ol start="99">
+<li id="fn99"><p>This is the same model formula introduced in Section <a href="RUnivEDA.html#summary-statistics-1">24.2.1</a> for summarizing multiple groups of data.<a href="Rttests.html#fnref99" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
