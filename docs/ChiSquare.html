@@ -216,6 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="Probability.html"><a href="Probability.html#probability-of-individuals"><i class="fa fa-check"></i><b>12.1</b> Probability of Individuals</a></li>
 <li class="chapter" data-level="12.2" data-path="Probability.html"><a href="Probability.html#probability-of-statistics"><i class="fa fa-check"></i><b>12.2</b> Probability of Statistics</a></li>
 <li class="chapter" data-level="12.3" data-path="Probability.html"><a href="Probability.html#a-process-for-handling-probability-questions"><i class="fa fa-check"></i><b>12.3</b> A Process for Handling Probability Questions</a></li>
+<li class="chapter" data-level="12.4" data-path="Probability.html"><a href="Probability.html#example-questions"><i class="fa fa-check"></i><b>12.4</b> Example Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="HypTesting1.html"><a href="HypTesting1.html"><i class="fa fa-check"></i><b>13</b> Hypothesis Testing - Introduction</a>
 <ul>
@@ -348,7 +349,7 @@ Figure 20.1: <span class="math inline">\(\chi^2\)</span> distributions with vary
 <p> </p>
 <p>Unlike the normal and t distributions, the χ<sup>2</sup> distribution always represents the two-tailed situation, although the “two tails” will appear as one tail on the right side of the distribution. The simplest explanation for this characteristic is that the “squaring” in the calculation of the χ<sup>2</sup> test statistic results in what would be a “negative tail” being “folded over” onto what is the “positive tail.” Thus, all probability (i.e., area) calculations on a χ<sup>2</sup> distribution represent the two-tailed alternative hypotheses.</p>
 <p>Proportional areas on a χ<sup>2</sup> distribution are computed with <code>disrib()</code>. The major differences with a χ<sup>2</sup> distribution is that <code>distrib="chisq"</code> must be used in <code>distrib()</code> and the degrees-of-freedom must be given to <code>df=</code> (how to find the df will be discussed in subsequent sections). In addition, <code>lower.tail=FALSE</code> is always used when computing a p-value because the upper-tail probability represents the two-tailed alternative hypothesis inherent to all Chi-Square Tests. For example, the area right of χ<sup>2</sup>=6.456 on a χ<sup>2</sup> distribution with 2 df is 0.0396 (Figure <a href="ChiSquare.html#fig:chiarea1">20.2</a>).</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb43-1"><a href="ChiSquare.html#cb43-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">6.456</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">2</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb46-1"><a href="ChiSquare.html#cb46-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">6.456</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">2</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:chiarea1"></span>
 <img src="Book107_files/figure-html/chiarea1-1.png" alt="Depiction of the area to the right of $\chi^2=6.456$ on a $\chi^2$ distribution with 2 df." width="336" />
 <p class="caption">
@@ -621,8 +622,8 @@ Sum
 </ol>
 <div id="r-appendix-5" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb44-1"><a href="ChiSquare.html#cb44-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">1.4927</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-44-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb47-1"><a href="ChiSquare.html#cb47-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">1.4927</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-49-1.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 
 </div>

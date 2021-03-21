@@ -216,6 +216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="12.1" data-path="Probability.html"><a href="Probability.html#probability-of-individuals"><i class="fa fa-check"></i><b>12.1</b> Probability of Individuals</a></li>
 <li class="chapter" data-level="12.2" data-path="Probability.html"><a href="Probability.html#probability-of-statistics"><i class="fa fa-check"></i><b>12.2</b> Probability of Statistics</a></li>
 <li class="chapter" data-level="12.3" data-path="Probability.html"><a href="Probability.html#a-process-for-handling-probability-questions"><i class="fa fa-check"></i><b>12.3</b> A Process for Handling Probability Questions</a></li>
+<li class="chapter" data-level="12.4" data-path="Probability.html"><a href="Probability.html#example-questions"><i class="fa fa-check"></i><b>12.4</b> Example Questions</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="HypTesting1.html"><a href="HypTesting1.html"><i class="fa fa-check"></i><b>13</b> Hypothesis Testing - Introduction</a>
 <ul>
@@ -519,7 +520,7 @@ Figure 15.3: Areas (yellow) that define Z<sup>*</sup> for confidence regions of 
 <li>Upper confidence bound because H<sub>A</sub> is a “less than.”</li>
 <li>Z<sup>*</sup>=+1.645 as found with [Note that <code>mean=0</code> and <code>sd=1</code> are the default settings for <code>distrib()</code> and can, thus, be omitted when finding a Z<sup>*</sup>.]</li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb25-1"><a href="ConfRegions1.html#cb25-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb28-1"><a href="ConfRegions1.html#cb28-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] 1.644854</code></pre>
 <ul>
 <li>100.04+1.645<span class="math inline">\(\frac{31.49}{\sqrt{50}}\)</span>, 100.04+7.33, or 107.37.</li>
@@ -531,7 +532,7 @@ Figure 15.3: Areas (yellow) that define Z<sup>*</sup> for confidence regions of 
 <li>Confidence interval because H<sub>A</sub> is a “not equals.”</li>
 <li>Z<sup>*</sup>=±2.576 as found with</li>
 </ul>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb27-1"><a href="ConfRegions1.html#cb27-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.995</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb30-1"><a href="ConfRegions1.html#cb30-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.995</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] 2.575829</code></pre>
 <ul>
 <li>107.8±2.576<span class="math inline">\(\frac{22}{\sqrt{42}}\)</span>, 107.8±8.74, or (99.06,116.54).</li>
@@ -543,7 +544,7 @@ Figure 15.3: Areas (yellow) that define Z<sup>*</sup> for confidence regions of 
 <li>Lower confidence bound because H<sub>A</sub> is a “greater than.”</li>
 <li>Z<sup>*</sup>=-1.282 as found with</li>
 </ul>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb29-1"><a href="ConfRegions1.html#cb29-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb32-1"><a href="ConfRegions1.html#cb32-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] -1.281552</code></pre>
 <ul>
 <li>45-1.282<span class="math inline">\(\frac{7}{\sqrt{40}}\)</span>, 45-1.42, or 43.58.</li>

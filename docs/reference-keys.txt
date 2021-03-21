@@ -97,6 +97,7 @@ fig:ProbBox
 fig:ProbNorm
 fig:NormTL95A
 fig:NormTL95B
+tab:unnamed-chunk-35
 tab:HAwords
 fig:HOSLExample
 fig:HOtails
@@ -238,6 +239,7 @@ Probability
 probability-of-individuals
 probability-of-statistics
 a-process-for-handling-probability-questions
+example-questions
 HypTesting1
 hypothesis-testing-the-scientific-method
 statistical-hypotheses
