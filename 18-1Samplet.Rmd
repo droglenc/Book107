@@ -132,7 +132,7 @@ knitr::kable(t(sum),booktabs=TRUE,align="c",
 par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
     cex.lab=0.95,cex.axis=0.9)
 ( pval <- 2*distrib(-5.469,distrib="t",df=130) )
-(tstar <- distrib(0.995,distrib="t",df=130) )
+(tstar <- distrib(0.995,distrib="t",df=130,type="q") )
 ```
 
 &nbsp;
