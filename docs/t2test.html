@@ -337,28 +337,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="t2test" class="section level1" number="19">
 <h1><span class="header-section-number">Module 19</span> 2-Sample t-Test</h1>
-<p>While it is often useful to test whether a population mean differs from a specific value (i.e., with the 1-Sample t-Test of Module <a href="t1test.html#t1test">18</a>), there are many instances where interest is in whether means from two groups (or populations) differ. For example, is there a difference in mean income between males and females, in mean test scores between students from high- and low-income families, in mean percent body fat between raccoons from southern and northern Wisconsin, or in mean amount of milk produced from cows provided with a hormone or a placebo. In all of these situations, interest is identifying if a difference in population means exists between two groups (males and females, students from high- and low-income families, raccoons from southern and northern Wisconsin, cows given a hormone or a placebo). A <strong>2-Sample t-Test</strong> is used in these situations and is the subject of this module.</p>
+<p>While it is often useful to test whether a population mean differs from a specific value (i.e., with the 1-Sample t-Test of Module <a href="t1test.html#t1test">18</a>), there are many instances where interest is in whether means from two groups (or populations) differ. For example, is there a difference in mean income between males and females, in mean test scores between students from high- and low-income families, in mean percent body fat between raccoons from southern and northern Wisconsin, or in mean amount of milk produced from cows provided with a hormone or a placebo. In all of these situations, interest is in identifying if a difference in population means exists between two groups (males and females, students from high- and low-income families, raccoons from southern and northern Wisconsin, cows given a hormone or a placebo). A <strong>2-Sample t-Test</strong> is used in these situations and is the subject of this module.</p>
 <div id="sample-t-test-specifics" class="section level2" number="19.1">
 <h2><span class="header-section-number">19.1</span> 2-Sample t-Test Specifics</h2>
-<p>In a 2-Sample t-Test, H<sub>0</sub>:μ<sub>1</sub>=μ<sub>2</sub> states that the two population means are equal. This can be rewritten as H<sub>0</sub>:μ<sub>1</sub>-μ<sub>2</sub>=0, because the difference between two population means is zero if the two population means are equal. With this H<sub>0</sub>, the “parameter” is μ<sub>1</sub>-μ<sub>2</sub> and the corresponding statistic is <span class="math inline">\(\bar{\text{x}}_{1}-\bar{\text{x}}_{2}\)</span>. Thus, a 2-Sample t-Test is focused on the difference in population means.</p>
+<p>In a 2-Sample t-Test, H<sub>0</sub>:μ<sub>1</sub>=μ<sub>2</sub> states that the two population means are equal. This can be rewritten as H<sub>0</sub>:μ<sub>1</sub>-μ<sub>2</sub>=0, because the difference between two population means is zero if the two population means are equal. With this H<sub>0</sub>, the “parameter” is μ<sub>1</sub>-μ<sub>2</sub> and the corresponding statistic is <span class="math inline">\(\bar{\text{x}}\)</span><sub>1</sub>-<span class="math inline">\(\bar{\text{x}}\)</span><sub>2</sub>. Thus, a 2-Sample t-Test is focused on the difference in population means.</p>
 <p>When looking at the “general” test statistic formula (see Section <a href="HypTesting2.html#test-statistics-and-effect-sizes">14.3</a>) of</p>
 <p> </p>
 <p><span class="math display">\[ \text{Test Statistic} = \frac{\text{Observed Statistic}-\text{Hypothesized Parameter}}{SE_{\text{Statistic}}} \]</span></p>
 <p> </p>
-<p>it is apparent that the SE of <span class="math inline">\(\bar{\text{x}}_{1}-\bar{\text{x}}_{2}\)</span> (i.e., the statistic) is needed. Unfortunately, the calculation of this standard error depends on whether the two population variances are equal or not. When the variances are approximately equal (discussed in Section <a href="t2test.html#LevenesTest">19.2</a>), the standard error of <span class="math inline">\(\bar{\text{x}}_{1}-\bar{\text{x}}_{2}\)</span> is</p>
+<p>it is apparent that the SE of <span class="math inline">\(\bar{\text{x}}\)</span><sub>1</sub>-<span class="math inline">\(\bar{\text{x}}\)</span><sub>2</sub> (i.e., the statistic) is needed. Unfortunately, the calculation of this standard error depends on whether the two population variances are equal or not. When the variances are approximately equal (discussed in Section <a href="t2test.html#LevenesTest">19.2</a>), the standard error of <span class="math inline">\(\bar{\text{x}}\)</span><sub>1</sub>-<span class="math inline">\(\bar{\text{x}}\)</span><sub>2</sub> is</p>
 <p> </p>
-<p><span class="math display">\[ SE_{\bar{\text{x}}_{1}-\bar{\text{x}}_{2}}= \sqrt{s_{p}^{2}\left(\frac{1}{n_{1}}+\frac{1}{n_{2}} \right)} \]</span></p>
+<p><span class="math display">\[ \text{SE}_{\bar{\text{x}}_{1}-\bar{\text{x}}_{2}}= \sqrt{\text{s}_{\text{p}}^{2}\left(\frac{1}{\text{n}_{1}}+\frac{1}{\text{n}_{2}} \right)} \]</span></p>
 <p> </p>
-<p>where <span class="math inline">\(n_{1}\)</span> and <span class="math inline">\(n_{2}\)</span> are the sample sizes for the two groups and <span class="math inline">\(s_{p}^{2}\)</span> is the “pooled sample variance” computed as a weighted average of the two sample variances (<span class="math inline">\(s_{1}^{2}\)</span> and <span class="math inline">\(s_{2}^{2}\)</span>), or</p>
+<p>where n<sub>1</sub> and n<sub>2</sub> are the sample sizes for the two groups and <span class="math inline">\(\text{s}_{\text{p}}^{2}\)</span> is the “pooled sample variance” computed as a weighted average of the two sample variances (<span class="math inline">\(\text{s}_{1}^{2}\)</span> and <span class="math inline">\(\text{s}_{2}^{2}\)</span>), or</p>
 <p> </p>
-<p><span class="math display">\[ s_{p}^{2}=\frac{(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}}{n_{1}+n_{2}-2} \]</span></p>
+<p><span class="math display">\[ \text{s}_{\text{p}}^{2}=\frac{(\text{n}_{1}-1)\text{s}_{1}^{2}+(\text{n}_{2}-1)\text{s}_{2}^{2}}{\text{n}_{1}+\text{n}_{2}-2} \]</span></p>
 <p> </p>
-<p>The degrees-of-freedom for the 2-Sample t-Test with equal variances come from the denominator of the pooled variance calculation; i.e., <span class="math inline">\(df=n_{1}+n_{2}-2\)</span>. The specifics of the 2-Sample t-Test are below.</p>
+<p>The degrees-of-freedom for the 2-Sample t-Test with equal variances come from the denominator of the pooled variance calculation; i.e., df=n<sub>1</sub>+n<sub>2</sub>-2. The specifics of the 2-Sample t-Test are below.</p>
 <ul>
 <li><strong>Hypothesis:</strong> H<sub>0</sub>:μ<sub>1</sub>-μ<sub>2</sub>=0</li>
-<li><strong>Statistic:</strong> <span class="math inline">\(\bar{\text{x}}_{1}-\bar{\text{x}}_{2}\)</span></li>
-<li><strong>Test Statistic:</strong> t=<span class="math inline">\(\frac{\bar{\text{x}}_{1}-\bar{\text{x}}_{2}-0}{\sqrt{s_{p}^{2}\left(\frac{1}{n_{1}}+\frac{1}{n_{2}} \right)}}\)</span> where <span class="math inline">\(s_{p}^{2}=\frac{(n_{1}-1)s_{1}^{2}+(n_{2}-1)s_{2}^{2}}{n_{1}+n_{2}-2}\)</span>.</li>
-<li><strong>Confidence Region:</strong> <span class="math inline">\((\bar{\text{x}}_{1}-\bar{\text{x}}_{2})+t^{*}\sqrt{s_{p}^{2}\left(\frac{1}{n_{1}}+\frac{1}{n_{2}} \right)}\)</span></li>
+<li><strong>Statistic:</strong> <span class="math inline">\(\bar{\text{x}}\)</span><sub>1</sub>-<span class="math inline">\(\bar{\text{x}}\)</span><sub>2</sub></li>
+<li><strong>Test Statistic:</strong> t=<span class="math inline">\(\frac{\bar{\text{x}}_{1}-\bar{\text{x}}_{2}-0}{\sqrt{\text{s}_{\text{p}}^{2}\left(\frac{1}{\text{n}_{1}}+\frac{1}{\text{n}_{2}} \right)}}\)</span> where <span class="math inline">\(\text{s}_{\text{p}}^{2}=\frac{(\text{n}_{1}-1)\text{s}_{1}^{2}+(\text{n}_{2}-1)\text{s}_{2}^{2}}{\text{n}_{1}+\text{n}_{2}-2}\)</span>.</li>
+<li><strong>Confidence Region:</strong> <span class="math inline">\(\bar{\text{x}}\)</span><sub>1</sub>-<span class="math inline">\(\bar{\text{x}}\)</span><sub>2</sub>+t<sup>*</sup><span class="math inline">\(\sqrt{\text{s}_{\text{p}}^{2}\left(\frac{1}{\text{n}_{1}}+\frac{1}{\text{n}_{2}} \right)}\)</span></li>
 <li><strong>df:</strong> n<sub>1</sub>+n<sub>2</sub>-2</li>
 <li><strong>Assumptions:</strong>
 <ul>
@@ -369,9 +369,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Use with:</strong> Quantitative response, two groups (or populations), individuals are independent between groups.</li>
 </ul>
 <div class="tip">
-<p>The <span class="math inline">\(s_{p}^{2}\)</span> calculation can be “checked” by determining if the value of <span class="math inline">\(s_{p}^{2}\)</span> is between <span class="math inline">\(s_{1}^{2}\)</span> and <span class="math inline">\(s_{2}^{2}\)</span> or if the value of <span class="math inline">\(\sqrt{s_{p}^{2}}\)</span> is between <span class="math inline">\(s_{1}\)</span> and <span class="math inline">\(s_{2}\)</span>.</p>
+<p>The <span class="math inline">\(\text{s}_{\text{p}^{2}}\)</span> calculation can be “checked” by determining if the value of <span class="math inline">\(\text{s}_{\text{p}}^{2}\)</span> is between <span class="math inline">\(\text{s}_{1}^{2}\)</span> and <span class="math inline">\(\text{s}_{2}^{2}\)</span> or if the value of <span class="math inline">\(\sqrt{\text{s}_{\text{p}}^{2}}\)</span> is between <span class="math inline">\(\text{s}_{1}\)</span> and <span class="math inline">\(\text{s}_{2}\)</span>.</p>
 </div>
 <p>A 2-Sample t-Test is often used to test an alternative hypothesis of simply finding a difference between the two groups. However, if the null hypothesis is rejected in these instances (thus, identifying a significant difference between the two groups), then care should be taken to specifically describe how the two groups differ. If the statistic is negative, then the mean of the first group is lower than the mean of the second group and, if the statistic is positive, then the mean of the first group is larger than the mean of the second group. The values of the confidence region should be used to identify how much larger or smaller the mean from one group is compared to the mean of the other group.</p>
+<div class="tip">
+<p>A confidence interval is used to specifically explain how much larger or smaller one mean is than the other mean.</p>
+</div>
 </div>
 <div id="LevenesTest" class="section level2" number="19.2">
 <h2><span class="header-section-number">19.2</span> Testing for Equal Variances</h2>
@@ -444,7 +447,7 @@ Organic
 <li>individuals in the two groups are independent as discussed above, and</li>
 <li>the population variances appear to be equal because the Levene’s Test p-value (0.1341) is &gt;α.</li>
 </ol></li>
-<li><span class="math inline">\(\bar{\text{x}}_{s}-\bar{\text{x}}_{0}\)</span> = 51.46 - 47.49 = 3.97. Additionally, <span class="math inline">\(s_{p}^{2}=\frac{(25-1)5.975^{2}+(25-1)6.721^{2}}{25+25-2}\)</span> = 40.44 and <span class="math inline">\(SE_{\bar{\text{x}}_{s}-\bar{\text{x}}_{o}}=\sqrt{40.44\left(\frac{1}{25}+\frac{1}{25} \right)}\)</span> = 1.799.</li>
+<li><span class="math inline">\(\bar{\text{x}}\)</span><sub>s</sub>-<span class="math inline">\(\bar{\text{x}}\)</span><sub>o</sub> = 51.46 - 47.49 = 3.97. Additionally, <span class="math inline">\(\text{s}_{\text{p}}^{2}=\frac{(25-1)5.975^{2}+(25-1)6.721^{2}}{25+25-2}\)</span> = 40.44 and <span class="math inline">\(\text{SE}_{\bar{\text{x}}_{\text{s}}-\bar{\text{x}}_{\text{o}}}=\sqrt{40.44\left(\frac{1}{25}+\frac{1}{25} \right)}\)</span> = 1.799.</li>
 <li>t = <span class="math inline">\(\frac{3.97-0}{1.799}\)</span> = <span class="math inline">\(\frac{3.97}{1.799}\)</span> = 2.207 with 25+25-2 = 48 df.</li>
 <li>p-value = 0.0161.</li>
 <li>H<sub>0</sub> is rejected because the p-value&lt;α.</li>
@@ -481,11 +484,11 @@ Organic
 <li>individuals in the two groups are independent as described above, and</li>
 <li>the two population variances appear to be equal because the Levene’s Test p-value of 0.089 is greater than α.</li>
 </ol></li>
-<li><span class="math inline">\(\bar{\text{x}}_{w}-\bar{\text{x}}_{wo}\)</span> = 4.2-5.9 = -1.7. Additionally, <span class="math inline">\(s_{p}^{2}=\frac{(32-1)1.2^{2}+(36-1)1.9^{2}}{32+36-2}\)</span> = 2.59 and <span class="math inline">\(SE_{\bar{\text{x}}_{w}-\bar{\text{x}}_{wo}}=\sqrt{2.59\left(\frac{1}{32}+\frac{1}{36} \right)}\)</span> = 0.391.</li>
+<li><span class="math inline">\(\bar{\text{x}}\)</span><sub>w</sub>-<span class="math inline">\(\bar{\text{x}}\)</span><sub>wo</sub> = 4.2-5.9 = -1.7. Additionally, <span class="math inline">\(\text{s}_{\text{p}}^{2}=\frac{(32-1)1.2^{2}+(36-1)1.9^{2}}{32+36-2}\)</span> = 2.59 and <span class="math inline">\(\text{SE}_{\bar{\text{x}}_{\text{w}}-\bar{\text{x}}_{\text{wo}}}=\sqrt{2.59\left(\frac{1}{32}+\frac{1}{36} \right)}\)</span> = 0.391.</li>
 <li>t = <span class="math inline">\(\frac{-1.7-0}{0.391}\)</span> = -4.348 with 32+36-2 = 66 df.</li>
-<li>p-value = &lt;0.00005.</li>
+<li>p-value &lt;0.00005.</li>
 <li>H<sub>0</sub> is rejected because the p-value&lt;α.</li>
-<li>The mean anxiety level appears to be lower when music was played for the patients.</li>
+<li>The mean anxiety level appears to be lower when music was played for the patients than when music was not played.</li>
 <li>I am 95% confident that the mean anxiety level is more than 1.05 points lower, on average, when music is played than when it is not. [<em>Note -1.7+1.668×0.391 = -1.7+0.65 = -1.05</em>].</li>
 </ol>
 <div id="r-appendix-4" class="section level4 unnumbered">
