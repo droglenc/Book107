@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-04-02" />
+<meta name="date" content="2021-04-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -274,11 +274,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="22" data-path="RData.html"><a href="RData.html"><i class="fa fa-check"></i><b>22</b> Getting Data into R</a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="RData.html"><a href="RData.html#ncstats-package"><i class="fa fa-check"></i><b>22.1</b> NCStats Package</a></li>
-<li class="chapter" data-level="22.2" data-path="RData.html"><a href="RData.html#data-types"><i class="fa fa-check"></i><b>22.2</b> Data Types</a></li>
-<li class="chapter" data-level="22.3" data-path="RData.html"><a href="RData.html#entering-data"><i class="fa fa-check"></i><b>22.3</b> Entering Data</a></li>
-<li class="chapter" data-level="22.4" data-path="RData.html"><a href="RData.html#viewing-a-data-frame"><i class="fa fa-check"></i><b>22.4</b> Viewing a Data Frame</a></li>
-<li class="chapter" data-level="22.5" data-path="RData.html"><a href="RData.html#vectors"><i class="fa fa-check"></i><b>22.5</b> Vectors</a></li>
+<li class="chapter" data-level="22.1" data-path="RData.html"><a href="RData.html#r-notebooks"><i class="fa fa-check"></i><b>22.1</b> R Notebooks</a></li>
+<li class="chapter" data-level="22.2" data-path="RData.html"><a href="RData.html#data-in-r"><i class="fa fa-check"></i><b>22.2</b> Data in R</a></li>
+<li class="chapter" data-level="22.3" data-path="RData.html"><a href="RData.html#viewing-a-data-frame"><i class="fa fa-check"></i><b>22.3</b> Viewing a Data Frame</a></li>
+<li class="chapter" data-level="22.4" data-path="RData.html"><a href="RData.html#vectors"><i class="fa fa-check"></i><b>22.4</b> Vectors</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="RFilter.html"><a href="RFilter.html"><i class="fa fa-check"></i><b>23</b> Filtering Data in R</a>
 <ul>
@@ -337,64 +336,110 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="RData" class="section level1" number="22">
 <h1><span class="header-section-number">Module 22</span> Getting Data into R</h1>
-<p>R, RStudio, the <code>NCStats</code> package, and very basic usage of R were <a href="RStart.html">introduced here</a>. This module explains how to enter data into R. Subsequent modules will explain how to use R to create the graphics and compute statistics and test results from these data.</p>
+<p>R, RStudio, the <code>NCStats</code> package, and very basic usage of R were <a href="http://derekogle.com/NCMTH107/modules/Prep/RStart.html">introduced here</a>. This module explains how to enter data into R. Subsequent modules will explain how to use R to create the graphics and compute statistics and test results from these data.</p>
+<div id="r-notebooks" class="section level2" number="22.1">
+<h2><span class="header-section-number">22.1</span> R Notebooks</h2>
+<p>Notebooks in RStudio are an efficient way to enter R code, show results of R code, write answers to assignment questions, and compile all of that to a docment that can be handed in.</p>
+<p>For class assignments, start by downloading <a href="https://raw.githubusercontent.com/droglenc/NCMTH107/gh-pages/resources/FAQs/R%20Assignment%20Template.Rmd">this template</a> (right-click, don’t change the name) to a folder where you plan to store all of your class-related work. Then open the template in RStudio and change the Author in line 3 to your name. Save the template with this change.</p>
+<p>Every time you start an assignment you should open the template file in RStudio and immediately save it (File .. Save As) with a different name (e.g., “Assignment1” … make sure that the name does not have a “dot” in it). Then edit the Title in line 2 to something that represents the assignment (e.g., “Linear Regression in R”). Do not change anything else in the first 21 lines.</p>
+<p><img src="zimgs/Notebook_TopLines.JPG" width="90%" style="display: block; margin: auto;" /></p>
 <p> </p>
-<div id="ncstats-package" class="section level2" number="22.1">
-<h2><span class="header-section-number">22.1</span> NCStats Package</h2>
-<p><code>NCStats</code> is a set of R functions that makes the statistical methods used in this class easier. You should load the <code>NCStats</code> package at the beginning of every R script used in this class.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb52-1"><a href="RData.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NCStats)</span></code></pre></div>
+<div id="including-text-in-the-notebook" class="section level3" number="22.1.1">
+<h3><span class="header-section-number">22.1.1</span> Including Text in the Notebook</h3>
+<div id="creating-sections" class="section level4 unnumbered">
+<h4>Creating Sections</h4>
+<p>Most assignments will have several questions, each of which is identified with a section heading. Your answers to the assignments should be shown under section headings with the same name as on the assignment. Section headings are created by preceding the section heading name with a hashtag. The template has several section headings started that look like this …</p>
+<pre><code># EDIT THIS WITH FIRST SECTION HEADING TEXT</code></pre>
+<p>You should change this text to create the section heading that you want; e.g.,</p>
+<pre><code># Arctic Penguins</code></pre>
+</div>
+<div id="writing-text-for-your-answers" class="section level4 unnumbered">
+<h4>Writing Text for Your Answers</h4>
+<p>Sentences can be included by typing the text at the beginning of any line. A new paragraph is created by pressing return twice so that there is a blank line between paragraphs.</p>
+</div>
+<div id="numbered-lists-for-your-answers" class="section level4 unnumbered">
+<h4>Numbered Lists for Your Answers</h4>
+<p>A numbered list is created by starting a line with “1.”<a href="#fn76" class="footnote-ref" id="fnref76"><sup>76</sup></a> followed by what you want after the number (e.g., your answer). If there are no blank lines between consecutive “1.” items then RStudio will automatically iterate the number when the document is compiled. For example, typing this …</p>
+<p><img src="zimgs/Notebook_NumberedList.JPG" width="80%" style="display: block; margin: auto;" /></p>
+<p>… produces the text below …</p>
+<p> </p>
+<p>A univariate EDA for penguin body mass is</p>
+<ol style="list-style-type: decimal">
+<li>Shape … right-skewed</li>
+<li>Outlier … None</li>
+<li>Center … Median of 4050 g</li>
+<li>Dispersion … IQR from Q1 of 3550 g to Q3 of 4750 g.</li>
+<li>Why? … I used the median and IQR because of the skewed shape of the data.</li>
+</ol>
 <p> </p>
 </div>
-<div id="data-types" class="section level2" number="22.2">
-<h2><span class="header-section-number">22.2</span> Data Types</h2>
-<p>Data in R will be designated as an <code>int</code>eger (whole numbers), <code>num</code>eric (non-integer numeric values), <code>char</code>acter (strings), <code>factor</code> (group membership), or <code>log</code>ical (<code>TRUE</code>/<code>FALSE</code>). Integer and numeric data types correspond to quantitative data. Character and factor data types correspond to categorical data, with the <strong>factor</strong> data type having special characteristics in R that we will exploit for certain analyses. These types of data will be discussed further as need in other modules.</p>
+<div id="including-r-code-and-results" class="section level4 unnumbered">
+<h4>Including R Code and Results</h4>
+<p>Any R code that you use to answer questions should be included in a subsection of R code and results <strong>AFTER</strong> you have answered the questions. You can create a subsection for this code by starting a line with “#### R Code and Results.”</p>
+<p>All R code is entered into “code chunks” that begin with three backticks followed by curly brackets around “r” (see line 33 below) and end with three backticks (see line 36 below). Between the beginning and ending of the code chunk can be any viable R code. For example,</p>
+<p><img src="zimgs/Notebook_Code1.JPG" width="90%" style="display: block; margin: auto;" /></p>
+<p> </p>
+<p>In RStudio, each code chunk will have three “icons” in the upper-right portion of the gray chunk (see above). Pressing the right-most icon (right-pointing green arrow) will run the code in the current chunk and show the results immediately below the chunk. For example,</p>
+<p><img src="zimgs/Notebook_Code1Run.JPG" width="90%" style="display: block; margin: auto;" /></p>
+<p> </p>
+<p>If the code in this chunk depends on code in previous chunks being run then press the middle icon (gray down arrow pointing to a green horizontal line) to run all code in chunks above the current chunk. If the code in previous chunks had already been run then this is unnecessary.</p>
 <p> </p>
 </div>
-<div id="entering-data" class="section level2" number="22.3">
-<h2><span class="header-section-number">22.3</span> Entering Data</h2>
-<p>For real data (i.e., several variables from many individuals) it is most efficient to enter data into a comma-separated values (CSV) file and then import that file into R. Creating a CSV file with Microsoft Excel is described below, though there are other ways to create CSV files (see <a href="http://derekogle.com/NCMTH107/resources/FAQ/">FAQs on class webpage</a>). This explanation assumes that you have a basic understanding of Excel (or other spreadsheet software).</p>
-<p>The spreadsheet should be organized with variables in columns and individuals in rows, with the exception that the first row should contain variable names. The example spreadsheet below shows the length (cm), weight (kg), and capture location data for a small sample of Black Bears.</p>
+<div id="vertical-spacing" class="section level4 unnumbered">
+<h4>Vertical Spacing</h4>
+<p>If you would like to add some vertical spacing between parts of your notebook (e.g., between sections, between code and paragraphs, etc.) then add a “br” between less than and greater than signs (see below) with a blank line both above and below it where you want the vertical spacing. For example,</p>
+<p><img src="zimgs/Notebook_UseOfBR.JPG" width="90%" style="display: block; margin: auto;" /></p>
+<p> </p>
+</div>
+<div id="code-chunk-custom-settings" class="section level4 unnumbered">
+<h4>Code Chunk Custom Settings</h4>
+<p>Code chunks can have a variety of settings. The most important settings can be controlled through the left-most “gear” icon. My most common change here is to change the figure width to be smaller (to 4 inches wide) and, if you want the plot to be square, to change the figure height to the same value. I may also “turn off” the warnings and messages, but I never do this immediately as I would like to see those first before deciding that I should “hide” them. Below shows the gear box for changing the figure width and how the code chunk and result is changed.</p>
+<p><img src="zimgs/Notebook_Code2Run.JPG" width="90%" style="display: block; margin: auto;" /></p>
+<p> </p>
+</div>
+</div>
+<div id="compile-notebook-to-msword" class="section level3" number="22.1.2">
+<h3><span class="header-section-number">22.1.2</span> Compile Notebook to MSWord</h3>
+<p>Once you are comfortable that your R code runs without error and that you have answered all questions for the assignment, then compile your Notebook to a MSWord document. In MSWord you can then save the document to a PDF for handing in via GradeScope.</p>
 <div class="tip">
-<p>Variables are in columns.</p>
-<p>Individuals are in rows.</p>
+<p>Check your document for completeness and neatness before turning in.</p>
 </div>
-<p><img src="zimgs/Data_File_1.jpg" width="30%" style="display: block; margin: auto;" /></p>
-<p>Variable names must NOT contain spaces. For example, don’t use “total length” or “length (cm).” If you feel the need to have longer variable names, then separate the parts with a period (e.g., “length.cm”) or an underscore (e.g., “length_cm”). Furthermore, numerical measurements should NOT include units (e.g., don’t use “7 cm”). Finally, for categorical data, make sure that all categories are consistent (e.g., do not have a column that contains both “bayfield” and “Bayfield”).</p>
-<p>The spreadsheet is saved as a CSV file by selecting the <strong>File..Save As</strong> menu item, which will produce the dialog box below. In this dialog box, change “Save as type” to "CSV (Comma delimited) (*.csv)“,<a href="#fn76" class="footnote-ref" id="fnref76"><sup>76</sup></a>, provide a file name (do not put any periods in the name), select a location to save the file (don’t forget this location!!), and press”Save“. Two”warning" dialog boxes may then appear – select “OK” for the first and “YES” for the second. You can now close the spreadsheet file.<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a></p>
-<p><img src="zimgs/Data_File_2.jpg" width="60%" style="display: block; margin: auto;" /></p>
+<p>To compile the Notebook to MSWord, select the small arrow on the icon that either says “Preview” or “Knit” and select “Knit to Word.” If you get an error related to the name of your Notebook file, then simply select “Knit to Word” a second time. If the document does not produce an MSWord document (this make take several seconds) then there may be an error in your R code.</p>
+<p><img src="zimgs/Notebook_KnitWord.JPG" width="90%" style="display: block; margin: auto;" /></p>
 <p> </p>
-<p>The following steps are used to load the data in the CSV file into R.</p>
-<ul>
-<li>Open RStudio.</li>
-<li>Open a new script by selecting the “File,” “New File,” and “R Script” menu items.</li>
-<li>Type <code>library(NCStats)</code> in the new script (i.e., in the upper-left pane).</li>
-<li>Save this script by selecting the “File,” “Save” menu items. In the ensuing dialog box, navigate to the <strong>exact same directory</strong> where you saved the data, type a name for the file in the “File name:” box (<strong>do not use a period in this name!!</strong>), and press “Save.”</li>
-</ul>
-<p><img src="zimgs/Data_File_3.jpg" width="60%" style="display: block; margin: auto;" /></p>
-<ul>
-<li><p>Set the working directory (tell R where the file is) with the “Session,” “Set Working Directory …,” “To Source File Location” menu items in RStudio. RStudio will print an appropriate <code>setwd()</code> command to the console (lower-left pane). Copy this command from the console to the second line in your script.<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a> For example, I stored the file created above in the “C:/data” directory, so that RStudio will create this <code>setwd("C:/data")</code>.</p></li>
-<li><p>The CSV file is read into R by including the name of the file (in quotes) in <code>read.csv()</code>. For example, the external “Bears.csv” file is read into the R object called <code>bears</code> with <code>bears &lt;- read.csv("Bears.csv")</code>.</p></li>
-<li><p>One should check the data in this object as described in the <a href="RData.html#viewing-a-data-frame">Viewing a Data Frame</a> section below.</p></li>
-</ul>
+</div>
+</div>
+<div id="data-in-r" class="section level2" number="22.2">
+<h2><span class="header-section-number">22.2</span> Data in R</h2>
+<div id="create-csv-file" class="section level3" number="22.2.1">
+<h3><span class="header-section-number">22.2.1</span> Create CSV File</h3>
+<p>For real data (i.e., several variables from many individuals) it is most efficient to enter data into a comma-separated values (CSV) file and then import that file into R. Creating a CSV file with Microsoft Excel is described below, though there are other ways to create CSV files (see <a href="http://derekogle.com/NCMTH107/resources/FAQ/">FAQs on class webpage</a>). This explanation assumes that you have a basic understanding of Excel (or other spreadsheet software).</p>
+<p>The spreadsheet should be organized with variables in columns and individuals in rows, with the exception that <strong>the first row should contain variable names.</strong> The example spreadsheet below shows the length (cm), weight (kg), and capture location data for a small sample of Black Bears.</p>
+<p><img src="zimgs/Data_File_1.jpg" width="30%" style="display: block; margin: auto;" /></p>
+<p> </p>
+<p><strong>Variable names should NOT contain spaces.</strong> For example, don’t use “total length” or “length (cm).” If you feel the need to have longer variable names, then separate the parts with a period (e.g., “length.cm”) or an underscore (e.g., “length_cm”). Furthermore, numerical measurements should NOT include units (e.g., don’t use “7 cm”). Finally, for categorical data, make sure that all categories are consistent (e.g., do not have a column that contains both “bayfield” and “Bayfield”).</p>
+<p>The spreadsheet is saved as a CSV file by selecting the <strong>File..Save As</strong> menu item, which will produce the dialog box below. In this dialog box, change “Save as type” to “CSV (Comma delimited),”<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a>, provide a file name (<strong>do not put any periods in the name</strong>), select a location to save the file (<strong>this should be the same location as your assignment template file</strong>), and press “Save.” Two “warning” dialog boxes may then appear – select “OK” for the first and “YES” for the second. You can now close the spreadsheet file.<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a></p>
+<p><img src="zimgs/Data_File_2.jpg" width="60%" style="display: block; margin: auto;" /></p>
 <p> </p>
 <p>It is important that each row of the data frame correspond to one individual. This is critically important when data are recorded for two different groups (e.g., for a two-sample t-test; see <a href="Rttests">Module 24</a>). For example, the following data are methyl mercury levels recorded in mussels from two locations labeled as “impacted” and “reference.”</p>
 <pre><code>  impacted   0.011  0.054  0.056  0.095  0.051  0.077
   reference  0.031  0.040  0.029  0.066  0.018  0.042  0.044</code></pre>
 <p>To follow the “one individual per row” rule, these data are entered in <strong>stacked</strong> format where the “reference” data are stacked underneath the “impacted” data and a column is used to indicate to which group the individuals belong. For example, the Excel file for data entry would look like the following.</p>
-<div class="tip">
-<p>Data should generally be entered in <strong>stacked</strong> format.</p>
-</div>
 <p><img src="zimgs/StackedData.jpg" width="25%" style="display: block; margin: auto;" /></p>
-<div id="alternative-forms-of-getting-data" class="section level3" number="22.3.1">
-<h3><span class="header-section-number">22.3.1</span> Alternative Forms of Getting Data</h3>
-<p>Some of the data files that you will use are provided on the <a href="http://derekogle.com/NCMTH107/resources/data_107">Data for MTH107</a> resource page of the class webpage or linked to from a webpage. In these cases, the data should be downloaded from the webpage and saved in the same directory or folder as your analysis script. The downloaded file is then read into R in the same manner as described previously (i.e., set the working directory with <code>setwd()</code> and use <code>read.csv()</code>). Note that files provided by me will already be in stacked format.</p>
-<p>A few data files used in these notes are supplied with R or the <code>NCStats</code> package. These files are loaded with <code>data()</code>. For example, the <code>iris</code> data file is loaded into R with</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb54-1"><a href="RData.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span></code></pre></div>
+<p> </p>
+<p>Some of the data files that you will use are linked to on the pertinent assignment page (e.g., <a href="https://raw.githubusercontent.com/droglenc/NCData/master/Chirps.csv">this link</a>). In these cases, the data should be downloaded with the link (right-click, save as) and saved in the same directory or folder as your analysis notebook. The downloaded file is then read into R in the same manner as described above. Note that files provided by me will already be in stacked format and will already be a CSV file.</p>
+<p> </p>
+</div>
+<div id="read-csv-file-into-rstudio" class="section level3" number="22.2.2">
+<h3><span class="header-section-number">22.2.2</span> Read CSV File into RStudio</h3>
+<p>Use <code>read.csv()</code> in the first R code chunk of your assignment notebook to load the data from the CSV file into RStudio. The EXACT name of the data file is including within quotes within <code>read.csv()</code> and the results should be saved to an object. For example, the code highlighted in yellow in the graphic below was used to read the external “Bears.csv” file into an R object called <code>dat</code>. The circled items in the lower-right pane demonstrate that the “Bears.csv” file is in the same directory as the assignment notebooks file.</p>
+<p><img src="zimgs/Notebook_ReadCSV.JPG" width="90%" style="display: block; margin: auto;" /></p>
+<p>One should check the data in this object as described in the <a href="RData.html#viewing-a-data-frame">Viewing a Data Frame</a> section below.</p>
 <p> </p>
 </div>
 </div>
-<div id="viewing-a-data-frame" class="section level2" number="22.4">
-<h2><span class="header-section-number">22.4</span> Viewing a Data Frame</h2>
+<div id="viewing-a-data-frame" class="section level2" number="22.3">
+<h2><span class="header-section-number">22.3</span> Viewing a Data Frame</h2>
 <p>R may be disorienting at first because you generally cannot “see” your data in the same way that you see it in a spreadsheet program. There are, however, several options for viewing your data. First, you can type the name of the data frame object to see its entire contents.</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb55-1"><a href="RData.html#cb55-1" aria-hidden="true" tabindex="-1"></a>bears</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;      length.cm weight.kg      loc
@@ -410,10 +455,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #R&gt;   10     151.5       140  Douglas
 #R&gt;   11     129.5       105  Douglas
 #R&gt;   12     150.0       110  Douglas</code></pre>
-<p>Typing the name is adequate for small data.frames, but not useful for large data.frames. The entire data.frame is opened in a separate window by double-clicking on the name of the data.frame in the “Environment” tab of RStudio (in upper-right pane). Alternatively, you can view a subset of 20 rows of a data frame with <code>peek()</code>, the first six rows with <code>head()</code>, the last six rows with <code>tail()</code>, or the first and last three rows with <code>headtail()</code>.</p>
-<div class="tip">
-<p>Use <code>peek()</code> or <code>headtail()</code> from <code>NCStats</code> to view a few rows of a data frame.</p>
-</div>
+<p>Typing the name is adequate for small data.frames, but not useful for large data.frames. The entire data.frame is opened in a separate window by double-clicking on the name of the data.frame in the “Environment” tab of RStudio. Alternatively, you can view a subset of 20 rows of a data frame with <code>peek()</code>, the first six rows with <code>head()</code>, the last six rows with <code>tail()</code>, or the first and last three rows with <code>headtail()</code>.</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb57-1"><a href="RData.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">peek</span>(bears)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;      length.cm weight.kg      loc
 #R&gt;   1      139.0       110 Bayfield
@@ -452,16 +494,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #R&gt;   10     151.5       140  Douglas
 #R&gt;   11     129.5       105  Douglas
 #R&gt;   12     150.0       110  Douglas</code></pre>
-<p>In addition to viewing the contents, it is useful to examine the structure of the data frame as returned from <code>str()</code>.</p>
-<div class="tip">
-<p>Use <code>str()</code> to examine the structure of the data frame.</p>
-</div>
+<p> </p>
+<div id="structure-and-data-types" class="section level3" number="22.3.1">
+<h3><span class="header-section-number">22.3.1</span> Structure and Data Types</h3>
+<p>Data in R will be designated as an <code>int</code>eger (whole numbers), <code>num</code>eric (non-integer numeric values), <code>char</code>acter (strings), <code>factor</code> (group membership), or <code>log</code>ical (<code>TRUE</code>/<code>FALSE</code>). Integer and numeric data types correspond to quantitative data. Character and factor data types correspond to categorical data, with the <strong>factor</strong> data type having special characteristics in R that we will exploit for certain analyses. These types of data will be discussed further as needed in other modules.</p>
+<p>In addition to viewing the contents of a data object, it is useful to examine the structure of the data frame as returned from <code>str()</code>.</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb65-1"><a href="RData.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bears)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   &#39;data.frame&#39;: 12 obs. of  3 variables:
 #R&gt;    $ length.cm: num  139 138 139 120 149 ...
 #R&gt;    $ weight.kg: int  110 60 90 60 85 100 95 85 155 140 ...
 #R&gt;    $ loc      : chr  &quot;Bayfield&quot; &quot;Bayfield&quot; &quot;Bayfield&quot; &quot;Bayfield&quot; ...</code></pre>
-<p>In this example, it is seen that three variables were recorded on 12 individuals. The first two variables – length.cm and weight.kg – are numerical measurements made on the bears. The last variable – loc – is a character variable that records the capture location for each bear. The unique values in a character variable may be seen with <code>unique()</code>.</p>
+<p>In this example, it is seen that three variables were recorded on 12 individuals. The first variables – length.cm – is numeric, the second – weight.kg – is integer, and the last – loc – is a character variable. The unique values in a character variable may be seen with <code>unique()</code>.</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb67-1"><a href="RData.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] &quot;Bayfield&quot; &quot;Ashland&quot;  &quot;Douglas&quot;</code></pre>
 <p>A character variable may be converted to a factor variable with <code>factor()</code>. In this course, the main reason for doing this would be to control the levels of an ordinal variable because R treats levels alphabetically by default. For example suppose that we wanted to order the levels of the loc variable from west to east (so, Douglas, Bayfield, and Ashland). For this purpose the variable is converted to a factor below with <code>factor()</code> and the order of the levels is controlled with <code>levels=</code>.</p>
@@ -474,10 +517,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The levels of a factor variable and their order may be seen with <code>levels()</code>.</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb71-1"><a href="RData.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] &quot;Douglas&quot;  &quot;Bayfield&quot; &quot;Ashland&quot;</code></pre>
+<p> </p>
 <p>In the previous examples, the <code>$</code> notation was used to identify a particular variable (i.e., <code>loc</code>) within a data.frame (<code>bears</code>). Think of variables as being nested inside data.frames and, thus, to access the variable you must first identify the data.frame in which it exists and then the name of the variable. The <code>$</code> simply separates the data.frame from the variable.</p>
-<div class="tip">
-<p><code>$</code> separates a data frame name and a variable name.</p>
-</div>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb73-1"><a href="RData.html#cb73-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>length.cm</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;    [1] 139.0 138.0 139.0 120.5 149.0 141.0 141.0 150.0 166.0 151.5 129.5 150.0</code></pre>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb75-1"><a href="RData.html#cb75-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>loc</span></code></pre></div>
@@ -486,9 +527,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #R&gt;   Levels: Douglas Bayfield Ashland</code></pre>
 <p> </p>
 </div>
-<div id="vectors" class="section level2" number="22.5">
-<h2><span class="header-section-number">22.5</span> Vectors</h2>
-<p>Data.frames are the primary structure in which to store real data. However, much simpler situations that don’t require a data.frame may arise. In R, items of the same data type (see <a href="RData.html#data-types">Data Types</a>) are stored in a one-dimensional <strong>vector</strong>. Vectors are usually displayed in one row (with many columns), but they may also be thought of as a single column (with many rows). Items are entered into a vector with <code>c()</code>, where the individual arguments are specific numbers, characters, or logical values.<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a> Items for a vector of characters must be contained within paired quotes.</p>
+</div>
+<div id="vectors" class="section level2" number="22.4">
+<h2><span class="header-section-number">22.4</span> Vectors</h2>
+<p>Data.frames are the primary structure in which to store real data. However, much simpler situations that don’t require a data.frame may arise. In R, items of the same data type (see [Data Types]) are stored in a one-dimensional <strong>vector</strong>. Vectors are usually displayed in one row (with many columns), but they may also be thought of as a single column (with many rows). Items are entered into a vector with <code>c()</code>, where the individual arguments are specific numbers, characters, or logical values.<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a> Items for a vector of characters must be contained within paired quotes.</p>
 <div class="sourceCode" id="cb77"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb77-1"><a href="RData.html#cb77-1" aria-hidden="true" tabindex="-1"></a>( v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] 1 2 5</code></pre>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb79-1"><a href="RData.html#cb79-1" aria-hidden="true" tabindex="-1"></a>( y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Iowa&quot;</span>,<span class="st">&quot;Minnesota&quot;</span>,<span class="st">&quot;Wisconsin&quot;</span>) )</span></code></pre></div>
@@ -504,9 +546,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="footnotes">
 <hr />
 <ol start="76">
-<li id="fn76"><p>There are several choices for CSV files here; do NOT choose the one with "UTF-8" in the name.<a href="RData.html#fnref76" class="footnote-back">↩︎</a></p></li>
-<li id="fn77"><p>You may be asked to save changes – you should say “No.”<a href="RData.html#fnref77" class="footnote-back">↩︎</a></p></li>
-<li id="fn78"><p>Doing this will eliminate the need to manually select the menu options every time you want to run this script.<a href="RData.html#fnref78" class="footnote-back">↩︎</a></p></li>
+<li id="fn76"><p>Note the space after the dot and before the text that will form the list item.<a href="RData.html#fnref76" class="footnote-back">↩︎</a></p></li>
+<li id="fn77"><p>There are several choices for CSV files here; do NOT choose the one with “UTF-8” in the name.<a href="RData.html#fnref77" class="footnote-back">↩︎</a></p></li>
+<li id="fn78"><p>You may be asked to save changes – you should say “No.”<a href="RData.html#fnref78" class="footnote-back">↩︎</a></p></li>
 <li id="fn79"><p><code>c</code> comes from “concatenate” or “combine.”<a href="RData.html#fnref79" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>

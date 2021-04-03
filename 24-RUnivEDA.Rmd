@@ -9,7 +9,7 @@ library(ggplot2)
 ```
 
 #### Data Sets {-}
-Summaries for quantitative data will be demonstrated with a dataset of the  number of days of ice cover at ice gauge station 9004 in Lake Superior. These data are in [LakeSuperiorIce.csv](https://raw.githubusercontent.com/droglenc/NCData/master/LakeSuperiorIce.csv) and are loaded into `LSI` below with the methods described in Section \@ref(alternative-forms-of-getting-data).^[Data originally from the [National Snow and Ice Data Center](http://www.nsidc.org/).]
+Summaries for quantitative data will be demonstrated with a dataset of the  number of days of ice cover at ice gauge station 9004 in Lake Superior. These data are in [LakeSuperiorIce.csv](https://raw.githubusercontent.com/droglenc/NCData/master/LakeSuperiorIce.csv) and are loaded into `LSI` below with the methods described in Section \@ref(read-csv-file-into-rstudio).^[Data originally from the [National Snow and Ice Data Center](http://www.nsidc.org/).]
 
 ```{r eval=FALSE}
 LSI <- read.csv("LakeSuperiorIce.csv")
@@ -128,7 +128,7 @@ Must declare both `x=` and `y=` for a boxplot.
 
 ## Categorical Data
 ### Data Manipulation
-Methods for summarizing categorical data work best if the categorical variable is recorded as a "factor" variable in R (data types discussed in Section \@ref(data-types). Most often the variable will need to be coerced into being a factor variable. For example, the `recycle` variable in `GSS` is a character variable by default.
+Methods for summarizing categorical data work best if the categorical variable is recorded as a "factor" variable in R (data types discussed in Section \@ref(structure-and-data-types). Most often the variable will need to be coerced into being a factor variable. For example, the `recycle` variable in `GSS` is a character variable by default.
 
 ```{r}
 str(GSS)

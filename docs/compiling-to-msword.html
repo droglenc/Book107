@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 24 Compiling to MSWord | Readings for MTH107</title>
+  <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 24 Compiling to MSWord | Readings for MTH107" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://derekogle.com/Book107/" />
+  
+  <meta property="og:description" content="This book contains the readings for MTH107 at Northland College." />
+  <meta name="github-repo" content="droglenc/Book107" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 24 Compiling to MSWord | Readings for MTH107" />
+  
+  <meta name="twitter:description" content="This book contains the readings for MTH107 at Northland College." />
+  
+
+<meta name="author" content="Derek H. Ogle" />
+
+
+<meta name="date" content="2021-04-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="including-r-code-and-results.html"/>
+<link rel="next" href="RFilter.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Readings for MTH107</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="WhyStats.html"><a href="WhyStats.html"><i class="fa fa-check"></i><b>1</b> Why Statistics is Important</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="WhyStats.html"><a href="WhyStats.html#introductory-example"><i class="fa fa-check"></i><b>1.1</b> Introductory Example</a></li>
+<li class="chapter" data-level="1.2" data-path="WhyStats.html"><a href="WhyStats.html#major-goals-of-statistics"><i class="fa fa-check"></i><b>1.2</b> Major Goals of Statistics</a></li>
+<li class="chapter" data-level="1.3" data-path="WhyStats.html"><a href="WhyStats.html#why-does-statistics-as-a-tool-exist"><i class="fa fa-check"></i><b>1.3</b> Why Does Statistics (as a tool) Exist?</a></li>
+<li class="chapter" data-level="1.4" data-path="WhyStats.html"><a href="WhyStats.html#definition-of-statistics"><i class="fa fa-check"></i><b>1.4</b> Definition of Statistics</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html"><i class="fa fa-check"></i><b>2</b> Foundational Definitions</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#IVPPSS"><i class="fa fa-check"></i><b>2.1</b> Definitions</a></li>
+<li class="chapter" data-level="2.2" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#performing-an-ivppss"><i class="fa fa-check"></i><b>2.2</b> Performing an IVPPSS</a></li>
+<li class="chapter" data-level="2.3" data-path="FoundationalDefns.html"><a href="FoundationalDefns.html#variable-types"><i class="fa fa-check"></i><b>2.3</b> Variable Types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="DataProduction.html"><a href="DataProduction.html"><i class="fa fa-check"></i><b>3</b> Data Production</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="DataProduction.html"><a href="DataProduction.html#experiments"><i class="fa fa-check"></i><b>3.1</b> Experiments</a></li>
+<li class="chapter" data-level="3.2" data-path="DataProduction.html"><a href="DataProduction.html#observational-studies-sampling"><i class="fa fa-check"></i><b>3.2</b> Observational Studies – Sampling</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="UnivSum.html"><a href="UnivSum.html"><i class="fa fa-check"></i><b>4</b> Univariate Summaries</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="UnivSum.html"><a href="UnivSum.html#quantitative-variable"><i class="fa fa-check"></i><b>4.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="4.2" data-path="UnivSum.html"><a href="UnivSum.html#categorical-variable"><i class="fa fa-check"></i><b>4.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="UnivEDA.html"><a href="UnivEDA.html"><i class="fa fa-check"></i><b>5</b> Univariate EDA</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="UnivEDA.html"><a href="UnivEDA.html#quantitative-variable-1"><i class="fa fa-check"></i><b>5.1</b> Quantitative Variable</a></li>
+<li class="chapter" data-level="5.2" data-path="UnivEDA.html"><a href="UnivEDA.html#categorical-variable-1"><i class="fa fa-check"></i><b>5.2</b> Categorical Variable</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="NormalDist1.html"><a href="NormalDist1.html"><i class="fa fa-check"></i><b>6</b> Normal Distribution Introduction</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="NormalDist1.html"><a href="NormalDist1.html#characteristics-of-a-normal-distribution"><i class="fa fa-check"></i><b>6.1</b> Characteristics of a Normal Distribution</a></li>
+<li class="chapter" data-level="6.2" data-path="NormalDist1.html"><a href="NormalDist1.html#area-under-the-curve"><i class="fa fa-check"></i><b>6.2</b> Area Under the Curve</a></li>
+<li class="chapter" data-level="6.3" data-path="NormalDist1.html"><a href="NormalDist1.html#or-empirical-rule"><i class="fa fa-check"></i><b>6.3</b> 68-95-99.7 (or Empirical) Rule</a></li>
+<li class="chapter" data-level="6.4" data-path="NormalDist1.html"><a href="NormalDist1.html#example-6895997"><i class="fa fa-check"></i><b>6.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="6.5" data-path="NormalDist1.html"><a href="NormalDist1.html#distinguish-calculation-types"><i class="fa fa-check"></i><b>6.5</b> Distinguish Calculation Types</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="NormalDist2.html"><a href="NormalDist2.html"><i class="fa fa-check"></i><b>7</b> Normal Distribution Calculations</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="NormalDist2.html"><a href="NormalDist2.html#forward-calculations"><i class="fa fa-check"></i><b>7.1</b> Forward Calculations</a></li>
+<li class="chapter" data-level="7.2" data-path="NormalDist2.html"><a href="NormalDist2.html#reverse-calculations"><i class="fa fa-check"></i><b>7.2</b> Reverse Calculations</a></li>
+<li class="chapter" data-level="7.3" data-path="NormalDist2.html"><a href="NormalDist2.html#example-calculations"><i class="fa fa-check"></i><b>7.3</b> Example Calculations</a></li>
+<li class="chapter" data-level="7.4" data-path="NormalDist2.html"><a href="NormalDist2.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>7.4</b> Standardization and Z-Scores</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="BEDAQuant.html"><a href="BEDAQuant.html"><i class="fa fa-check"></i><b>8</b> Bivariate EDA - Quantitative</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="BEDAQuant.html"><a href="BEDAQuant.html#response-and-explanatory-variables"><i class="fa fa-check"></i><b>8.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="8.2" data-path="BEDAQuant.html"><a href="BEDAQuant.html#summaries"><i class="fa fa-check"></i><b>8.2</b> Summaries</a></li>
+<li class="chapter" data-level="8.3" data-path="BEDAQuant.html"><a href="BEDAQuant.html#bivariate-items-to-describe"><i class="fa fa-check"></i><b>8.3</b> Bivariate Items to Describe</a></li>
+<li class="chapter" data-level="8.4" data-path="BEDAQuant.html"><a href="BEDAQuant.html#example-interpretations-1"><i class="fa fa-check"></i><b>8.4</b> Example Interpretations</a></li>
+<li class="chapter" data-level="8.5" data-path="BEDAQuant.html"><a href="BEDAQuant.html#cautions-about-correlation"><i class="fa fa-check"></i><b>8.5</b> Cautions About Correlation</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="LinearRegression.html"><a href="LinearRegression.html"><i class="fa fa-check"></i><b>9</b> Linear Regression</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="LinearRegression.html"><a href="LinearRegression.html#response-and-explanatory-variables-1"><i class="fa fa-check"></i><b>9.1</b> Response and Explanatory Variables</a></li>
+<li class="chapter" data-level="9.2" data-path="LinearRegression.html"><a href="LinearRegression.html#slope-and-intercept"><i class="fa fa-check"></i><b>9.2</b> Slope and Intercept</a></li>
+<li class="chapter" data-level="9.3" data-path="LinearRegression.html"><a href="LinearRegression.html#predictions"><i class="fa fa-check"></i><b>9.3</b> Predictions</a></li>
+<li class="chapter" data-level="9.4" data-path="LinearRegression.html"><a href="LinearRegression.html#residuals"><i class="fa fa-check"></i><b>9.4</b> Residuals</a></li>
+<li class="chapter" data-level="9.5" data-path="LinearRegression.html"><a href="LinearRegression.html#best-fit-criteria"><i class="fa fa-check"></i><b>9.5</b> Best-fit Criteria</a></li>
+<li class="chapter" data-level="9.6" data-path="LinearRegression.html"><a href="LinearRegression.html#assumptions"><i class="fa fa-check"></i><b>9.6</b> Assumptions</a></li>
+<li class="chapter" data-level="9.7" data-path="LinearRegression.html"><a href="LinearRegression.html#coefficient-of-determination"><i class="fa fa-check"></i><b>9.7</b> Coefficient of Determination</a></li>
+<li class="chapter" data-level="9.8" data-path="LinearRegression.html"><a href="LinearRegression.html#examples"><i class="fa fa-check"></i><b>9.8</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="BEDACat.html"><a href="BEDACat.html"><i class="fa fa-check"></i><b>10</b> Bivariate EDA - Categorical</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="BEDACat.html"><a href="BEDACat.html#frequency-tables"><i class="fa fa-check"></i><b>10.1</b> Frequency Tables</a></li>
+<li class="chapter" data-level="10.2" data-path="BEDACat.html"><a href="BEDACat.html#percentage-tables"><i class="fa fa-check"></i><b>10.2</b> Percentage Tables</a></li>
+<li class="chapter" data-level="10.3" data-path="BEDACat.html"><a href="BEDACat.html#which-table-to-use"><i class="fa fa-check"></i><b>10.3</b> Which Table to Use?</a></li>
+<li class="chapter" data-level="10.4" data-path="BEDACat.html"><a href="BEDACat.html#example-calculations-1"><i class="fa fa-check"></i><b>10.4</b> Example Calculations</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="SamplingDist.html"><a href="SamplingDist.html"><i class="fa fa-check"></i><b>11</b> Sampling Distributions</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="SamplingDist.html"><a href="SamplingDist.html#what-is-a-sampling-distribution"><i class="fa fa-check"></i><b>11.1</b> What is a Sampling Distribution?</a></li>
+<li class="chapter" data-level="11.2" data-path="SamplingDist.html"><a href="SamplingDist.html#central-limit-theorem"><i class="fa fa-check"></i><b>11.2</b> Central Limit Theorem</a></li>
+<li class="chapter" data-level="11.3" data-path="SamplingDist.html"><a href="SamplingDist.html#accuracy-and-precision"><i class="fa fa-check"></i><b>11.3</b> Accuracy and Precision</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="Probability.html"><a href="Probability.html"><i class="fa fa-check"></i><b>12</b> Probability Introduction</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="Probability.html"><a href="Probability.html#probability-of-individuals"><i class="fa fa-check"></i><b>12.1</b> Probability of Individuals</a></li>
+<li class="chapter" data-level="12.2" data-path="Probability.html"><a href="Probability.html#probability-of-statistics"><i class="fa fa-check"></i><b>12.2</b> Probability of Statistics</a></li>
+<li class="chapter" data-level="12.3" data-path="Probability.html"><a href="Probability.html#a-process-for-handling-probability-questions"><i class="fa fa-check"></i><b>12.3</b> A Process for Handling Probability Questions</a></li>
+<li class="chapter" data-level="12.4" data-path="Probability.html"><a href="Probability.html#example-questions"><i class="fa fa-check"></i><b>12.4</b> Example Questions</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="HypTesting1.html"><a href="HypTesting1.html"><i class="fa fa-check"></i><b>13</b> Hypothesis Testing - Introduction</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-the-scientific-method"><i class="fa fa-check"></i><b>13.1</b> Hypothesis Testing &amp; The Scientific Method</a></li>
+<li class="chapter" data-level="13.2" data-path="HypTesting1.html"><a href="HypTesting1.html#statistical-hypotheses"><i class="fa fa-check"></i><b>13.2</b> Statistical Hypotheses</a></li>
+<li class="chapter" data-level="13.3" data-path="HypTesting1.html"><a href="HypTesting1.html#example-p-value-calculations"><i class="fa fa-check"></i><b>13.3</b> Example p-value Calculations</a></li>
+<li class="chapter" data-level="13.4" data-path="HypTesting1.html"><a href="HypTesting1.html#hypothesis-testing-concept-summary"><i class="fa fa-check"></i><b>13.4</b> Hypothesis Testing Concept Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="HypTesting2.html"><a href="HypTesting2.html"><i class="fa fa-check"></i><b>14</b> Hypothesis Testing - Errors</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="HypTesting2.html"><a href="HypTesting2.html#error-types"><i class="fa fa-check"></i><b>14.1</b> Error Types</a></li>
+<li class="chapter" data-level="14.2" data-path="HypTesting2.html"><a href="HypTesting2.html#error-rates"><i class="fa fa-check"></i><b>14.2</b> Error Rates</a></li>
+<li class="chapter" data-level="14.3" data-path="HypTesting2.html"><a href="HypTesting2.html#test-statistics-and-effect-sizes"><i class="fa fa-check"></i><b>14.3</b> Test Statistics and Effect Sizes</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="ConfRegions1.html"><a href="ConfRegions1.html"><i class="fa fa-check"></i><b>15</b> Confidence Regions - Introduction</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="ConfRegions1.html"><a href="ConfRegions1.html#confidence-concept"><i class="fa fa-check"></i><b>15.1</b> Confidence Concept</a></li>
+<li class="chapter" data-level="15.2" data-path="ConfRegions1.html"><a href="ConfRegions1.html#constructing-confidence-regions"><i class="fa fa-check"></i><b>15.2</b> Constructing Confidence Regions</a></li>
+<li class="chapter" data-level="15.3" data-path="ConfRegions1.html"><a href="ConfRegions1.html#example-confidence-region-calculations"><i class="fa fa-check"></i><b>15.3</b> Example Confidence Region Calculations</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="ConfRegions2.html"><a href="ConfRegions2.html"><i class="fa fa-check"></i><b>16</b> Confidence Regions - Extension</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="ConfRegions2.html"><a href="ConfRegions2.html#confidence-intervals-and-precision"><i class="fa fa-check"></i><b>16.1</b> Confidence Intervals and Precision</a></li>
+<li class="chapter" data-level="16.2" data-path="ConfRegions2.html"><a href="ConfRegions2.html#sample-size-calculations"><i class="fa fa-check"></i><b>16.2</b> Sample Size Calculations</a></li>
+<li class="chapter" data-level="16.3" data-path="ConfRegions2.html"><a href="ConfRegions2.html#inference-type-relationship"><i class="fa fa-check"></i><b>16.3</b> Inference Type Relationship</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="Ztest.html"><a href="Ztest.html"><i class="fa fa-check"></i><b>17</b> 1-Sample Z-Test</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="Ztest.html"><a href="Ztest.html#Hyp11Steps"><i class="fa fa-check"></i><b>17.1</b> 11-Steps of Hypothesis Testing</a></li>
+<li class="chapter" data-level="17.2" data-path="Ztest.html"><a href="Ztest.html#Specifics1Z"><i class="fa fa-check"></i><b>17.2</b> 1-Sample Z-Test Specifics</a></li>
+<li class="chapter" data-level="17.3" data-path="Ztest.html"><a href="Ztest.html#examples-1"><i class="fa fa-check"></i><b>17.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="t1test.html"><a href="t1test.html"><i class="fa fa-check"></i><b>18</b> 1-Sample t-Test</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="t1test.html"><a href="t1test.html#t-distribution"><i class="fa fa-check"></i><b>18.1</b> t-distribution</a></li>
+<li class="chapter" data-level="18.2" data-path="t1test.html"><a href="t1test.html#Specifics1t"><i class="fa fa-check"></i><b>18.2</b> 1-Sample t-Test Specifics</a></li>
+<li class="chapter" data-level="18.3" data-path="t1test.html"><a href="t1test.html#examples-2"><i class="fa fa-check"></i><b>18.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="t2test.html"><a href="t2test.html"><i class="fa fa-check"></i><b>19</b> 2-Sample t-Test</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="t2test.html"><a href="t2test.html#sample-t-test-specifics"><i class="fa fa-check"></i><b>19.1</b> 2-Sample t-Test Specifics</a></li>
+<li class="chapter" data-level="19.2" data-path="t2test.html"><a href="t2test.html#LevenesTest"><i class="fa fa-check"></i><b>19.2</b> Testing for Equal Variances</a></li>
+<li class="chapter" data-level="19.3" data-path="t2test.html"><a href="t2test.html#examples-3"><i class="fa fa-check"></i><b>19.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="ChiSquare.html"><a href="ChiSquare.html"><i class="fa fa-check"></i><b>20</b> Chi-Square Test</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="ChiSquare.html"><a href="ChiSquare.html#chi-square-distribution"><i class="fa fa-check"></i><b>20.1</b> Chi-Square Distribution</a></li>
+<li class="chapter" data-level="20.2" data-path="ChiSquare.html"><a href="ChiSquare.html#chi-square-test-specifics"><i class="fa fa-check"></i><b>20.2</b> Chi-Square Test Specifics</a></li>
+<li class="chapter" data-level="20.3" data-path="ChiSquare.html"><a href="ChiSquare.html#examples-4"><i class="fa fa-check"></i><b>20.3</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="GOFTest.html"><a href="GOFTest.html"><i class="fa fa-check"></i><b>21</b> Goodness-of-Fit Test</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="GOFTest.html"><a href="GOFTest.html#goodness-of-fit-test-specifics"><i class="fa fa-check"></i><b>21.1</b> Goodness-of-Fit Test Specifics</a></li>
+<li class="chapter" data-level="21.2" data-path="GOFTest.html"><a href="GOFTest.html#examples-5"><i class="fa fa-check"></i><b>21.2</b> Examples</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="RData.html"><a href="RData.html"><i class="fa fa-check"></i><b>22</b> Getting Data into R</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="RData.html"><a href="RData.html#r-notebooks"><i class="fa fa-check"></i><b>22.1</b> R Notebooks</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="including-r-code-and-results.html"><a href="including-r-code-and-results.html"><i class="fa fa-check"></i><b>23</b> Including R Code and Results</a></li>
+<li class="chapter" data-level="24" data-path="compiling-to-msword.html"><a href="compiling-to-msword.html"><i class="fa fa-check"></i><b>24</b> Compiling to MSWord</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="compiling-to-msword.html"><a href="compiling-to-msword.html#data-in-r"><i class="fa fa-check"></i><b>24.1</b> Data in R</a></li>
+<li class="chapter" data-level="24.2" data-path="compiling-to-msword.html"><a href="compiling-to-msword.html#viewing-a-data-frame"><i class="fa fa-check"></i><b>24.2</b> Viewing a Data Frame</a></li>
+<li class="chapter" data-level="24.3" data-path="compiling-to-msword.html"><a href="compiling-to-msword.html#vectors"><i class="fa fa-check"></i><b>24.3</b> Vectors</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="RFilter.html"><a href="RFilter.html"><i class="fa fa-check"></i><b>25</b> Filtering Data in R</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="RFilter.html"><a href="RFilter.html#filtering-a-data-frame"><i class="fa fa-check"></i><b>25.1</b> Filtering a data frame</a></li>
+<li class="chapter" data-level="25.2" data-path="RFilter.html"><a href="RFilter.html#selecting-individuals"><i class="fa fa-check"></i><b>25.2</b> Selecting Individuals</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="RUnivEDA.html"><a href="RUnivEDA.html"><i class="fa fa-check"></i><b>26</b> Univariate EDA in R</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="RUnivEDA.html"><a href="RUnivEDA.html#quantitative"><i class="fa fa-check"></i><b>26.1</b> Quantitative</a></li>
+<li class="chapter" data-level="26.2" data-path="RUnivEDA.html"><a href="RUnivEDA.html#quantitative-for-multiple-groups"><i class="fa fa-check"></i><b>26.2</b> Quantitative for Multiple Groups</a></li>
+<li class="chapter" data-level="26.3" data-path="RUnivEDA.html"><a href="RUnivEDA.html#categorical-data"><i class="fa fa-check"></i><b>26.3</b> Categorical Data</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="RBivEDA.html"><a href="RBivEDA.html"><i class="fa fa-check"></i><b>27</b> Bivariate EDA in R</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="RBivEDA.html"><a href="RBivEDA.html#quantitative-1"><i class="fa fa-check"></i><b>27.1</b> Quantitative</a></li>
+<li class="chapter" data-level="27.2" data-path="RBivEDA.html"><a href="RBivEDA.html#categorical"><i class="fa fa-check"></i><b>27.2</b> Categorical</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="RRegression.html"><a href="RRegression.html"><i class="fa fa-check"></i><b>28</b> Linear Regression in R</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="RRegression.html"><a href="RRegression.html#fitted-line-plot"><i class="fa fa-check"></i><b>28.1</b> Fitted Line Plot</a></li>
+<li class="chapter" data-level="28.2" data-path="RRegression.html"><a href="RRegression.html#fitting-the-regression-model-in-r"><i class="fa fa-check"></i><b>28.2</b> Fitting the Regression Model in R</a></li>
+<li class="chapter" data-level="28.3" data-path="RRegression.html"><a href="RRegression.html#coefficient-of-determination-1"><i class="fa fa-check"></i><b>28.3</b> Coefficient of Determination</a></li>
+<li class="chapter" data-level="28.4" data-path="RRegression.html"><a href="RRegression.html#predicted-values"><i class="fa fa-check"></i><b>28.4</b> Predicted Values</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="Rttests.html"><a href="Rttests.html"><i class="fa fa-check"></i><b>29</b> t-Tests in R</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="Rttests.html"><a href="Rttests.html#sample-t-test"><i class="fa fa-check"></i><b>29.1</b> 1-Sample t-Test</a></li>
+<li class="chapter" data-level="29.2" data-path="Rttests.html"><a href="Rttests.html#sample-t-test-1"><i class="fa fa-check"></i><b>29.2</b> 2-Sample t-Test</a></li>
+</ul></li>
+<li class="chapter" data-level="30" data-path="RChi.html"><a href="RChi.html"><i class="fa fa-check"></i><b>30</b> Chi-Square in R</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>30.1</b> Chi-Square Tests</a></li>
+<li class="chapter" data-level="30.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>30.2</b> Goodness-of-Fit Test in R</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
+<li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Readings for MTH107</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="compiling-to-msword" class="section level1" number="24">
+<h1><span class="header-section-number">Module 24</span> Compiling to MSWord</h1>
+<p>Once you are comfortable that your R code runs without error and that you have answered all questions for the assignment, then compile your Notebook to a MSWord document. In MSWord you can then save the document to a PDF for handing in via GradeScope.</p>
+<p>To compile the Notebook to MSWord, select the small arrow on the icon that either says “Preview” or “Knit” and select “Knit to Word.” If you get an error related to the name of your Notebook file, then simply select “Knit to Word” a second time. If the document does not produce an MSWord document (this make take several seconds) then there may be an error in your R code.</p>
+<div class="figure">
+<img src="zimgs/Notebook_KnitWord.JPG" alt="" />
+<p class="caption">Notebook Knit to Word</p>
+</div>
+<p><strong>Check your document for completeness and neatness before turning in.</strong></p>
+<p> </p>
+<div id="vertical-spacing" class="section level4 unnumbered">
+<h4>Vertical Spacing</h4>
+<p>If you would like to add some vertical spacing between parts of your notebook (e.g., between sections, between code and paragraphs, etc.) then add a “br” between less than and greater than signs (see below) with a blank line both above and below it where you want the vertical spacing. For example,</p>
+<div class="figure">
+<img src="zimgs/Notebook_UseOfBR.JPG" alt="" />
+<p class="caption">Use of br</p>
+</div>
+</div>
+<div id="code-chunk-custom-settings" class="section level4 unnumbered">
+<h4>Code Chunk Custom Settings</h4>
+<p>Code chunks can have a variety of settings. The most important settings can be controlled through the left-most “gear” icon. My most common change here is to change the figure width to be smaller (to 4 inches wide) and, if you want the plot to be square, to change the figure height to the same value. I may also “turn off” the warnings and messages, but I never do this immediately as I would like to see those first before deciding that I should “hide” them. Below shows the gear box for changing the figure width and how the code chunk and result is changed.</p>
+<div class="figure">
+<img src="zimgs/Notebook_Code2Run.JPG" alt="" />
+<p class="caption">Notebook Code Chunk Run</p>
+</div>
+<p> </p>
+</div>
+<div id="data-in-r" class="section level2" number="24.1">
+<h2><span class="header-section-number">24.1</span> Data in R</h2>
+<div id="data-types" class="section level3" number="24.1.1">
+<h3><span class="header-section-number">24.1.1</span> Data Types</h3>
+<p>Data in R will be designated as an <code>int</code>eger (whole numbers), <code>num</code>eric (non-integer numeric values), <code>char</code>acter (strings), <code>factor</code> (group membership), or <code>log</code>ical (<code>TRUE</code>/<code>FALSE</code>). Integer and numeric data types correspond to quantitative data. Character and factor data types correspond to categorical data, with the <strong>factor</strong> data type having special characteristics in R that we will exploit for certain analyses. These types of data will be discussed further as need in other modules.</p>
+<p> </p>
+</div>
+<div id="entering-data" class="section level3" number="24.1.2">
+<h3><span class="header-section-number">24.1.2</span> Entering Data</h3>
+<p>For real data (i.e., several variables from many individuals) it is most efficient to enter data into a comma-separated values (CSV) file and then import that file into R. Creating a CSV file with Microsoft Excel is described below, though there are other ways to create CSV files (see <a href="http://derekogle.com/NCMTH107/resources/FAQ/">FAQs on class webpage</a>). This explanation assumes that you have a basic understanding of Excel (or other spreadsheet software).</p>
+<p>The spreadsheet should be organized with variables in columns and individuals in rows, with the exception that the first row should contain variable names. The example spreadsheet below shows the length (cm), weight (kg), and capture location data for a small sample of Black Bears.</p>
+<div class="tip">
+<ul>
+<li>Variables are in columns.</li>
+<li>Individuals are in rows.</li>
+</ul>
+</div>
+<p><img src="zimgs/Data_File_1.jpg" width="30%" style="display: block; margin: auto;" /></p>
+<p>Variable names must NOT contain spaces. For example, don’t use “total length” or “length (cm).” If you feel the need to have longer variable names, then separate the parts with a period (e.g., “length.cm”) or an underscore (e.g., “length_cm”). Furthermore, numerical measurements should NOT include units (e.g., don’t use “7 cm”). Finally, for categorical data, make sure that all categories are consistent (e.g., do not have a column that contains both “bayfield” and “Bayfield”).</p>
+<p>The spreadsheet is saved as a CSV file by selecting the <strong>File..Save As</strong> menu item, which will produce the dialog box below. In this dialog box, change “Save as type” to "CSV (Comma delimited) (*.csv)“,<a href="#fn76" class="footnote-ref" id="fnref76"><sup>76</sup></a>, provide a file name (do not put any periods in the name), select a location to save the file (don’t forget this location!!), and press”Save“. Two”warning" dialog boxes may then appear – select “OK” for the first and “YES” for the second. You can now close the spreadsheet file.<a href="#fn77" class="footnote-ref" id="fnref77"><sup>77</sup></a></p>
+<p><img src="zimgs/Data_File_2.jpg" width="60%" style="display: block; margin: auto;" /></p>
+<p> </p>
+<p>The following steps are used to load the data in the CSV file into R.</p>
+<ul>
+<li>Open RStudio.</li>
+<li>Open a new script by selecting the “File,” “New File,” and “R Script” menu items.</li>
+<li>Type <code>library(NCStats)</code> in the new script (i.e., in the upper-left pane).</li>
+<li>Save this script by selecting the “File,” “Save” menu items. In the ensuing dialog box, navigate to the <strong>exact same directory</strong> where you saved the data, type a name for the file in the “File name:” box (<strong>do not use a period in this name!!</strong>), and press “Save.”</li>
+</ul>
+<p><img src="zimgs/Data_File_3.jpg" width="60%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><p>Set the working directory (tell R where the file is) with the “Session,” “Set Working Directory …,” “To Source File Location” menu items in RStudio. RStudio will print an appropriate <code>setwd()</code> command to the console (lower-left pane). Copy this command from the console to the second line in your script.<a href="#fn78" class="footnote-ref" id="fnref78"><sup>78</sup></a> For example, I stored the file created above in the “C:/data” directory, so that RStudio will create this <code>setwd("C:/data")</code>.</p></li>
+<li><p>The CSV file is read into R by including the name of the file (in quotes) in <code>read.csv()</code>. For example, the external “Bears.csv” file is read into the R object called <code>bears</code> with <code>bears &lt;- read.csv("Bears.csv")</code>.</p></li>
+<li><p>One should check the data in this object as described in the <a href="compiling-to-msword.html#viewing-a-data-frame">Viewing a Data Frame</a> section below.</p></li>
+</ul>
+<p> </p>
+<p>It is important that each row of the data frame correspond to one individual. This is critically important when data are recorded for two different groups (e.g., for a two-sample t-test; see <a href="Rttests">Module 24</a>). For example, the following data are methyl mercury levels recorded in mussels from two locations labeled as “impacted” and “reference.”</p>
+<pre><code>  impacted   0.011  0.054  0.056  0.095  0.051  0.077
+  reference  0.031  0.040  0.029  0.066  0.018  0.042  0.044</code></pre>
+<p>To follow the “one individual per row” rule, these data are entered in <strong>stacked</strong> format where the “reference” data are stacked underneath the “impacted” data and a column is used to indicate to which group the individuals belong. For example, the Excel file for data entry would look like the following.</p>
+<div class="tip">
+<p>Data should generally be entered in <strong>stacked</strong> format.</p>
+</div>
+<p><img src="zimgs/StackedData.jpg" width="25%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="alternative-forms-of-getting-data" class="section level3" number="24.1.3">
+<h3><span class="header-section-number">24.1.3</span> Alternative Forms of Getting Data</h3>
+<p>Some of the data files that you will use are provided on the <a href="http://derekogle.com/NCMTH107/resources/data_107">Data for MTH107</a> resource page of the class webpage or linked to from a webpage. In these cases, the data should be downloaded from the webpage and saved in the same directory or folder as your analysis script. The downloaded file is then read into R in the same manner as described previously (i.e., set the working directory with <code>setwd()</code> and use <code>read.csv()</code>). Note that files provided by me will already be in stacked format.</p>
+<p>A few data files used in these notes are supplied with R or the <code>NCStats</code> package. These files are loaded with <code>data()</code>. For example, the <code>iris</code> data file is loaded into R with</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb55-1"><a href="compiling-to-msword.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span></code></pre></div>
+<p> </p>
+</div>
+</div>
+<div id="viewing-a-data-frame" class="section level2" number="24.2">
+<h2><span class="header-section-number">24.2</span> Viewing a Data Frame</h2>
+<p>R may be disorienting at first because you generally cannot “see” your data in the same way that you see it in a spreadsheet program. There are, however, several options for viewing your data. First, you can type the name of the data frame object to see its entire contents.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb56-1"><a href="compiling-to-msword.html#cb56-1" aria-hidden="true" tabindex="-1"></a>bears</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;      length.cm weight.kg      loc
+#R&gt;   1      139.0       110 Bayfield
+#R&gt;   2      138.0        60 Bayfield
+#R&gt;   3      139.0        90 Bayfield
+#R&gt;   4      120.5        60 Bayfield
+#R&gt;   5      149.0        85 Bayfield
+#R&gt;   6      141.0       100  Ashland
+#R&gt;   7      141.0        95  Ashland
+#R&gt;   8      150.0        85  Douglas
+#R&gt;   9      166.0       155  Douglas
+#R&gt;   10     151.5       140  Douglas
+#R&gt;   11     129.5       105  Douglas
+#R&gt;   12     150.0       110  Douglas</code></pre>
+<p>Typing the name is adequate for small data.frames, but not useful for large data.frames. The entire data.frame is opened in a separate window by double-clicking on the name of the data.frame in the “Environment” tab of RStudio (in upper-right pane). Alternatively, you can view a subset of 20 rows of a data frame with <code>peek()</code>, the first six rows with <code>head()</code>, the last six rows with <code>tail()</code>, or the first and last three rows with <code>headtail()</code>.</p>
+<div class="tip">
+<p>Use <code>peek()</code> or <code>headtail()</code> from <code>NCStats</code> to view a few rows of a data frame.</p>
+</div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb58-1"><a href="compiling-to-msword.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">peek</span>(bears)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;      length.cm weight.kg      loc
+#R&gt;   1      139.0       110 Bayfield
+#R&gt;   2      138.0        60 Bayfield
+#R&gt;   3      139.0        90 Bayfield
+#R&gt;   4      120.5        60 Bayfield
+#R&gt;   5      149.0        85 Bayfield
+#R&gt;   6      141.0       100  Ashland
+#R&gt;   7      141.0        95  Ashland
+#R&gt;   8      150.0        85  Douglas
+#R&gt;   9      166.0       155  Douglas
+#R&gt;   10     151.5       140  Douglas
+#R&gt;   11     129.5       105  Douglas
+#R&gt;   12     150.0       110  Douglas</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb60-1"><a href="compiling-to-msword.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bears)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;     length.cm weight.kg      loc
+#R&gt;   1     139.0       110 Bayfield
+#R&gt;   2     138.0        60 Bayfield
+#R&gt;   3     139.0        90 Bayfield
+#R&gt;   4     120.5        60 Bayfield
+#R&gt;   5     149.0        85 Bayfield
+#R&gt;   6     141.0       100  Ashland</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb62-1"><a href="compiling-to-msword.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(bears)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;      length.cm weight.kg     loc
+#R&gt;   7      141.0        95 Ashland
+#R&gt;   8      150.0        85 Douglas
+#R&gt;   9      166.0       155 Douglas
+#R&gt;   10     151.5       140 Douglas
+#R&gt;   11     129.5       105 Douglas
+#R&gt;   12     150.0       110 Douglas</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb64-1"><a href="compiling-to-msword.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(bears)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;      length.cm weight.kg      loc
+#R&gt;   1      139.0       110 Bayfield
+#R&gt;   2      138.0        60 Bayfield
+#R&gt;   3      139.0        90 Bayfield
+#R&gt;   10     151.5       140  Douglas
+#R&gt;   11     129.5       105  Douglas
+#R&gt;   12     150.0       110  Douglas</code></pre>
+<p>In addition to viewing the contents, it is useful to examine the structure of the data frame as returned from <code>str()</code>.</p>
+<div class="tip">
+<p>Use <code>str()</code> to examine the structure of the data frame.</p>
+</div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb66-1"><a href="compiling-to-msword.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bears)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   &#39;data.frame&#39;: 12 obs. of  3 variables:
+#R&gt;    $ length.cm: num  139 138 139 120 149 ...
+#R&gt;    $ weight.kg: int  110 60 90 60 85 100 95 85 155 140 ...
+#R&gt;    $ loc      : chr  &quot;Bayfield&quot; &quot;Bayfield&quot; &quot;Bayfield&quot; &quot;Bayfield&quot; ...</code></pre>
+<p>In this example, it is seen that three variables were recorded on 12 individuals. The first two variables – length.cm and weight.kg – are numerical measurements made on the bears. The last variable – loc – is a character variable that records the capture location for each bear. The unique values in a character variable may be seen with <code>unique()</code>.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb68-1"><a href="compiling-to-msword.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] &quot;Bayfield&quot; &quot;Ashland&quot;  &quot;Douglas&quot;</code></pre>
+<p>A character variable may be converted to a factor variable with <code>factor()</code>. In this course, the main reason for doing this would be to control the levels of an ordinal variable because R treats levels alphabetically by default. For example suppose that we wanted to order the levels of the loc variable from west to east (so, Douglas, Bayfield, and Ashland). For this purpose the variable is converted to a factor below with <code>factor()</code> and the order of the levels is controlled with <code>levels=</code>.</p>
+<div class="tip">
+<p>Make sure the levels are spelled EXACTLY as they appear in the data.</p>
+</div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb70-1"><a href="compiling-to-msword.html#cb70-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>loc <span class="ot">&lt;-</span> <span class="fu">factor</span>(bears<span class="sc">$</span>loc,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Douglas&quot;</span>,<span class="st">&quot;Bayfield&quot;</span>,<span class="st">&quot;Ashland&quot;</span>))</span>
+<span id="cb70-2"><a href="compiling-to-msword.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] &quot;Douglas&quot;  &quot;Bayfield&quot; &quot;Ashland&quot;</code></pre>
+<p>The levels of a factor variable and their order may be seen with <code>levels()</code>.</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb72-1"><a href="compiling-to-msword.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] &quot;Douglas&quot;  &quot;Bayfield&quot; &quot;Ashland&quot;</code></pre>
+<p>In the previous examples, the <code>$</code> notation was used to identify a particular variable (i.e., <code>loc</code>) within a data.frame (<code>bears</code>). Think of variables as being nested inside data.frames and, thus, to access the variable you must first identify the data.frame in which it exists and then the name of the variable. The <code>$</code> simply separates the data.frame from the variable.</p>
+<div class="tip">
+<p><code>$</code> separates a data frame name and a variable name.</p>
+</div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb74-1"><a href="compiling-to-msword.html#cb74-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>length.cm</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;    [1] 139.0 138.0 139.0 120.5 149.0 141.0 141.0 150.0 166.0 151.5 129.5 150.0</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb76-1"><a href="compiling-to-msword.html#cb76-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>loc</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;    [1] Bayfield Bayfield Bayfield Bayfield Bayfield Ashland  Ashland  Douglas 
+#R&gt;    [9] Douglas  Douglas  Douglas  Douglas 
+#R&gt;   Levels: Douglas Bayfield Ashland</code></pre>
+<p> </p>
+</div>
+<div id="vectors" class="section level2" number="24.3">
+<h2><span class="header-section-number">24.3</span> Vectors</h2>
+<p>Data.frames are the primary structure in which to store real data. However, much simpler situations that don’t require a data.frame may arise. In R, items of the same data type (see <a href="compiling-to-msword.html#data-types">Data Types</a>) are stored in a one-dimensional <strong>vector</strong>. Vectors are usually displayed in one row (with many columns), but they may also be thought of as a single column (with many rows). Items are entered into a vector with <code>c()</code>, where the individual arguments are specific numbers, characters, or logical values.<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a> Items for a vector of characters must be contained within paired quotes.</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb78-1"><a href="compiling-to-msword.html#cb78-1" aria-hidden="true" tabindex="-1"></a>( v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] 1 2 5</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb80-1"><a href="compiling-to-msword.html#cb80-1" aria-hidden="true" tabindex="-1"></a>( y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Iowa&quot;</span>,<span class="st">&quot;Minnesota&quot;</span>,<span class="st">&quot;Wisconsin&quot;</span>) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;   [1] &quot;Iowa&quot;      &quot;Minnesota&quot; &quot;Wisconsin&quot;</code></pre>
+<p>Single variables from a data.frame are vectors.</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb82-1"><a href="compiling-to-msword.html#cb82-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>length.cm</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;    [1] 139.0 138.0 139.0 120.5 149.0 141.0 141.0 150.0 166.0 151.5 129.5 150.0</code></pre>
+<p>Vectors that are not extracted from a data.frame will only be used in this course for very simple lists of items, usually as arguments in a function.</p>
+<p> </p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="76">
+<li id="fn76"><p>There are several choices for CSV files here; do NOT choose the one with "UTF-8" in the name.<a href="compiling-to-msword.html#fnref76" class="footnote-back">↩︎</a></p></li>
+<li id="fn77"><p>You may be asked to save changes – you should say “No.”<a href="compiling-to-msword.html#fnref77" class="footnote-back">↩︎</a></p></li>
+<li id="fn78"><p>Doing this will eliminate the need to manually select the menu options every time you want to run this script.<a href="compiling-to-msword.html#fnref78" class="footnote-back">↩︎</a></p></li>
+<li id="fn79"><p><code>c</code> comes from “concatenate” or “combine.”<a href="compiling-to-msword.html#fnref79" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="including-r-code-and-results.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="RFilter.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"search": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

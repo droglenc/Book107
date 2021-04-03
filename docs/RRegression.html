@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-04-02" />
+<meta name="date" content="2021-04-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -274,11 +274,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="22" data-path="RData.html"><a href="RData.html"><i class="fa fa-check"></i><b>22</b> Getting Data into R</a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="RData.html"><a href="RData.html#ncstats-package"><i class="fa fa-check"></i><b>22.1</b> NCStats Package</a></li>
-<li class="chapter" data-level="22.2" data-path="RData.html"><a href="RData.html#data-types"><i class="fa fa-check"></i><b>22.2</b> Data Types</a></li>
-<li class="chapter" data-level="22.3" data-path="RData.html"><a href="RData.html#entering-data"><i class="fa fa-check"></i><b>22.3</b> Entering Data</a></li>
-<li class="chapter" data-level="22.4" data-path="RData.html"><a href="RData.html#viewing-a-data-frame"><i class="fa fa-check"></i><b>22.4</b> Viewing a Data Frame</a></li>
-<li class="chapter" data-level="22.5" data-path="RData.html"><a href="RData.html#vectors"><i class="fa fa-check"></i><b>22.5</b> Vectors</a></li>
+<li class="chapter" data-level="22.1" data-path="RData.html"><a href="RData.html#r-notebooks"><i class="fa fa-check"></i><b>22.1</b> R Notebooks</a></li>
+<li class="chapter" data-level="22.2" data-path="RData.html"><a href="RData.html#data-in-r"><i class="fa fa-check"></i><b>22.2</b> Data in R</a></li>
+<li class="chapter" data-level="22.3" data-path="RData.html"><a href="RData.html#viewing-a-data-frame"><i class="fa fa-check"></i><b>22.3</b> Viewing a Data Frame</a></li>
+<li class="chapter" data-level="22.4" data-path="RData.html"><a href="RData.html#vectors"><i class="fa fa-check"></i><b>22.4</b> Vectors</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="RFilter.html"><a href="RFilter.html"><i class="fa fa-check"></i><b>23</b> Filtering Data in R</a>
 <ul>
@@ -343,7 +342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb163-2"><a href="RRegression.html#cb163-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <div id="data-sets-2" class="section level4 unnumbered">
 <h4>Data Sets</h4>
-<p>The descriptions below will use the same <code>weight</code> (lbs) and highway miles per gallon (<code>HMPG</code>) data for 93 cars from the 1993 model year that were used in the second example in the Modules <a href="LinearRegression.html#LinearRegression">9</a>. These data are in 93cars.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars.csv">data</a>, <a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars_meta.txt">meta</a>) and are loaded into R below with the methods described in Section <a href="RData.html#alternative-forms-of-getting-data">22.3.1</a>.<a href="#fn101" class="footnote-ref" id="fnref101"><sup>101</sup></a></p>
+<p>The descriptions below will use the same <code>weight</code> (lbs) and highway miles per gallon (<code>HMPG</code>) data for 93 cars from the 1993 model year that were used in the second example in the Modules <a href="LinearRegression.html#LinearRegression">9</a>. These data are in 93cars.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars.csv">data</a>, <a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars_meta.txt">meta</a>) and are loaded into R below with the methods described in Section <a href="#read-csv-files-into-rstudio"><strong>??</strong></a>.<a href="#fn101" class="footnote-ref" id="fnref101"><sup>101</sup></a></p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb164-1"><a href="RRegression.html#cb164-1" aria-hidden="true" tabindex="-1"></a>cars93 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;93cars.csv&quot;</span>)</span>
 <span id="cb164-2"><a href="RRegression.html#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(cars93,<span class="at">which=</span><span class="fu">c</span>(<span class="st">&quot;MFG&quot;</span>,<span class="st">&quot;Model&quot;</span>,<span class="st">&quot;Type&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;HMPG&quot;</span>))</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;             MFG   Model    Type Weight HMPG
@@ -363,7 +362,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb166-3"><a href="RRegression.html#cb166-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Weight (lbs)&quot;</span>,<span class="at">y=</span><span class="st">&quot;Highway MPG&quot;</span>) <span class="sc">+</span></span>
 <span id="cb166-4"><a href="RRegression.html#cb166-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
 <span id="cb166-5"><a href="RRegression.html#cb166-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">se=</span><span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-124-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p><img src="Book107_files/figure-html/unnamed-chunk-129-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>Use <code>method="lm"</code> in <code>geom_smooth()</code> to add the regression line to an existing scatterplot.</p>
 </div>

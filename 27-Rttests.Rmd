@@ -90,7 +90,7 @@ aqua <- read.csv("BOD.csv")
 str(aqua)
 ```
 
-Data must be in stacked format (as described in Section \@ref(entering-data)) for a 2-Sample t-Test. Stacked data has measurements in one column and group labels for the measurement in another column. Thus, each row corresponds to a measurement and the group for one individual. The BOD data are stacked because each row corresponds to one individual (a water sample) with one column of (BOD) measurements and another column for which group the individual belongs.
+Data must be in stacked format (as described in Section \@ref(create-csv-file)) for a 2-Sample t-Test. Stacked data has measurements in one column and group labels for the measurement in another column. Thus, each row corresponds to a measurement and the group for one individual. The BOD data are stacked because each row corresponds to one individual (a water sample) with one column of (BOD) measurements and another column for which group the individual belongs.
 
 ```{r}
 headtail(aqua)

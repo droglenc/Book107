@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-04-02" />
+<meta name="date" content="2021-04-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -274,11 +274,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="22" data-path="RData.html"><a href="RData.html"><i class="fa fa-check"></i><b>22</b> Getting Data into R</a>
 <ul>
-<li class="chapter" data-level="22.1" data-path="RData.html"><a href="RData.html#ncstats-package"><i class="fa fa-check"></i><b>22.1</b> NCStats Package</a></li>
-<li class="chapter" data-level="22.2" data-path="RData.html"><a href="RData.html#data-types"><i class="fa fa-check"></i><b>22.2</b> Data Types</a></li>
-<li class="chapter" data-level="22.3" data-path="RData.html"><a href="RData.html#entering-data"><i class="fa fa-check"></i><b>22.3</b> Entering Data</a></li>
-<li class="chapter" data-level="22.4" data-path="RData.html"><a href="RData.html#viewing-a-data-frame"><i class="fa fa-check"></i><b>22.4</b> Viewing a Data Frame</a></li>
-<li class="chapter" data-level="22.5" data-path="RData.html"><a href="RData.html#vectors"><i class="fa fa-check"></i><b>22.5</b> Vectors</a></li>
+<li class="chapter" data-level="22.1" data-path="RData.html"><a href="RData.html#r-notebooks"><i class="fa fa-check"></i><b>22.1</b> R Notebooks</a></li>
+<li class="chapter" data-level="22.2" data-path="RData.html"><a href="RData.html#data-in-r"><i class="fa fa-check"></i><b>22.2</b> Data in R</a></li>
+<li class="chapter" data-level="22.3" data-path="RData.html"><a href="RData.html#viewing-a-data-frame"><i class="fa fa-check"></i><b>22.3</b> Viewing a Data Frame</a></li>
+<li class="chapter" data-level="22.4" data-path="RData.html"><a href="RData.html#vectors"><i class="fa fa-check"></i><b>22.4</b> Vectors</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="RFilter.html"><a href="RFilter.html"><i class="fa fa-check"></i><b>23</b> Filtering Data in R</a>
 <ul>
@@ -343,7 +342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb101-2"><a href="RUnivEDA.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <div id="data-sets" class="section level4 unnumbered">
 <h4>Data Sets</h4>
-<p>Summaries for quantitative data will be demonstrated with a dataset of the number of days of ice cover at ice gauge station 9004 in Lake Superior. These data are in <a href="https://raw.githubusercontent.com/droglenc/NCData/master/LakeSuperiorIce.csv">LakeSuperiorIce.csv</a> and are loaded into <code>LSI</code> below with the methods described in Section <a href="RData.html#alternative-forms-of-getting-data">22.3.1</a>.<a href="#fn88" class="footnote-ref" id="fnref88"><sup>88</sup></a></p>
+<p>Summaries for quantitative data will be demonstrated with a dataset of the number of days of ice cover at ice gauge station 9004 in Lake Superior. These data are in <a href="https://raw.githubusercontent.com/droglenc/NCData/master/LakeSuperiorIce.csv">LakeSuperiorIce.csv</a> and are loaded into <code>LSI</code> below with the methods described in Section <a href="#read-csv-files-into-rstudio"><strong>??</strong></a>.<a href="#fn88" class="footnote-ref" id="fnref88"><sup>88</sup></a></p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb102-1"><a href="RUnivEDA.html#cb102-1" aria-hidden="true" tabindex="-1"></a>LSI <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;LakeSuperiorIce.csv&quot;</span>)</span>
 <span id="cb102-2"><a href="RUnivEDA.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(LSI)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     season decade   period  temp days
@@ -383,21 +382,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>All graphs made with <code>ggplot2</code> begin with <code>ggplot()</code> using a <code>data=</code> argument that defines the data frame to be used for the graphic. Variables for the x- and y-axes are then declared within <code>aes()</code> as the second argument. A histogram requires only the variable for the x-axis. To this base information, <code>geom_histogram()</code> is “added” to produce a simple default histogram.</p>
 <div class="sourceCode" id="cb108"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb108-1"><a href="RUnivEDA.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
 <span id="cb108-2"><a href="RUnivEDA.html#cb108-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-89-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p><img src="Book107_files/figure-html/unnamed-chunk-94-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>Only define the x variable for a histogram.</p>
 </div>
 <p>This base histogram is rather ugly. Fortunately it can be improved fairly easily. Most importantly, set <code>bins=</code> to the desired number of bins.<a href="#fn90" class="footnote-ref" id="fnref90"><sup>90</sup></a> Additionally, the bin bars can be made more readable by outlining them in black with <code>color="black"</code> and filling then with a light gray with <code>fill="lightgray"</code>.</p>
 <div class="sourceCode" id="cb109"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb109-1"><a href="RUnivEDA.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
 <span id="cb109-2"><a href="RUnivEDA.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">10</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>)</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-90-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p><img src="Book107_files/figure-html/unnamed-chunk-95-1.png" width="336" style="display: block; margin: auto;" /></p>
 <p>While this histogram is great improved it will look better if the bars are set on the x-axis with <code>scale_y_continuous()</code> shown below,<a href="#fn91" class="footnote-ref" id="fnref91"><sup>91</sup></a> the x- and y-axes are labeled more appropriately using <code>x=</code> and <code>y=</code> in <code>labs()</code> as shown below, and we use <code>theme_NCStats()</code>,<a href="#fn92" class="footnote-ref" id="fnref92"><sup>92</sup></a> which was created especially for this class.</p>
 <div class="sourceCode" id="cb110"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb110-1"><a href="RUnivEDA.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
 <span id="cb110-2"><a href="RUnivEDA.html#cb110-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">10</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
 <span id="cb110-3"><a href="RUnivEDA.html#cb110-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
 <span id="cb110-4"><a href="RUnivEDA.html#cb110-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Number of Days of Ice Cover&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Years&quot;</span>) <span class="sc">+</span></span>
 <span id="cb110-5"><a href="RUnivEDA.html#cb110-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-91-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p><img src="Book107_files/figure-html/unnamed-chunk-96-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>When making your own histogram, copy the code above and change <code>data=</code>, <code>x=</code>, <code>bins=</code>, <code>x=</code>, and <code>y=</code>.</p>
 </div>
@@ -432,7 +431,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb115-4"><a href="RUnivEDA.html#cb115-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Number of Days of Ice Cover&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Years&quot;</span>) <span class="sc">+</span></span>
 <span id="cb115-5"><a href="RUnivEDA.html#cb115-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
 <span id="cb115-6"><a href="RUnivEDA.html#cb115-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>period)</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-94-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="Book107_files/figure-html/unnamed-chunk-99-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 <div id="boxplots" class="section level3" number="24.2.3">
 <h3><span class="header-section-number">24.2.3</span> Boxplots</h3>
@@ -441,7 +440,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb116-2"><a href="RUnivEDA.html#cb116-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
 <span id="cb116-3"><a href="RUnivEDA.html#cb116-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Period&quot;</span>,<span class="at">y=</span><span class="st">&quot;Number of Days of Ice Cover&quot;</span>) <span class="sc">+</span></span>
 <span id="cb116-4"><a href="RUnivEDA.html#cb116-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-95-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p><img src="Book107_files/figure-html/unnamed-chunk-100-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>Must declare both <code>x=</code> and <code>y=</code> for a boxplot.</p>
 </div>
@@ -452,7 +451,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">24.3</span> Categorical Data</h2>
 <div id="data-manipulation" class="section level3" number="24.3.1">
 <h3><span class="header-section-number">24.3.1</span> Data Manipulation</h3>
-<p>Methods for summarizing categorical data work best if the categorical variable is recorded as a “factor” variable in R (data types discussed in Section <a href="RData.html#data-types">22.2</a>. Most often the variable will need to be coerced into being a factor variable. For example, the <code>recycle</code> variable in <code>GSS</code> is a character variable by default.</p>
+<p>Methods for summarizing categorical data work best if the categorical variable is recorded as a “factor” variable in R (data types discussed in Section <a href="RData.html#structure-and-data-types">22.3.1</a>. Most often the variable will need to be coerced into being a factor variable. For example, the <code>recycle</code> variable in <code>GSS</code> is a character variable by default.</p>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb117-1"><a href="RUnivEDA.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(GSS)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   &#39;data.frame&#39;: 3539 obs. of  2 variables:
 #R&gt;    $ recycle: chr  &quot;Always&quot; &quot;Always&quot; &quot;Always&quot; &quot;Always&quot; ...
@@ -501,7 +500,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb129-3"><a href="RUnivEDA.html#cb129-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
 <span id="cb129-4"><a href="RUnivEDA.html#cb129-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Respondent&#39;s Response&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Respondents&quot;</span>) <span class="sc">+</span></span>
 <span id="cb129-5"><a href="RUnivEDA.html#cb129-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-102-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p><img src="Book107_files/figure-html/unnamed-chunk-107-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>When making your own bar chart, copy the code above and change <code>data=</code>, <code>x=</code>, and <code>y=</code>.</p>
 </div>
