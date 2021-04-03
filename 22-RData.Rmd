@@ -53,6 +53,29 @@ A univariate EDA for penguin body mass is
 
 &nbsp;
 
+#### Symbols and Greek Letters
+
+Greek letters can be produced in your document using special codes as shown below.
+
+* &alpha; comes from `&alpha;`
+* &beta; comes from `&beta;`
+* &sigma; comes from `&sigma;`
+* &mu; comes from `&mu;`
+* &ne; comes from `&neq;`
+* x&#772; comes from `x&#772;` or x&#x0304; comes from `x&#x0304;`
+* p&#770; comes from `p&#770;` or p&#x0302; comes from `x&#x0302;`
+
+You can create subscripts with paired ~ symbols and superscripts with paired ^ symbols; e.g.,
+
+* &sigma;^2^ comes from `&sigma;^2^`
+* H~A~: &mu;~1~ &ne; &mu;~2~ comes from `H~A~: &mu;~1~ &ne; &mu;~2~`
+
+::: {.tip data-latex=''}
+Please use appropriate symbols in your assignment notebook.
+:::
+
+&nbsp;
+
 #### Including R Code and Results {-}
 Any R code that you use to answer questions should be included in a subsection of R code and results **AFTER** you have answered the questions. You can create a subsection for this code by starting a line with "#### R Code and Results".
 

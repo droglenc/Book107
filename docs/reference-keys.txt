@@ -300,6 +300,7 @@ cola-taste-test
 RData
 r-notebooks
 including-text-in-the-notebook
+symbols-and-greek-letters
 compile-notebook-to-msword
 data-in-r
 create-csv-file
