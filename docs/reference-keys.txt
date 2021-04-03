@@ -301,6 +301,8 @@ RData
 r-notebooks
 including-text-in-the-notebook
 symbols-and-greek-letters
+including-r-code-and-results
+pro-tips
 compile-notebook-to-msword
 data-in-r
 create-csv-file
