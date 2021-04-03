@@ -15,11 +15,7 @@ bears
 &nbsp;
 
 ## Filtering a data frame
-It is common to create a new data frame that contains only some of the individuals from an existing data frame. The process of creating the newer, smaller data frame is called filtering (or subsetting) and is accomplished with `filterD()`.^[`filterD()` requires the `NCStats` package.] The `filterD()` function requires the original data frame as the first argument and a condition statement as the second argument. The condition statement is used to either include or exclude individuals from the original data frame. Condition statements consist of the name of a variable in the original data frame, a comparison operator, and a comparison value (Table \@ref(tab:filterComps)). The results from `filterD()` should be assigned to an object, which is then the name of the new data frame.
-
-::: {.tip data-latex=''}
-`filterD()` is used to create a subset of a data frame.
-:::
+It is common to create a new data frame that contains only some of the individuals from an existing data frame. The process of creating the newer, smaller data frame is called filtering and is accomplished with `filterD()`.^[`filterD()` requires the `NCStats` package.] The `filterD()` function requires the original data frame as the first argument and a condition statement as the second argument. The condition statement is used to either include or exclude individuals from the original data frame. Condition statements consist of the name of a variable in the original data frame, a comparison operator, and a comparison value (Table \@ref(tab:filterComps)). The results from `filterD()` should be assigned to an object, which is then the name of the new data frame.
 
 &nbsp;
 
@@ -27,12 +23,12 @@ It is common to create a new data frame that contains only some of the individua
 data.frame(
   "Comparison Operator"=
     c('`var==value`','`var!=value`','`var %in% c(value1,value2)`',
-      '`var>value`','`var>=value`','`var<value`','`var<=value`',
+      '`var`>`value`','`var`>=`value`','`var`<`value`','`var`<=`value`',
       'condition1,condition2','condition1 | condition2'),
   "Rows Returned from Original Data Frame"=
     c('All rows where `var` **IS equal** to `value`',
       'All rows where `var` **is NOT equal** to `value`',
-      'All rows where `var` **IS IN** vector of `value`s^[`value` should be a character, factor, or integer.]',
+      'All rows where `var` **IS IN** (or one of the) vector of `value`s^[`value` should be a character, factor, or integer.]',
       'All rows where `var` is **greater than** `value`^[`value` must be numeric.]',
       'All rows where `var` is **greater than or equal to** `value`^[`value` must be numeric.]',
       'All rows where `var` is **less than** `value`^[`value` must be numeric.]',
@@ -49,10 +45,6 @@ data.frame(
 
 The following are examples of new data frames created from `bears`. The name of the new data frame (i.e., object left of the assignment operator) can be any valid object name. As demonstrated below, the new data frame should be examined after each filtering to ensure that the data frame actually contains the items that you desire.^[For larger data.frames you should check the structure (using `str()`) or the `headtail()` of the new data frame.]
 
-::: {.tip data-latex=''}
-Examine the new data frame after subsetting to ensure that it contains the data you intended.
-:::
-
 * Only individuals from *Bayfield* county.
 
 ```{r}
@@ -65,6 +57,13 @@ bf
 ```{r}
 bfash <- filterD(bears,loc %in% c("Bayfield","Ashland"))
 bfash
+```
+
+* Individuals *NOT* from *Bayfield* county.
+
+```{r}
+bfnotbay <- filterD(bears,loc != "Bayfield")
+bfnotbay
 ```
 
 * Individuals with a weight greater than 100 kg.
@@ -81,16 +80,41 @@ do150 <- filterD(bears,loc=="Douglas",weight.kg>=150)
 do150
 ```
 
+::: {.tip data-latex=''}
+Examine the new data frame after filtering to ensure that it contains the data you intended.
+:::
+
+## Selecting Entire Variables
+As noted in Section \@ref(structure-and-data-types), whole variables can be selected from a data frame with the \$ notation. Recall that the \$ separates the name of the data frame from the name of the variable within that data frame.
+
+* The weights of all bears (i.e., in the `bears` data frame).
+
+```{r}
+bears$weight.kg
+```
+
+* The weights of all bears in Ashland and Bayfield counties (i.e., in `bfash` from above).
+
+```{r}
+bfash$weight.kg
+```
+
+* The location of all bears in just Bayfield county (i.e., in `bf` from above). [*You might use something like this to check your filtering.*]
+
+```{r}
+bf$loc
+```
+
 &nbsp;
 
 ## Selecting Individuals
-In some instances, you may need to select or exclude an individual from a data frame. Positions within an object are identified within square brackets. As data frames are two-dimensional objects they are indexed by a row and a column, in that order. For example, the item in the third row and second column of `bears` is selected below.
+In some instances, you may need to select or exclude an individual from a data frame. Positions within an object are identified within square brackets. As data frames are two-dimensional objects they are indexed by both a row and a column, in that order. For example, the item in the third row and second column of `bears` is selected below.
 
 ```{r}
 bears[3,2]
 ```
 
-An entire row or column may be selected by omitting the other dimension. For example, one could select the entire second column with `bears[,2]`, but this is also the `weight.kg` variable and is better selected with `bears$weight.kg`. As a better example, the entire third row is selected below (note that the column designation was omitted).
+An entire row or column may be selected by omitting the other dimension. For example, one could select the entire second column with `bears[,2]`.^[But this is also the `weight.kg` variable and is better selected with `bears$weight.kg`.] As a better example, the entire third row is selected below (note how the column designation was omitted).
 
 ```{r}
 bears[3,]

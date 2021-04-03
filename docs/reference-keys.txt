@@ -310,6 +310,7 @@ structure-and-data-types
 vectors
 RFilter
 filtering-a-data-frame
+selecting-entire-variables
 selecting-individuals
 RUnivEDA
 quantitative

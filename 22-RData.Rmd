@@ -100,7 +100,7 @@ If the code in this chunk depends on code in previous chunks being run then pres
 &nbsp;
 
 #### Vertical Spacing {-}
-If you would like to add some vertical spacing between parts of your notebook (e.g., between sections, between code and paragraphs, etc.) then add a "br" between less than and greater than signs (see below) with a blank line both above and below it where you want the vertical spacing. For example,
+If you would like to add some vertical spacing between parts of your notebook (e.g., between sections, between code and paragraphs, etc.) then add a "\<br\>" with a blank line both above and below it where you want the vertical spacing. For example,
 
 ```{r echo=FALSE, out.width='90%'}
 knitr::include_graphics("zimgs/Notebook_UseOfBR.JPG")
