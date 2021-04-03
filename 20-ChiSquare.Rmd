@@ -3,13 +3,7 @@ Situations where a categorical response variable is recorded would be summarized
 
 
 ## Chi-Square Distribution
-A chi-square (&chi;^2^) distribution is generally right-skewed (Figure \@ref(fig:chiDist)), with the exact shape dictated by the degrees-of-freedom (df); as the df increase the sharpness of the skew decreases (Figure \@ref(fig:chiDist)). In its simplest form, the &chi;^2^ distribution arises as a sampling distribution for the &chi;^2^ test statistic,
-
-$$ \chi^{2} = \sum_{cells}\frac{(Observed-Expected)^{2}}{Expected} $$
-
-where "Observed" and "Expected" represent the observed and expected counts in the cells of frequency tables (see Module \@ref(UnivSum) and Module \@ref(BEDACat)). Thus, the &chi;^2^ distribution arises from comparing frequencies in two tables.^[Subsequent sections demonstrate how this test statistic is used to compare observed frequencies (i.e., from a sample) to expected frequencies (i.e., from a null hypothesis).]
-
-&nbsp;
+A chi-square (&chi;^2^) distribution is generally right-skewed (Figure \@ref(fig:chiDist)), with the exact shape dictated by the degrees-of-freedom (df); as the df increase the sharpness of the skew decreases (Figure \@ref(fig:chiDist)).
 
 ```{r chiDist, echo=FALSE, fig.cap='$\\chi^2$ distributions with varying degrees-of-freedom.'}
 d <- NULL
@@ -31,9 +25,15 @@ ggplot(data=d,mapping=aes(x=x,y=y,color=df)) +
 
 &nbsp;
 
+In its simplest form, the &chi;^2^ distribution arises as a sampling distribution for the &chi;^2^ test statistic,
+
+$$ \chi^{2} = \sum_{cells}\frac{(Observed-Expected)^{2}}{Expected} $$
+
+where "Observed" and "Expected" represent the observed and expected counts in the cells of frequency tables (see Module \@ref(UnivSum) and Module \@ref(BEDACat)). Thus, the &chi;^2^ distribution arises from comparing frequencies in two tables.^[Subsequent sections demonstrate how this test statistic is used to compare observed frequencies (i.e., from a sample) to expected frequencies (i.e., from a null hypothesis).]
+
 Unlike the normal and t distributions, the &chi;^2^ distribution always represents the two-tailed situation, although the "two tails" will appear as one tail on the right side of the distribution. The simplest explanation for this characteristic is that the "squaring" in the calculation of the &chi;^2^ test statistic results in what would be a "negative tail" being "folded over" onto what is the "positive tail."  Thus, all probability (i.e., area) calculations on a &chi;^2^ distribution represent the two-tailed alternative hypotheses.
 
-Proportional areas on a &chi;^2^ distribution are computed with `disrib()`. The major differences with a &chi;^2^ distribution is that `distrib="chisq"` must be used in `distrib()` and the degrees-of-freedom must be given to `df=` (how to find the df will be discussed in subsequent sections). In addition, `lower.tail=FALSE` is always used when computing a p-value because the upper-tail probability represents the two-tailed alternative hypothesis inherent to all Chi-Square Tests. For example, the area right of &chi;^2^=6.456 on a &chi;^2^ distribution with 2 df is `r formatC(pchisq(6.456,df=2,lower.tail=FALSE),format="f",digits=4)` (Figure \@ref(fig:chiarea1)).
+Proportional areas on a &chi;^2^ distribution are computed with `disrib()`. The major differences with a &chi;^2^ distribution is that `distrib="chisq"` must be used in `distrib()` and the degrees-of-freedom must be given to `df=`.^[How to find the df will be discussed in subsequent sections.] In addition, `lower.tail=FALSE` is always used when computing a p-value because the upper-tail probability represents the two-tailed alternative hypothesis inherent to all Chi-Square Tests. For example, the area right of &chi;^2^=6.456 on a &chi;^2^ distribution with 2 df is `r formatC(pchisq(6.456,df=2,lower.tail=FALSE),format="f",digits=4)` (Figure \@ref(fig:chiarea1)).
 
 ```{r chiarea1, echo=-1, results="hide", fig.cap="Depiction of the area to the right of $\\chi^2=6.456$ on a $\\chi^2$ distribution with 2 df."}
 par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
@@ -125,7 +125,7 @@ The Chi-Square Test is characterized by a categorical response variable recorded
 * **Null Hypothesis:** "The distribution of individuals into the levels of the response variable is the same for all groups"
 * **Alternative Hypothesis:** "The distribution of individuals into the levels of the response variable is NOT the same for all groups."
 * **Statistic:** Observed frequency table.
-* **Test Statistic:** &chi;^2^=$\sum_{cells}\frac{(Observed-Expected)^{2}}{Expected}$
+* **Test Statistic:** &chi;^2^=$\sum_{\text{cells}}\frac{(\text{Observed}-\text{Expected})^{2}}{\text{Expected}}$
 * **df:** (r-1)&times;(c-1) where r is number of rows and c is the number of columns
 * **Assumptions:** Expected value for each category is &geq;5.
 * **Use with:** Categorical response, two or more groups (or populations).
@@ -134,7 +134,7 @@ A confidence region is not usually constructed for a Chi-Square Test because of 
 
 ## Examples
 ### Christmas Trees
-Below are the 11-steps (Section \@ref(Hyp11Steps)) for a full hypothesis test for the Christmas tree example.
+Below are the 11-steps (Section \@ref(Hyp11Steps)) for a full hypothesis test for the Christmas tree example introduced above.
 
 1. &alpha;=0.10.
 1. H~0~: "distribution of households by type of tree is the same for urban and rural households" vs. H~A~: "distribution of households by type of tree is NOT the same for urban and rural households."
@@ -158,3 +158,67 @@ par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
 ```
 
 &nbsp;
+
+### Dolphin Behavior
+Researchers observed groups of dolphins off the coast of Iceland near Keflavik in 1998. The researchers recorded the time of the day and the main activity of the group, whether traveling quickly, feeding, or socializing. The number of dolphin groups observed by each time of day and activity is shown in Table \@ref(tab:DolphinObs). Use this information to determine, at the 5% level if the proportion of groups exhibiting each activity differs by time of day.
+
+```{r DolphinChi, echo=FALSE, results='hide', warning=FALSE}
+obs <- matrix(c(6,28,38,10,7,9,15,1,10,13,56,10),nrow=4,byrow=TRUE)
+rownames(obs) <- c("Morning","Noon","Afternoon","Evening")
+colnames(obs) <- c("Travel","Feed","Social")
+( chi1 <- chisq.test(obs,correct=FALSE) )
+```
+
+```{r DolphinObs, echo=FALSE, background='white', comment=""}
+knitr::kable(addmargins(chi1$observed),booktabs=TRUE,digits=1,
+             caption="Observed frequencies of dolphin observations in each activity type and time of day.") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(c(0,5),bold=TRUE) %>%
+  kableExtra::column_spec(c(1,5),bold=TRUE) %>%
+  kableExtra::column_spec(1:5,width="0.75in")
+```
+
+&nbsp;
+
+1. &alpha; = 0.05.
+1. The H<sub>0</sub>: "The distribution of dolphin groups into each activity type is the same among times of day" versus H<sub>A</sub>: "The disribution of dolphin groups into each activity type is NOT the same among times of day."
+1. A chi-square test is required because
+    i. a categorical variable with three levels (activity type) was measured and
+    i. four groups (times of day) are being compared.
+1. An observational study that is not obviously a random sample was used.
+1. The test statistic below will follow a &chi;^2^ distribution because the expected number in each cell is greater than five (Table \@ref(tab:DolphinExp)).
+
+```{r DolphinExp, echo=FALSE}
+knitr::kable(addmargins(chi1$expected),booktabs=TRUE,digits=1,
+             caption="Expected frequencies of dolphin observations in each activity type and time of day.") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(c(0,5),bold=TRUE) %>%
+  kableExtra::column_spec(c(1,5),bold=TRUE) %>%
+  kableExtra::column_spec(1:5,width="0.75in")
+```
+
+&nbsp;
+
+6. The table of observed values is in Table \@ref(tab:DolphinObs).
+1. The &chi;^2^ test statistic is `r formatC(chi1$statistic,format="f",digits=3)` (=`r paste(formatC(chi1$residuals^2,format="f",digits=3),collapse=" + ")`) with `r chi1$parameter` df (=(`r nrow(chi1$observed)`-1)&times;(`r ncol(chi1$observed)`-1)).
+1. The p-value for this test statistic is `r kPvalue(chi1$p.value,include.p=FALSE,latex=FALSE)` (more specifically it is `r formatC(1-pchisq(68.400,df=6),digits=2)`).
+1. The H~0~ is rejected because the p-value < &alpha;.
+1. There appears to be a difference in the distribution of dolphin groups into each activity type among the four times of day. In fact, it appears that dolphins tend to socialize more in the mornings, travel during the noon and afternoon periods, and feed in the evenings (Table \@ref(tab:DolphinPerc)).
+
+```{r DolphinPerc, echo=FALSE, background='white', comment=""}
+knitr::kable(percTable(chi1$observed,margin=1),booktabs=TRUE,digits=1,
+             caption="The percentage of dolphin observations in each activity type by time of day.") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(0,bold=TRUE) %>%
+  kableExtra::column_spec(c(1,5),bold=TRUE) %>%
+  kableExtra::column_spec(1:5,width="0.75in")
+```
+
+&nbsp;
+
+11. Not needed for a chi-square test.
+
+### R Appendix: {-}
+```{r eval=FALSE}
+distrib(68.400,distrib="chisq",df=6,lower.tail=FALSE)
+```

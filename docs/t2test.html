@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-04-01" />
+<meta name="date" content="2021-04-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -434,31 +434,32 @@ Organic
 <p> </p>
 <ol style="list-style-type: decimal">
 <li>α = 0.05.</li>
-<li>H<sub>0</sub>:μ<sub>s</sub>-μ<sub>o</sub> = 0 vs H<sub>A</sub>:μ<sub>s</sub>-μ<sub>o</sub> &gt; 0, where μ is the mean plant height, s represents synthetic fertilizer, and o represents organic fertilizer. [<em>Note that positive differences represent larger values for synthetic fertilizer; thus, H<sub>A</sub> represents synthetic fertilizer producing taller plants.</em>]</li>
+<li>H<sub>0</sub>:μ<sub>o</sub>-μ<sub>s</sub> = 0 vs H<sub>A</sub>:μ<sub>o</sub>-μ<sub>s</sub> &lt; 0, where μ is the mean plant height, o represents organic fertilizer, and s represents synthetic fertilizer. [<em>Note that negative differences represent larger values for synthetic fertilizer; thus, H<sub>A</sub> represents synthetic fertilizer producing taller plants.</em>]</li>
 <li>A 2-Sample t-Test is required because …
 <ol style="list-style-type: lower-roman">
 <li>a quantitative variable (height) was measured,</li>
 <li>two groups are being compared (synthetic and organic fertilizers), and</li>
 <li>plants in the two groups were <strong>IN</strong>dependent as the plants were not paired, plants were not tested over time, etc.</li>
 </ol></li>
-<li>The data appear to be part of an experiment (the researcher imposed the treatments on the plants) with no clear indication of random selection of plants or random allocation of plants to the two treatments.
+<li>The data appear to be part of an experiment (the researcher imposed the treatments on the plants) with no clear indication of random selection of plants or random allocation of plants to the two treatments.</li>
+<li>The assumptions are met as shown below.
 <ol style="list-style-type: lower-roman">
-<li>n<sub>s</sub>+n<sub>o</sub> = 50≥40,</li>
+<li>n<sub>o</sub>+n<sub>s</sub> = 50≥40,</li>
 <li>individuals in the two groups are independent as discussed above, and</li>
 <li>the population variances appear to be equal because the Levene’s Test p-value (0.1341) is &gt;α.</li>
 </ol></li>
-<li><span class="math inline">\(\bar{\text{x}}\)</span><sub>s</sub>-<span class="math inline">\(\bar{\text{x}}\)</span><sub>o</sub> = 51.46 - 47.49 = 3.97. Additionally, <span class="math inline">\(\text{s}_{\text{p}}^{2}=\frac{(25-1)5.975^{2}+(25-1)6.721^{2}}{25+25-2}\)</span> = 40.44 and <span class="math inline">\(\text{SE}_{\bar{\text{x}}_{\text{s}}-\bar{\text{x}}_{\text{o}}}=\sqrt{40.44\left(\frac{1}{25}+\frac{1}{25} \right)}\)</span> = 1.799.</li>
-<li>t = <span class="math inline">\(\frac{3.97-0}{1.799}\)</span> = <span class="math inline">\(\frac{3.97}{1.799}\)</span> = 2.207 with 25+25-2 = 48 df.</li>
+<li><span class="math inline">\(\bar{\text{x}}\)</span><sub>o</sub>-<span class="math inline">\(\bar{\text{x}}\)</span><sub>s</sub> = 47.79 - 51.46 = -3.97. Additionally, <span class="math inline">\(\text{s}_{\text{p}}^{2}=\frac{(25-1)6.721^{2}+(25-1)5.975^{2}}{25+25-2}\)</span> = 40.44 and <span class="math inline">\(\text{SE}_{\bar{\text{x}}_{\text{o}}-\bar{\text{x}}_{\text{s}}}=\sqrt{40.44\left(\frac{1}{25}+\frac{1}{25} \right)}\)</span> = 1.799.</li>
+<li>t = <span class="math inline">\(\frac{-3.97-0}{1.799}\)</span> = <span class="math inline">\(\frac{-3.97}{1.799}\)</span> = -2.207 with 25+25-2 = 48 df.</li>
 <li>p-value = 0.0161.</li>
 <li>H<sub>0</sub> is rejected because the p-value&lt;α.</li>
 <li>The average height of the corn plants appears to be greater for plants grown with synthetic fertilizer than for plants grown with organic fertilizer.</li>
-<li>I am 95% confident that plants grown with synthetic fertilizer are more than 0.95 cm taller, on average, than plants grown with the organic fertilizer. [<em>Note 3.97-1.677×1.799 = 3.97 - 3.02 = 0.95.</em>]</li>
+<li>I am 95% confident that plants grown with synthetic fertilizer are more than 0.95 cm taller, on average, than plants grown with the organic fertilizer. [<em>Note -3.97+1.677×1.799 = -3.97 + 3.02 = -0.95.</em>]</li>
 </ol>
 <div id="r-appendix-3" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb42-1"><a href="t2test.html#cb42-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">2.207</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">48</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb42-1"><a href="t2test.html#cb42-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">2.207</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">48</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-50-1.png" width="336" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb43-1"><a href="t2test.html#cb43-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">48</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb43-1"><a href="t2test.html#cb43-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">48</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-50-2.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 </div>
@@ -478,7 +479,8 @@ Organic
 <li>two groups are being compared (music or no music), and</li>
 <li>individuals in the two groups are independent (i.e., they were not paired, were not otherwise related, etc.).</li>
 </ol></li>
-<li>The data appear to be an experiment as the music treatment was imparted by the surgeon, but there is no obvious random selection or allocation in this study.
+<li>The data appear to be an experiment as the music treatment was imparted by the surgeon, but there is no obvious random selection or allocation in this study.</li>
+<li>The assumptions are met as shown below.
 <ol style="list-style-type: lower-roman">
 <li>n<sub>w</sub>+n<sub>wo</sub> = 68≥40,</li>
 <li>individuals in the two groups are independent as described above, and</li>

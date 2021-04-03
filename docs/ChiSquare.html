@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-04-01" />
+<meta name="date" content="2021-04-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -340,10 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Situations where a categorical response variable is recorded would be summarized with a frequency or percentage table (see Modules <a href="UnivSum.html#UnivSum">4</a> and <a href="BEDACat.html#BEDACat">10</a>). The appropriate test statistic in these situations is a chi-square rather than a t. The Chi-Square Test test statistic follows a chi-square distribution, which is introduced below. The rest of this module is dedicated to the general Chi-Square Test where the distribution of a categorical response variable is compared between two or more groups (or populations). The related goodness-of-fit test for a categorical response recorded for only one group (or population) is introduced in Module <a href="GOFTest.html#GOFTest">21</a>.</p>
 <div id="chi-square-distribution" class="section level2" number="20.1">
 <h2><span class="header-section-number">20.1</span> Chi-Square Distribution</h2>
-<p>A chi-square (χ<sup>2</sup>) distribution is generally right-skewed (Figure <a href="ChiSquare.html#fig:chiDist">20.1</a>), with the exact shape dictated by the degrees-of-freedom (df); as the df increase the sharpness of the skew decreases (Figure <a href="ChiSquare.html#fig:chiDist">20.1</a>). In its simplest form, the χ<sup>2</sup> distribution arises as a sampling distribution for the χ<sup>2</sup> test statistic,</p>
-<p><span class="math display">\[ \chi^{2} = \sum_{cells}\frac{(Observed-Expected)^{2}}{Expected} \]</span></p>
-<p>where “Observed” and “Expected” represent the observed and expected counts in the cells of frequency tables (see Module <a href="UnivSum.html#UnivSum">4</a> and Module <a href="BEDACat.html#BEDACat">10</a>). Thus, the χ<sup>2</sup> distribution arises from comparing frequencies in two tables.<a href="#fn71" class="footnote-ref" id="fnref71"><sup>71</sup></a></p>
-<p> </p>
+<p>A chi-square (χ<sup>2</sup>) distribution is generally right-skewed (Figure <a href="ChiSquare.html#fig:chiDist">20.1</a>), with the exact shape dictated by the degrees-of-freedom (df); as the df increase the sharpness of the skew decreases (Figure <a href="ChiSquare.html#fig:chiDist">20.1</a>).</p>
 <div class="figure" style="text-align: center"><span id="fig:chiDist"></span>
 <img src="Book107_files/figure-html/chiDist-1.png" alt="$\chi^2$ distributions with varying degrees-of-freedom." width="336" />
 <p class="caption">
@@ -351,8 +348,11 @@ Figure 20.1: <span class="math inline">\(\chi^2\)</span> distributions with vary
 </p>
 </div>
 <p> </p>
+<p>In its simplest form, the χ<sup>2</sup> distribution arises as a sampling distribution for the χ<sup>2</sup> test statistic,</p>
+<p><span class="math display">\[ \chi^{2} = \sum_{cells}\frac{(Observed-Expected)^{2}}{Expected} \]</span></p>
+<p>where “Observed” and “Expected” represent the observed and expected counts in the cells of frequency tables (see Module <a href="UnivSum.html#UnivSum">4</a> and Module <a href="BEDACat.html#BEDACat">10</a>). Thus, the χ<sup>2</sup> distribution arises from comparing frequencies in two tables.<a href="#fn71" class="footnote-ref" id="fnref71"><sup>71</sup></a></p>
 <p>Unlike the normal and t distributions, the χ<sup>2</sup> distribution always represents the two-tailed situation, although the “two tails” will appear as one tail on the right side of the distribution. The simplest explanation for this characteristic is that the “squaring” in the calculation of the χ<sup>2</sup> test statistic results in what would be a “negative tail” being “folded over” onto what is the “positive tail.” Thus, all probability (i.e., area) calculations on a χ<sup>2</sup> distribution represent the two-tailed alternative hypotheses.</p>
-<p>Proportional areas on a χ<sup>2</sup> distribution are computed with <code>disrib()</code>. The major differences with a χ<sup>2</sup> distribution is that <code>distrib="chisq"</code> must be used in <code>distrib()</code> and the degrees-of-freedom must be given to <code>df=</code> (how to find the df will be discussed in subsequent sections). In addition, <code>lower.tail=FALSE</code> is always used when computing a p-value because the upper-tail probability represents the two-tailed alternative hypothesis inherent to all Chi-Square Tests. For example, the area right of χ<sup>2</sup>=6.456 on a χ<sup>2</sup> distribution with 2 df is 0.0396 (Figure <a href="ChiSquare.html#fig:chiarea1">20.2</a>).</p>
+<p>Proportional areas on a χ<sup>2</sup> distribution are computed with <code>disrib()</code>. The major differences with a χ<sup>2</sup> distribution is that <code>distrib="chisq"</code> must be used in <code>distrib()</code> and the degrees-of-freedom must be given to <code>df=</code>.<a href="#fn72" class="footnote-ref" id="fnref72"><sup>72</sup></a> In addition, <code>lower.tail=FALSE</code> is always used when computing a p-value because the upper-tail probability represents the two-tailed alternative hypothesis inherent to all Chi-Square Tests. For example, the area right of χ<sup>2</sup>=6.456 on a χ<sup>2</sup> distribution with 2 df is 0.0396 (Figure <a href="ChiSquare.html#fig:chiarea1">20.2</a>).</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb46-1"><a href="ChiSquare.html#cb46-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">6.456</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">2</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:chiarea1"></span>
 <img src="Book107_files/figure-html/chiarea1-1.png" alt="Depiction of the area to the right of $\chi^2=6.456$ on a $\chi^2$ distribution with 2 df." width="336" />
@@ -363,7 +363,7 @@ Figure 20.2: Depiction of the area to the right of <span class="math inline">\(\
 </div>
 <div id="chi-square-test-specifics" class="section level2" number="20.2">
 <h2><span class="header-section-number">20.2</span> Chi-Square Test Specifics</h2>
-<p>Researchers commonly want to compare the distribution of individuals into the levels of a categorical variable among two or more groups (or populations). For example, researchers may want to determine if the distribution of failing students differs between males and females, if the distribution of kids playing sports differs between kids from high- or low-income families, if the distribution of four major plant species differs between two locations, or if the distribution of responses to a five-choice question differs between respondents from neighboring counties. All of these questions have a categorical response variable (fail or not, play sport or not, plant species, answer to five-choice question) compared among two or more groups (gender, income category, two locations, neighboring counties). The Chi-Square Test, the subject of this module, can be used for each of these situations.<a href="#fn72" class="footnote-ref" id="fnref72"><sup>72</sup></a></p>
+<p>Researchers commonly want to compare the distribution of individuals into the levels of a categorical variable among two or more groups (or populations). For example, researchers may want to determine if the distribution of failing students differs between males and females, if the distribution of kids playing sports differs between kids from high- or low-income families, if the distribution of four major plant species differs between two locations, or if the distribution of responses to a five-choice question differs between respondents from neighboring counties. All of these questions have a categorical response variable (fail or not, play sport or not, plant species, answer to five-choice question) compared among two or more groups (gender, income category, two locations, neighboring counties). The Chi-Square Test, the subject of this module, can be used for each of these situations.<a href="#fn73" class="footnote-ref" id="fnref73"><sup>73</sup></a></p>
 <div id="hypotheses" class="section level3" number="20.2.1">
 <h3><span class="header-section-number">20.2.1</span> Hypotheses</h3>
 <p>The statistical hypotheses for a Chi-Square Test are “wordy.” To explore this, let’s first assume that a two-way frequency table (see Module <a href="BEDACat.html#BEDACat">10</a>) will summarize the data where the rows correspond to separate groups and the columns correspond to levels of the response variable. In this organization, the Chi-Square Test null hypothesis is that the row percentages are equal – i.e., “the percentage distribution of individuals into the levels of the response variable is the same for all groups.” The alternative hypothesis states that there is some difference among the row percentages – i.e., “the percentage distribution of individuals into the levels of the response variable is NOT the same for all groups.”</p>
@@ -514,7 +514,7 @@ ALL
 <p> </p>
 <p>The Chi-Square Test requires constructing a table of expected values that are derived from the null hypothesis. Specifically, the “expected” table contains the expected frequency of individuals in each level of the response variable for each group assuming that the distribution of responses does not differ among groups. These expected tables are computed from the margins of the observed table, but are best explained with an illustrative example.</p>
 <p>In the Christmas tree example, the null hypothesis states that there is no difference in the distribution of households with a natural tree between the rural and urban areas. Thus, under this null hypothesis, one would expect the proportion (or percentage) of households with a natural tree to be the same in both groups. The proportion of households with a natural tree, regardless of location, is <span class="math inline">\(\frac{153}{421}\)</span>=0.363. Thus, under the null hypothesis, the proportion of rural AND the proportion of urban households with a natural tree is 0.363. Because there is a different number of urban and rural households in the study, the actual NUMBER (rather than proportion) of households expected to have a natural tree will differ. The NUMBER of urban households expected to HAVE a natural tree is found by multiplying the number of urban households by the common proportion computed above – i.e., 261×0.363=94.743. The remaining urban households would be expected to NOT have a natural tree – i.e., 261-94.743=261×(1-0.363)=166.257. Similar calculations are made for the rural households (i.e., 160×0.363=58.080 expected to have a natural tree and 160×(1-0.363)=101.920 expected to NOT have a natural tree.</p>
-<p>These expected frequencies are computed directly and easily from the marginal totals of the observed frequency table (Table <a href="ChiSquare.html#tab:ChiTreeObs">20.1</a>). For example, substituting the fractional representation of the decimal proportions into the calculation of the expected number of urban households with a natural tree gives 261×<span class="math inline">\(\frac{153}{421}\)</span>=<span class="math inline">\(\frac{261\times153}{421}\)</span>=94.853<a href="#fn73" class="footnote-ref" id="fnref73"><sup>73</sup></a>. A close examination of this formula and the marginal totals in Table <a href="ChiSquare.html#tab:ChiTreeObs">20.1</a> shows that this value is equal to the product of the corresponding row and column marginal totals in the observed table divided by the total number of individuals. The other expected values follow a similar pattern as follows,</p>
+<p>These expected frequencies are computed directly and easily from the marginal totals of the observed frequency table (Table <a href="ChiSquare.html#tab:ChiTreeObs">20.1</a>). For example, substituting the fractional representation of the decimal proportions into the calculation of the expected number of urban households with a natural tree gives 261×<span class="math inline">\(\frac{153}{421}\)</span>=<span class="math inline">\(\frac{261\times153}{421}\)</span>=94.853<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a>. A close examination of this formula and the marginal totals in Table <a href="ChiSquare.html#tab:ChiTreeObs">20.1</a> shows that this value is equal to the product of the corresponding row and column marginal totals in the observed table divided by the total number of individuals. The other expected values follow a similar pattern as follows,</p>
 <ul>
 <li>261×<span class="math inline">\(\frac{268}{421}=\frac{261\times268}{421}\)</span>=166.147 urban households to NOT have a natural tree.</li>
 <li>160×<span class="math inline">\(\frac{153}{421}=\frac{160\times153}{421}\)</span>=58.147 rural households to have a natural tree.</li>
@@ -594,7 +594,7 @@ Sum
 <li><strong>Null Hypothesis:</strong> “The distribution of individuals into the levels of the response variable is the same for all groups”</li>
 <li><strong>Alternative Hypothesis:</strong> “The distribution of individuals into the levels of the response variable is NOT the same for all groups.”</li>
 <li><strong>Statistic:</strong> Observed frequency table.</li>
-<li><strong>Test Statistic:</strong> χ<sup>2</sup>=<span class="math inline">\(\sum_{cells}\frac{(Observed-Expected)^{2}}{Expected}\)</span></li>
+<li><strong>Test Statistic:</strong> χ<sup>2</sup>=<span class="math inline">\(\sum_{\text{cells}}\frac{(\text{Observed}-\text{Expected})^{2}}{\text{Expected}}\)</span></li>
 <li><strong>df:</strong> (r-1)×(c-1) where r is number of rows and c is the number of columns</li>
 <li><strong>Assumptions:</strong> Expected value for each category is ≥5.</li>
 <li><strong>Use with:</strong> Categorical response, two or more groups (or populations).</li>
@@ -606,7 +606,7 @@ Sum
 <h2><span class="header-section-number">20.3</span> Examples</h2>
 <div id="christmas-trees" class="section level3" number="20.3.1">
 <h3><span class="header-section-number">20.3.1</span> Christmas Trees</h3>
-<p>Below are the 11-steps (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) for a full hypothesis test for the Christmas tree example.</p>
+<p>Below are the 11-steps (Section <a href="Ztest.html#Hyp11Steps">17.1</a>) for a full hypothesis test for the Christmas tree example introduced above.</p>
 <ol style="list-style-type: decimal">
 <li>α=0.10.</li>
 <li>H<sub>0</sub>: “distribution of households by type of tree is the same for urban and rural households” vs. H<sub>A</sub>: “distribution of households by type of tree is NOT the same for urban and rural households.”</li>
@@ -629,8 +629,353 @@ Sum
 <div class="sourceCode" id="cb47"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb47-1"><a href="ChiSquare.html#cb47-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">1.4927</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-52-1.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
-
 </div>
+</div>
+<div id="dolphin-behavior" class="section level3" number="20.3.2">
+<h3><span class="header-section-number">20.3.2</span> Dolphin Behavior</h3>
+<p>Researchers observed groups of dolphins off the coast of Iceland near Keflavik in 1998. The researchers recorded the time of the day and the main activity of the group, whether traveling quickly, feeding, or socializing. The number of dolphin groups observed by each time of day and activity is shown in Table <a href="ChiSquare.html#tab:DolphinObs">20.4</a>. Use this information to determine, at the 5% level if the proportion of groups exhibiting each activity differs by time of day.</p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:DolphinObs">Table 20.4: </span>Observed frequencies of dolphin observations in each activity type and time of day.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+Travel
+</th>
+<th style="text-align:right;font-weight: bold;">
+Feed
+</th>
+<th style="text-align:right;font-weight: bold;">
+Social
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Morning
+</td>
+<td style="text-align:right;width: 0.75in; ">
+6
+</td>
+<td style="text-align:right;width: 0.75in; ">
+28
+</td>
+<td style="text-align:right;width: 0.75in; ">
+38
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Noon
+</td>
+<td style="text-align:right;width: 0.75in; ">
+10
+</td>
+<td style="text-align:right;width: 0.75in; ">
+7
+</td>
+<td style="text-align:right;width: 0.75in; ">
+9
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Afternoon
+</td>
+<td style="text-align:right;width: 0.75in; ">
+15
+</td>
+<td style="text-align:right;width: 0.75in; ">
+1
+</td>
+<td style="text-align:right;width: 0.75in; ">
+10
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Evening
+</td>
+<td style="text-align:right;width: 0.75in; ">
+13
+</td>
+<td style="text-align:right;width: 0.75in; ">
+56
+</td>
+<td style="text-align:right;width: 0.75in; ">
+10
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;font-weight: bold;width: 0.75in; ">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+44
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+92
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+67
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;width: 0.75in; ">
+203
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<ol style="list-style-type: decimal">
+<li>α = 0.05.</li>
+<li>The H<sub>0</sub>: “The distribution of dolphin groups into each activity type is the same among times of day” versus H<sub>A</sub>: “The disribution of dolphin groups into each activity type is NOT the same among times of day.”</li>
+<li>A chi-square test is required because
+<ol style="list-style-type: lower-roman">
+<li>a categorical variable with three levels (activity type) was measured and</li>
+<li>four groups (times of day) are being compared.</li>
+</ol></li>
+<li>An observational study that is not obviously a random sample was used.</li>
+<li>The test statistic below will follow a χ<sup>2</sup> distribution because the expected number in each cell is greater than five (Table <a href="ChiSquare.html#tab:DolphinExp">20.5</a>).</li>
+</ol>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:DolphinExp">Table 20.5: </span>Expected frequencies of dolphin observations in each activity type and time of day.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+Travel
+</th>
+<th style="text-align:right;font-weight: bold;">
+Feed
+</th>
+<th style="text-align:right;font-weight: bold;">
+Social
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Morning
+</td>
+<td style="text-align:right;width: 0.75in; ">
+15.6
+</td>
+<td style="text-align:right;width: 0.75in; ">
+32.6
+</td>
+<td style="text-align:right;width: 0.75in; ">
+23.8
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Noon
+</td>
+<td style="text-align:right;width: 0.75in; ">
+5.6
+</td>
+<td style="text-align:right;width: 0.75in; ">
+11.8
+</td>
+<td style="text-align:right;width: 0.75in; ">
+8.6
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Afternoon
+</td>
+<td style="text-align:right;width: 0.75in; ">
+5.6
+</td>
+<td style="text-align:right;width: 0.75in; ">
+11.8
+</td>
+<td style="text-align:right;width: 0.75in; ">
+8.6
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+26
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Evening
+</td>
+<td style="text-align:right;width: 0.75in; ">
+17.1
+</td>
+<td style="text-align:right;width: 0.75in; ">
+35.8
+</td>
+<td style="text-align:right;width: 0.75in; ">
+26.1
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+79
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;font-weight: bold;width: 0.75in; ">
+Sum
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+44.0
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+92.0
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+67.0
+</td>
+<td style="text-align:right;font-weight: bold;font-weight: bold;width: 0.75in; ">
+203
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<ol start="6" style="list-style-type: decimal">
+<li>The table of observed values is in Table <a href="ChiSquare.html#tab:DolphinObs">20.4</a>.</li>
+<li>The χ<sup>2</sup> test statistic is 68.400 (=5.913 + 3.380 + 15.561 + 0.993 + 0.657 + 1.942 + 9.868 + 11.393 + 8.529 + 0.020 + 0.235 + 9.909) with 6 df (=(4-1)×(3-1)).</li>
+<li>The p-value for this test statistic is &lt;0.00005 (more specifically it is 8.7e-13).</li>
+<li>The H<sub>0</sub> is rejected because the p-value &lt; α.</li>
+<li>There appears to be a difference in the distribution of dolphin groups into each activity type among the four times of day. In fact, it appears that dolphins tend to socialize more in the mornings, travel during the noon and afternoon periods, and feed in the evenings (Table <a href="ChiSquare.html#tab:DolphinPerc">20.6</a>).</li>
+</ol>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:DolphinPerc">Table 20.6: </span>The percentage of dolphin observations in each activity type by time of day.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+Travel
+</th>
+<th style="text-align:right;font-weight: bold;">
+Feed
+</th>
+<th style="text-align:right;font-weight: bold;">
+Social
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Morning
+</td>
+<td style="text-align:right;width: 0.75in; ">
+8.3
+</td>
+<td style="text-align:right;width: 0.75in; ">
+38.9
+</td>
+<td style="text-align:right;width: 0.75in; ">
+52.8
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+100.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Noon
+</td>
+<td style="text-align:right;width: 0.75in; ">
+38.5
+</td>
+<td style="text-align:right;width: 0.75in; ">
+26.9
+</td>
+<td style="text-align:right;width: 0.75in; ">
+34.6
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+100.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Afternoon
+</td>
+<td style="text-align:right;width: 0.75in; ">
+57.7
+</td>
+<td style="text-align:right;width: 0.75in; ">
+3.8
+</td>
+<td style="text-align:right;width: 0.75in; ">
+38.5
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+100.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.75in; ">
+Evening
+</td>
+<td style="text-align:right;width: 0.75in; ">
+16.5
+</td>
+<td style="text-align:right;width: 0.75in; ">
+70.9
+</td>
+<td style="text-align:right;width: 0.75in; ">
+12.7
+</td>
+<td style="text-align:right;font-weight: bold;width: 0.75in; ">
+100.1
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<ol start="11" style="list-style-type: decimal">
+<li>Not needed for a chi-square test.</li>
+</ol>
+</div>
+<div id="r-appendix-6" class="section level3 unnumbered">
+<h3>R Appendix:</h3>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb48-1"><a href="ChiSquare.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">68.400</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">6</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+
 </div>
 </div>
 </div>
@@ -638,8 +983,9 @@ Sum
 <hr />
 <ol start="71">
 <li id="fn71"><p>Subsequent sections demonstrate how this test statistic is used to compare observed frequencies (i.e., from a sample) to expected frequencies (i.e., from a null hypothesis).<a href="ChiSquare.html#fnref71" class="footnote-back">↩︎</a></p></li>
-<li id="fn72"><p>The Chi-Square Test is quite flexible and can be derived from different types of hypotheses than those described here.<a href="ChiSquare.html#fnref72" class="footnote-back">↩︎</a></p></li>
-<li id="fn73"><p>Note a slight difference here because 0.363 was rounded to three decimals, whereas the fraction is not rounded.<a href="ChiSquare.html#fnref73" class="footnote-back">↩︎</a></p></li>
+<li id="fn72"><p>How to find the df will be discussed in subsequent sections.<a href="ChiSquare.html#fnref72" class="footnote-back">↩︎</a></p></li>
+<li id="fn73"><p>The Chi-Square Test is quite flexible and can be derived from different types of hypotheses than those described here.<a href="ChiSquare.html#fnref73" class="footnote-back">↩︎</a></p></li>
+<li id="fn74"><p>Note a slight difference here because 0.363 was rounded to three decimals, whereas the fraction is not rounded.<a href="ChiSquare.html#fnref74" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

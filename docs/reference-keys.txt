@@ -122,8 +122,12 @@ fig:chiarea1
 tab:ChiTreeObs
 tab:ChiTreeObsPerc
 tab:ChiTreeExp
+tab:DolphinObs
+tab:DolphinExp
+tab:DolphinPerc
 tab:WYOtable
 tab:PEAtable
+tab:ColaOE
 tab:filterComps
 fig:Rpchs
 fig:CrabTempHist
@@ -284,6 +288,7 @@ tables
 specifics
 examples-4
 christmas-trees
+dolphin-behavior
 GOFTest
 goodness-of-fit-test-specifics
 the-hypotheses
@@ -291,6 +296,7 @@ the-tables
 specifics-1
 examples-5
 coins
+cola-taste-test
 RData
 ncstats-package
 data-types

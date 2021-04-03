@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-04-01" />
+<meta name="date" content="2021-04-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -503,7 +503,7 @@ Sum
 </tr>
 </tbody>
 </table>
-<p>The hypothesis test method developed in the following sections will be used to determine if the differences between the expected and observed frequencies is “large” enough to suggest that the observed frequencies do not support the distribution represented in the null hypothesis.</p>
+<p>The hypothesis test method developed in the following sections will be used to determine if the differences between the expected and observed frequencies are “large” enough to suggest that the observed frequencies do not support the distribution represented in the null hypothesis.</p>
 </div>
 <div id="specifics-1" class="section level3" number="21.1.3">
 <h3><span class="header-section-number">21.1.3</span> Specifics</h3>
@@ -511,20 +511,20 @@ Sum
 <ul>
 <li><strong>Hypotheses:</strong> H<sub>0</sub>: “the observed distribution of individuals into the levels follows the `theoretical distribution’” vs H<sub>A</sub>: “the observed distribution of individuals into the levels DOES NOT follow the ‘theoretical distribution.’”</li>
 <li><strong>Statistic:</strong> Observed frequency table.</li>
-<li><strong>Test Statistic:</strong> <span class="math inline">\(\chi^{2} = \sum_{cells}\frac{(Observed-Expected)^{2}}{Expected}\)</span></li>
+<li><strong>Test Statistic:</strong> <span class="math inline">\(\chi^{2} = \sum_{\text{cells}}\frac{(\text{Observed-Expected)}^{2}}{\text{Expected}}\)</span></li>
 <li><strong>df:</strong> Number of levels minus 1.</li>
 <li><strong>Assumptions:</strong> Expected value in each level is ≥5.</li>
-<li><strong>Confidence Interval (for one level):</strong> <span class="math inline">\(\hat{p} \pm Z^{*}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span></li>
+<li><strong>Confidence Interval (for one level):</strong> <span class="math inline">\(\hat{\text{p}}\)</span> ± Z<sup>*</sup><span class="math inline">\(\sqrt{\frac{\hat{\text{p}}(1-\hat{\text{p}})}{\text{n}}}\)</span></li>
 <li><strong>Use with:</strong> Categorical response, one group (or population), comparing to a theoretical distribution.</li>
 </ul>
 <p> </p>
 <p>It is cumbersome to produce a confidence interval in a Goodness-of-Fit Test because there generally is not a single parameter (i.e., there are as many parameters as levels in the response variable). Confidence intervals can be calculated for the proportions in each level as shown below. However, confidence intervals will only be “hand”-calculated when there are two levels. When using R (as discussed in a later module), confidence intervals will be computed for all levels, no matter the number of levels.</p>
-<p>Let <span class="math inline">\(p\)</span> be the population proportion in a particular level and <span class="math inline">\(\hat{p}\)</span> be the sample proportion in the same interval. The <span class="math inline">\(\hat{p}\)</span> is computed by dividing the frequency of individuals in this level by the total number of individuals in the sample (i.e., n). The <span class="math inline">\(\hat{p}\)</span> is a statistic that is subject to sampling variable with that sampling variability measured by <span class="math inline">\(SE_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}\)</span> for “large” values of n. For “large” values of n the <span class="math inline">\(\hat{p}\)</span> will follow a normal distribution such that a confidence interval for <span class="math inline">\(p\)</span> is computed using the general confidence interval formula found in Section <a href="ConfRegions1.html#constructing-confidence-regions">15.2</a> and repeated below:</p>
-<p><span class="math display">\[ \text{&quot;Statistic&quot;} + \text{&quot;scaling factor&quot;} * SE_{statistic} \]</span></p>
-<p>where the scaling factor is the familiar Z<sup>*</sup>. Thus, the confidence interval for <span class="math inline">\(p\)</span> is constructed with</p>
-<p><span class="math display">\[ \hat{p} \pm Z^{*}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \]</span></p>
+<p>Let p be the population proportion in a particular level and <span class="math inline">\(\hat{\text{p}}\)</span> be the sample proportion in the same interval. The <span class="math inline">\(\hat{\text{p}}\)</span> is computed by dividing the frequency of individuals in this level by the total number of individuals in the sample (i.e., n). The <span class="math inline">\(\hat{\text{p}}\)</span> is a statistic that is subject to sampling variable with that sampling variability measured by <span class="math inline">\(\text{SE}_{\hat{\text{p}}}=\sqrt{\frac{\hat{\text{p}}(1-\hat{\text{p}})}{\text{n}}}\)</span> for “large” values of n. For “large” values of n the <span class="math inline">\(\hat{\text{p}}\)</span> will follow a normal distribution such that a confidence interval for p is computed using the general confidence interval formula found in Section <a href="ConfRegions1.html#constructing-confidence-regions">15.2</a> and repeated below:</p>
+<p><span class="math display">\[ \text{&quot;Statistic&quot;} + \text{&quot;scaling factor&quot;} * \text{SE}_{\text{statistic}} \]</span></p>
+<p>where the scaling factor is the familiar Z<sup>*</sup>. Thus, the confidence interval for p is constructed with</p>
+<p><span class="math display">\[ \hat{\text{p}} \pm \text{Z}^{*}\sqrt{\frac{\hat{\text{p}}(1-\hat{\text{p}})}{\text{n}}} \]</span></p>
 <p>Note that one does not need to worry about lower and upper bounds, only confidence intervals will be computed, because of the two-tailed nature of the chi-square test statistic.</p>
-<p>In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was <span class="math inline">\(\hat{p}\)</span>=<span class="math inline">\(\frac{196}{371}\)</span>=0.528. The standard error for this sample proportion is <span class="math inline">\(\sqrt{\frac{0.528(1-0.528)}{371}}\)</span>=0.026. For a 95% confidence interval, Z<sup>*</sup>=±1.960.<a href="#fn74" class="footnote-ref" id="fnref74"><sup>74</sup></a> Thus, the confidence interval is 0.528±1.960×0.026 or 0.528±0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.</p>
+<p>In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was <span class="math inline">\(\hat{\text{p}}\)</span>=<span class="math inline">\(\frac{196}{371}\)</span>=0.528. The standard error for this sample proportion is <span class="math inline">\(\sqrt{\frac{0.528(1-0.528)}{371}}\)</span>=0.026. For a 95% confidence interval, Z<sup>*</sup>=±1.960.<a href="#fn75" class="footnote-ref" id="fnref75"><sup>75</sup></a> Thus, the confidence interval is 0.528±1.960×0.026 or 0.528±0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.</p>
 </div>
 </div>
 <div id="examples-5" class="section level2" number="21.2">
@@ -545,8 +545,7 @@ Sum
 <li>the frequency of responses is being compared to a hypothesized distribution in the null hypothesis.</li>
 </ol></li>
 <li>The data appear to be part of an observational study with no clear indication of random selection of individuals.</li>
-<li>The expected number in the “oppose” level is 80×0.77=61.6. The expected number in the “do not oppose” category is 80×0.23=18.4. These expectations are shown in the table in the next step. The assumption of more than five individual in all cells of the expected table has been met.</li>
-<li>The observed table is shown below (along with the expected table).</li>
+<li>The expected number in the “oppose” level is 80×0.77=61.6. The expected number in the “do not oppose” category is 80×0.23=18.4. These expectations are shown in the table below. The assumption of more than five individual in all cells of the expected table has been met.</li>
 </ol>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
@@ -598,20 +597,101 @@ Sum
 </tr>
 </tbody>
 </table>
-<ol start="7" style="list-style-type: decimal">
-<li>χ<sup>2</sup>=<span class="math inline">\(\frac{(61.6-54)^{2}}{55} + \frac{(18.4-26)^{2}}{25}\)</span>=0.938 + 3.139 = 4.077 with 2-1=1 df.</li>
-<li>p-value=0.0435.</li>
+<ol start="6" style="list-style-type: decimal">
+<li>The observed table is shown above (along with the expected table).</li>
+<li>χ<sup>2</sup>=<span class="math inline">\(\frac{(61.6-54)^{2}}{54} + \frac{(18.4-26)^{2}}{26}\)</span>=1.070 + 2.222 = 3.292 with 2-1=1 df.</li>
+<li>p-value=0.0696.</li>
 <li>H<sub>0</sub> is rejected because the p-value&lt;α=0.10.</li>
 <li>The proportion of Ashland residents that oppose replacing the $1 bill with the $1 coin does appear to be different from the proportion (0.77) reported for the general population.</li>
-<li>I am 90% confident that the proportion of all Ashland residents opposed to the $1 coin is between 0.596 and 0.767 [i.e., <span class="math inline">\(\frac{54}{80}\pm1.645\times\sqrt{\frac{0.68125*0.31875}{80}}\)</span>=<span class="math inline">\(0.68125\pm1.645\times0.0521\)</span>=0.68125±0.0857=(0.5956,0.7670).]</li>
+<li>I am 90% confident that the proportion of all Ashland residents opposed to the $1 coin is between 0.596 and 0.767 [i.e., <span class="math inline">\(\frac{54}{80}\)</span>±1.645×<span class="math inline">\(\sqrt{\frac{0.68125*0.31875}{80}}\)</span>=0.68125±1.645*times;0.0521$=0.68125±0.0857=(0.5956,0.7670).]</li>
 </ol>
-<div id="r-appendix-6" class="section level4 unnumbered">
+<div id="r-appendix-7" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb48-1"><a href="GOFTest.html#cb48-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">4.077</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-54-1.png" width="336" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb49-1"><a href="GOFTest.html#cb49-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-54-2.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb49-1"><a href="GOFTest.html#cb49-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">3.292</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-55-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb50-1"><a href="GOFTest.html#cb50-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-55-2.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
+</div>
+</div>
+<div id="cola-taste-test" class="section level3" number="21.2.2">
+<h3><span class="header-section-number">21.2.2</span> Cola Taste Test</h3>
+<p>A random selection of consumers present at the Mall of America were allowed to taste three types of cola (Pepsi, Coke, and a generic brand). After tasting each type (which were supplied to each person in a random order) the person was to select which cola they preferred. The results indicated that 57 people preferred Pepsi, 63 preferred Coke, and 34 preferred the generic brand. Is there evidence, at the 5% level, that these customers prefer one brand over the others?</p>
+<ol style="list-style-type: decimal">
+<li>α = 0.05.</li>
+<li>The H<sub>0</sub>: “The distribution of individuals is <span class="math inline">\(\frac{1}{3}\)</span> (i.e., no preference) for each cola type” versus H<sub>A</sub>: “The distribution of individuals is note <span class="math inline">\(\frac{1}{3}\)</span> (i.e., no preference) for each cola type.”</li>
+<li>A goodness-of-fit test is required because a
+<ol style="list-style-type: lower-roman">
+<li>categorical variable (preference) with three levels is recorded,</li>
+<li>a single group/population was recorded, and</li>
+<li>the observed frequencies are being compared to a theoretical distribution in the null hypothesis.</li>
+</ol></li>
+<li>The data appear to be part of an observational study where the individuals were randomly selected.</li>
+<li>The expected frequencies are equal to the total number of observations times the expected proportions, which is <span class="math inline">\(\frac{1}{3}\)</span>, for each level (this is the same as dividing the total number of observations by three for each level; Table <a href="GOFTest.html#tab:ColaOE">21.3</a>). The test statistic below should follow a χ<sup>2</sup> distribution because there is more than five individuals expected in each of the three levels.</li>
+</ol>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:ColaOE">Table 21.3: </span>Observed and expected frequencies of respondents preference for three types of cola.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+observed
+</th>
+<th style="text-align:right;font-weight: bold;">
+expected
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;width: 0.75in; font-weight: bold;">
+pepsi
+</td>
+<td style="text-align:right;width: 0.75in; ">
+57
+</td>
+<td style="text-align:right;width: 0.75in; ">
+51.33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 0.75in; font-weight: bold;">
+coke
+</td>
+<td style="text-align:right;width: 0.75in; ">
+63
+</td>
+<td style="text-align:right;width: 0.75in; ">
+51.33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;width: 0.75in; font-weight: bold;">
+generic
+</td>
+<td style="text-align:right;width: 0.75in; ">
+34
+</td>
+<td style="text-align:right;width: 0.75in; ">
+51.33
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="6" style="list-style-type: decimal">
+<li>The observed frequency table is in Table <a href="GOFTest.html#tab:ColaOE">21.3</a>.</li>
+<li>The χ<sup>2</sup> test statistic is =<span class="math inline">\(\frac{(57-51.333)^{2}}{51.333} + \frac{(63-51.333)^{2}}{51.333} + \frac{(34-51.333)^{2}}{51.333}\)</span> = 0.627 + 2.652 + 5.853 = 9.132, with 3-1=2 df.</li>
+<li>The p-value is 0.0104</li>
+<li>The H<sub>0</sub> is rejected because the p-value &lt; α.</li>
+<li>There appears to be a preference exhibited among the consumers. It appears that the generic brand is generally not preferred (i.e., observed is much less than expected frequency).</li>
+</ol>
+<div id="r-appendix-8" class="section level4 unnumbered">
+<h4>R Appendix:</h4>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb51-1"><a href="GOFTest.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">9.132</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">2</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-56-1.png" width="336" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
@@ -619,8 +699,8 @@ Sum
 </div>
 <div class="footnotes">
 <hr />
-<ol start="74">
-<li id="fn74"><p>This Z<sup>*</sup> is computed with <code>distrib(0.975,type="q")</code>.<a href="GOFTest.html#fnref74" class="footnote-back">↩︎</a></p></li>
+<ol start="75">
+<li id="fn75"><p>This Z<sup>*</sup> is computed with <code>distrib(0.975,type="q")</code>.<a href="GOFTest.html#fnref75" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

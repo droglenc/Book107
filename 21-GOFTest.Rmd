@@ -66,34 +66,34 @@ knitr::kable(booktabs=TRUE,digits=c(0,3,0),caption="Expected and observed freque
   kableExtra::column_spec(2:3,width="0.75in")
 ```
 
-The hypothesis test method developed in the following sections will be used to determine if the differences between the expected and observed frequencies is "large" enough to suggest that the observed frequencies do not support the distribution represented in the null hypothesis.
+The hypothesis test method developed in the following sections will be used to determine if the differences between the expected and observed frequencies are "large" enough to suggest that the observed frequencies do not support the distribution represented in the null hypothesis.
 
 ### Specifics
 The Goodness-of-Fit Test is characterized by a single categorical response variable. The hypotheses tested usually cannot be converted to mathematical symbols and are thus "wordy." Specifics of the Goodness-of-Fit Test are below.
 
 * **Hypotheses:** H~0~: "the observed distribution of individuals into the levels follows the `theoretical distribution'" vs H~A~: "the observed distribution of individuals into the levels DOES NOT follow the 'theoretical distribution'."
 * **Statistic:** Observed frequency table.
-* **Test Statistic:** $\chi^{2} = \sum_{cells}\frac{(Observed-Expected)^{2}}{Expected}$
+* **Test Statistic:** $\chi^{2} = \sum_{\text{cells}}\frac{(\text{Observed-Expected)}^{2}}{\text{Expected}}$
 * **df:** Number of levels minus 1.
 * **Assumptions:** Expected value in each level is &geq;5.
-* **Confidence Interval (for one level):** $\hat{p} \pm Z^{*}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$
+* **Confidence Interval (for one level):** $\hat{\text{p}}$ &plusmn; Z^\*^$\sqrt{\frac{\hat{\text{p}}(1-\hat{\text{p}})}{\text{n}}}$
 * **Use with:** Categorical response, one group (or population), comparing to a theoretical distribution.
 
 &nbsp;
 
 It is cumbersome to produce a confidence interval in a Goodness-of-Fit Test because there generally is not a single parameter (i.e., there are as many parameters as levels in the response variable). Confidence intervals can be calculated for the proportions in each level as shown below. However, confidence intervals will only be "hand"-calculated when there are two levels. When using R (as discussed in a later module), confidence intervals will be computed for all levels, no matter the number of levels.
 
-Let $p$ be the population proportion in a particular level and $\hat{p}$ be the sample proportion in the same interval. The $\hat{p}$ is computed by dividing the frequency of individuals in this level by the total number of individuals in the sample (i.e., n). The $\hat{p}$ is a statistic that is subject to sampling variable with that sampling variability measured by $SE_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n}}$ for "large" values of n. For "large" values of n the $\hat{p}$ will follow a normal distribution such that a confidence interval for $p$ is computed using the general confidence interval formula found in Section \@ref(constructing-confidence-regions) and repeated below:
+Let p be the population proportion in a particular level and $\hat{\text{p}}$ be the sample proportion in the same interval. The $\hat{\text{p}}$ is computed by dividing the frequency of individuals in this level by the total number of individuals in the sample (i.e., n). The $\hat{\text{p}}$ is a statistic that is subject to sampling variable with that sampling variability measured by $\text{SE}_{\hat{\text{p}}}=\sqrt{\frac{\hat{\text{p}}(1-\hat{\text{p}})}{\text{n}}}$ for "large" values of n. For "large" values of n the $\hat{\text{p}}$ will follow a normal distribution such that a confidence interval for p is computed using the general confidence interval formula found in Section \@ref(constructing-confidence-regions) and repeated below:
 
-$$ \text{"Statistic"} + \text{"scaling factor"} * SE_{statistic} $$
+$$ \text{"Statistic"} + \text{"scaling factor"} * \text{SE}_{\text{statistic}} $$
 
-where the scaling factor is the familiar Z^\*^. Thus, the confidence interval for $p$ is constructed with
+where the scaling factor is the familiar Z^\*^. Thus, the confidence interval for p is constructed with
 
-$$ \hat{p} \pm Z^{*}\sqrt{\frac{\hat{p}(1-\hat{p})}{n}} $$
+$$ \hat{\text{p}} \pm \text{Z}^{*}\sqrt{\frac{\hat{\text{p}}(1-\hat{\text{p}})}{\text{n}}} $$
 
 Note that one does not need to worry about lower and upper bounds, only confidence intervals will be computed, because of the two-tailed nature of the chi-square test statistic.
 
-In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was $\hat{p}$=$\frac{196}{371}$=0.528. The standard error for this sample proportion is $\sqrt{\frac{0.528(1-0.528)}{371}}$=0.026. For a 95\% confidence interval, Z^\*^=&plusmn;`r formatC(qnorm(0.975),format="f",digits=3)`.^[This Z^\*^ is computed with `distrib(0.975,type="q")`.] Thus, the confidence interval is 0.528&plusmn;1.960&times;0.026 or 0.528&plusmn;0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.
+In the Wyoming survey example, the proportion of respondents in the sample that either disagreed or strongly disagreed was $\hat{\text{p}}$=$\frac{196}{371}$=0.528. The standard error for this sample proportion is $\sqrt{\frac{0.528(1-0.528)}{371}}$=0.026. For a 95\% confidence interval, Z^\*^=&plusmn;`r formatC(qnorm(0.975),format="f",digits=3)`.^[This Z^\*^ is computed with `distrib(0.975,type="q")`.] Thus, the confidence interval is 0.528&plusmn;1.960&times;0.026 or 0.528&plusmn;0.051 or (0.477,0.579). Therefore, one is 95% confident that the population proportion that either disagreed or strongly disagreed is between 0.477 and 0.579. Because there are only two levels in this example it can also be said with 95% confidence that the population proportion that did not either disagree or strongly disagree is between 0.421 and 0.523.
 
 ## Examples
 ### \$1 Coins
@@ -108,8 +108,7 @@ Below are the 11-steps (Section \@ref(Hyp11Steps)) for completing a full hypothe
     ii. a single group (or population) was considered (Ashland residents), and
     iii. the frequency of responses is being compared to a hypothesized distribution in the null hypothesis.
 1. The data appear to be part of an observational study with no clear indication of random selection of individuals.
-1. The expected number in the "oppose" level is 80&times;0.77=61.6. The expected number in the "do not oppose" category is 80&times;0.23=18.4. These expectations are shown in the table in the next step. The assumption of more than five individual in all cells of the expected table has been met.
-1. The observed table is shown below (along with the expected table).
+1. The expected number in the "oppose" level is 80&times;0.77=61.6. The expected number in the "do not oppose" category is 80&times;0.23=18.4. These expectations are shown in the table below. The assumption of more than five individual in all cells of the expected table has been met.
 
 ```{r echo=FALSE}
 tibble(Level=c("Oppose","Do Not Oppose","Sum"),
@@ -122,18 +121,59 @@ knitr::kable(booktabs=TRUE) %>%
   kableExtra::column_spec(2:3,width="0.75in")
 ```
 
-7. &chi;^2^=$\frac{(61.6-54)^{2}}{55} + \frac{(18.4-26)^{2}}{25}$=0.938 + 3.139 = 4.077 with 2-1=1 df.
-1. p-value=`r kPvalue(pchisq(4.077,df=1,lower.tail=FALSE),include.p=FALSE,latex=FALSE)`.
+6. The observed table is shown above (along with the expected table).
+1. &chi;^2^=$\frac{(61.6-54)^{2}}{54} + \frac{(18.4-26)^{2}}{26}$=1.070 + 2.222 = 3.292 with 2-1=1 df.
+1. p-value=`r kPvalue(pchisq(3.292,df=1,lower.tail=FALSE),include.p=FALSE,latex=FALSE)`.
 1. H~0~ is rejected because the p-value<&alpha;=0.10.
 1. The proportion of Ashland residents that oppose replacing the \$1 bill with the \$1 coin does appear to be different from the proportion (0.77) reported for the general population.
-1. I am 90% confident that the proportion of all Ashland residents opposed to the \$1 coin is between 0.596 and 0.767 [i.e., $\frac{54}{80}\pm1.645\times\sqrt{\frac{0.68125*0.31875}{80}}$=$0.68125\pm1.645\times0.0521$=0.68125&plusmn;0.0857=(0.5956,0.7670).]
+1. I am 90% confident that the proportion of all Ashland residents opposed to the \$1 coin is between 0.596 and 0.767 [i.e., $\frac{54}{80}$&plusmn;1.645&times;$\sqrt{\frac{0.68125*0.31875}{80}}$=0.68125&plusmn;1.645*times;0.0521$=0.68125&plusmn;0.0857=(0.5956,0.7670).]
 
 #### R Appendix: {-}
 ```{r echo=-1, results='hide'}
 par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
     cex.lab=0.95,cex.axis=0.9)
-( distrib(4.077,distrib="chisq",df=1,lower.tail=FALSE) )
+( distrib(3.292,distrib="chisq",df=1,lower.tail=FALSE) )
 ( distrib(0.95,type="q") )
 ```
 
 &nbsp;
+
+### Cola Taste Test
+A random selection of consumers present at the Mall of America were allowed to taste three types of cola (Pepsi, Coke, and a generic brand). After tasting each type (which were supplied to each person in a random order) the person was to select which cola they preferred. The results indicated that 57 people preferred Pepsi, 63 preferred Coke, and 34 preferred the generic brand. Is there evidence, at the 5% level, that these customers prefer one brand over the others?
+
+```{r ColaGOF, echo=FALSE, results='hide'}
+obs <- c(pepsi=57,coke=63,generic=34)
+p.exp <- c(pepsi=1/3,coke=1/3,generic=1/3)
+( chi1 <- chisq.test(obs,p=p.exp,rescale.p=TRUE,correct=FALSE) )
+```
+
+1. &alpha; = 0.05.
+1. The H~0~: "The distribution of individuals is $\frac{1}{3}$ (i.e., no preference) for each cola type" versus H~A~: "The distribution of individuals is note $\frac{1}{3}$ (i.e., no preference) for each cola type."
+1. A goodness-of-fit test is required because a
+    i. categorical variable (preference) with three levels is recorded,
+    i. a single group/population was recorded, and
+    i. the observed frequencies are being compared to a theoretical distribution in the null hypothesis.
+1. The data appear to be part of an observational study where the individuals were randomly selected.
+1. The expected frequencies are equal to the total number of observations times the expected proportions, which is $\frac{1}{3}$, for each level (this is the same as dividing the total number of observations by three for each level; Table \@ref(tab:ColaOE)). The test statistic below should follow a &chi;^2^ distribution because there is more than five individuals expected in each of the three levels.
+
+```{r ColaOE, echo=FALSE}
+data.frame(observed=chi1$observed,expected=round(chi1$expected,2)) %>%
+  knitr::kable(booktabs=TRUE,caption="Observed and expected frequencies of respondents preference for three types of cola.") %>%
+  kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
+  kableExtra::row_spec(0,bold=TRUE) %>%
+  kableExtra::column_spec(1,bold=TRUE,width="0.75in") %>%
+  kableExtra::column_spec(2:3,width="0.75in")
+```
+
+6. The observed frequency table is in Table \@ref(tab:ColaOE).
+1. The &chi;^2^ test statistic is =$\frac{(57-51.333)^{2}}{51.333} + \frac{(63-51.333)^{2}}{51.333} + \frac{(34-51.333)^{2}}{51.333}$ = 0.627 + 2.652 + 5.853 = 9.132, with 3-1=2 df.
+1. The p-value is `r kPvalue(chi1$p.value,include.p=FALSE,latex=FALSE)`
+1. The H~0~ is rejected because the p-value < &alpha;.
+1. There appears to be a preference exhibited among the consumers. It appears that the generic brand is generally not preferred (i.e., observed is much less than expected frequency).
+
+#### R Appendix: {-}
+```{r echo=-1, results='hide'}
+par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
+    cex.lab=0.95,cex.axis=0.9)
+distrib(9.132,distrib="chisq",df=2,lower.tail=FALSE)
+```

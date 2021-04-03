@@ -77,28 +77,29 @@ tibble(Group=c("Synthetic","Organic"),
 &nbsp;
 
 1. &alpha; = 0.05.
-1. H~0~:&mu;~s~-&mu;~o~ = 0 vs H~A~:&mu;~s~-&mu;~o~ > 0, where &mu; is the mean plant height, s represents synthetic fertilizer, and o represents organic fertilizer. [*Note that positive differences represent larger values for synthetic fertilizer; thus, H~A~ represents synthetic fertilizer producing taller plants.*]
+1. H~0~:&mu;~o~-&mu;~s~ = 0 vs H~A~:&mu;~o~-&mu;~s~ < 0, where &mu; is the mean plant height, o represents organic fertilizer, and s represents synthetic fertilizer. [*Note that negative differences represent larger values for synthetic fertilizer; thus, H~A~ represents synthetic fertilizer producing taller plants.*]
 1. A 2-Sample t-Test is required because ...
     i. a quantitative variable (height) was measured,
     i. two groups are being compared (synthetic and organic fertilizers), and
     i. plants in the two groups were **IN**dependent as the plants were not paired, plants were not tested over time, etc.
 1. The data appear to be part of an experiment (the researcher imposed the treatments on the plants) with no clear indication of random selection of plants or random allocation of plants to the two treatments.
-    i. n~s~+n~o~ = 50&geq;40,
+1. The assumptions are met as shown below.
+    i. n~o~+n~s~ = 50&geq;40,
     i. individuals in the two groups are independent as discussed above, and
     i. the population variances appear to be equal because the Levene's Test p-value (0.1341) is >&alpha;.
-1. $\bar{\text{x}}$~s~-$\bar{\text{x}}$~o~ = 51.46 - 47.49 = 3.97. Additionally, $\text{s}_{\text{p}}^{2}=\frac{(25-1)5.975^{2}+(25-1)6.721^{2}}{25+25-2}$ = 40.44 and $\text{SE}_{\bar{\text{x}}_{\text{s}}-\bar{\text{x}}_{\text{o}}}=\sqrt{40.44\left(\frac{1}{25}+\frac{1}{25} \right)}$ = 1.799.
-1. t = $\frac{3.97-0}{1.799}$ = $\frac{3.97}{1.799}$ = 2.207 with 25+25-2 = 48 df.
-1. p-value = `r kPvalue(pt(2.207,df=48,lower.tail=FALSE),include.p=FALSE,latex=FALSE)`.
+1. $\bar{\text{x}}$~o~-$\bar{\text{x}}$~s~ = 47.79 - 51.46 = -3.97. Additionally, $\text{s}_{\text{p}}^{2}=\frac{(25-1)6.721^{2}+(25-1)5.975^{2}}{25+25-2}$ = 40.44 and $\text{SE}_{\bar{\text{x}}_{\text{o}}-\bar{\text{x}}_{\text{s}}}=\sqrt{40.44\left(\frac{1}{25}+\frac{1}{25} \right)}$ = 1.799.
+1. t = $\frac{-3.97-0}{1.799}$ = $\frac{-3.97}{1.799}$ = -2.207 with 25+25-2 = 48 df.
+1. p-value = `r kPvalue(pt(-2.207,df=48),include.p=FALSE,latex=FALSE)`.
 1. H~0~ is rejected because the p-value<&alpha;.
 1. The average height of the corn plants appears to be greater for plants grown with synthetic fertilizer than for plants grown with organic fertilizer.
-1. I am 95% confident that plants grown with synthetic fertilizer are more than 0.95 cm taller, on average, than plants grown with the organic fertilizer. [*Note 3.97-1.677&times;1.799 = 3.97 - 3.02 = 0.95.*]
+1. I am 95% confident that plants grown with synthetic fertilizer are more than 0.95 cm taller, on average, than plants grown with the organic fertilizer. [*Note -3.97+1.677&times;1.799 = -3.97 + 3.02 = -0.95.*]
 
 #### R Appendix: {-}
 ```{r echo=-1, results="hide"}
 par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
     cex.lab=0.95,cex.axis=0.9)
-( pval <- distrib(2.207,distrib="t",df=48,lower.tail=FALSE) )
-( tstar <- distrib(0.95,distrib="t",df=48,type="q",lower.tail=FALSE) )
+( pval <- distrib(-2.207,distrib="t",df=48) )
+( tstar <- distrib(0.95,distrib="t",df=48,type="q") )
 ```
 
 &nbsp;
@@ -115,6 +116,7 @@ Below are the 11-steps (Section \@ref(Hyp11Steps)) for completing a full hypothe
     i. two groups are being compared (music or no music), and
     i. individuals in the two groups are independent (i.e., they were not paired, were not otherwise related, etc.).
 1. The data appear to be an experiment as the music treatment was imparted by the surgeon, but there is no obvious random selection or allocation in this study.
+1. The assumptions are met as shown below.
     i. n~w~+n~wo~ = 68&geq;40,
     i. individuals in the two groups are independent as described above, and
     i. the two population variances appear to be equal because the Levene's Test p-value of 0.089 is greater than &alpha;.
