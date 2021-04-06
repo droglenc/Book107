@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-04-03" />
+<meta name="date" content="2021-04-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -599,15 +599,15 @@ Sum
 </table>
 <ol start="6" style="list-style-type: decimal">
 <li>The observed table is shown above (along with the expected table).</li>
-<li>χ<sup>2</sup>=<span class="math inline">\(\frac{(61.6-54)^{2}}{54} + \frac{(18.4-26)^{2}}{26}\)</span>=1.070 + 2.222 = 3.292 with 2-1=1 df.</li>
-<li>p-value=0.0696.</li>
+<li>χ<sup>2</sup>=<span class="math inline">\(\frac{(54-61.6)^{2}}{61.6} + \frac{(26-18.4)^{2}}{18.4}\)</span>=0.938 + 3.139 = 4.077 with 2-1=1 df.</li>
+<li>p-value=0.0435.</li>
 <li>H<sub>0</sub> is rejected because the p-value&lt;α=0.10.</li>
 <li>The proportion of Ashland residents that oppose replacing the $1 bill with the $1 coin does appear to be different from the proportion (0.77) reported for the general population.</li>
 <li>I am 90% confident that the proportion of all Ashland residents opposed to the $1 coin is between 0.596 and 0.767 [i.e., <span class="math inline">\(\frac{54}{80}\)</span>±1.645×<span class="math inline">\(\sqrt{\frac{0.68125*0.31875}{80}}\)</span>=0.68125±1.645*times;0.0521$=0.68125±0.0857=(0.5956,0.7670).]</li>
 </ol>
 <div id="r-appendix-7" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb49-1"><a href="GOFTest.html#cb49-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">3.292</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb49-1"><a href="GOFTest.html#cb49-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">4.077</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-55-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb50-1"><a href="GOFTest.html#cb50-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-55-2.png" width="336" style="display: block; margin: auto;" /></p>

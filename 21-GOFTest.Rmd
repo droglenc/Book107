@@ -122,8 +122,8 @@ knitr::kable(booktabs=TRUE) %>%
 ```
 
 6. The observed table is shown above (along with the expected table).
-1. &chi;^2^=$\frac{(61.6-54)^{2}}{54} + \frac{(18.4-26)^{2}}{26}$=1.070 + 2.222 = 3.292 with 2-1=1 df.
-1. p-value=`r kPvalue(pchisq(3.292,df=1,lower.tail=FALSE),include.p=FALSE,latex=FALSE)`.
+1. &chi;^2^=$\frac{(54-61.6)^{2}}{61.6} + \frac{(26-18.4)^{2}}{18.4}$=0.938 + 3.139 = 4.077 with 2-1=1 df.
+1. p-value=`r kPvalue(pchisq(4.077,df=1,lower.tail=FALSE),include.p=FALSE,latex=FALSE)`.
 1. H~0~ is rejected because the p-value<&alpha;=0.10.
 1. The proportion of Ashland residents that oppose replacing the \$1 bill with the \$1 coin does appear to be different from the proportion (0.77) reported for the general population.
 1. I am 90% confident that the proportion of all Ashland residents opposed to the \$1 coin is between 0.596 and 0.767 [i.e., $\frac{54}{80}$&plusmn;1.645&times;$\sqrt{\frac{0.68125*0.31875}{80}}$=0.68125&plusmn;1.645*times;0.0521$=0.68125&plusmn;0.0857=(0.5956,0.7670).]
@@ -132,7 +132,7 @@ knitr::kable(booktabs=TRUE) %>%
 ```{r echo=-1, results='hide'}
 par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
     cex.lab=0.95,cex.axis=0.9)
-( distrib(3.292,distrib="chisq",df=1,lower.tail=FALSE) )
+( distrib(4.077,distrib="chisq",df=1,lower.tail=FALSE) )
 ( distrib(0.95,type="q") )
 ```
 
