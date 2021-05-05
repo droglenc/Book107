@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-04-06" />
+<meta name="date" content="2021-05-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -204,6 +204,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.2" data-path="BEDACat.html"><a href="BEDACat.html#percentage-tables"><i class="fa fa-check"></i><b>10.2</b> Percentage Tables</a></li>
 <li class="chapter" data-level="10.3" data-path="BEDACat.html"><a href="BEDACat.html#which-table-to-use"><i class="fa fa-check"></i><b>10.3</b> Which Table to Use?</a></li>
 <li class="chapter" data-level="10.4" data-path="BEDACat.html"><a href="BEDACat.html#example-calculations-1"><i class="fa fa-check"></i><b>10.4</b> Example Calculations</a></li>
+<li class="chapter" data-level="10.5" data-path="BEDACat.html"><a href="BEDACat.html#making-an-overall-summary"><i class="fa fa-check"></i><b>10.5</b> Making an Overall Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="SamplingDist.html"><a href="SamplingDist.html"><i class="fa fa-check"></i><b>11</b> Sampling Distributions</a>
 <ul>
@@ -337,11 +338,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="BEDACat" class="section level1" number="10">
 <h1><span class="header-section-number">Module 10</span> Bivariate EDA - Categorical</h1>
-<p>Two-way frequency tables summarize two categorical variables recorded on the same individual by displaying levels of the first variable as rows and levels of the second variable as columns. Each cell in this table contains the frequency of individuals that were in the corresponding levels of each variable. These frequency tables are often converted to percentage tables for ease of summarization and comparison among populations. This module explores the construction and interpretation of two-way frequency and percentage tables.</p>
-<p>The General Sociological Survey (GSS) is a very large survey that has been administered 25 times since 1972. The purpose of the GSS is to gather data on contemporary American society in order to monitor and explain trends in attitudes, behaviors, and attributes. Data from the following two questions on the GSS are used throughout this module.</p>
+<p>In this module we consider the relationship between two <strong>categorical</strong> variables. For example, the General Sociological Survey (GSS) is a very large survey that has been administered 25 times since 1972. The purpose of the GSS is to gather data on contemporary American society in order to monitor and explain trends in attitudes, behaviors, and attributes. Two questions from a recent GSS are:</p>
 <ol style="list-style-type: decimal">
-<li>What is your highest degree earned? [choices – “less than high school diploma,” “high school diploma,” “junior college,” “bachelors,” or “graduate”; labeled as degree]</li>
-<li>How willing would you be to accept cuts in your standard of living in order to protect the environment? [choices – “very willing,” “fairly willing,” “neither willing nor unwilling,” “not very willing,” or “not at all willing”; labeled as grnsol]</li>
+<li>What is your highest degree earned? [choices – “less than high school diploma,” “high school diploma,” “junior college,” “bachelors,” or “graduate”; labeled as <strong>degree</strong>]</li>
+<li>How willing would you be to accept cuts in your standard of living in order to protect the environment? [choices – “very willing,” “fairly willing,” “neither willing nor unwilling,” “not very willing,” or “not at all willing”; labeled as <strong>grnsol</strong>]</li>
 </ol>
 <p>An example of these data are shown below.</p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
@@ -377,7 +377,7 @@ will
 HS
 </td>
 <td style="text-align:center;width: 1in; ">
-un
+unwill
 </td>
 </tr>
 <tr>
@@ -385,7 +385,7 @@ un
 JC
 </td>
 <td style="text-align:center;width: 1in; ">
-vun
+vunwill
 </td>
 </tr>
 <tr>
@@ -393,7 +393,7 @@ vun
 grad
 </td>
 <td style="text-align:center;width: 1in; ">
-vun
+vunwill
 </td>
 </tr>
 <tr>
@@ -414,9 +414,12 @@ vun
 </tr>
 </tbody>
 </table>
+<p> </p>
+<p>These types of data are summarized with two-way frequency tables as shown in Section <a href="BEDACat.html#frequency-tables">10.1</a> and percentage tables as shown in Section <a href="BEDACat.html#percentage-tables">10.2</a>. Specific questions can be answered from these tables as described in Section <a href="BEDACat.html#which-table-to-use">10.3</a> and illustrated in Section <a href="BEDACat.html#example-calculations-1">10.4</a>.</p>
 <div id="frequency-tables" class="section level2" number="10.1">
 <h2><span class="header-section-number">10.1</span> Frequency Tables</h2>
-<p>A common method of summarizing bivariate categorical data is to count individuals that have each combination of levels of the two categorical variables. For example, how many respondents had less than a HS degree and were very willing, how many had a high school degree and were willing, and so on. The count of the number of individuals of each combination is called a frequency. A two-way frequency table (Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>) offers an efficient way to display these frequencies. For example, 40 of the respondents had less than a high school degree and were very willing to take a cut in their standard of living to protect the environment. Similarly, 542 respondents had a high school degree and were willing to cut their standard of living.</p>
+<p>Bivariate categorical data is summarized by counting the number of individuals that have each combination of the two categorical variables. For example, counting how many respondents had less than a HS degree and were very willing, how many had a high school degree and were willing, and so on.</p>
+<p>The number of individuals of each combination is called a frequency and the frequencies for all combinations are displayed in a two-way frequency table (Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>). For example, 40 of the respondents had less than a high school degree and were very willing to take a cut in their standard of living to protect the environment. Similarly, 542 respondents had a high school degree and were willing to cut their standard of living.</p>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -436,10 +439,10 @@ will
 neither
 </th>
 <th style="text-align:right;font-weight: bold;">
-un
+unwill
 </th>
 <th style="text-align:right;font-weight: bold;">
-vun
+vunwill
 </th>
 <th style="text-align:right;font-weight: bold;">
 Sum
@@ -587,13 +590,22 @@ Sum
 </tr>
 </tbody>
 </table>
-<p> </p>
-<p>The margins of a two-way frequency table may be augmented with row and column totals (as in Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>). Each marginal total represents the distribution of one of the categorical variables, while ignoring the other. The total column represents the distribution of the row variable; in this case, the highest degree completed. The total row represents the distribution of the column variable; in this case, willingness to cut their standard of living to protect the environment. Thus, for example there were 238 respondents whose highest completed degree was junior college and there were 713 respondents who were very unwilling to cut their standard of living to protect the environment.</p>
+<p>A two-way frequency table may be augmented by including row and column totals (as in Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>). Each marginal total represents the distribution of one of the categorical variables, while ignoring the other. For example there were 238 respondents whose highest completed degree was junior college and there were 713 respondents who were very unwilling to cut their standard of living to protect the environment.</p>
+<div class="tip">
+<ul>
+<li><strong>Rows</strong> are horizontal (left-to-right) and <strong>columns</strong> are vertical (top-to-bottom).</li>
+</ul>
+</div>
 <p>If one variable can be considered as the response, then this variable should form the columns of the frequency table. For example, “willingness to cut” could be considered the response variable and it was, appropriately, placed as the column variable in Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>.</p>
+<div class="tip">
+<ul>
+<li>If one of the two variables can be considered a <strong>response</strong> variable than it should be placed in the <strong>columns</strong>.</li>
+</ul>
+</div>
 </div>
 <div id="percentage-tables" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Percentage Tables</h2>
-<p>Two-way frequency tables may be converted to percentage tables for ease of comparison between levels of the variables and also between populations. For example, it is difficult to determine from Table <a href="BEDACat.html#tab:EnvFreq">10.1</a> if respondents with a high school degree are more likely to be very willing to cut their standard of living than respondents with a graduate degree, because there are approximately seven times as many respondents with a high school degree. However, if the frequencies are converted to percentages, then this comparison is easily made. Three types of percentage tables may be constructed from a frequency table.</p>
+<p>Two-way frequency tables may be converted to percentage tables to ease comparing between levels of the response variable or between populations. For example, it is difficult to determine from Table <a href="BEDACat.html#tab:EnvFreq">10.1</a> if respondents with a high school degree were more likely to be very willing to cut their standard of living than respondents with a graduate degree, because there are approximately seven times as many respondents with a high school degree. However, if the frequencies were converted to percentages, then this comparison can be easily made. Three types of percentage tables may be constructed from a frequency table.</p>
 <div id="total-percentage-table" class="section level3" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Total-Percentage Table</h3>
 <p>Each value in a <strong>total-percentage table</strong> is computed by dividing each cell of the frequency table by the total number of ALL individuals in the frequency table and multiplying by 100. For example, the value in the “vwill” column and “ltHS” row of the table-percentage table (Table <a href="BEDACat.html#tab:EnvTblP">10.2</a>) is computed by dividing the value in the “vwill” column and “ltHS” row of the frequency table (i.e., 40; Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>) by the “Sum” of the entire frequency table (i.e., 3955) and multiplying by 100.</p>
@@ -616,10 +628,10 @@ will
 neither
 </th>
 <th style="text-align:right;font-weight: bold;">
-un
+unwill
 </th>
 <th style="text-align:right;font-weight: bold;">
-vun
+vunwill
 </th>
 <th style="text-align:right;font-weight: bold;">
 Sum
@@ -768,11 +780,11 @@ Sum
 </tbody>
 </table>
 <p> </p>
-<p>The value in each cell of a total-percentage table is the percentage OF ALL individuals that have the characteristic of that column AND that row. For example, 1.0% of ALL respondents had less than a high school degree AND were very willing to cut their standard of living to protect the environment. In contrast to the interpretations of the row and column-percentage tables below, interpretations from the table-percentages table DOES refer to ALL respondents.</p>
+<p>The value in each cell of a total-percentage table is the percentage <strong>OF ALL</strong> individuals that have the characteristic of that column AND that row. For example, 1.0% of <strong>ALL</strong> respondents had less than a high school degree AND were very willing to cut their standard of living to protect the environment. In contrast to the interpretations of the row and column-percentage tables below, interpretations from the table-percentages table DOES refer to <strong>ALL</strong> individuals.</p>
 </div>
 <div id="row-percentage-table" class="section level3" number="10.2.2">
 <h3><span class="header-section-number">10.2.2</span> Row-Percentage Table</h3>
-<p>A <strong>row-percentage table</strong> is computed by dividing each cell of the frequency table by the total in the same row of the frequency table and multiplying by 100 (Table <a href="BEDACat.html#tab:EnvRowP">10.3</a>). For example, the value in the “vwill” column and “ltHS” row of the row-percentage table is computed by dividing the value in the “vwill” column and “ltHS” row of the frequency table (i.e., 40; Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>) by the “Sum” of the “ltHS” row of the frequency table (i.e., 646) and multiplying by 100.</p>
+<p>A <strong>row-percentage table</strong> is computed by dividing each cell of the frequency table by the total in the same <strong>ROW</strong> of the frequency table and multiplying by 100 (Table <a href="BEDACat.html#tab:EnvRowP">10.3</a>). For example, the value in the “vwill” column and “ltHS” row of the row-percentage table is computed by dividing the value in the “vwill” column and “ltHS” row of the frequency table (i.e., 40; Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>) by the “Sum” of the “ltHS” <strong>ROW</strong> of the frequency table (i.e., 646) and multiplying by 100.</p>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -792,10 +804,10 @@ will
 neither
 </th>
 <th style="text-align:right;font-weight: bold;">
-un
+unwill
 </th>
 <th style="text-align:right;font-weight: bold;">
-vun
+vunwill
 </th>
 <th style="text-align:right;font-weight: bold;">
 Sum
@@ -921,12 +933,11 @@ grad
 </tbody>
 </table>
 <p> </p>
-<p>The value in each cell of a row-percentage table is the percentage <strong>OF INDIVIDUALS IN THAT ROW</strong> that have the characteristic of that column. For example, 6.2% <strong>OF RESPONDENTS WITH LESS THAN A HIGH SCHOOL DEGREE</strong> are very willing to cut their standard of living to protect the environment.<a href="#fn47" class="footnote-ref" id="fnref47"><sup>47</sup></a></p>
-<p>If the response variable formed the columns, then the row-percentage table allows one to compare percentages in levels of the response (i.e., columns) across groups (i.e., rows). For example, one can see that there is a general decrease in the percentage of respondents that were “very unwilling” to cut their standard of living to protect the environment as the level of education increased (Table <a href="BEDACat.html#tab:EnvRowP">10.3</a>).</p>
+<p>The value in each cell of a row-percentage table is the percentage <strong>OF INDIVIDUALS IN THAT ROW</strong> that have the characteristic of that column. For example, 6.2% <strong>OF RESPONDENTS WITH LESS THAN A HIGH SCHOOL DEGREE</strong> were very willing to cut their standard of living to protect the environment.<a href="#fn47" class="footnote-ref" id="fnref47"><sup>47</sup></a></p>
 </div>
 <div id="column-percentage-table" class="section level3" number="10.2.3">
 <h3><span class="header-section-number">10.2.3</span> Column-Percentage Table</h3>
-<p>A <strong>column-percentage table</strong> is computed by dividing each cell of the frequency table by the total in the same column of the frequency table and multiplying by 100 (Table <a href="BEDACat.html#tab:EnvColP">10.4</a>). For example, the value in the “vwill” column and “ltHS” row on the column-percentage table is computed by dividing the value in the “vwill” column and “ltHS” row of the frequency table (i.e., 40; Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>) by the “Sum” of the “vwill” column of the frequency table (i.e., 208) and multiplying by 100.</p>
+<p>A <strong>column-percentage table</strong> is computed by dividing each cell of the frequency table by the total in the same <strong>COLUMN</strong> of the frequency table and multiplying by 100 (Table <a href="BEDACat.html#tab:EnvColP">10.4</a>). For example, the value in the “vwill” column and “ltHS” row on the column-percentage table is computed by dividing the value in the “vwill” column and “ltHS” row of the frequency table (i.e., 40; Table <a href="BEDACat.html#tab:EnvFreq">10.1</a>) by the “Sum” of the “vwill” <strong>COLUMN</strong> of the frequency table (i.e., 208) and multiplying by 100.</p>
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
@@ -946,10 +957,10 @@ will
 neither
 </th>
 <th style="text-align:right;font-weight: bold;">
-un
+unwill
 </th>
 <th style="text-align:right;font-weight: bold;">
-vun
+vunwill
 </th>
 </tr>
 </thead>
@@ -1077,20 +1088,22 @@ Sum
 </tbody>
 </table>
 <p> </p>
-<p>The value in each cell of a column-percentage table is the percentage <strong>OF ALL INDIVIDUALS IN THAT COLUMN</strong> that have the characteristic of that row. For example, 19.2% <strong>OF RESPONDENTS WHO WERE ERY WILLING TO CUT THEIR STANDARD OF LIVING</strong> had less than a high school degree.<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a></p>
+<p>The value in each cell of a column-percentage table is the percentage <strong>OF ALL INDIVIDUALS IN THAT COLUMN</strong> that have the characteristic of that row. For example, 19.2% <strong>OF RESPONDENTS WHO WERE VERY WILLING TO CUT THEIR STANDARD OF LIVING</strong> had less than a high school degree.<a href="#fn48" class="footnote-ref" id="fnref48"><sup>48</sup></a></p>
 </div>
 </div>
 <div id="which-table-to-use" class="section level2" number="10.3">
 <h2><span class="header-section-number">10.3</span> Which Table to Use?</h2>
-<p>Determining which table to use comes from applying one simple rule and practicing with several tables. The rule comes from determining if the question restricts the frame of reference to a particular level of one of the variables. If the question does restrict to a particular level, then either the row or column-percentage table that similarly restricts the frame of reference must be used. If a restriction to a particular level is not made, then the total-percentage table is used.</p>
-<p>For example, consider the question – “What percentage of respondents with a bachelor’s degree were very unwilling to cut their standard of living to protect the environment?” This question refers to only respondents with bachelor’s degrees (i.e., “… of respondents with a bachelor’s degree …”). Thus, the answer is restricted to the “BS” <em>ROW</em> of the frequency table and, thus, the answer is found in the <em>ROW</em>-percentage table. Therefore, 11.0% of respondents with bachelor’s degrees were very unwilling to cut their standard of living to protect the environment (Table <a href="BEDACat.html#tab:EnvRowP">10.3</a>).</p>
-<p>Now consider the question – “What percentage of all respondents had a high school degree and were very willing to cut their standard of living?” This question does not restrict the frame of reference because it asks “… of all respondents ….” Therefore, from the TOTAL-percentage table (Table <a href="BEDACat.html#tab:EnvTblP">10.2</a>), 2.2% of all respondents had a high school degree and were very willing to cut their standard of living.</p>
-<p>Also consider this question – “What percentage of respondents who were neither willing nor unwilling to cut their standard of living had graduate degrees?” This question refers only to respondents in the NEITHER <em>COLUMN</em> (i.e., “… neither willing nor unwilling …”) and, thus, the answer will come from the <em>COLUMN</em>-percentage table. Therefore, 8.6% of respondents who were neither willing nor unwilling to cut their standard of living had graduate degrees (Table <a href="BEDACat.html#tab:EnvColP">10.4</a>).</p>
+<p>If the question asks for a <strong>number</strong> of individuals then use the frequency table. For example, a frequency table holds the answer to the question of “<strong>How many respondents</strong> with a graduate degree were (only) willing to cut their standard of living to protect the environment” (i.e., 104).</p>
+<p>If the question asks for a percentage of <strong>ALL</strong> individual then use the total percentage table. For example, the total percentage table is used to answer “What percentage <strong>of all respondents</strong> had a high school degree and were very willing to cut their standard of living?” (i.e., 2.2%; Table <a href="BEDACat.html#tab:EnvTblP">10.2</a>).</p>
+<p>If the questions asks for a percentage but the percentage is not of ALL individuals then use either the row or column percentage table depending on which group the question is focused on. If the question is focused on a group represented by a <strong>ROW</strong> then use the row percentage table. For example, the question – “What percentage <strong>of respondents with a bachelor’s degree</strong> were very unwilling to cut their standard of living to protect the environment?” is focused only on respondents with a bachelor’s degree. Because bacherlor’s degrees are shown in a row, then the row percentage table would be used to answer this question (i.e., 11.0%; Table <a href="BEDACat.html#tab:EnvRowP">10.3</a>).</p>
+<p>In contract, the “What percentage <strong>of respondents who were neither willing nor unwilling to cut their standard of living</strong> had graduate degrees?” is focused on those respondents who were neither willing nor unwilling to cut their standard of living, which is represented by a <strong>COLUMN</strong>. Thus, a column percentage table is used to answer this question (i.e., 8.6%; Table <a href="BEDACat.html#tab:EnvColP">10.4</a>).</p>
 <p>Finally, consider this question – “What percentage of all respondents were very willing to cut their standard of living to help the environment?” This question has no restrictions, so the total-percentage table would be used. In addition, this question is only concerned with with the <em>COLUMN</em> variable and, thus, the answer will come from the “Sum” <em>ROW</em>. Therefore, 5.3%, were very willing to cut their standard of living to help the environment.</p>
 <div class="tip">
 <ul>
-<li>To determine which percentage table to use determine what type of restriction, if any, has been placed on the frame of reference for the question.</li>
-<li>If a question does not refer to one of the two variables, then the answer will generally come from the marginal distribution (the “Sum” row or column) of the other variable.</li>
+<li>If the question is about a number of individuals then use the frequency table.</li>
+<li>If the question is about the percentage of ALL individuals then use the table percentage table.</li>
+<li>If the question is about a percentage of only some individuals then determine if the individuals in question are shown in a row (i.e., use the row percentage table) or a column (i.e., use the column percentage table).</li>
+<li>If the question does not refer to one of the two variables, then the answer will generally come from the margin (the “Sum” row or column) of the other variable.</li>
 </ul>
 </div>
 <p> </p>
@@ -1206,29 +1219,131 @@ Sum
 </tr>
 </tbody>
 </table>
-<p>Use these results to answer the following questions.</p>
+<p>Use these results to answer the following questions. [<em>Note that I have highlighted key phrases in the question that are useful for determining which table to use. These phrases will not be underlined in the exercises.</em>]</p>
 <ol style="list-style-type: decimal">
-<li>What percent of “Democrats” believe that Donald Trump’s administration deserves credit for the COVID-19 vaccine rollout?
+<li>What percent <strong>of “Democrats”</strong> believe that Donald Trump’s administration deserves credit for the COVID-19 vaccine rollout?
 <ul>
 <li>Of the 2895 “Democrats” in the sample, 8.6% believed that Donald Trump’s administration deserved credit for the COVID-19 vaccine rollout (=<span class="math inline">\(\frac{249}{2895}\)</span>×100).</li>
 </ul></li>
-<li>What percent of “Republicans” believe that Joseph Biden’s administration deserves credit for the COVID-19 vaccine rollout?
+<li>What percent <strong>of “Republicans”</strong> believe that Joseph Biden’s administration deserves credit for the COVID-19 vaccine rollout?
 <ul>
 <li>Of the 2703 “Replublicans” in the sample, 8.5% believed that Joseph Biden’s administration deserved credit for the COVID-19 vaccine rollout (=<span class="math inline">\(\frac{230}{2703}\)</span>×100).</li>
 </ul></li>
-<li>What percent of those that believe that neither administration deserves credits for the COVID-19 vaccine rollout were “Independents?”
+<li>What percent <strong>of those that believe that neither administration deserves credits for the COVID-19 vaccine rollout</strong> were “Independents?”
 <ul>
 <li>Of the 439 respondent that believed neither administration deserved credit for the COVID-19 vaccine rollout, 24.6% were “Independents” (=<span class="math inline">\(\frac{108}{439}\)</span>×100).</li>
 </ul></li>
-<li>What percent of all respondents were “Independents?”
+<li>What percent <strong>of all respondents</strong> were “Independents?”
 <ul>
 <li>Of the 6469 respondents in the sample, 13.5% were “Independents” (=<span class="math inline">\(\frac{871}{6469}\)</span>×100).</li>
 </ul></li>
-<li>What percent of all respondents were “Democrats” and believed that both administrations deserved credit for the COVID-19 vaccine rollout?
+<li>What percent of <strong>all respondents</strong> were “Democrats” and believed that both administrations deserved credit for the COVID-19 vaccine rollout?
 <ul>
 <li>Of the 6469 respondents in the sample, 6.7% were “Democrats” and believed that both administrations deserved credit for the COVID-19 vaccine rollout (=<span class="math inline">\(\frac{436}{6469}\)</span>×100).</li>
 </ul></li>
 </ol>
+<p> </p>
+</div>
+<div id="making-an-overall-summary" class="section level2" number="10.5">
+<h2><span class="header-section-number">10.5</span> Making an Overall Summary</h2>
+<p>An overall summary for a categorical bivariate EDA can be constructed by describing how the percentage of individuals in the response levels differs across the groups of the explanatory variable. If you followed the recommendation of having the response variable in the columns then this simplifies to describing how the <strong>ROW</strong> percentages differ across the rows.</p>
+<p>For example, from Table <a href="BEDACat.html#tab:EnvRowP">10.3</a> it is evident that there was a general increase in the percentage of respondents that were willing (either “willing” or “very willing”) to cut their standard of living to protect the environment as the level of education increased. In other words, it appears that more formally educated individuals were more willing to sacrifice the standard of living to protect the environment.</p>
+<p>As another example, it is clear that most respondents feel that the candidate that aligns with their party affiliation deserves more of the credit for the COVID-19 vaccine rollout; i.e., more Democrats feel that Biden deserves more credit whereas most Republicans feel that Trump deserves more credit (Table <a href="BEDACat.html#tab:PresRowP">10.6</a>). Independent respondents were fairly evenly split about which president deserves more credit.</p>
+<p> </p>
+<table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:PresRowP">Table 10.6: </span>Row-percentage table of respondent’s political affiliation (rows) and which presidential administration they think deserves more credit for the COVID-19 vaccine rollout (columns).
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;font-weight: bold;">
+</th>
+<th style="text-align:right;font-weight: bold;">
+Trump
+</th>
+<th style="text-align:right;font-weight: bold;">
+Biden
+</th>
+<th style="text-align:right;font-weight: bold;">
+Both
+</th>
+<th style="text-align:right;font-weight: bold;">
+Neither
+</th>
+<th style="text-align:right;font-weight: bold;">
+Sum
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.7in; ">
+Democrat
+</td>
+<td style="text-align:right;width: 0.7in; ">
+8.6
+</td>
+<td style="text-align:right;width: 0.7in; ">
+69.9
+</td>
+<td style="text-align:right;width: 0.7in; ">
+15.1
+</td>
+<td style="text-align:right;width: 0.7in; ">
+6.5
+</td>
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
+100.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.7in; ">
+Republican
+</td>
+<td style="text-align:right;width: 0.7in; ">
+74.5
+</td>
+<td style="text-align:right;width: 0.7in; ">
+8.5
+</td>
+<td style="text-align:right;width: 0.7in; ">
+11.7
+</td>
+<td style="text-align:right;width: 0.7in; ">
+5.3
+</td>
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
+100.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;width: 0.7in; ">
+Independent
+</td>
+<td style="text-align:right;width: 0.7in; ">
+37.1
+</td>
+<td style="text-align:right;width: 0.7in; ">
+35.9
+</td>
+<td style="text-align:right;width: 0.7in; ">
+14.6
+</td>
+<td style="text-align:right;width: 0.7in; ">
+12.4
+</td>
+<td style="text-align:right;font-weight: bold;background-color: beige !important;width: 0.7in; ">
+100.0
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<div class="tip">
+<ul>
+<li>If the response variable is properly placed in the columns of the frequency table, then an overall summary of how the response variables differs (or not) across the groups can be made by comparing across rows of the row percentage table.</li>
+</ul>
+</div>
 <p> </p>
 
 </div>
