@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 20 Chi-Square Test | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 20 Chi-Square Test | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-05-04" />
+<meta name="date" content="2021-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="t2test.html"/>
 <link rel="next" href="GOFTest.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -118,6 +120,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -314,7 +317,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
 <li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
 <li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
@@ -354,7 +356,7 @@ Figure 20.1: <span class="math inline">\(\chi^2\)</span> distributions with vary
 <p>where “Observed” and “Expected” represent the observed and expected counts in the cells of frequency tables (see Module <a href="UnivSum.html#UnivSum">4</a> and Module <a href="BEDACat.html#BEDACat">10</a>). Thus, the χ<sup>2</sup> distribution arises from comparing frequencies in two tables.<a href="#fn71" class="footnote-ref" id="fnref71"><sup>71</sup></a></p>
 <p>Unlike the normal and t distributions, the χ<sup>2</sup> distribution always represents the two-tailed situation, although the “two tails” will appear as one tail on the right side of the distribution. The simplest explanation for this characteristic is that the “squaring” in the calculation of the χ<sup>2</sup> test statistic results in what would be a “negative tail” being “folded over” onto what is the “positive tail.” Thus, all probability (i.e., area) calculations on a χ<sup>2</sup> distribution represent the two-tailed alternative hypotheses.</p>
 <p>Proportional areas on a χ<sup>2</sup> distribution are computed with <code>disrib()</code>. The major differences with a χ<sup>2</sup> distribution is that <code>distrib="chisq"</code> must be used in <code>distrib()</code> and the degrees-of-freedom must be given to <code>df=</code>.<a href="#fn72" class="footnote-ref" id="fnref72"><sup>72</sup></a> In addition, <code>lower.tail=FALSE</code> is always used when computing a p-value because the upper-tail probability represents the two-tailed alternative hypothesis inherent to all Chi-Square Tests. For example, the area right of χ<sup>2</sup>=6.456 on a χ<sup>2</sup> distribution with 2 df is 0.0396 (Figure <a href="ChiSquare.html#fig:chiarea1">20.2</a>).</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb46-1"><a href="ChiSquare.html#cb46-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">6.456</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">2</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb51-1"><a href="ChiSquare.html#cb51-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">6.456</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">2</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:chiarea1"></span>
 <img src="Book107_files/figure-html/chiarea1-1.png" alt="Depiction of the area to the right of $\chi^2=6.456$ on a $\chi^2$ distribution with 2 df." width="336" />
 <p class="caption">
@@ -627,8 +629,8 @@ Sum
 </ol>
 <div id="r-appendix-5" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb47-1"><a href="ChiSquare.html#cb47-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">1.4927</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-52-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb52-1"><a href="ChiSquare.html#cb52-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">1.4927</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-54-1.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 </div>
 </div>
@@ -975,7 +977,7 @@ Evening
 </div>
 <div id="r-appendix-6" class="section level3 unnumbered">
 <h3>R Appendix:</h3>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb48-1"><a href="ChiSquare.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">68.400</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">6</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb53-1"><a href="ChiSquare.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">68.400</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">6</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
 
 </div>
 </div>
@@ -1018,6 +1020,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {

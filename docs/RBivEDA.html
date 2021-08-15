@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 25 Bivariate EDA in R | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 25 Bivariate EDA in R | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-05-04" />
+<meta name="date" content="2021-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="RUnivEDA.html"/>
 <link rel="next" href="RRegression.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -118,6 +120,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -314,7 +317,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
 <li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
 <li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
@@ -342,15 +344,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-sets-1" class="section level4 unnumbered">
 <h4>Data Sets</h4>
 <p>The quantitative summaries and graphics will use the <code>weight</code> (lbs) and highway miles per gallon (<code>HMPG</code>) for 93 cars from the 1993 model year. Ultimately the relationship between highway MPG and the weight of a car is described. These data are in 93cars.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars.csv">data</a>, <a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars_meta.txt">meta</a>) and are loaded into R below with the methods described in Section <a href="RData.html#read-csv-file-into-rstudio">22.2.2</a>.<a href="#fn97" class="footnote-ref" id="fnref97"><sup>97</sup></a></p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb137-1"><a href="RBivEDA.html#cb137-1" aria-hidden="true" tabindex="-1"></a>cars93 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;93cars.csv&quot;</span>)</span>
-<span id="cb137-2"><a href="RBivEDA.html#cb137-2" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(cars93,<span class="at">which=</span><span class="fu">c</span>(<span class="st">&quot;MFG&quot;</span>,<span class="st">&quot;Model&quot;</span>,<span class="st">&quot;Type&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;HMPG&quot;</span>))</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;             MFG   Model    Type Weight HMPG
-#R&gt;   1       Acura Integra   Small   2705   31
-#R&gt;   2       Acura  Legend Midsize   3560   25
-#R&gt;   3        Audi      90 Compact   3375   26
-#R&gt;   91 Volkswagen Corrado  Sporty   2810   25
-#R&gt;   92      Volvo     240 Compact   2985   28
-#R&gt;   93      Volvo     850 Midsize   3245   28</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb142-1"><a href="RBivEDA.html#cb142-1" aria-hidden="true" tabindex="-1"></a>cars93 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;93cars.csv&quot;</span>)</span>
+<span id="cb142-2"><a href="RBivEDA.html#cb142-2" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(cars93,<span class="at">which=</span><span class="fu">c</span>(<span class="st">&quot;MFG&quot;</span>,<span class="st">&quot;Model&quot;</span>,<span class="st">&quot;Type&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;HMPG&quot;</span>))</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;            MFG   Model    Type Weight HMPG
+#R&gt;  1       Acura Integra   Small   2705   31
+#R&gt;  2       Acura  Legend Midsize   3560   25
+#R&gt;  3        Audi      90 Compact   3375   26
+#R&gt;  91 Volkswagen Corrado  Sporty   2810   25
+#R&gt;  92      Volvo     240 Compact   2985   28
+#R&gt;  93      Volvo     850 Midsize   3245   28</code></pre>
 <p> </p>
 <p>Methods for categorical data will be demonstrated with two questions from the General Sociological Survey (GSS).</p>
 <ul>
@@ -358,24 +360,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>How willing would you be to accept cuts in your standard of living in order to protect the environment? [choices – “very willing,” “fairly willing,” “neither willing nor unwilling,” “not very willing,” or “not at all willing”; labeled as <code>grnsol</code>]</li>
 </ul>
 <p>These data, stored in GSSWill2Pay.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/GSSWill2Pay.csv">data</a>,<a href="https://raw.githubusercontent.com/droglenc/NCData/master/GSSWill2Pay_meta.txt">meta</a>), are loaded into R and examined below.</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb139-1"><a href="RBivEDA.html#cb139-1" aria-hidden="true" tabindex="-1"></a>gss <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;GSSWill2Pay.csv&quot;</span>)</span>
-<span id="cb139-2"><a href="RBivEDA.html#cb139-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(gss)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   &#39;data.frame&#39;: 3955 obs. of  2 variables:
-#R&gt;    $ degree: chr  &quot;ltHS&quot; &quot;ltHS&quot; &quot;ltHS&quot; &quot;ltHS&quot; ...
-#R&gt;    $ grnsol: chr  &quot;vwill&quot; &quot;vwill&quot; &quot;vwill&quot; &quot;vwill&quot; ...</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb144-1"><a href="RBivEDA.html#cb144-1" aria-hidden="true" tabindex="-1"></a>gss <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;GSSWill2Pay.csv&quot;</span>)</span>
+<span id="cb144-2"><a href="RBivEDA.html#cb144-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(gss)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  &#39;data.frame&#39;:  3955 obs. of  2 variables:
+#R&gt;   $ degree: chr  &quot;ltHS&quot; &quot;ltHS&quot; &quot;ltHS&quot; &quot;ltHS&quot; ...
+#R&gt;   $ grnsol: chr  &quot;vwill&quot; &quot;vwill&quot; &quot;vwill&quot; &quot;vwill&quot; ...</code></pre>
 <p>As is typical, the categorical variables are recorded as character type. Both <code>degree</code> and <code>grnsol</code> are <strong>ordinal</strong> categorical variables and, thus, should be converted to factor variables types so that the order of the levels can be controlled. To assist with this, use <code>unique()</code> to see the exact spelling of each of the levels.</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb141-1"><a href="RBivEDA.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(gss<span class="sc">$</span>degree)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   [1] &quot;ltHS&quot; &quot;HS&quot;   &quot;JC&quot;   &quot;BS&quot;   &quot;grad&quot;</code></pre>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb143-1"><a href="RBivEDA.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(gss<span class="sc">$</span>grnsol)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   [1] &quot;vwill&quot;   &quot;will&quot;    &quot;neither&quot; &quot;un&quot;      &quot;vun&quot;</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb146-1"><a href="RBivEDA.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(gss<span class="sc">$</span>degree)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  [1] &quot;ltHS&quot; &quot;HS&quot;   &quot;JC&quot;   &quot;BS&quot;   &quot;grad&quot;</code></pre>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb148-1"><a href="RBivEDA.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(gss<span class="sc">$</span>grnsol)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  [1] &quot;vwill&quot;   &quot;will&quot;    &quot;neither&quot; &quot;un&quot;      &quot;vun&quot;</code></pre>
 <p>The variables are then converted to factors below with <code>factor()</code> using <code>levels=</code> to control the order of the variables.<a href="#fn98" class="footnote-ref" id="fnref98"><sup>98</sup></a></p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb145-1"><a href="RBivEDA.html#cb145-1" aria-hidden="true" tabindex="-1"></a>gss<span class="sc">$</span>degree <span class="ot">&lt;-</span> <span class="fu">factor</span>(gss<span class="sc">$</span>degree,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;ltHS&quot;</span>,<span class="st">&quot;HS&quot;</span>,<span class="st">&quot;JC&quot;</span>,<span class="st">&quot;BS&quot;</span>,<span class="st">&quot;grad&quot;</span>))</span>
-<span id="cb145-2"><a href="RBivEDA.html#cb145-2" aria-hidden="true" tabindex="-1"></a>gss<span class="sc">$</span>grnsol <span class="ot">&lt;-</span> <span class="fu">factor</span>(gss<span class="sc">$</span>grnsol,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;vwill&quot;</span>,<span class="st">&quot;will&quot;</span>,<span class="st">&quot;neither&quot;</span>,<span class="st">&quot;un&quot;</span>,<span class="st">&quot;vun&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb150-1"><a href="RBivEDA.html#cb150-1" aria-hidden="true" tabindex="-1"></a>gss<span class="sc">$</span>degree <span class="ot">&lt;-</span> <span class="fu">factor</span>(gss<span class="sc">$</span>degree,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;ltHS&quot;</span>,<span class="st">&quot;HS&quot;</span>,<span class="st">&quot;JC&quot;</span>,<span class="st">&quot;BS&quot;</span>,<span class="st">&quot;grad&quot;</span>))</span>
+<span id="cb150-2"><a href="RBivEDA.html#cb150-2" aria-hidden="true" tabindex="-1"></a>gss<span class="sc">$</span>grnsol <span class="ot">&lt;-</span> <span class="fu">factor</span>(gss<span class="sc">$</span>grnsol,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;vwill&quot;</span>,<span class="st">&quot;will&quot;</span>,<span class="st">&quot;neither&quot;</span>,<span class="st">&quot;un&quot;</span>,<span class="st">&quot;vun&quot;</span>))</span></code></pre></div>
 <p>The levels are checked with <code>levels()</code> below to make sure that the order is correct and that none are missing (which would imply that the level was mis-spelled above).</p>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb146-1"><a href="RBivEDA.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(gss<span class="sc">$</span>degree)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   [1] &quot;ltHS&quot; &quot;HS&quot;   &quot;JC&quot;   &quot;BS&quot;   &quot;grad&quot;</code></pre>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb148-1"><a href="RBivEDA.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(gss<span class="sc">$</span>grnsol)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   [1] &quot;vwill&quot;   &quot;will&quot;    &quot;neither&quot; &quot;un&quot;      &quot;vun&quot;</code></pre>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb151-1"><a href="RBivEDA.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(gss<span class="sc">$</span>degree)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  [1] &quot;ltHS&quot; &quot;HS&quot;   &quot;JC&quot;   &quot;BS&quot;   &quot;grad&quot;</code></pre>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb153-1"><a href="RBivEDA.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(gss<span class="sc">$</span>grnsol)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  [1] &quot;vwill&quot;   &quot;will&quot;    &quot;neither&quot; &quot;un&quot;      &quot;vun&quot;</code></pre>
 <div class="tip">
 <p>Ordinal variables should be converted to factor variables in R, with the levels controlled to their natural (rather than alphabetical) order.</p>
 </div>
@@ -385,18 +387,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="scatterplots-1" class="section level3" number="25.1.1">
 <h3><span class="header-section-number">25.1.1</span> Scatterplots</h3>
 <p>Scatterplots are constructed by giving the x- and y-axis variables to <code>x=</code> and <code>y=</code> in <code>aes()</code> in <code>ggplot()</code><a href="#fn99" class="footnote-ref" id="fnref99"><sup>99</sup></a> and then adding <code>geom_point()</code>.</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb150-1"><a href="RBivEDA.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
-<span id="cb150-2"><a href="RBivEDA.html#cb150-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-118-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb155-1"><a href="RBivEDA.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
+<span id="cb155-2"><a href="RBivEDA.html#cb155-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-120-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>Define both x and y variables for a scatterplot.</p>
 </div>
 <p>The axis labels can be properly labeled with <code>labs()</code> and the theme used in the course applied with <code>theme_NCStats()</code>.<a href="#fn100" class="footnote-ref" id="fnref100"><sup>100</sup></a></p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb151-1"><a href="RBivEDA.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
-<span id="cb151-2"><a href="RBivEDA.html#cb151-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb151-3"><a href="RBivEDA.html#cb151-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Car Weight (lbs)&quot;</span>,<span class="at">y=</span><span class="st">&quot;Miles per Gallon on the Highway&quot;</span>) <span class="sc">+</span></span>
-<span id="cb151-4"><a href="RBivEDA.html#cb151-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-119-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb156-1"><a href="RBivEDA.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
+<span id="cb156-2"><a href="RBivEDA.html#cb156-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb156-3"><a href="RBivEDA.html#cb156-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Car Weight (lbs)&quot;</span>,<span class="at">y=</span><span class="st">&quot;Miles per Gallon on the Highway&quot;</span>) <span class="sc">+</span></span>
+<span id="cb156-4"><a href="RBivEDA.html#cb156-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-121-1.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 <p>There may be times where you want to change the shape of symbol that is plotted by including a numeric code to <code>shape=</code> in <code>geom_point()</code>. Shape codes are shown in Figure <a href="RBivEDA.html#fig:Rpchs">25.1</a>.</p>
 <p> </p>
@@ -408,11 +410,11 @@ Figure 25.1: Point shapes available in R and their numerical codes. For shapes 0
 </div>
 <p> </p>
 <p>My typical choice for plotting points are shown below.<a href="#fn101" class="footnote-ref" id="fnref101"><sup>101</sup></a></p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb152-1"><a href="RBivEDA.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
-<span id="cb152-2"><a href="RBivEDA.html#cb152-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">21</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;darkgray&quot;</span>,<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb152-3"><a href="RBivEDA.html#cb152-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Car Weight (lbs)&quot;</span>,<span class="at">y=</span><span class="st">&quot;Miles per Gallon on the Highway&quot;</span>) <span class="sc">+</span></span>
-<span id="cb152-4"><a href="RBivEDA.html#cb152-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-120-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb157-1"><a href="RBivEDA.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
+<span id="cb157-2"><a href="RBivEDA.html#cb157-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">21</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;darkgray&quot;</span>,<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb157-3"><a href="RBivEDA.html#cb157-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Car Weight (lbs)&quot;</span>,<span class="at">y=</span><span class="st">&quot;Miles per Gallon on the Highway&quot;</span>) <span class="sc">+</span></span>
+<span id="cb157-4"><a href="RBivEDA.html#cb157-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-122-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>When making your own scatterplot, copy the code above and change the items in <code>data=</code>, <code>x=</code>, <code>y=</code>, and <code>x=</code>, and <code>y=</code>. All other items can remain as shown above.</p>
 </div>
@@ -420,17 +422,17 @@ Figure 25.1: Point shapes available in R and their numerical codes. For shapes 0
 <div id="correlation-coefficient-1" class="section level3" number="25.1.2">
 <h3><span class="header-section-number">25.1.2</span> Correlation Coefficient</h3>
 <p>The correlation coefficient (r) between two quantitative variables is computed with <code>corr()</code> using a formula of the form <code>~qvarY+qvarX</code>,<a href="#fn102" class="footnote-ref" id="fnref102"><sup>102</sup></a> where <code>qvarY</code> and <code>qvarX</code> are the names of quantitative variables, as the first argument and the corresponding data frame in <code>data=</code>.<a href="#fn103" class="footnote-ref" id="fnref103"><sup>103</sup></a> The number of decimal places is controlled with <code>digits=</code>.<a href="#fn104" class="footnote-ref" id="fnref104"><sup>104</sup></a> For example, the correlation coefficient between highway MPG and weight for all cars in the car data is -0.811.</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb153-1"><a href="RBivEDA.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corr</span>(<span class="sc">~</span>HMPG<span class="sc">+</span>Weight,<span class="at">data=</span>cars93,<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   [1] -0.811</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb155-1"><a href="RBivEDA.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corr</span>(HMPG<span class="sc">~</span>Weight,<span class="at">data=</span>cars93,<span class="at">digits=</span><span class="dv">3</span>)   <span class="co"># alternative form</span></span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   [1] -0.811</code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb158-1"><a href="RBivEDA.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corr</span>(<span class="sc">~</span>HMPG<span class="sc">+</span>Weight,<span class="at">data=</span>cars93,<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  [1] -0.811</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb160-1"><a href="RBivEDA.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corr</span>(HMPG<span class="sc">~</span>Weight,<span class="at">data=</span>cars93,<span class="at">digits=</span><span class="dv">3</span>)   <span class="co"># alternative form</span></span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  [1] -0.811</code></pre>
 <p>The correlation coefficient can be computed for pairs of multiple variables by “adding” the multiple variables to the formula described above. Note that <code>use="pairwise.complete.obs"</code> should be used used to make sure that missing data is removed when calculating the correlation coefficient for each pair of variables.</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb157-1"><a href="RBivEDA.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corr</span>(<span class="sc">~</span>HMPG<span class="sc">+</span>FuelTank<span class="sc">+</span>Length<span class="sc">+</span>Weight,<span class="at">data=</span>cars93,<span class="at">use=</span><span class="st">&quot;pairwise.complete.obs&quot;</span>,<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;              HMPG FuelTank Length Weight
-#R&gt;   HMPG      1.000   -0.786 -0.543 -0.811
-#R&gt;   FuelTank -0.786    1.000  0.690  0.894
-#R&gt;   Length   -0.543    0.690  1.000  0.806
-#R&gt;   Weight   -0.811    0.894  0.806  1.000</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb162-1"><a href="RBivEDA.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corr</span>(<span class="sc">~</span>HMPG<span class="sc">+</span>FuelTank<span class="sc">+</span>Length<span class="sc">+</span>Weight,<span class="at">data=</span>cars93,<span class="at">use=</span><span class="st">&quot;pairwise.complete.obs&quot;</span>,<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;             HMPG FuelTank Length Weight
+#R&gt;  HMPG      1.000   -0.786 -0.543 -0.811
+#R&gt;  FuelTank -0.786    1.000  0.690  0.894
+#R&gt;  Length   -0.543    0.690  1.000  0.806
+#R&gt;  Weight   -0.811    0.894  0.806  1.000</code></pre>
 <p> </p>
 </div>
 </div>
@@ -439,56 +441,56 @@ Figure 25.1: Point shapes available in R and their numerical codes. For shapes 0
 <div id="frequency-tables-1" class="section level3" number="25.2.1">
 <h3><span class="header-section-number">25.2.1</span> Frequency Tables</h3>
 <p>Two-way frequency tables are constructed in R with <code>xtabs()</code>, where the first argument is a formula of the form <code>~cvarRow+cvarCol</code>, where <code>cvarRow</code> and <code>cvarCol</code> are categorical variables to form the rows and columns of the table, in the first agument and the corresponding data frame in <code>data=</code>. The result of <code>xtabs()</code> should be assigned to an object for further use.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb159-1"><a href="RBivEDA.html#cb159-1" aria-hidden="true" tabindex="-1"></a>( tbl1 <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>degree<span class="sc">+</span>grnsol,<span class="at">data=</span>gss) )</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;         grnsol
-#R&gt;   degree vwill will neither  un vun
-#R&gt;     ltHS    40  145     132 151 178
-#R&gt;     HS      87  542     512 557 392
-#R&gt;     JC      15   61      64  54  44
-#R&gt;     BS      42  199     179 187  75
-#R&gt;     grad    24  104      83  64  24</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb164-1"><a href="RBivEDA.html#cb164-1" aria-hidden="true" tabindex="-1"></a>( tbl1 <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>degree<span class="sc">+</span>grnsol,<span class="at">data=</span>gss) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;        grnsol
+#R&gt;  degree vwill will neither  un vun
+#R&gt;    ltHS    40  145     132 151 178
+#R&gt;    HS      87  542     512 557 392
+#R&gt;    JC      15   61      64  54  44
+#R&gt;    BS      42  199     179 187  75
+#R&gt;    grad    24  104      83  64  24</code></pre>
 <p>Totals may be added to the margins of a saved table with <code>addMargins()</code>.</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb161-1"><a href="RBivEDA.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addMargins</span>(tbl1)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;         grnsol
-#R&gt;   degree vwill will neither   un  vun  Sum
-#R&gt;     ltHS    40  145     132  151  178  646
-#R&gt;     HS      87  542     512  557  392 2090
-#R&gt;     JC      15   61      64   54   44  238
-#R&gt;     BS      42  199     179  187   75  682
-#R&gt;     grad    24  104      83   64   24  299
-#R&gt;     Sum    208 1051     970 1013  713 3955</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb166-1"><a href="RBivEDA.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">addMargins</span>(tbl1)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;        grnsol
+#R&gt;  degree vwill will neither   un  vun  Sum
+#R&gt;    ltHS    40  145     132  151  178  646
+#R&gt;    HS      87  542     512  557  392 2090
+#R&gt;    JC      15   61      64   54   44  238
+#R&gt;    BS      42  199     179  187   75  682
+#R&gt;    grad    24  104      83   64   24  299
+#R&gt;    Sum    208 1051     970 1013  713 3955</code></pre>
 </div>
 <div id="percentage-tables-1" class="section level3" number="25.2.2">
 <h3><span class="header-section-number">25.2.2</span> Percentage Tables</h3>
 <p>Percentage tables are constructed in R by submitting the saved <code>xtabs()</code> object to <code>percTable()</code>.<a href="#fn105" class="footnote-ref" id="fnref105"><sup>105</sup></a> A total- or table-percentage table is constructed by default.</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb163-1"><a href="RBivEDA.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(tbl1)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;         grnsol
-#R&gt;   degree vwill will neither   un  vun  Sum
-#R&gt;     ltHS   1.0  3.7     3.3  3.8  4.5 16.3
-#R&gt;     HS     2.2 13.7    12.9 14.1  9.9 52.8
-#R&gt;     JC     0.4  1.5     1.6  1.4  1.1  6.0
-#R&gt;     BS     1.1  5.0     4.5  4.7  1.9 17.2
-#R&gt;     grad   0.6  2.6     2.1  1.6  0.6  7.5
-#R&gt;     Sum    5.3 26.5    24.4 25.6 18.0 99.8</code></pre>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb168-1"><a href="RBivEDA.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(tbl1)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;        grnsol
+#R&gt;  degree vwill will neither   un  vun  Sum
+#R&gt;    ltHS   1.0  3.7     3.3  3.8  4.5 16.3
+#R&gt;    HS     2.2 13.7    12.9 14.1  9.9 52.8
+#R&gt;    JC     0.4  1.5     1.6  1.4  1.1  6.0
+#R&gt;    BS     1.1  5.0     4.5  4.7  1.9 17.2
+#R&gt;    grad   0.6  2.6     2.1  1.6  0.6  7.5
+#R&gt;    Sum    5.3 26.5    24.4 25.6 18.0 99.8</code></pre>
 <p>A row-percentage table is constructed by including <code>margin=1</code> in <code>percTable()</code>.</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb165-1"><a href="RBivEDA.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(tbl1,<span class="at">margin=</span><span class="dv">1</span>)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;         grnsol
-#R&gt;   degree vwill  will neither    un   vun   Sum
-#R&gt;     ltHS   6.2  22.4    20.4  23.4  27.6 100.0
-#R&gt;     HS     4.2  25.9    24.5  26.7  18.8 100.1
-#R&gt;     JC     6.3  25.6    26.9  22.7  18.5 100.0
-#R&gt;     BS     6.2  29.2    26.2  27.4  11.0 100.0
-#R&gt;     grad   8.0  34.8    27.8  21.4   8.0 100.0</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb170-1"><a href="RBivEDA.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(tbl1,<span class="at">margin=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;        grnsol
+#R&gt;  degree vwill  will neither    un   vun   Sum
+#R&gt;    ltHS   6.2  22.4    20.4  23.4  27.6 100.0
+#R&gt;    HS     4.2  25.9    24.5  26.7  18.8 100.1
+#R&gt;    JC     6.3  25.6    26.9  22.7  18.5 100.0
+#R&gt;    BS     6.2  29.2    26.2  27.4  11.0 100.0
+#R&gt;    grad   8.0  34.8    27.8  21.4   8.0 100.0</code></pre>
 <p>A column-percentage table is constructed by including <code>margin=2</code> in <code>percTable()</code>.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb167-1"><a href="RBivEDA.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(tbl1,<span class="at">margin=</span><span class="dv">2</span>)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;         grnsol
-#R&gt;   degree vwill  will neither    un   vun
-#R&gt;     ltHS  19.2  13.8    13.6  14.9  25.0
-#R&gt;     HS    41.8  51.6    52.8  55.0  55.0
-#R&gt;     JC     7.2   5.8     6.6   5.3   6.2
-#R&gt;     BS    20.2  18.9    18.5  18.5  10.5
-#R&gt;     grad  11.5   9.9     8.6   6.3   3.4
-#R&gt;     Sum   99.9 100.0   100.1 100.0 100.1</code></pre>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb172-1"><a href="RBivEDA.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(tbl1,<span class="at">margin=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;        grnsol
+#R&gt;  degree vwill  will neither    un   vun
+#R&gt;    ltHS  19.2  13.8    13.6  14.9  25.0
+#R&gt;    HS    41.8  51.6    52.8  55.0  55.0
+#R&gt;    JC     7.2   5.8     6.6   5.3   6.2
+#R&gt;    BS    20.2  18.9    18.5  18.5  10.5
+#R&gt;    grad  11.5   9.9     8.6   6.3   3.4
+#R&gt;    Sum   99.9 100.0   100.1 100.0 100.1</code></pre>
 <p> </p>
 
 </div>
@@ -538,6 +540,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {

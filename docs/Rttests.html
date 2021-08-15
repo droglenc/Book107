@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 27 t-Tests in R | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 27 t-Tests in R | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-05-04" />
+<meta name="date" content="2021-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="RRegression.html"/>
 <link rel="next" href="RChi.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -118,6 +120,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -314,7 +317,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
 <li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
 <li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
@@ -427,13 +429,13 @@ mean of x
 </table>
 <div id="r-appendix-9" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb179-1"><a href="Rttests.html#cb179-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;CrabTemps.csv&quot;</span>)</span>
-<span id="cb179-2"><a href="Rttests.html#cb179-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>ct)) <span class="sc">+</span></span>
-<span id="cb179-3"><a href="Rttests.html#cb179-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">binwidth=</span><span class="dv">1</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;darkgray&quot;</span>) <span class="sc">+</span></span>
-<span id="cb179-4"><a href="Rttests.html#cb179-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">&quot;Frequency of Crabs&quot;</span>,<span class="at">x=</span><span class="st">&quot;Body Temperature (C)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb179-5"><a href="Rttests.html#cb179-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
-<span id="cb179-6"><a href="Rttests.html#cb179-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span>
-<span id="cb179-7"><a href="Rttests.html#cb179-7" aria-hidden="true" tabindex="-1"></a>( ct.t <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="sc">~</span>ct,<span class="at">data=</span>df,<span class="at">mu=</span><span class="fl">24.3</span>,<span class="at">conf.level=</span><span class="fl">0.95</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb184-1"><a href="Rttests.html#cb184-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;CrabTemps.csv&quot;</span>)</span>
+<span id="cb184-2"><a href="Rttests.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>df,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>ct)) <span class="sc">+</span></span>
+<span id="cb184-3"><a href="Rttests.html#cb184-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">binwidth=</span><span class="dv">1</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;darkgray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb184-4"><a href="Rttests.html#cb184-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">&quot;Frequency of Crabs&quot;</span>,<span class="at">x=</span><span class="st">&quot;Body Temperature (C)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb184-5"><a href="Rttests.html#cb184-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
+<span id="cb184-6"><a href="Rttests.html#cb184-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span>
+<span id="cb184-7"><a href="Rttests.html#cb184-7" aria-hidden="true" tabindex="-1"></a>( ct.t <span class="ot">&lt;-</span> <span class="fu">t.test</span>(<span class="sc">~</span>ct,<span class="at">data=</span>df,<span class="at">mu=</span><span class="fl">24.3</span>,<span class="at">conf.level=</span><span class="fl">0.95</span>) )</span></code></pre></div>
 <p> </p>
 </div>
 </div>
@@ -444,31 +446,31 @@ mean of x
 <div id="data-format" class="section level3" number="27.2.1">
 <h3><span class="header-section-number">27.2.1</span> Data Format</h3>
 <p>The data used in this reading are the biological oxygen demand (BOD) measurements from either the inlet or outlet to an aquaculture facility. These data are in BOD.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/BOD.csv">data</a>, <a href="https://raw.githubusercontent.com/droglenc/NCData/master/BOD_meta.txt">meta</a>) and are loaded into R below.</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb180-1"><a href="Rttests.html#cb180-1" aria-hidden="true" tabindex="-1"></a>aqua <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;BOD.csv&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r RCODE_ALONE"><code class="sourceCode r"><span id="cb185-1"><a href="Rttests.html#cb185-1" aria-hidden="true" tabindex="-1"></a>aqua <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;BOD.csv&quot;</span>)</span></code></pre></div>
 <p>Data must be in stacked format (as described in Section <a href="RData.html#create-csv-file">22.2.1</a>) for a 2-Sample t-Test. Stacked data has measurements in one column and group labels for the measurement in another column. Thus, each row corresponds to a measurement and the group for one individual. The BOD data are stacked because each row corresponds to one individual (a water sample) with one column of (BOD) measurements and another column for which group the individual belongs.</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb181-1"><a href="Rttests.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(aqua)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;        BOD    src
-#R&gt;   1  6.782  inlet
-#R&gt;   2  5.809  inlet
-#R&gt;   3  6.849  inlet
-#R&gt;   18 8.545 outlet
-#R&gt;   19 8.063 outlet
-#R&gt;   20 8.001 outlet</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb186-1"><a href="Rttests.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(aqua)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;       BOD    src
+#R&gt;  1  6.782  inlet
+#R&gt;  2  5.809  inlet
+#R&gt;  3  6.849  inlet
+#R&gt;  18 8.545 outlet
+#R&gt;  19 8.063 outlet
+#R&gt;  20 8.001 outlet</code></pre>
 </div>
 <div id="levenes-test" class="section level3" number="27.2.2">
 <h3><span class="header-section-number">27.2.2</span> Levene’s Test</h3>
 <p>Before conducting a 2-Sample t-Test, the assumption of equal population variances must be tested with Levene’s test. Levene’s test is computed with <code>levenesTest()</code>, where the first argument is a formula of the form <code>qvar~cvar</code>, where <code>qvar</code> represents the quantitative response variable and <code>cvar</code> represents the group factor variable.<a href="#fn110" class="footnote-ref" id="fnref110"><sup>110</sup></a> The data.frame containing <code>qvar</code> and <code>cvar</code> is given in <code>data=</code>. The results of the following code are shown in Table <a href="Rttests.html#tab:LevBOD">27.2</a> and interpreted in the example analysis below.</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb183-1"><a href="Rttests.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levenesTest</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua)</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb188-1"><a href="Rttests.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levenesTest</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua)</span></code></pre></div>
 </div>
 <div id="histograms-2" class="section level3" number="27.2.3">
 <h3><span class="header-section-number">27.2.3</span> Histograms</h3>
 <p>If the combined sample size for the two groups is less than 40 than histograms for both groups must be made to address the assumptions of normality before continuing with a 2-sample t-test. Separating histograms by groups was discussed in Section <a href="RUnivEDA.html#summary-statistics-1">24.2.1</a>. The results of the following code are shown in Figure <a href="Rttests.html#fig:aquaHist2">27.2</a> and interpreted in the example analysis below.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb184-1"><a href="Rttests.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>aqua,<span class="fu">aes</span>(<span class="at">x=</span>BOD)) <span class="sc">+</span></span>
-<span id="cb184-2"><a href="Rttests.html#cb184-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="fl">0.5</span>,<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
-<span id="cb184-3"><a href="Rttests.html#cb184-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
-<span id="cb184-4"><a href="Rttests.html#cb184-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Biological Oxygen Demand&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Sites&quot;</span>) <span class="sc">+</span></span>
-<span id="cb184-5"><a href="Rttests.html#cb184-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
-<span id="cb184-6"><a href="Rttests.html#cb184-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(src))</span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb189-1"><a href="Rttests.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>aqua,<span class="fu">aes</span>(<span class="at">x=</span>BOD)) <span class="sc">+</span></span>
+<span id="cb189-2"><a href="Rttests.html#cb189-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="fl">0.5</span>,<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb189-3"><a href="Rttests.html#cb189-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
+<span id="cb189-4"><a href="Rttests.html#cb189-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Biological Oxygen Demand&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Sites&quot;</span>) <span class="sc">+</span></span>
+<span id="cb189-5"><a href="Rttests.html#cb189-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
+<span id="cb189-6"><a href="Rttests.html#cb189-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(src))</span></code></pre></div>
 </div>
 <div id="sample-t-test-in-r-1" class="section level3" number="27.2.4">
 <h3><span class="header-section-number">27.2.4</span> 2-Sample t-Test in R</h3>
@@ -481,7 +483,7 @@ mean of x
 </ul>
 <p>R computes the difference among groups as the alphabetically “first” level minus the alphabetically “second” level. For example, if the two levels are <code>inlet</code> and <code>outlet</code>, then R will compute x̄<sub>inlet</sub>-x̄<sub>outlet</sub>. You should consider this when you are constructing your hypotheses. However, you can change the order of the levels by using <code>levels=</code> in <code>factor()</code> (as described in Section <a href="RUnivEDA.html#data-manipulation">24.3.1</a>).</p>
 <p>The results of the following code are shown in Table <a href="Rttests.html#tab:2tBOD">27.3</a> and interpreted in the example analysis below.</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb185-1"><a href="Rttests.html#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua,<span class="at">var.equal=</span><span class="cn">TRUE</span>,<span class="at">alt=</span><span class="st">&quot;less&quot;</span>,<span class="at">conf.level=</span><span class="fl">0.90</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb190-1"><a href="Rttests.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua,<span class="at">var.equal=</span><span class="cn">TRUE</span>,<span class="at">alt=</span><span class="st">&quot;less&quot;</span>,<span class="at">conf.level=</span><span class="fl">0.90</span>)</span></code></pre></div>
 <p> </p>
 </div>
 <div id="example---bod-in-aquaculture-water" class="section level3" number="27.2.5">
@@ -613,15 +615,15 @@ Figure 27.2: Histogram of the BOD measurements at the outlet and inlet of the aq
 </div>
 <div id="r-appendix-10" class="section level4 unnumbered">
 <h4>R Appendix</h4>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb186-1"><a href="Rttests.html#cb186-1" aria-hidden="true" tabindex="-1"></a>aqua <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;BOD.csv&quot;</span>)</span>
-<span id="cb186-2"><a href="Rttests.html#cb186-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>aqua,<span class="fu">aes</span>(<span class="at">x=</span>BOD)) <span class="sc">+</span></span>
-<span id="cb186-3"><a href="Rttests.html#cb186-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="fl">0.5</span>,<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
-<span id="cb186-4"><a href="Rttests.html#cb186-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
-<span id="cb186-5"><a href="Rttests.html#cb186-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Biological Oxygen Demand&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Sites&quot;</span>) <span class="sc">+</span></span>
-<span id="cb186-6"><a href="Rttests.html#cb186-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
-<span id="cb186-7"><a href="Rttests.html#cb186-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(src))</span>
-<span id="cb186-8"><a href="Rttests.html#cb186-8" aria-hidden="true" tabindex="-1"></a><span class="fu">levenesTest</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua)</span>
-<span id="cb186-9"><a href="Rttests.html#cb186-9" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua,<span class="at">var.equal=</span><span class="cn">TRUE</span>,<span class="at">alt=</span><span class="st">&quot;less&quot;</span>,<span class="at">conf.level=</span><span class="fl">0.90</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb191-1"><a href="Rttests.html#cb191-1" aria-hidden="true" tabindex="-1"></a>aqua <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;BOD.csv&quot;</span>)</span>
+<span id="cb191-2"><a href="Rttests.html#cb191-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>aqua,<span class="fu">aes</span>(<span class="at">x=</span>BOD)) <span class="sc">+</span></span>
+<span id="cb191-3"><a href="Rttests.html#cb191-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="fl">0.5</span>,<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb191-4"><a href="Rttests.html#cb191-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
+<span id="cb191-5"><a href="Rttests.html#cb191-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Biological Oxygen Demand&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Sites&quot;</span>) <span class="sc">+</span></span>
+<span id="cb191-6"><a href="Rttests.html#cb191-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
+<span id="cb191-7"><a href="Rttests.html#cb191-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(src))</span>
+<span id="cb191-8"><a href="Rttests.html#cb191-8" aria-hidden="true" tabindex="-1"></a><span class="fu">levenesTest</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua)</span>
+<span id="cb191-9"><a href="Rttests.html#cb191-9" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua,<span class="at">var.equal=</span><span class="cn">TRUE</span>,<span class="at">alt=</span><span class="st">&quot;less&quot;</span>,<span class="at">conf.level=</span><span class="fl">0.90</span>)</span></code></pre></div>
 <p> </p>
 
 </div>
@@ -664,6 +666,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {

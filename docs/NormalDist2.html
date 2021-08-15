@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 7 Normal Distribution Calculations | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 7 Normal Distribution Calculations | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-05-04" />
+<meta name="date" content="2021-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="NormalDist1.html"/>
 <link rel="next" href="BEDAQuant.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -118,6 +120,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -314,7 +317,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
 <li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
 <li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
@@ -344,7 +346,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.1</span> Forward Calculations</h2>
 <p>The area under a normal curve relative to a particular value is computed in R with <code>distrib()</code>, with the <em>particular value</em> as the first argument and the mean (μ) and standard deviation (σ) of the normal distribution in the <code>mean=</code> and <code>sd=</code> arguments, respectively. The <code>distrib()</code> function defaults to finding the area to the <strong>left of</strong> the particular value; it can find the area to the right of the particular value by including <code>lower.tail=FALSE</code>.</p>
 <p>For example, suppose that the heights of a population of students is known to be H~N(66,3). The proportion of students in this population that have a height less than 71 inches is with</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb7-1"><a href="NormalDist2.html#cb7-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">71</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r RCODE_ALONE"><code class="sourceCode r"><span id="cb12-1"><a href="NormalDist2.html#cb12-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">71</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>) )</span></code></pre></div>
 <p>which produces Figure <a href="NormalDist2.html#fig:NormZCalc1">7.1</a>. Thus, approximately 95.2% of students in this population have a height less than 71 inches.</p>
 <div class="figure" style="text-align: center"><span id="fig:NormZCalc1"></span>
 <img src="Book107_files/figure-html/NormZCalc1-1.png" alt="Calculation of the proportion of individuals on a $N(66,3)$ with a value less than 71." width="336" />
@@ -354,7 +356,7 @@ Figure 7.1: Calculation of the proportion of individuals on a <span class="math 
 </div>
 <p> </p>
 <p>The proportion of students in this population that have a height <em>greater</em> than 68 inches is computed with (note use of <code>lower.tail=FALSE</code>)</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb8-1"><a href="NormalDist2.html#cb8-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">68</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r RCODE_ALONE"><code class="sourceCode r"><span id="cb13-1"><a href="NormalDist2.html#cb13-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">68</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <p>which produces Figure <a href="NormalDist2.html#fig:NormZCalc2">7.2</a>. Thus, approximately 25.2% of students in this population have a height greater than 68 inches.</p>
 <div class="figure" style="text-align: center"><span id="fig:NormZCalc2"></span>
 <img src="Book107_files/figure-html/NormZCalc2-1.png" alt="Calculation of the proportion of individuals on a $N(66,3)$ with a value greater than 68." width="336" />
@@ -374,10 +376,10 @@ Figure 7.3: Schematic representation of how to find the area between two <span c
 </div>
 <p> </p>
 <p>For example, the area between 62 and 70 inches of height is found below. Thus, 81.8% of students in this population have a height between 62 and 70 inches.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb9-1"><a href="NormalDist2.html#cb9-1" aria-hidden="true" tabindex="-1"></a>( AB <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="dv">70</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>) )  <span class="co"># left-of 70</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb10-1"><a href="NormalDist2.html#cb10-1" aria-hidden="true" tabindex="-1"></a>( A <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="dv">62</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>) )   <span class="co"># left-of 62</span></span></code></pre></div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb11-1"><a href="NormalDist2.html#cb11-1" aria-hidden="true" tabindex="-1"></a>AB<span class="sc">-</span>A                                <span class="co"># between 62 and 70</span></span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   [1] 0.8175776</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb14-1"><a href="NormalDist2.html#cb14-1" aria-hidden="true" tabindex="-1"></a>( AB <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="dv">70</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>) )  <span class="co"># left-of 70</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb15-1"><a href="NormalDist2.html#cb15-1" aria-hidden="true" tabindex="-1"></a>( A <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="dv">62</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>) )   <span class="co"># left-of 62</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb16-1"><a href="NormalDist2.html#cb16-1" aria-hidden="true" tabindex="-1"></a>AB<span class="sc">-</span>A                                <span class="co"># between 62 and 70</span></span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  [1] 0.8175776</code></pre>
 <div class="figure" style="text-align: center"><span id="fig:NormZCalc3"></span>
 <img src="Book107_files/figure-html/NormZCalc3-1.png" alt="Calculation of the areas less than 70 inches (**Left**) and 62 inches (**Right**)." width="336" /><img src="Book107_files/figure-html/NormZCalc3-2.png" alt="Calculation of the areas less than 70 inches (**Left**) and 62 inches (**Right**)." width="336" />
 <p class="caption">
@@ -391,7 +393,7 @@ Figure 7.4: Calculation of the areas less than 70 inches (<strong>Left</strong>)
 <div id="reverse-calculations" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Reverse Calculations</h2>
 <p>Reverse questions also use <code>distrib()</code>, though the first argument is now the given percentage, though it must be entered as a proportion. The calculation is treated as a “reverse” question only when <code>type="q"</code> is also given to <code>distrib()</code>.<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a> For example, the height that has 20% of all students shorter is computed with</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb13-1"><a href="NormalDist2.html#cb13-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.20</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r RCODE_ALONE"><code class="sourceCode r"><span id="cb18-1"><a href="NormalDist2.html#cb18-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.20</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
 <p>which produces Figure <a href="NormalDist2.html#fig:NormZCalc4">7.5</a>. Thus, the shortest 20% of students are less than 63.5 inches tall.</p>
 <div class="figure" style="text-align: center"><span id="fig:NormZCalc4"></span>
 <img src="Book107_files/figure-html/NormZCalc4-1.png" alt="Calculation of the height with 20% of all students shorter." width="336" />
@@ -401,7 +403,7 @@ Figure 7.5: Calculation of the height with 20% of all students shorter.
 </div>
 <p> </p>
 <p>“Greater than” reverse questions are computed by also including <code>lower.tail=FALSE</code>. For example, the tallest 10% of the population of students is computed with</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb14-1"><a href="NormalDist2.html#cb14-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.10</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r RCODE_ALONE"><code class="sourceCode r"><span id="cb19-1"><a href="NormalDist2.html#cb19-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.10</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <p>which produces Figure <a href="NormalDist2.html#fig:NormZCalc5">7.6</a>. Thus, the tallest 10% of students are taller than 69.8 inches.</p>
 <div class="figure" style="text-align: center"><span id="fig:NormZCalc5"></span>
 <img src="Book107_files/figure-html/NormZCalc5-1.png" alt="Calculation of the height with 10% of all students taller." width="336" />
@@ -422,8 +424,8 @@ Figure 7.7: Depiction of areas in a reverse between type normal distribution que
 </div>
 <p> </p>
 <p>For example, the two heights that have a symmetric 80% of individuals between them are 62.2 and 69.8 as computed below.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb15-1"><a href="NormalDist2.html#cb15-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.10</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span>
-<span id="cb15-2"><a href="NormalDist2.html#cb15-2" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb20-1"><a href="NormalDist2.html#cb20-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.10</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span>
+<span id="cb20-2"><a href="NormalDist2.html#cb20-2" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:NormRevBetwen80"></span>
 <img src="Book107_files/figure-html/NormRevBetwen80-1.png" alt="Calculations for the two values with an area of 80% between them." width="336" /><img src="Book107_files/figure-html/NormRevBetwen80-2.png" alt="Calculations for the two values with an area of 80% between them." width="336" />
 <p class="caption">
@@ -443,43 +445,43 @@ Figure 7.8: Calculations for the two values with an area of 80% between them.
 <li><strong>91.9%</strong> – This is a Forward-Right question because a value of “X” is given and we should shade to the right (i.e., “more than”). This percentage is computed with</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb16-1"><a href="NormalDist2.html#cb16-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">125</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-25-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb21-1"><a href="NormalDist2.html#cb21-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">125</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-27-1.png" width="336" style="display: block; margin: auto;" /></p>
 <ul>
 <li>What is the miles driven for the 25% of weeks with the fewest miles driven?
 <ul>
 <li><strong>Less than 143.1 miles</strong> – This is a Reverse-Left question because a percentage is given and we should shade to the left (i.e., “fewest”). This value is computed with</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb17-1"><a href="NormalDist2.html#cb17-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.25</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-26-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb22-1"><a href="NormalDist2.html#cb22-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.25</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-28-1.png" width="336" style="display: block; margin: auto;" /></p>
 <ul>
 <li>What is the miles driven for the 5% of weeks with the most miles driven?
 <ul>
 <li><strong>More than 201.1 miles</strong> – This is a Reverse-Right question because a percentage is given and we should shade to the right (i.e., “most”). This value is computed with</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb18-1"><a href="NormalDist2.html#cb18-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.05</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-27-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb23-1"><a href="NormalDist2.html#cb23-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.05</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-29-1.png" width="336" style="display: block; margin: auto;" /></p>
 <ul>
 <li>What percentage of weeks does the driver drive between 75 and 100 miles?
 <ul>
 <li><strong>0.8%</strong> – This is a Forward-Between question because two values of “X” are given and we should shade between the two values. This percentage is computed by finding the difference of the two areas provided from the following</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb19-1"><a href="NormalDist2.html#cb19-1" aria-hidden="true" tabindex="-1"></a>( AB <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="dv">100</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>) )</span>
-<span id="cb19-2"><a href="NormalDist2.html#cb19-2" aria-hidden="true" tabindex="-1"></a>( A <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="dv">75</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>) )</span>
-<span id="cb19-3"><a href="NormalDist2.html#cb19-3" aria-hidden="true" tabindex="-1"></a>AB<span class="sc">-</span>A</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb24-1"><a href="NormalDist2.html#cb24-1" aria-hidden="true" tabindex="-1"></a>( AB <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="dv">100</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>) )</span>
+<span id="cb24-2"><a href="NormalDist2.html#cb24-2" aria-hidden="true" tabindex="-1"></a>( A <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="dv">75</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>) )</span>
+<span id="cb24-3"><a href="NormalDist2.html#cb24-3" aria-hidden="true" tabindex="-1"></a>AB<span class="sc">-</span>A</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ul>
 <li>What is the most common 60% of miles driven?
 <ul>
 <li><strong>Between 139.0 and 181.0 miles</strong> – This is a Reverse-between question because a percentage is given and we should shade in between (i.e., “most common”). These values are computed with</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb20-1"><a href="NormalDist2.html#cb20-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.2</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span>
-<span id="cb20-2"><a href="NormalDist2.html#cb20-2" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.8</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb25-1"><a href="NormalDist2.html#cb25-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.2</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span>
+<span id="cb25-2"><a href="NormalDist2.html#cb25-2" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.8</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-31-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p> </p>
 </div>
 <div id="standardization-and-z-scores" class="section level2" number="7.4">
@@ -543,6 +545,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {

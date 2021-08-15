@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 26 Linear Regression in R | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 26 Linear Regression in R | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-05-04" />
+<meta name="date" content="2021-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="RBivEDA.html"/>
 <link rel="next" href="Rttests.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -118,6 +120,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -314,7 +317,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
 <li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
 <li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
@@ -342,34 +344,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-sets-2" class="section level4 unnumbered">
 <h4>Data Sets</h4>
 <p>The descriptions below will use the same <code>weight</code> (lbs) and highway miles per gallon (<code>HMPG</code>) data for 93 cars from the 1993 model year that were used in the second example in the Modules <a href="LinearRegression.html#LinearRegression">9</a>. These data are in 93cars.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars.csv">data</a>, <a href="https://raw.githubusercontent.com/droglenc/NCData/master/93cars_meta.txt">meta</a>) and are loaded into R below with the methods described in Section <a href="RData.html#read-csv-file-into-rstudio">22.2.2</a>.<a href="#fn107" class="footnote-ref" id="fnref107"><sup>107</sup></a></p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb169-1"><a href="RRegression.html#cb169-1" aria-hidden="true" tabindex="-1"></a>cars93 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;93cars.csv&quot;</span>)</span>
-<span id="cb169-2"><a href="RRegression.html#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(cars93,<span class="at">which=</span><span class="fu">c</span>(<span class="st">&quot;MFG&quot;</span>,<span class="st">&quot;Model&quot;</span>,<span class="st">&quot;Type&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;HMPG&quot;</span>))</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;             MFG   Model    Type Weight HMPG
-#R&gt;   1       Acura Integra   Small   2705   31
-#R&gt;   2       Acura  Legend Midsize   3560   25
-#R&gt;   3        Audi      90 Compact   3375   26
-#R&gt;   91 Volkswagen Corrado  Sporty   2810   25
-#R&gt;   92      Volvo     240 Compact   2985   28
-#R&gt;   93      Volvo     850 Midsize   3245   28</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb174-1"><a href="RRegression.html#cb174-1" aria-hidden="true" tabindex="-1"></a>cars93 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;93cars.csv&quot;</span>)</span>
+<span id="cb174-2"><a href="RRegression.html#cb174-2" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(cars93,<span class="at">which=</span><span class="fu">c</span>(<span class="st">&quot;MFG&quot;</span>,<span class="st">&quot;Model&quot;</span>,<span class="st">&quot;Type&quot;</span>,<span class="st">&quot;Weight&quot;</span>,<span class="st">&quot;HMPG&quot;</span>))</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;            MFG   Model    Type Weight HMPG
+#R&gt;  1       Acura Integra   Small   2705   31
+#R&gt;  2       Acura  Legend Midsize   3560   25
+#R&gt;  3        Audi      90 Compact   3375   26
+#R&gt;  91 Volkswagen Corrado  Sporty   2810   25
+#R&gt;  92      Volvo     240 Compact   2985   28
+#R&gt;  93      Volvo     850 Midsize   3245   28</code></pre>
 <p> </p>
 </div>
 <div id="fitted-line-plot" class="section level2" number="26.1">
 <h2><span class="header-section-number">26.1</span> Fitted Line Plot</h2>
 <p>The linear fitted line can be added to a scatterplot (see Section <a href="RBivEDA.html#scatterplots-1">25.1.1</a>) with <code>geom_smooth()</code>. The <code>geom_smooth()</code> function requires <code>method="lm"</code> to show the linear regression line and <code>se=FALSE</code> to remove the underlying confidence band.<a href="#fn108" class="footnote-ref" id="fnref108"><sup>108</sup></a></p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb171-1"><a href="RRegression.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
-<span id="cb171-2"><a href="RRegression.html#cb171-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">pch=</span><span class="dv">21</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;darkgray&quot;</span>,<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb171-3"><a href="RRegression.html#cb171-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Weight (lbs)&quot;</span>,<span class="at">y=</span><span class="st">&quot;Highway MPG&quot;</span>) <span class="sc">+</span></span>
-<span id="cb171-4"><a href="RRegression.html#cb171-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
-<span id="cb171-5"><a href="RRegression.html#cb171-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">se=</span><span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-130-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb176-1"><a href="RRegression.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
+<span id="cb176-2"><a href="RRegression.html#cb176-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">pch=</span><span class="dv">21</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;darkgray&quot;</span>,<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb176-3"><a href="RRegression.html#cb176-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Weight (lbs)&quot;</span>,<span class="at">y=</span><span class="st">&quot;Highway MPG&quot;</span>) <span class="sc">+</span></span>
+<span id="cb176-4"><a href="RRegression.html#cb176-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
+<span id="cb176-5"><a href="RRegression.html#cb176-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">se=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-132-1.png" width="336" style="display: block; margin: auto;" /></p>
 </div>
 <div id="fitting-the-regression-model-in-r" class="section level2" number="26.2">
 <h2><span class="header-section-number">26.2</span> Fitting the Regression Model in R</h2>
 <p>The linear regression model is fit to two quantitative variables with <code>lm()</code>. The first argument is a formula of the form <code>response~explanatory</code>, where <code>response</code> contains the quantitative response variable and <code>explanatory</code> contains the quantitative explanatory variable. The corresponding data frame is given in <code>data=</code>. The results of <code>lm()</code> may be assigned to an object so that specific results can be extracted.</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb172-1"><a href="RRegression.html#cb172-1" aria-hidden="true" tabindex="-1"></a>( lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(HMPG<span class="sc">~</span>Weight,<span class="at">data=</span>cars93) )</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   Coefficients:
-#R&gt;   (Intercept)       Weight  
-#R&gt;     51.601365    -0.007327</code></pre>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb177-1"><a href="RRegression.html#cb177-1" aria-hidden="true" tabindex="-1"></a>( lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(HMPG<span class="sc">~</span>Weight,<span class="at">data=</span>cars93) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  Coefficients:
+#R&gt;  (Intercept)       Weight  
+#R&gt;    51.601365    -0.007327</code></pre>
 <p>The regression results above show that the intercept is 51.6 and the slope is -0.0073.</p>
 <div class="tip">
 <p>The slope is under the name of the explanatory variable and the intercept is under “(Intercept)” in the <code>lm()</code> results.</p>
@@ -378,15 +380,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="coefficient-of-determination-1" class="section level2" number="26.3">
 <h2><span class="header-section-number">26.3</span> Coefficient of Determination</h2>
 <p>The coefficient of determination is computed by submitting the saved <code>lm()</code> object to <code>rSquared()</code>. For example, 65.7% of the variability in highway MPG for a car is explained by knowing its weight. [<em>Note the use of <code>digits=</code> to control the number of decimals.</em>]</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb174-1"><a href="RRegression.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rSquared</span>(lm1,<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   [1] 0.657</code></pre>
+<div class="sourceCode" id="cb179"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb179-1"><a href="RRegression.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rSquared</span>(lm1,<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  [1] 0.657</code></pre>
 </div>
 <div id="predicted-values" class="section level2" number="26.4">
 <h2><span class="header-section-number">26.4</span> Predicted Values</h2>
 <p>Predicted values from the linear regression are obtained with <code>predict()</code>, which requires the saved <code>lm()</code> object as its first argument. The second argument is a data frame constructed with <code>data.frame()</code> that contains the <strong>EXACT</strong> name of the explanatory variable as it appeared in <code>lm()</code> set equal to the value of the explanatory variable at which the prediction should be made. For example, the predicted highway MPG for a car that weights 2500 lbs is 33.3, as obtained below.</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb176-1"><a href="RRegression.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lm1,<span class="fu">data.frame</span>(<span class="at">Weight=</span><span class="dv">2500</span>))</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;          1 
-#R&gt;   33.28372</code></pre>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb181-1"><a href="RRegression.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lm1,<span class="fu">data.frame</span>(<span class="at">Weight=</span><span class="dv">2500</span>))</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;         1 
+#R&gt;  33.28372</code></pre>
 <p> </p>
 
 </div>
@@ -428,6 +430,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {

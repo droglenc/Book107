@@ -17,9 +17,12 @@ description: "This book contains the readings for MTH107 at Northland College."
 library(NCStats)
 library(ggplot2)
 library(patchwork)
-knitr::opts_chunk$set(comment="#R>  ",message=FALSE,warning=FALSE,
+library(kableExtra)
+knitr::opts_chunk$set(comment="#R> ",
+                      message=FALSE,warning=FALSE,
                       fig.align='center',fig.width=3.5,fig.height=3.5,
-                      class.source="RCODE",class.output="ROUTPUT",
+                      class.source="RCODE",
+                      class.output="ROUTPUT",
                       class.warning="RWARNING",
                       class.error="RERROR",
                       class.message="RMESSAGE",
@@ -56,11 +59,23 @@ The book highlights definitions and tips in special boxes.
 This is a tip.
 :::
 
-R Code and results are also shown in special boxes. Code in the R box can be copied verbatim from the box with the icon that appears when you hover over the upper right corner of the code box.
+R Code and results are also shown in special boxes. R code is shown in a slight orange shade with the output in gray. Code in the R box can be copied from the box with the icon that appears when you hover over the upper right corner of the code box.
 
 ```{r}
 dat <- c(3,4,5,2,8)
 mean(dat)
+```
+
+Error results are shown in a reddish box.
+
+```{r error=TRUE}
+3*x
+```
+
+Results with a warning are shown in a goldish box.
+
+```{r warning=TRUE}
+c(2,2)*c(3,3,3)
 ```
 
 The material presented in this book can be challenging to master. Please don't hesitate to ask me questions as you have them!

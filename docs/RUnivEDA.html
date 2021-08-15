@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 24 Univariate EDA in R | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 24 Univariate EDA in R | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-05-04" />
+<meta name="date" content="2021-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="RFilter.html"/>
 <link rel="next" href="RBivEDA.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -118,6 +120,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -314,7 +317,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
 <li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
 <li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
@@ -342,34 +344,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-sets" class="section level4 unnumbered">
 <h4>Data Sets</h4>
 <p>Summaries for quantitative data will be demonstrated with a dataset of the number of days of ice cover at ice gauge station 9004 in Lake Superior. These data are in <a href="https://raw.githubusercontent.com/droglenc/NCData/master/LakeSuperiorIce.csv">LakeSuperiorIce.csv</a> and are loaded into <code>LSI</code> below with the methods described in Section <a href="RData.html#read-csv-file-into-rstudio">22.2.2</a>.<a href="#fn90" class="footnote-ref" id="fnref90"><sup>90</sup></a></p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb109-1"><a href="RUnivEDA.html#cb109-1" aria-hidden="true" tabindex="-1"></a>LSI <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;LakeSuperiorIce.csv&quot;</span>)</span>
-<span id="cb109-2"><a href="RUnivEDA.html#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(LSI)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;     season decade   period  temp days
-#R&gt;   1   1955   1950 pre-1975 22.94   87
-#R&gt;   2   1956   1950 pre-1975 23.02  137
-#R&gt;   3   1957   1950 pre-1975 25.68  106
-#R&gt;   4   1958   1950 pre-1975 19.96   97
-#R&gt;   5   1959   1950 pre-1975 24.80  105
-#R&gt;   6   1960   1960 pre-1975 23.98  118</code></pre>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb114-1"><a href="RUnivEDA.html#cb114-1" aria-hidden="true" tabindex="-1"></a>LSI <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;LakeSuperiorIce.csv&quot;</span>)</span>
+<span id="cb114-2"><a href="RUnivEDA.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(LSI)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;    season decade   period  temp days
+#R&gt;  1   1955   1950 pre-1975 22.94   87
+#R&gt;  2   1956   1950 pre-1975 23.02  137
+#R&gt;  3   1957   1950 pre-1975 25.68  106
+#R&gt;  4   1958   1950 pre-1975 19.96   97
+#R&gt;  5   1959   1950 pre-1975 24.80  105
+#R&gt;  6   1960   1960 pre-1975 23.98  118</code></pre>
 <p>Methods for categorical data will use data collected as part of the General Sociological Survey (GSS), which was described in the reading for Module <a href="UnivEDA.html#UnivEDA">5</a>. One question that was asked in a recent GSS was “How often do you make a special effort to sort glass or cans or plastic or papers and so on for recycling?” Respondents answered either with “Always,” “Often,” “Sometimes,” “Never,” or “Not Avail.” These data are in <a href="https://raw.githubusercontent.com/droglenc/NCData/master/GSSEnviroQue.csv">GSSEnviroQues.csv</a> and are loaded into <code>GSS</code> below.</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb111-1"><a href="RUnivEDA.html#cb111-1" aria-hidden="true" tabindex="-1"></a>GSS <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;GSSEnviroQues.csv&quot;</span>)</span>
-<span id="cb111-2"><a href="RUnivEDA.html#cb111-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(GSS)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;     recycle   tempgen
-#R&gt;   1  Always Extremely
-#R&gt;   2  Always Extremely
-#R&gt;   3  Always Extremely
-#R&gt;   4  Always Extremely
-#R&gt;   5  Always Extremely
-#R&gt;   6  Always Extremely</code></pre>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb116-1"><a href="RUnivEDA.html#cb116-1" aria-hidden="true" tabindex="-1"></a>GSS <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;GSSEnviroQues.csv&quot;</span>)</span>
+<span id="cb116-2"><a href="RUnivEDA.html#cb116-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(GSS)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;    recycle   tempgen
+#R&gt;  1  Always Extremely
+#R&gt;  2  Always Extremely
+#R&gt;  3  Always Extremely
+#R&gt;  4  Always Extremely
+#R&gt;  5  Always Extremely
+#R&gt;  6  Always Extremely</code></pre>
 </div>
 <div id="quantitative" class="section level2" number="24.1">
 <h2><span class="header-section-number">24.1</span> Quantitative</h2>
 <div id="summary-statistics" class="section level3" number="24.1.1">
 <h3><span class="header-section-number">24.1.1</span> Summary Statistics</h3>
 <p>The main summary statistics for quantitative data are the mean, median, standard deviation, IQR, and range, as described in Module <a href="UnivEDA.html#UnivEDA">5</a>. These statistics can be computed in R with <code>Summarize()</code>,<a href="#fn91" class="footnote-ref" id="fnref91"><sup>91</sup></a> using a one-sided formula of the form <code>~qvar</code>, where <code>qvar</code> generically represents the quantitative variable. The data frame that contains <code>qvar</code> is included in <code>data=</code>. The number of digits after the decimal place may be controlled with <code>digits=</code>.</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb113-1"><a href="RUnivEDA.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Summarize</span>(<span class="sc">~</span>days,<span class="at">data=</span>LSI,<span class="at">digits=</span><span class="dv">1</span>)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;        n nvalid   mean     sd    min     Q1 median     Q3    max 
-#R&gt;     42.0   39.0  107.8   21.6   48.0   97.0  114.0  118.0  146.0</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb118-1"><a href="RUnivEDA.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Summarize</span>(<span class="sc">~</span>days,<span class="at">data=</span>LSI,<span class="at">digits=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;       n nvalid   mean     sd    min     Q1 median     Q3    max 
+#R&gt;    42.0   39.0  107.8   21.6   48.0   97.0  114.0  118.0  146.0</code></pre>
 <p>From this it is seen that the sample median is 114 days, sample mean is 107.8 days, sample IQR is from 97 to 118 days, the sample standard deviation is 21.6 days, and the range is from 48 to 146 days. Also note that the overall sample size is 42, though three individuals must have been missing as the “valid n” is only 39.</p>
 <div class="tip">
 <ul>
@@ -381,23 +383,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="histograms" class="section level3" number="24.1.2">
 <h3><span class="header-section-number">24.1.2</span> Histograms</h3>
 <p>All graphs made with <code>ggplot2</code> begin with <code>ggplot()</code> using a <code>data=</code> argument that defines the data frame to be used for the graphic. Variables for the x- and y-axes are then declared within <code>aes()</code> as the second argument. A histogram requires only the variable for the x-axis. To this base information, <code>geom_histogram()</code> is “added” to produce a simple default histogram.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb115-1"><a href="RUnivEDA.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
-<span id="cb115-2"><a href="RUnivEDA.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-97-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb120-1"><a href="RUnivEDA.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
+<span id="cb120-2"><a href="RUnivEDA.html#cb120-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-99-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>Only define the x variable for a histogram.</p>
 </div>
 <p>This base histogram is rather ugly. Fortunately it can be improved fairly easily. Most importantly, set <code>binwidth=</code> to a common number (e.g., 1, 5, 10, etc) that produces the desired number of bins<a href="#fn92" class="footnote-ref" id="fnref92"><sup>92</sup></a> and <code>boundary=0</code> so that the bins will start on reasonable values. Additionally, the bin bars can be made more readable by outlining them in black with <code>color="black"</code> and filling then with a light gray with <code>fill="lightgray"</code>.</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb116-1"><a href="RUnivEDA.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
-<span id="cb116-2"><a href="RUnivEDA.html#cb116-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">10</span>,<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>)</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-98-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb121-1"><a href="RUnivEDA.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
+<span id="cb121-2"><a href="RUnivEDA.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">10</span>,<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>)</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-100-1.png" width="336" style="display: block; margin: auto;" /></p>
 <p>While this histogram is greatly improved it will look better if the bars are set on the x-axis with <code>scale_y_continuous()</code> as shown below,<a href="#fn93" class="footnote-ref" id="fnref93"><sup>93</sup></a> the x- and y-axes are labeled more appropriately using <code>x=</code> and <code>y=</code> in <code>labs()</code> as shown below, and we use <code>theme_NCStats()</code>,<a href="#fn94" class="footnote-ref" id="fnref94"><sup>94</sup></a> which was created especially for this class.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb117-1"><a href="RUnivEDA.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
-<span id="cb117-2"><a href="RUnivEDA.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">10</span>,<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
-<span id="cb117-3"><a href="RUnivEDA.html#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
-<span id="cb117-4"><a href="RUnivEDA.html#cb117-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Number of Days of Ice Cover&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Years&quot;</span>) <span class="sc">+</span></span>
-<span id="cb117-5"><a href="RUnivEDA.html#cb117-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-99-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb122-1"><a href="RUnivEDA.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
+<span id="cb122-2"><a href="RUnivEDA.html#cb122-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">10</span>,<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb122-3"><a href="RUnivEDA.html#cb122-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
+<span id="cb122-4"><a href="RUnivEDA.html#cb122-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Number of Days of Ice Cover&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Years&quot;</span>) <span class="sc">+</span></span>
+<span id="cb122-5"><a href="RUnivEDA.html#cb122-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-101-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>When making your own histogram, copy the code above and change the items in <code>data=</code>, <code>x=</code>, <code>binwidth=</code>, <code>x=</code>, and <code>y=</code>. The remaining items can remain as shown above.</p>
 </div>
@@ -407,32 +409,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">24.2</span> Quantitative for Multiple Groups</h2>
 <p>It is common to need to compute numerical or construct graphical summaries of a quantitative variable separately for groups of individuals. In these cases it is beneficial to have a function that will efficiently compute summary statistics and construct a histogram for the quantitative variable separated by the levels of a factor variable.</p>
 <p>As an example, the LSI data.frame contains a <code>period</code> variable that indicates whether the ice season was <code>pre-1975</code> or <code>post-1975</code> (which included 1975). Thus, one may be interested in examining the distribution of annual days of ice for each of these periods. As <code>period</code> is a categorical variable it is first converted to a <code>factor</code> data type, with the levels controlled to their proper order.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb118-1"><a href="RUnivEDA.html#cb118-1" aria-hidden="true" tabindex="-1"></a>LSI<span class="sc">$</span>period <span class="ot">&lt;-</span> <span class="fu">factor</span>(LSI<span class="sc">$</span>period,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;pre-1975&quot;</span>,<span class="st">&quot;post-1975&quot;</span>))</span>
-<span id="cb118-2"><a href="RUnivEDA.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(LSI)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   &#39;data.frame&#39;: 42 obs. of  5 variables:
-#R&gt;    $ season: int  1955 1956 1957 1958 1959 1960 1961 1962 1963 1964 ...
-#R&gt;    $ decade: int  1950 1950 1950 1950 1950 1960 1960 1960 1960 1960 ...
-#R&gt;    $ period: Factor w/ 2 levels &quot;pre-1975&quot;,&quot;post-1975&quot;: 1 1 1 1 1 1 1 1 1 1 ...
-#R&gt;    $ temp  : num  22.9 23 25.7 20 24.8 ...
-#R&gt;    $ days  : int  87 137 106 97 105 118 118 136 91 NA ...</code></pre>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb123-1"><a href="RUnivEDA.html#cb123-1" aria-hidden="true" tabindex="-1"></a>LSI<span class="sc">$</span>period <span class="ot">&lt;-</span> <span class="fu">factor</span>(LSI<span class="sc">$</span>period,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;pre-1975&quot;</span>,<span class="st">&quot;post-1975&quot;</span>))</span>
+<span id="cb123-2"><a href="RUnivEDA.html#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(LSI)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  &#39;data.frame&#39;:  42 obs. of  5 variables:
+#R&gt;   $ season: int  1955 1956 1957 1958 1959 1960 1961 1962 1963 1964 ...
+#R&gt;   $ decade: int  1950 1950 1950 1950 1950 1960 1960 1960 1960 1960 ...
+#R&gt;   $ period: Factor w/ 2 levels &quot;pre-1975&quot;,&quot;post-1975&quot;: 1 1 1 1 1 1 1 1 1 1 ...
+#R&gt;   $ temp  : num  22.9 23 25.7 20 24.8 ...
+#R&gt;   $ days  : int  87 137 106 97 105 118 118 136 91 NA ...</code></pre>
 <div id="summary-statistics-1" class="section level3" number="24.2.1">
 <h3><span class="header-section-number">24.2.1</span> Summary Statistics</h3>
 <p>Summary statistics are separated by group by giving <code>Summarize()</code> a “formula” of the form <code>qvar~cvar</code>, where <code>cvar</code> generically represents the factor variable that indicates to which group the individuals belong.</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb120-1"><a href="RUnivEDA.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Summarize</span>(days<span class="sc">~</span>period,<span class="at">data=</span>LSI,<span class="at">digits=</span><span class="dv">1</span>)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;        period  n nvalid  mean   sd min Q1 median  Q3 max
-#R&gt;   1  pre-1975 20     18 109.1 15.6  82 97  110.5 118 137
-#R&gt;   2 post-1975 22     21 106.8 26.0  48 99  116.0 123 146</code></pre>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb125-1"><a href="RUnivEDA.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Summarize</span>(days<span class="sc">~</span>period,<span class="at">data=</span>LSI,<span class="at">digits=</span><span class="dv">1</span>)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;       period  n nvalid  mean   sd min Q1 median  Q3 max
+#R&gt;  1  pre-1975 20     18 109.1 15.6  82 97  110.5 118 137
+#R&gt;  2 post-1975 22     21 106.8 26.0  48 99  116.0 123 146</code></pre>
 </div>
 <div id="histograms-1" class="section level3" number="24.2.2">
 <h3><span class="header-section-number">24.2.2</span> Histograms</h3>
 <p>A histogram can be separated by levels in the <code>cvar</code> variable by “adding” <code>facet_wrap()</code>, with <code>cvar</code> in <code>vars()</code> as its only argument, to the general histogram code (as shown above).</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb122-1"><a href="RUnivEDA.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
-<span id="cb122-2"><a href="RUnivEDA.html#cb122-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">15</span>,<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
-<span id="cb122-3"><a href="RUnivEDA.html#cb122-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
-<span id="cb122-4"><a href="RUnivEDA.html#cb122-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Number of Days of Ice Cover&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Years&quot;</span>) <span class="sc">+</span></span>
-<span id="cb122-5"><a href="RUnivEDA.html#cb122-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
-<span id="cb122-6"><a href="RUnivEDA.html#cb122-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(period))</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-102-1.png" width="648" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb127-1"><a href="RUnivEDA.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>days)) <span class="sc">+</span></span>
+<span id="cb127-2"><a href="RUnivEDA.html#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">15</span>,<span class="at">boundary=</span><span class="dv">0</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb127-3"><a href="RUnivEDA.html#cb127-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
+<span id="cb127-4"><a href="RUnivEDA.html#cb127-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Number of Days of Ice Cover&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Years&quot;</span>) <span class="sc">+</span></span>
+<span id="cb127-5"><a href="RUnivEDA.html#cb127-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
+<span id="cb127-6"><a href="RUnivEDA.html#cb127-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(period))</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-104-1.png" width="648" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>When creatig faceted histograms like this you will want to change the figure width, figure height, or both of the code chunk in the assignment template as described in Section <a href="RData.html#pro-tips">22.1.3</a>. The goal is to have the facets as square as possible.</p>
 </div>
@@ -440,11 +442,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="boxplots" class="section level3" number="24.2.3">
 <h3><span class="header-section-number">24.2.3</span> Boxplots</h3>
 <p>Side-by-side modern boxplots can be constructed by first declaring the quantitative variable as <code>y=</code> and the grouping variable as <code>x=</code> in <code>aes()</code> in <code>ggplot()</code> and then adding <code>geom_boxplot()</code>. As shown below, the boxplots may be outlined and filled, proper labels should be added, and the NCStats theme should be added.</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb123-1"><a href="RUnivEDA.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>period,<span class="at">y=</span>days)) <span class="sc">+</span></span>
-<span id="cb123-2"><a href="RUnivEDA.html#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
-<span id="cb123-3"><a href="RUnivEDA.html#cb123-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Period&quot;</span>,<span class="at">y=</span><span class="st">&quot;Number of Days of Ice Cover&quot;</span>) <span class="sc">+</span></span>
-<span id="cb123-4"><a href="RUnivEDA.html#cb123-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-103-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb128-1"><a href="RUnivEDA.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>LSI,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>period,<span class="at">y=</span>days)) <span class="sc">+</span></span>
+<span id="cb128-2"><a href="RUnivEDA.html#cb128-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb128-3"><a href="RUnivEDA.html#cb128-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Period&quot;</span>,<span class="at">y=</span><span class="st">&quot;Number of Days of Ice Cover&quot;</span>) <span class="sc">+</span></span>
+<span id="cb128-4"><a href="RUnivEDA.html#cb128-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-105-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>Must declare both <code>x=</code> and <code>y=</code> for a boxplot.</p>
 </div>
@@ -455,22 +457,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="data-manipulation" class="section level3" number="24.3.1">
 <h3><span class="header-section-number">24.3.1</span> Data Manipulation</h3>
 <p>Methods for summarizing categorical data work best if the categorical variable is recorded as a “factor” variable in R (data types discussed in Section <a href="RData.html#structure-and-data-types">22.3.1</a>). Most often the variable will need to be coerced into being a factor variable. For example, the <code>recycle</code> variable in <code>GSS</code> is a character variable by default.</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb124-1"><a href="RUnivEDA.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(GSS)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   &#39;data.frame&#39;: 3539 obs. of  2 variables:
-#R&gt;    $ recycle: chr  &quot;Always&quot; &quot;Always&quot; &quot;Always&quot; &quot;Always&quot; ...
-#R&gt;    $ tempgen: chr  &quot;Extremely&quot; &quot;Extremely&quot; &quot;Extremely&quot; &quot;Extremely&quot; ...</code></pre>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb129-1"><a href="RUnivEDA.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(GSS)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  &#39;data.frame&#39;:  3539 obs. of  2 variables:
+#R&gt;   $ recycle: chr  &quot;Always&quot; &quot;Always&quot; &quot;Always&quot; &quot;Always&quot; ...
+#R&gt;   $ tempgen: chr  &quot;Extremely&quot; &quot;Extremely&quot; &quot;Extremely&quot; &quot;Extremely&quot; ...</code></pre>
 <p>Categorical data can be forced to be a factor data type with <code>factor()</code>. The order of the levels, most importantly for ordinal data, can be controlled by including the ordered level names within a vector given to <code>levels=</code> in <code>factor()</code>. For example, the <code>recycle</code> variable in <code>GSS</code> is forced to be a factor below and its levels are controlled to follow their natural order.</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb126-1"><a href="RUnivEDA.html#cb126-1" aria-hidden="true" tabindex="-1"></a>GSS<span class="sc">$</span>recycle <span class="ot">&lt;-</span> <span class="fu">factor</span>(GSS<span class="sc">$</span>recycle,</span>
-<span id="cb126-2"><a href="RUnivEDA.html#cb126-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Always&quot;</span>,<span class="st">&quot;Often&quot;</span>,<span class="st">&quot;Sometimes&quot;</span>,<span class="st">&quot;Never&quot;</span>,<span class="st">&quot;Not Avail&quot;</span>))</span>
-<span id="cb126-3"><a href="RUnivEDA.html#cb126-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(GSS)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   &#39;data.frame&#39;: 3539 obs. of  2 variables:
-#R&gt;    $ recycle: Factor w/ 5 levels &quot;Always&quot;,&quot;Often&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
-#R&gt;    $ tempgen: chr  &quot;Extremely&quot; &quot;Extremely&quot; &quot;Extremely&quot; &quot;Extremely&quot; ...</code></pre>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb128-1"><a href="RUnivEDA.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(GSS<span class="sc">$</span>recycle)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   [1] &quot;Always&quot;    &quot;Often&quot;     &quot;Sometimes&quot; &quot;Never&quot;     &quot;Not Avail&quot;</code></pre>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb131-1"><a href="RUnivEDA.html#cb131-1" aria-hidden="true" tabindex="-1"></a>GSS<span class="sc">$</span>recycle <span class="ot">&lt;-</span> <span class="fu">factor</span>(GSS<span class="sc">$</span>recycle,</span>
+<span id="cb131-2"><a href="RUnivEDA.html#cb131-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Always&quot;</span>,<span class="st">&quot;Often&quot;</span>,<span class="st">&quot;Sometimes&quot;</span>,<span class="st">&quot;Never&quot;</span>,<span class="st">&quot;Not Avail&quot;</span>))</span>
+<span id="cb131-3"><a href="RUnivEDA.html#cb131-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(GSS)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  &#39;data.frame&#39;:  3539 obs. of  2 variables:
+#R&gt;   $ recycle: Factor w/ 5 levels &quot;Always&quot;,&quot;Often&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
+#R&gt;   $ tempgen: chr  &quot;Extremely&quot; &quot;Extremely&quot; &quot;Extremely&quot; &quot;Extremely&quot; ...</code></pre>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb133-1"><a href="RUnivEDA.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(GSS<span class="sc">$</span>recycle)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  [1] &quot;Always&quot;    &quot;Often&quot;     &quot;Sometimes&quot; &quot;Never&quot;     &quot;Not Avail&quot;</code></pre>
 <p>The names of the levels in the vector given to <code>levels=</code> must be <strong>exactly</strong> as they appear in the original variable and they must be contained within quotes. Prior to using <code>factor()</code>, include the variable in <code>unique()</code> to see what the names of the levels are.</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb130-1"><a href="RUnivEDA.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(GSS<span class="sc">$</span>recycle)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   [1] &quot;Always&quot;    &quot;Often&quot;     &quot;Sometimes&quot; &quot;Never&quot;     &quot;Not Avail&quot;</code></pre>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb135-1"><a href="RUnivEDA.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(GSS<span class="sc">$</span>recycle)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  [1] &quot;Always&quot;    &quot;Often&quot;     &quot;Sometimes&quot; &quot;Never&quot;     &quot;Not Avail&quot;</code></pre>
 <div class="tip">
 <ul>
 <li>Convert categorical data to a factor variable before summarizing.</li>
@@ -482,26 +484,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="frequency-and-percentage-tables-1" class="section level3" number="24.3.2">
 <h3><span class="header-section-number">24.3.2</span> Frequency and Percentage Tables</h3>
 <p>A frequency table of a single categorical variable is computed with <code>xtabs()</code>, where the first argument is a one-sided formula of the form <code>~cvar</code> and the corresponding data frame is in <code>data=</code>. The result from <code>xtabs()</code> should be assigned to an object for further use. For example, the frequency table is produced, stored in <code>tabRecycle</code>, and displayed below.</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb132-1"><a href="RUnivEDA.html#cb132-1" aria-hidden="true" tabindex="-1"></a>( tabRecycle <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>recycle,<span class="at">data=</span>GSS) )</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   recycle
-#R&gt;      Always     Often Sometimes     Never Not Avail 
-#R&gt;        1289       850       823       448       129</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb137-1"><a href="RUnivEDA.html#cb137-1" aria-hidden="true" tabindex="-1"></a>( tabRecycle <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>recycle,<span class="at">data=</span>GSS) )</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  recycle
+#R&gt;     Always     Often Sometimes     Never Not Avail 
+#R&gt;       1289       850       823       448       129</code></pre>
 <p>A percentage table is computed by including the saved frequency table as the first argument to <code>percTable()</code>.<a href="#fn95" class="footnote-ref" id="fnref95"><sup>95</sup></a> The number of digits of output is controlled with <code>digits=</code>, though this defaults to 1 which is adequate for most percentages.</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb134-1"><a href="RUnivEDA.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(tabRecycle)</span></code></pre></div>
-<pre class="ROUTPUT"><code>#R&gt;   recycle
-#R&gt;      Always     Often Sometimes     Never Not Avail 
-#R&gt;        36.4      24.0      23.3      12.7       3.6</code></pre>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb139-1"><a href="RUnivEDA.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(tabRecycle)</span></code></pre></div>
+<pre class="ROUTPUT"><code>#R&gt;  recycle
+#R&gt;     Always     Often Sometimes     Never Not Avail 
+#R&gt;       36.4      24.0      23.3      12.7       3.6</code></pre>
 <p> </p>
 </div>
 <div id="bar-charts-1" class="section level3" number="24.3.3">
 <h3><span class="header-section-number">24.3.3</span> Bar Charts</h3>
 <p>A bar chart is constructed by declaring only the categorical variable as <code>x=</code> within <code>aes()</code> of <code>ggplot()</code> and then adding <code>geom_bar()</code>. As shown below, the outline and fill colors of the bars may be set, the bars should be set on the x-axis as with the histograms, the axes should be properly labeled, and the NCStats theme should be used.</p>
-<div class="sourceCode" id="cb136"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb136-1"><a href="RUnivEDA.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>GSS,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>recycle)) <span class="sc">+</span></span>
-<span id="cb136-2"><a href="RUnivEDA.html#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
-<span id="cb136-3"><a href="RUnivEDA.html#cb136-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
-<span id="cb136-4"><a href="RUnivEDA.html#cb136-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Respondent&#39;s Response&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Respondents&quot;</span>) <span class="sc">+</span></span>
-<span id="cb136-5"><a href="RUnivEDA.html#cb136-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-110-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb141-1"><a href="RUnivEDA.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>GSS,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>recycle)) <span class="sc">+</span></span>
+<span id="cb141-2"><a href="RUnivEDA.html#cb141-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
+<span id="cb141-3"><a href="RUnivEDA.html#cb141-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand=</span><span class="fu">expansion</span>(<span class="at">mult=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>))) <span class="sc">+</span></span>
+<span id="cb141-4"><a href="RUnivEDA.html#cb141-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Respondent&#39;s Response&quot;</span>,<span class="at">y=</span><span class="st">&quot;Frequency of Respondents&quot;</span>) <span class="sc">+</span></span>
+<span id="cb141-5"><a href="RUnivEDA.html#cb141-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-112-1.png" width="336" style="display: block; margin: auto;" /></p>
 <div class="tip">
 <p>When making your own bar chart, copy the code above and change the items in <code>data=</code>, <code>x=</code>, <code>x=</code>, and <code>y=</code>. All other items can remain as shown above.</p>
 </div>
@@ -551,6 +553,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {

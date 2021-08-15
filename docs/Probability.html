@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 12 Probability Introduction | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 12 Probability Introduction | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-05-04" />
+<meta name="date" content="2021-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="SamplingDist.html"/>
 <link rel="next" href="HypTesting1.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -118,6 +120,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -314,7 +317,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
 <li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
 <li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
@@ -364,7 +366,7 @@ Figure 12.2: Calculation of the probability that a randomly selected individual 
 <h2><span class="header-section-number">12.2</span> Probability of Statistics</h2>
 <p>The probability of a statistic computed from a random sample can also be found because the Central Limit Theorem (CLT) explains the distribution of statistics from all possible samples from a population (Module <a href="SamplingDist.html#SamplingDist">11</a>). Probability calculations from sampling distributions will be the basis for making statistical inferences in Modules <a href="HypTesting1.html#HypTesting1">13</a>-<a href="ConfRegions2.html#ConfRegions2">16</a>. These calculations are introduced here.</p>
 <p>If the sample size is large enough, then the CLT states that the sampling distribution of sample means is approximately normal and the methods from Module <a href="NormalDist2.html#NormalDist2">7</a> may then be used to compute probabilities. Therefore questions such as “what is the probability of observing a sample mean of less than 95 mm from a sample of n=50 from Square Lake?” can be answered. This question is answered by first recalling that population all fish in Square Lake has μ=98.06 mm and σ=31.49 mm. Because n=50 is greater than 30, the CLT says that the distribution of the sample means from these samples is <span class="math inline">\(\bar{\text{x}}\)</span>~N(98.06,<span class="math inline">\(\frac{34.19}{\sqrt{50}}\)</span>) or <span class="math inline">\(\bar{\text{x}}\)</span>~N(98.06,4.835). Thus, the proportion of samples of n=50 from Square Lake with an <span class="math inline">\(\bar{\text{x}}\)</span>&lt;95 mm is 0.263, which comes from computing the area less than 95 on a N(98.06,4.835) distribution (Figure <a href="Probability.html#fig:NormTL95A">12.3</a>).<a href="#fn56" class="footnote-ref" id="fnref56"><sup>56</sup></a></p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb21-1"><a href="Probability.html#cb21-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">95</span>,<span class="at">mean=</span><span class="fl">98.06</span>,<span class="at">sd=</span><span class="fl">34.19</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">50</span>)) )</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb26-1"><a href="Probability.html#cb26-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">95</span>,<span class="at">mean=</span><span class="fl">98.06</span>,<span class="at">sd=</span><span class="fl">34.19</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">50</span>)) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:NormTL95A"></span>
 <img src="Book107_files/figure-html/NormTL95A-1.png" alt="Proportion of sample means less than 95 mm on a $N(98.06,4.84)$ distribution." width="336" />
 <p class="caption">
@@ -373,7 +375,7 @@ Figure 12.3: Proportion of sample means less than 95 mm on a <span class="math i
 </div>
 <p> </p>
 <p>Consider another question – “what is the probability of observing a sample mean of more than 95 mm in a sample of n=40 from Square Lake?” At first glance it may appear that this question can be answered from the work done for the previous question. However, the sample sizes differ between the two questions and, because the sampling distribution depends on the sample size, a different sampling distribution is used here. Because n&gt;30 the sampling distribution will be <span class="math inline">\(\bar{\text{x}}\)</span>~N(98.06,<span class="math inline">\(\frac{34.19}{\sqrt{40}})\)</span> or <span class="math inline">\(\bar{\text{x}}\)</span>~N(98.06,5.406) (Note the different value of the SE). Thus, the answer to this question is the area to the right of 95 on a N(98.06,5.406), which is 0.714 (Figure <a href="Probability.html#fig:NormTL95B">12.4</a>).</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb22-1"><a href="Probability.html#cb22-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">95</span>,<span class="at">mean=</span><span class="fl">98.06</span>,<span class="at">sd=</span><span class="fl">34.19</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">40</span>),<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb27-1"><a href="Probability.html#cb27-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">95</span>,<span class="at">mean=</span><span class="fl">98.06</span>,<span class="at">sd=</span><span class="fl">34.19</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">40</span>),<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:NormTL95B"></span>
 <img src="Book107_files/figure-html/NormTL95B-1.png" alt="Proportion of sample means less than 95 mm on a N(98.06,5.406) distribution." width="336" />
 <p class="caption">
@@ -400,7 +402,7 @@ Figure 12.4: Proportion of sample means less than 95 mm on a N(98.06,5.406) dist
 <p> </p>
 <table class=" lightable-classic lightable-hover" style="font-family: Cambria; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:unnamed-chunk-35">Table 12.1: </span>Which distribution to use and its characteristics based on whether the probability question is about an individual or a mean.
+<span id="tab:unnamed-chunk-37">Table 12.1: </span>Which distribution to use and its characteristics based on whether the probability question is about an individual or a mean.
 </caption>
 <thead>
 <tr>
@@ -468,16 +470,16 @@ SE=<span class="math inline">\(\frac{\sigma}{\text{n}}\)</span>
 <li><strong>0.029</strong> – This question is about a mean and would thus use the sampling distribution. The sampling distribution is normal because even though n&lt;15, we are told in the background that the population distribution is normal (thus, the last option in the CLT is met). This is then a Forward-Right question using a SE. The probability is computed with</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb23-1"><a href="Probability.html#cb23-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">175</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">10</span>),<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-36-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb28-1"><a href="Probability.html#cb28-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">175</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">10</span>),<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-38-1.png" width="336" style="display: block; margin: auto;" /></p>
 <ul>
 <li>What is the probability that the driver drives more than 175 miles in a random week?
 <ul>
 <li><strong>0.274</strong> – This question is about an individual (i.e., one week) and would thus use the population distribution. We are told in the background that the population distribution is normal. This is then a Forward-Right question using a SD. The probability is computed with</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb24-1"><a href="Probability.html#cb24-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">175</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-37-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb29-1"><a href="Probability.html#cb29-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">175</span>,<span class="at">mean=</span><span class="dv">160</span>,<span class="at">sd=</span><span class="dv">25</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-39-1.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 <p>Suppose that the number of points that the Iowa Hawkeyes basketball team scores per game is right-skewed with a mean of 73 points and a standard deviation of 11 games. Use this information to answer the following questions.</p>
 <ul>
@@ -490,16 +492,16 @@ SE=<span class="math inline">\(\frac{\sigma}{\text{n}}\)</span>
 <li><strong>0.309</strong> – This question is about a mean and would thus use the sampling distribution. The sampling distribution is normal because n≥30 (thus, the first part of the CLT has been met). This is then a Forward-Right question using a SE. The probability is computed with</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb25-1"><a href="Probability.html#cb25-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">75</span>,<span class="at">mean=</span><span class="dv">73</span>,<span class="at">sd=</span><span class="dv">22</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">30</span>),<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-38-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb30-1"><a href="Probability.html#cb30-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">75</span>,<span class="at">mean=</span><span class="dv">73</span>,<span class="at">sd=</span><span class="dv">22</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">30</span>),<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-40-1.png" width="336" style="display: block; margin: auto;" /></p>
 <ul>
 <li>What is the probability that the Hawkeyes will score fewer than a mean of 72 points in a random sample of 20 games?
 <ul>
 <li><strong>0.419</strong> – This question is about an mean and would thus use the sampling distribution. The sampling distribution is normal because n≥15 and the population is <em>not strongly skewed</em> (thus, the second part of the CLT has been met). This is then a Forward-Left question using a SE. The probability is computed with</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb26-1"><a href="Probability.html#cb26-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">72</span>,<span class="at">mean=</span><span class="dv">73</span>,<span class="at">sd=</span><span class="dv">22</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">20</span>)) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-39-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb31-1"><a href="Probability.html#cb31-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">72</span>,<span class="at">mean=</span><span class="dv">73</span>,<span class="at">sd=</span><span class="dv">22</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">20</span>)) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-41-1.png" width="336" style="display: block; margin: auto;" /></p>
 <ul>
 <li>What is the probability that the Hawkeyes will score more than 75 points in a random game?
 <ul>
@@ -553,6 +555,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {

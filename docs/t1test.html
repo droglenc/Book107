@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 18 1-Sample t-Test | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 18 1-Sample t-Test | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-05-04" />
+<meta name="date" content="2021-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="Ztest.html"/>
 <link rel="next" href="t2test.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -118,6 +120,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -314,7 +317,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
 <li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
 <li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
@@ -351,7 +353,7 @@ Figure 18.1: Standard normal (black) and t-distributions with varying degrees-of
 </div>
 <p> </p>
 <p>Proportional areas on a t-distribution are computed using <code>distrib()</code> similar to what was described for a normal distribution in Modules <a href="NormalDist1.html#NormalDist1">6</a> and <a href="SamplingDist.html#SamplingDist">11</a>. The major exceptions for using <code>distrib()</code> with a t-distribution is that <code>distrib="t"</code> must be used and the degrees-of-freedom must be given in <code>df=</code> (how to find df is discussed in subsequent sections). For example, the area right of t=-1.456 on a t-distribution with 9 df is 0.9103 (Figure <a href="t1test.html#fig:tarea1">18.2</a>).</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb36-1"><a href="t1test.html#cb36-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">1.456</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">9</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb41-1"><a href="t1test.html#cb41-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">1.456</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">9</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:tarea1"></span>
 <img src="Book107_files/figure-html/tarea1-1.png" alt="Depiction of the area to the right of t=-1.456 on a t-distribution with 9 df." width="336" />
 <p class="caption">
@@ -360,7 +362,7 @@ Figure 18.2: Depiction of the area to the right of t=-1.456 on a t-distribution 
 </div>
 <p> </p>
 <p>Similarly, the t with an upper-tail area of 0.95 on a t-distribution with 19 df is -1.729 (Figure <a href="t1test.html#fig:tstar1">18.3</a>).<a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a></p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb37-1"><a href="t1test.html#cb37-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">df=</span><span class="dv">19</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb42-1"><a href="t1test.html#cb42-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">df=</span><span class="dv">19</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:tstar1"></span>
 <img src="Book107_files/figure-html/tstar1-1.png" alt="Depiction of the value of t with an area to the right of 0.95 on a t-distribution with 19 df." width="336" />
 <p class="caption">
@@ -417,10 +419,10 @@ Figure 18.3: Depiction of the value of t with an area to the right of 0.95 on a 
 </ol>
 <div id="r-appendix-1" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb38-1"><a href="t1test.html#cb38-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">1.87</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">49</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-48-1.png" width="336" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb39-1"><a href="t1test.html#cb39-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">df=</span><span class="dv">49</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-48-2.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb43-1"><a href="t1test.html#cb43-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">1.87</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">49</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-50-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb44-1"><a href="t1test.html#cb44-1" aria-hidden="true" tabindex="-1"></a>( tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">df=</span><span class="dv">49</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-50-2.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 </div>
 </div>
@@ -516,10 +518,10 @@ max
 </ol>
 <div id="r-appendix-2" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb40-1"><a href="t1test.html#cb40-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">5.469</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">129</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-49-1.png" width="336" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb41-1"><a href="t1test.html#cb41-1" aria-hidden="true" tabindex="-1"></a>(tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.995</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">129</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-49-2.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb45-1"><a href="t1test.html#cb45-1" aria-hidden="true" tabindex="-1"></a>( pval <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">5.469</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">129</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-51-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb46-1"><a href="t1test.html#cb46-1" aria-hidden="true" tabindex="-1"></a>(tstar <span class="ot">&lt;-</span> <span class="fu">distrib</span>(<span class="fl">0.995</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">129</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-51-2.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 
 </div>
@@ -564,6 +566,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {

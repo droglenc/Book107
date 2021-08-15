@@ -80,7 +80,7 @@ The data used in this reading are the biological oxygen demand (BOD) measurement
 ```{r echo=FALSE}
 aqua <- read.csv("https://raw.githubusercontent.com/droglenc/NCData/master/BOD.csv")
 ```
-```{r eval=FALSE}
+```{r eval=FALSE, class.source="RCODE_ALONE"}
 aqua <- read.csv("BOD.csv")
 ```
 

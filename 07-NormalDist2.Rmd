@@ -8,7 +8,7 @@ The area under a normal curve relative to a particular value is computed in R wi
 
 For example, suppose that the heights of a population of students is known to be H~N(66,3). The proportion of students in this population that have a height less than 71 inches is with
 
-```{r results="hide", fig.show="hide"}
+```{r results="hide", fig.show="hide", class.source="RCODE_ALONE"}
 ( distrib(71,mean=66,sd=3) )
 ```
 
@@ -24,7 +24,7 @@ par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
 
 The proportion of students in this population that have a height *greater* than 68 inches is computed with (note use of `lower.tail=FALSE`)
 
-```{r results="hide", fig.show="hide"}
+```{r results="hide", fig.show="hide", class.source="RCODE_ALONE"}
 ( distrib(68,mean=66,sd=3,lower.tail=FALSE) )
 ```
 
@@ -84,7 +84,7 @@ The area between two values is found by subtracting the area less than the small
 ## Reverse Calculations
 Reverse questions also use `distrib()`, though the first argument is now the given percentage, though it must be entered as a proportion. The calculation is treated as a "reverse" question only when `type="q"` is also given to `distrib()`.^["q" stands for quantile.]  For example, the height that has 20% of all students shorter is computed with
 
-```{r results="hide",fig.show="hide"}
+```{r results="hide",fig.show="hide", class.source="RCODE_ALONE"}
 ( distrib(0.20,mean=66,sd=3,type="q") )
 ```
 
@@ -100,7 +100,7 @@ par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
 
 "Greater than" reverse questions are computed by also including `lower.tail=FALSE`. For example, the tallest 10% of the population of students is computed with
 
-```{r results="hide",fig.show='hide'}
+```{r results="hide",fig.show='hide', class.source="RCODE_ALONE"}
 ( distrib(0.10,mean=66,sd=3,type="q",lower.tail=FALSE) )
 ```
 

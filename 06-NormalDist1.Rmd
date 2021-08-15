@@ -288,15 +288,15 @@ Suppose, for example, that the total miles driven per week by a particular perso
 b +
   stat_function(fun=dnorm,args=list(mean=mn,sd=sd),xlim=c(mn-2*sd,mn+2*sd),
                 geom="area",fill="gray40",color="black",size=1.1) +
-  ggpmisc::geom_text_npc(aes(npcx=0.5,npcy=0.05,label="95%"),
+  ggpp::geom_text_npc(aes(npcx=0.5,npcy=0.05,label="95%"),
                          size=7,color="white") +
   stat_function(fun=dnorm,args=list(mean=mn,sd=sd),xlim=c(mn-4*sd,mn-2*sd),
                 geom="area",fill="red",color="black",size=1.1) +
-  ggpmisc::geom_text_npc(aes(npcx=0.03,npcy=0.1,label="2.5%"),
+  ggpp::geom_text_npc(aes(npcx=0.03,npcy=0.1,label="2.5%"),
                          size=7,color="black",hjust=0) +
   stat_function(fun=dnorm,args=list(mean=mn,sd=sd),xlim=c(mn+2*sd,mn+4*sd),
                 geom="area",fill="red",alpha=0.3,color="black",size=1.1) +
-  ggpmisc::geom_text_npc(aes(npcx=0.97,npcy=0.1,label="2.5%"),
+  ggpp::geom_text_npc(aes(npcx=0.97,npcy=0.1,label="2.5%"),
                          size=7,color="black",hjust=1)
 ```
 
@@ -307,15 +307,15 @@ b +
 b +
   stat_function(fun=dnorm,args=list(mean=mn,sd=sd),xlim=c(mn-1*sd,mn+1*sd),
                 geom="area",fill="gray40",color="black",size=1.1) +
-  ggpmisc::geom_text_npc(aes(npcx=0.5,npcy=0.05,label="68%"),
+  ggpp::geom_text_npc(aes(npcx=0.5,npcy=0.05,label="68%"),
                          size=7,color="white") +
   stat_function(fun=dnorm,args=list(mean=mn,sd=sd),xlim=c(mn-4*sd,mn-1*sd),
                 geom="area",fill="red",alpha=0.3,color="black",size=1.1) +
-  ggpmisc::geom_text_npc(aes(npcx=0.1,npcy=0.2,label="16%"),
+  ggpp::geom_text_npc(aes(npcx=0.1,npcy=0.2,label="16%"),
                          size=7,color="black",hjust=0) +
   stat_function(fun=dnorm,args=list(mean=mn,sd=sd),xlim=c(mn+1*sd,mn+4*sd),
                 geom="area",fill="red",alpha=0.3,color="black",size=1.1) +
-  ggpmisc::geom_text_npc(aes(npcx=0.9,npcy=0.2,label="16%"),
+  ggpp::geom_text_npc(aes(npcx=0.9,npcy=0.2,label="16%"),
                          size=7,color="black",hjust=1)
 ```
 
@@ -328,11 +328,11 @@ b +
                 geom="area",fill="gray40",color="black",size=1.1) +
   stat_function(fun=dnorm,args=list(mean=mn,sd=sd),xlim=c(mn-4*sd,mn-1*sd),
                 geom="area",fill="red",alpha=0.3,color="black",size=1.1) +
-  ggpmisc::geom_text_npc(aes(npcx=0.1,npcy=0.2,label="16%"),
+  ggpp::geom_text_npc(aes(npcx=0.1,npcy=0.2,label="16%"),
                          size=7,color="black",hjust=0) +
   stat_function(fun=dnorm,args=list(mean=mn,sd=sd),xlim=c(mn+2*sd,mn+4*sd),
                 geom="area",fill="red",alpha=0.3,color="black",size=1.1) +
-  ggpmisc::geom_text_npc(aes(npcx=0.97,npcy=0.1,label="2.5%"),
+  ggpp::geom_text_npc(aes(npcx=0.97,npcy=0.1,label="2.5%"),
                          size=7,color="black",hjust=1)
 ```
 
@@ -346,11 +346,11 @@ The following questions, though they sound different, can also be answered with 
 b +
   stat_function(fun=dnorm,args=list(mean=mn,sd=sd),xlim=c(mn-1*sd,mn+1*sd),
                 geom="area",fill="gray40",color="black",size=1.1) +
-  ggpmisc::geom_text_npc(aes(npcx=0.5,npcy=0.05,label="68%"),
+  ggpp::geom_text_npc(aes(npcx=0.5,npcy=0.05,label="68%"),
                          size=7,color="white") +
   stat_function(fun=dnorm,args=list(mean=mn,sd=sd),xlim=c(mn+1*sd,mn+4*sd),
                 geom="area",fill="red",color="black",size=1.1) +
-  ggpmisc::geom_text_npc(aes(npcx=0.9,npcy=0.2,label="16%"),
+  ggpp::geom_text_npc(aes(npcx=0.9,npcy=0.2,label="16%"),
                          size=7,color="black",hjust=1)
 ```
 
@@ -363,11 +363,11 @@ b +
 b +
   stat_function(fun=dnorm,args=list(mean=mn,sd=sd),xlim=c(mn-2*sd,mn+2*sd),
                 geom="area",fill="gray40",color="black",size=1.1) +
-  ggpmisc::geom_text_npc(aes(npcx=0.5,npcy=0.05,label="95%"),
+  ggpp::geom_text_npc(aes(npcx=0.5,npcy=0.05,label="95%"),
                          size=7,color="white") +
   stat_function(fun=dnorm,args=list(mean=mn,sd=sd),xlim=c(mn-4*sd,mn-2*sd),
                 geom="area",fill="red",color="black",size=1.1) +
-  ggpmisc::geom_text_npc(aes(npcx=0.03,npcy=0.1,label="2.5%"),
+  ggpp::geom_text_npc(aes(npcx=0.03,npcy=0.1,label="2.5%"),
                          size=7,color="black",hjust=0)
 ```
 

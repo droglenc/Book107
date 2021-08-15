@@ -9,8 +9,10 @@ An example of these data are shown below.
 ```{r echo=FALSE}
 gss <- read.csv("https://raw.githubusercontent.com/droglenc/NCData/master/GSSWill2Pay.csv") %>%
   mutate(degree=factor(degree,levels=c("ltHS","HS","JC","BS","grad")),
-         grnsol=mapvalues(grnsol,from=c("vwill","will","neither","un","vun"),
-                          to=c("vwill","will","neither","unwill","vunwill")),
+         grnsol=plyr::mapvalues(grnsol,from=c("vwill","will","neither",
+                                              "un","vun"),
+                                to=c("vwill","will","neither",
+                                     "unwill","vunwill")),
          grnsol=factor(grnsol,
                        levels=c("vwill","will","neither","unwill","vunwill")))
 FSA::peek(gss,n=5) %>%

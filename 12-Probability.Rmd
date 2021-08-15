@@ -24,8 +24,9 @@ n <- 50
 succ <- 30
 symb <- c("\\MA","\\VE")
 df <- data.frame(x=runif(n),y=runif(n),
-                 grp=sample(rep(symb,times=c(succ,n-succ))),stringsAsFactors=FALSE)
-df$clrs <- mapvalues(df$grp,from=c("\\MA","\\VE"),to=clrsT)
+                 grp=sample(rep(symb,times=c(succ,n-succ))),
+                 stringsAsFactors=FALSE)
+df$clrs <- plyr::mapvalues(df$grp,from=c("\\MA","\\VE"),to=clrsT)
 plot(y~x,data=df,col="white",xlim=c(0,1),ylim=c(0,1),xlab="",ylab="")
 text(df$x,df$y,df$grp,vfont=c("sans serif symbol","plain"),col=df$clrs,cex=2)
 ```

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 21 Goodness-of-Fit Test | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 21 Goodness-of-Fit Test | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-05-04" />
+<meta name="date" content="2021-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="ChiSquare.html"/>
 <link rel="next" href="RData.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -118,6 +120,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -314,7 +317,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
 <li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
 <li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
@@ -608,10 +610,10 @@ Sum
 </ol>
 <div id="r-appendix-7" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb49-1"><a href="GOFTest.html#cb49-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">4.077</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-55-1.png" width="336" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb50-1"><a href="GOFTest.html#cb50-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-55-2.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb54-1"><a href="GOFTest.html#cb54-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">4.077</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">1</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-57-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb55-1"><a href="GOFTest.html#cb55-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-57-2.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 </div>
 </div>
@@ -691,8 +693,8 @@ generic
 </ol>
 <div id="r-appendix-8" class="section level4 unnumbered">
 <h4>R Appendix:</h4>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb51-1"><a href="GOFTest.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">9.132</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">2</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-56-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb56-1"><a href="GOFTest.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">9.132</span>,<span class="at">distrib=</span><span class="st">&quot;chisq&quot;</span>,<span class="at">df=</span><span class="dv">2</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-58-1.png" width="336" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
@@ -733,6 +735,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 15 Confidence Regions - Introduction | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 15 Confidence Regions - Introduction | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-05-04" />
+<meta name="date" content="2021-08-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="HypTesting2.html"/>
 <link rel="next" href="ConfRegions2.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -118,6 +120,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -314,7 +317,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="28.1" data-path="RChi.html"><a href="RChi.html#chi-square-tests"><i class="fa fa-check"></i><b>28.1</b> Chi-Square Tests</a></li>
 <li class="chapter" data-level="28.2" data-path="RChi.html"><a href="RChi.html#goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>28.2</b> Goodness-of-Fit Test in R</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a></li>
 <li><a href="https://bookdown.org" target="_blank">Built with Bookdown + RStudio</a></li>
@@ -496,7 +498,7 @@ Parameter greater than UCB value
 <p> </p>
 <p>Fortunately, most confidence regions follow the same basic form of</p>
 <p><span class="math display">\[ ``\text{Statistic&quot;} + ``\text{scaling factor&quot;} \times \text{SE}_{\text{statistic}} \]</span></p>
-<p>where “Statistic” represents the statistic used to estimate the parameter, SE<sub>statistic</sub> is the standard error of that statistic, and scaling factor"×SE<sub>statistic</sub> is called the margin-of-error. The scaling factor is computed from a known distribution. When σ is known, the scaling factor is computed from a N(0,1) and is called Z<sup>*</sup>. Thus, in the case when a confidence interval is being constructed for μ and σ is known, the specific formula for the confidence region is</p>
+<p>where “Statistic” represents the statistic used to estimate the parameter, SE<sub>statistic</sub> is the standard error of that statistic, and scaling factor”×SE<sub>statistic</sub> is called the margin-of-error. The scaling factor is computed from a known distribution. When σ is known, the scaling factor is computed from a N(0,1) and is called Z<sup>*</sup>. Thus, in the case when a confidence interval is being constructed for μ and σ is known, the specific formula for the confidence region is</p>
 <p><span class="math display">\[ \bar{\text{x}} + Z^{*}\frac{\sigma}{\sqrt{n}} \]</span></p>
 <p>The “scaling factor” serves to control the width and type of confidence region. The magnitude of the scaling factor controls the relative width of the region such that the parameter is contained in the region at a rate according to the level of confidence. For example, the scaling factor for a 99% confidence region will be set such that 99% of the confidence regions will contain the parameter.</p>
 <p>The sign of the scaling factor controls whether an interval, upper bound, or lower bound is computed. For example, if the alternative hypothesis is two-tailed, then Z<sup>*</sup> is the two values such that an area equal to the level of confidence is contained between them (Figure <a href="ConfRegions1.html#fig:CIboundsZ">15.3</a>-Left). The two values that delineate these boundaries will be the same value but with different signs because the N(0,1) is symmetric about zero. Thus, a confidence interval is computed with a scaling factor of ±Z<sup>*</sup>.</p>
@@ -536,8 +538,8 @@ Figure 15.3: Areas (yellow) that define Z<sup>*</sup> for confidence regions of 
 <li>100.04+1.645<span class="math inline">\(\frac{31.49}{\sqrt{50}}\)</span>, 100.04+7.33, or 107.37.</li>
 <li>One is 95% confident that the mean total length of ALL fish in Square Lake is less than 107.4 mm.</li>
 </ol>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb31-1"><a href="ConfRegions1.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>)</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-44-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb36-1"><a href="ConfRegions1.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>)</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-46-1.png" width="336" style="display: block; margin: auto;" /></p>
 </div>
 <div id="example---lake-superior-ice-cover-not-equals-ha" class="section level4 unnumbered">
 <h4>Example - Lake Superior Ice Cover (Not Equals H<sub>A</sub>)</h4>
@@ -552,8 +554,8 @@ Figure 15.3: Areas (yellow) that define Z<sup>*</sup> for confidence regions of 
 <li>107.8±2.576<span class="math inline">\(\frac{22}{\sqrt{42}}\)</span>, 107.8±8.74, or (99.06,116.54).</li>
 <li>One is 95% confident that the mean number of days of ice cover on Lake Superior during ALL years is between 99.1 and 116.5 days.</li>
 </ol>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb32-1"><a href="ConfRegions1.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">0.005</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>)</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-45-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb37-1"><a href="ConfRegions1.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">0.005</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>)</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-47-1.png" width="336" style="display: block; margin: auto;" /></p>
 </div>
 <div id="example---battery-life-greater-than-ha" class="section level4 unnumbered">
 <h4>Example - Battery Life (Greater Than H<sub>A</sub>)</h4>
@@ -568,8 +570,8 @@ Figure 15.3: Areas (yellow) that define Z<sup>*</sup> for confidence regions of 
 </ul></li>
 <li>One is 90% confident that the mean life for ALL batteries with the additive is more than 43.58 months.</li>
 </ol>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb33-1"><a href="ConfRegions1.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="Book107_files/figure-html/unnamed-chunk-46-1.png" width="336" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb38-1"><a href="ConfRegions1.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Book107_files/figure-html/unnamed-chunk-48-1.png" width="336" style="display: block; margin: auto;" /></p>
 <p> </p>
 
 </div>
@@ -611,6 +613,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": false
 },
 "fontsettings": {
