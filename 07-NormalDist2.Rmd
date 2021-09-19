@@ -225,7 +225,7 @@ Standardized values (Z) follow a N(0,1). Thus, N(0,1) is called the "standard no
 
 &nbsp;
 
-```{r NormStandardizingEx, echo=FALSE, fig.show="hold", fig.cap="Plots depicting the area to the left of 59 on a N(66,3) (**Left**) and the area to the right of the corresponding Z-score of Z=-2.33 on a N(0,1) (**Right**). Note that the x-axis scales are different."}
+```{r NormStandardizingEx, echo=FALSE, fig.show="hold", fig.cap="Plots depicting the area to the left of 59 on a N(66,3) (**Left**) and the area to the right of the corresponding Z-score of Z=-2.333 on a N(0,1) (**Right**). Note that the x-axis scales are different."}
 par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
     cex.lab=0.95,cex.axis=0.9)
 x <- 59

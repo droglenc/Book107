@@ -180,12 +180,12 @@ text(mu,lblp,"99.7%",col=clr997,xpd=NA)
 Alternatively, if B~N(9,3), then 68% of the individuals will fall between 6 (i.e., 9-1&times;3) and 12 (i.e., 9+1&times;3) and 95% will be between 3 (i.e., 9-2&times;3) and 15 (i.e., 9+2&times;3). Similar calculations can be made for any normal distribution.
 
 
-```{r NormEmpiricalRuleB, echo=FALSE, fig.cap="Depiction of the 68-95-99.7 (or Empirical) Rule on a A~N(9,3) distribution."}
+```{r NormEmpiricalRuleB, echo=FALSE, fig.cap="Depiction of the 68-95-99.7 (or Empirical) Rule on a B~N(9,3) distribution."}
 par(mar=c(3,0,4,0),mgp=c(1.6,0.4,0),las=1,tcl=-0.2,yaxs="i")
 mu <- 9; sigma <- 3
 x <- seq(mu-4*sigma,mu+4*sigma,length.out=999)
 n1 <- dnorm(x,mu,sigma)
-plot(x,n1,type="l",axes=FALSE,lwd=3,xlab="A",ylab="")
+plot(x,n1,type="l",axes=FALSE,lwd=3,xlab="B",ylab="")
 axis(1,at=mu+seq(-4,4,1)*sigma)
 x997 <- c(x[x>=mu-3*sigma & x<=mu+3*sigma],mu+3*sigma,mu-3*sigma)
 y997 <-c(n1[x>=mu-3*sigma & x<=mu+3*sigma],0,0)
