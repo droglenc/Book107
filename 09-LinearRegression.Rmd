@@ -113,7 +113,7 @@ ggplot(data=merc,mapping=aes(x=intake,y=blood)) +
 
 &nbsp;
 
-When predicting values of the response variable, it is important to not extrapolate beyond the range of the data. In other words, predictions with values outside the range of observed values of the explanatory variable should be made cautiously (if at all). An excellent example would be to consider height "data" collected during the early parts of a human's life (say the first ten years). During these early years there is likely a good fit between height (the response variable) and age. However, using this relationship to predict an individual's height at age 40 would likely result in a ridiculous answer (e.g., over ten feet). The problem here is that the linear relationship only holds for the observed data (i.e., the first ten years of life); it is not known if the same linear relationship exists outside that range of years. In fact, with human heights, it is generally known that growth first slows, eventually quits, and may, at very old ages, actually decline. Thus, the linear relationship found early in life does not hold for later years. Critical mistakes can be made when using a linear relationship to extrapolate outside the range of the data.
+When predicting values of the response variable, it is important to not extrapolate beyond the range of the data. In other words, predictions with values outside the range of observed values of the explanatory variable are an **extrapolation** and should be made cautiously (if at all). An excellent example would be to consider height "data" collected during the early parts of a human's life (say the first ten years). During these early years there is likely a good fit between height (the response variable) and age. However, using this relationship to predict an individual's height at age 40 would likely result in a ridiculous answer (e.g., over ten feet). The problem here is that the linear relationship only holds for the observed data (i.e., the first ten years of life); it is not known if the same linear relationship exists outside that range of years. In fact, with human heights, it is generally known that growth first slows, eventually quits, and may, at very old ages, actually decline. Thus, the linear relationship found early in life does not hold for later years. Critical mistakes can be made when using a linear relationship to extrapolate outside the range of the data.
 
 ## Residuals
 The predicted value is a "best-guess" for an individual based on the best-fit line. The actual value for any individual is likely to be different from this predicted value. The **residual** is a measure of how "far off" the prediction is from what is actually observed. Specifically, the residual for an individual is found by subtracting the predicted value (given the individual's observed value of the explanatory variable) from the individual's observed value of the response variable, or
@@ -217,12 +217,15 @@ $$ \text{intercept} = \bar{\text{y}}-\text{slope}\times\bar{\text{x}} $$
 
 where $\bar{\text{x}}$ and s~x~ are the sample mean and standard deviation of the explanatory variable, $\bar{\text{y}}$ and s~y~ are the sample mean and standard deviation of the response variable, and r is the sample correlation coefficient between the two variables. Thus, using these formulae finds the slope and intercept for the line, out of all possible lines, that minimizes the RSS.
 
+::: {.tip data-latex=''}
+In this module the slope and intercept will not be computed from the given formulae; rather you will be given the values and asked to interpret them and use them in further calculations (see Section \@ref(examples)).
+:::
 
 ## Assumptions
 The least-squares method for finding the best-fit line only works appropriately if each of the following five assumptions about the data has been met.
 
-* A line describes the data (i.e., a linear form).
-* Homoscedasticity.
+* **A line describes the data (i.e., a linear form).**
+* **Homoscedasticity.**
 * Normally distributed residuals at a given x.
 * Independent residuals at a given x.
 * The explanatory variable is measured without error.
@@ -309,7 +312,7 @@ ggplot(data=d,mapping=aes(x=p,y=r)) +
   facet_wrap(vars(nm),scales="free")
 ```
 
-```{r ResidPlotEx, echo=FALSE, fig.width=7, fig.height=7, fig.cap="Fitted-line plots illustrating when the regression assumptions are met (upper-left) and three common assumption violations."}
+```{r ResidPlotEx, echo=FALSE, fig.width=6, fig.height=6, fig.cap="Fitted-line plots illustrating when the regression assumptions are met (upper-left) and three common assumption violations."}
 tmp <- unique(d$nm)
 met <- ggplot(data=filter(d,nm==tmp[1]),mapping=aes(x=x,y=y)) +
   geom_point(pch=21,color="black",bg="lightgray") +
@@ -423,36 +426,37 @@ A value of r^2^ near 1 represents a strong relationship between the response and
 
 
 ## Examples
-There are twelve questions that are commonly asked about linear regression results. These twelve questions are listed below with some thoughts about things to remember when answering some of the questions. Example of these questions in a context is then provided.
+There are twelve questions that are commonly asked about linear regression results. These twelve questions are listed below with some thoughts about things to remember when answering some of the questions. Two examples of these questions in context are then provided.
 
 1. What is the response variable?
     * *Identify which variable is to be predicted or explained, which variable is dependent on the other variable, which would be hardest to measure, or which is on the y-axis.*
 1. What is the explanatory variable?
     * *The remaining variable after identifying the response variable.*
 1. Comment on linearity and homoscedasticity.
-    * *Examine fitted-line plot for curvature (i.e., non-linearity) or a funnel-shape (i.e., heteroscedasticity).*
+    * *Examine fitted-line plot for curvature (i.e., non-linearity) or a funnel-shape (i.e., heteroscedasticity). If there is no curvature (i.e., linear) and no funnel-shape (i.e., homoscedasticity) then both assumptions of linearity and homoscedasticity have been met.*
 1. What is the equation of the best-fit line?
     * *In the generic equation of the line (y=m&times;x+b) replace y with the name of the response variable, x with the name of the explanatory variable, m with the value of the slope, and b with the value of the intercept.*
 1. Interpret the value of the slope.
-    * *Comment on how the response variable changes by the slope amount for each one unit change of the explanatory variable, on average.*
+    * *State how the response variable changes by the slope amount for each one unit change of the explanatory variable, on average.*
 1. Interpret the value of the intercept.
-    * *Comment on how the response variable equals the intercept, on average, if the explanatory variable is zero.*
+    * *State how the response variable equals the intercept, on average, if the explanatory variable is zero.*
 1. Make a prediction given a value of the explanatory variable.
     * *Plug the given value of the explanatory variable into the equation of the best-fit line. Make sure that this is not an extrapolation.*
 1. Compute a residual given values of both the explanatory and response variables.
-    * *Make a prediction (see previous question) and then subtract this value from the observed value of the response. Make sure that the prediction is not an extrapolation.*
+    * *Make a prediction (see previous question) and then subtract this value from the observed value of the response variable. Make sure that the prediction is not an extrapolation.*
 1. Identify an extrapolation in the context of a prediction problem.
-    * *Examine the x-axis scale on the fitted-line plot and do not make predictions outside of the plotted range.*
+    * *Identify the prediction as an extrapoloation if the observed value of the explanatory variable is outside the range of values on the x-axis scale.*
 1. What is the proportion of variability in the response variable explained by knowing the value of the explanatory variable?
-    * *This is r^2^.*
+    * *This is* r^2^.
 1. What is the correlation coefficient?
-    * *This is the square root of r^2^. Make sure to put a negative sign on the result if the slope is negative.*
+    * *This is the square root of* r^2^. *Make sure to put a negative sign on the result if the slope is negative.*
 1. How much does the response variable change if the explanatory variable changes by X units?
     * *This is an alternative to asking for an interpretation of the slope. If the explanatory variable changes by X units, then the response variable will change by X&times;slope units, on average.*
 
 ::: {.tip data-latex=''}
 * All interpretations should be "in terms of the variables of the problem" rather than the generic terms of x, y, response variable, and explanatory variable.
 * Questions about the slope, intercept, and predictions need to explicitly identify that the answer is an "average" or "on average."
+* Make sure to use proper units when reporting the intercept, slope, predictions, and residuals.
 :::
 
 
@@ -489,9 +493,9 @@ ggplot(data=chimp,mapping=aes(x=huntparty,y=percsucc)) +
 1. In terms of the variables of the problem, what is the equation of the best-fit line?
     * The equation of the best-fit line is % Success of Hunt = `r int` + `r slp`&times;Number of Hunting Party Members.
 1. Interpret the value of the slope in terms of the variables of the problem.
-    * The slope indicates that the percent of successful hunts increases by `r slp`, on average, for every increase of one member to the hunting party.
+    * The slope indicates that the percent of successful hunts increases by `r slp`%, on average, for every increase of one member to the hunting party.
 1. Interpret the value of the intercept in terms of the variables of the problem.
-    * The intercept indicates that the percent of successful hunts is `r int`, on average, for hunting parties with no members. This is nonsensical because 0 hunting members is an extrapolation.
+    * The intercept indicates that the percent of successful hunts is `r int`%, on average, for hunting parties with no members. This is nonsensical because 0 hunting members is an extrapolation.
 1. What is the predicted hunt success if the hunting party consists of 20 chimpanzees?
     * The predicted hunt success for parties with 20 individuals is an extrapolation, because 20 is outside the range of number of members observed on the x-axis of the fitted-line plot.
 1. What is the predicted hunt success if the hunting party consists of 12 chimpanzees?
@@ -507,7 +511,7 @@ ggplot(data=chimp,mapping=aes(x=huntparty,y=percsucc)) +
     * If the hunting party has two fewer members, then the hunting success would decrease by `r formatC(2*coef(lm.chimp)[2],format="f",digits=1)`% (i.e., -2&times;`r slp`), on average. [*Note that this is two times the slope, with a negative as it asks about "fewer" members.*]
 
 ### Car Weight and MPG {-}
-In Module \@ref(BEDAQuant), an EDA for the relationship between HMPG (the highway miles per gallon) and Weight (lbs) of 93 cars from the 1993 model year was performed. This relationship will be explored further here as an example of a complete regression analysis. The best-fit line question and r^2^ for these data are shown in Figure \@ref(fig:CarFit).
+In Module \@ref(BEDAQuant), an EDA for the relationship between HMPG (the highway miles per gallon) and Weight (lbs) of 93 cars from the 1993 model year was performed. This relationship will be explored further here as an example of a complete regression analysis. The best-fit line equation and r^2^ for these data are shown in Figure \@ref(fig:CarFit).
 
 ```{r CarFit, echo=FALSE, message=FALSE, fig.cap="Fitted line plot of the regression of highway MPG on weight of 93 cars from 1993."}
 cars93 <- read.csv("https://raw.githubusercontent.com/droglenc/NCData/master/93cars.csv")

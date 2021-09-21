@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-20" />
+<meta name="date" content="2021-09-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -392,7 +392,7 @@ Figure 9.2: Scatterplot between the intake of mercury in fish and the mercury in
 </p>
 </div>
 <p> </p>
-<p>When predicting values of the response variable, it is important to not extrapolate beyond the range of the data. In other words, predictions with values outside the range of observed values of the explanatory variable should be made cautiously (if at all). An excellent example would be to consider height “data” collected during the early parts of a human’s life (say the first ten years). During these early years there is likely a good fit between height (the response variable) and age. However, using this relationship to predict an individual’s height at age 40 would likely result in a ridiculous answer (e.g., over ten feet). The problem here is that the linear relationship only holds for the observed data (i.e., the first ten years of life); it is not known if the same linear relationship exists outside that range of years. In fact, with human heights, it is generally known that growth first slows, eventually quits, and may, at very old ages, actually decline. Thus, the linear relationship found early in life does not hold for later years. Critical mistakes can be made when using a linear relationship to extrapolate outside the range of the data.</p>
+<p>When predicting values of the response variable, it is important to not extrapolate beyond the range of the data. In other words, predictions with values outside the range of observed values of the explanatory variable are an <strong>extrapolation</strong> and should be made cautiously (if at all). An excellent example would be to consider height “data” collected during the early parts of a human’s life (say the first ten years). During these early years there is likely a good fit between height (the response variable) and age. However, using this relationship to predict an individual’s height at age 40 would likely result in a ridiculous answer (e.g., over ten feet). The problem here is that the linear relationship only holds for the observed data (i.e., the first ten years of life); it is not known if the same linear relationship exists outside that range of years. In fact, with human heights, it is generally known that growth first slows, eventually quits, and may, at very old ages, actually decline. Thus, the linear relationship found early in life does not hold for later years. Critical mistakes can be made when using a linear relationship to extrapolate outside the range of the data.</p>
 </div>
 <div id="residuals" class="section level2" number="9.4">
 <h2><span class="header-section-number">9.4</span> Residuals</h2>
@@ -430,13 +430,16 @@ Figure 9.4: Scatterplot with the best-fit line (light gray) and candidate best-f
 <p>and an intercept given by</p>
 <p><span class="math display">\[ \text{intercept} = \bar{\text{y}}-\text{slope}\times\bar{\text{x}} \]</span></p>
 <p>where <span class="math inline">\(\bar{\text{x}}\)</span> and s<sub>x</sub> are the sample mean and standard deviation of the explanatory variable, <span class="math inline">\(\bar{\text{y}}\)</span> and s<sub>y</sub> are the sample mean and standard deviation of the response variable, and r is the sample correlation coefficient between the two variables. Thus, using these formulae finds the slope and intercept for the line, out of all possible lines, that minimizes the RSS.</p>
+<div class="tip">
+<p>In this module the slope and intercept will not be computed from the given formulae; rather you will be given the values and asked to interpret them and use them in further calculations (see Section <a href="LinearRegression.html#examples">9.8</a>).</p>
+</div>
 </div>
 <div id="assumptions" class="section level2" number="9.6">
 <h2><span class="header-section-number">9.6</span> Assumptions</h2>
 <p>The least-squares method for finding the best-fit line only works appropriately if each of the following five assumptions about the data has been met.</p>
 <ul>
-<li>A line describes the data (i.e., a linear form).</li>
-<li>Homoscedasticity.</li>
+<li><strong>A line describes the data (i.e., a linear form).</strong></li>
+<li><strong>Homoscedasticity.</strong></li>
 <li>Normally distributed residuals at a given x.</li>
 <li>Independent residuals at a given x.</li>
 <li>The explanatory variable is measured without error.</li>
@@ -447,7 +450,7 @@ Figure 9.4: Scatterplot with the best-fit line (light gray) and candidate best-f
 <p>Violations of these assumptions are often evident on a “fitted-line plot,” which is a scatterplot with the best-fit line superimposed (Figure <a href="LinearRegression.html#fig:ResidPlotEx">9.5</a>).<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a> If the points look more-or-less like random scatter around the best-fit line, then neither the linearity nor the homoscedasticity assumption has been violated. A violation of one of these assumptions should be obvious on the scatterplot. In other words, there should be a clear curvature or funneling on the plot.</p>
 <p> </p>
 <div class="figure" style="text-align: center"><span id="fig:ResidPlotEx"></span>
-<img src="Book107_files/figure-html/ResidPlotEx-1.png" alt="Fitted-line plots illustrating when the regression assumptions are met (upper-left) and three common assumption violations." width="672" />
+<img src="Book107_files/figure-html/ResidPlotEx-1.png" alt="Fitted-line plots illustrating when the regression assumptions are met (upper-left) and three common assumption violations." width="576" />
 <p class="caption">
 Figure 9.5: Fitted-line plots illustrating when the regression assumptions are met (upper-left) and three common assumption violations.
 </p>
@@ -480,7 +483,7 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 </div>
 <div id="examples" class="section level2" number="9.8">
 <h2><span class="header-section-number">9.8</span> Examples</h2>
-<p>There are twelve questions that are commonly asked about linear regression results. These twelve questions are listed below with some thoughts about things to remember when answering some of the questions. Example of these questions in a context is then provided.</p>
+<p>There are twelve questions that are commonly asked about linear regression results. These twelve questions are listed below with some thoughts about things to remember when answering some of the questions. Two examples of these questions in context are then provided.</p>
 <ol style="list-style-type: decimal">
 <li>What is the response variable?
 <ul>
@@ -492,7 +495,7 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 </ul></li>
 <li>Comment on linearity and homoscedasticity.
 <ul>
-<li><em>Examine fitted-line plot for curvature (i.e., non-linearity) or a funnel-shape (i.e., heteroscedasticity).</em></li>
+<li><em>Examine fitted-line plot for curvature (i.e., non-linearity) or a funnel-shape (i.e., heteroscedasticity). If there is no curvature (i.e., linear) and no funnel-shape (i.e., homoscedasticity) then both assumptions of linearity and homoscedasticity have been met.</em></li>
 </ul></li>
 <li>What is the equation of the best-fit line?
 <ul>
@@ -500,11 +503,11 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 </ul></li>
 <li>Interpret the value of the slope.
 <ul>
-<li><em>Comment on how the response variable changes by the slope amount for each one unit change of the explanatory variable, on average.</em></li>
+<li><em>State how the response variable changes by the slope amount for each one unit change of the explanatory variable, on average.</em></li>
 </ul></li>
 <li>Interpret the value of the intercept.
 <ul>
-<li><em>Comment on how the response variable equals the intercept, on average, if the explanatory variable is zero.</em></li>
+<li><em>State how the response variable equals the intercept, on average, if the explanatory variable is zero.</em></li>
 </ul></li>
 <li>Make a prediction given a value of the explanatory variable.
 <ul>
@@ -512,19 +515,19 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 </ul></li>
 <li>Compute a residual given values of both the explanatory and response variables.
 <ul>
-<li><em>Make a prediction (see previous question) and then subtract this value from the observed value of the response. Make sure that the prediction is not an extrapolation.</em></li>
+<li><em>Make a prediction (see previous question) and then subtract this value from the observed value of the response variable. Make sure that the prediction is not an extrapolation.</em></li>
 </ul></li>
 <li>Identify an extrapolation in the context of a prediction problem.
 <ul>
-<li><em>Examine the x-axis scale on the fitted-line plot and do not make predictions outside of the plotted range.</em></li>
+<li><em>Identify the prediction as an extrapoloation if the observed value of the explanatory variable is outside the range of values on the x-axis scale.</em></li>
 </ul></li>
 <li>What is the proportion of variability in the response variable explained by knowing the value of the explanatory variable?
 <ul>
-<li><em>This is r<sup>2</sup>.</em></li>
+<li><em>This is</em> r<sup>2</sup>.</li>
 </ul></li>
 <li>What is the correlation coefficient?
 <ul>
-<li><em>This is the square root of r<sup>2</sup>. Make sure to put a negative sign on the result if the slope is negative.</em></li>
+<li><em>This is the square root of</em> r<sup>2</sup>. <em>Make sure to put a negative sign on the result if the slope is negative.</em></li>
 </ul></li>
 <li>How much does the response variable change if the explanatory variable changes by X units?
 <ul>
@@ -535,6 +538,7 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 <ul>
 <li>All interpretations should be “in terms of the variables of the problem” rather than the generic terms of x, y, response variable, and explanatory variable.</li>
 <li>Questions about the slope, intercept, and predictions need to explicitly identify that the answer is an “average” or “on average.”</li>
+<li>Make sure to use proper units when reporting the intercept, slope, predictions, and residuals.</li>
 </ul>
 </div>
 <div id="chimp-hunting-parties" class="section level3 unnumbered">
@@ -563,11 +567,11 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 </ul></li>
 <li>Interpret the value of the slope in terms of the variables of the problem.
 <ul>
-<li>The slope indicates that the percent of successful hunts increases by 3.71, on average, for every increase of one member to the hunting party.</li>
+<li>The slope indicates that the percent of successful hunts increases by 3.71%, on average, for every increase of one member to the hunting party.</li>
 </ul></li>
 <li>Interpret the value of the intercept in terms of the variables of the problem.
 <ul>
-<li>The intercept indicates that the percent of successful hunts is 24.21, on average, for hunting parties with no members. This is nonsensical because 0 hunting members is an extrapolation.</li>
+<li>The intercept indicates that the percent of successful hunts is 24.21%, on average, for hunting parties with no members. This is nonsensical because 0 hunting members is an extrapolation.</li>
 </ul></li>
 <li>What is the predicted hunt success if the hunting party consists of 20 chimpanzees?
 <ul>
@@ -598,7 +602,7 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 </div>
 <div id="car-weight-and-mpg" class="section level3 unnumbered">
 <h3>Car Weight and MPG</h3>
-<p>In Module <a href="BEDAQuant.html#BEDAQuant">8</a>, an EDA for the relationship between HMPG (the highway miles per gallon) and Weight (lbs) of 93 cars from the 1993 model year was performed. This relationship will be explored further here as an example of a complete regression analysis. The best-fit line question and r<sup>2</sup> for these data are shown in Figure <a href="LinearRegression.html#fig:CarFit">9.7</a>.</p>
+<p>In Module <a href="BEDAQuant.html#BEDAQuant">8</a>, an EDA for the relationship between HMPG (the highway miles per gallon) and Weight (lbs) of 93 cars from the 1993 model year was performed. This relationship will be explored further here as an example of a complete regression analysis. The best-fit line equation and r<sup>2</sup> for these data are shown in Figure <a href="LinearRegression.html#fig:CarFit">9.7</a>.</p>
 <div class="figure" style="text-align: center"><span id="fig:CarFit"></span>
 <img src="Book107_files/figure-html/CarFit-1.png" alt="Fitted line plot of the regression of highway MPG on weight of 93 cars from 1993." width="336" />
 <p class="caption">
