@@ -179,7 +179,6 @@ text(mu,lblp,"99.7%",col=clr997,xpd=NA)
 
 Alternatively, if B~N(9,3), then 68% of the individuals will fall between 6 (i.e., 9-1&times;3) and 12 (i.e., 9+1&times;3) and 95% will be between 3 (i.e., 9-2&times;3) and 15 (i.e., 9+2&times;3). Similar calculations can be made for any normal distribution.
 
-
 ```{r NormEmpiricalRuleB, echo=FALSE, fig.cap="Depiction of the 68-95-99.7 (or Empirical) Rule on a B~N(9,3) distribution."}
 par(mar=c(3,0,4,0),mgp=c(1.6,0.4,0),las=1,tcl=-0.2,yaxs="i")
 mu <- 9; sigma <- 3
@@ -415,3 +414,13 @@ All of the questions from the previous section are shown below and marked as to 
     * **Reverse-Left** (*given a percentage, shaded to the left*)
 * What are the most common 68% of miles driven?
     * **Reverse-Between** (*given a percentage, shaded the middle between two values*)
+
+&nbsp;
+
+::: {.tip data-latex=''}
+In a **forward** question the value of the variable (x) is given in the question and you are asked to find the percentage (or proportion) of individuals.
+:::
+
+::: {.tip data-latex=''}
+In a **reverse** question the percentage (or proportion) of individuals is given in the question and you are asked to find the value of the variable (x).
+:::

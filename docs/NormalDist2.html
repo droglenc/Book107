@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-15" />
+<meta name="date" content="2021-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -389,6 +389,12 @@ Figure 7.4: Calculation of the areas less than 70 inches (<strong>Left</strong>)
 <div class="tip">
 <p>The area between two values is found by subtracting the area less than the smaller value from the area less than the larger value.</p>
 </div>
+<div class="tip">
+<p>The area under the normal distribution is a proportion (of a whole) and should be presented in decimal form rounded to three decimal places (e.g., 0.734).</p>
+</div>
+<div class="tip">
+<p>A percentage is a proportion that has been multiplied by 100. Percentages should generally be rounded to one decimal place (e.g., 73.4%) or one significant digit for very small values (e.g., 0.007%).</p>
+</div>
 </div>
 <div id="reverse-calculations" class="section level2" number="7.2">
 <h2><span class="header-section-number">7.2</span> Reverse Calculations</h2>
@@ -423,7 +429,7 @@ Figure 7.7: Depiction of areas in a reverse between type normal distribution que
 </p>
 </div>
 <p> </p>
-<p>For example, the two heights that have a symmetric 80% of individuals between them are 62.2 and 69.8 as computed below.</p>
+<p>For example, the two heights that have a symmetric 80% of individuals between them are 62.2 and 69.8 inches as computed below.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb20-1"><a href="NormalDist2.html#cb20-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.10</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span>
 <span id="cb20-2"><a href="NormalDist2.html#cb20-2" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.90</span>,<span class="at">mean=</span><span class="dv">66</span>,<span class="at">sd=</span><span class="dv">3</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>) )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:NormRevBetwen80"></span>
@@ -434,6 +440,9 @@ Figure 7.8: Calculations for the two values with an area of 80% between them.
 </div>
 <div class="tip">
 <p>For “Reverse-Between” questions you must convert the symmetric between area to two “left-of” areas and then perform two “Reverse-Left” questions with those areas.</p>
+</div>
+<div class="tip">
+<p>Make sure to include appropriate unites for the answers to “Reverse” questions.</p>
 </div>
 </div>
 <div id="example-calculations" class="section level2" number="7.3">

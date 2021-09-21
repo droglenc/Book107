@@ -81,6 +81,14 @@ distrib(62,mean=66,sd=3)
 The area between two values is found by subtracting the area less than the smaller value from the area less than the larger value.
 :::
 
+::: {.tip data-latex=''}
+The area under the normal distribution is a proportion (of a whole) and should be presented in decimal form rounded to three decimal places (e.g., 0.734).
+:::
+
+::: {.tip data-latex=''}
+A percentage is a proportion that has been multiplied by 100. Percentages should generally be rounded to one decimal place (e.g., 73.4%) or one significant digit for very small values (e.g., 0.007%).
+:::
+
 ## Reverse Calculations
 Reverse questions also use `distrib()`, though the first argument is now the given percentage, though it must be entered as a proportion. The calculation is treated as a "reverse" question only when `type="q"` is also given to `distrib()`.^["q" stands for quantile.]  For example, the height that has 20% of all students shorter is computed with
 
@@ -139,7 +147,7 @@ text(mu+1.5*sd,0.01,"E",cex=1.25)
 
 &nbsp;
 
-For example, the two heights that have a symmetric 80% of individuals between them are `r formatC(qnorm(0.10,mean=66,sd=3),format="f",digits=1)` and `r formatC(qnorm(0.90,mean=66,sd=3),format="f",digits=1)` as computed below.
+For example, the two heights that have a symmetric 80% of individuals between them are `r formatC(qnorm(0.10,mean=66,sd=3),format="f",digits=1)` and `r formatC(qnorm(0.90,mean=66,sd=3),format="f",digits=1)` inches as computed below.
 
 ```{r NormRevBetwen80, fig.show='hold', echo=-1, results="hide", fig.cap="Calculations for the two values with an area of 80% between them."}
 par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
@@ -150,6 +158,10 @@ par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
 
 ::: {.tip data-latex=''}
 For "Reverse-Between" questions you must convert the symmetric between area to two "left-of" areas and then perform two "Reverse-Left" questions with those areas.
+:::
+
+::: {.tip data-latex=''}
+Make sure to include appropriate unites for the answers to "Reverse" questions.
 :::
 
 
