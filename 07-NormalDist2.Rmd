@@ -161,7 +161,7 @@ For "Reverse-Between" questions you must convert the symmetric between area to t
 :::
 
 ::: {.tip data-latex=''}
-Make sure to include appropriate unites for the answers to "Reverse" questions.
+Make sure to include appropriate units for the answers to "Reverse" questions.
 :::
 
 
