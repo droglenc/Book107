@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 26 Linear Regression in R | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 26 Linear Regression in R | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="RBivEDA.html"/>
 <link rel="next" href="Rttests.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -357,7 +357,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="fitted-line-plot" class="section level2" number="26.1">
 <h2><span class="header-section-number">26.1</span> Fitted Line Plot</h2>
-<p>The linear fitted line can be added to a scatterplot (see Section <a href="RBivEDA.html#scatterplots-1">25.1.1</a>) with <code>geom_smooth()</code>. The <code>geom_smooth()</code> function requires <code>method="lm"</code> to show the linear regression line and <code>se=FALSE</code> to remove the underlying confidence band.<a href="#fn108" class="footnote-ref" id="fnref108"><sup>108</sup></a></p>
+<p>The linear fitted line can be added to a scatterplot (see Section <a href="RBivEDA.html#scatterplots-1">25.1.1</a>) with <code class="inline">geom_smooth()</code>. The <code class="inline">geom_smooth()</code> function requires <code class="inline">method="lm"</code> to show the linear regression line and <code class="inline">se=FALSE</code> to remove the underlying confidence band.<a href="#fn108" class="footnote-ref" id="fnref108"><sup>108</sup></a></p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb176-1"><a href="RRegression.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>cars93,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">x=</span>Weight,<span class="at">y=</span>HMPG)) <span class="sc">+</span></span>
 <span id="cb176-2"><a href="RRegression.html#cb176-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">pch=</span><span class="dv">21</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;darkgray&quot;</span>,<span class="at">size=</span><span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb176-3"><a href="RRegression.html#cb176-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;Weight (lbs)&quot;</span>,<span class="at">y=</span><span class="st">&quot;Highway MPG&quot;</span>) <span class="sc">+</span></span>
@@ -367,25 +367,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="fitting-the-regression-model-in-r" class="section level2" number="26.2">
 <h2><span class="header-section-number">26.2</span> Fitting the Regression Model in R</h2>
-<p>The linear regression model is fit to two quantitative variables with <code>lm()</code>. The first argument is a formula of the form <code>response~explanatory</code>, where <code>response</code> contains the quantitative response variable and <code>explanatory</code> contains the quantitative explanatory variable. The corresponding data frame is given in <code>data=</code>. The results of <code>lm()</code> may be assigned to an object so that specific results can be extracted.</p>
+<p>The linear regression model is fit to two quantitative variables with <code class="inline">lm()</code>. The first argument is a formula of the form <code class="inline">response~explanatory</code>, where <code class="inline">response</code> contains the quantitative response variable and <code class="inline">explanatory</code> contains the quantitative explanatory variable. The corresponding data frame is given in <code class="inline">data=</code>. The results of <code class="inline">lm()</code> may be assigned to an object so that specific results can be extracted.</p>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb177-1"><a href="RRegression.html#cb177-1" aria-hidden="true" tabindex="-1"></a>( lm1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(HMPG<span class="sc">~</span>Weight,<span class="at">data=</span>cars93) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  Coefficients:
 #R&gt;  (Intercept)       Weight  
 #R&gt;    51.601365    -0.007327</code></pre>
 <p>The regression results above show that the intercept is 51.6 and the slope is -0.0073.</p>
 <div class="tip">
-<p>The slope is under the name of the explanatory variable and the intercept is under “(Intercept)” in the <code>lm()</code> results.</p>
+<p>The slope is under the name of the explanatory variable and the intercept is under “(Intercept)” in the <code class="inline">lm()</code> results.</p>
 </div>
 </div>
 <div id="coefficient-of-determination-1" class="section level2" number="26.3">
 <h2><span class="header-section-number">26.3</span> Coefficient of Determination</h2>
-<p>The coefficient of determination is computed by submitting the saved <code>lm()</code> object to <code>rSquared()</code>. For example, 65.7% of the variability in highway MPG for a car is explained by knowing its weight. [<em>Note the use of <code>digits=</code> to control the number of decimals.</em>]</p>
+<p>The coefficient of determination is computed by submitting the saved <code class="inline">lm()</code> object to <code class="inline">rSquared()</code>. For example, 65.7% of the variability in highway MPG for a car is explained by knowing its weight. [<em>Note the use of <code class="inline">digits=</code> to control the number of decimals.</em>]</p>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb179-1"><a href="RRegression.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rSquared</span>(lm1,<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  [1] 0.657</code></pre>
 </div>
 <div id="predicted-values" class="section level2" number="26.4">
 <h2><span class="header-section-number">26.4</span> Predicted Values</h2>
-<p>Predicted values from the linear regression are obtained with <code>predict()</code>, which requires the saved <code>lm()</code> object as its first argument. The second argument is a data frame constructed with <code>data.frame()</code> that contains the <strong>EXACT</strong> name of the explanatory variable as it appeared in <code>lm()</code> set equal to the value of the explanatory variable at which the prediction should be made. For example, the predicted highway MPG for a car that weights 2500 lbs is 33.3, as obtained below.</p>
+<p>Predicted values from the linear regression are obtained with <code class="inline">predict()</code>, which requires the saved <code class="inline">lm()</code> object as its first argument. The second argument is a data frame constructed with <code class="inline">data.frame()</code> that contains the <strong>EXACT</strong> name of the explanatory variable as it appeared in <code class="inline">lm()</code> set equal to the value of the explanatory variable at which the prediction should be made. For example, the predicted highway MPG for a car that weights 2500 lbs is 33.3, as obtained below.</p>
 <div class="sourceCode" id="cb181"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb181-1"><a href="RRegression.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lm1,<span class="fu">data.frame</span>(<span class="at">Weight=</span><span class="dv">2500</span>))</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;         1 
 #R&gt;  33.28372</code></pre>
@@ -396,8 +396,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="footnotes">
 <hr />
 <ol start="106">
-<li id="fn106"><p>Methods in this module require the <code>NCStats</code> package (as always) and the <code>ggplot2</code> package (for making graphs). Both packages are loaded in the first code chunk of the assignment template.<a href="RRegression.html#fnref106" class="footnote-back">↩︎</a></p></li>
-<li id="fn107"><p>The <code>which=</code> argument in <code>headtail()</code> is used to show only a few variables of <code>cars93</code>, just to save space.<a href="RRegression.html#fnref107" class="footnote-back">↩︎</a></p></li>
+<li id="fn106"><p>Methods in this module require the <code class="inline">NCStats</code> package (as always) and the <code class="inline">ggplot2</code> package (for making graphs). Both packages are loaded in the first code chunk of the assignment template.<a href="RRegression.html#fnref106" class="footnote-back">↩︎</a></p></li>
+<li id="fn107"><p>The <code class="inline">which=</code> argument in <code class="inline">headtail()</code> is used to show only a few variables of <code>cars93</code>, just to save space.<a href="RRegression.html#fnref107" class="footnote-back">↩︎</a></p></li>
 <li id="fn108"><p>This is an advanced topic for a future course.<a href="RRegression.html#fnref108" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
@@ -411,7 +411,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -451,11 +450,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

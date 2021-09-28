@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 16 Confidence Regions - Extension | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 16 Confidence Regions - Extension | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="ConfRegions1.html"/>
 <link rel="next" href="Ztest.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -370,7 +370,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>An alternative conceptualization of confidence intervals can show how confidence regions and hypothesis tests are related. This conceptualization rests on considering the sample means that would be “reasonable to see” from populations with various values of μ. A graphic is constructed below using the Square Lake population as an example and assuming that σ is known (=31.49), n=50, and 95% CIs are used.</p>
 <p>First, compute the most common 95% of sample means assuming that μ=70; i.e., 70±1.960<span class="math inline">\(\frac{31.49}{\sqrt{50}}\)</span> or (61.27,78.73). This range is plotted as a vertical rectangle centered on μ=70 (left-most rectangle) in Figure <a href="ConfRegions2.html#fig:CIAlt1">16.1</a>-Left. Next, compute and plot the same range for a slightly larger μ (e.g., with μ=71, plot (62.27,78.73)). Then repeat these steps for sequentially larger values of μ until a plot similar to Figure <a href="ConfRegions2.html#fig:CIAlt1">16.1</a>-Left is constructed.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:CIAlt1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:CIAlt1"></span>
 <img src="Book107_files/figure-html/CIAlt1-1.png" alt="Range (95%) of sample means that would be produced by particular population means in the Square Lake fish length example." width="336" />
 <p class="caption">
 Figure 16.1: Range (95%) of sample means that would be produced by particular population means in the Square Lake fish length example.
@@ -380,7 +380,7 @@ Figure 16.1: Range (95%) of sample means that would be produced by particular po
 <p>Consider very carefully what Figure <a href="ConfRegions2.html#fig:CIAlt1">16.1</a>-Left represents. The vertical rectangles represent the ranges of the most common 95% of sample means (values read from the y-axis) that will be produced for a particular population mean (value read from the x-axis). In essence, each vertical line represents the sample means that are likely to be observed from a population with a given population mean (x-axis).</p>
 <p>Now suppose that <span class="math inline">\(\bar{\text{x}}\)</span>=100.04 (Table <a href="FoundationalDefns.html#tab:SquareLakeSample1s">2.2</a>). Draw a horizontal line across Figure <a href="ConfRegions2.html#fig:CIAlt1">16.1</a> at this value and then draw vertical lines down from where the horizontal line first enters and last leaves the band of possible sample means (Figure <a href="ConfRegions2.html#fig:CIAlt2">16.2</a>). The x-axis values that these vertical lines intercept are an approximate 95% CI for μ.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:CIAlt2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:CIAlt2"></span>
 <img src="Book107_files/figure-html/CIAlt2-1.png" alt="Range (95%) of sample means that would be produced by particular population means in the Square Lake fish length example with the ranges intercepted by $\bar{\text{x}}$=100.04 mm." width="336" />
 <p class="caption">
 Figure 16.2: Range (95%) of sample means that would be produced by particular population means in the Square Lake fish length example with the ranges intercepted by <span class="math inline">\(\bar{\text{x}}\)</span>=100.04 mm.
@@ -413,7 +413,6 @@ Figure 16.2: Range (95%) of sample means that would be produced by particular po
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -453,11 +452,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

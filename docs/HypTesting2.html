@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 14 Hypothesis Testing - Errors | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 14 Hypothesis Testing - Errors | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="HypTesting1.html"/>
 <link rel="next" href="ConfRegions1.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -428,7 +428,7 @@ Type II (<span class="math inline">\(\beta\)</span>)
 <p>The probability of making a Type I error is set when α is chosen. Thus, the researcher can largely choose the rate at which they will make a Type I error. The probability of a Type II error is denoted by β, which is never known because calculating β requires knowing the true but unknown μ. Decisions can be made, however, that affect the magnitude of β (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>).</p>
 <p>There are two items that affect β that a researcher can control – the size of α and n. The β decreases as α increases (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>); i.e., the researcher is reducing Type II errors by allowing for more Type errors. In other words, the researcher is simply “trading errors,” which may be appropriate if a Type II error is more egregious than a Type I error. The β also decreases with increasing n (Figure <a href="HypTesting2.html#fig:SLBetaRelations">14.1</a>); i.e., fewer errors are made as more information is gathered. Of these two choices, reducing β by increasing n is generally more beneficial because it does not result in an increase in Type I errors as would occur with increasing α.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:SLBetaRelations"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SLBetaRelations"></span>
 <img src="Book107_files/figure-html/SLBetaRelations-1.png" alt="The relationship between one-tailed (lower) &amp;beta; and &amp;alpha;, n, actual mean (&amp;mu;~A~), and &amp;sigma;. In all situations where the variable does not vary, &amp;mu;~0~=105, &amp;mu;~A~=98.06, &amp;sigma;=31.49, n=50, and &amp;alpha;=0.05." width="624" />
 <p class="caption">
 Figure 14.1: The relationship between one-tailed (lower) β and α, n, actual mean (μ<sub>A</sub>), and σ. In all situations where the variable does not vary, μ<sub>0</sub>=105, μ<sub>A</sub>=98.06, σ=31.49, n=50, and α=0.05.
@@ -450,7 +450,7 @@ Figure 14.1: The relationship between one-tailed (lower) β and α, n, actual me
 <p><span class="math display">\[ \text{Observed Statistic}-\text{Hypothesized Parameter} \]</span></p>
 <p>where “Hypothesized Parameter” represents the specific value in H<sub>0</sub>. However, the meaning of this difference is difficult to interpret without an understanding of the standard error of the statistic. For example, a difference of 10 between the observed statistic and the hypothesized parameter seems “very different” if the standard error is 3 but does not seem “different” if the standard error is 15 (Figure <a href="HypTesting2.html#fig:EffectSizeSE">14.2</a>).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:EffectSizeSE"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:EffectSizeSE"></span>
 <img src="Book107_files/figure-html/EffectSizeSE-1.png" alt="Sampling distribution of samples means with SE=3 (Left) and SE=15 (Right). A single observed sample mean of 90 (a difference of 10 from the hypothesized mean of 100) is shown by the red dot and arrow." width="528" />
 <p class="caption">
 Figure 14.2: Sampling distribution of samples means with SE=3 (Left) and SE=15 (Right). A single observed sample mean of 90 (a difference of 10 from the hypothesized mean of 100) is shown by the red dot and arrow.
@@ -482,7 +482,6 @@ Figure 14.2: Sampling distribution of samples means with SE=3 (Left) and SE=15 (
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -522,11 +521,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

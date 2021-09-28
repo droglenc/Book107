@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 6 Normal Distribution Introduction | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 6 Normal Distribution Introduction | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="UnivEDA.html"/>
 <link rel="next" href="NormalDist2.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -342,7 +342,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Module 6</span> Normal Distribution Introduction</h1>
 <p>A model for the distribution of a single quantitative variable can be visualized by “fitting” a smooth curve to a histogram (Figure <a href="NormalDist1.html#fig:NormDensityEx">6.1</a>-Left), removing the histogram (Figure <a href="NormalDist1.html#fig:NormDensityEx">6.1</a>-Center), and using the remaining curve (Figure <a href="NormalDist1.html#fig:NormDensityEx">6.1</a>-Right) as a model for the distribution of the <strong>entire population</strong> of individuals. If the smooth curve follows a known distribution, then certain calculations are greatly simplified.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:NormDensityEx"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:NormDensityEx"></span>
 <img src="Book107_files/figure-html/NormDensityEx-1.png" alt="Depiction of fitting a smooth curve to a histogram to serve as a model for the distribution." width="672" />
 <p class="caption">
 Figure 6.1: Depiction of fitting a smooth curve to a histogram to serve as a model for the distribution.
@@ -354,7 +354,7 @@ Figure 6.1: Depiction of fitting a smooth curve to a histogram to serve as a mod
 <h2><span class="header-section-number">6.1</span> Characteristics of a Normal Distribution</h2>
 <p>The normal distribution is the familiar bell-shaped curve (Figure <a href="NormalDist1.html#fig:NormDensityEx">6.1</a>-Right). Normal distributions have two parameters – the population mean, μ, and the population standard deviation, σ – that control the exact shape and position of the distribution. Specifically, the mean μ controls the center and the standard deviation σ controls the dispersion of the distribution (Figure <a href="NormalDist1.html#fig:NormMultDists">6.2</a>).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:NormMultDists"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:NormMultDists"></span>
 <img src="Book107_files/figure-html/NormMultDists-1.png" alt="Nine normal distributions. Distributions with the same line type have the same value of &amp;mu; (solid is &amp;mu;=0, dashed is &amp;mu;=2, dotted is &amp;mu;=5). Distributions with the same color have the same value of &amp;sigma; (black is &amp;sigma;=0.5, red is &amp;sigma;=1, and green is &amp;sigma;=2)." width="672" />
 <p class="caption">
 Figure 6.2: Nine normal distributions. Distributions with the same line type have the same value of μ (solid is μ=0, dashed is μ=2, dotted is μ=5). Distributions with the same color have the same value of σ (black is σ=0.5, red is σ=1, and green is σ=2).
@@ -375,7 +375,7 @@ Figure 6.2: Nine normal distributions. Distributions with the same line type hav
 <p>A common question in statistics is to determine the proportion of individuals with a value of the variable between two numbers. For example, you might be faced with determining the proportion of all sites that have lead concentrations between 1.2 and 1.5 <span class="math inline">\(\mu g \cdot m^{-3}\)</span>, the proportion of students that scored higher than 700 on the SAT, or the proportion of Least Weasels that are shorter than 150 mm. Before considering these more realistic situations, lets explore calculations for the generic variable X shown in Figure <a href="NormalDist1.html#fig:NormDistShade">6.3</a>.</p>
 <p>Consider finding the proportion of individuals in a <em>sample</em> with values between 0 and 2. A histogram can be used to answer this question because it is about the individuals in a sample (Figure <a href="NormalDist1.html#fig:NormDistShade">6.3</a>-Left). In this case, the proportion of individuals with values between 0 and 2 is computed by dividing the number of individuals in the red shaded bars by the total number of individuals in the histogram. The analogous computation on the superimposed smooth curve is to find the area under the curve between 0 and 2 (Figure <a href="NormalDist1.html#fig:NormDistShade">6.3</a>-Right). The area under the curve is a “proportion of the total” because, as stated above, the area under the entire curve is equal to 1.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:NormDistShade"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:NormDistShade"></span>
 <img src="Book107_files/figure-html/NormDistShade-1.png" alt="Depiction of finding the proportion of individuals between 0 and 2 on a histogram (**Left**) and on a standard normal distribution (**Right**)." width="672" />
 <p class="caption">
 Figure 6.3: Depiction of finding the proportion of individuals between 0 and 2 on a histogram (<strong>Left</strong>) and on a standard normal distribution (<strong>Right</strong>).
@@ -388,7 +388,7 @@ Figure 6.3: Depiction of finding the proportion of individuals between 0 and 2 o
 <div id="or-empirical-rule" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> 68-95-99.7 (or Empirical) Rule</h2>
 <p>The 68-95-99.7 (or Empirical) Rule states that 68% of individuals that follow a normal distribution have values between μ-1σ and μ+1σ, 95% have values between μ-2σ and μ+2σ, and 99.7% have values between μ-3σ and μ+3σ (Figure <a href="NormalDist1.html#fig:NormEmpiricalRule">6.4</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:NormEmpiricalRule"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:NormEmpiricalRule"></span>
 <img src="Book107_files/figure-html/NormEmpiricalRule-1.png" alt="Depiction of the 68-95-99.7 (or Empirical) Rule on a normal distribution." width="336" />
 <p class="caption">
 Figure 6.4: Depiction of the 68-95-99.7 (or Empirical) Rule on a normal distribution.
@@ -396,7 +396,7 @@ Figure 6.4: Depiction of the 68-95-99.7 (or Empirical) Rule on a normal distribu
 </div>
 <p> </p>
 <p>The 68-95-99.7 Rule is true no matter what μ and σ are as long as the distribution is normal. For example, if A~N(3,1), then 68% of the individuals will fall between 2 (i.e., 3-1×1) and 4 (i.e., 3+1×1) and 99.7% will fall between 0 (i.e., 3-3×1) and 6 (i.e., 3+3×1).</p>
-<div class="figure" style="text-align: center"><span id="fig:NormEmpiricalRuleA"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:NormEmpiricalRuleA"></span>
 <img src="Book107_files/figure-html/NormEmpiricalRuleA-1.png" alt="Depiction of the 68-95-99.7 (or Empirical) Rule on a A~N(3,1) distribution." width="336" />
 <p class="caption">
 Figure 6.5: Depiction of the 68-95-99.7 (or Empirical) Rule on a A~N(3,1) distribution.
@@ -404,7 +404,7 @@ Figure 6.5: Depiction of the 68-95-99.7 (or Empirical) Rule on a A~N(3,1) distri
 </div>
 <p> </p>
 <p>Alternatively, if B~N(9,3), then 68% of the individuals will fall between 6 (i.e., 9-1×3) and 12 (i.e., 9+1×3) and 95% will be between 3 (i.e., 9-2×3) and 15 (i.e., 9+2×3). Similar calculations can be made for any normal distribution.</p>
-<div class="figure" style="text-align: center"><span id="fig:NormEmpiricalRuleB"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:NormEmpiricalRuleB"></span>
 <img src="Book107_files/figure-html/NormEmpiricalRuleB-1.png" alt="Depiction of the 68-95-99.7 (or Empirical) Rule on a B~N(9,3) distribution." width="336" />
 <p class="caption">
 Figure 6.6: Depiction of the 68-95-99.7 (or Empirical) Rule on a B~N(9,3) distribution.
@@ -412,7 +412,7 @@ Figure 6.6: Depiction of the 68-95-99.7 (or Empirical) Rule on a B~N(9,3) distri
 </div>
 <p> </p>
 <p>The 68-95-99.7 Rule is used to find areas under the normal curve as long as the value of interest is an <strong>integer</strong> number of standard deviations away from the mean. For example, the proportion of individuals that have a value of A greater than 5 (Figure <a href="NormalDist1.html#fig:NormEmpiricalRuleCalc">6.7</a>) is found by first realizing that 95% of the individuals on this distribution fall between 1 and 5 (i.e., ±2σ from μ). By subtraction this means that 5% of the individuals must be less than 1 <strong>AND</strong> greater than 5. Finally, because normal distributions are symmetric, the same percentage of individuals must be less than 1 as are greater than 5. Thus, half of 5%, or 2.5%, of the individuals have a value of A greater than 5.</p>
-<div class="figure" style="text-align: center"><span id="fig:NormEmpiricalRuleCalc"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:NormEmpiricalRuleCalc"></span>
 <img src="Book107_files/figure-html/NormEmpiricalRuleCalc-1.png" alt="The N(3,1) distribution depicting how the 68-95-99.7 Rule is used to compute the percentage of individuals with values greater than 5." width="336" />
 <p class="caption">
 Figure 6.7: The N(3,1) distribution depicting how the 68-95-99.7 Rule is used to compute the percentage of individuals with values greater than 5.
@@ -574,7 +574,6 @@ Value (X)
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -614,11 +613,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

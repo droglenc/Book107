@@ -15,7 +15,7 @@ bears
 &nbsp;
 
 ## Filtering a data frame
-It is common to create a new data frame that contains only some of the individuals from an existing data frame. The process of creating the newer, smaller data frame is called filtering and is accomplished with `filterD()`.^[`filterD()` requires the `NCStats` package.] The `filterD()` function requires the original data frame as the first argument and a condition statement as the second argument. The condition statement is used to either include or exclude individuals from the original data frame. Condition statements consist of the name of a variable in the original data frame, a comparison operator, and a comparison value (Table \@ref(tab:filterComps)). The results from `filterD()` should be assigned to an object, which is then the name of the new data frame.
+It is common to create a new data frame that contains only some of the individuals from an existing data frame. The process of creating the newer, smaller data frame is called filtering and is accomplished with `filterD()`{.inline}.^[`filterD()`{.inline} requires the `NCStats`{.inline} package.] The `filterD()`{.inline} function requires the original data frame as the first argument and a condition statement as the second argument. The condition statement is used to either include or exclude individuals from the original data frame. Condition statements consist of the name of a variable in the original data frame, a comparison operator, and a comparison value (Table \@ref(tab:filterComps)). The results from `filterD()`{.inline} should be assigned to an object, which is then the name of the new data frame.
 
 &nbsp;
 
@@ -35,7 +35,7 @@ data.frame(
       'All rows where `var` is **less than or equal to** `value`^[`value` must be numeric.]',
       'All rows where **BOTH** conditions are true',
       'All rows where **ONE or BOTH** conditions are true^[Note that this "or" operator is a "vertical line"" which is typed with the shift-backslash key.]'),check.names=FALSE) %>%
-  knitr::kable(booktabs=TRUE,caption="Comparison operators used in `filterD()` and their results. Note that `var` generically represents a variable in the original data frame and `value` is a generic value or level. Both `var` and `val` would be replaced with specific items (see examples in main text).") %>%
+  knitr::kable(booktabs=TRUE,caption="Comparison operators used in `filterD()`{.inline} and their results. Note that `var` generically represents a variable in the original data frame and `value` is a generic value or level. Both `var` and `val` would be replaced with specific items (see examples in main text).") %>%
   kableExtra::kable_classic("hover",full_width=FALSE,html_font=khfont) %>%
   kableExtra::row_spec(0,bold=TRUE)%>%
   kableExtra::column_spec(1,width="2.5in")
@@ -43,7 +43,7 @@ data.frame(
 
 &nbsp;
 
-The following are examples of new data frames created from `bears`. The name of the new data frame (i.e., object left of the assignment operator) can be any valid object name. As demonstrated below, the new data frame should be examined after each filtering to ensure that the data frame actually contains the items that you desire.^[For larger data.frames you should check the structure (using `str()`) or the `headtail()` of the new data frame.]
+The following are examples of new data frames created from `bears`. The name of the new data frame (i.e., object left of the assignment operator) can be any valid object name. As demonstrated below, the new data frame should be examined after each filtering to ensure that the data frame actually contains the items that you desire.^[For larger data.frames you should check the structure (using `str()`{.inline}) or the `headtail()`{.inline} of the new data frame.]
 
 * Only individuals from *Bayfield* county.
 
@@ -85,7 +85,7 @@ Examine the new data frame after filtering to ensure that it contains the data y
 :::
 
 ## Selecting Entire Variables
-As noted in Section \@ref(structure-and-data-types), whole variables can be selected from a data frame with the \$ notation. Recall that the \$ separates the name of the data frame from the name of the variable within that data frame.
+As noted in Section \@ref(structure-and-data-types), whole variables can be selected from a data frame with the `$`{.inline} notation. Recall that the `$`{.inline} separates the name of the data frame from the name of the variable within that data frame.
 
 * The weights of all bears (i.e., in the `bears` data frame).
 
@@ -114,13 +114,13 @@ In some instances, you may need to select or exclude an individual from a data f
 bears[3,2]
 ```
 
-An entire row or column may be selected by omitting the other dimension. For example, one could select the entire second column with `bears[,2]`.^[But this is also the `weight.kg` variable and is better selected with `bears$weight.kg`.] As a better example, the entire third row is selected below (note how the column designation was omitted).
+An entire row or column may be selected by omitting the other dimension. For example, one could select the entire second column with `bears[,2]`{.inline}.^[But this is also the `weight.kg` variable and is better selected with `bears$weight.kg`{.inline}.] As a better example, the entire third row is selected below (note how the column designation was omitted).
 
 ```{r}
 bears[3,]
 ```
 
-Multiple rows are selected by combining row indices together with `c()`. For example, the third, fifth, and eighth rows are selected below (again, the column index is omitted).
+Multiple rows are selected by combining row indices together with `c()`{.inline}. For example, the third, fifth, and eighth rows are selected below (again, the column index is omitted).
 
 ```{r}
 bears[c(3,5,8),]

@@ -1,5 +1,5 @@
 # Chi-Square in R {#RChi}
-In Modules \@ref(ChiSquare) and \@ref(GOFTest) you learned the theory and how to perform the calculations required to complete the 11 steps (Section \@ref(Hyp11Steps)) of a hypothesis test for chi-square and goodness-of-fit tests. In this module, you will learn how to perform the required calculations from raw data using R.^[Methods in this module require the `NCStats` package (as always) and the `ggplot2` package (for making graphs). Both packages are loaded in the first code chunk of the assignment template.]
+In Modules \@ref(ChiSquare) and \@ref(GOFTest) you learned the theory and how to perform the calculations required to complete the 11 steps (Section \@ref(Hyp11Steps)) of a hypothesis test for chi-square and goodness-of-fit tests. In this module, you will learn how to perform the required calculations from raw data using R.^[Methods in this module require the `NCStats`{.inline} package (as always) and the `ggplot2`{.inline} package (for making graphs). Both packages are loaded in the first code chunk of the assignment template.]
 
 ## Chi-Square Tests
 ### Data formats
@@ -15,7 +15,7 @@ str(fp)
 headtail(fp)
 ```
 
-The chi-square test calculations can be made from either raw data, that are then summarized, or data that has already been summarized. Raw data, as are given here, should be in stacked format (as described in Section \@ref(create-csv-file)) and then summarized to a two-way frequency table with `xtabs()` using a formula of the form `~cvarRow+cvarCol` as described in Section \@ref(frequency-tables-1). The result should be saved to an object for later use.
+The chi-square test calculations can be made from either raw data, that are then summarized, or data that has already been summarized. Raw data, as are given here, should be in stacked format (as described in Section \@ref(create-csv-file)) and then summarized to a two-way frequency table with `xtabs()`{.inline} using a formula of the form `~cvarRow+cvarCol`{.inline} as described in Section \@ref(frequency-tables-1). The result should be saved to an object for later use.
 
 ```{r}
 ( fp.obs <- xtabs(~hospital+father,data=fp) )
@@ -23,7 +23,7 @@ The chi-square test calculations can be made from either raw data, that are then
 
 &nbsp;
 
-**IF** the raw data do NOT exist, but a summary table is provided, then those summary statistics must be entered into an object using `matrix()`. The summarized frequencies must first be entered into a vector with the first **COLUMN** of values followed by the second COLUMN and so on. This vector is then the first argument to `matrix()`, which will also include the number of columns in the frequency table in `ncol=`. For example, the same observed table from above would be constructed as follows.
+**IF** the raw data do NOT exist, but a summary table is provided, then those summary statistics must be entered into an object using `matrix()`{.inline}. The summarized frequencies must first be entered into a vector with the first **COLUMN** of values followed by the second COLUMN and so on. This vector is then the first argument to `matrix()`{.inline}, which will also include the number of columns in the frequency table in `ncol=`{.inline}. For example, the same observed table from above would be constructed as follows.
 
 ```{r}
 fp.obs <- matrix(c(9,15,18,19,66,60,57,56),ncol=2)
@@ -38,17 +38,17 @@ fp.obs
 ```
 
 ::: {.tip data-latex=''}
-The observed table must contain frequencies, not proportions or percentages (don't use `percTable()`), without marginal totals (don't use `addMargins()`).
+The observed table must contain frequencies, not proportions or percentages (don't use `percTable()`{.inline}), without marginal totals (don't use `addMargins()`{.inline}).
 :::
 
 ### Chi-Square test in R
-The Chi-Square Test is performed with `chisq.test()`, which takes the observed frequency table  as the first argument and `correct=FALSE` so that the continuity correction is not used.^[The continuity correction is not used here simply so that the results using R will match hand-calculations. The continuity correction should usually be used.] The results of `chisq.test()` should be assigned to an object. The Chi-Square test statistic and p-value are extracted by simply printing the saved object.
+The Chi-Square Test is performed with `chisq.test()`{.inline}, which takes the observed frequency table  as the first argument and `correct=FALSE`{.inline} so that the continuity correction is not used.^[The continuity correction is not used here simply so that the results using R will match hand-calculations. The continuity correction should usually be used.] The results of `chisq.test()`{.inline} should be assigned to an object. The Chi-Square test statistic and p-value are extracted by simply printing the saved object.
 
 ```{r}
 ( fp.chi <- chisq.test(fp.obs,correct=FALSE) )
 ```
 
-The expected frequency table is returned by appending `$expected` to the saved object.
+The expected frequency table is returned by appending `$expected`{.inline} to the saved object.
 
 ```{r}
 fp.chi$expected
@@ -60,7 +60,7 @@ Rejecting the null hypothesis in a Chi-Square Test indicates that there is some 
 
 \[ \frac{\text{Observed-Expected}}{\sqrt{\text{Expected}}} \]
 
-which is the appropriately signed square root of the parts in the &chi;^2^ test statistic calculation. Therefore, cells that have Pearson residuals far from zero contributed substantially to the large &chi;^2^ test statistic that resulted in a small p-value and the ultimate rejection of H~0~. Patterns in where the large Pearson residuals are found may allow one to qualitatively determine which groups differ and, thus, which levels of the response differ the most. This process will be illustrated more fully in the examples. However, the Pearson residuals are obtained from the saved `chisq.test()` object by appending `$residuals`.
+which is the appropriately signed square root of the parts in the &chi;^2^ test statistic calculation. Therefore, cells that have Pearson residuals far from zero contributed substantially to the large &chi;^2^ test statistic that resulted in a small p-value and the ultimate rejection of H~0~. Patterns in where the large Pearson residuals are found may allow one to qualitatively determine which groups differ and, thus, which levels of the response differ the most. This process will be illustrated more fully in the examples. However, the Pearson residuals are obtained from the saved `chisq.test()`{.inline} object by appending `$residuals`{.inline}.
 
 ```{r}
 fp.chi$residuals
@@ -161,7 +161,7 @@ Consider the following example for this section.
 
 > [Herriges and King (1999)](http://www.mitpressjournals.org/doi/abs/10.1162/003465399767923827) examined modes of fishing for a large number of recreational saltwater users in southern California. One of the questions asked in their Southern California Sportfishing Survey was what "mode" they used for fishing -- "from the beach", "from a fishing pier", "on a private boat", or "on a chartered boat." The results to this question, along with other data not used here, are found in FishingModes.csv ([data](https://raw.githubusercontent.com/droglenc/NCData/master/FishingModes.csv), [meta](https://raw.githubusercontent.com/droglenc/NCData/master/FishingModes_meta.txt)). One hypothesis of interest states that two-thirds of the users will fish from a boat, split evenly between private and charter boats, while the other one-third will fish from land, also split evenly between those fishing on the beach and those from a pier. Use the data in the `mode` variable of the data file to determine if this hypothesis is supported at the 10% level.
 
-The data are loaded and examined below (the `headtail()` only shows a few variables).
+The data are loaded and examined below (the `headtail()`{.inline} only shows a few variables).
 
 ```{r}
 sf <- read.csv("https://raw.githubusercontent.com/droglenc/NCData/master/FishingModes.csv")
@@ -169,7 +169,7 @@ str(sf)
 headtail(sf,which=c("mode","price","catch"))
 ```
 
-As with the Chi-Square Test, the Goodness-of-Fit test can be made from either raw data, that are then summarized, or data that has already been summarized. Raw data are summarized into a one-way observed frequency table using `xtabs()` with a formula of `~cvarRow` as described in Section \@ref(frequency-and-percentage-tables-1). The results should be saved to an object for later use.
+As with the Chi-Square Test, the Goodness-of-Fit test can be made from either raw data, that are then summarized, or data that has already been summarized. Raw data are summarized into a one-way observed frequency table using `xtabs()`{.inline} with a formula of `~cvarRow`{.inline} as described in Section \@ref(frequency-and-percentage-tables-1). The results should be saved to an object for later use.
 
 ```{r}
 ( sf.obs <- xtabs(~mode,data=sf) )
@@ -177,7 +177,7 @@ As with the Chi-Square Test, the Goodness-of-Fit test can be made from either ra
 
 &nbsp;
 
-**IF** the raw data do NOT exist, but a summary table is provided, then those summary statistics must be entered into an object using `c()`. Each item can be named in c() as shown below, which will make the results easier to interpret. For example, the same observed table from above would be constructed as follows.
+**IF** the raw data do NOT exist, but a summary table is provided, then those summary statistics must be entered into an object using `c()`{.inline}. Each item can be named in `c()`{.inline} as shown below, which will make the results easier to interpret. For example, the same observed table from above would be constructed as follows.
 
 ```{r}
 ( sf.obs <- c(beach=134,boat=418,charter=452,pier=178) )
@@ -202,19 +202,19 @@ Enter the expected proportions in the same order as the observed frequencies.
 :::
 
 ### Goodness-of-Fit Test in R
-The Goodness-of-Fit Test is computed with `chisq.test()` with the observed frequency table as the first argument and the following arguments:
+The Goodness-of-Fit Test is computed with `chisq.test()`{.inline} with the observed frequency table as the first argument and the following arguments:
 
-* `p=`: a vector of expected proportions for the levels of the theoretical distribution.
-* `rescale.p=TRUE`: rescales the values in `p=` to sum to 1. Rescaling is useful if the proportions in `p=` were rounded or are expected frequencies.
-* `correct=FALSE`: indicates to not use a "continuity correction."
+* `p=`{.inline}: a vector of expected proportions for the levels of the theoretical distribution.
+* `rescale.p=TRUE`{.inline}: rescales the values in `p=`{.inline} to sum to 1. Rescaling is useful if the proportions in `p=`{.inline} were rounded or are expected frequencies.
+* `correct=FALSE`{.inline}: indicates to not use a "continuity correction."
 
-The results from `chisq.test()` should be assigned to an object so that useful information can be extracted.
+The results from `chisq.test()`{.inline} should be assigned to an object so that useful information can be extracted.
 
 ```{r}
 ( sf.gof <- chisq.test(sf.obs,p=exp.p,rescale.p=TRUE,correct=FALSE) )
 ```
 
-From the results above the &chi;^2^ test statistic for Step 7 is `r formatC(sf.gof$statistic,format="f",digits=3)`, and the p-value for Step 8 is `r formatC(sf.gof$p.value,format="f",digits=8)` (with `r sf.gof$parameter` df). The observed table for Step 6 was shown further above. The expected table for Step 5 is extracted from the `chisq.test()` object as follows.
+From the results above the &chi;^2^ test statistic for Step 7 is `r formatC(sf.gof$statistic,format="f",digits=3)`, and the p-value for Step 8 is `r formatC(sf.gof$p.value,format="f",digits=8)` (with `r sf.gof$parameter` df). The observed table for Step 6 was shown further above. The expected table for Step 5 is extracted from the `chisq.test()`{.inline} object as follows.
 
 ```{r}
 sf.gof$expected
@@ -228,7 +228,7 @@ cbind(obs=sf.gof$observed,exp=sf.gof$expected,resids=sf.gof$residuals)
 
 In this case it is clear that those respondents that answered "beach" were much lower than expected and those that answered "charter" were greater than expected.
 
-Another way to identify where differences occurred is to examine confidence intervals for the proportions of individuals in each level. These confidence intervals are extracted from the saved `chisq.test()` object with \R{gofCI()}.
+Another way to identify where differences occurred is to examine confidence intervals for the proportions of individuals in each level. These confidence intervals are extracted from the saved `chisq.test()`{.inline} object with `gofCI()`{.inline}.
 
 ```{r}
 gofCI(sf.gof,digits=3)

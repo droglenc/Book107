@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 5 Univariate EDA | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 5 Univariate EDA | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="UnivSum.html"/>
 <link rel="next" href="NormalDist1.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -359,7 +359,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">5.1.1</span> Interpreting Shape</h3>
 <p>A distribution has two tails – a left-tail of smaller or more negative values and a right-tail of larger or more positive values (Figure <a href="UnivEDA.html#fig:ShapeExamples1">5.1</a>). The relative appearance of the tails is used to identify the shape of a distribution. If the left- and right-tail are approximately equal in length and height, then the distribution is <strong>approximately symmetric</strong>. If the left-tail is stretched out or is longer and flatter than the right-tail, then the distribution is <strong>left-skewed</strong>. If the right-tail is stretched out or is longer and flatter than the left-tail, then the distribution is <strong>right-skewed</strong>.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a></p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:ShapeExamples1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ShapeExamples1"></span>
 <img src="Book107_files/figure-html/ShapeExamples1-1.png" alt="Examples of left-skewed, approximately symmetric, and right-skewed histograms. The skewed distributions are more skewed in the top row and less skewed in the bottom row." width="672" />
 <p class="caption">
 Figure 5.1: Examples of left-skewed, approximately symmetric, and right-skewed histograms. The skewed distributions are more skewed in the top row and less skewed in the bottom row.
@@ -374,7 +374,7 @@ Figure 5.1: Examples of left-skewed, approximately symmetric, and right-skewed h
 </div>
 <p>A distribution is <strong>bimodal</strong> if there are two distinct peaks (Figure <a href="UnivEDA.html#fig:ShapeBimodal">5.2</a>). The shape may be “bimodal left-skewed” if the left peak is shorter, “bimodal symmetric” if the two peaks are the same height, or “bimodal right-skewed” if the right peak is shorter.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:ShapeBimodal"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ShapeBimodal"></span>
 <img src="Book107_files/figure-html/ShapeBimodal-1.png" alt="Example of a bimodal left-skewed histograms." width="336" />
 <p class="caption">
 Figure 5.2: Example of a bimodal left-skewed histograms.
@@ -383,7 +383,7 @@ Figure 5.2: Example of a bimodal left-skewed histograms.
 <p> </p>
 <p>Shape may be identified from a histogram or a boxplot (Figure <a href="UnivEDA.html#fig:ShapeExamples2">5.3</a>). Shape is most easily determined from a histogram, as you can focus simply on the “longest” tail. With boxplots, one must examine the relative length from the median to Q1 and the median to Q3 (i.e., the position of the median line in the box). If the distribution is left-skewed (i.e., lesser-valued individuals are “spread out”), then the median-Q1 will be greater than Q3-median. In contrast, if the distribution is right-skewed (i.e., larger-valued individuals are spread out), then the Q3-median will be greater than median-Q1. Thus, the median is nearer the top of the box for a left-skewed distribution, nearer the bottom of the box for a right-skewed distribution, and nearer the center of the box for a symmetric distribution (Figure <a href="UnivEDA.html#fig:ShapeExamples2">5.3</a>).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:ShapeExamples2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ShapeExamples2"></span>
 <img src="Book107_files/figure-html/ShapeExamples2-1.png" alt="Histograms and boxplots for several different shapes of distributions." width="672" />
 <p class="caption">
 Figure 5.3: Histograms and boxplots for several different shapes of distributions.
@@ -397,7 +397,7 @@ Figure 5.3: Histograms and boxplots for several different shapes of distribution
 <h3><span class="header-section-number">5.1.2</span> Interpreting Outliers</h3>
 <p>An outlier is an individual whose value is widely separated from the main cluster of values in the sample. On histograms, outliers appear as bars that are separated from the main cluster of bars by “white space” or areas with no bars (Figure <a href="UnivEDA.html#fig:OutlierExHist">5.4</a>). In general, outliers must be <strong>on the margins of the histogram, should be separated by one or two missing bars, and should only be one or two individuals.</strong></p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:OutlierExHist"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:OutlierExHist"></span>
 <img src="Book107_files/figure-html/OutlierExHist-1.png" alt="Example histogram with an outlier to the right (dark gray)." width="336" />
 <p class="caption">
 Figure 5.4: Example histogram with an outlier to the right (dark gray).
@@ -420,7 +420,7 @@ Figure 5.4: Example histogram with an outlier to the right (dark gray).
 <p>The mean and median measure center differently. The median balances the number of individuals smaller and larger than it. The mean, on the other hand, balances the sum of the distances to all points smaller than it and the sum of the distances to all points greater than it. Thus, the median is primarily concerned with the <strong>position</strong> of the value rather than the value itself, whereas the mean is concerned with the <strong>values</strong> for each individual (i.e., the values are used to find the “distance” from the mean).</p>
 <p>A plot of the Richter scale data against the corresponding ordered individual numbers is shown in Figure <a href="UnivEDA.html#fig:MeanMedianComp1">5.5</a>-Top. The median (blue line) is the Richter scale value that corresponds to the middle position (i.e., move right from the individual number until the point is intercepted and then move down to the x-axis). Thus, the median (blue line) has the same <strong>number</strong> of individuals (i.e., points) above and below it. In contrast, the mean finds the Richter scale value that has the same total distance to values below it as total distance to values above it. In other words, the mean (vertical red line) is placed such that the total <strong>length</strong> of the horizontal dashed red lines (distances from mean to point) is the same to the left as to the right.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:MeanMedianComp1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:MeanMedianComp1"></span>
 <img src="Book107_files/figure-html/MeanMedianComp1-1.png" alt="Plot of the individual number versus Richter scale values for the original earthquake data (**Top**) and the earthquake data with an extreme outlier (**Bottom**). The median value is shown as a blue vertical line and the mean value is shown as a red vertical line. Differences between each individual value and the mean value are shown with horizontal red lines." width="480" />
 <p class="caption">
 Figure 5.5: Plot of the individual number versus Richter scale values for the original earthquake data (<strong>Top</strong>) and the earthquake data with an extreme outlier (<strong>Bottom</strong>). The median value is shown as a blue vertical line and the mean value is shown as a red vertical line. Differences between each individual value and the mean value are shown with horizontal red lines.
@@ -439,7 +439,7 @@ Figure 5.5: Plot of the individual number versus Richter scale values for the or
 </div>
 <p>The shape of the distribution, even if outliers are not present, also has an impact on the mean and median (Figure <a href="UnivEDA.html#fig:MeanMedianShape">5.6</a>). If a distribution is approximately symmetric, then the median and mean (along with the mode) will be nearly identical. If the distribution is left-skewed, then the mean will be less than the median. Finally, if the distribution is right-skewed, then the mean will be greater than the median.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:MeanMedianShape"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:MeanMedianShape"></span>
 <img src="Book107_files/figure-html/MeanMedianShape-1.png" alt="Three histograms with vertical dashed lines marking the median (blue) and the mean (red)." width="672" />
 <p class="caption">
 Figure 5.6: Three histograms with vertical dashed lines marking the median (blue) and the mean (red).
@@ -470,7 +470,7 @@ Figure 5.6: Three histograms with vertical dashed lines marking the median (blue
 <blockquote>
 <p><em>Construct a proper EDA for the number of open pit mines in countries that have open pit mines as summarized in Table <a href="UnivEDA.html#tab:MineStats">5.1</a> and Figure <a href="UnivEDA.html#fig:MineHist2">5.7</a>.</em></p>
 </blockquote>
-<div class="figure" style="text-align: center"><span id="fig:MineHist2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:MineHist2"></span>
 <img src="Book107_files/figure-html/MineHist2-1.png" alt="Histogram of number of open pit mines in countries with open pit mines." width="336" />
 <p class="caption">
 Figure 5.7: Histogram of number of open pit mines in countries with open pit mines.
@@ -545,7 +545,7 @@ max
 <blockquote>
 <p><em>Thoroughly describe the distribution of number of days of ice cover at ice gauge station 9004 in Lake Superior from Figure <a href="UnivEDA.html#fig:LSIHist">5.8</a> and Table <a href="UnivEDA.html#tab:LSIStats">5.2</a>.</em></p>
 </blockquote>
-<div class="figure" style="text-align: center"><span id="fig:LSIHist"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:LSIHist"></span>
 <img src="Book107_files/figure-html/LSIHist-1.png" alt="Histogram of number of days of ice cover at ice gauge 9004 in Lake Superior." width="336" />
 <p class="caption">
 Figure 5.8: Histogram of number of days of ice cover at ice gauge 9004 in Lake Superior.
@@ -626,7 +626,7 @@ max
 <blockquote>
 <p><em>Peck (1985) examined the temperature selection of dominant and subdominant crayfish (Orconectes virilis) together in an artificial stream. The temperature (<sup>o</sup>C) selection by the dominant crayfish in the presence of subdominant crayfish in these experiments was recorded below. Thoroughly describe all aspects of the distribution of selected temperatures from Figure <a href="UnivEDA.html#fig:CrayfishTempHist">5.9</a> and Table <a href="UnivEDA.html#tab:CrayfishTempStats">5.3</a>.</em></p>
 </blockquote>
-<div class="figure" style="text-align: center"><span id="fig:CrayfishTempHist"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:CrayfishTempHist"></span>
 <img src="Book107_files/figure-html/CrayfishTempHist-1.png" alt="Histogram of crayfish temperature preferences." width="336" />
 <p class="caption">
 Figure 5.9: Histogram of crayfish temperature preferences.
@@ -711,7 +711,7 @@ max
 <blockquote>
 <p><em>A bag of seeds was purchased for seeding a recently constructed wetland. The purchaser wanted to determine if the percentage of seeds in four broad categories – “grasses,” “sedges,” “wildflowers,” and “legumes” – was similar to what the seed manufacturer advertised. The purchaser examined a 0.25-lb sample of seeds from the bag and displayed the results in Figure <a href="UnivEDA.html#fig:SeedBarplot">5.10</a>. Use these results to describe the distribution of seed counts into the four broad categories.</em></p>
 </blockquote>
-<div class="figure" style="text-align: center"><span id="fig:SeedBarplot"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SeedBarplot"></span>
 <img src="Book107_files/figure-html/SeedBarplot-1.png" alt="Bar chart of the percentage of wetland seeds by type." width="336" />
 <p class="caption">
 Figure 5.10: Bar chart of the percentage of wetland seeds by type.
@@ -725,7 +725,7 @@ Figure 5.10: Bar chart of the percentage of wetland seeds by type.
 <blockquote>
 <p><em>The General Sociological Survey (GSS) is a very large survey that has been administered 25 times since 1972. The purpose of the GSS is to gather data on contemporary American society in order to monitor and explain trends in attitudes, behaviors, and attributes. One question that was asked in a recent GSS was “How often do you make a special effort to sort glass or cans or plastic or papers and so on for recycling?” The results are displayed in Figure <a href="UnivEDA.html#fig:GSSBarplot">5.11</a> and Table <a href="UnivEDA.html#tab:GSSTable">5.4</a>. Use these results to describe the distribution of answers to the question.</em></p>
 </blockquote>
-<div class="figure" style="text-align: center"><span id="fig:GSSBarplot"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:GSSBarplot"></span>
 <img src="Book107_files/figure-html/GSSBarplot-1.png" alt="Barplot of the percentage of wetland seeds by type." width="336" />
 <p class="caption">
 Figure 5.11: Barplot of the percentage of wetland seeds by type.
@@ -797,7 +797,6 @@ Not Avail
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -837,11 +836,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

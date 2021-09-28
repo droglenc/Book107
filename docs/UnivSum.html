@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 4 Univariate Summaries | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 4 Univariate Summaries | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="DataProduction.html"/>
 <link rel="next" href="UnivEDA.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -1304,7 +1304,7 @@ Frequency
 <p> </p>
 <p>The frequency of individuals in each class is then counted (shown in the second row of Table <a href="UnivSum.html#tab:MineFreqTable">4.6</a>). The plot is prepared with values of the classes forming the x-axis and frequencies forming the y-axis (Figure <a href="UnivSum.html#fig:MineHist1">4.1</a>-A). The first bar added to this skeleton plot has the bottom-left corner at 0 and the bottom-right corner at 2 on the x-axis, and a height equal to the frequency of individuals in the 0-1 class (Figure <a href="UnivSum.html#fig:MineHist1">4.1</a>-B). A second bar is then added with the bottom-left corner at 2 and the bottom-right corner at 4 on the x-axis, and a height equal to the frequency of individuals in the 2-3 class (Figure <a href="UnivSum.html#fig:MineHist1">4.1</a>-C). This process is continued with the remaining classes until the full histogram is constructed (Figure <a href="UnivSum.html#fig:MineHist1">4.1</a>D).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:MineHist1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:MineHist1"></span>
 <img src="Book107_files/figure-html/MineHist1-1.png" alt="Steps (described in text) illustrating the construction of a histogram." width="576" />
 <p class="caption">
 Figure 4.1: Steps (described in text) illustrating the construction of a histogram.
@@ -1313,7 +1313,7 @@ Figure 4.1: Steps (described in text) illustrating the construction of a histogr
 <p> </p>
 <p>Ideally eight to ten classes are used in a histogram. Too many or too few bars make it difficult to identify the shape and may lead to different interpretations. A dramatic example of the effect of changing the number of classes is seen in histograms of the length of eruptions for the Old Faithful geyser (Figure <a href="UnivSum.html#fig:histOF">4.2</a>).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:histOF"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:histOF"></span>
 <img src="Book107_files/figure-html/histOF-1.png" alt="Histogram of length of eruptions for Old Faithful geyser with varying number of bins/classes." width="1008" />
 <p class="caption">
 Figure 4.2: Histogram of length of eruptions for Old Faithful geyser with varying number of bins/classes.
@@ -1324,7 +1324,7 @@ Figure 4.2: Histogram of length of eruptions for Old Faithful geyser with varyin
 <h4><span class="header-section-number">4.1.2.2</span> Boxplot</h4>
 <p>The <strong>five-number summary</strong> consists of the minimum, Q1, median, Q3, and maximum values (effectively contains the range, IQR, and median). For example, the five-number summary for the open pit mine data is 1, 1, 2, 4, and 15 (all values computed in the previous sections). The five-number summary may be displayed as a <strong>boxplot</strong>. A traditional boxplot (Figure <a href="UnivSum.html#fig:MineBoxplot">4.3</a>-Left) consists of a horizontal line at the median, horizontal lines at Q1 and Q3 that are connected with vertical lines to form a box, and vertical lines from Q1 to the minimum and from Q3 to the maximum. In modern boxplots (Figure <a href="UnivSum.html#fig:MineBoxplot">4.3</a>-Right) the upper line extends from Q3 to the last observed value that is within 1.5 IQRs of Q3 and the lower line extends from Q1 to the last observed value that is within 1.5 IQRs of Q1. Observed values outside of the whiskers are termed “outliers” by this algorithm and are typically plotted with circles or asterisks. If no individuals are deemed “outliers” by this algorithm, then the traditional and modern boxplots will be the same.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:MineBoxplot"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:MineBoxplot"></span>
 <img src="Book107_files/figure-html/MineBoxplot-1.png" alt="Traditional (**Left**) and modern (**Right**) boxplots of the open pit mine data." width="672" />
 <p class="caption">
 Figure 4.3: Traditional (<strong>Left</strong>) and modern (<strong>Right</strong>) boxplots of the open pit mine data.
@@ -1689,7 +1689,7 @@ Sr
 <h4><span class="header-section-number">4.2.2.1</span> Bar Charts</h4>
 <p>Bar charts are used to display the frequency or percentage of individuals in each level of a categorical variable. Bar charts look similar to histograms in that they have the frequency of individuals on the y-axis. However, category labels rather than quantitative values are plotted on the x-axis. In addition, to highlight the categorical nature of the data, bars on a bar chart do not touch. A bar chart for whether or not individuals were required to take MTH107 is in Figure <a href="UnivSum.html#fig:MTH107BarChart">4.4</a>-Left. This bar chart does not add much to the frequency table because there were only two categories. However, bar charts make it easier to compare the number of individuals in each of several categories as in Figure <a href="UnivSum.html#fig:MTH107BarChart">4.4</a>-Right.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:MTH107BarChart"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:MTH107BarChart"></span>
 <img src="Book107_files/figure-html/MTH107BarChart-1.png" alt="Bar charts of the frequency of individuals in MTH107 during Winter 2010 by whether or not they were required to take MTH107 (**Left**) and year-in-school (**Right**)." width="672" />
 <p class="caption">
 Figure 4.4: Bar charts of the frequency of individuals in MTH107 during Winter 2010 by whether or not they were required to take MTH107 (<strong>Left</strong>) and year-in-school (<strong>Right</strong>).
@@ -1725,7 +1725,6 @@ Figure 4.4: Bar charts of the frequency of individuals in MTH107 during Winter 2
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1765,11 +1764,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

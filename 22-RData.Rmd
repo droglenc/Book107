@@ -1,6 +1,6 @@
 # Getting Data into R {#RData}
 
-R, RStudio, the `NCStats` package, and very basic usage of R were [introduced here](http://derekogle.com/NCMTH107/modules/Prep/RStart.html). This module explains how to enter data into R. Subsequent modules will explain how to use R to create the graphics and compute statistics and test results from these data.
+R, RStudio, the `NCStats`{.inline} package, and very basic usage of R were [introduced here](http://derekogle.com/NCMTH107/modules/Prep/RStart.html). This module explains how to enter data into R. Subsequent modules will explain how to use R to create the graphics and compute statistics and test results from these data.
 
 ## R Notebooks
 Notebooks in RStudio are an efficient way to enter R code, show results of R code, write answers to assignment questions, and compile all of that to a document that can be handed in.
@@ -175,7 +175,7 @@ Some of the data files that you will use are linked to on the pertinent assignme
 &nbsp;
 
 ### Read CSV File into RStudio
-Use `read.csv()` in the first R code chunk of your assignment notebook to load the data from the CSV file into RStudio. The EXACT name of the data file is including within quotes within `read.csv()` and the results should be saved to an object. For example, the code highlighted in yellow in the graphic below was used to read the external "Bears.csv" file into an R object called `dat`. The circled items in the lower-right pane demonstrate that the "Bears.csv" file is in the same directory as the assignment notebooks file.
+Use `read.csv()`{.inline} in the first R code chunk of your assignment notebook to load the data from the CSV file into RStudio. The EXACT name of the data file is including within quotes within `read.csv()`{.inline} and the results should be saved to an object. For example, the code highlighted in yellow in the graphic below was used to read the external "Bears.csv" file into an R object called `dat`. The circled items in the lower-right pane demonstrate that the "Bears.csv" file is in the same directory as the assignment notebooks file.
 
 ```{r echo=FALSE, out.width='90%'}
 knitr::include_graphics("zimgs/Notebook_ReadCSV.JPG")
@@ -195,7 +195,7 @@ R may be disorienting at first because you generally cannot "see" your data in t
 bears
 ```
 
-Typing the name is adequate for small data.frames, but not useful for large data.frames. The entire data.frame is opened in a separate window by double-clicking on the name of the data.frame in the "Environment" tab of RStudio. Alternatively, you can view a subset of 20 rows of a data frame with `peek()`, the first six rows with `head()`, the last six rows with `tail()`, or the first and last three rows with `headtail()`.
+Typing the name is adequate for small data.frames, but not useful for large data.frames. The entire data.frame is opened in a separate window by double-clicking on the name of the data.frame in the "Environment" tab of RStudio. Alternatively, you can view a subset of 20 rows of a data frame with `peek()`{.inline}, the first six rows with `head()`{.inline}, the last six rows with `tail()`{.inline}, or the first and last three rows with `headtail()`{.inline}.
 
 ```{r}
 peek(bears)
@@ -209,19 +209,19 @@ headtail(bears)
 ### Structure and Data Types
 Data in R will be designated as an `int`eger (whole numbers), `num`eric (non-integer numeric values), `char`acter (strings), `factor` (group membership), or `log`ical (`TRUE`/`FALSE`). Integer and numeric data types correspond to quantitative data. Character and factor data types correspond to categorical data, with the **factor** data type having special characteristics in R that we will exploit for certain analyses. These types of data will be discussed further as needed in other modules.
 
-In addition to viewing the contents of a data object, it is useful to examine the structure of the data frame as returned from `str()`.
+In addition to viewing the contents of a data object, it is useful to examine the structure of the data frame as returned from `str()`{.inline}.
 
 ```{r}
 str(bears)
 ```
 
-In this example, it is seen that `r kCounts(ncol(bears))` variables were recorded on `r nrow(bears)` individuals. The first variables -- `r names(bears)[1]` -- is numeric, the second -- `r names(bears)[2]` -- is integer, and the last -- `r names(bears)[3]` -- is a character variable. The unique values in a character variable may be seen with `unique()`.
+In this example, it is seen that `r kCounts(ncol(bears))` variables were recorded on `r nrow(bears)` individuals. The first variables -- `r names(bears)[1]` -- is numeric, the second -- `r names(bears)[2]` -- is integer, and the last -- `r names(bears)[3]` -- is a character variable. The unique values in a character variable may be seen with `unique()`{.inline}.
 
 ```{r}
 unique(bears$loc)
 ```
 
-A character variable may be converted to a factor variable with `factor()`. In this course, the main reason for doing this would be to control the levels of an ordinal variable because R treats levels alphabetically by default. For example suppose that we wanted to order the levels of the `r names(bears)[3]` variable from west to east (so, Douglas, Bayfield, and Ashland). For this purpose the variable is converted to a factor below with `factor()` and the order of the levels is controlled with `levels=`.
+A character variable may be converted to a factor variable with `factor()`{.inline}. In this course, the main reason for doing this would be to control the levels of an ordinal variable because R treats levels alphabetically by default. For example suppose that we wanted to order the levels of the `r names(bears)[3]` variable from west to east (so, Douglas, Bayfield, and Ashland). For this purpose the variable is converted to a factor below with `factor()`{.inline} and the order of the levels is controlled with `levels=`{.inline}.
 
 ::: {.tip data-latex=''}
 Make sure the levels are spelled EXACTLY as they appear in the data.
@@ -232,7 +232,7 @@ bears$loc <- factor(bears$loc,levels=c("Douglas","Bayfield","Ashland"))
 levels(bears$loc)
 ```
 
-The levels of a factor variable and their order may be seen with `levels()`.
+The levels of a factor variable and their order may be seen with `levels()`{.inline}.
 
 ```{r}
 levels(bears$loc)
@@ -240,7 +240,7 @@ levels(bears$loc)
 
 &nbsp;
 
-In the previous examples, the `$` notation was used to identify a particular variable (i.e., `loc`) within a data.frame (`bears`). Think of variables as being nested inside data.frames and, thus, to access the variable you must first identify the data.frame in which it exists and then the name of the variable. The `$` simply separates the data.frame from the variable.
+In the previous examples, the `$`{.inline} notation was used to identify a particular variable (i.e., `loc`) within a data.frame (`bears`). Think of variables as being nested inside data.frames and, thus, to access the variable you must first identify the data.frame in which it exists and then the name of the variable. The `$`{.inline} simply separates the data.frame from the variable.
 
 ```{r}
 bears$length.cm
@@ -250,7 +250,7 @@ bears$loc
 &nbsp;
 
 ## Vectors
-Data.frames are the primary structure in which to store real data. However, much simpler situations that don't require a data.frame may arise. In R, items of the same data type (see [Data Types]) are stored in a one-dimensional **vector**. Vectors are usually displayed in one row (with many columns), but they may also be thought of as a single column (with many rows). Items are entered into a vector with `c()`, where the individual arguments are specific numbers, characters, or logical values.^[`c` comes from "concatenate" or "combine."] Items for a vector of characters must be contained within paired quotes.
+Data.frames are the primary structure in which to store real data. However, much simpler situations that don't require a data.frame may arise. In R, items of the same data type (see [Data Types]) are stored in a one-dimensional **vector**. Vectors are usually displayed in one row (with many columns), but they may also be thought of as a single column (with many rows). Items are entered into a vector with `c()`{.inline}, where the individual arguments are specific numbers, characters, or logical values.^[`c`{.inline} comes from "concatenate" or "combine."] Items for a vector of characters must be contained within paired quotes.
 
 ```{r}
 ( v <- c(1,2,5) )

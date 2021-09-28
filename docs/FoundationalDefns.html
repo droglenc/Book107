@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 2 Foundational Definitions | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 2 Foundational Definitions | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="WhyStats.html"/>
 <link rel="next" href="DataProduction.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -343,7 +343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Statistical inference is the process of forming conclusions about a parameter of a population from statistics computed from individuals in a sample.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> Thus, understanding statistical inference requires understanding the difference between a population and a sample and a parameter and a statistic. And, to properly describe those items, the individual and variable(s) of interest must be identified. Understanding and identifying these six items is the focus of this module.</p>
 <p>The following hypothetical example is used throughout this module. Assume that we are interested in the average length of 1015 fish in Square Lake. To illustrate important concepts in this module, assume that all information for all 1015 fish in this lake is known (Figure <a href="FoundationalDefns.html#fig:SquareLakePopn">2.1</a>). In “real life” this complete information would not be known.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:SquareLakePopn"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SquareLakePopn"></span>
 <img src="Book107_files/figure-html/SquareLakePopn-1.png" alt="Schematic representation of individual fish (i.e., dots; **Left**) and histogram (**Right**) of the total length of the 1015 fish in Square Lake." width="672" />
 <p class="caption">
 Figure 2.1: Schematic representation of individual fish (i.e., dots; <strong>Left</strong>) and histogram (<strong>Right</strong>) of the total length of the 1015 fish in Square Lake.
@@ -425,7 +425,7 @@ max
 </div>
 <p>To learn something about a population that cannot usually be seen we must <strong>sample</strong> a subset of that population. The red dots in Figure <a href="FoundationalDefns.html#fig:SquareLakeSample1">2.2</a> represent a random sample of n=50 fish from Square Lake (note that the sample size is usually denoted by n).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:SquareLakeSample1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SquareLakeSample1"></span>
 <img src="Book107_files/figure-html/SquareLakeSample1-1.png" alt="Schematic representation (**Left**) of a sample of 50 fish (i.e., red dots) from Square Lake and histogram (**Right**) of the total length of the 50 fish in this sample." width="672" />
 <p class="caption">
 Figure 2.2: Schematic representation (<strong>Left</strong>) of a sample of 50 fish (i.e., red dots) from Square Lake and histogram (<strong>Right</strong>) of the total length of the 50 fish in this sample.
@@ -550,7 +550,7 @@ In some situations it may be easier to identify the sample first. From this, and
 <h3><span class="header-section-number">2.2.1</span> Sampling Variability (Revisited)</h3>
 <p>It is instructive to once again (see Module <a href="WhyStats.html#WhyStats">1</a>) consider how statistics differ among samples. Table <a href="FoundationalDefns.html#tab:SquareLakeSample234s">2.3</a> and Figure <a href="FoundationalDefns.html#fig:SquareLakeSample234">2.3</a> show results from three more samples of n=50 fish from the Square Lake population. The means from all four samples (including the sample in Table <a href="FoundationalDefns.html#tab:SquareLakeSample1s">2.2</a> and Figure <a href="FoundationalDefns.html#fig:SquareLakeSample1">2.2</a>) were quite different from the known population mean of 98.06 mm. Similarly, all four histograms were similar in appearance but slightly different in actual values. These results illustrate that a statistic (or sample) will only approximate the parameter (or population) and that statistics vary among samples. This <strong>sampling variability</strong> is one of the most important concepts in statistics and is discussed in great detail beginning in Module <a href="SamplingDist.html#SamplingDist">11</a>.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:SquareLakeSample234"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SquareLakeSample234"></span>
 <img src="Book107_files/figure-html/SquareLakeSample234-1.png" alt="Schematic representation (**Left**) of three samples of 50 fish (i.e., red dots) from Square Lake and histograms (**Right**) of the total length of the 50 fish in each sample." width="672" />
 <p class="caption">
 Figure 2.3: Schematic representation (<strong>Left</strong>) of three samples of 50 fish (i.e., red dots) from Square Lake and histograms (<strong>Right</strong>) of the total length of the 50 fish in each sample.
@@ -697,7 +697,7 @@ max
 <h3><span class="header-section-number">2.3.1</span> Variable Definitions</h3>
 <p>There are two main groups of variable types – quantitative and categorical (Figure <a href="FoundationalDefns.html#fig:VarTypes">2.4</a>). <strong>Quantitative</strong> variables are variables with numerical values for which it makes sense to do arithmetic operations (like adding or averaging).<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> <strong>Categorical</strong> variables are variables that record which group or category an individual belongs.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> Within each main type of variable are two subgroups (Figure <a href="FoundationalDefns.html#fig:VarTypes">2.4</a>).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:VarTypes"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:VarTypes"></span>
 <img src="Book107_files/figure-html/VarTypes-1.png" alt="Schematic representation of the four types of variables." width="480" />
 <p class="caption">
 Figure 2.4: Schematic representation of the four types of variables.
@@ -753,7 +753,6 @@ Figure 2.4: Schematic representation of the four types of variables.
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -793,11 +792,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

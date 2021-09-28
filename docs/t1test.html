@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 18 1-Sample t-Test | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 18 1-Sample t-Test | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="Ztest.html"/>
 <link rel="next" href="t2test.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -345,7 +345,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">18.1</span> t-distribution</h2>
 <p>A t-distribution is similar to a standard normal distribution (i.e., N(0,1)) in that it is centered on 0 and is bell shaped (Figure <a href="t1test.html#fig:tvsZ">18.1</a>). The t-distribution differs from the standard normal distribution in that it is heavier in the tails, flatter near the center, and its exact dispersion is dictated by a quantity called the degrees-of-freedom (df). The t-distribution is “flatter and fatter” because of the uncertainty surrounding the use of s rather than σ in the standard error calculation.<a href="#fn66" class="footnote-ref" id="fnref66"><sup>66</sup></a> The degrees-of-freedom are related to n and generally come from the denominator in the standard deviation calculation. As the degrees-of-freedom increase, the t-distribution becomes narrower, taller, and approaches the standard normal distribution (Figure <a href="t1test.html#fig:tvsZ">18.1</a>).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:tvsZ"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tvsZ"></span>
 <img src="Book107_files/figure-html/tvsZ-1.png" alt="Standard normal (black) and t-distributions with varying degrees-of-freedom." width="336" />
 <p class="caption">
 Figure 18.1: Standard normal (black) and t-distributions with varying degrees-of-freedom.
@@ -354,7 +354,7 @@ Figure 18.1: Standard normal (black) and t-distributions with varying degrees-of
 <p> </p>
 <p>Proportional areas on a t-distribution are computed using <code>distrib()</code> similar to what was described for a normal distribution in Modules <a href="NormalDist1.html#NormalDist1">6</a> and <a href="SamplingDist.html#SamplingDist">11</a>. The major exceptions for using <code>distrib()</code> with a t-distribution is that <code>distrib="t"</code> must be used and the degrees-of-freedom must be given in <code>df=</code> (how to find df is discussed in subsequent sections). For example, the area right of t=-1.456 on a t-distribution with 9 df is 0.9103 (Figure <a href="t1test.html#fig:tarea1">18.2</a>).</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb41-1"><a href="t1test.html#cb41-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="sc">-</span><span class="fl">1.456</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">df=</span><span class="dv">9</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:tarea1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tarea1"></span>
 <img src="Book107_files/figure-html/tarea1-1.png" alt="Depiction of the area to the right of t=-1.456 on a t-distribution with 9 df." width="336" />
 <p class="caption">
 Figure 18.2: Depiction of the area to the right of t=-1.456 on a t-distribution with 9 df.
@@ -363,7 +363,7 @@ Figure 18.2: Depiction of the area to the right of t=-1.456 on a t-distribution 
 <p> </p>
 <p>Similarly, the t with an upper-tail area of 0.95 on a t-distribution with 19 df is -1.729 (Figure <a href="t1test.html#fig:tstar1">18.3</a>).<a href="#fn67" class="footnote-ref" id="fnref67"><sup>67</sup></a></p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb42-1"><a href="t1test.html#cb42-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="fl">0.95</span>,<span class="at">distrib=</span><span class="st">&quot;t&quot;</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>,<span class="at">df=</span><span class="dv">19</span>,<span class="at">lower.tail=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:tstar1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tstar1"></span>
 <img src="Book107_files/figure-html/tstar1-1.png" alt="Depiction of the value of t with an area to the right of 0.95 on a t-distribution with 19 df." width="336" />
 <p class="caption">
 Figure 18.3: Depiction of the value of t with an area to the right of 0.95 on a t-distribution with 19 df.
@@ -547,7 +547,6 @@ max
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -587,11 +586,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

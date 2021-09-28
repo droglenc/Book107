@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 27 t-Tests in R | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 27 t-Tests in R | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="RRegression.html"/>
 <link rel="next" href="RChi.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -345,7 +345,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">27.1</span> 1-Sample t-Test</h2>
 <div id="sample-t-test-in-r" class="section level3" number="27.1.1">
 <h3><span class="header-section-number">27.1.1</span> 1-Sample t-Test in R</h3>
-<p>If raw data exist, the calculations for a 1-Sample t-test can be efficiently computed with <code>t.test()</code>. <code>t.test()</code> requires a formula of the form <code>~qvar</code>, where <code>qvar</code> is the quantitative variable, as the first argument; the corresponding data frame in <code>data=</code>; the null hypothesized value for μ in <code>mu=</code>; the type of alternative hypothesis in <code>alt=</code> (can be <code>alt="two.sided"</code> (the default), <code>alt="less"</code>, or <code>alt="greater"</code>); and the level of confidence as a proportion in <code>conf.level=</code> (defaults to 0.95). If the sample size is less than 40 then you may also need to construct a histogram as described in Section <a href="RUnivEDA.html#histograms">24.1.2</a> to assess the shape of the distribution.</p>
+<p>If raw data exist, the calculations for a 1-Sample t-test can be efficiently computed with <code class="inline">t.test()</code>. <code class="inline">t.test()</code> requires a formula of the form <code class="inline">~qvar</code>, where <code class="inline">qvar</code> is the quantitative variable, as the first argument; the corresponding data frame in <code class="inline">data=</code>; the null hypothesized value for μ in <code class="inline">mu=</code>; the type of alternative hypothesis in <code class="inline">alt=</code> (can be <code class="inline">alt="two.sided"</code> (the default), <code class="inline">alt="less"</code>, or <code class="inline">alt="greater"</code>); and the level of confidence as a proportion in <code class="inline">conf.level=</code> (defaults to 0.95). If the sample size is less than 40 then you may also need to construct a histogram as described in Section <a href="RUnivEDA.html#histograms">24.1.2</a> to assess the shape of the distribution.</p>
 </div>
 <div id="example---crab-body-temperature" class="section level3" number="27.1.2">
 <h3><span class="header-section-number">27.1.2</span> Example - Crab Body Temperature</h3>
@@ -379,7 +379,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>I am 95% confident that the mean body temperature of ALL crabs is between 24.5<sup>o</sup>C and 25.6<sup>o</sup>C (Table <a href="Rttests.html#tab:1tcrabsres">27.1</a>).</li>
 </ol>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:CrabTempHist"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:CrabTempHist"></span>
 <img src="Book107_files/figure-html/CrabTempHist-1.png" alt="Histogram of the body temperatures of crabs exposed to an ambient temperature of 24.3^o^C." width="336" />
 <p class="caption">
 Figure 27.1: Histogram of the body temperatures of crabs exposed to an ambient temperature of 24.3<sup>o</sup>C.
@@ -459,7 +459,7 @@ mean of x
 </div>
 <div id="levenes-test" class="section level3" number="27.2.2">
 <h3><span class="header-section-number">27.2.2</span> Levene’s Test</h3>
-<p>Before conducting a 2-Sample t-Test, the assumption of equal population variances must be tested with Levene’s test. Levene’s test is computed with <code>levenesTest()</code>, where the first argument is a formula of the form <code>qvar~cvar</code>, where <code>qvar</code> represents the quantitative response variable and <code>cvar</code> represents the group factor variable.<a href="#fn110" class="footnote-ref" id="fnref110"><sup>110</sup></a> The data.frame containing <code>qvar</code> and <code>cvar</code> is given in <code>data=</code>. The results of the following code are shown in Table <a href="Rttests.html#tab:LevBOD">27.2</a> and interpreted in the example analysis below.</p>
+<p>Before conducting a 2-Sample t-Test, the assumption of equal population variances must be tested with Levene’s test. Levene’s test is computed with <code class="inline">levenesTest()</code>, where the first argument is a formula of the form <code class="inline">qvar~cvar</code>, where <code class="inline">qvar</code> represents the quantitative response variable and <code class="inline">cvar</code> represents the group factor variable.<a href="#fn110" class="footnote-ref" id="fnref110"><sup>110</sup></a> The data.frame containing <code class="inline">qvar</code> and <code class="inline">cvar</code> is given in <code class="inline">data=</code>. The results of the following code are shown in Table <a href="Rttests.html#tab:LevBOD">27.2</a> and interpreted in the example analysis below.</p>
 <div class="sourceCode" id="cb188"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb188-1"><a href="Rttests.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levenesTest</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua)</span></code></pre></div>
 </div>
 <div id="histograms-2" class="section level3" number="27.2.3">
@@ -474,14 +474,14 @@ mean of x
 </div>
 <div id="sample-t-test-in-r-1" class="section level3" number="27.2.4">
 <h3><span class="header-section-number">27.2.4</span> 2-Sample t-Test in R</h3>
-<p>A 2-Sample t-Test is computed with <code>t.test()</code>, where the first argument is the same formula as in <code>levenesTest()</code> (and, thus, same <code>data=</code>). Additionally, the following arguments may need to be specified.</p>
+<p>A 2-Sample t-Test is computed with <code class="inline">t.test()</code>, where the first argument is the same formula as in <code class="inline">levenesTest()</code> (and, thus, same <code class="inline">data=</code>). Additionally, the following arguments may need to be specified.</p>
 <ul>
-<li><code>mu=</code>: The specific value in H<sub>0</sub>. For a 2-Sample t-Test this is usually 0, which is the default.</li>
-<li><code>alt=</code>: A string that indicates the type of H<sub>A</sub> (i.e., <code>"two.sided"</code> (default), <code>"greater"</code>, or <code>"less"</code>).</li>
-<li><code>conf.level=</code>: The level of confidence (default is <code>0.95</code>) used for the confidence region of μ<sub>1</sub>-μ<sub>2</sub>.</li>
-<li><code>var.equal=</code>: A logical value that indicates whether the two population variances should be considered equal or not. If <code>TRUE</code>, then the pooled sample variance is calculated and used in the standard error. The default is <code>FALSE</code> which assumes UNequal variances.</li>
+<li><code class="inline">mu=</code>: The specific value in H<sub>0</sub>. For a 2-Sample t-Test this is usually 0, which is the default.</li>
+<li><code class="inline">alt=</code>: A string that indicates the type of H<sub>A</sub> (i.e., <code class="inline">"two.sided"</code> (default), <code class="inline">"greater"</code>, or <code class="inline">"less"</code>).</li>
+<li><code class="inline">conf.level=</code>: The level of confidence (default is <code class="inline">0.95</code>) used for the confidence region of μ<sub>1</sub>-μ<sub>2</sub>.</li>
+<li><code class="inline">var.equal=</code>: A logical value that indicates whether the two population variances should be considered equal or not. If <code class="inline">TRUE</code>, then the pooled sample variance is calculated and used in the standard error. The default is <code class="inline">FALSE</code> which assumes UNequal variances.</li>
 </ul>
-<p>R computes the difference among groups as the alphabetically “first” level minus the alphabetically “second” level. For example, if the two levels are <code>inlet</code> and <code>outlet</code>, then R will compute x̄<sub>inlet</sub>-x̄<sub>outlet</sub>. You should consider this when you are constructing your hypotheses. However, you can change the order of the levels by using <code>levels=</code> in <code>factor()</code> (as described in Section <a href="RUnivEDA.html#data-manipulation">24.3.1</a>).</p>
+<p>R computes the difference among groups as the alphabetically “first” level minus the alphabetically “second” level. For example, if the two levels are <code>inlet</code> and <code>outlet</code>, then R will compute x̄<sub>inlet</sub>-x̄<sub>outlet</sub>. You should consider this when you are constructing your hypotheses. However, you can change the order of the levels by using <code class="inline">levels=</code> in <code class="inline">factor()</code> (as described in Section <a href="RUnivEDA.html#data-manipulation">24.3.1</a>).</p>
 <p>The results of the following code are shown in Table <a href="Rttests.html#tab:2tBOD">27.3</a> and interpreted in the example analysis below.</p>
 <div class="sourceCode" id="cb190"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb190-1"><a href="Rttests.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(BOD<span class="sc">~</span>src,<span class="at">data=</span>aqua,<span class="at">var.equal=</span><span class="cn">TRUE</span>,<span class="at">alt=</span><span class="st">&quot;less&quot;</span>,<span class="at">conf.level=</span><span class="fl">0.90</span>)</span></code></pre></div>
 <p> </p>
@@ -607,7 +607,7 @@ mean in group inlet mean in group outlet
 </tbody>
 </table>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:aquaHist2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:aquaHist2"></span>
 <img src="Book107_files/figure-html/aquaHist2-1.png" alt="Histogram of the BOD measurements at the outlet and inlet of the aquaculture facility." width="672" />
 <p class="caption">
 Figure 27.2: Histogram of the BOD measurements at the outlet and inlet of the aquaculture facility.
@@ -633,7 +633,7 @@ Figure 27.2: Histogram of the BOD measurements at the outlet and inlet of the aq
 <div class="footnotes">
 <hr />
 <ol start="109">
-<li id="fn109"><p>Methods in this module require the <code>NCStats</code> package (as always) and the <code>ggplot2</code> package (for making graphs). Both packages are loaded in the first code chunk of the assignment template.<a href="Rttests.html#fnref109" class="footnote-back">↩︎</a></p></li>
+<li id="fn109"><p>Methods in this module require the <code class="inline">NCStats</code> package (as always) and the <code class="inline">ggplot2</code> package (for making graphs). Both packages are loaded in the first code chunk of the assignment template.<a href="Rttests.html#fnref109" class="footnote-back">↩︎</a></p></li>
 <li id="fn110"><p>This is the same model formula introduced in Section <a href="RUnivEDA.html#summary-statistics-1">24.2.1</a> for summarizing multiple groups of data.<a href="Rttests.html#fnref110" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
@@ -647,7 +647,6 @@ Figure 27.2: Histogram of the BOD measurements at the outlet and inlet of the aq
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -687,11 +686,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

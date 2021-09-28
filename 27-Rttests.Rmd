@@ -1,9 +1,9 @@
 # t-Tests in R {#Rttests}
-In Modules \@ref(t1test) and \@ref(t2test) you learned the theory and how to perform the calculations required to complete the 11 steps of a hypothesis test (Section \@ref(Hyp11Steps)) for 1- and 2-sample t-tests. In this module, you will learn how to perform the required calculations from raw data using R.^[Methods in this module require the `NCStats` package (as always) and the `ggplot2` package (for making graphs). Both packages are loaded in the first code chunk of the assignment template.]
+In Modules \@ref(t1test) and \@ref(t2test) you learned the theory and how to perform the calculations required to complete the 11 steps of a hypothesis test (Section \@ref(Hyp11Steps)) for 1- and 2-sample t-tests. In this module, you will learn how to perform the required calculations from raw data using R.^[Methods in this module require the `NCStats`{.inline} package (as always) and the `ggplot2`{.inline} package (for making graphs). Both packages are loaded in the first code chunk of the assignment template.]
 
 ## 1-Sample t-Test
 ### 1-Sample t-Test in R
-If raw data exist, the calculations for a 1-Sample t-test can be efficiently computed with `t.test()`. `t.test()` requires a formula of the form `~qvar`, where `qvar` is the quantitative variable, as the first argument; the corresponding data frame in `data=`; the null hypothesized value for &mu; in `mu=`; the type of alternative hypothesis in `alt=` (can be `alt="two.sided"` (the default), `alt="less"`, or `alt="greater"`); and the level of confidence as a proportion in `conf.level=` (defaults to 0.95). If the sample size is less than 40 then you may also need to construct a histogram as described in Section \@ref(histograms) to assess the shape of the distribution.
+If raw data exist, the calculations for a 1-Sample t-test can be efficiently computed with `t.test()`{.inline}. `t.test()`{.inline} requires a formula of the form `~qvar`{.inline}, where `qvar`{.inline} is the quantitative variable, as the first argument; the corresponding data frame in `data=`{.inline}; the null hypothesized value for &mu; in `mu=`{.inline}; the type of alternative hypothesis in `alt=`{.inline} (can be `alt="two.sided"`{.inline} (the default), `alt="less"`{.inline}, or `alt="greater"`{.inline}); and the level of confidence as a proportion in `conf.level=`{.inline} (defaults to 0.95). If the sample size is less than 40 then you may also need to construct a histogram as described in Section \@ref(histograms) to assess the shape of the distribution.
 
 ### Example - Crab Body Temperature
 Below are the 11 steps for completing a full hypothesis test (Section \@ref(Hyp11Steps)) for the following situation:
@@ -91,7 +91,7 @@ headtail(aqua)
 ```
 
 ### Levene's Test
-Before conducting a 2-Sample t-Test, the assumption of equal population variances must be tested with Levene's test. Levene's test is computed with `levenesTest()`, where the first argument is a formula of the form `qvar~cvar`, where `qvar` represents the quantitative response variable and `cvar` represents the group factor variable.^[This is the same model formula introduced in Section \@ref(summary-statistics-1) for summarizing multiple groups of data.] The data.frame containing `qvar` and `cvar` is given in `data=`. The results of the following code are shown in Table \@ref(tab:LevBOD) and interpreted in the example analysis below.
+Before conducting a 2-Sample t-Test, the assumption of equal population variances must be tested with Levene's test. Levene's test is computed with `levenesTest()`{.inline}, where the first argument is a formula of the form `qvar~cvar`{.inline}, where `qvar`{.inline} represents the quantitative response variable and `cvar`{.inline} represents the group factor variable.^[This is the same model formula introduced in Section \@ref(summary-statistics-1) for summarizing multiple groups of data.] The data.frame containing `qvar`{.inline} and `cvar`{.inline} is given in `data=`{.inline}. The results of the following code are shown in Table \@ref(tab:LevBOD) and interpreted in the example analysis below.
 
 ```{r aquaLevenes, results="hide",warning=FALSE}
 levenesTest(BOD~src,data=aqua)
@@ -110,14 +110,14 @@ ggplot(data=aqua,aes(x=BOD)) +
 ```
 
 ### 2-Sample t-Test in R
-A 2-Sample t-Test is computed with `t.test()`, where the first argument is the same formula as in `levenesTest()` (and, thus, same `data=`). Additionally, the following arguments may need to be specified.
+A 2-Sample t-Test is computed with `t.test()`{.inline}, where the first argument is the same formula as in `levenesTest()`{.inline} (and, thus, same `data=`{.inline}). Additionally, the following arguments may need to be specified.
 
-* `mu=`: The specific value in H~0~. For a 2-Sample t-Test this is usually 0, which is the default.
-* `alt=`: A string that indicates the type of H~A~ (i.e., `"two.sided"` (default), `"greater"`, or `"less"`).
-* `conf.level=`: The level of confidence (default is `0.95`) used for the confidence region of &mu;~1~-&mu;~2~.
-* `var.equal=`: A logical value that indicates whether the two population variances should be considered equal or not. If `TRUE`, then the pooled sample variance is calculated and used in the standard error. The default is `FALSE` which assumes UNequal variances.
+* `mu=`{.inline}: The specific value in H~0~. For a 2-Sample t-Test this is usually 0, which is the default.
+* `alt=`{.inline}: A string that indicates the type of H~A~ (i.e., `"two.sided"`{.inline} (default), `"greater"`{.inline}, or `"less"`{.inline}).
+* `conf.level=`{.inline}: The level of confidence (default is `0.95`{.inline}) used for the confidence region of &mu;~1~-&mu;~2~.
+* `var.equal=`{.inline}: A logical value that indicates whether the two population variances should be considered equal or not. If `TRUE`{.inline}, then the pooled sample variance is calculated and used in the standard error. The default is `FALSE`{.inline} which assumes UNequal variances.
 
-R computes the difference among groups as the alphabetically "first" level minus the alphabetically "second" level. For example, if the two levels are `inlet` and `outlet`, then R will compute x&#772;~inlet~-x&#772;~outlet~. You should consider this when you are constructing your hypotheses. However, you can change the order of the levels by using `levels=` in `factor()` (as described in Section \@ref(data-manipulation)).
+R computes the difference among groups as the alphabetically "first" level minus the alphabetically "second" level. For example, if the two levels are `inlet` and `outlet`, then R will compute x&#772;~inlet~-x&#772;~outlet~. You should consider this when you are constructing your hypotheses. However, you can change the order of the levels by using `levels=`{.inline} in `factor()`{.inline} (as described in Section \@ref(data-manipulation)).
 
 The results of the following code are shown in Table \@ref(tab:2tBOD) and interpreted in the example analysis below.
  

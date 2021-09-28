@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 11 Sampling Distributions | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 11 Sampling Distributions | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="BEDACat.html"/>
 <link rel="next" href="Probability.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -537,7 +537,7 @@ Mean
 </table>
 <p> </p>
 <p>Again, a sampling distribution shows the values of a statistic from all possible samples. Thus, the sampling distribution of <span class="math inline">\(\bar{\text{x}}\)</span> from samples of n=2 from this population is the histogram of the 15 sample means in Table <a href="SamplingDist.html#tab:SDistQuiz2">11.1</a> (Figure <a href="SamplingDist.html#fig:SDistQuizHist2">11.1</a>).<a href="#fn51" class="footnote-ref" id="fnref51"><sup>51</sup></a></p>
-<div class="figure" style="text-align: center"><span id="fig:SDistQuizHist2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SDistQuizHist2"></span>
 <img src="Book107_files/figure-html/SDistQuizHist2-1.png" alt="Sampling distribution of mean quiz scores from samples of n=2 from the quiz score population." width="336" />
 <p class="caption">
 Figure 11.1: Sampling distribution of mean quiz scores from samples of n=2 from the quiz score population.
@@ -808,7 +808,7 @@ Mean
 </table>
 <p> </p>
 <p>The mean of these means is 6.000, the standard error is 0.592, and the sampling distribution is symmetric, perhaps approximately normal (Figure <a href="SamplingDist.html#fig:SDistQuizHist3">11.2</a>). The three major characteristics of sampling distributions noted in Section <a href="SamplingDist.html#definitions-and-characteristics">11.1.1</a> are still true: the sampling distribution is still more normal than the original population, the sample mean is still unbiased (i.e, the mean of the means is equal to μ), and the standard error is smaller than the standard deviation of the original population. However, also take note that the standard error of the sample mean is smaller from samples of n=3 than from n=2.<a href="#fn52" class="footnote-ref" id="fnref52"><sup>52</sup></a></p>
-<div class="figure" style="text-align: center"><span id="fig:SDistQuizHist3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SDistQuizHist3"></span>
 <img src="Book107_files/figure-html/SDistQuizHist3-1.png" alt="Sampling distribution of mean quiz scores from samples of n=3 from the quiz score population." width="336" />
 <p class="caption">
 Figure 11.2: Sampling distribution of mean quiz scores from samples of n=3 from the quiz score population.
@@ -1057,7 +1057,7 @@ Mean
 </tbody>
 </table>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:SDistQuizMdnsHist3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SDistQuizMdnsHist3"></span>
 <img src="Book107_files/figure-html/SDistQuizMdnsHist3-1.png" alt="Sampling distribution of median quiz scores from n=3 samples from the quiz score population." width="336" />
 <p class="caption">
 Figure 11.3: Sampling distribution of median quiz scores from n=3 samples from the quiz score population.
@@ -1076,7 +1076,7 @@ Figure 11.3: Sampling distribution of median quiz scores from n=3 samples from t
 <p>There are two ways to examine sampling distributions in situations with large sample and population sizes. First, theorems exist that describe the specifics of sampling distributions under certain conditions. One such theorem is described in Section <a href="SamplingDist.html#central-limit-theorem">11.2</a>. Second, the computer can take many (hundreds or thousands) samples and compute the statistic for each. These statistics can then be summarized to give an indication of what the actual sampling distribution would look like. This process is called “simulating a sampling distribution.” We will simulate some sampling distributions here so that the theorem in Section <a href="SamplingDist.html#central-limit-theorem">11.2</a> will be easier to understand.</p>
 <p>Sampling distributions are simulated by drawing many samples from a population, computing the statistic of interest for each sample, and constructing a histogram of those statistics (Figure <a href="SamplingDist.html#fig:SamplingDistributionScheme">11.4</a>). The computer is helpful with this simulation; however, keep in mind that the computer is basically following the same process as used in Section <a href="SamplingDist.html#definitions-and-characteristics">11.1.1</a>, with the exception that not every sample is taken.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:SamplingDistributionScheme"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SamplingDistributionScheme"></span>
 <img src="zimgs/Sampling_Distribution_Scheme.png" alt="Schematic representation of the process for simulating a sampling distribution." width="90%" />
 <p class="caption">
 Figure 11.4: Schematic representation of the process for simulating a sampling distribution.
@@ -1085,7 +1085,7 @@ Figure 11.4: Schematic representation of the process for simulating a sampling d
 <p> </p>
 <p>Let’s return to the Square Lake fish population from Section <a href="FoundationalDefns.html#performing-an-ivppss">2.2</a> to illustrate simulating a sampling distribution. Recall that this is a hypothetical population with 1015 fish, a population distribution shown in Figure <a href="FoundationalDefns.html#fig:SquareLakePopn">2.1</a>, and parameters shown in Table <a href="FoundationalDefns.html#tab:SquareLakePopnTbl">2.1</a>. Further recall that four samples of n=50 were removed from this population and summarized in Tables <a href="FoundationalDefns.html#tab:SquareLakeSample1s">2.2</a> and <a href="FoundationalDefns.html#tab:SquareLakeSample234s">2.3</a>. Suppose, that an additional 996 samples of n=50 were extracted in exactly the same way as the first four, the sample mean was computed in each sample, and the 1000 sample means were collected to form the histogram in Figure <a href="SamplingDist.html#fig:SampDistSLMean50">11.5</a>. This histogram is a simulated sampling distribution of sample means because it represents the distribution of sample means from 1000, rather than all possible, samples.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:SampDistSLMean50"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SampDistSLMean50"></span>
 <img src="Book107_files/figure-html/SampDistSLMean50-1.png" alt="Histogram (**Left**) and summary statistics (**Right**) from 1000 sample mean total lengths computed from samples of n=50 from the Square Lake fish population." width="336" /><img src="Book107_files/figure-html/SampDistSLMean50-2.png" alt="Histogram (**Left**) and summary statistics (**Right**) from 1000 sample mean total lengths computed from samples of n=50 from the Square Lake fish population." width="336" />
 <p class="caption">
 Figure 11.5: Histogram (<strong>Left</strong>) and summary statistics (<strong>Right</strong>) from 1000 sample mean total lengths computed from samples of n=50 from the Square Lake fish population.
@@ -1095,7 +1095,7 @@ Figure 11.5: Histogram (<strong>Left</strong>) and summary statistics (<strong>R
 <p>As with the actual sampling distributions discussed previously, three characteristics (shape, center, and dispersion) are examined with simulated sampling distributions. First, Figure <a href="SamplingDist.html#fig:SampDistSLMean50">11.5</a> looks at least approximately normally distributed. Second, the mean of the 1000 means (=98.02) is approximately equal to the mean of the original 1015 fish in Square Lake (=98.06). These two values are not exactly the same because the simulated sampling distribution was constructed from only a “few” rather than all possible samples. Third, the standard error of the sample means (=4.18) is much less than the standard deviation of individuals in the original population (=31.49). So, within reasonable approximation, the concepts identified with actual sampling distributions also appear to hold for simulated sampling distributions.</p>
 <p>As before, computing a different statistic on each sample results in a different sampling distribution. This is illustrated by comparing the sampling distributions of a variety of statistics from the same 1000 samples of size n=50 taken above (Figure <a href="SamplingDist.html#fig:SampDistSLOther50">11.6</a>).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:SampDistSLOther50"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SampDistSLOther50"></span>
 <img src="Book107_files/figure-html/SampDistSLOther50-1.png" alt="Histograms from 1000 sample median (**Left**), standard deviation (**Center**), and range (**Right**) of total lengths computed from samples of n=50 from the Square Lake fish population. Note that the value in the parameter row is the value computed from the entire population." width="720" />
 <p class="caption">
 Figure 11.6: Histograms from 1000 sample median (<strong>Left</strong>), standard deviation (<strong>Center</strong>), and range (<strong>Right</strong>) of total lengths computed from samples of n=50 from the Square Lake fish population. Note that the value in the parameter row is the value computed from the entire population.
@@ -1126,7 +1126,7 @@ Figure 11.6: Histograms from 1000 sample median (<strong>Left</strong>), standar
 <li>How do the SEs change with increasing n?</li>
 </ul>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:SampDistCLT"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SampDistCLT"></span>
 <img src="Book107_files/figure-html/SampDistCLT-1.png" alt="Sampling distribution of the sample mean simulated from 5000 samples of four different sample sizes extracted from the Square Lake fish population (**Left**) and a strongly right-skewed population (**Right**). The shapes of the populations are shown in the top histogram. On each simulated sampling distribution, the vertical blue line is the mean of the 5000 means and the horizontal red line represents &amp;plusmn;1SE from the mean." width="720" />
 <p class="caption">
 Figure 11.7: Sampling distribution of the sample mean simulated from 5000 samples of four different sample sizes extracted from the Square Lake fish population (<strong>Left</strong>) and a strongly right-skewed population (<strong>Right</strong>). The shapes of the populations are shown in the top histogram. On each simulated sampling distribution, the vertical blue line is the mean of the 5000 means and the horizontal red line represents ±1SE from the mean.
@@ -1141,7 +1141,7 @@ Figure 11.7: Sampling distribution of the sample mean simulated from 5000 sample
 <p>Accuracy and precision are often used to describe characteristics of a sampling distribution. <strong>Accuracy</strong> refers to how closely a statistic estimates the intended parameter. If, <strong>on average</strong>, a statistic is approximately equal to the parameter it was intended to estimate, then the statistic is considered <strong>accurate</strong>. Unbiased statistics are also accurate statistics. <strong>Precision</strong> refers to the repeatability of a statistic. A statistic is considered to be <strong>precise</strong> if multiple samples produce similar statistics. The standard error is a measure of precision; i.e., a high SE means low precision and a low SE means high precision.</p>
 <p>The targets in Figure <a href="SamplingDist.html#fig:AccPrec">11.8</a> provide an intuitive interpretation of accuracy and precision, whereas the sampling distributions (i.e., histograms) are what statisticians look at to identify accuracy and precision. Targets in which the blue plus (i.e., mean of the means) is close to the bullseye are considered accurate (i.e., unbiased). Similarly, sampling distributions where the observed center (i.e., blue vertical line) is very close to the actual parameter (i.e., black tick labeled with a “T”) are considered accurate. Targets in which the red dots are closely clustered are considered precise. Similarly, sampling distributions that exhibit little variability (low dispersion) are considered precise.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:AccPrec"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:AccPrec"></span>
 <img src="Book107_files/figure-html/AccPrec-1.png" alt="The center of each target (i.e., the bullseye) and the point marked with a &quot;T&quot; (for &quot;truth&quot;) represent the parameter of interest. Each dot on the target represents a statistic computed from a single sample and, thus, the many red dots on each target represent repeated samplings from the same population. The center of the samples (analogous to the center of the sampling distribution) is denoted by a blue plus-sign on the target and a blue vertical line on the histogram." width="336" />
 <p class="caption">
 Figure 11.8: The center of each target (i.e., the bullseye) and the point marked with a “T” (for “truth”) represent the parameter of interest. Each dot on the target represents a statistic computed from a single sample and, thus, the many red dots on each target represent repeated samplings from the same population. The center of the samples (analogous to the center of the sampling distribution) is denoted by a blue plus-sign on the target and a blue vertical line on the histogram.
@@ -1192,7 +1192,6 @@ Figure 11.8: The center of each target (i.e., the bullseye) and the point marked
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1232,11 +1231,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

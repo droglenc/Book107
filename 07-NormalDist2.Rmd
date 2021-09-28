@@ -1,10 +1,10 @@
 # Normal Distribution Calculations {#NormalDist2}
 The normal distribution was introduced in Module \@ref(NormalDist1) and the 68-95-99.7% Rule was used to find the percentage of individuals with particular values of the variable (i.e., a forward calculation) or to find the value or values of the variable with a certain percentage of individuals (i.e., a reverse calculation). Unfortunately, the 68-95-99.7% Rule can only be used if the value (or values) in the question fall exactly 1, 2, or 3 standard deviations away from the mean. In other words, questions relative to non-integer numbers of standard deviations away from the mean can not be found with the 68-95-99.7% Rule and will require special tables or computer software.
 
-In this course, we will use a function from the `NCStats` package in R to perform these calculations. How you use this function depends on whether it is a forward or reverse calculation (see Section \@ref(distinguish-calculation-types)).
+In this course, we will use a function from the `NCStats`{.inline} package in R to perform these calculations. How you use this function depends on whether it is a forward or reverse calculation (see Section \@ref(distinguish-calculation-types)).
 
 ## Forward Calculations
-The area under a normal curve relative to a particular value is computed in R with `distrib()`, with the *particular value* as the first argument and the mean (&mu;) and standard deviation (&sigma;) of the normal distribution in the `mean=` and `sd=` arguments, respectively. The `distrib()` function defaults to finding the area to the **left of** the particular value; it can find the area to the right of the particular value by including `lower.tail=FALSE`.
+The area under a normal curve relative to a particular value is computed in R with `distrib()`{.inline}, with the *particular value* as the first argument and the mean (&mu;) and standard deviation (&sigma;) of the normal distribution in the `mean=`{.inline} and `sd=`{.inline} arguments, respectively. The `distrib()`{.inline} function defaults to finding the area to the **left of** the particular value; it can find the area to the right of the particular value by including `lower.tail=FALSE`{.inline}.
 
 For example, suppose that the heights of a population of students is known to be H~N(66,3). The proportion of students in this population that have a height less than 71 inches is with
 
@@ -22,7 +22,7 @@ par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
 
 &nbsp;
 
-The proportion of students in this population that have a height *greater* than 68 inches is computed with (note use of `lower.tail=FALSE`)
+The proportion of students in this population that have a height *greater* than 68 inches is computed with (note use of `lower.tail=FALSE`{.inline})
 
 ```{r results="hide", fig.show="hide", class.source="RCODE_ALONE"}
 ( distrib(68,mean=66,sd=3,lower.tail=FALSE) )
@@ -37,7 +37,7 @@ par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
 ```
 
 ::: {.tip data-latex=''}
-If a question is a "Forward-Right" then you must include `lower.tail=FALSE` in `distrib()`.
+If a question is a "Forward-Right" then you must include `lower.tail=FALSE`{.inline} in `distrib()`{.inline}.
 :::
 
 Finding the area between two particular values is a bit more work. To answer "between"-type questions, the area less than the smaller of the two values is subtracted from the area less than the larger of the two values. This is illustrated by noting that two values split the area under the normal curve into three parts -- A, B, and C in Figure \@ref(fig:NormDistBetween). The area between the two values is B. The area to the left of the larger value corresponds to the area A+B. The area to the left of the smaller value corresponds to the area A. Thus, subtracting the latter from the former leaves the "in-between" area B (i.e., (A+B)-A = B).
@@ -90,7 +90,7 @@ A percentage is a proportion that has been multiplied by 100. Percentages should
 :::
 
 ## Reverse Calculations
-Reverse questions also use `distrib()`, though the first argument is now the given percentage, though it must be entered as a proportion. The calculation is treated as a "reverse" question only when `type="q"` is also given to `distrib()`.^["q" stands for quantile.]  For example, the height that has 20% of all students shorter is computed with
+Reverse questions also use `distrib()`{.inline}, though the first argument is now the given percentage, though it must be entered as a proportion. The calculation is treated as a "reverse" question only when `type="q"`{.inline} is also given to `distrib()`{.inline}.^["q" stands for quantile.]  For example, the height that has 20% of all students shorter is computed with
 
 ```{r results="hide",fig.show="hide", class.source="RCODE_ALONE"}
 ( distrib(0.20,mean=66,sd=3,type="q") )
@@ -106,7 +106,7 @@ par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
 
 &nbsp;
 
-"Greater than" reverse questions are computed by also including `lower.tail=FALSE`. For example, the tallest 10% of the population of students is computed with
+"Greater than" reverse questions are computed by also including `lower.tail=FALSE`{.inline}. For example, the tallest 10% of the population of students is computed with
 
 ```{r results="hide",fig.show='hide', class.source="RCODE_ALONE"}
 ( distrib(0.10,mean=66,sd=3,type="q",lower.tail=FALSE) )
@@ -121,7 +121,7 @@ par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
 ```
 
 ::: {.tip data-latex=''}
-For "Reverse" normal distribution questions you **MUST** use `type="q"` in `distrib()`. If the question is a "Reverse-Right" then you must also include `lower.tail=FALSE` in `distrib()`.
+For "Reverse" normal distribution questions you **MUST** use `type="q"`{.inline} in `distrib()`{.inline}. If the question is a "Reverse-Right" then you must also include `lower.tail=FALSE`{.inline} in `distrib()`{.inline}.
 :::
 
 "Between" questions can only be easily handled if the question is looking for endpoint values that are symmetric about &mu;. In other words, the question must ask for the two values that contain the "most common" proportion of individuals. For example, suppose that you were asked to find the most common 80% of heights. This type of question is handled by converting this "symmetric between" question into two "less than" questions. For example, in Figure \@ref(fig:NormRevBetween) the area D is the symmetric area of interest. If D is 0.80, then C+E must be 0.20.^[Because all three areas must sum to 1.]  Because D is symmetric about &mu;, C and E must both equal 0.10. Thus, the lower bound on D is the value that has 10% of all values smaller. Similarly, because the combined area of C and D is 0.90, the upper bound on D is the value that has 90% of all values smaller. This question has now been converted from a "symmetric between" to two "less than" questions that can be answered exactly as shown above.

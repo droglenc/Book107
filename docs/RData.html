@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 22 Getting Data into R | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 22 Getting Data into R | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="GOFTest.html"/>
 <link rel="next" href="RFilter.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -340,7 +340,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="RData" class="section level1" number="22">
 <h1><span class="header-section-number">Module 22</span> Getting Data into R</h1>
-<p>R, RStudio, the <code>NCStats</code> package, and very basic usage of R were <a href="http://derekogle.com/NCMTH107/modules/Prep/RStart.html">introduced here</a>. This module explains how to enter data into R. Subsequent modules will explain how to use R to create the graphics and compute statistics and test results from these data.</p>
+<p>R, RStudio, the <code class="inline">NCStats</code> package, and very basic usage of R were <a href="http://derekogle.com/NCMTH107/modules/Prep/RStart.html">introduced here</a>. This module explains how to enter data into R. Subsequent modules will explain how to use R to create the graphics and compute statistics and test results from these data.</p>
 <div id="r-notebooks" class="section level2" number="22.1">
 <h2><span class="header-section-number">22.1</span> R Notebooks</h2>
 <p>Notebooks in RStudio are an efficient way to enter R code, show results of R code, write answers to assignment questions, and compile all of that to a document that can be handed in.</p>
@@ -461,7 +461,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="read-csv-file-into-rstudio" class="section level3" number="22.2.2">
 <h3><span class="header-section-number">22.2.2</span> Read CSV File into RStudio</h3>
-<p>Use <code>read.csv()</code> in the first R code chunk of your assignment notebook to load the data from the CSV file into RStudio. The EXACT name of the data file is including within quotes within <code>read.csv()</code> and the results should be saved to an object. For example, the code highlighted in yellow in the graphic below was used to read the external “Bears.csv” file into an R object called <code>dat</code>. The circled items in the lower-right pane demonstrate that the “Bears.csv” file is in the same directory as the assignment notebooks file.</p>
+<p>Use <code class="inline">read.csv()</code> in the first R code chunk of your assignment notebook to load the data from the CSV file into RStudio. The EXACT name of the data file is including within quotes within <code class="inline">read.csv()</code> and the results should be saved to an object. For example, the code highlighted in yellow in the graphic below was used to read the external “Bears.csv” file into an R object called <code>dat</code>. The circled items in the lower-right pane demonstrate that the “Bears.csv” file is in the same directory as the assignment notebooks file.</p>
 <p><img src="zimgs/Notebook_ReadCSV.JPG" width="90%" style="display: block; margin: auto;" /></p>
 <p>One should check the data in this object as described in the <a href="RData.html#viewing-a-data-frame">Viewing a Data Frame</a> section below.</p>
 <p> </p>
@@ -484,7 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #R&gt;  10     151.5       140  Douglas
 #R&gt;  11     129.5       105  Douglas
 #R&gt;  12     150.0       110  Douglas</code></pre>
-<p>Typing the name is adequate for small data.frames, but not useful for large data.frames. The entire data.frame is opened in a separate window by double-clicking on the name of the data.frame in the “Environment” tab of RStudio. Alternatively, you can view a subset of 20 rows of a data frame with <code>peek()</code>, the first six rows with <code>head()</code>, the last six rows with <code>tail()</code>, or the first and last three rows with <code>headtail()</code>.</p>
+<p>Typing the name is adequate for small data.frames, but not useful for large data.frames. The entire data.frame is opened in a separate window by double-clicking on the name of the data.frame in the “Environment” tab of RStudio. Alternatively, you can view a subset of 20 rows of a data frame with <code class="inline">peek()</code>, the first six rows with <code class="inline">head()</code>, the last six rows with <code class="inline">tail()</code>, or the first and last three rows with <code class="inline">headtail()</code>.</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb62-1"><a href="RData.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">peek</span>(bears)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     length.cm weight.kg      loc
 #R&gt;  1      139.0       110 Bayfield
@@ -527,27 +527,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="structure-and-data-types" class="section level3" number="22.3.1">
 <h3><span class="header-section-number">22.3.1</span> Structure and Data Types</h3>
 <p>Data in R will be designated as an <code>int</code>eger (whole numbers), <code>num</code>eric (non-integer numeric values), <code>char</code>acter (strings), <code>factor</code> (group membership), or <code>log</code>ical (<code>TRUE</code>/<code>FALSE</code>). Integer and numeric data types correspond to quantitative data. Character and factor data types correspond to categorical data, with the <strong>factor</strong> data type having special characteristics in R that we will exploit for certain analyses. These types of data will be discussed further as needed in other modules.</p>
-<p>In addition to viewing the contents of a data object, it is useful to examine the structure of the data frame as returned from <code>str()</code>.</p>
+<p>In addition to viewing the contents of a data object, it is useful to examine the structure of the data frame as returned from <code class="inline">str()</code>.</p>
 <div class="sourceCode" id="cb70"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb70-1"><a href="RData.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bears)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  &#39;data.frame&#39;:  12 obs. of  3 variables:
 #R&gt;   $ length.cm: num  139 138 139 120 149 ...
 #R&gt;   $ weight.kg: int  110 60 90 60 85 100 95 85 155 140 ...
 #R&gt;   $ loc      : chr  &quot;Bayfield&quot; &quot;Bayfield&quot; &quot;Bayfield&quot; &quot;Bayfield&quot; ...</code></pre>
-<p>In this example, it is seen that three variables were recorded on 12 individuals. The first variables – length.cm – is numeric, the second – weight.kg – is integer, and the last – loc – is a character variable. The unique values in a character variable may be seen with <code>unique()</code>.</p>
+<p>In this example, it is seen that three variables were recorded on 12 individuals. The first variables – length.cm – is numeric, the second – weight.kg – is integer, and the last – loc – is a character variable. The unique values in a character variable may be seen with <code class="inline">unique()</code>.</p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb72-1"><a href="RData.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  [1] &quot;Bayfield&quot; &quot;Ashland&quot;  &quot;Douglas&quot;</code></pre>
-<p>A character variable may be converted to a factor variable with <code>factor()</code>. In this course, the main reason for doing this would be to control the levels of an ordinal variable because R treats levels alphabetically by default. For example suppose that we wanted to order the levels of the loc variable from west to east (so, Douglas, Bayfield, and Ashland). For this purpose the variable is converted to a factor below with <code>factor()</code> and the order of the levels is controlled with <code>levels=</code>.</p>
+<p>A character variable may be converted to a factor variable with <code class="inline">factor()</code>. In this course, the main reason for doing this would be to control the levels of an ordinal variable because R treats levels alphabetically by default. For example suppose that we wanted to order the levels of the loc variable from west to east (so, Douglas, Bayfield, and Ashland). For this purpose the variable is converted to a factor below with <code class="inline">factor()</code> and the order of the levels is controlled with <code class="inline">levels=</code>.</p>
 <div class="tip">
 <p>Make sure the levels are spelled EXACTLY as they appear in the data.</p>
 </div>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb74-1"><a href="RData.html#cb74-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>loc <span class="ot">&lt;-</span> <span class="fu">factor</span>(bears<span class="sc">$</span>loc,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Douglas&quot;</span>,<span class="st">&quot;Bayfield&quot;</span>,<span class="st">&quot;Ashland&quot;</span>))</span>
 <span id="cb74-2"><a href="RData.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  [1] &quot;Douglas&quot;  &quot;Bayfield&quot; &quot;Ashland&quot;</code></pre>
-<p>The levels of a factor variable and their order may be seen with <code>levels()</code>.</p>
+<p>The levels of a factor variable and their order may be seen with <code class="inline">levels()</code>.</p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb76-1"><a href="RData.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  [1] &quot;Douglas&quot;  &quot;Bayfield&quot; &quot;Ashland&quot;</code></pre>
 <p> </p>
-<p>In the previous examples, the <code>$</code> notation was used to identify a particular variable (i.e., <code>loc</code>) within a data.frame (<code>bears</code>). Think of variables as being nested inside data.frames and, thus, to access the variable you must first identify the data.frame in which it exists and then the name of the variable. The <code>$</code> simply separates the data.frame from the variable.</p>
+<p>In the previous examples, the <code class="inline">$</code> notation was used to identify a particular variable (i.e., <code>loc</code>) within a data.frame (<code>bears</code>). Think of variables as being nested inside data.frames and, thus, to access the variable you must first identify the data.frame in which it exists and then the name of the variable. The <code class="inline">$</code> simply separates the data.frame from the variable.</p>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb78-1"><a href="RData.html#cb78-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>length.cm</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] 139.0 138.0 139.0 120.5 149.0 141.0 141.0 150.0 166.0 151.5 129.5 150.0</code></pre>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb80-1"><a href="RData.html#cb80-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>loc</span></code></pre></div>
@@ -559,7 +559,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="vectors" class="section level2" number="22.4">
 <h2><span class="header-section-number">22.4</span> Vectors</h2>
-<p>Data.frames are the primary structure in which to store real data. However, much simpler situations that don’t require a data.frame may arise. In R, items of the same data type (see [Data Types]) are stored in a one-dimensional <strong>vector</strong>. Vectors are usually displayed in one row (with many columns), but they may also be thought of as a single column (with many rows). Items are entered into a vector with <code>c()</code>, where the individual arguments are specific numbers, characters, or logical values.<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a> Items for a vector of characters must be contained within paired quotes.</p>
+<p>Data.frames are the primary structure in which to store real data. However, much simpler situations that don’t require a data.frame may arise. In R, items of the same data type (see [Data Types]) are stored in a one-dimensional <strong>vector</strong>. Vectors are usually displayed in one row (with many columns), but they may also be thought of as a single column (with many rows). Items are entered into a vector with <code class="inline">c()</code>, where the individual arguments are specific numbers, characters, or logical values.<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a> Items for a vector of characters must be contained within paired quotes.</p>
 <div class="sourceCode" id="cb82"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb82-1"><a href="RData.html#cb82-1" aria-hidden="true" tabindex="-1"></a>( v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  [1] 1 2 5</code></pre>
 <div class="sourceCode" id="cb84"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb84-1"><a href="RData.html#cb84-1" aria-hidden="true" tabindex="-1"></a>( y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Iowa&quot;</span>,<span class="st">&quot;Minnesota&quot;</span>,<span class="st">&quot;Wisconsin&quot;</span>) )</span></code></pre></div>
@@ -578,7 +578,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li id="fn76"><p>Note the space after the dot and before the text that will form the list item.<a href="RData.html#fnref76" class="footnote-back">↩︎</a></p></li>
 <li id="fn77"><p>There are several choices for CSV files here; do NOT choose the one with “UTF-8” in the name.<a href="RData.html#fnref77" class="footnote-back">↩︎</a></p></li>
 <li id="fn78"><p>You may be asked to save changes – you should say “No.”<a href="RData.html#fnref78" class="footnote-back">↩︎</a></p></li>
-<li id="fn79"><p><code>c</code> comes from “concatenate” or “combine.”<a href="RData.html#fnref79" class="footnote-back">↩︎</a></p></li>
+<li id="fn79"><p><code class="inline">c</code> comes from “concatenate” or “combine.”<a href="RData.html#fnref79" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -591,7 +591,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -631,11 +630,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

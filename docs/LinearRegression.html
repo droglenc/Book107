@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 9 Linear Regression | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 9 Linear Regression | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="BEDAQuant.html"/>
 <link rel="next" href="BEDACat.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -365,7 +365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In addition to being able to identify the slope and intercept of a line you also need to be able to interpret these values. Most students define the slope as “rise over run” and the intercept as “where the line crosses the y-axis.” These “definitions” are loose geometric representations. For our purposes, the slope and intercept must be more strictly defined.</p>
 <p>To define the slope, first think of “plugging” two values of intake into the equation discussed above. For example, if intake=100, then blood=3.501+0.579×100=61.401 and if intake is one unit larger at 101, then blood=3.501+0.579×101=61.980.<a href="#fn39" class="footnote-ref" id="fnref39"><sup>39</sup></a> The difference between these two values is 61.980-61.401=0.579, which is the same as the slope. Thus, the slope is the change in the AVERAGE value of the response variable FOR A SINGLE UNIT CHANGE in the value of the explanatory variable (Figure <a href="LinearRegression.html#fig:SlopeInt">9.1</a>). That is, mercury in the blood changes 0.579 units FOR A SINGLE UNIT CHANGE in mercury intake, ON AVERAGE. So, if an individual increases mercury intake by one unit, then mercury in the blood will increase by 0.579 units, ON AVERAGE. Alternatively, if one individual has one more unit of mercury intake than another individual, then the first individual will have 0.579 more units of mercury in their blood, ON AVERAGE.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:SlopeInt"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SlopeInt"></span>
 <img src="Book107_files/figure-html/SlopeInt-1.png" alt="Schematic representation of the meaning of the intercept and slope in a linear equation." width="384" />
 <p class="caption">
 Figure 9.1: Schematic representation of the meaning of the intercept and slope in a linear equation.
@@ -385,7 +385,7 @@ Figure 9.1: Schematic representation of the meaning of the intercept and slope i
 <p><span class="math display">\[ \text{blood} = 3.501 + 0.579\times575 = 336.426 \]</span></p>
 <p>A prediction may be visualized by finding the value of the explanatory variable on the x-axis, drawing a vertical line until the best-fit line is reached, and then drawing a horizontal line over to the y-axis where the value of the response variable is read (Figure <a href="LinearRegression.html#fig:HGpredict">9.2</a>).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:HGpredict"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HGpredict"></span>
 <img src="Book107_files/figure-html/HGpredict-1.png" alt="Scatterplot between the intake of mercury in fish and the mercury in the blood stream of individuals with superimposed best-fit regression line illustrating predictions for two values of mercury intake." width="336" />
 <p class="caption">
 Figure 9.2: Scatterplot between the intake of mercury in fish and the mercury in the blood stream of individuals with superimposed best-fit regression line illustrating predictions for two values of mercury intake.
@@ -405,7 +405,7 @@ Figure 9.2: Scatterplot between the intake of mercury in fish and the mercury in
 <p>and the residual is 105-148.251 = -43.251. This negative residual indicates that the observed value is approximately 43 units LESS than the average for individuals with an intake of 250.</p>
 <p>Visually, a residual is the vertical distance between an individual’s point and the best-fit line (Figure <a href="LinearRegression.html#fig:HGresidual">9.3</a>).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:HGresidual"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HGresidual"></span>
 <img src="Book107_files/figure-html/HGresidual-1.png" alt="Scatterplot between the intake of mercury in fish and the mercury in the blood stream of individuals with superimposed best-fit regression line illustrating the residuals for the two individuals discussed in the main text." width="336" />
 <p class="caption">
 Figure 9.3: Scatterplot between the intake of mercury in fish and the mercury in the blood stream of individuals with superimposed best-fit regression line illustrating the residuals for the two individuals discussed in the main text.
@@ -418,7 +418,7 @@ Figure 9.3: Scatterplot between the intake of mercury in fish and the mercury in
 <p>Residuals are a measure of how far an individual is from a candidate best-fit line. Residuals computed from all individuals in a data set measure how far all individuals are from the candidate best-fit line. Thus, the residuals for all individuals can be used to identify the best-fit line.</p>
 <p>The residual sum-of-squares (RSS) is the sum of all squared residuals. The least-squares criterion says that the “best-fit” line is the one line out of all possible lines that has the minimum RSS (Figure <a href="LinearRegression.html#fig:RSSanim">9.4</a>).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:RSSanim"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:RSSanim"></span>
 <img src="Book107_files/figure-html/RSSanim-.gif" alt="Scatterplot with the best-fit line (light gray) and candidate best-fit lines (red line) and residuals (vertical red dashed lines) in the left pane and the residual sum-of-squares for all candidate lines (gray) with the current line highlighted with a red dot. Note how the candidate line is on the best-fit line when the RSS is smallest." width="672" />
 <p class="caption">
 Figure 9.4: Scatterplot with the best-fit line (light gray) and candidate best-fit lines (red line) and residuals (vertical red dashed lines) in the left pane and the residual sum-of-squares for all candidate lines (gray) with the current line highlighted with a red dot. Note how the candidate line is on the best-fit line when the RSS is smallest.
@@ -449,7 +449,7 @@ Figure 9.4: Scatterplot with the best-fit line (light gray) and candidate best-f
 <p>The homoscedasticity assumption states that the variability about the line is the same for all values of the explanatory variable. In other words, the dispersion of the data around the line must be the same along the entire line. Violations of this assumption generally present as a “funnel-shaped” dispersion of points from left-to-right on a scatterplot.</p>
 <p>Violations of these assumptions are often evident on a “fitted-line plot,” which is a scatterplot with the best-fit line superimposed (Figure <a href="LinearRegression.html#fig:ResidPlotEx">9.5</a>).<a href="#fn42" class="footnote-ref" id="fnref42"><sup>42</sup></a> If the points look more-or-less like random scatter around the best-fit line, then neither the linearity nor the homoscedasticity assumption has been violated. A violation of one of these assumptions should be obvious on the scatterplot. In other words, there should be a clear curvature or funneling on the plot.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:ResidPlotEx"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ResidPlotEx"></span>
 <img src="Book107_files/figure-html/ResidPlotEx-1.png" alt="Fitted-line plots illustrating when the regression assumptions are met (upper-left) and three common assumption violations." width="576" />
 <p class="caption">
 Figure 9.5: Fitted-line plots illustrating when the regression assumptions are met (upper-left) and three common assumption violations.
@@ -466,7 +466,7 @@ Figure 9.5: Fitted-line plots illustrating when the regression assumptions are m
 <p>The coefficient of determination (r<sup>2</sup>) is the proportion of the total variability in the response variable that is explained away by knowing the value of the explanatory variable and the best-fit model. In simple linear regression, r<sup>2</sup> is literally the square of r, the correlation coefficient.<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a> Values of r<sup>2</sup> are between 0 and 1.<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a></p>
 <p>The meaning of r<sup>2</sup> can be examined by making predictions of the response variable with and without knowing the value of the explanatory variable. First, consider predicting the value of the response variable without any information about the explanatory variable. In this case, the best prediction is the sample mean of the response variable (represented by the dashed blue horizontal line in Figure <a href="LinearRegression.html#fig:CoeffDeterm">9.6</a>). However, because of natural variability, not all individuals will have this value. Thus, the prediction might be “bracketed” by predicting that the individual will be between the observed minimum and maximum values (solid blue horizontal lines). Loosely speaking, this range is the “total variability in the response variable” (blue box).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:CoeffDeterm"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:CoeffDeterm"></span>
 <img src="Book107_files/figure-html/CoeffDeterm-1.png" alt="Fitted line plot with visual representations of variabilities explained and unexplained. A full explanation is in the main text." width="576" />
 <p class="caption">
 Figure 9.6: Fitted line plot with visual representations of variabilities explained and unexplained. A full explanation is in the main text.
@@ -603,7 +603,7 @@ Figure 9.6: Fitted line plot with visual representations of variabilities explai
 <div id="car-weight-and-mpg" class="section level3 unnumbered">
 <h3>Car Weight and MPG</h3>
 <p>In Module <a href="BEDAQuant.html#BEDAQuant">8</a>, an EDA for the relationship between HMPG (the highway miles per gallon) and Weight (lbs) of 93 cars from the 1993 model year was performed. This relationship will be explored further here as an example of a complete regression analysis. The best-fit line equation and r<sup>2</sup> for these data are shown in Figure <a href="LinearRegression.html#fig:CarFit">9.7</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:CarFit"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:CarFit"></span>
 <img src="Book107_files/figure-html/CarFit-1.png" alt="Fitted line plot of the regression of highway MPG on weight of 93 cars from 1993." width="336" />
 <p class="caption">
 Figure 9.7: Fitted line plot of the regression of highway MPG on weight of 93 cars from 1993.
@@ -689,7 +689,6 @@ Figure 9.7: Fitted line plot of the regression of highway MPG on weight of 93 ca
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -729,11 +728,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

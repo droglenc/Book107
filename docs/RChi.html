@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 28 Chi-Square in R | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 28 Chi-Square in R | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="Rttests.html"/>
 
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -363,7 +363,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #R&gt;  298        D  Absent
 #R&gt;  299        D  Absent
 #R&gt;  300        D  Absent</code></pre>
-<p>The chi-square test calculations can be made from either raw data, that are then summarized, or data that has already been summarized. Raw data, as are given here, should be in stacked format (as described in Section <a href="RData.html#create-csv-file">22.2.1</a>) and then summarized to a two-way frequency table with <code>xtabs()</code> using a formula of the form <code>~cvarRow+cvarCol</code> as described in Section <a href="RBivEDA.html#frequency-tables-1">25.2.1</a>. The result should be saved to an object for later use.</p>
+<p>The chi-square test calculations can be made from either raw data, that are then summarized, or data that has already been summarized. Raw data, as are given here, should be in stacked format (as described in Section <a href="RData.html#create-csv-file">22.2.1</a>) and then summarized to a two-way frequency table with <code class="inline">xtabs()</code> using a formula of the form <code class="inline">~cvarRow+cvarCol</code> as described in Section <a href="RBivEDA.html#frequency-tables-1">25.2.1</a>. The result should be saved to an object for later use.</p>
 <div class="sourceCode" id="cb196"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb196-1"><a href="RChi.html#cb196-1" aria-hidden="true" tabindex="-1"></a>( fp.obs <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>hospital<span class="sc">+</span>father,<span class="at">data=</span>fp) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;          father
 #R&gt;  hospital Absent Present
@@ -372,7 +372,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #R&gt;         C     18      57
 #R&gt;         D     19      56</code></pre>
 <p> </p>
-<p><strong>IF</strong> the raw data do NOT exist, but a summary table is provided, then those summary statistics must be entered into an object using <code>matrix()</code>. The summarized frequencies must first be entered into a vector with the first <strong>COLUMN</strong> of values followed by the second COLUMN and so on. This vector is then the first argument to <code>matrix()</code>, which will also include the number of columns in the frequency table in <code>ncol=</code>. For example, the same observed table from above would be constructed as follows.</p>
+<p><strong>IF</strong> the raw data do NOT exist, but a summary table is provided, then those summary statistics must be entered into an object using <code class="inline">matrix()</code>. The summarized frequencies must first be entered into a vector with the first <strong>COLUMN</strong> of values followed by the second COLUMN and so on. This vector is then the first argument to <code class="inline">matrix()</code>, which will also include the number of columns in the frequency table in <code class="inline">ncol=</code>. For example, the same observed table from above would be constructed as follows.</p>
 <div class="sourceCode" id="cb198"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb198-1"><a href="RChi.html#cb198-1" aria-hidden="true" tabindex="-1"></a>fp.obs <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">9</span>,<span class="dv">15</span>,<span class="dv">18</span>,<span class="dv">19</span>,<span class="dv">66</span>,<span class="dv">60</span>,<span class="dv">57</span>,<span class="dv">56</span>),<span class="at">ncol=</span><span class="dv">2</span>)</span></code></pre></div>
 <p>It is useful to augment this matrix with column and row names as follows.</p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb199-1"><a href="RChi.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(fp.obs) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Absent&quot;</span>,<span class="st">&quot;Present&quot;</span>)</span>
@@ -384,16 +384,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #R&gt;  C     18      57
 #R&gt;  D     19      56</code></pre>
 <div class="tip">
-<p>The observed table must contain frequencies, not proportions or percentages (don’t use <code>percTable()</code>), without marginal totals (don’t use <code>addMargins()</code>).</p>
+<p>The observed table must contain frequencies, not proportions or percentages (don’t use <code class="inline">percTable()</code>), without marginal totals (don’t use <code class="inline">addMargins()</code>).</p>
 </div>
 </div>
 <div id="chi-square-test-in-r" class="section level3" number="28.1.2">
 <h3><span class="header-section-number">28.1.2</span> Chi-Square test in R</h3>
-<p>The Chi-Square Test is performed with <code>chisq.test()</code>, which takes the observed frequency table as the first argument and <code>correct=FALSE</code> so that the continuity correction is not used.<a href="#fn112" class="footnote-ref" id="fnref112"><sup>112</sup></a> The results of <code>chisq.test()</code> should be assigned to an object. The Chi-Square test statistic and p-value are extracted by simply printing the saved object.</p>
+<p>The Chi-Square Test is performed with <code class="inline">chisq.test()</code>, which takes the observed frequency table as the first argument and <code class="inline">correct=FALSE</code> so that the continuity correction is not used.<a href="#fn112" class="footnote-ref" id="fnref112"><sup>112</sup></a> The results of <code class="inline">chisq.test()</code> should be assigned to an object. The Chi-Square test statistic and p-value are extracted by simply printing the saved object.</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb201-1"><a href="RChi.html#cb201-1" aria-hidden="true" tabindex="-1"></a>( fp.chi <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(fp.obs,<span class="at">correct=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  Pearson&#39;s Chi-squared test with fp.obs 
 #R&gt;  X-squared = 5.0003, df = 3, p-value = 0.1718</code></pre>
-<p>The expected frequency table is returned by appending <code>$expected</code> to the saved object.</p>
+<p>The expected frequency table is returned by appending <code class="inline">$expected</code> to the saved object.</p>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb203-1"><a href="RChi.html#cb203-1" aria-hidden="true" tabindex="-1"></a>fp.chi<span class="sc">$</span>expected</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;    Absent Present
 #R&gt;  A  15.25   59.75
@@ -403,7 +403,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>From the results above the expected table for Step 5 is shown at the end, the observed table for Step 6 was shown further above, the χ<sup>2</sup> test statistic for Step 7 is 5.000, and the p-value for Step 8 is 0.172 (with 3 df).</p>
 <p>Rejecting the null hypothesis in a Chi-Square Test indicates that there is some difference in the distribution of individuals into the levels of the response variable among some of the groups. A post-hoc method for helping determine which groups differ is obtained by observing the Pearson residuals. A Pearson residual is computed for each cell in the table as,</p>
 <p><span class="math display">\[ \frac{\text{Observed-Expected}}{\sqrt{\text{Expected}}} \]</span></p>
-<p>which is the appropriately signed square root of the parts in the χ<sup>2</sup> test statistic calculation. Therefore, cells that have Pearson residuals far from zero contributed substantially to the large χ<sup>2</sup> test statistic that resulted in a small p-value and the ultimate rejection of H<sub>0</sub>. Patterns in where the large Pearson residuals are found may allow one to qualitatively determine which groups differ and, thus, which levels of the response differ the most. This process will be illustrated more fully in the examples. However, the Pearson residuals are obtained from the saved <code>chisq.test()</code> object by appending <code>$residuals</code>.</p>
+<p>which is the appropriately signed square root of the parts in the χ<sup>2</sup> test statistic calculation. Therefore, cells that have Pearson residuals far from zero contributed substantially to the large χ<sup>2</sup> test statistic that resulted in a small p-value and the ultimate rejection of H<sub>0</sub>. Patterns in where the large Pearson residuals are found may allow one to qualitatively determine which groups differ and, thus, which levels of the response differ the most. This process will be illustrated more fully in the examples. However, the Pearson residuals are obtained from the saved <code class="inline">chisq.test()</code> object by appending <code class="inline">$residuals</code>.</p>
 <div class="sourceCode" id="cb205"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb205-1"><a href="RChi.html#cb205-1" aria-hidden="true" tabindex="-1"></a>fp.chi<span class="sc">$</span>residuals</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;         Absent     Present
 #R&gt;  A -1.60046100  0.80855778
@@ -864,7 +864,7 @@ Mainland
 <blockquote>
 <p><a href="http://www.mitpressjournals.org/doi/abs/10.1162/003465399767923827">Herriges and King (1999)</a> examined modes of fishing for a large number of recreational saltwater users in southern California. One of the questions asked in their Southern California Sportfishing Survey was what “mode” they used for fishing – “from the beach,” “from a fishing pier,” “on a private boat,” or “on a chartered boat.” The results to this question, along with other data not used here, are found in FishingModes.csv (<a href="https://raw.githubusercontent.com/droglenc/NCData/master/FishingModes.csv">data</a>, <a href="https://raw.githubusercontent.com/droglenc/NCData/master/FishingModes_meta.txt">meta</a>). One hypothesis of interest states that two-thirds of the users will fish from a boat, split evenly between private and charter boats, while the other one-third will fish from land, also split evenly between those fishing on the beach and those from a pier. Use the data in the <code>mode</code> variable of the data file to determine if this hypothesis is supported at the 10% level.</p>
 </blockquote>
-<p>The data are loaded and examined below (the <code>headtail()</code> only shows a few variables).</p>
+<p>The data are loaded and examined below (the <code class="inline">headtail()</code> only shows a few variables).</p>
 <div class="sourceCode" id="cb208"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb208-1"><a href="RChi.html#cb208-1" aria-hidden="true" tabindex="-1"></a>sf <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;https://raw.githubusercontent.com/droglenc/NCData/master/FishingModes.csv&quot;</span>)</span>
 <span id="cb208-2"><a href="RChi.html#cb208-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sf)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  &#39;data.frame&#39;:  1182 obs. of  12 variables:
@@ -888,13 +888,13 @@ Mainland
 #R&gt;  1180    pier  65.036 0.4522
 #R&gt;  1181   beach  36.636 0.5333
 #R&gt;  1182    boat 235.436 0.6817</code></pre>
-<p>As with the Chi-Square Test, the Goodness-of-Fit test can be made from either raw data, that are then summarized, or data that has already been summarized. Raw data are summarized into a one-way observed frequency table using <code>xtabs()</code> with a formula of <code>~cvarRow</code> as described in Section <a href="RUnivEDA.html#frequency-and-percentage-tables-1">24.3.2</a>. The results should be saved to an object for later use.</p>
+<p>As with the Chi-Square Test, the Goodness-of-Fit test can be made from either raw data, that are then summarized, or data that has already been summarized. Raw data are summarized into a one-way observed frequency table using <code class="inline">xtabs()</code> with a formula of <code class="inline">~cvarRow</code> as described in Section <a href="RUnivEDA.html#frequency-and-percentage-tables-1">24.3.2</a>. The results should be saved to an object for later use.</p>
 <div class="sourceCode" id="cb212"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb212-1"><a href="RChi.html#cb212-1" aria-hidden="true" tabindex="-1"></a>( sf.obs <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>mode,<span class="at">data=</span>sf) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  mode
 #R&gt;    beach    boat charter    pier 
 #R&gt;      134     418     452     178</code></pre>
 <p> </p>
-<p><strong>IF</strong> the raw data do NOT exist, but a summary table is provided, then those summary statistics must be entered into an object using <code>c()</code>. Each item can be named in c() as shown below, which will make the results easier to interpret. For example, the same observed table from above would be constructed as follows.</p>
+<p><strong>IF</strong> the raw data do NOT exist, but a summary table is provided, then those summary statistics must be entered into an object using <code class="inline">c()</code>. Each item can be named in <code class="inline">c()</code> as shown below, which will make the results easier to interpret. For example, the same observed table from above would be constructed as follows.</p>
 <div class="sourceCode" id="cb214"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb214-1"><a href="RChi.html#cb214-1" aria-hidden="true" tabindex="-1"></a>( sf.obs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">beach=</span><span class="dv">134</span>,<span class="at">boat=</span><span class="dv">418</span>,<span class="at">charter=</span><span class="dv">452</span>,<span class="at">pier=</span><span class="dv">178</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;    beach    boat charter    pier 
 #R&gt;      134     418     452     178</code></pre>
@@ -914,17 +914,17 @@ Mainland
 </div>
 <div id="goodness-of-fit-test-in-r-1" class="section level3" number="28.2.3">
 <h3><span class="header-section-number">28.2.3</span> Goodness-of-Fit Test in R</h3>
-<p>The Goodness-of-Fit Test is computed with <code>chisq.test()</code> with the observed frequency table as the first argument and the following arguments:</p>
+<p>The Goodness-of-Fit Test is computed with <code class="inline">chisq.test()</code> with the observed frequency table as the first argument and the following arguments:</p>
 <ul>
-<li><code>p=</code>: a vector of expected proportions for the levels of the theoretical distribution.</li>
-<li><code>rescale.p=TRUE</code>: rescales the values in <code>p=</code> to sum to 1. Rescaling is useful if the proportions in <code>p=</code> were rounded or are expected frequencies.</li>
-<li><code>correct=FALSE</code>: indicates to not use a “continuity correction.”</li>
+<li><code class="inline">p=</code>: a vector of expected proportions for the levels of the theoretical distribution.</li>
+<li><code class="inline">rescale.p=TRUE</code>: rescales the values in <code class="inline">p=</code> to sum to 1. Rescaling is useful if the proportions in <code class="inline">p=</code> were rounded or are expected frequencies.</li>
+<li><code class="inline">correct=FALSE</code>: indicates to not use a “continuity correction.”</li>
 </ul>
-<p>The results from <code>chisq.test()</code> should be assigned to an object so that useful information can be extracted.</p>
+<p>The results from <code class="inline">chisq.test()</code> should be assigned to an object so that useful information can be extracted.</p>
 <div class="sourceCode" id="cb217"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb217-1"><a href="RChi.html#cb217-1" aria-hidden="true" tabindex="-1"></a>( sf.gof <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(sf.obs,<span class="at">p=</span>exp.p,<span class="at">rescale.p=</span><span class="cn">TRUE</span>,<span class="at">correct=</span><span class="cn">FALSE</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  Chi-squared test for given probabilities with sf.obs 
 #R&gt;  X-squared = 31.9797, df = 3, p-value = 5.285e-07</code></pre>
-<p>From the results above the χ<sup>2</sup> test statistic for Step 7 is 31.980, and the p-value for Step 8 is 0.00000053 (with 3 df). The observed table for Step 6 was shown further above. The expected table for Step 5 is extracted from the <code>chisq.test()</code> object as follows.</p>
+<p>From the results above the χ<sup>2</sup> test statistic for Step 7 is 31.980, and the p-value for Step 8 is 0.00000053 (with 3 df). The observed table for Step 6 was shown further above. The expected table for Step 5 is extracted from the <code class="inline">chisq.test()</code> object as follows.</p>
 <div class="sourceCode" id="cb219"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb219-1"><a href="RChi.html#cb219-1" aria-hidden="true" tabindex="-1"></a>sf.gof<span class="sc">$</span>expected</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;    beach    boat charter    pier 
 #R&gt;      197     394     394     197</code></pre>
@@ -936,7 +936,7 @@ Mainland
 #R&gt;  charter 452 394  2.921998
 #R&gt;  pier    178 197 -1.353694</code></pre>
 <p>In this case it is clear that those respondents that answered “beach” were much lower than expected and those that answered “charter” were greater than expected.</p>
-<p>Another way to identify where differences occurred is to examine confidence intervals for the proportions of individuals in each level. These confidence intervals are extracted from the saved <code>chisq.test()</code> object with .</p>
+<p>Another way to identify where differences occurred is to examine confidence intervals for the proportions of individuals in each level. These confidence intervals are extracted from the saved <code class="inline">chisq.test()</code> object with <code class="inline">gofCI()</code>.</p>
 <div class="sourceCode" id="cb223"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb223-1"><a href="RChi.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gofCI</span>(sf.gof,<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;          p.obs p.LCI p.UCI p.exp
 #R&gt;  beach   0.113 0.097 0.133 0.167
@@ -1324,7 +1324,7 @@ Wetland
 <div class="footnotes">
 <hr />
 <ol start="111">
-<li id="fn111"><p>Methods in this module require the <code>NCStats</code> package (as always) and the <code>ggplot2</code> package (for making graphs). Both packages are loaded in the first code chunk of the assignment template.<a href="RChi.html#fnref111" class="footnote-back">↩︎</a></p></li>
+<li id="fn111"><p>Methods in this module require the <code class="inline">NCStats</code> package (as always) and the <code class="inline">ggplot2</code> package (for making graphs). Both packages are loaded in the first code chunk of the assignment template.<a href="RChi.html#fnref111" class="footnote-back">↩︎</a></p></li>
 <li id="fn112"><p>The continuity correction is not used here simply so that the results using R will match hand-calculations. The continuity correction should usually be used.<a href="RChi.html#fnref112" class="footnote-back">↩︎</a></p></li>
 <li id="fn113"><p>When “Plant A” is removed from the observed table, the Chi-Square Test performed on the remaining plant species showed no difference in the distribution of the remaining plants between the two locations (p=0.9239). Thus, most of the difference in plant distributions between Devil’s Island and the Mainland appears to be due primarily to “plant A” with more of “plant A” found on the Mainland than on Devil’s Island.<a href="RChi.html#fnref113" class="footnote-back">↩︎</a></p></li>
 </ol>
@@ -1339,7 +1339,6 @@ Wetland
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1379,11 +1378,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>

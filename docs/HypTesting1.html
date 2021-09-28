@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Module 13 Hypothesis Testing - Introduction | Readings for MTH107</title>
   <meta name="description" content="This book contains the readings for MTH107 at Northland College." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Module 13 Hypothesis Testing - Introduction | Readings for MTH107" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-09-21" />
+<meta name="date" content="2021-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,15 +33,15 @@
   
 <link rel="prev" href="Probability.html"/>
 <link rel="next" href="HypTesting2.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -498,7 +498,7 @@ is not less than
 <p>Of course, sampling variability does exist and it complicates matters. The simple interpretation of not supporting H<sub>0</sub> because the observed sample mean did not equal the hypothesized population mean canNOT be made because, with sampling variability, one would not expect a statistic to exactly equal the parameter in the population from which the sample was extracted. For example, even if the null hypothesis was correct, one would not expect, with sampling variability, the observed sample mean to exactly equal 105; rather, one would expect the observed sample mean to be <strong>reasonably</strong> close to 105.</p>
 <p>Thus, hypothesis testing is a process to determine if the difference between the observed statistic and the expected statistic based on the null hypothesis is “large” <strong>relative to sampling variability</strong>. For example, the standard error of <span class="math inline">\(\bar{\text{x}}\)</span> for samples of n=50 in the Square Lake example is <span class="math inline">\(\frac{\sigma}{\sqrt{n}}=\)</span><span class="math inline">\(\frac{31.49}{\sqrt{50}}\)</span>=4.45. With this amount of sampling variability, an observed sample mean of 103 would be considered reasonably close to 105 and one would have more belief in H<sub>0</sub>:μ=105 (Figure <a href="HypTesting1.html#fig:HOSLExample">13.1</a>). However, an observed sample mean of 90 is further away from 105 than one would expect based on sampling variability alone and belief in H<sub>0</sub>:μ=105 would lessen (Figure <a href="HypTesting1.html#fig:HOSLExample">13.1</a>).</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:HOSLExample"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOSLExample"></span>
 <img src="Book107_files/figure-html/HOSLExample-1.png" alt="Sampling distribution of samples means of n=50 from the Square Lake population ASSUMING that &amp;mu;=105." width="528" />
 <p class="caption">
 Figure 13.1: Sampling distribution of samples means of n=50 from the Square Lake population ASSUMING that μ=105.
@@ -509,7 +509,7 @@ Figure 13.1: Sampling distribution of samples means of n=50 from the Square Lake
 <p>A first step in creating a more objective decision criteria is to compute the “p-value.” A <strong>p-value is the probability of the observed statistic or a value of the statistic more extreme assuming that the null hypothesis is true.</strong> The p-value is described in more detail below given its centrality to making conclusions about statistical hypotheses.</p>
 <p>The meaning of the phrase “or more extreme” in the p-value definition is derived from the sign in H<sub>A</sub> (Figure <a href="HypTesting1.html#fig:HOtails">13.2</a>). If H<sub>A</sub> is the “less than” situation, then “or more extreme” means “shade to the left” for the probability calculation. The “greater than” situation is defined similarly but would result in shading to the “right.” In the “not equals” situation, “or more extreme” means further into the tail AND the exact same size of tail on the other side of the distribution. It is clear from Figure <a href="HypTesting1.html#fig:HOtails">13.2</a> why “less than” and “greater than” are called one-tailed alternatives and “not equals” is called a two-tailed alternative.</p>
 <p> </p>
-<div class="figure" style="text-align: center"><span id="fig:HOtails"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HOtails"></span>
 <img src="Book107_files/figure-html/HOtails-1.png" alt="Depiction of &quot;or more extreme&quot; (red areas) in p-values for the three possible alternative hypotheses." width="576" />
 <p class="caption">
 Figure 13.2: Depiction of “or more extreme” (red areas) in p-values for the three possible alternative hypotheses.
@@ -519,7 +519,7 @@ Figure 13.2: Depiction of “or more extreme” (red areas) in p-values for the 
 <p>The “assuming that the null hypothesis is true” phrase is used to define a μ for the sampling distribution on which the p-value will be calculated. This sampling distribution is called the <strong>null distribution</strong> because it depends on the value of μ from the null hypothesis. One must remember that the null distribution represents the distribution of all possible sample means assuming that the null hypothesis is true; it does NOT represent the actual sample means.<a href="#fn58" class="footnote-ref" id="fnref58"><sup>58</sup></a> The null distribution in the Square Lake example is thus <span class="math inline">\(\bar{\text{x}}\)</span>~N(105,4.45) because n=50≥30 (so the Central Limit Theorem holds), H<sub>0</sub>:μ=105, and SE=<span class="math inline">\(\frac{31.49}{\sqrt{50}}\)</span>=4.45.</p>
 <p>The p-value is computed with a “forward” normal distribution calculation on the null sampling distribution. For example, suppose that a sample mean of 100 was observed with n=50 from Square Lake (as it was in Table <a href="FoundationalDefns.html#tab:SquareLakeSample1s">2.2</a>). The p-value in this case would be “the probability of observing <span class="math inline">\(\bar{\text{x}}\)</span>=100 or a smaller value assuming that μ=105.” This probability is computed by finding the area to the left of 100 on a N(105,4.45) null distribution and is the exact same type of calculation as that made in Section <a href="Probability.html#probability-of-statistics">12.2</a>. Thus, this p-value of p=0.1308 is computed as below and shown in Figure <a href="HypTesting1.html#fig:SLpvalue1">13.3</a>.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb32-1"><a href="HypTesting1.html#cb32-1" aria-hidden="true" tabindex="-1"></a>( <span class="fu">distrib</span>(<span class="dv">100</span>,<span class="at">mean=</span><span class="dv">105</span>,<span class="at">sd=</span><span class="fl">31.49</span><span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">50</span>)) )</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:SLpvalue1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SLpvalue1"></span>
 <img src="Book107_files/figure-html/SLpvalue1-1.png" alt="Depiction of the p-value for the Square Lake example where $\bar{\text{x}}$=100 and H~A~:&amp;mu;&lt;105." width="336" />
 <p class="caption">
 Figure 13.3: Depiction of the p-value for the Square Lake example where <span class="math inline">\(\bar{\text{x}}\)</span>=100 and H<sub>A</sub>:μ&lt;105.
@@ -643,7 +643,6 @@ Figure 13.3: Depiction of the p-value for the Square Lake example where <span cl
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -683,11 +682,14 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
-},
-"search": true
+}
 });
 });
 </script>
