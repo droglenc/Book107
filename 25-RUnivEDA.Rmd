@@ -184,3 +184,68 @@ When making your own bar chart, copy the code above and change the items in `dat
 :::
 
 &nbsp;
+
+## Generic R Code
+The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Also examine the ["R Function Guide"](http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf) on the class Resources page for more guidance.
+
+* Construct summary statistics for a quantitative variable.
+
+```{r eval=FALSE}
+Summarize(~qvar,data=dfobj,digits=#)
+```
+
+<br>
+
+* Construct a histogram.
+
+```{r eval=FALSE}
+ggplot(data=dfobj,mapping=aes(x=qvar)) +
+  geom_histogram(binwidth=#,boundary=0,color="black",fill="lightgray") +
+  labs(y="Frequency of XXX",x="better qvar label") +
+  scale_y_continuous(expand=expansion(mult=c(0,0.05))) +
+  theme_NCStats()
+```
+
+<br>
+
+* Construct summary statistics for a quantitative variable separated by groups.
+
+```{r eval=FALSE}
+Summarize(qvar~cvar,data=dfobj,digits=#)
+```
+
+<br>
+
+* Construct histograms separated by groups.
+
+```{r eval=FALSE}
+ggplot(data=dfobj,mapping=aes(x=qvar)) +
+  geom_histogram(binwidth=#,boundary=0,color="black",fill="lightgray") +
+  labs(y="Frequency of XXX",x="better qvar label") +
+  scale_y_continuous(expand=expansion(mult=c(0,0.05))) +
+  theme_NCStats() +
+  facet_wrap(vars(cvar))
+```
+
+<br>
+
+* Construct frequency and percentage tables.
+
+```{r eval=FALSE}
+( freq1 <- xtabs(~cvar,data=dfobj) )
+percTable(freq1)
+```
+
+<br>
+
+* Construct a bar chart.
+
+```{r eval=FALSE}
+ggplot(data=dfobj,mapping=aes(x=cvar)) +
+  geom_bar(color="black",fill="lightgray") +
+  labs(y="Frequency of XXX",x="better cvar label") +
+  scale_y_continuous(expand=expansion(mult=c(0,0.05))) +
+  theme_NCStats()
+```
+
+&nbsp;

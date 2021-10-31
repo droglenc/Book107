@@ -54,3 +54,35 @@ predict(lm1,data.frame(Weight=2500))
 ```
 
 &nbsp;
+
+## Generic R Code
+The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Also examine the ["R Function Guide"](http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf) on the class Resources page for more guidance.
+
+* Compute the slope and intercept of the best-fit line.
+
+```{r eval=FALSE}
+( bfl <- lm(qvarResp~qvarExpl,data=dfobj) )
+```
+
+<br>
+
+* Compute the coefficient of determination.
+
+```{r eval=FALSE}
+rSquared(bfl)
+```
+
+<br>
+
+* Construct a scatterplot with the best-fit line.
+
+```{r eval=FALSE}
+ggplot(data=dfobj,mapping=aes(y=qvar1,x=qvar2)) +
+  geom_point(pch=21,color="black",fill="lightgray") +
+  labs(y="better qvar1 label",x="better qvar2 label") +
+  theme_NCStats() +
+  geom_smooth(method="lm",se=FALSE)
+```
+
+&nbsp;
+

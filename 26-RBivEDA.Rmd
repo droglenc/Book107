@@ -151,5 +151,45 @@ A column-percentage table is constructed by including `margin=2`{.inline} in `pe
 ```{r}
 percTable(tbl1,margin=2)
 ```
+&nbsp;
+
+## Generic R Code
+The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Also examine the ["R Function Guide"](http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf) on the class Resources page for more guidance.
+
+* Construct a scatterplot.
+
+```{r eval=FALSE}
+ggplot(data=dfobj,mapping=aes(y=qvar1,x=qvar2)) +
+  geom_point(pch=21,color="black",fill="lightgray") +
+  labs(y="better qvar1 label",x="better qvar2 label") +
+  theme_NCStats()
+```
+
+<br>
+
+* Compute the correlation coefficient.
+
+```{r eval=FALSE}
+corr(~qvar1+qvar2,data=dfobj,digits=3)
+```
+
+<br>
+
+* Construct a frequency table.
+
+```{r eval=FALSE}
+freq2 <- xtabs(~cvarRow+cvarCol,data=dfobj)
+addmargins(freq2)           # append totals
+```
+
+<br>
+
+* Construct percentage tables.
+
+```{r eval=FALSE}
+percTable(freq2)            # total/table %
+percTable(freq2,margin=1)   # row %
+percTable(freq2,margin=2)   # column %
+```
 
 &nbsp;
