@@ -191,27 +191,35 @@ aqua <- read.csv("BOD.csv")
 &nbsp;
 
 ## Generic R Code
-The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Also examine the ["R Function Guide"](http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf) on the class Resources page for more guidance.
+The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Note the following:
 
-* Construct a 1-Sample t-Test.
+* `dfobj` should be replaced with the name of your data frame.
+* `qvar` should be replaced with the name of your quantitative variable.
+* `cvar` should be replaced with the name of your categorical variable.
+* `mu0` is the population mean in H<sub>0</sub>.
+* `HA` is replaced with `"two.sided"` for not equals, `"less"` for less than, or `"greater"` for greater than alternative hypotheses (H<sub>A</sub>).
+* `cnfval` is the confidence level as a proportion (e.g., `0.95`).
 
-```{r eval=FALSE}
+Also examine the ["R Function Guide"](http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf) on the class Resources page for more guidance.
+
+#### 1-Sample t-Test{-}
+
+```{r eval=FALSE, highlight=FALSE}
 t.test(~qvar,data=dfobj,mu=mu0,alt=HA,conf.level=cnfval)
 ```
+#### 2-Sample t-test{-}
 
-<br>
+* Construct a Levene's Test
 
-* Construct a Levene's Test.
-
-```{r eval=FALSE}
+```{r eval=FALSE, highlight=FALSE}
 levenesTest(qvar~cvar,data=dfobj)
 ```
 
 <br>
 
-* Construct a 2-Sample t-Test.
+* Construct a 2-Sample t-Test
 
-```{r eval=FALSE}
+```{r eval=FALSE, highlight=FALSE}
 t.test(qvar~cvar,data=dfobj,alt=HA,conf.level=cnfval,var.equal=TRUE)
 ```
 

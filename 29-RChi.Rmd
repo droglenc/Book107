@@ -299,24 +299,28 @@ knitr::kable(gofCI(shrike.chi,digits=3),caption="Observed proportions, 95% condi
 &nbsp;
 
 ## Generic R Code
-The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Also examine the ["R Function Guide"](http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf) on the class Resources page for more guidance.
+The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Note the following:
 
-* Construct a Chi-Square Test.
+* `dfobj` should be replaced with the name of your data frame.
+* `cvarPop` and `cvarResp` should be replaced with the names of your categorical population/groups and response variables, respectively.
+* `NUM` is replaced with numeric values.
 
-```{r eval=FALSE}
+Also examine the ["R Function Guide"](http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf) on the class Resources page for more guidance.
+
+#### Chi-Square Test{-}
+
+```{r eval=FALSE, highlight=FALSE}
 ( obstbl <- xtabs(~cvarPop+cvarResp,data=dfobj) )  # observed freq table
 ( chi <- chisq.test(obstbl,correct=FALSE) )        # chi-square and p-value
 chi$expected                                       # expected frequencies
 percTable(obstbl,margin=1)                         # row percentage table
 ```
 
-<br>
+#### Goodness-of-Fit Test{-}
 
-* Construct a Goodness-of-Fit Test.
-
-```{r eval=FALSE}
+```{r eval=FALSE, highlight=FALSE}
 ( obstbl <- xtabs(~cvarResp,data=dfobj) )          # observed freq table
-( exp.p <- c(lvl1=#, lvl2=#, lvl3=#,…) )           # expected proportions
+( exp.p <- c(lvl1=NUM,lvl2=NUM,lvl3=NUM,...) )     # expected proportions
 ( gof <- chisq.test(obstbl,p=exp.p,rescale.p=TRUE,correct=FALSE) )  # chi & p
 gof$expected                                       # expected frequencies
 gofCI(gof,digits=3)                                # CIs for p-hats

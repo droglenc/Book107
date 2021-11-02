@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-10-31" />
+<meta name="date" content="2021-11-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1211,25 +1211,30 @@ Wetland
 </div>
 <div id="generic-r-code-4" class="section level2" number="29.3">
 <h2><span class="header-section-number">29.3</span> Generic R Code</h2>
-<p>The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Also examine the <a href="http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf">“R Function Guide”</a> on the class Resources page for more guidance.</p>
+<p>The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Note the following:</p>
 <ul>
-<li>Construct a Chi-Square Test.</li>
+<li><code>dfobj</code> should be replaced with the name of your data frame.</li>
+<li><code>cvarPop</code> and <code>cvarResp</code> should be replaced with the names of your categorical population/groups and response variables, respectively.</li>
+<li><code>NUM</code> is replaced with numeric values.</li>
 </ul>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb242-1"><a href="RChi.html#cb242-1" aria-hidden="true" tabindex="-1"></a>( obstbl <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>cvarPop<span class="sc">+</span>cvarResp,<span class="at">data=</span>dfobj) )  <span class="co"># observed freq table</span></span>
-<span id="cb242-2"><a href="RChi.html#cb242-2" aria-hidden="true" tabindex="-1"></a>( chi <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(obstbl,<span class="at">correct=</span><span class="cn">FALSE</span>) )        <span class="co"># chi-square and p-value</span></span>
-<span id="cb242-3"><a href="RChi.html#cb242-3" aria-hidden="true" tabindex="-1"></a>chi<span class="sc">$</span>expected                                       <span class="co"># expected frequencies</span></span>
-<span id="cb242-4"><a href="RChi.html#cb242-4" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(obstbl,<span class="at">margin=</span><span class="dv">1</span>)                         <span class="co"># row percentage table</span></span></code></pre></div>
-<p><br></p>
-<ul>
-<li>Construct a Goodness-of-Fit Test.</li>
-</ul>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb243-1"><a href="RChi.html#cb243-1" aria-hidden="true" tabindex="-1"></a>( obstbl <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>cvarResp,<span class="at">data=</span>dfobj) )          <span class="co"># observed freq table</span></span>
-<span id="cb243-2"><a href="RChi.html#cb243-2" aria-hidden="true" tabindex="-1"></a>( exp.p <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">lvl1=</span><span class="co">#, lvl2=#, lvl3=#,…) )           # expected proportions</span></span>
-<span id="cb243-3"><a href="RChi.html#cb243-3" aria-hidden="true" tabindex="-1"></a>( gof <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(obstbl,<span class="at">p=</span>exp.p,<span class="at">rescale.p=</span><span class="cn">TRUE</span>,<span class="at">correct=</span><span class="cn">FALSE</span>) )  <span class="co"># chi &amp; p</span></span>
-<span id="cb243-4"><a href="RChi.html#cb243-4" aria-hidden="true" tabindex="-1"></a>gof<span class="sc">$</span>expected                                       <span class="co"># expected frequencies</span></span>
-<span id="cb243-5"><a href="RChi.html#cb243-5" aria-hidden="true" tabindex="-1"></a><span class="fu">gofCI</span>(gof,<span class="at">digits=</span><span class="dv">3</span>)                                <span class="co"># CIs for p-hats</span></span></code></pre></div>
+<p>Also examine the <a href="http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf">“R Function Guide”</a> on the class Resources page for more guidance.</p>
+<div id="chi-square-test" class="section level4 unnumbered">
+<h4>Chi-Square Test</h4>
+<pre class="text RCODE"><code>( obstbl &lt;- xtabs(~cvarPop+cvarResp,data=dfobj) )  # observed freq table
+( chi &lt;- chisq.test(obstbl,correct=FALSE) )        # chi-square and p-value
+chi$expected                                       # expected frequencies
+percTable(obstbl,margin=1)                         # row percentage table</code></pre>
+</div>
+<div id="goodness-of-fit-test" class="section level4 unnumbered">
+<h4>Goodness-of-Fit Test</h4>
+<pre class="text RCODE"><code>( obstbl &lt;- xtabs(~cvarResp,data=dfobj) )          # observed freq table
+( exp.p &lt;- c(lvl1=NUM,lvl2=NUM,lvl3=NUM,...) )     # expected proportions
+( gof &lt;- chisq.test(obstbl,p=exp.p,rescale.p=TRUE,correct=FALSE) )  # chi &amp; p
+gof$expected                                       # expected frequencies
+gofCI(gof,digits=3)                                # CIs for p-hats</code></pre>
 <p> </p>
 
+</div>
 </div>
 </div>
 

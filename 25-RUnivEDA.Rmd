@@ -186,52 +186,42 @@ When making your own bar chart, copy the code above and change the items in `dat
 &nbsp;
 
 ## Generic R Code
-The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Also examine the ["R Function Guide"](http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf) on the class Resources page for more guidance.
+The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Note the following:
 
-* Construct summary statistics for a quantitative variable.
+* `dfobj` should be replaced with the name of your data frame.
+* `qvar` should be replaced with the name of your quantitative variable.
+* `cvar` should be replaced with the name of your categorical variable.
+* `NUM` should be replaced with a number.
+* `XXX` should be replaced with what an individual is.
+* `better qvar/cvar label` should be replaced with a descriptive label for the `qvar` or `cvar` variable.
 
-```{r eval=FALSE}
-Summarize(~qvar,data=dfobj,digits=#)
+Also examine the ["R Function Guide"](http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf) on the class Resources page for more guidance.
+
+#### Univariate EDA -- Quantitative{-}
+
+* Construct summary statistics.
+
+```{r eval=FALSE, highlight=FALSE}
+Summarize(~qvar,data=dfobj,digits=NUM)
 ```
 
 <br>
 
 * Construct a histogram.
 
-```{r eval=FALSE}
+```{r eval=FALSE, highlight=FALSE}
 ggplot(data=dfobj,mapping=aes(x=qvar)) +
-  geom_histogram(binwidth=#,boundary=0,color="black",fill="lightgray") +
+  geom_histogram(binwidth=NUM,boundary=0,color="black",fill="lightgray") +
   labs(y="Frequency of XXX",x="better qvar label") +
   scale_y_continuous(expand=expansion(mult=c(0,0.05))) +
   theme_NCStats()
 ```
 
-<br>
-
-* Construct summary statistics for a quantitative variable separated by groups.
-
-```{r eval=FALSE}
-Summarize(qvar~cvar,data=dfobj,digits=#)
-```
-
-<br>
-
-* Construct histograms separated by groups.
-
-```{r eval=FALSE}
-ggplot(data=dfobj,mapping=aes(x=qvar)) +
-  geom_histogram(binwidth=#,boundary=0,color="black",fill="lightgray") +
-  labs(y="Frequency of XXX",x="better qvar label") +
-  scale_y_continuous(expand=expansion(mult=c(0,0.05))) +
-  theme_NCStats() +
-  facet_wrap(vars(cvar))
-```
-
-<br>
+#### Univariate EDA -- Categorical{-}
 
 * Construct frequency and percentage tables.
 
-```{r eval=FALSE}
+```{r eval=FALSE, highlight=FALSE}
 ( freq1 <- xtabs(~cvar,data=dfobj) )
 percTable(freq1)
 ```
@@ -240,12 +230,33 @@ percTable(freq1)
 
 * Construct a bar chart.
 
-```{r eval=FALSE}
+```{r eval=FALSE, highlight=FALSE}
 ggplot(data=dfobj,mapping=aes(x=cvar)) +
   geom_bar(color="black",fill="lightgray") +
   labs(y="Frequency of XXX",x="better cvar label") +
   scale_y_continuous(expand=expansion(mult=c(0,0.05))) +
   theme_NCStats()
+```
+
+
+#### Univariate EDA -- Quantitative by Categorical Groups{-}
+* Construct summary statistics (separated by groups).
+
+```{r eval=FALSE, highlight=FALSE}
+Summarize(qvar~cvar,data=dfobj,digits=NUM)
+```
+
+<br>
+
+* Construct histograms (separated by groups).
+
+```{r eval=FALSE, highlight=FALSE}
+ggplot(data=dfobj,mapping=aes(x=qvar)) +
+  geom_histogram(binwidth=NUM,boundary=0,color="black",fill="lightgray") +
+  labs(y="Frequency of XXX",x="better qvar label") +
+  scale_y_continuous(expand=expansion(mult=c(0,0.05))) +
+  theme_NCStats() +
+  facet_wrap(vars(cvar))
 ```
 
 &nbsp;

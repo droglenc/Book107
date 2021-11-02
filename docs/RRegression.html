@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-10-31" />
+<meta name="date" content="2021-11-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -401,25 +401,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="generic-r-code-2" class="section level2" number="27.5">
 <h2><span class="header-section-number">27.5</span> Generic R Code</h2>
-<p>The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Also examine the <a href="http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf">“R Function Guide”</a> on the class Resources page for more guidance.</p>
+<p>The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Note the following:</p>
+<ul>
+<li><code>dfobj</code> should be replaced with the name of your data frame.</li>
+<li><code>qvarResp</code> and <code>qvarExpl</code> should be replaced with the names of your quantitative response and explanatory variables, respectively.</li>
+<li><code>better qvarResp/qvarExpl label</code> should be replaced with descriptive labels for the <code>qvarResp</code> and <code>qvarExpl</code> variable.</li>
+</ul>
+<p>Also examine the <a href="http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf">“R Function Guide”</a> on the class Resources page for more guidance.</p>
 <ul>
 <li>Compute the slope and intercept of the best-fit line.</li>
 </ul>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb193-1"><a href="RRegression.html#cb193-1" aria-hidden="true" tabindex="-1"></a>( bfl <span class="ot">&lt;-</span> <span class="fu">lm</span>(qvarResp<span class="sc">~</span>qvarExpl,<span class="at">data=</span>dfobj) )</span></code></pre></div>
+<pre class="text RCODE"><code>( bfl &lt;- lm(qvarResp~qvarExpl,data=dfobj) )</code></pre>
 <p><br></p>
 <ul>
 <li>Compute the coefficient of determination.</li>
 </ul>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb194-1"><a href="RRegression.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rSquared</span>(bfl)</span></code></pre></div>
+<pre class="text RCODE"><code>rSquared(bfl)</code></pre>
 <p><br></p>
 <ul>
 <li>Construct a scatterplot with the best-fit line.</li>
 </ul>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb195-1"><a href="RRegression.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dfobj,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">y=</span>qvar1,<span class="at">x=</span>qvar2)) <span class="sc">+</span></span>
-<span id="cb195-2"><a href="RRegression.html#cb195-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">pch=</span><span class="dv">21</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
-<span id="cb195-3"><a href="RRegression.html#cb195-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">&quot;better qvar1 label&quot;</span>,<span class="at">x=</span><span class="st">&quot;better qvar2 label&quot;</span>) <span class="sc">+</span></span>
-<span id="cb195-4"><a href="RRegression.html#cb195-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>() <span class="sc">+</span></span>
-<span id="cb195-5"><a href="RRegression.html#cb195-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>,<span class="at">se=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre class="text RCODE"><code>ggplot(data=dfobj,mapping=aes(y=qvarResp,x=qvarExpl)) +
+  geom_point(pch=21,color=&quot;black&quot;,fill=&quot;lightgray&quot;) +
+  labs(y=&quot;better qvarResp label&quot;,x=&quot;better qvarExpl label&quot;) +
+  theme_NCStats() +
+  geom_smooth(method=&quot;lm&quot;,se=FALSE)</code></pre>
 <p> </p>
 
 </div>

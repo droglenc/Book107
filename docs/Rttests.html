@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-10-31" />
+<meta name="date" content="2021-11-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -638,23 +638,34 @@ Figure 28.2: Histogram of the BOD measurements at the outlet and inlet of the aq
 </div>
 <div id="generic-r-code-3" class="section level2" number="28.3">
 <h2><span class="header-section-number">28.3</span> Generic R Code</h2>
-<p>The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Also examine the <a href="http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf">“R Function Guide”</a> on the class Resources page for more guidance.</p>
+<p>The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Note the following:</p>
 <ul>
-<li>Construct a 1-Sample t-Test.</li>
+<li><code>dfobj</code> should be replaced with the name of your data frame.</li>
+<li><code>qvar</code> should be replaced with the name of your quantitative variable.</li>
+<li><code>cvar</code> should be replaced with the name of your categorical variable.</li>
+<li><code>mu0</code> is the population mean in H<sub>0</sub>.</li>
+<li><code>HA</code> is replaced with <code>"two.sided"</code> for not equals, <code>"less"</code> for less than, or <code>"greater"</code> for greater than alternative hypotheses (H<sub>A</sub>).</li>
+<li><code>cnfval</code> is the confidence level as a proportion (e.g., <code>0.95</code>).</li>
 </ul>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb205-1"><a href="Rttests.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="sc">~</span>qvar,<span class="at">data=</span>dfobj,<span class="at">mu=</span>mu0,<span class="at">alt=</span>HA,<span class="at">conf.level=</span>cnfval)</span></code></pre></div>
+<p>Also examine the <a href="http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf">“R Function Guide”</a> on the class Resources page for more guidance.</p>
+<div id="sample-t-test-2" class="section level4 unnumbered">
+<h4>1-Sample t-Test</h4>
+<pre class="text RCODE"><code>t.test(~qvar,data=dfobj,mu=mu0,alt=HA,conf.level=cnfval)</code></pre>
+</div>
+<div id="sample-t-test-3" class="section level4 unnumbered">
+<h4>2-Sample t-test</h4>
+<ul>
+<li>Construct a Levene’s Test</li>
+</ul>
+<pre class="text RCODE"><code>levenesTest(qvar~cvar,data=dfobj)</code></pre>
 <p><br></p>
 <ul>
-<li>Construct a Levene’s Test.</li>
+<li>Construct a 2-Sample t-Test</li>
 </ul>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb206-1"><a href="Rttests.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levenesTest</span>(qvar<span class="sc">~</span>cvar,<span class="at">data=</span>dfobj)</span></code></pre></div>
-<p><br></p>
-<ul>
-<li>Construct a 2-Sample t-Test.</li>
-</ul>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb207-1"><a href="Rttests.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(qvar<span class="sc">~</span>cvar,<span class="at">data=</span>dfobj,<span class="at">alt=</span>HA,<span class="at">conf.level=</span>cnfval,<span class="at">var.equal=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<pre class="text RCODE"><code>t.test(qvar~cvar,data=dfobj,alt=HA,conf.level=cnfval,var.equal=TRUE)</code></pre>
 <p> </p>
 
+</div>
 </div>
 </div>
 <div class="footnotes">

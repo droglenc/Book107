@@ -154,9 +154,20 @@ percTable(tbl1,margin=2)
 &nbsp;
 
 ## Generic R Code
-The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Also examine the ["R Function Guide"](http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf) on the class Resources page for more guidance.
+The following generic codes were used in this module and are provided here so that you can efficiently copy and paste them into your assignment. Note the following:
 
-* Construct a scatterplot.
+* `dfobj` should be replaced with the name of your data frame.
+* `qvar1` and `qvar2` should be replaced with the names of your quantitative variables.
+* `cvarRow` and `cvarCol` should be replaced with the names of your categorical variables.
+* `NUM` should be replaced with a number.
+* `XXX` should be replaced with what an individual is.
+* `better qvar1/qvar2 label` should be replaced with descriptive labels for the `qvar1` and `qvar2` variable.
+
+Also examine the ["R Function Guide"](http://derekogle.com/NCMTH107/resources/MTH107-RGuide.pdf) on the class Resources page for more guidance.
+
+#### Bivariate EDA Quantitative{-}
+
+* Construct a scatterplot
 
 ```{r eval=FALSE}
 ggplot(data=dfobj,mapping=aes(y=qvar1,x=qvar2)) +
@@ -167,15 +178,15 @@ ggplot(data=dfobj,mapping=aes(y=qvar1,x=qvar2)) +
 
 <br>
 
-* Compute the correlation coefficient.
+* Compute the correlation coefficient
 
 ```{r eval=FALSE}
 corr(~qvar1+qvar2,data=dfobj,digits=3)
 ```
 
-<br>
+#### Bivariate EDA Categorical{-}
 
-* Construct a frequency table.
+* Construct a frequency table
 
 ```{r eval=FALSE}
 freq2 <- xtabs(~cvarRow+cvarCol,data=dfobj)
@@ -184,7 +195,7 @@ addmargins(freq2)           # append totals
 
 <br>
 
-* Construct percentage tables.
+* Construct percentage tables
 
 ```{r eval=FALSE}
 percTable(freq2)            # total/table %
