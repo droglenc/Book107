@@ -519,30 +519,30 @@ Figure 26.1: Point shapes available in R and their numerical codes. For shapes 0
 <ul>
 <li>Construct a scatterplot</li>
 </ul>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb180-1"><a href="RBivEDA.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>dfobj,<span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">y=</span>qvar1,<span class="at">x=</span>qvar2)) <span class="sc">+</span></span>
-<span id="cb180-2"><a href="RBivEDA.html#cb180-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">pch=</span><span class="dv">21</span>,<span class="at">color=</span><span class="st">&quot;black&quot;</span>,<span class="at">fill=</span><span class="st">&quot;lightgray&quot;</span>) <span class="sc">+</span></span>
-<span id="cb180-3"><a href="RBivEDA.html#cb180-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">&quot;better qvar1 label&quot;</span>,<span class="at">x=</span><span class="st">&quot;better qvar2 label&quot;</span>) <span class="sc">+</span></span>
-<span id="cb180-4"><a href="RBivEDA.html#cb180-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_NCStats</span>()</span></code></pre></div>
+<pre class="text RCODE"><code>ggplot(data=dfobj,mapping=aes(y=qvar1,x=qvar2)) +
+  geom_point(pch=21,color=&quot;black&quot;,fill=&quot;lightgray&quot;) +
+  labs(y=&quot;better qvar1 label&quot;,x=&quot;better qvar2 label&quot;) +
+  theme_NCStats()</code></pre>
 <p><br></p>
 <ul>
 <li>Compute the correlation coefficient</li>
 </ul>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb181-1"><a href="RBivEDA.html#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corr</span>(<span class="sc">~</span>qvar1<span class="sc">+</span>qvar2,<span class="at">data=</span>dfobj,<span class="at">digits=</span><span class="dv">3</span>)</span></code></pre></div>
+<pre class="text RCODE"><code>corr(~qvar1+qvar2,data=dfobj,digits=3)</code></pre>
 </div>
 <div id="bivariate-eda-categorical" class="section level4 unnumbered">
 <h4>Bivariate EDA Categorical</h4>
 <ul>
 <li>Construct a frequency table</li>
 </ul>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb182-1"><a href="RBivEDA.html#cb182-1" aria-hidden="true" tabindex="-1"></a>freq2 <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span>cvarRow<span class="sc">+</span>cvarCol,<span class="at">data=</span>dfobj)</span>
-<span id="cb182-2"><a href="RBivEDA.html#cb182-2" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(freq2)           <span class="co"># append totals</span></span></code></pre></div>
+<pre class="text RCODE"><code>freq2 &lt;- xtabs(~cvarRow+cvarCol,data=dfobj)
+addmargins(freq2)           # append totals</code></pre>
 <p><br></p>
 <ul>
 <li>Construct percentage tables</li>
 </ul>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb183-1"><a href="RBivEDA.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(freq2)            <span class="co"># total/table %</span></span>
-<span id="cb183-2"><a href="RBivEDA.html#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(freq2,<span class="at">margin=</span><span class="dv">1</span>)   <span class="co"># row %</span></span>
-<span id="cb183-3"><a href="RBivEDA.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="fu">percTable</span>(freq2,<span class="at">margin=</span><span class="dv">2</span>)   <span class="co"># column %</span></span></code></pre></div>
+<pre class="text RCODE"><code>percTable(freq2)            # total/table %
+percTable(freq2,margin=1)   # row %
+percTable(freq2,margin=2)   # column %</code></pre>
 <p> </p>
 
 </div>

@@ -169,7 +169,7 @@ Also examine the ["R Function Guide"](http://derekogle.com/NCMTH107/resources/MT
 
 * Construct a scatterplot
 
-```{r eval=FALSE}
+```{r eval=FALSE, highlight=FALSE}
 ggplot(data=dfobj,mapping=aes(y=qvar1,x=qvar2)) +
   geom_point(pch=21,color="black",fill="lightgray") +
   labs(y="better qvar1 label",x="better qvar2 label") +
@@ -180,7 +180,7 @@ ggplot(data=dfobj,mapping=aes(y=qvar1,x=qvar2)) +
 
 * Compute the correlation coefficient
 
-```{r eval=FALSE}
+```{r eval=FALSE, highlight=FALSE}
 corr(~qvar1+qvar2,data=dfobj,digits=3)
 ```
 
@@ -188,7 +188,7 @@ corr(~qvar1+qvar2,data=dfobj,digits=3)
 
 * Construct a frequency table
 
-```{r eval=FALSE}
+```{r eval=FALSE, highlight=FALSE}
 freq2 <- xtabs(~cvarRow+cvarCol,data=dfobj)
 addmargins(freq2)           # append totals
 ```
@@ -197,7 +197,7 @@ addmargins(freq2)           # append totals
 
 * Construct percentage tables
 
-```{r eval=FALSE}
+```{r eval=FALSE, highlight=FALSE}
 percTable(freq2)            # total/table %
 percTable(freq2,margin=1)   # row %
 percTable(freq2,margin=2)   # column %
