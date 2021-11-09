@@ -29,6 +29,11 @@ You should change this text to create the section heading that you want; e.g.,
 # Arctic Penguins
 ```
 
+::: {.tip data-latex=''}
+Make sure there is a blank line after your section heading line.
+:::
+
+
 #### Writing Text for Your Answers {-}
 Sentences can be included by typing the text at the beginning of any line. A new paragraph is created by pressing return twice so that there is a blank line between paragraphs.
 
@@ -51,6 +56,10 @@ A univariate EDA for penguin body mass is
 1. Dispersion ... IQR from Q1 of 3550 g to Q3 of 4750 g.
 1. Why? ... I used the median and IQR because of the skewed shape of the data.
 
+::: {.tip data-latex=''}
+Make sure there are blank lines before and after your numbered list and make sure there is a space after each of your "1.".
+:::
+
 &nbsp;
 
 #### Symbols and Greek Letters
@@ -61,7 +70,7 @@ Greek letters can be produced in your document using special codes as shown belo
 * &beta; comes from `&beta;`
 * &sigma; comes from `&sigma;`
 * &mu; comes from `&mu;`
-* &ne; comes from `&neq;`
+* &ne; comes from `&ne;`
 * x&#772; comes from `x&#772;` or x&#x0304; comes from `x&#x0304;`
 * p&#770; comes from `p&#770;` or p&#x0302; comes from `x&#x0302;`
 
