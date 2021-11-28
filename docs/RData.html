@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-11-09" />
+<meta name="date" content="2021-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -279,6 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22" data-path="RStart.html"><a href="RStart.html"><i class="fa fa-check"></i><b>22</b> Getting Organized in RStudio</a>
 <ul>
 <li class="chapter" data-level="22.1" data-path="RStart.html"><a href="RStart.html#r-notebooks"><i class="fa fa-check"></i><b>22.1</b> R Notebooks</a></li>
+<li class="chapter" data-level="22.2" data-path="RStart.html"><a href="RStart.html#compiling-to-pdf"><i class="fa fa-check"></i><b>22.2</b> Compiling to PDF</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="RData.html"><a href="RData.html"><i class="fa fa-check"></i><b>23</b> Getting Data into R</a>
 <ul>
@@ -381,7 +382,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="viewing-a-data-frame" class="section level2" number="23.2">
 <h2><span class="header-section-number">23.2</span> Viewing a Data Frame</h2>
 <p>R may be disorienting at first because you generally cannot “see” your data in the same way that you see it in a spreadsheet program. There are, however, several options for viewing your data. First, you can type the name of the data frame object to see its entire contents.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb60-1"><a href="RData.html#cb60-1" aria-hidden="true" tabindex="-1"></a>bears</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb61-1"><a href="RData.html#cb61-1" aria-hidden="true" tabindex="-1"></a>bears</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     length.cm weight.kg      loc
 #R&gt;  1      139.0       110 Bayfield
 #R&gt;  2      138.0        60 Bayfield
@@ -396,7 +397,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #R&gt;  11     129.5       105  Douglas
 #R&gt;  12     150.0       110  Douglas</code></pre>
 <p>Typing the name is adequate for small data.frames, but not useful for large data.frames. The entire data.frame is opened in a separate window by double-clicking on the name of the data.frame in the “Environment” tab of RStudio. Alternatively, you can view a subset of 20 rows of a data frame with <code class="inline">peek()</code>, the first six rows with <code class="inline">head()</code>, the last six rows with <code class="inline">tail()</code>, or the first and last three rows with <code class="inline">headtail()</code>.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb62-1"><a href="RData.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">peek</span>(bears)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb63-1"><a href="RData.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">peek</span>(bears)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     length.cm weight.kg      loc
 #R&gt;  1      139.0       110 Bayfield
 #R&gt;  2      138.0        60 Bayfield
@@ -410,7 +411,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #R&gt;  10     151.5       140  Douglas
 #R&gt;  11     129.5       105  Douglas
 #R&gt;  12     150.0       110  Douglas</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb64-1"><a href="RData.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bears)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb65-1"><a href="RData.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bears)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;    length.cm weight.kg      loc
 #R&gt;  1     139.0       110 Bayfield
 #R&gt;  2     138.0        60 Bayfield
@@ -418,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #R&gt;  4     120.5        60 Bayfield
 #R&gt;  5     149.0        85 Bayfield
 #R&gt;  6     141.0       100  Ashland</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb66-1"><a href="RData.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(bears)</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb67-1"><a href="RData.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(bears)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     length.cm weight.kg     loc
 #R&gt;  7      141.0        95 Ashland
 #R&gt;  8      150.0        85 Douglas
@@ -426,7 +427,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #R&gt;  10     151.5       140 Douglas
 #R&gt;  11     129.5       105 Douglas
 #R&gt;  12     150.0       110 Douglas</code></pre>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb68-1"><a href="RData.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(bears)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb69-1"><a href="RData.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">headtail</span>(bears)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;     length.cm weight.kg      loc
 #R&gt;  1      139.0       110 Bayfield
 #R&gt;  2      138.0        60 Bayfield
@@ -439,29 +440,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">23.2.1</span> Structure and Data Types</h3>
 <p>Data in R will be designated as an <code>int</code>eger (whole numbers), <code>num</code>eric (non-integer numeric values), <code>char</code>acter (strings), <code>factor</code> (group membership), or <code>log</code>ical (<code>TRUE</code>/<code>FALSE</code>). Integer and numeric data types correspond to quantitative data. Character and factor data types correspond to categorical data, with the <strong>factor</strong> data type having special characteristics in R that we will exploit for certain analyses. These types of data will be discussed further as needed in other modules.</p>
 <p>In addition to viewing the contents of a data object, it is useful to examine the structure of the data frame as returned from <code class="inline">str()</code>.</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb70-1"><a href="RData.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bears)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb71-1"><a href="RData.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bears)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  &#39;data.frame&#39;:  12 obs. of  3 variables:
 #R&gt;   $ length.cm: num  139 138 139 120 149 ...
 #R&gt;   $ weight.kg: int  110 60 90 60 85 100 95 85 155 140 ...
 #R&gt;   $ loc      : chr  &quot;Bayfield&quot; &quot;Bayfield&quot; &quot;Bayfield&quot; &quot;Bayfield&quot; ...</code></pre>
 <p>In this example, it is seen that three variables were recorded on 12 individuals. The first variables – length.cm – is numeric, the second – weight.kg – is integer, and the last – loc – is a character variable. The unique values in a character variable may be seen with <code class="inline">unique()</code>.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb72-1"><a href="RData.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb73-1"><a href="RData.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  [1] &quot;Bayfield&quot; &quot;Ashland&quot;  &quot;Douglas&quot;</code></pre>
 <p>A character variable may be converted to a factor variable with <code class="inline">factor()</code>. In this course, the main reason for doing this would be to control the levels of an ordinal variable because R treats levels alphabetically by default. For example suppose that we wanted to order the levels of the loc variable from west to east (so, Douglas, Bayfield, and Ashland). For this purpose the variable is converted to a factor below with <code class="inline">factor()</code> and the order of the levels is controlled with <code class="inline">levels=</code>.</p>
 <div class="tip">
 <p>Make sure the levels are spelled EXACTLY as they appear in the data.</p>
 </div>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb74-1"><a href="RData.html#cb74-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>loc <span class="ot">&lt;-</span> <span class="fu">factor</span>(bears<span class="sc">$</span>loc,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Douglas&quot;</span>,<span class="st">&quot;Bayfield&quot;</span>,<span class="st">&quot;Ashland&quot;</span>))</span>
-<span id="cb74-2"><a href="RData.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb75-1"><a href="RData.html#cb75-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>loc <span class="ot">&lt;-</span> <span class="fu">factor</span>(bears<span class="sc">$</span>loc,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Douglas&quot;</span>,<span class="st">&quot;Bayfield&quot;</span>,<span class="st">&quot;Ashland&quot;</span>))</span>
+<span id="cb75-2"><a href="RData.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  [1] &quot;Douglas&quot;  &quot;Bayfield&quot; &quot;Ashland&quot;</code></pre>
 <p>The levels of a factor variable and their order may be seen with <code class="inline">levels()</code>.</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb76-1"><a href="RData.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb77-1"><a href="RData.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bears<span class="sc">$</span>loc)</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  [1] &quot;Douglas&quot;  &quot;Bayfield&quot; &quot;Ashland&quot;</code></pre>
 <p> </p>
 <p>In the previous examples, the <code class="inline">$</code> notation was used to identify a particular variable (i.e., <code>loc</code>) within a data.frame (<code>bears</code>). Think of variables as being nested inside data.frames and, thus, to access the variable you must first identify the data.frame in which it exists and then the name of the variable. The <code class="inline">$</code> simply separates the data.frame from the variable.</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb78-1"><a href="RData.html#cb78-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>length.cm</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb79-1"><a href="RData.html#cb79-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>length.cm</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] 139.0 138.0 139.0 120.5 149.0 141.0 141.0 150.0 166.0 151.5 129.5 150.0</code></pre>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb80-1"><a href="RData.html#cb80-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>loc</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb81-1"><a href="RData.html#cb81-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>loc</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] Bayfield Bayfield Bayfield Bayfield Bayfield Ashland  Ashland  Douglas 
 #R&gt;   [9] Douglas  Douglas  Douglas  Douglas 
 #R&gt;  Levels: Douglas Bayfield Ashland</code></pre>
@@ -471,12 +472,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="vectors" class="section level2" number="23.3">
 <h2><span class="header-section-number">23.3</span> Vectors</h2>
 <p>Data.frames are the primary structure in which to store real data. However, much simpler situations that don’t require a data.frame may arise. In R, items of the same data type (see [Data Types]) are stored in a one-dimensional <strong>vector</strong>. Vectors are usually displayed in one row (with many columns), but they may also be thought of as a single column (with many rows). Items are entered into a vector with <code class="inline">c()</code>, where the individual arguments are specific numbers, characters, or logical values.<a href="#fn79" class="footnote-ref" id="fnref79"><sup>79</sup></a> Items for a vector of characters must be contained within paired quotes.</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb82-1"><a href="RData.html#cb82-1" aria-hidden="true" tabindex="-1"></a>( v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb83-1"><a href="RData.html#cb83-1" aria-hidden="true" tabindex="-1"></a>( v <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  [1] 1 2 5</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb84-1"><a href="RData.html#cb84-1" aria-hidden="true" tabindex="-1"></a>( y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Iowa&quot;</span>,<span class="st">&quot;Minnesota&quot;</span>,<span class="st">&quot;Wisconsin&quot;</span>) )</span></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb85-1"><a href="RData.html#cb85-1" aria-hidden="true" tabindex="-1"></a>( y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Iowa&quot;</span>,<span class="st">&quot;Minnesota&quot;</span>,<span class="st">&quot;Wisconsin&quot;</span>) )</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;  [1] &quot;Iowa&quot;      &quot;Minnesota&quot; &quot;Wisconsin&quot;</code></pre>
 <p>Single variables from a data.frame are vectors.</p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb86-1"><a href="RData.html#cb86-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>length.cm</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb87-1"><a href="RData.html#cb87-1" aria-hidden="true" tabindex="-1"></a>bears<span class="sc">$</span>length.cm</span></code></pre></div>
 <pre class="ROUTPUT"><code>#R&gt;   [1] 139.0 138.0 139.0 120.5 149.0 141.0 141.0 150.0 166.0 151.5 129.5 150.0</code></pre>
 <p>Vectors that are not extracted from a data.frame will only be used in this course for very simple lists of items, usually as arguments in a function.</p>
 <p> </p>

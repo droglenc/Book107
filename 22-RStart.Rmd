@@ -141,3 +141,15 @@ knitr::include_graphics("zimgs/Notebook_KnitWord.JPG")
 ```
 
 &nbsp;
+
+## Compiling to PDF
+You may have noticed the "Knit to PDF" button in RStudio. This can compile your notebook directly to a PDF, but it requires other software to be installed on your computer. If you want to try this, you can follow the directions below, but note that this is finicky and students have had varied success in getting this to work on their computers. Compiling to MSWord and then saving to a PDF has been fairly fool-proof on most student computers.
+
+To compile directly to a PDF requires the `tintyex` package to be installed in R. To do this, copy-and-paste the following two lines into the console in RStudio (and hit return).
+
+```
+install.packages('tinytex')
+tinytex::install_tinytex()
+```
+
+&nbsp;

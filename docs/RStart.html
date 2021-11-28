@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2021-11-09" />
+<meta name="date" content="2021-11-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -279,6 +279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22" data-path="RStart.html"><a href="RStart.html"><i class="fa fa-check"></i><b>22</b> Getting Organized in RStudio</a>
 <ul>
 <li class="chapter" data-level="22.1" data-path="RStart.html"><a href="RStart.html#r-notebooks"><i class="fa fa-check"></i><b>22.1</b> R Notebooks</a></li>
+<li class="chapter" data-level="22.2" data-path="RStart.html"><a href="RStart.html#compiling-to-pdf"><i class="fa fa-check"></i><b>22.2</b> Compiling to PDF</a></li>
 </ul></li>
 <li class="chapter" data-level="23" data-path="RData.html"><a href="RData.html"><i class="fa fa-check"></i><b>23</b> Getting Data into R</a>
 <ul>
@@ -450,8 +451,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To compile the Notebook to MSWord, select the small arrow on the icon that either says “Preview” or “Knit” and select “Knit to Word.” If you get an error related to the name of your Notebook file, then simply select “Knit to Word” a second time. If the document does not produce an MSWord document (this make take several seconds) then there may be an error in your R code.</p>
 <p><img src="zimgs/Notebook_KnitWord.JPG" width="90%" style="display: block; margin: auto;" /></p>
 <p> </p>
-
 </div>
+</div>
+<div id="compiling-to-pdf" class="section level2" number="22.2">
+<h2><span class="header-section-number">22.2</span> Compiling to PDF</h2>
+<p>You may have noticed the “Knit to PDF” button in RStudio. This can compile your notebook directly to a PDF, but it requires other software to be installed on your computer. If you want to try this, you can follow the directions below, but note that this is finicky and students have had varied success in getting this to work on their computers. Compiling to MSWord and then saving to a PDF has been fairly fool-proof on most student computers.</p>
+<p>To compile directly to a PDF requires the <code>tintyex</code> package to be installed in R. To do this, copy-and-paste the following two lines into the console in RStudio (and hit return).</p>
+<pre><code>install.packages(&#39;tinytex&#39;)
+tinytex::install_tinytex()</code></pre>
+<p> </p>
+
 </div>
 </div>
 <div class="footnotes">
