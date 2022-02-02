@@ -12,7 +12,6 @@ An experiment deliberately imposes a *condition* on individuals to observe the e
 ### Single-factor Experiments
 A **factor** is a variable that is deliberately manipulated to determine its effect on the response variable. A factor is sometimes called an **explanatory variable** because we are attempting to determine how it affects (or "explains") the response variable. The simplest experiment is a single-factor experiment where the individuals are split into groups defined by the categories of a single factor.
 
-<img src="zimgs/BacteriaAgar.jpg" alt="Decoration" class="img-right">
 For example, suppose that a researcher wants to examine the effect of temperature on the total number of bacterial cells after two weeks. They have inoculated 120 agars^[An agar, in this case, is a petri dish with a growth medium for the bacteria.] with the bacteria and placed them in a chamber where all environmental conditions (e.g., temperature, humidity, light) are controlled exactly. The researchers will use only two temperatures in this simple experiment -- 10^o^C and 15^o^C. All other variables are maintained at constant levels. Thus, temperature is the only factor in this simple experiment because it is the only variable manipulated to different values to determine its impact on the number of bacterial cells.
 
 ::: {.tip data-latex=''}
@@ -189,14 +188,12 @@ It is important to understand the population before considering how to take a sa
 ### Types of Sampling Designs
 Three common types of sampling designs -- voluntary response, convenience, and probability-based samples -- are considered in this section. Voluntary response and convenience samples tend to produce biased samples, whereas proper probability-based samples will produce an unbiased sample. An unbiased sample is desired as it means that no segment of the population was systematically over- or under-represented in the sample.
 
-<img src="zimgs/FacebookPoll.jpg" alt="Decoration" class="img-right">
 A **voluntary response** sample consists of individuals that have chosen themselves for the sample by responding to a general appeal. An example of a voluntary response sample would be the group of people that respond to a general appeal placed in the school newspaper. If the population of interest in this sample was all students at the school, then this type of general appeal would likely produce a biased sample of students that (i) read the school newspaper, (ii) feel strongly about the topic, or (iii) both. A more obvious example is the group of people that respond to a Facebook, Twitter, or Instagram poll.
 
 A **convenience** sample consists of individuals who are easiest to reach for the researcher. An example of a convenience sample is when a researcher queries only those students in a particular class. This sample is "convenient" because the individuals are easy to gather. However, if the population of interest was all students at the school, then this type of sample would likely produce a biased sample of students that is likely of (i) one major or another, (ii) one or a few "years-in-school" (e.g., Freshman or Sophomores), or (iii) both.
 
 In probability-based sampling, each individual of the population has a known chance of being selected for the sample. The simplest probability-based sample is the **Simple Random Sample** (SRS) where each individual has the same chance of being selected. Proper selection of an SRS requires each individual to be assigned a unique number. The SRS is then formed by choosing random numbers and collecting the individuals that correspond to those numbers.
 
-<img src="zimgs/Audit.jpg" alt="Decoration" class="img-right">
 For example, an auditor may need to select a sample of 30 financial transactions from all transactions of a particular bank during the previous month. Because each transaction is numbered, the auditor may know that there were 1112 transactions during the previous month (i.e., the population). The auditor would then number each transaction from 1 to 1112, randomly select 30 numbers (with no repeats) from between 1 and 1112, and then physically locate the 30 transactions that correspond to the 30 selected numbers. Those 30 transactions are the SRS.
 
 Random numbers are selected in R by including the population size as the first and sample size as the second argument to `sample()`. For example, 30 numbers from between 1 and 1112 is selected with

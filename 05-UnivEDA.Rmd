@@ -1,7 +1,7 @@
 # Univariate EDA {#UnivEDA}
 
 ## Quantitative Variable
-A univariate EDA for a quantitative variable is concerned with describing the **distribution of values** for that variable; i.e., describing what values occurred and how often those values occurred. Specifically, the distribution is described with these four attributes:
+A univariate Exploratory Data Analysis (EDA) for a quantitative variable is concerned with describing the **distribution of values** for that variable; i.e., describing what values occurred and how often those values occurred. Specifically, the distribution is described with these four attributes:
 
 * **shape** of the distribution,
 * presence of **outliers**,

@@ -119,7 +119,6 @@ The IVPPSS process is illustrated for the following situation:
 In the descriptions above, take note that the individual is very carefully defined (including stating a specific time (2007) and place (eastern Maine)), the population and parameter both use the word "ALL", the sample and statistic both use the specific sample size (70 rabbits), and the parameter and statistics both use the same summary (i.e., percentage of patches that showed evidence of New England cottontails).
 
 #### Example -- Duluth Raptors {-}
-<img src="zimgs/HawkRidge.jpg" alt="Decoration" class="img-right">
 In some situations it may be easier to identify the sample first. From this, and realizing that a sample is always "of the individuals," it may be easier to identify the individual. This process is illustrated in the following example, with the items listed in the order identified rather than in the traditional IVPPSS order.
 
 > *The Duluth, MN Touristry Board is interested in the average number of raptors seen per year at Hawk Ridge.^[Information about Hawk Ridge is found [here](http://www.hawkridge.org/).] To determine this value, they collected the total number of raptors seen in a sample of years from 1971-2003.*

@@ -222,7 +222,7 @@ Some data sets may have two values or classes with the maximum frequency. In the
 #### Range
 The range is the difference between the maximum and minimum values in the data and measures the ultimate dispersion or spread of the data. The range in the earthquake data is `r formatC(max(EQ),format="f",digits=1)`-`r formatC(min(EQ),format="f",digits=1)` = `r formatC(max(EQ)-min(EQ),format="f",digits=1)`.
 
-The range should **never be used by itself** as a measure of dispersion. The range is extremely sensitive to outliers and is best used only to show all possible values present in the data. The range (as strictly defined) also suffers from a lack of information in the same way that the IQR did (see above).
+The range should **never be used by itself** as a measure of dispersion. The range is extremely sensitive to outliers and is best used only to show all possible values present in the data. The range (as strictly defined) also suffers from a lack of information in the same way that the IQR does (see above); thus, describe the range as from the minimum to the maximum value rather than substracting the two values.
 
 
 ### Graphical Summaries
