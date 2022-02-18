@@ -24,7 +24,7 @@
 <meta name="author" content="Derek H. Ogle" />
 
 
-<meta name="date" content="2022-02-04" />
+<meta name="date" content="2022-02-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -561,7 +561,7 @@ Figure 15.3: Areas (yellow) that define Z<sup>*</sup> for confidence regions of 
 <li>Here we are trying to find the two values of Z with the most common 99% of values between them. As is typical for a reverse-between calculation you want to find half the area outside of the “most common” value; i.e., 0.005. In this case I found the -Z<sup>*</sup> value; the “other” value is simply the positive version of this because the distribution is symmetric around 0.</li>
 </ul></li>
 <li>107.8±2.576<span class="math inline">\(\frac{22}{\sqrt{42}}\)</span>, 107.8±8.74, or (99.06,116.54).</li>
-<li>One is 95% confident that the mean number of days of ice cover on Lake Superior during ALL years is between 99.1 and 116.5 days.</li>
+<li>One is 99% confident that the mean number of days of ice cover on Lake Superior during ALL years is between 99.1 and 116.5 days.</li>
 </ol>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r RCODE"><code class="sourceCode r"><span id="cb37-1"><a href="ConfRegions1.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distrib</span>(<span class="fl">0.005</span>,<span class="at">type=</span><span class="st">&quot;q&quot;</span>)</span></code></pre></div>
 <p><img src="Book107_files/figure-html/unnamed-chunk-47-1.png" width="336" style="display: block; margin: auto;" /></p>

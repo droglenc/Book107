@@ -245,7 +245,7 @@ Suppose that the Lake Superior ice cover data from Table \@ref(tab:LSIStats) (no
 1. Z^\*^=&plusmn;`r formatC(qnorm(0.995),format="f",digits=3)` as computed below.
     * Here we are trying to find the two values of Z with the most common 99% of values between them. As is typical for a reverse-between calculation you want to find half the area outside of the "most common" value; i.e., 0.005. In this case I found the -Z^\*^ value; the "other" value is simply the positive version of this because the distribution is symmetric around 0.
 1. 107.8&plusmn;2.576$\frac{22}{\sqrt{42}}$, 107.8&plusmn;8.74, or (99.06,116.54).
-1. One is 95% confident that the mean number of days of ice cover on Lake Superior during ALL years is between 99.1 and 116.5 days.
+1. One is 99% confident that the mean number of days of ice cover on Lake Superior during ALL years is between 99.1 and 116.5 days.
 
 ```{r echo=-1}
 par(mar=c(3.05,3.05,3.05,2),mgp=c(1.9,0.3,0),tcl=-0.2,las=1,
